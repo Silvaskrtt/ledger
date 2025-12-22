@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class InfrasctructureConfig(AppConfig):
-    name = 'infrasctructure'
+class InfrastructureConfig(AppConfig):
+    name = 'infrastructure'
