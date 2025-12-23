@@ -16,12 +16,14 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+import sys
 import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(BASE_DIR, 'backend'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -38,13 +40,28 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'infrastructure',
+    # Apps customizados
+    'users',
+    'transactions',
+    'categories',
+    'budgets',
+    'payments',
+    'tags',
+    'recurrence',
+    'goals',
+    'accounts',
+    
+    # Apps internos
+    #'infrastructure',
+    
+    # Apps do Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
