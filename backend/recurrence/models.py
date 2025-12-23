@@ -1,6 +1,5 @@
 import uuid
 from django.db import models
-from django.contrib.auth.models import User
 from categories.models import categories
 from users.models import users
 from payments.models import payment_methods
@@ -29,11 +28,6 @@ class recurrence_rules(models.Model):
         editable=False
     )
     
-    id_recurrence_rule = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False
-    )
     frequency = models.CharField(max_length=50, choices=FREQUENCY_CHOICES)
     next_execution = models.DateField()
     max_executions = models.IntegerField(null=True, blank=True)

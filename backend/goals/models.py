@@ -18,12 +18,6 @@ class financial_goals(models.Model):
         ('SPEND', 'Spend'),
         ('DEBT_PAYOFF', 'Debt Payoff')
     ]
-
-    id_financial_goal = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False
-    )
    
     id_financial_goal = models.UUIDField(
         primary_key=True,
