@@ -1,10 +1,9 @@
 import uuid
 from django.db import models
-from django.contrib.auth.models import User
-from users.models import users
+from users.models import User
 
 
-class tags(models.Model):
+class Tag(models.Model):
     id_tag = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -13,7 +12,7 @@ class tags(models.Model):
     name = models.CharField(max_length=100)
     
     id_user = models.ForeignKey(
-        users,
+        User,
         on_delete=models.CASCADE,
         related_name='tags')
     
@@ -27,3 +26,6 @@ class tags(models.Model):
                 name='unique_tag_per_user'
             )
         ]
+
+    def __str__(self):
+        return self.name

@@ -1,9 +1,10 @@
 import uuid
 from django.db import models
 
-from users.models import users
+from users.models import User
 
-class categories(models.Model):
+
+class Category(models.Model):
     id_category = models.UUIDField(
         primary_key=True, 
         default=uuid.uuid4, 
@@ -11,7 +12,7 @@ class categories(models.Model):
     name = models.CharField(max_length=100, unique=True)
     
     id_user = models.ForeignKey(
-        users, 
+        User, 
         on_delete=models.CASCADE, 
         related_name='categories')
     
@@ -32,3 +33,6 @@ class categories(models.Model):
                 name='unique_category_per_user'
             )
         ]
+
+    def __str__(self):
+        return self.name

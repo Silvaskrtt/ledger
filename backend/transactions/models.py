@@ -1,16 +1,15 @@
 import uuid
-from django.db.models import Q, F, CheckConstraint
+from django.db.models import Q, CheckConstraint
 from django.utils import timezone
 from django.db import models
-from django.contrib.auth.models import User
-from accounts.models import accounts
-from categories.models import categories
-from payments.models import payment_methods, installment_plans
-from users.models import users
-from tags.models import tags
+from accounts.models import Account
+from categories.models import Category
+from payments.models import PaymentMethod, InstallmentPlan
+from users.models import User
+from tags.models import Tag
 
 
-class transactions(models.Model):
+class Transaction(models.Model):
     DIRECTION_CHOICES = [
         ('IN', 'Income'),
         ('OUT', 'Expense'),
@@ -41,22 +40,22 @@ class transactions(models.Model):
     currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default='BRL')
     origin = models.CharField(max_length=20, choices=ORIGIN_CHOICES)
     id_user = models.ForeignKey(
-        users,
+        User,
         on_delete=models.CASCADE,
         related_name='transactions')
     
     id_category = models.ForeignKey(
-        categories,
+        Category,
         on_delete=models.CASCADE,
         related_name='transactions')
     
     id_payment_method = models.ForeignKey(
-        payment_methods,
+        PaymentMethod,
         on_delete=models.CASCADE,
         related_name='transactions')
     
     id_installment_plan = models.ForeignKey(
-        installment_plans,
+        InstallmentPlan,
         on_delete=models.CASCADE,
         related_name='transactions',
         null=True,
@@ -81,14 +80,14 @@ class transactions(models.Model):
     def __str__(self):
         return f"Transaction {self.id_transaction}: {self.direction} of {self.amount} {self.currency} on {self.occurred_at}"
 
-class transaction_accounts(models.Model):
+class TransactionAccount(models.Model):
     id_transaction = models.ForeignKey(
-        transactions,
+        Transaction,
         on_delete=models.CASCADE,
         related_name='transaction_accounts')
-    
+
     id_account = models.ForeignKey(
-        accounts,
+        Account,
         on_delete=models.CASCADE,
         related_name='transaction_accounts')
     
@@ -108,14 +107,14 @@ class transaction_accounts(models.Model):
         unique_together = [('id_transaction', 'id_account', 'role')] 
 
 
-class transaction_tags(models.Model):
+class TransactionTag(models.Model):
     id_transaction = models.ForeignKey(
-        transactions,
+        Transaction,
         on_delete=models.CASCADE,
         related_name='transaction_tags')
-    
+
     id_tag = models.ForeignKey(
-        tags,
+        Tag,
         on_delete=models.CASCADE,
         related_name='transaction_tags')
     

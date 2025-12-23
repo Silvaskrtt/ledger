@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import accounts
+from .models import Account
 
 
-@admin.register(accounts)
-class accountsAdmin(admin.ModelAdmin):
+@admin.register(Account)
+class AccountAdmin(admin.ModelAdmin):
     list_display = ('id_account', 'type', 'active', 'id_user')
-    search_fields = ('name',)
+    search_fields = ('id_user__email',)

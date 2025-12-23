@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import financial_goals
+from .models import FinancialGoal
 
 
-@admin.register(financial_goals)
-class financialGoalsAdmin(admin.ModelAdmin):
+@admin.register(FinancialGoal)
+class FinancialGoalAdmin(admin.ModelAdmin):
     list_display = ('id_financial_goal', 'target_amount', 'deadline', 'strategy', 'status', 'id_user')
-    search_fields = ('name',)
+    search_fields = ('id_user__email',)

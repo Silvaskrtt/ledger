@@ -1,14 +1,13 @@
 import uuid
 from django.utils import timezone
-from django.db.models import Q, F, CheckConstraint
+from django.db.models import Q, CheckConstraint
 from django.db import models
-from django.contrib.auth.models import User
-from accounts.models import accounts
-from users.models import users
-from categories.models import categories
+from accounts.models import Account
+from users.models import User
+from categories.models import Category
 
 
-class payment_methods(models.Model):
+class PaymentMethod(models.Model):
     TYPE_CHOICES = [
         ('CREDIT', 'Credit'),
         ('DEBIT', 'Debit'),
@@ -30,7 +29,7 @@ class payment_methods(models.Model):
     requires_account = models.BooleanField(default=True)
     allows_installments = models.BooleanField(default=True)
     id_user = models.ForeignKey(
-        users, 
+        User, 
         on_delete=models.CASCADE, 
         related_name='payment_methods')
     
@@ -45,7 +44,7 @@ class payment_methods(models.Model):
         ]
 
 
-class installment_plans(models.Model):
+class InstallmentPlan(models.Model):
     id_installment_plan = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -70,16 +69,16 @@ class installment_plans(models.Model):
     start_date = models.DateField(default=timezone.now)
     
     id_user = models.ForeignKey(
-        users,
+        User,
         on_delete=models.CASCADE,
         related_name='installment_plans')
-    
+
     id_account = models.ForeignKey(
-        accounts,
+        Account,
         on_delete=models.CASCADE,
         related_name='installment_plans')
-    
+
     id_category = models.ForeignKey(
-        categories,
+        Category,
         on_delete=models.CASCADE,
         related_name='installment_plans')

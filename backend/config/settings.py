@@ -144,3 +144,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Django REST Framework configuration
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 25,
+}
+
+# DRF Spectacular (optional) - enable if installed
+INSTALLED_APPS += ['drf_spectacular'] if 'drf_spectacular' not in INSTALLED_APPS else []
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Ledger API',
+    'DESCRIPTION': 'API documentation for Ledger',
+    'VERSION': '1.0.0',
+}

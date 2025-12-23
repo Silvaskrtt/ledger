@@ -1,12 +1,11 @@
 import uuid
-from django.db.models import Q, F, CheckConstraint
 from django.db import models
-from django.contrib.auth.models import User
-from categories.models import categories
-from users.models import users
+from django.db.models import CheckConstraint, Q
+from users.models import User
+from categories.models import Category
 
 
-class budgets(models.Model):
+class Budget(models.Model):
     PERIOD_TYPE_CHOICES = [
         ('DAILY', 'Daily'),
         ('WEEKLY', 'Weekly'),
@@ -19,10 +18,13 @@ class budgets(models.Model):
         default=uuid.uuid4,
         editable=False
     )
+    id_user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='budgets')
     period_type = models.CharField(max_length=20, choices=PERIOD_TYPE_CHOICES)
-    
-     # Constraints to ensure period_type is either 'monthly', 'quarterly', or 'yearly'
-    
+    period_start = models.DateField()
+
     class Meta:
         verbose_name = "Budget"
         verbose_name_plural = "Budgets"
@@ -32,28 +34,24 @@ class budgets(models.Model):
                 name='unique_budget_period'
             )
         ]
-        
-    period_start = models.DateField()
-    
-    id_user = models.ForeignKey(
-        users,
-        on_delete=models.CASCADE,
-        related_name='budgets')
+
+    def __str__(self):
+        return f"Budget {self.period_type} - {self.id_user.email}"
 
 
-class budget_categories_limits(models.Model):
+class BudgetCategoryLimit(models.Model):
     id_budget = models.ForeignKey(
-        budgets,
+        Budget,
         on_delete=models.CASCADE,
         related_name='budget_categories_limits')
-    
+
     id_category = models.ForeignKey(
-        categories,
+        Category,
         on_delete=models.CASCADE,
         related_name='budget_categories_limits')
-    
+
     limit_amount = models.DecimalField(max_digits=14, decimal_places=2)
-    
+
     class Meta:
         verbose_name = "Budget Category Limit"
         verbose_name_plural = "Budget Category Limits"
@@ -63,3 +61,6 @@ class budget_categories_limits(models.Model):
                 name='limit_amount_positive'
             )
         ]
+
+    def __str__(self):
+        return f"{self.id_budget.id_user.email} - {self.id_category.name}: {self.limit_amount}"

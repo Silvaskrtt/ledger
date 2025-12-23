@@ -1,13 +1,13 @@
 import uuid
 from django.db import models
-from categories.models import categories
-from users.models import users
-from payments.models import payment_methods
-from accounts.models import accounts
+from categories.models import Category
+from users.models import User
+from payments.models import PaymentMethod
+from accounts.models import Account
 from django.db.models import Q, CheckConstraint
 
 
-class recurrence_rules(models.Model):
+class RecurrenceRule(models.Model):
     FREQUENCY_CHOICES = [
         ('DAILY', 'Daily'),
         ('WEEKLY', 'Weekly'),
@@ -47,21 +47,21 @@ class recurrence_rules(models.Model):
     direction = models.CharField(max_length=50, choices=DIRECTION_CHOICES)
     
     id_user = models.ForeignKey(
-        users,
+        User,
         on_delete=models.CASCADE,
         related_name='recurrence_rules')
-    
+
     id_category = models.ForeignKey(
-        categories,
+        Category,
         on_delete=models.CASCADE,
         related_name='recurrence_rules')
-    
+
     id_payment_method = models.ForeignKey(
-        payment_methods,
+        PaymentMethod,
         on_delete=models.CASCADE,
         related_name='recurrence_rules')
-    
+
     id_account = models.ForeignKey(
-        accounts,
+        Account,
         on_delete=models.CASCADE,
         related_name='recurrence_rules')

@@ -1,11 +1,10 @@
 import uuid
 from django.db import models
-from django.contrib.auth.models import User
-from users.models import users
-from django.db.models import Q, F, CheckConstraint
+from users.models import User
+from django.db.models import Q, CheckConstraint
 
 
-class financial_goals(models.Model):
+class FinancialGoal(models.Model):
     STATUS_CHOICES = [
         ('ACTIVE', 'Active'),
         ('COMPLETED', 'Completed'),
@@ -41,6 +40,9 @@ class financial_goals(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='ACTIVE')
 
     id_user = models.ForeignKey(
-        users,
+        User,
         on_delete=models.CASCADE,
         related_name='financial_goals')
+
+    def __str__(self):
+        return f"{self.id_financial_goal} - {self.id_user.email}"
