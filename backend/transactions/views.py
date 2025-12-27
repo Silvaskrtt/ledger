@@ -1,56 +1,41 @@
-from django.shortcuts import render
-from django.views import View
-from rest_framework import viewsets
-
-from .forms import TransactionForm
+from rest_framework import generics
 from .models import Transaction, TransactionAccount, TransactionTag
 from .serializers import TransactionSerializer, TransactionAccountSerializer, TransactionTagSerializer
+from django.views.generic import TemplateView
 
-class TransactionCreatedView(View):
-    template_name = 'transactions/transaction.html' # ainda nao tem frontend
-    
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {
-            'form': TransactionForm(),
-            # ainda falta implementar mais funcionalidades
-            'transactions': Transaction.objects.all()
-        })
-        
-    def post(self, request, *args, **kwargs):
-        print("Debug: Recebido POST em TransactionView")
-        
-        form = TransactionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # redirecionar ou renderizar com sucesso
-        return render(request, self.template_name, {
-            'form': form,
-            'transactions': Transaction.objects.all()
-        })
-        
-        if not form.is_valid():
-            print("Debug: Formulário inválido")
-            print(form.errors)
-            return render(request, self.template_name, {
-                'form': form, })
+class CreateTransactionView(TemplateView):
+    template_name = "transactions/transaction.html"
 
-        transaction = form.save()
-        
-        return render(request, self.template_name, {
-            'form': TransactionForm(),
-            'transactions': Transaction.objects.all()
-        })
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['transaction_id'] = kwargs.get('pk', None)
+        return context
 
-class TransactionViewSet(viewsets.ModelViewSet):
+class TransactionListCreateView(generics.ListCreateAPIView):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
 
 
-class TransactionAccountViewSet(viewsets.ModelViewSet):
+class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
+
+
+class TransactionAccountListCreateView(generics.ListCreateAPIView):
     queryset = TransactionAccount.objects.all()
     serializer_class = TransactionAccountSerializer
 
 
-class TransactionTagViewSet(viewsets.ModelViewSet):
+class TransactionAccountDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = TransactionAccount.objects.all()
+    serializer_class = TransactionAccountSerializer
+
+
+class TransactionTagListCreateView(generics.ListCreateAPIView):
+    queryset = TransactionTag.objects.all()
+    serializer_class = TransactionTagSerializer
+
+
+class TransactionTagDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = TransactionTag.objects.all()
     serializer_class = TransactionTagSerializer

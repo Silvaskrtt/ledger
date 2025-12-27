@@ -1,13 +1,23 @@
-from rest_framework import viewsets
+from rest_framework import generics
 from .models import PaymentMethod, InstallmentPlan
 from .serializers import PaymentMethodSerializer, InstallmentPlanSerializer
 
 
-class PaymentMethodViewSet(viewsets.ModelViewSet):
+class PaymentMethodListCreateView(generics.ListCreateAPIView):
     queryset = PaymentMethod.objects.all()
     serializer_class = PaymentMethodSerializer
 
 
-class InstallmentPlanViewSet(viewsets.ModelViewSet):
+class PaymentMethodDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = PaymentMethod.objects.all()
+    serializer_class = PaymentMethodSerializer
+
+
+class InstallmentPlanListCreateView(generics.ListCreateAPIView):
+    queryset = InstallmentPlan.objects.all()
+    serializer_class = InstallmentPlanSerializer
+
+
+class InstallmentPlanDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = InstallmentPlan.objects.all()
     serializer_class = InstallmentPlanSerializer
