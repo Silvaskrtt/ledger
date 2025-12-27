@@ -5,7 +5,7 @@ from .models import Transaction, TransactionAccount, TransactionTag
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ['id_transaction', 'id_user', 'id_category', 'id_payment_method', 'amount', 'direction', 'currency', 'description', 'occurred_at', 'created_at', 'origin']
+        fields = ['id_transaction', 'id_user', 'id_category', 'id_payment_method', 'amount', 'direction', 'currency', 'occurred_at', 'created_at', 'origin']
         read_only_fields = ['id_transaction', 'created_at']
 
 
