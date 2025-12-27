@@ -6,7 +6,7 @@ from .forms import TransactionForm
 from .models import Transaction, TransactionAccount, TransactionTag
 from .serializers import TransactionSerializer, TransactionAccountSerializer, TransactionTagSerializer
 
-class TransactionView(View):
+class TransactionCreatedView(View):
     template_name = 'transactions/transaction.html' # ainda nao tem frontend
     
     def get(self, request, *args, **kwargs):
