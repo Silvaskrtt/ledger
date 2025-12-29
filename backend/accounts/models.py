@@ -14,6 +14,7 @@ class Account(models.Model):
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     type = models.CharField(max_length=20, choices=ACCOUNT_TYPE_CHOICES)
     active = models.BooleanField(default=True)
     id_user = models.ForeignKey(
