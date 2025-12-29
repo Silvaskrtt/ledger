@@ -5,93 +5,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Transação</title>
+    <link rel="stylesheet" href="{% static 'css/transactions/transaction.css' %}">
+</head>
+<body>
+    <form method="post" id="transactionForm">
+    {% csrf_token %}
 
-    <body>
-        <section>
-            <form method="post" id="transactionForm">
-                {% csrf_token %}
+    <input type="hidden" name="direction" id="id_direction" value="IN">
+    <input type="hidden" name="currency" value="BRL">
+    <input type="hidden" name="origin" value="MANUAL">
 
-            <!-- Campos ocultos -->
-            <input type="hidden" name="direction" id="id_direction" value="IN">
-            <input type="hidden" name="currency" id="id_currency" value="BRL">
-            <input type="hidden" name="origin" id="id_origin" value="MANUAL">
-            
-            <!-- Grid de formulário -->
-            <div class="form-grid">
+    <div class="container">
 
-                <!-- Campo Valor -->
-                <div class='fields'>
-                    <label for="id_amount">Valor:</label>
-                    <input type="number" id="id_amount" name="amount" step="0.01" min="0" required
-                    placeholder="0.00">
-                </div>
+        <!-- FORMULÁRIO -->
+        <div class="form-card">
 
-                <!-- Campo Conta -->
-                <div class='fields'>
-                    <label for="id_account">Conta:</label>
-                    <select id="id_account" name="id_account" required>
-                    <option value="">Selecione uma conta</option>
-                        {% for account in accounts %}
-                            <option value="{{ account.id }}">
-                                {{ account.type }}
-                            </option>
-                        {% endfor %}
-                    </select>
+        <div class="form-grid">
 
-                <!-- Campo Data -->
-                <div class='fields'>
-                    <label for="id_occurred_at">Data e Hora:</label>
-                    <input type="datetime-local" id="id_occurred_at" name="occurred_at" required>
-                </div>
-
-                <!-- Campo Categoria -->
-                <div class='fields'>
-                    <label for="id_category">Categoria:</label>
-                    <select id="id_category" name="id_category" required>
-                        <option  value="">Selecione uma categoria</option>
-                        {% for category in categories %}
-                            <option value="{{ category.id }}">
-                                {{ category.name }}
-                            </option>
-                        {% endfor %}
-                    </select>
-
-                <!-- Campo Método de Pagamento -->
-                <div class='fields'>
-                    <label for="id_payment_method">Método de Pagamento:</label>
-                    <select id="id_payment_method" name="id_payment_method" required>
-                        <option value="">Selecione um método</option>
-                        {% for method in payment_methods %}
-                            <option value="{{ method.id }}">
-                                {{ method.type }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <!-- Campo Tags -->
-                <div class='fields full-width'>
-                    <label for="id_tags">Tags:</label>
-                    <select id="id_tags" name="tags" multiple>
-                        {% for tag in tags %}
-                            <option value="{{ tag.id }}">
-                                {{ tag.name }}</option>
-                        {% endfor %}
-                    </select>
-
+            <div class="fields">
+            <label for="id_amount">Valor:</label>
+            <input type="number" id="id_amount" name="amount" step="0.01" min="0" required>
             </div>
 
-            <!-- Ações do formulário -->
-            <div class="form-actions">
-                <button type="submit">Salvar Transação</button>
-                <button type="reset">Cancelar</button>
+            <div class="fields">
+            <label for="id_account">Conta:</label>
+            <select id="id_account" name="id_account" required>
+                <option value="">Selecione</option>
+                {% for account in accounts %}
+                <option value="{{ account.id }}">{{ account.type }}</option>
+                {% endfor %}
+            </select>
             </div>
 
-        </section>
-        
-        <aside>
-            <h1>Nova Transação</h1>
-            <button type="submit">Entrada</button>
-            <button type="submit">Saída</button>
+            <div class="fields">
+            <label for="id_occurred_at">Data e Hora:</label>
+            <input type="datetime-local" id="id_occurred_at" name="occurred_at" required>
+            </div>
+
+            <div class="fields">
+            <label for="id_category">Categoria:</label>
+            <select id="id_category" name="id_category" required>
+                <option value="">Selecione</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+            <div class="fields">
+            <label for="id_payment_method">Método de Pagamento:</label>
+            <select id="id_payment_method" name="id_payment_method" required>
+                <option value="">Selecione</option>
+                {% for method in payment_methods %}
+                <option value="{{ method.id }}">{{ method.type }}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+            <div class="fields full-width">
+            <label for="id_tags">Tags:</label>
+            <select id="id_tags" name="tags" multiple>
+                {% for tag in tags %}
+                <option value="{{ tag.id }}">{{ tag.name }}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+            <button type="reset" class="btn btn-danger">Cancelar</button>
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </div>
+
+        </div>
+
+        <!-- LATERAL -->
+        <aside class="side-panel">
+        <h2>Nova<br>Transação</h2>
+
+        <div class="form-side">
+            <p class="side-label">Tipo de Transação</p>
+
+            <div class="transaction-type">
+                <button type="button" class="btn-type active" data-direction="IN">
+                    <img src="{% static 'img/box-in.png' %}" alt="Value Box" class="box-in"/>
+                    Entrada
+                </button>
+
+                <button type="button" class="btn-type" data-direction="OUT">
+                    <img src="{% static 'img/box-out.png' %}" alt="Output of values" class="box-out"/>
+                    Saída
+                </button>
+            </div>
+        </div>
+
         </aside>
-        </head>
+
+    </div>
+    </form>
+
+</body>
+</head>
