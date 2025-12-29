@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+/* Configuração do layout da pagina */
+body {
+    font-family: 'Lexend', sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* FORM */
+.form-card {
+    background: #f7f7f7;
+    padding: 30px;
+    border-radius: 12px;
+    width: 620px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-side {
+    background: #f7f7f7;
+    padding: 30px;
+    border-radius: 12px;
+    width: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.side-label {
+    font-size: 38px;
+    font-weight: 500;
+}
+
+/* Grid do formulário */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 40px;
+}
+
+.fields label{
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.fields.full-width{
+    grid-column: 1 / -1;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    border: 1px solid #500BD9;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+    color: #1c1c1c;
+    outline: none;
+    box-sizing: border-box;
+    background: white;
+}
+
+/* BUTTONS */
+.btn {
+  border: none;
+  padding: 12px 36px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+
+input:focus, select:focus {
+    border-color: #1d0350;
+    box-shadow: 0 0 5px #130038;
+}
+
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-danger {
+    background: #EF4444;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+}
+
+.btn-danger:hover {
+    background: #881b1b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success{
+    background: #4ED95F;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+}
+
+.btn-success:hover {
+    background: #32a03f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* SIDE */
+.side-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 260px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.side-text {
+    padding: 30px;
+    border-radius: 12px;
+    width: 260px;
+}
+
+.side-panel h2 {
+    font-size: 44px;
+    margin-bottom: 30px;
+}
+
+.transaction-type {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.text-type {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.box-in {
+    display: inlinec;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20px;
+}
+
+.btn-type {
+    background: #500BD9;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.btn-type:hover {
+    background: #37039e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box-out {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20px;
+}
