@@ -12,6 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # API Routes — cada app gerencia suas próprias rotas
+    #path('api/', include('home.urls')),
     path('api/', include('transactions.urls')),
     path('api/', include('accounts.urls')),
     path('api/', include('categories.urls')),
