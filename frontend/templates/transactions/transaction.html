@@ -1,109 +1,130 @@
-{% load static %} 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Transação</title>
-    <link rel="stylesheet" href="{% static 'css/transactions/transaction.css' %}">
-</head>
-<body>
-    <form method="post" id="transactionForm">
-    {% csrf_token %}
+<!-- frontend/templates/transactions/transaction.html -->
+{% extends 'base.html' %}
+{% load static %}
 
+{% block title %}Nova Transação - Ledger{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/transactions/transaction.css' %}">
+{% endblock %}
+
+{% block content %}
+<form method="post" id="transactionForm">
+    {% csrf_token %}
+    
+    <!-- Campos ocultos -->
     <input type="hidden" name="direction" id="id_direction" value="IN">
     <input type="hidden" name="currency" value="BRL">
     <input type="hidden" name="origin" value="MANUAL">
-
-    <div class="container">
-
+    <input type="hidden" name="id_user" value="1">
+    
+    <div class="transaction-container">
+        
         <!-- FORMULÁRIO -->
         <div class="form-card">
+            <div class="form-grid">
+                <!-- Campo Valor -->
+                <div class="fields">
+                    <label for="id_amount">Valor:</label>
+                    <input type="number" id="id_amount" name="amount" 
+                           step="0.01" min="0.01" required 
+                           placeholder="0.00">
+                </div>
 
-        <div class="form-grid">
+                <!-- Campo Conta -->
+                <div class="fields">
+                    <label for="id_account">Conta:</label>
+                    <select id="id_account" name="id_account" required>
+                        <option value="">Selecione uma conta</option>
+                        {% for account in accounts %}
+                        <option value="{{ account.id }}">
+                            {{ account.name }} ({{ account.type }})
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="fields">
-            <label for="id_amount">Valor:</label>
-            <input type="number" id="id_amount" name="amount" step="0.01" min="0" required>
+                <!-- Campo Data e Hora -->
+                <div class="fields">
+                    <label for="id_occurred_at">Data e Hora:</label>
+                    <input type="datetime-local" id="id_occurred_at" 
+                           name="occurred_at" required>
+                </div>
+
+                <!-- Campo Categoria -->
+                <div class="fields">
+                    <label for="id_category">Categoria:</label>
+                    <select id="id_category" name="id_category" required>
+                        <option value="">Selecione uma categoria</option>
+                        {% for category in categories %}
+                        <option value="{{ category.id }}">
+                            {{ category.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Campo Método de Pagamento -->
+                <div class="fields">
+                    <label for="id_payment_method">Método de Pagamento:</label>
+                    <select id="id_payment_method" name="id_payment_method" required>
+                        <option value="">Selecione um método</option>
+                        {% for method in payment_methods %}
+                        <option value="{{ method.id }}">
+                            {{ method.type }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Campo Tags -->
+                <div class="fields full-width">
+                    <label for="id_tags">Tags (opcional):</label>
+                    <select id="id_tags" name="tags" multiple>
+                        {% for tag in tags %}
+                        <option value="{{ tag.id }}">
+                            {{ tag.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <small class="help-text">
+                        Segure Ctrl (Cmd no Mac) para selecionar múltiplas tags
+                    </small>
+                </div>
             </div>
 
-            <div class="fields">
-            <label for="id_account">Conta:</label>
-            <select id="id_account" name="id_account" required>
-                <option value="">Selecione</option>
-                {% for account in accounts %}
-                <option value="{{ account.id }}">{{ account.type }}</option>
-                {% endfor %}
-            </select>
+            <!-- Ações do formulário -->
+            <div class="form-actions">
+                <button type="reset" class="btn btn-danger">Cancelar</button>
+                <button type="submit" class="btn btn-success">Salvar Transação</button>
             </div>
-
-            <div class="fields">
-            <label for="id_occurred_at">Data e Hora:</label>
-            <input type="datetime-local" id="id_occurred_at" name="occurred_at" required>
-            </div>
-
-            <div class="fields">
-            <label for="id_category">Categoria:</label>
-            <select id="id_category" name="id_category" required>
-                <option value="">Selecione</option>
-                {% for category in categories %}
-                <option value="{{ category.id }}">{{ category.name }}</option>
-                {% endfor %}
-            </select>
-            </div>
-
-            <div class="fields">
-            <label for="id_payment_method">Método de Pagamento:</label>
-            <select id="id_payment_method" name="id_payment_method" required>
-                <option value="">Selecione</option>
-                {% for method in payment_methods %}
-                <option value="{{ method.id }}">{{ method.type }}</option>
-                {% endfor %}
-            </select>
-            </div>
-
-            <div class="fields full-width">
-            <label for="id_tags">Tags:</label>
-            <select id="id_tags" name="tags" multiple>
-                {% for tag in tags %}
-                <option value="{{ tag.id }}">{{ tag.name }}</option>
-                {% endfor %}
-            </select>
-            </div>
-
-        </div>
-
-        <div class="form-actions">
-            <button type="reset" class="btn btn-danger">Cancelar</button>
-            <button type="submit" class="btn btn-success">Salvar</button>
-        </div>
-
         </div>
 
         <!-- LATERAL -->
         <aside class="side-panel">
-        <h2>Nova<br>Transação</h2>
-
-        <div class="form-side">
-            <p class="side-label">Tipo de Transação</p>
-
-            <div class="transaction-type">
-                <button type="button" class="btn-type active" data-direction="IN">
-                    <img src="{% static 'img/box-in.png' %}" alt="Value Box" class="box-in"/>
-                    Entrada
-                </button>
-
-                <button type="button" class="btn-type" data-direction="OUT">
-                    <img src="{% static 'img/box-out.png' %}" alt="Output of values" class="box-out"/>
-                    Saída
-                </button>
+            <h2>Nova<br>Transação</h2>
+            
+            <div class="form-side">
+                <p class="side-label">Tipo de Transação</p>
+                
+                <div class="transaction-type">
+                    <button type="button" class="btn-type active" data-direction="IN">
+                        <img src="{% static 'img/box-in.png' %}" alt="Entrada" class="type-icon">
+                        Entrada
+                    </button>
+                    
+                    <button type="button" class="btn-type" data-direction="OUT">
+                        <img src="{% static 'img/box-out.png' %}" alt="Saída" class="type-icon">
+                        Saída
+                    </button>
+                </div>
             </div>
-        </div>
-
         </aside>
-
+        
     </div>
-    </form>
+</form>
+{% endblock %}
 
-</body>
-</head>
+{% block extra_js %}
+<script src="{% static 'js/transactions/form.js' %}"></script>
+{% endblock %}
