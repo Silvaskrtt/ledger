@@ -1,0 +1,35 @@
+<!-- frontend/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ledger{% endblock %}</title>
+    
+    <!-- Estilos globais -->
+    <link rel="stylesheet" href="{% static 'css/sidebar/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    
+    <!-- Bloco para estilos específicos das páginas -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Layout com sidebar e conteúdo -->
+    <div class="app-container">
+        <!-- Menu lateral fixo -->
+        {% include 'sidebar/sidebar.html' %}
+        
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    
+    <!-- Scripts globais -->
+    <script src="{% static 'js/global.js' %}"></script>
+    
+    <!-- Bloco para scripts específicos das páginas -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
