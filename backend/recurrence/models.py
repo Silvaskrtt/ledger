@@ -1,7 +1,7 @@
-import uuid
+﻿import uuid
 from django.db import models
 from categories.models import Category
-from users.models import User
+from django.contrib.auth.models import User
 from payments.models import PaymentMethod
 from accounts.models import Account
 from django.db.models import Q, CheckConstraint

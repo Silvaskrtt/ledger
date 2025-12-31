@@ -1,11 +1,11 @@
-import uuid
+﻿import uuid
 from django.db.models import Q, CheckConstraint
 from django.utils import timezone
 from django.db import models
 from accounts.models import Account
 from categories.models import Category
 from payments.models import PaymentMethod, InstallmentPlan
-from users.models import User
+from django.contrib.auth.models import User
 from tags.models import Tag
 
 
@@ -123,3 +123,4 @@ class TransactionTag(models.Model):
         verbose_name = "Transaction Tag"
         verbose_name_plural = "Transaction Tags"
         unique_together = [('id_transaction', 'id_tag')]
+

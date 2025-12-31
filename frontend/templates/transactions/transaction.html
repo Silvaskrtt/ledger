@@ -9,14 +9,8 @@
 {% endblock %}
 
 {% block content %}
-<form method="post" id="transactionForm">
+<form id="transactionForm">
     {% csrf_token %}
-    
-    <!-- Campos ocultos -->
-    <input type="hidden" name="direction" id="id_direction" value="IN">
-    <input type="hidden" name="currency" value="BRL">
-    <input type="hidden" name="origin" value="MANUAL">
-    <input type="hidden" name="id_user" value="1">
     
     <div class="transaction-container">
         
@@ -77,6 +71,26 @@
                     </select>
                 </div>
 
+                <!-- Campo Moeda -->
+                <div class="fields">
+                    <label for="id_currency">Moeda:</label>
+                    <select id="id_currency" name="currency" required>
+                        <option value="BRL">Real (BRL)</option>
+                        <option value="USD">Dólar (USD)</option>
+                        <option value="EUR">Euro (EUR)</option>
+                    </select>
+                </div>
+
+                <!-- Campo Origem -->
+                <div class="fields">
+                    <label for="id_origin">Origem:</label>
+                    <select id="id_origin" name="origin" required>
+                        <option value="MANUAL">Manual</option>
+                        <option value="RECURRENT">Recorrente</option>
+                        <option value="INSTALLMENT">Parcelado</option>
+                    </select>
+                </div>
+
                 <!-- Campo Tags -->
                 <div class="fields full-width">
                     <label for="id_tags">Tags (opcional):</label>
@@ -118,6 +132,7 @@
                         Saída
                     </button>
                 </div>
+                <input type="hidden" name="direction" id="id_direction" value="IN">
             </div>
         </aside>
         

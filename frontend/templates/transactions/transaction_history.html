@@ -1,0 +1,94 @@
+<!-- frontend/templates/transactions/transaction_history.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Histórico de transação - Ledger{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/transactions/transaction_history.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<form method="get" class="filter-form">
+    {% csrf_token %}
+
+    <div class="container">
+
+        <!-- Bloco principal -->
+        <section class="history-wrapper">
+
+            <div class="transaction-container"> 
+
+                <!-- Formulário Filtros -->
+                <div class="form-card">
+                    <div class="form-grid">
+                        <!-- Campo Periódo 'De:'-->
+                        <div class="fields">
+                            <label>De:</label>
+                            <input type="date" name="start" value="{{ start }}">
+                        </div>
+                        <!-- Campo Periódo 'Até:'-->
+                        <div class="fields">
+                            <label>Até:</label>
+                            <input type="date" name="end" value="{{ end }}">
+                        </div>
+
+                        <!-- Campo Categoria -->
+                        <div class="fields">
+                            <label for="id_category">Categoria:</label>
+                            <select id="id_category" name="id_category" required>
+                                <option value="{{ category.id }}">Selecione uma categoria</option>
+                                {% for category in categories %}
+                                <option value="{{ category.id }}"
+                                    {% if category.id|stringformat:"s" == selected_category %}selected{% endif %}>
+                                    {{ category.name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Butão para filtrar -->
+                        <button type="submit" class="btn-type">
+                            Filtrar
+                        </button>
+                    </div>
+                </div>
+
+                
+                <!-- Lateral da pagina -->
+                <aside class="side-panel">
+                    <h2>Histórico de<br>Transação</h2>
+                    
+                </aside>    
+                
+            </div>
+
+            <article class="transaction-history">
+            {% for transaction in transactions %}
+                <div class="transaction-item">
+                    <div class="left">
+                        <strong>{{ transaction.id_category.name }}</strong>
+                        <small>
+                            {{ transaction.occurred_at|date:"d/m/Y" }} •
+                            {{ transaction.id_payment_method.name }}
+                        </small>
+                    </div>
+
+                    <div class="right {% if transaction.direction == 'IN' %}income{% else %}expense{% endif %}">
+                        {% if transaction.direction == 'IN' %}+{% else %}-{% endif %}
+                        R$ {{ transaction.amount }}
+                    </div>
+                </div>
+            {% empty %}
+                <p>Nenhuma transação encontrada para o período selecionado.</p>
+            {% endfor %}
+            </article >
+
+        </section>
+
+    </div>
+
+</form>
+
+{% endblock %}

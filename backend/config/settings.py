@@ -1,4 +1,4 @@
-"""
+﻿"""
 Django settings for config project.
 """
 
@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    'config',
     # Apps customizados
     'users',
     'transactions',
@@ -37,10 +38,39 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
+    
+    # Allauth apps
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',  # Para login social
+]
+
+# Allauth configuraÃ§Ãµes
+SITE_ID = 1
+
+# MÃ©todos de autenticaÃ§Ã£o
+ACCOUNT_LOGIN_METHODS = {'email'}
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_USERNAME_REQUIRED = False  # Substituído por ACCOUNT_SIGNUP_FIELDS
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_VERIFICATION = 'optional'  # 'mandatory' para produÃ§Ã£o
+
+# Redirecionamentos
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+# Backends de autenticaÃ§Ã£o
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 MIDDLEWARE = [
+    'allauth.account.middleware.AccountMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,15 +82,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-# CORREÇÃO AQUI: Caminho correto para templates
+# CORREÃ‡ÃƒO AQUI: Caminho correto para templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # Opção 1: Se templates estão em frontend/ (fora do backend)
+            # OpÃ§Ã£o 1: Se templates estÃ£o em frontend/ (fora do backend)
             BASE_DIR.parent / 'frontend' / 'templates',
             
-            # Opção 2: Se você mover templates para dentro de backend
+            # OpÃ§Ã£o 2: Se vocÃª mover templates para dentro de backend
             # BASE_DIR / 'templates',
         ],
         'APP_DIRS': True,
@@ -114,7 +144,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 
-# Configuração para arquivos estáticos do frontend (se precisar)
 STATICFILES_DIRS = [
     BASE_DIR.parent / 'frontend' / 'static',  # Se tiver static no frontend
 ]
@@ -131,11 +160,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 25,
 }
 
-# ADICIONE ESTAS LINHAS PARA DEBUG:
-print("=" * 50)
-print("DEBUG: Configurações de Template")
-print(f"BASE_DIR: {BASE_DIR}")
-print(f"BASE_DIR.parent: {BASE_DIR.parent}")
-print(f"Template path: {BASE_DIR.parent / 'frontend' / 'templates'}")
-print(f"Template exists: {(BASE_DIR.parent / 'frontend' / 'templates').exists()}")
-print("=" * 50)
+ACCOUNT_FORMS = {
+    'signup': 'users.forms.CustomSignupForm',
+}
+

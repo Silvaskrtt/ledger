@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Login</title>
+  
+  <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
+</head>
+
+<body>
+
+  <div class="main-login">
+
+    <div class="left-login">
+      <h1>Faça login<br>E entre para o nosso time</h1>
+      <img src="{% static 'img/person-working.svg' %}" class="left-login-image" alt="Pessoa trabalhando">
+    </div>
+
+    <div class="right-login">
+
+      <div class="card-login">
+        <!-- TÍTULO -->
+        <h1>LOGIN</h1>
+
+        <!-- FORM DO ALLAUTH -->
+        <form method="POST" action="{% url 'account_login' %}" novalidate>
+          {% csrf_token %}
+          
+          <!-- Campo oculto para redirecionamento -->
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+
+          <!-- ERROS GERAIS -->
+          {% if form.non_field_errors %}
+          <div class="error-message non-field-errors">
+            {% for error in form.non_field_errors %}
+              {{ error }}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <!-- EMAIL (login field do Allauth) -->
+          <div class="textfield">
+            <label for="id_login">E-mail</label>
+            <input 
+              type="email" 
+              id="id_login" 
+              name="login"
+              placeholder="Digite seu e-mail"
+              required
+              autofocus
+              value="{{ form.login.value|default:'' }}"
+            />
+            {% if form.login.errors %}
+              <div class="field-error">
+                {{ form.login.errors }}
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- SENHA -->
+          <div class="textfield">
+            <label for="id_password">Senha</label>
+            <input 
+              type="password" 
+              id="id_password"
+              name="password" 
+              placeholder="Digite sua senha"
+              required
+            />
+            {% if form.password.errors %}
+              <div class="field-error">
+                {{ form.password.errors }}
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- LEMBRAR DE MIM (opcional do Allauth) -->
+          <div class="remember-me">
+            <label>
+              <input type="checkbox" name="remember" id="id_remember" />
+              Lembrar de mim
+            </label>
+          </div>
+
+          <button type="submit" class="btn-login">Login</button>
+
+          <!-- LINKS ADICIONAIS -->
+          <div class="auth-links">
+            <p class="auth-link">
+              <a href="{% url 'account_reset_password' %}">
+                Esqueceu sua senha?
+              </a>
+            </p>
+            <p class="auth-link">
+              Não tem uma conta? 
+              <a href="{% url 'account_signup' %}">
+                Cadastre-se
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>

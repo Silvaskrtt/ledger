@@ -18,6 +18,12 @@ body {
     align-items: flex-start;
 }
 
+.history-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .transaction-container {
     display: flex;
     gap: 40px;
@@ -33,6 +39,9 @@ body {
     border-radius: 12px;
     width: 620px;
     box-shadow: 0 4px 12px #12013359;
+}
+
+.form-card {
     flex-shrink: 0;
 }
 
@@ -62,6 +71,23 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     margin-bottom: 30px;
+}
+
+.form-card_history {
+    display: flex;
+    background: #f7f7f7;
+    padding: 30px;
+    border-radius: 12px;
+    width: auto;
+    box-shadow: 0 4px 12px #12013359;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-history {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .fields {
@@ -225,52 +251,6 @@ body {
     background: #37039e;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estado ativo do tipo de transação */
-.btn-type.active {
-    background: linear-gradient(135deg, #1d0350, #500BD9);
-    color: #fff;
-
-    border: 2px solid #A78BFA;
-
-    box-shadow:
-        0 0 0 3px rgba(167, 139, 250, 0.35),
-        inset 0 2px 4px rgba(0,0,0,0.35),
-        0 10px 20px rgba(80, 11, 217, 0.45);
-
-    transform: translateY(1px) scale(1.03);
-    position: relative;
-}
-
-/* Indicador visual (check/ponto) */
-.btn-type.active::after {
-    content: "✔";
-    position: absolute;
-    top: -10px;
-    right: -10px;
-
-    width: 24px;
-    height: 24px;
-
-    background: #4ED95F;
-    color: #0f5132;
-
-    border-radius: 50%;
-    font-size: 14px;
-    font-weight: 700;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-}
-
-/* Remove efeito hover conflitante */
-.btn-type.active:hover {
-    background: linear-gradient(135deg, #1d0350, #500BD9);
-    transform: translateY(1px) scale(1.03);
 }
 
 .box-out {

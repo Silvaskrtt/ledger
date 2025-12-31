@@ -1,9 +1,9 @@
-import uuid
+﻿import uuid
 from django.utils import timezone
 from django.db.models import Q, CheckConstraint
 from django.db import models
 from accounts.models import Account
-from users.models import User
+from django.contrib.auth.models import User
 from categories.models import Category
 
 

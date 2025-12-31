@@ -1,8 +1,9 @@
-from django.contrib import admin
-from .models import User
+﻿from django.contrib import admin
+from .models import Profile
 
-
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('id_user', 'name', 'surname', 'email', 'password')
-    search_fields = ('email', 'name')
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'phone']
+    search_fields = ['user__email', 'user__username', 'phone']
+    
+# NÃO registre User aqui - Allauth/Django já cuida disso

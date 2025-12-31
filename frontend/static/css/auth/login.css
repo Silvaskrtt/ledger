@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
+
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lexend', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* CONTAINER PRINCIPAL */
+.main-login {
+  width: 100%;
+  min-height: 100vh;
+  background: #4F0BD9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LADO ESQUERDO (ILUSTRAÇÃO) */
+.left-login {
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+.left-login > h1 {
+  color: #e6e6e6;
+  font-size: 2.5rem;
+  text-align: left;
+  line-height: 1.4;
+  margin-bottom: 40px;
+  padding: 0 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.left-login-image {
+  width: 80%;
+  max-width: 550px;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ANIMAÇÃO PARA A IMAGEM */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* LADO DIREITO (FORMULÁRIO) */
+.right-login {
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* CARD DO FORMULÁRIO */
+.card-login {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 40px;
+  background: #27056A;
+  border-radius: 25px;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.card-login:hover {
+  transform: translateY(-5px);
+}
+
+.card-login h1 {
+  color: #e6e6e6;
+  font-weight: 800;
+  margin: 0 0 40px 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* CAMPOS DO FORMULÁRIO */
+.textfield {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.textfield > label {
+  color: #f0ffffde;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.textfield > input {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 18px 20px;
+  background: #33078C;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: 'Lexend', sans-serif;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.35);
+  outline: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.textfield > input:focus {
+  border-color: #00ff88;
+  box-shadow: 0px 8px 30px rgba(0, 255, 136, 0.2);
+  background: #3a099e;
+}
+
+.textfield > input::placeholder {
+  color: #f0ffff94;
+  font-family: 'Lexend', sans-serif;
+}
+
+/* BOTÃO DE LOGIN */
+.btn-login {
+  width: 100%;
+  padding: 18px 0;
+  margin-top: 30px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #27056A;
+  background: #00ff88;
+  cursor: pointer;
+  font-family: 'Lexend', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0px 10px 30px -10px rgba(0, 255, 128, 0.4);
+}
+
+.btn-login:hover {
+  background: #00e676;
+  transform: translateY(-3px);
+  box-shadow: 0px 15px 35px -10px rgba(0, 255, 128, 0.6);
+}
+
+.btn-login:active {
+  transform: translateY(-1px);
+}
+
+/* ========== RESPONSIVIDADE ========== */
+
+/* TABLET (até 1024px) */
+@media only screen and (max-width: 1024px) {
+  .left-login > h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .left-login-image {
+    width: 70%;
+    max-width: 450px;
+  }
+  
+  .card-login {
+    padding: 40px 30px;
+    max-width: 450px;
+  }
+  
+  .card-login > h1 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+}
+
+/* TABLET PEQUENA (até 768px) */
+@media only screen and (max-width: 768px) {
+  .main-login {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .left-login {
+    width: 100%;
+    min-height: auto;
+    padding: 60px 20px 40px;
+  }
+  
+  .right-login {
+    width: 100%;
+    min-height: auto;
+    padding: 40px 20px 60px;
+  }
+  
+  .left-login > h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .left-login-image {
+    width: 60%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  .card-login {
+    max-width: 400px;
+  }
+}
+
+/* CELULAR (até 480px) */
+@media only screen and (max-width: 480px) {
+  .left-login {
+    padding: 40px 15px 30px;
+  }
+  
+  .right-login {
+    padding: 30px 15px 50px;
+  }
+  
+  .left-login > h1 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+  
+  .left-login-image {
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  .card-login {
+    padding: 35px 25px;
+    border-radius: 20px;
+    max-width: 100%;
+  }
+  
+  .card-login > h1 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+  
+  .textfield > input {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+  
+  .textfield > label {
+    font-size: 0.95rem;
+  }
+  
+  .btn-login {
+    padding: 16px 0;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+}
+
+/* CELULAR MUITO PEQUENO (até 320px) */
+@media only screen and (max-width: 320px) {
+  .left-login > h1 {
+    font-size: 1.4rem;
+  }
+  
+  .card-login {
+    padding: 30px 20px;
+  }
+  
+  .card-login > h1 {
+    font-size: 1.3rem;
+  }
+  
+  .textfield > input {
+    padding: 14px 16px;
+  }
+  
+  .btn-login {
+    padding: 14px 0;
+    font-size: 0.9rem;
+  }
+}

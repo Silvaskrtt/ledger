@@ -1,36 +1,15 @@
-import uuid
-from django.db import models
-from users.models import User
-
+﻿from django.db import models
+from django.conf import settings
 
 class Account(models.Model):
-    ACCOUNT_TYPE_CHOICES = [
-        ('CHECKING', 'Checking Account'),
-        ('WALLET', 'Digital Wallet'),
-        ('CREDIT_CARD', 'Credit Card'),
-    ]
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
-    id_account = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False)
-    balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    type = models.CharField(max_length=20, choices=ACCOUNT_TYPE_CHOICES)
-    active = models.BooleanField(default=True)
-    id_user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name='accounts')
+    def __str__(self):
+        return self.name
     
     class Meta:
-        verbose_name = "Account"
-        verbose_name_plural = "Accounts"
-        constraints = [
-            models.UniqueConstraint(
-                fields=['id_user', 'type'],
-                name='unique_account_per_user'
-            )
-        ]
-
-    def __str__(self):
-        return f"{self.get_type_display()} - {self.id_user.email}"
+        ordering = ['-created_at']

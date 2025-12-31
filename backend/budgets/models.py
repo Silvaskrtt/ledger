@@ -1,7 +1,7 @@
-import uuid
+﻿import uuid
 from django.db import models
 from django.db.models import CheckConstraint, Q
-from users.models import User
+from django.contrib.auth.models import User
 from categories.models import Category
 
 
@@ -64,3 +64,4 @@ class BudgetCategoryLimit(models.Model):
 
     def __str__(self):
         return f"{self.id_budget.id_user.email} - {self.id_category.name}: {self.limit_amount}"
+
