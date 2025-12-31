@@ -48,22 +48,33 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.google',  # Para login social
 ]
 
-# Allauth configuraÃ§Ãµes
+# Allauth 
 SITE_ID = 1
 
 # MÃ©todos de autenticaÃ§Ã£o
 ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email' # Login com email
 # ACCOUNT_USERNAME_REQUIRED = False  # Substituído por ACCOUNT_SIGNUP_FIELDS
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_VERIFICATION = 'optional'  # 'mandatory' para produÃ§Ã£o
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # 'mandatory' para produção
+ACCOUNT_EMAIL_REQUIRED = True   # Email é obrigatório, mas não verifica
+ACCOUNT_LOGIN_ON_SIGNUP = True       # Faz login automaticamente após cadastro
+
+# Desabilita confirmações por email
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 0
+ACCOUNT_EMAIL_CONFIRMATION_HMAC = False
+ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 0
 
 # Redirecionamentos
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
-# Backends de autenticaÃ§Ã£o
+# Permite cadastro com qualquer email
+ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
+
+# Backends de autenticação
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -163,4 +174,3 @@ REST_FRAMEWORK = {
 ACCOUNT_FORMS = {
     'signup': 'users.forms.CustomSignupForm',
 }
-

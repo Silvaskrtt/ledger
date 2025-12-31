@@ -31,21 +31,20 @@
         <form method="POST" action="{% url 'account_login' %}" novalidate>
           {% csrf_token %}
           
-          <!-- Campo oculto para redirecionamento -->
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
 
           <!-- ERROS GERAIS -->
           {% if form.non_field_errors %}
-          <div class="error-message non-field-errors">
+          <div class="error-message">
             {% for error in form.non_field_errors %}
               {{ error }}
             {% endfor %}
           </div>
           {% endif %}
 
-          <!-- EMAIL (login field do Allauth) -->
+          <!-- EMAIL -->
           <div class="textfield">
             <label for="id_login">E-mail</label>
             <input 
@@ -81,7 +80,7 @@
             {% endif %}
           </div>
 
-          <!-- LEMBRAR DE MIM (opcional do Allauth) -->
+          <!-- LEMBRAR DE MIM -->
           <div class="remember-me">
             <label>
               <input type="checkbox" name="remember" id="id_remember" />
@@ -91,13 +90,8 @@
 
           <button type="submit" class="btn-login">Login</button>
 
-          <!-- LINKS ADICIONAIS -->
+          <!-- LINK PARA CADASTRO -->
           <div class="auth-links">
-            <p class="auth-link">
-              <a href="{% url 'account_reset_password' %}">
-                Esqueceu sua senha?
-              </a>
-            </p>
             <p class="auth-link">
               Não tem uma conta? 
               <a href="{% url 'account_signup' %}">
