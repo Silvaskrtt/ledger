@@ -1,77 +1,102 @@
 ﻿"""
 Django settings for config project.
+Configurações principais do backend (Django).
 """
 
 from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
+# Carrega variáveis de ambiente a partir do arquivo .env
 load_dotenv()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent  # Isso aponta para: /caminho/ledger/backend
+# Diretório base do projeto
+# Aponta para: /ledger/backend
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
+# =====================================================
+# Configurações básicas (DESENVOLVIMENTO)
+# =====================================================
+
+# Chave secreta do Django (NUNCA usar esta em produção)
 SECRET_KEY = 'django-insecure-c#!9a6+!yxdl^n4)du%qjeheh$g7nw3w8pi8n@#(&iukp)2x4x'
+
+# Debug ativado apenas em ambiente de desenvolvimento
 DEBUG = True
+
+# Hosts permitidos (vazio em desenvolvimento)
 ALLOWED_HOSTS = []
 
-# Application definition
+# =====================================================
+# Aplicações instaladas
+# =====================================================
+
 INSTALLED_APPS = [
-    'config',
-    # Apps customizados
-    'users',
-    'transactions',
-    'categories',
-    'budgets',
-    'payments',
-    'tags',
-    'recurrence',
-    'goals',
-    'accounts',
-    
-    # Apps do Django
+    # Apps do domínio da aplicação
+    'users',           # Usuários e autenticação
+    'transactions',    # Transações financeiras
+    'categories',      # Categorias de transações
+    'budgets',         # Orçamentos
+    'payments',        # Métodos de pagamento
+    'tags',            # Tags de organização
+    'recurrence',      # Transações recorrentes
+    'goals',           # Metas financeiras
+    'accounts',        # Contas bancárias / carteiras
+
+    # Apps padrão do Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
+    'django.contrib.sites',  # Necessário para o django-allauth
+
+    # Django REST Framework
     'rest_framework',
-    
-    # Allauth apps
+
+    # Autenticação (django-allauth)
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.google',  # Para login social
+    # 'allauth.socialaccount.providers.google',  # Login social (opcional)
 ]
 
-# Allauth 
+# =====================================================
+# Configuração do django-allauth
+# =====================================================
+
+# ID do site (obrigatório para o allauth)
 SITE_ID = 1
 
-# MÃ©todos de autenticaÃ§Ã£o
+# Métodos de autenticação permitidos
 ACCOUNT_LOGIN_METHODS = {'email'}
-ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email' # Login com email
-# ACCOUNT_USERNAME_REQUIRED = False  # Substituído por ACCOUNT_SIGNUP_FIELDS
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # 'mandatory' para produção
-ACCOUNT_EMAIL_REQUIRED = True   # Email é obrigatório, mas não verifica
-ACCOUNT_LOGIN_ON_SIGNUP = True       # Faz login automaticamente após cadastro
 
-# Desabilita confirmações por email
+# Campos obrigatórios no cadastro
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+
+# Email deve ser único
+ACCOUNT_UNIQUE_EMAIL = True
+
+# Autenticação exclusivamente por email
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
+# Configurações de verificação de email
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Em produção, usar 'mandatory'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_LOGIN_ON_SIGNUP = True  # Login automático após cadastro
+
+# Desabilita completamente confirmação por email (ambiente local)
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 0
 ACCOUNT_EMAIL_CONFIRMATION_HMAC = False
 ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 0
 
-# Redirecionamentos
+# URLs de redirecionamento após login/logout
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
-# Permite cadastro com qualquer email
+# Adapter padrão do allauth
 ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
 
 # Backends de autenticação
@@ -79,6 +104,10 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+# =====================================================
+# Middlewares
+# =====================================================
 
 MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
@@ -89,19 +118,24 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'users.middleware.RedirectToLoginMiddleware',  # Middleware customizado
 ]
 
+# Arquivo principal de rotas
 ROOT_URLCONF = 'config.urls'
 
-# CORREÃ‡ÃƒO AQUI: Caminho correto para templates
+# =====================================================
+# Templates
+# =====================================================
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # OpÃ§Ã£o 1: Se templates estÃ£o em frontend/ (fora do backend)
+            # Templates centralizados no frontend
             BASE_DIR.parent / 'frontend' / 'templates',
-            
-            # OpÃ§Ã£o 2: Se vocÃª mover templates para dentro de backend
+
+            # Alternativa caso templates estejam dentro do backend
             # BASE_DIR / 'templates',
         ],
         'APP_DIRS': True,
@@ -116,9 +150,13 @@ TEMPLATES = [
     },
 ]
 
+# Aplicação WSGI
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# Database
+# =====================================================
+# Banco de Dados (PostgreSQL)
+# =====================================================
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -130,7 +168,10 @@ DATABASES = {
     }
 }
 
-# Password validation
+# =====================================================
+# Validação de senhas
+# =====================================================
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -146,20 +187,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
+# =====================================================
+# Internacionalização
+# =====================================================
+
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# =====================================================
+# Arquivos estáticos
+# =====================================================
+
 STATIC_URL = 'static/'
 
+# Diretórios adicionais de arquivos estáticos
 STATICFILES_DIRS = [
-    BASE_DIR.parent / 'frontend' / 'static',  # Se tiver static no frontend
+    BASE_DIR.parent / 'frontend' / 'static',
 ]
 
-# Django REST Framework configuration
+# =====================================================
+# Django REST Framework
+# =====================================================
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
@@ -171,6 +222,20 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 25,
 }
 
+# =====================================================
+# Formulários customizados
+# =====================================================
+
 ACCOUNT_FORMS = {
     'signup': 'users.forms.CustomSignupForm',
 }
+
+# =====================================================
+# Autenticação e redirecionamentos
+# =====================================================
+
+# URL para usuários não autenticados
+LOGIN_URL = '/accounts/login/'
+
+# URL após logout
+LOGOUT_REDIRECT_URL = '/accounts/login/'
