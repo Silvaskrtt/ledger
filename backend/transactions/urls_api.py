@@ -1,3 +1,4 @@
+# backend/transactions/urls_api.py
 from django.urls import path
 from .views import (
     TransactionListCreateView,
@@ -11,7 +12,7 @@ from .views import (
 urlpatterns = [
     # Transactions (API)
     path("transactions/", TransactionListCreateView.as_view(), name="api-transaction-list"),
-    path("transactions/<int:pk>/", TransactionDetailView.as_view(), name="api-transaction-detail"),
+    path("transactions/<uuid:pk>/", TransactionDetailView.as_view(), name="api-transaction-detail"),
 
     # Transaction Accounts
     path("transaction-accounts/", TransactionAccountListCreateView.as_view(), name="api-transaction-account-list"),

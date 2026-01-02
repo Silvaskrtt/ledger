@@ -7,18 +7,23 @@ from django.utils.timezone import make_aware
 from datetime import datetime
 from django.shortcuts import render
 from django.db import transaction as db_transaction
+import logging
 from .models import Transaction, TransactionAccount, TransactionTag, Category, PaymentMethod, Account, Tag
 from .serializers import TransactionCreateSerializer, TransactionUpdateSerializer, TransactionAccountSerializer, TransactionTagSerializer
+
+logger = logging.getLogger(__name__)
 
 class CreateTransactionView(LoginRequiredMixin, TemplateView):
     template_name = "transactions/transaction.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        
         context['categories'] = Category.objects.all()
         context['payment_methods'] = PaymentMethod.objects.all()
-        context['accounts'] = Account.objects.filter(id_user=self.request.user)
+        context['accounts'] = Account.objects.filter(user=self.request.user)
         context['tags'] = Tag.objects.filter(id_user=self.request.user)
+        
         return context
 
 class TransactionListView(LoginRequiredMixin, TemplateView):
@@ -52,7 +57,7 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
         context = {
             "transactions": transactions,
             "categories": Category.objects.all(),
-            "accounts": Account.objects.filter(id_user=request.user),
+            "accounts": Account.objects.filter(user=request.user),
             "tags": Tag.objects.filter(id_user=request.user),
             "payment_methods": PaymentMethod.objects.all(),
             "start": start or "",
@@ -70,33 +75,36 @@ class TransactionListCreateView(generics.ListCreateAPIView):
     @db_transaction.atomic
     def create(self, request, *args, **kwargs):
         try:
-            serializer = self.get_serializer(data=request.data)
+            serializer = self.get_serializer(data=request.data, context={'request': request})
             serializer.is_valid(raise_exception=True)
             
-            # Extrair dados para relacionamentos
             validated_data = serializer.validated_data.copy()
+            category_instance = validated_data.pop('id_category')
+            payment_method_instance = validated_data.pop('id_payment_method')
             account_id = validated_data.pop('id_account')
             tags = validated_data.pop('tags', [])
             
-            # Criar transação
             transaction_obj = Transaction.objects.create(
                 id_user=request.user,
+                id_category=category_instance,
+                id_payment_method=payment_method_instance,
                 **validated_data
             )
             
-            # Criar relação com conta
             TransactionAccount.objects.create(
                 id_transaction=transaction_obj,
                 id_account_id=account_id,
                 role='source' if transaction_obj.direction == 'OUT' else 'destination'
             )
             
-            # Criar relações com tags
-            for tag_id in tags:
-                TransactionTag.objects.create(
-                    id_transaction=transaction_obj,
-                    id_tag_id=tag_id
-                )
+            for tag_uuid in tags:
+                try:
+                    TransactionTag.objects.create(
+                        id_transaction=transaction_obj,
+                        id_tag_id=tag_uuid
+                    )
+                except Exception as e:
+                    logger.warning(f"Erro ao relacionar tag {tag_uuid}: {e}")
             
             return Response({
                 'id_transaction': str(transaction_obj.id_transaction),
@@ -104,8 +112,9 @@ class TransactionListCreateView(generics.ListCreateAPIView):
             }, status=status.HTTP_201_CREATED)
             
         except Exception as e:
+            logger.error(f"Erro ao criar transação: {str(e)}")
             return Response(
-                {'detail': str(e)},
+                {'detail': 'Erro ao processar a transação. Tente novamente.'},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
