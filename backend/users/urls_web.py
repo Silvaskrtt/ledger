@@ -1,4 +1,4 @@
-# users/urls_web.py
+# backend/users/urls_web.py
 from django.urls import path
 from . import views
 
