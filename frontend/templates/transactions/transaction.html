@@ -6,10 +6,11 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/transactions/transaction.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css">
 {% endblock %}
 
 {% block content %}
-<form id="transactionForm">
+<form id="transactionForm" method="POST">
     {% csrf_token %}
     
     <div class="transaction-container">
@@ -31,9 +32,9 @@
                     <select id="id_account" name="id_account" required>
                         <option value="">Selecione uma conta</option>
                         {% for account in accounts %}
-                        <option value="{{ account.id }}">
-                            {{ account.name }} ({{ account.type }})
-                        </option>
+                            <option value="{{ account.id }}">
+                                {{ account.name }} {% if account.type %}({{ account.type }}){% endif %}
+                            </option>
                         {% endfor %}
                     </select>
                 </div>
@@ -51,7 +52,7 @@
                     <select id="id_category" name="id_category" required>
                         <option value="">Selecione uma categoria</option>
                         {% for category in categories %}
-                        <option value="{{ category.id }}">
+                        <option value="{{ category.id_category }}">  <!-- CORRETO: category.id_category -->
                             {{ category.name }}
                         </option>
                         {% endfor %}
@@ -64,7 +65,7 @@
                     <select id="id_payment_method" name="id_payment_method" required>
                         <option value="">Selecione um método</option>
                         {% for method in payment_methods %}
-                        <option value="{{ method.id }}">
+                        <option value="{{ method.id_payment_method }}">  <!-- CORRETO: method.id_payment_method -->
                             {{ method.type }}
                         </option>
                         {% endfor %}
@@ -95,10 +96,13 @@
                 <div class="fields full-width">
                     <label for="id_tags">Tags (opcional):</label>
                     <select id="id_tags" name="tags" multiple>
+                        <option value="">Selecione tags</option>
                         {% for tag in tags %}
-                        <option value="{{ tag.id }}">
+                        <option value="{{ tag.id_tag }}">
                             {{ tag.name }}
                         </option>
+                        {% empty %}
+                        <option value="" disabled>Nenhuma tag disponível</option>
                         {% endfor %}
                     </select>
                     <small class="help-text">
@@ -117,29 +121,47 @@
         <!-- LATERAL -->
         <aside class="side-panel">
             <h2>Nova<br>Transação</h2>
-            
+
             <div class="form-side">
                 <p class="side-label">Tipo de Transação</p>
-                
+
                 <div class="transaction-type">
-                    <button type="button" class="btn-type active" data-direction="IN">
-                        <img src="{% static 'img/box-in.png' %}" alt="Entrada" class="type-icon">
-                        Entrada
-                    </button>
-                    
-                    <button type="button" class="btn-type" data-direction="OUT">
-                        <img src="{% static 'img/box-out.png' %}" alt="Saída" class="type-icon">
-                        Saída
-                    </button>
+
+                    <label class="type-option">
+                        <input
+                            type="radio"
+                            name="direction"
+                            value="IN"
+                            checked
+                        >
+                        <span class="type-button">
+                            <img src="{% static 'img/box-in.png' %}" alt="Entrada">
+                            Entrada
+                        </span>
+                    </label>
+
+                    <label class="type-option">
+                        <input
+                            type="radio"
+                            name="direction"
+                            value="OUT"
+                        >
+                        <span class="type-button">
+                            <img src="{% static 'img/box-out.png' %}" alt="Saída">
+                            Saída
+                        </span>
+                    </label>
+
                 </div>
-                <input type="hidden" name="direction" id="id_direction" value="IN">
             </div>
         </aside>
         
     </div>
+    
 </form>
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/transactions/form.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+<script src="{% static 'js/transactions/transaction-form.js' %}"></script>
 {% endblock %}
