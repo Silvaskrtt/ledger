@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Ledger{% endblock %}</title>
     
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <!-- Estilos globais -->
     <link rel="stylesheet" href="{% static 'css/sidebar/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
@@ -15,16 +20,19 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
+    <!-- CSRF Token (CRÍTICO para logout funcionar) -->
+    {% csrf_token %}
+    
     <!-- Layout com sidebar e conteúdo -->
     <div class="app-container">
-        <!-- Menu lateral fixo -->
         {% include 'sidebar/sidebar.html' %}
-        
-        <!-- Conteúdo principal -->
         <main class="main-content">
             {% block content %}{% endblock %}
         </main>
     </div>
+    
+    <!-- Script do sidebar -->
+    <script src="{% static 'js/sidebar.js' %}"></script>
     
     <!-- Scripts globais -->
     <script src="{% static 'js/global.js' %}"></script>

@@ -237,9 +237,6 @@ ACCOUNT_FORMS = {
 # URL para usuários não autenticados
 LOGIN_URL = '/accounts/login/'
 
-# URL após logout
-LOGOUT_REDIRECT_URL = '/accounts/login/'
-
 # =====================================================
 # Logs do sistema
 # =====================================================

@@ -1,3 +1,629 @@
 Watching for file changes with StatReloader
 C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
 Watching for file changes with StatReloader
+Not Found: /home/
+"GET /home/ HTTP/1.1" 404 4845
+"GET /transactions/list/ HTTP/1.1" 200 7855
+Not Found: /transactions/list/images/profile.png
+"GET /transactions/list/images/profile.png HTTP/1.1" 404 4938
+"GET /transactions/list/ HTTP/1.1" 200 7855
+Not Found: /transactions/list/images/profile.png
+"GET /transactions/list/images/profile.png HTTP/1.1" 404 4938
+"GET /transactions/new/ HTTP/1.1" 200 10959
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+Not Found: /transactions/new/images/profile.png
+"GET /transactions/new/images/profile.png HTTP/1.1" 404 4935
+"GET /transactions/new/ HTTP/1.1" 200 10959
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+Not Found: /transactions/new/images/profile.png
+"GET /transactions/new/images/profile.png HTTP/1.1" 404 4935
+"GET /transactions/new/ HTTP/1.1" 200 10923
+Not Found: /transactions/new/images/profile.png
+"GET /transactions/new/images/profile.png HTTP/1.1" 404 4935
+"GET /transactions/new/ HTTP/1.1" 200 10843
+Not Found: /transactions/new/images/profile.png
+"GET /transactions/new/images/profile.png HTTP/1.1" 404 4935
+"GET /transactions/new/ HTTP/1.1" 200 10634
+"GET /transactions/new/ HTTP/1.1" 200 10650
+"GET /transactions/new/ HTTP/1.1" 200 10739
+C:\Users\muril\ledger\backend\users\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /transactions/new/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\base.py", line 221, in _get_response
+    response = response.render()
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 228, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\defaulttags.py", line 1008, in do_if
+    nodelist = parser.parse(("endif",))
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 590, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 657, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Template: C:\Users\muril\ledger\frontend\templates\sidebar\sidebar.html, Unclosed tag on line 61: 'if'. Looking for one of: endif.
+"GET /transactions/new/ HTTP/1.1" 500 208615
+"GET /transactions/new/ HTTP/1.1" 200 10669
+"GET /transactions/new/ HTTP/1.1" 200 10670
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"GET /admin/tags/tag/ HTTP/1.1" 200 26338
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /transactions/new/ HTTP/1.1" 200 10741
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+"GET / HTTP/1.1" 200 3427
+"GET /transactions/new/ HTTP/1.1" 200 10741
+C:\Users\muril\ledger\backend\users\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 10741
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\users\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\users\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 10741
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+"GET / HTTP/1.1" 200 3427
+"GET / HTTP/1.1" 200 3888
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 3187
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET / HTTP/1.1" 200 3187
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/js/global.js HTTP/1.1" 200 667
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+"GET / HTTP/1.1" 200 3427
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5403
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\users\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET / HTTP/1.1" 200 3376
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/global.js HTTP/1.1" 200 667
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /static/css/auth/login.css HTTP/1.1" 200 7972
+"GET /static/img/person-working.svg HTTP/1.1" 200 32156
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3376
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/new/ HTTP/1.1" 200 10690
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /transactions/new/ HTTP/1.1" 200 10690
+"GET /transactions/list/ HTTP/1.1" 200 7586
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /transactions/list/ HTTP/1.1" 200 7897
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 7444
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 7270
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 7270
+"GET /home/ HTTP/1.1" 200 3060
+"GET /transactions/new/ HTTP/1.1" 200 10374
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 10374
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /transactions/new/ HTTP/1.1" 200 10959
+Not Found: /transactions/new/images/profile.png
+"GET /transactions/new/images/profile.png HTTP/1.1" 404 5441
+Internal Server Error: /transactions/new/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 577, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\base.py", line 221, in _get_response
+    response = response.render()
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 228, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\defaulttags.py", line 994, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 579, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 634, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Template: C:\Users\muril\ledger\frontend\templates\sidebar\sidebar.html, Invalid block tag on line 63: 'static', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+"GET /transactions/new/ HTTP/1.1" 500 217259
+"GET /transactions/new/ HTTP/1.1" 200 10625
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /transactions/new/ HTTP/1.1" 200 11001
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /transactions/new/ HTTP/1.1" 200 11416
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /transactions/new/ HTTP/1.1" 200 11178
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /static/js/global.js HTTP/1.1" 200 667
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /home/ HTTP/1.1" 302 0
+"GET /accounts/login/?next=/home/ HTTP/1.1" 200 2350
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /home/ HTTP/1.1" 200 3864
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /home/ HTTP/1.1" 200 3602
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /home/ HTTP/1.1" 200 3577
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /home/ HTTP/1.1" 200 3510
+"GET /home/ HTTP/1.1" 200 3903
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 7478
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/img/avatar.png HTTP/1.1" 404 1856
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 2349
+"GET /static/js/global.js HTTP/1.1" 200 667
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /home/ HTTP/1.1" 302 0
+"GET /accounts/login/?next=/home/ HTTP/1.1" 200 2350
+"GET /static/css/auth/login.css HTTP/1.1" 200 7972
+"GET /static/img/person-working.svg HTTP/1.1" 200 32156
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /home/ HTTP/1.1" 200 3903
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /static/img/avatar.png HTTP/1.1" 404 1856
+"GET /home/ HTTP/1.1" 200 3446
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 7478
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 2349
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /home/ HTTP/1.1" 200 3446
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 5701
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 2349
+"GET /home/ HTTP/1.1" 200 3847
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 5701
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 2349
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/new/ HTTP/1.1" 200 11161
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /transactions/new/ HTTP/1.1" 200 11161
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 5701
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 2349
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /transactions/new/ HTTP/1.1" 200 11161
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 2349
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3847
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 4126
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/global.css HTTP/1.1" 200 1748
+Not Found: /images/profile.png
+"GET /images/profile.png HTTP/1.1" 404 5390
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 2349
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET / HTTP/1.1" 200 3645
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 4721
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /images/profile.png
+"GET /images/profile.png HTTP/1.1" 404 5390
+"GET / HTTP/1.1" 200 3355
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 5123
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET / HTTP/1.1" 200 3888
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 5123
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET / HTTP/1.1" 200 3888
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 5123
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET / HTTP/1.1" 200 4506
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 5123
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8716
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8098
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 5123
+"GET /static/img/profile.png HTTP/1.1" 404 1859
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8716
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 10325
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8716
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 10325
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8716
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 10325
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 2782
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8716
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 10325
+"GET /static/css/global.css HTTP/1.1" 200 1748
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8716
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8495
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8716
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8495
+"GET /transactions/list/ HTTP/1.1" 200 8711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8495
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/new/ HTTP/1.1" 200 11815
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/global.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 11815
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8495
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /home/ HTTP/1.1" 200 4420
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 11734
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8495
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5379
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8495
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8544
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8558
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8558
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8630
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8558
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8558
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8544
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8558
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8538
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8558
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8583
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8583
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8583
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 8583
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 5378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Watching for file changes with StatReloader

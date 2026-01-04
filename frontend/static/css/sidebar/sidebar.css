@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
+/* frontend/static/css/sidebar/sidebar.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
 
 * {
     margin: 0;
@@ -8,7 +9,16 @@
     font-family: 'Lexend', sans-serif;
 }
 
+/* Container principal movido para cá */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR BASE ===== */
 .sidebar {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     left: 0;
     top: 0;
@@ -16,14 +26,16 @@
     width: 78px;
     background: #111111;
     padding: 6px 14px;
-    z-index: 1;
+    z-index: 1000;
     transition: all 0.5s ease;
+    overflow: hidden;
 }
 
 .sidebar.open {
     width: 250px;
 }
 
+/* ===== LOGO ===== */
 .sidebar .logo-details {
     height: 60px;
     display: flex;
@@ -38,6 +50,7 @@
     font-weight: 600;
     opacity: 0;
     transition: all 0.5s ease;
+    white-space: nowrap;
 }
 
 .sidebar.open .logo-details,
@@ -50,16 +63,21 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    font-size: 22px;
-    text-align: center;
+    font-size: 26px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: all 0.5s ease;
+    color: #fff;
+    background: none;
+    border: none;
+    z-index: 1001;
+    width: 50px;
 }
 
-.sidebar.open .logo-details #btn {
-    text-align: center;
-}
-
+/* ===== ÍCONES ===== */
 .sidebar i {
     color: #fff;
     height: 60px;
@@ -69,9 +87,15 @@
     line-height: 60px;
 }
 
+/* ===== LISTA DE NAVEGAÇÃO ===== */
 .sidebar .nav-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
-    height: 100%;
+    height: calc(100% - 140px);
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 .sidebar li {
@@ -80,32 +104,56 @@
     list-style: none;
 }
 
-.sidebar input {
-    font-size: 15px;
-    color: #fff;
-    font-weight: 400;
-    outline: none;
+/* ===== BUSCA ===== */
+.sidebar .search-container {
+    position: relative;
     height: 50px;
+    margin-bottom: 10px;
+}
+
+.search-container input {
     width: 100%;
-    border: none;
+    height: 100%;
     border-radius: 12px;
-    transition: all 0.5s ease;
+    border: none;
+    outline: none;
     background: #2f2f2f;
+    color: #fff;
+    padding: 0 20px 0 52px;
+    font-size: 15px;
+    font-weight: 400;
+    transition: all 0.5s ease;
 }
 
-.sidebar.open input {
-    padding: 0 20px 0 50px;
-    width: 100%;
+.sidebar:not(.open) .search-container input {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    padding: 0;
 }
 
-.sidebar .bx-search {
+.search-container .bx-search {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 16px;
     transform: translateY(-50%);
     font-size: 22px;
-    background: #272727;
+    cursor: pointer;
+    transition: all 0.3s ease;
     color: #fff;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* Ícone centralizado quando fechada */
+.sidebar:not(.open) .bx-search {
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .sidebar .bx-search:hover {
@@ -113,26 +161,14 @@
     color: #111111;
 }
 
-.sidebar.open .bx-search:hover {
-    background: #500bd9;
-    color: #fff;
-}
-
-.sidebar li i {
-    height: 50px;
-    line-height: 50px;
-    font-size: 18px;
-    border-radius: 12px;
-}
-
+/* ===== LINKS ===== */
 .sidebar li a {
     display: flex;
-    height: 100%;
-    width: 100%;
-    border-radius: 12px;
+    height: 50px;
     align-items: center;
     text-decoration: none;
     transition: all 0.4s ease;
+    border-radius: 12px;
     background: #111111;
 }
 
@@ -158,26 +194,31 @@
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i {
     transition: all 0.5s ease;
-    color: #111111;
+    color: #fff;
 }
 
+/* ===== TOOLTIPS CORRIGIDOS ===== */
 .sidebar li .tooltip {
     position: absolute;
     top: -20px;
     left: calc(100% + 15px);
     background: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 15px;
-    font-weight: 400;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
     opacity: 0;
     white-space: nowrap;
     pointer-events: none;
     transition: 0s;
+    z-index: 1000;
+    color: #111;
+    text-align: center;
 }
 
-.sidebar li:hover .tooltip {
+/* MOSTRAR TOOLTIP APENAS QUANDO SIDEBAR ESTÁ FECHADA */
+.sidebar:not(.open) li:hover .tooltip {
     opacity: 1;
     pointer-events: auto;
     transition: all 0.4s ease;
@@ -185,79 +226,252 @@
     transform: translateY(-50%);
 }
 
+/* ESCONDER TOOLTIP QUANDO SIDEBAR ESTÁ ABERTA */
 .sidebar.open li .tooltip {
     display: none;
 }
 
-.sidebar li.profile {
-    position: fixed;
-    height: 60px;
-    width: 78px;
+/* ===== PERFIL ===== */
+.profile-section {
+    position: absolute;
+    bottom: 0;
     left: 0;
-    bottom: -8px;
-    padding: 10px 14px;
+    width: 78px;
     background: #272727;
+    padding: 15px 14px;
     transition: all 0.5s ease;
-    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sidebar.open li.profile {
+.sidebar.open .profile-section {
     width: 250px;
 }
 
-.sidebar li .profile-details {
+.profile-content {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 12px;
 }
 
-.sidebar li img {
-    height: 45px;
+/* Avatar */
+.avatar-container {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.user-avatar {
     width: 45px;
-    object-fit: contain;
-    border-radius: 6px;
-    margin-right: 10px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #500BD9;
+    background: #2f2f2f;
 }
 
-.sidebar li.profile .name,
-.sidebar li.profile .job {
-    font-size: 15px;
-    font-weight: 400;
-    color: #fff;
-    white-space: nowrap;
+.avatar-default {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid #500BD9;
+    text-transform: uppercase;
 }
 
-.sidebar li.profile .job {
-    font-size: 12px;
-}
-
-.sidebar .profile #log_out {
+.online-status {
     position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    background: #272727;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    transition: all 0.5s ease;
+    bottom: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background: #00b894;
+    border-radius: 50%;
+    border: 2px solid #272727;
 }
 
-.sidebar.open .profile #log_out {
-    width: 50px;
-    background: none;
+/* Informações do usuário */
+.user-info {
+    flex: 1;
+    min-width: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
 }
 
-
-.sidebar.open~ {
-    left: 250px;
-    width: calc(100%-250px);
+.sidebar.open .user-info {
+    opacity: 1;
 }
 
-.text {
-    display: inline-block;
-    color: #111111;
-    font-size: 25px;
-    font-weight: 500;
-    margin: 18px;
+.user-name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.user-email {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Botões */
+.logout-form, .login-link {
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.logout-btn, .login-btn {
+    background: rgba(255, 71, 87, 0.2);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    color: rgba(255, 71, 87, 0.9);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 40px;
+    height: 40px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-btn {
+    background: rgba(80, 11, 217, 0.2);
+    border: 1px solid rgba(80, 11, 217, 0.3);
+    color: rgba(80, 11, 217, 0.9);
+}
+
+.logout-btn:hover {
+    background: #ff4757;
+    border-color: #ff4757;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+}
+
+.login-btn:hover {
+    background: #500BD9;
+    border-color: #500BD9;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(80, 11, 217, 0.3);
+}
+
+.logout-text, .login-text {
+    opacity: 0;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.open .logout-text,
+.sidebar.open .login-text {
+    opacity: 1;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.main-content {
+    margin-left: 78px;
+    width: calc(100% - 78px);
+    padding: 30px;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+.sidebar.open ~ .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+/* ===== SCROLLBAR ===== */
+.nav-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.nav-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.nav-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+        width: 250px;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 20px;
+    }
+    
+    .profile-section {
+        width: 70px;
+        padding: 12px 10px;
+    }
+    
+    .sidebar.open .profile-section {
+        width: 250px;
+    }
+    
+    .user-avatar,
+    .avatar-default {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .logout-btn,
+    .login-btn {
+        padding: 6px 10px;
+        min-width: 35px;
+        height: 35px;
+    }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-content {
+    animation: fadeIn 0.5s ease;
 }

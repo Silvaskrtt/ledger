@@ -1,74 +1,107 @@
 <!-- frontend/templates/sidebar/sidebar.html -->
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-
-<body>
-    <div class="sidebar">
-        <div class="logo-details">
-            <div class="logo_name">Ledger System Finance</div>
-            <i class='bx bx-menu' id="btn"></i>
-        </div>
-        <ul class="nav-list">
-            <li>
-                <i class='bx bx-search'></i>
-                <input type="text" placeholder="Search...">
-                <span class="tooltip">Search</span>
-            </li>
-            <li>
-                <a href="/home/">
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="links_name">Página Principal</span>
-                </a>
-                <span class="tooltip">Página Principal</span>
-            </li>
-            <li>
-                <a href="/transactions/new/">
-                    <i class="fa-solid fa-circle-plus"></i>
-                    <span class="links_name">Nova Transação</span>
-                </a>
-                <span class="tooltip">Nova Transação</span>
-            </li>
-            <li>
-                <a href="/transactions/list/">
-                    <i class="fa-solid fa-clipboard-list"></i>
-                    <span class="links_name">Histórico de Transação</span>
-                </a>
-                <span class="tooltip">Histórico de Transação</span>
-            </li>
-            <li>
-                <a href="">
-                    <i class="fa-solid fa-wallet"></i>
-                    <span class="links_name">Orçamento Mensal</span>
-                </a>
-                <span class="tooltip">Orçamento Mensal</span>
-            </li>
-            <li>
-                <a href="">
-                    <i class="fa-solid fa-flag"></i>
-                    <span class="links_name">Metas Financeiras</span>
-                </a>
-                <span class="tooltip">Metas Financeiras</span>
-            </li>
-            <li class="profile">
-                <div class="profile-details">
-                    <img src="./images/profile.png" alt="profileImg">
-                    <div class="name_job">
-                        <div class="name">Murilo</div>
-                        <div class="job">Web Developer</div>
-                    </div>
-                </div>
-                <i class='bx bx-log-out' id="log_out"></i>
-            </li>
-        </ul>
+<div class="sidebar">
+    <div class="logo-details">
+        <div class="logo_name">Ledger<br>System Finance</div>
+        <button class="bx bx-menu" id="btn"></button>
     </div>
-</body>
-
-</html>
+    
+    <ul class="nav-list">
+        <li class="search-container">
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Buscar...">
+            <span class="tooltip">Buscar</span>
+        </li>
+        
+        <li>
+            <a href="{% url 'home' %}">
+                <i class='bx bx-grid-alt'></i>
+                <span class="links_name">Página Principal</span>
+            </a>
+            <span class="tooltip">Página Principal</span>
+        </li>
+        
+        <li>
+            <a href="{% url 'create-transaction-form' %}">
+                <i class='fa-solid fa-circle-plus'></i>
+                <span class="links_name">Nova Transação</span>
+            </a>
+            <span class="tooltip">Nova Transação</span>
+        </li>
+        
+        <li>
+            <a href="{% url 'transaction-history' %}">
+                <i class='fa-solid fa-clipboard-list'></i>
+                <span class="links_name">Histórico de Transação</span>
+            </a>
+            <span class="tooltip">Histórico de Transação</span>
+        </li>
+        
+        <li>
+            <a href="#">
+                <i class='fa-solid fa-wallet'></i>
+                <span class="links_name">Orçamento Mensal</span>
+            </a>
+            <span class="tooltip">Orçamento Mensal</span>
+        </li>
+        
+        <li>
+            <a href="#">
+                <i class='fa-solid fa-flag'></i>
+                <span class="links_name">Metas</span>
+            </a>
+            <span class="tooltip">Metas Financeiras</span>
+        </li>
+    </ul>
+    
+    <!-- Área do Perfil e Logout -->
+    <div class="profile-section">
+        <div class="profile-content">
+            <!-- Avatar do Usuário -->
+            <div class="avatar-container">
+                {% if user.is_authenticated %}
+                    {% if user.profile and user.profile.avatar %}
+                        <img src="{{ user.profile.avatar.url }}" alt="{{ user.username }}" class="user-avatar">
+                    {% else %}
+                        <div class="avatar-default" data-initial="{{ user.username|first|upper }}">
+                            {{ user.username|first|upper }}
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <div class="avatar-default" data-initial="?">
+                        ?
+                    </div>
+                {% endif %}
+                <div class="online-status"></div>
+            </div>
+            
+            <!-- Informações do Usuário -->
+            <div class="user-info">
+                {% if user.is_authenticated %}
+                    <div class="user-name">{{ user.get_full_name|default:user.username }}</div>
+                    <div class="user-email">{{ user.email|truncatechars:20 }}</div>
+                {% else %}
+                    <div class="user-name">Visitante</div>
+                    <div class="user-email">Não autenticado</div>
+                {% endif %}
+            </div>
+            
+            <!-- Botão de Logout/Login -->
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn" title="Sair">
+                        <i class='bx bx-log-out-circle'></i>
+                        <span class="logout-text">Sair</span>
+                    </button>
+                </form>
+            {% else %}
+                <a href="{% url 'account_login' %}" class="login-btn" title="Entrar">
+                    <i class='bx bx-log-in-circle'></i>
+                    <span class="login-text">Entrar</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
