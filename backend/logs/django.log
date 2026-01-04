@@ -1783,3 +1783,25 @@ NameError: name 'category_id' is not defined. Did you mean: 'category_uuid'?
 "GET /transactions/list/ HTTP/1.1" 500 91840
 C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
 Watching for file changes with StatReloader
+"GET /transactions/list/ HTTP/1.1" 200 14770
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=&end=&category=b39af529-1c68-4d1e-ac1d-1c37bea4fa38 HTTP/1.1" 200 8108
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=&end=&category=f2ebc9bc-2186-422e-a2f7-a1fed544fa89 HTTP/1.1" 200 13211
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-01&end=2026-01-01&category=f2ebc9bc-2186-422e-a2f7-a1fed544fa89 HTTP/1.1" 200 6501
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-01&end=2026-01-02&category=f2ebc9bc-2186-422e-a2f7-a1fed544fa89 HTTP/1.1" 200 9829
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-01&end=2026-01-02&category=b39af529-1c68-4d1e-ac1d-1c37bea4fa38 HTTP/1.1" 200 6501
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-01&end=2026-01-02&category= HTTP/1.1" 200 9821
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 14770
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 12403
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 14770
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 14770
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
