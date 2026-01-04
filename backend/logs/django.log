@@ -1218,3 +1218,568 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 "GET /transactions/list/ HTTP/1.1" 200 8692
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 9760
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 9760
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3023
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/?start=2026-01-02&end=2026-01-02&id_category= HTTP/1.1" 200 5942
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-02&end=2026-01-02&id_category= HTTP/1.1" 200 5942
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-02&end=2026-01-02&id_category= HTTP/1.1" 200 5942
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-02&end=2026-01-02&id_category= HTTP/1.1" 200 5942
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-02&end=2026-01-02&id_category= HTTP/1.1" 200 5942
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3023
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/new/ HTTP/1.1" 200 11796
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3017
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8413
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET /transactions/list/ HTTP/1.1" 200 8413
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+- Broken pipe from ('127.0.0.1', 61803)
+"GET / HTTP/1.1" 200 4482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 11796
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 11796
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 577, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'empty'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 71, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader_tags.py", line 307, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader_tags.py", line 235, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\defaulttags.py", line 894, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\defaulttags.py", line 994, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 579, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 634, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Template: C:\Users\muril\ledger\frontend\templates\transactions\transaction_history.html, Invalid block tag on line 80: 'empty', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+"GET /transactions/list/ HTTP/1.1" 500 247029
+"GET /transactions/list/ HTTP/1.1" 200 8428
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 9090
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 9862
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 9862
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 9862
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8425
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 10390
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 9725
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 577, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endwith'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 71, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader_tags.py", line 307, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\loader_tags.py", line 235, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\defaulttags.py", line 894, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 579, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\template\base.py", line 634, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Template: C:\Users\muril\ledger\frontend\templates\transactions\transaction_history.html, Invalid block tag on line 66: 'endwith', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+"GET /transactions/list/ HTTP/1.1" 500 241082
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/ HTTP/1.1" 200 8821
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/global.css HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8545
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /admin/ HTTP/1.1" 200 26972
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 200 558
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+"GET /admin/ HTTP/1.1" 200 26828
+"GET /admin/categories/category/ HTTP/1.1" 200 24439
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/categories/category/add/ HTTP/1.1" 200 26275
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8844
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/categories/category/add/ HTTP/1.1" 302 0
+"GET /admin/categories/category/ HTTP/1.1" 200 25198
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/categories/category/add/ HTTP/1.1" 200 26351
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/categories/category/add/ HTTP/1.1" 302 0
+"GET /admin/categories/category/ HTTP/1.1" 200 25695
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/tags/tag/ HTTP/1.1" 200 26338
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/tags/tag/add/ HTTP/1.1" 200 24279
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/tags/tag/add/ HTTP/1.1" 302 0
+"GET /admin/tags/tag/ HTTP/1.1" 200 26995
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /transactions/list/ HTTP/1.1" 200 8878
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 12393
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"POST /api/transactions/ HTTP/1.1" 201 100
+"GET /transactions/list/ HTTP/1.1" 200 9557
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-02&end=2026-01-03&category= HTTP/1.1" 200 7544
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-02&end=2026-01-03&category= HTTP/1.1" 200 7544
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-02&end=2026-01-03&category= HTTP/1.1" 200 7544
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=2026-01-02&end=2026-01-03&category= HTTP/1.1" 200 7544
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/?start=2026-01-02&end=2026-01-03&category= HTTP/1.1" 200 7544
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET /transactions/list/?start=2026-01-02&end=2026-01-03&category= HTTP/1.1" 200 7544
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+"GET /transactions/list/?start=2026-01-02&end=2026-01-03&category= HTTP/1.1" 200 8500
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5480
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 4482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 11962
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=&end=&category= HTTP/1.1" 200 11962
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/?start=&end=&category= HTTP/1.1" 200 11962
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /api/transactions/new/
+"GET /api/transactions/new/ HTTP/1.1" 404 11122
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/?start=&end=&category= HTTP/1.1" 200 11962
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 12403
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 11962
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /admin/tags/tag/ HTTP/1.1" 200 26772
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/account/ HTTP/1.1" 200 25703
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/tags/tag/ HTTP/1.1" 200 26772
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/budgets/budget/ HTTP/1.1" 200 22409
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/transactions/transactionaccount/ HTTP/1.1" 200 26398
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/account/ HTTP/1.1" 200 25703
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/account/add/ HTTP/1.1" 200 25874
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/account/ HTTP/1.1" 200 25703
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/account/1/change/ HTTP/1.1" 200 26169
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/accounts/account/1/change/ HTTP/1.1" 302 0
+"GET /admin/accounts/account/ HTTP/1.1" 200 25924
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /transactions/list/ HTTP/1.1" 200 14687
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 11962
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 11962
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 14687
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 14546
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 14546
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 14546
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5369
+"GET /transactions/list/?start=&end=&category= HTTP/1.1" 200 14546
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 12403
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 14546
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\.venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 82, in get
+    "selected_category": category_id or "",
+                         ^^^^^^^^^^^
+NameError: name 'category_id' is not defined. Did you mean: 'category_uuid'?
+"GET /transactions/list/ HTTP/1.1" 500 91840
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
