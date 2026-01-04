@@ -8,6 +8,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.db import transaction as db_transaction
 import logging
+import uuid
 from .models import Transaction, TransactionAccount, TransactionTag, Category, PaymentMethod, Account, Tag
 from .serializers import TransactionCreateSerializer, TransactionUpdateSerializer, TransactionAccountSerializer, TransactionTagSerializer
 
@@ -35,11 +36,15 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
         ).select_related(
             "id_category",
             "id_payment_method"
-        ).order_by("-occurred_at")
+        ).prefetch_related(
+            "transaction_accounts__id_account"
+        ).order_by(
+            "-occurred_at"
+        )
 
         start = request.GET.get("start")
         end = request.GET.get("end")
-        category_id = request.GET.get("category")
+        category_uuid = request.GET.get("category")
 
         if start and end:
             try:
@@ -51,8 +56,20 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
             except ValueError:
                 pass
 
-        if category_id:
-            transactions = transactions.filter(id_category_id=category_id)
+        # FILTRO DE CATEGORIA
+        if category_uuid and category_uuid != "":
+            try:
+                # Converter string para UUID
+                category_uuid_obj = uuid.UUID(category_uuid)
+                # Filtrar usando o campo correto (id_category_id é o ForeignKey)
+                transactions = transactions.filter(id_category_id=category_uuid_obj)
+                transactions = transactions.filter(id_category_id=category_uuid_obj)
+                print(f"DEBUG - Filtrando por categoria UUID: {category_uuid_obj}")
+                print(f"DEBUG - Transações após filtro: {transactions.count()}")
+            except (ValueError, AttributeError) as e:
+                print(f"DEBUG - Erro no UUID da categoria: {e}")
+                # Se não for um UUID válido, tenta filtrar por nome
+                transactions = transactions.filter(id_category__name__icontains=category_uuid)
 
         context = {
             "transactions": transactions,
@@ -62,7 +79,7 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
             "payment_methods": PaymentMethod.objects.all(),
             "start": start or "",
             "end": end or "",
-            "selected_category": category_id or "",
+            "selected_category": category_uuid or "",
         }
         return render(request, self.template_name, context)
 
