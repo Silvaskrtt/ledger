@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/budget/budget.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="goals-header">
+    <h2>Orçamento Mensal</h2>
+    <button id="openGoalModal" class="btn-primary">+ Nova Meta</button>
+</section>
+
+<section class="goals-list">
+    {% for limit in limits %}
+    <div class="goal-card">
+        <div class="goal-header">
+            <h3>{{ limit.id_category.name }}</h3>
+            <span>R$ {{ limit.spent }} / R$ {{ limit.limit_amount }}</span>
+        </div>
+
+        <div class="goal-progress">
+            <div class="progress-bar purple"
+                 style="width: {{ limit.percent }}%"></div>
+        </div>
+
+        <div class="goal-footer">
+            <span>{{ limit.percent }}% utilizado</span>
+            <span>R$ {{ limit.remaining }} restantes</span>
+        </div>
+    </div>
+    {% empty %}
+        <p class="empty">Nenhuma meta cadastrada.</p>
+    {% endfor %}
+</section>
+
+{% include "budget/budget_modal.html" %}
+
+{% block extra_js %}
+<script src="{% static 'js/budget/budget.js' %}"></script>
+{% endblock %}
+
+{% endblock %}

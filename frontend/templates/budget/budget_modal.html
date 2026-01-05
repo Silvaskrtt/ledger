@@ -1,0 +1,24 @@
+<div class="modal-overlay" id="goalModal">
+    <div class="modal">
+        <h3>Nova Meta</h3>
+
+        <form id="goalForm">
+            {% csrf_token %}
+
+            <label>Categoria</label>
+            <select name="id_category" required>
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Valor da Meta</label>
+            <input type="number" name="limit_amount" step="0.01" required>
+
+            <button type="submit" class="btn-primary">Salvar</button>
+            <button type="button" id="closeGoalModal" class="btn-secondary">
+                Cancelar
+            </button>
+        </form>
+    </div>
+</div>
