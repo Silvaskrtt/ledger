@@ -59,6 +59,10 @@ class BudgetCategoryLimit(models.Model):
             CheckConstraint(
                 condition=Q(limit_amount__gt=0),
                 name='limit_amount_positive'
+            ),
+            models.UniqueConstraint(
+                fields=['id_budget', 'id_category'],
+                name='unique_budget_category'
             )
         ]
 
