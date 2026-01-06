@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',  # Necessário para o django-allauth
+    
+    'django.contrib.humanize',
 
     # Django REST Framework
     'rest_framework',
