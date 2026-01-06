@@ -1,0 +1,50 @@
+<!-- frontend/templates/financial_goals/goals.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/financial_goals/goals.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="goals-container">
+
+    <header class="goals-header">
+        <h1>🎯 Metas Financeiras</h1>
+        <button id="openGoalModal" class="btn-primary">
+            + Nova Meta
+        </button>
+    </header>
+
+    <div id="goalsList" class="goals-grid"></div>
+
+</section>
+
+<div id="goalModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Criar nova meta</h2>
+
+        <form id="goalForm">
+            <input type="text" name="name" placeholder="Nome da meta" required />
+            <input type="number" name="target_amount" placeholder="Valor alvo" required />
+            <input type="date" name="deadline" required />
+
+            <select name="strategy" required>
+                <option value="">Estratégia</option>
+                <option value="SAVE">Poupar</option>
+                <option value="INVEST">Investir</option>
+                <option value="SPEND">Gastar</option>
+                <option value="DEBT_PAYOFF">Quitar dívida</option>
+            </select>
+
+            <div class="modal-actions">
+                <button type="submit" class="btn-primary">Salvar</button>
+                <button type="button" id="closeGoalModal" class="btn-secondary">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'js/financial_goals/goals.js' %}"></script>
+{% endblock %}
