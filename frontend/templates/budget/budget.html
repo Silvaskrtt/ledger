@@ -1,44 +1,67 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}Orçamento Mensal - Ledger{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/budget/budget.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<section class="goals-header">
+<section class="budget-header">
     <h2>Orçamento Mensal</h2>
-    <button id="openGoalModal" class="btn-primary">+ Nova Meta</button>
+    <button id="openBudgetModal" class="btn-primary">+ Nova Meta</button>
 </section>
 
-<section class="goals-list">
-    {% for limit in limits %}
-    <div class="goal-card">
-        <div class="goal-header">
-            <h3>{{ limit.id_category.name }}</h3>
-            <span>R$ {{ limit.spent }} / R$ {{ limit.limit_amount }}</span>
-        </div>
+<section class="budget-list">
+    {% if limits %}
+        {% for limit in limits %}
+        <div class="budget-card">
+            <div class="budget-header">
+                <h3>{{ limit.id_category.name }}</h3>
+                <span class="budget-amount">R$ {{ limit.spent|floatformat:2 }} / R$ {{ limit.limit_amount|floatformat:2 }}</span>
+            </div>
 
-        <div class="goal-progress">
-            <div class="progress-bar purple"
-                 style="width: {{ limit.percent }}%"></div>
-        </div>
+            <div class="budget-progress">
+                <div class="progress-bar 
+                    {% if limit.percent > 90 %}danger
+                    {% elif limit.percent > 75 %}warning
+                    {% else %}success{% endif %}"
+                     style="width: {% if limit.percent > 100 %}100{% else %}{{ limit.percent }}{% endif %}%">
+                </div>
+            </div>
 
-        <div class="goal-footer">
-            <span>{{ limit.percent }}% utilizado</span>
-            <span>R$ {{ limit.remaining }} restantes</span>
+            <div class="budget-footer">
+                <span class="budget-percent">
+                    {% if limit.percent > 100 %}
+                        <span class="text-danger">{{ limit.percent|floatformat:1 }}% (excedido)</span>
+                    {% else %}
+                        {{ limit.percent|floatformat:1 }}% utilizado
+                    {% endif %}
+                </span>
+                <span class="budget-remaining">
+                    {% if limit.remaining < 0 %}
+                        <span class="text-danger">R$ {{ limit.remaining|floatformat:2 }} excedido</span>
+                    {% else %}
+                        R$ {{ limit.remaining|floatformat:2 }} restantes
+                    {% endif %}
+                </span>
+            </div>
         </div>
-    </div>
-    {% empty %}
-        <p class="empty">Nenhuma meta cadastrada.</p>
-    {% endfor %}
+        {% endfor %}
+    {% else %}
+        <div class="empty-state">
+            <p class="empty">Nenhuma meta de orçamento cadastrada.</p>
+            <p class="empty-hint">Clique em "+ Nova Meta" para começar.</p>
+        </div>
+    {% endif %}
 </section>
 
-{% include "budget/budget_modal.html" %}
-
-{% block extra_js %}
-<script src="{% static 'js/budget/budget.js' %}"></script>
 {% endblock %}
 
+{% block extra_js %}
+<!-- O modal é incluído aqui, fora do block content -->
+{% include "budget/budget_modal.html" %}
+<script src="{% static 'js/budget/budget.js' %}"></script>
 {% endblock %}
