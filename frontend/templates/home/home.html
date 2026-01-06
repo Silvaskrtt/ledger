@@ -1,4 +1,26 @@
 <!-- frontend/templates/home/home.html -->
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
+
+{% block content %}
+<section class="dashboard">
+
+  <div class="card green">
+    <p>Entradas do Mês</p>
+    <h2>R$ {{ entradas_mes|floatformat:2|intcomma }}</h2>
+  </div>
+
+  <div class="card red">
+    <p>Saídas do Mês</p>
+    <h2>R$ {{ saidas_mes|floatformat:2|intcomma }}</h2>
+  </div>
+
+  <div class="card green">
+    <p>Saldo Atual</p>
+    <h2>R$ {{ saldo_atual|floatformat:2|intcomma }}</h2>
+  </div>
+
+</section>
+{% endblock %}
