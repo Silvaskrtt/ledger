@@ -1,24 +1,53 @@
-<div class="modal-overlay" id="goalModal">
+<!-- frontend/templates/budget/budget_modal.html -->
+<div class="modal-overlay" id="budgetModal" style="display: none;">
     <div class="modal">
-        <h3>Nova Meta</h3>
-
-        <form id="goalForm">
+        <div class="modal-header">
+            <h3>Nova Meta de Orçamento</h3>
+            <button type="button" class="modal-close" id="closeBudgetModal">&times;</button>
+        </div>
+        
+        <form id="budgetForm" method="post">
             {% csrf_token %}
-
-            <label>Categoria</label>
-            <select name="id_category" required>
-                {% for category in categories %}
-                <option value="{{ category.id }}">{{ category.name }}</option>
-                {% endfor %}
-            </select>
-
-            <label>Valor da Meta</label>
-            <input type="number" name="limit_amount" step="0.01" required>
-
-            <button type="submit" class="btn-primary">Salvar</button>
-            <button type="button" id="closeGoalModal" class="btn-secondary">
-                Cancelar
-            </button>
+            
+            <div class="form-group">
+                <label for="id_category">Categoria *</label>
+                <select name="id_category" id="id_category" required>
+                    <option value="">Selecione uma categoria</option>
+                    {% for category in categories %}
+                    <option value="{{ category.id_category }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="limit_amount">Valor da Meta (R$) *</label>
+                <input type="number" 
+                       name="limit_amount" 
+                       id="limit_amount" 
+                       step="0.01" 
+                       min="0.01" 
+                       placeholder="Ex: 1000.00" 
+                       required>
+                <small class="form-hint">Valor máximo para gastos nesta categoria</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="month">Mês</label>
+                <input type="month" 
+                       name="month" 
+                       id="month" 
+                       value="{{ current_year }}-{{ current_month|stringformat:'02d' }}">
+                <small class="form-hint">Deixe em branco para orçamento mensal recorrente</small>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">
+                    <span class="btn-text">Salvar Meta</span>
+                </button>
+                <button type="button" id="cancelBudgetModal" class="btn-secondary">
+                    Cancelar
+                </button>
+            </div>
         </form>
     </div>
 </div>
