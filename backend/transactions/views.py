@@ -114,6 +114,15 @@ class TransactionListCreateView(generics.ListCreateAPIView):
                 role='source' if transaction_obj.direction == 'OUT' else 'destination'
             )
             
+            account = Account.objects.get(id=account_id)
+
+            if transaction_obj.direction == 'OUT':
+                account.balance -= transaction_obj.amount
+            else:
+                account.balance += transaction_obj.amount
+
+            account.save()
+            
             for tag_uuid in tags:
                 try:
                     TransactionTag.objects.create(
