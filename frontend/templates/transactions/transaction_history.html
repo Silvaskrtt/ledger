@@ -60,27 +60,12 @@
             {% for transaction in transactions %}
             <div class="transaction-row">
 
-                <!-- Debug (opcional, pode remover depois) -->
-                <!--
-                <div style="color: red; font-size: 12px; margin-bottom: 10px;">
-                    <p>Transação ID: {{ transaction.id_transaction }}</p>
-                    <p>Número de Contas Relacionadas: {{ transaction.transaction_accounts.count }}</p>
-                    {% for ta in transaction.transaction_accounts.all %}
-                        <p>Conta {{ forloop.counter }}: 
-                            ID: {{ ta.id_account.id }} 
-                            Nome: {{ ta.id_account.name }}
-                            Tipo: {{ ta.id_account.get_type_display }}
-                        </p>
-                    {% endfor %}
-                </div>
-                -->
-
                 <!-- Infos -->
                 <div class="transaction-info">
                     <div class="transaction-title">
                         {{ transaction.id_category.name }}
                         <span class="transaction-category">
-                            ({{ transaction.id_category.id|slice:":8" }})
+                            {{ transaction.id_category.id|slice:":8" }}
                         </span>
                     </div>
 
