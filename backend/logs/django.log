@@ -4354,3 +4354,24 @@ C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
 Watching for file changes with StatReloader
+"GET /goals/ HTTP/1.1" 200 5910
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 453
+"GET / HTTP/1.1" 200 6022
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/home/home.css HTTP/1.1" 200 1508
+"GET /transactions/new/ HTTP/1.1" 200 12625
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 6022
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
