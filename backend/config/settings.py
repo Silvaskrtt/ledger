@@ -19,13 +19,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # =====================================================
 
 # Chave secreta do Django (NUNCA usar esta em produção)
-SECRET_KEY = 'django-insecure-c#!9a6+!yxdl^n4)du%qjeheh$g7nw3w8pi8n@#(&iukp)2x4x'
+SECRET_KEY = os.getenv('SECRET_KEY')
+# Se não houver, gerar nova:
+if not SECRET_KEY:
+    from django.core.management.utils import get_random_secret_key
+    SECRET_KEY = get_random_secret_key()
 
 # Debug ativado apenas em ambiente de desenvolvimento
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Usar variável de ambiente
 
 # Hosts permitidos (vazio em desenvolvimento)
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 # =====================================================
 # Aplicações instaladas
@@ -214,11 +218,11 @@ STATICFILES_DIRS = [
 # =====================================================
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 25,

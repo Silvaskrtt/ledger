@@ -1,3 +1,5 @@
+# backend/recurrence/urls.py
+
 from django.urls import path
 from .views import RecurrenceRuleListCreateView, RecurrenceRuleDetailView
 

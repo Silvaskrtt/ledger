@@ -12,8 +12,15 @@ import logging
 import uuid
 
 # Model imports
-from .models import Transaction, TransactionAccount, TransactionTag, Category, PaymentMethod, Account, Tag
+from recurrence.models import RecurrenceRule
+from transactions.models import Transaction, TransactionAccount, TransactionTag
+from categories.models import Category
+from payments.models import PaymentMethod
+from accounts.models import Account
+from tags.models import Tag
 from .serializers import TransactionCreateSerializer, TransactionUpdateSerializer, TransactionAccountSerializer, TransactionTagSerializer
+from .services.transaction_service import create_transaction_service
+from recurrence.services.recurrence_service import process_pending_recurrences
 
 # Configuração do logger para este módulo
 logger = logging.getLogger(__name__)
@@ -36,8 +43,8 @@ class CreateTransactionView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         
         # Dados para preencher os selects do formulário
-        context['categories'] = Category.objects.all()
-        context['payment_methods'] = PaymentMethod.objects.all()
+        context['categories'] = Category.objects.filter(id_user=self.request.user)
+        context['payment_methods'] = PaymentMethod.objects.filter(id_user=self.request.user)
         context['accounts'] = Account.objects.filter(user=self.request.user)
         context['tags'] = Tag.objects.filter(id_user=self.request.user)
         
@@ -93,20 +100,17 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
                 # Tenta filtrar por UUID
                 category_uuid_obj = uuid.UUID(category_uuid)
                 transactions = transactions.filter(id_category_id=category_uuid_obj)
-                print(f"DEBUG - Filtrando por categoria UUID: {category_uuid_obj}")
-                print(f"DEBUG - Transações após filtro: {transactions.count()}")
-            except (ValueError, AttributeError) as e:
-                print(f"DEBUG - Erro no UUID da categoria: {e}")
+            except (ValueError, AttributeError):
                 # Fallback: filtra por nome contendo a string
                 transactions = transactions.filter(id_category__name__icontains=category_uuid)
 
         # Contexto para renderização do template
         context = {
             "transactions": transactions,
-            "categories": Category.objects.all(),
+            "categories": Category.objects.filter(id_user=self.request.user),
             "accounts": Account.objects.filter(user=request.user),
             "tags": Tag.objects.filter(id_user=request.user),
-            "payment_methods": PaymentMethod.objects.all(),
+            "payment_methods": PaymentMethod.objects.filter(id_user=self.request.user),
             "start": start or "",  # Mantém valores dos filtros no template
             "end": end or "",
             "selected_category": category_uuid or "",
@@ -151,58 +155,78 @@ class TransactionListCreateView(generics.ListCreateAPIView):
             )
             serializer.is_valid(raise_exception=True)
             
-            # Extrai dados validados
-            validated_data = serializer.validated_data.copy()
-            category_instance = validated_data.pop('id_category')
-            payment_method_instance = validated_data.pop('id_payment_method')
-            account_id = validated_data.pop('id_account')
-            tags = validated_data.pop('tags', [])
+            # O serializer já chama o serviço
+            result = serializer.save()
             
-            # Bloqueio da conta para evitar condições de corrida
-            account = Account.objects.select_for_update().get(id=account_id)
+            # Formata resposta baseada no tipo
+            response_data = {
+                'success': True,
+                'message': result['message'],
+                'type': result['type']
+            }
             
-            # Criação da transação principal
-            transaction_obj = Transaction.objects.create(
-                id_user=request.user,
-                id_category=category_instance,
-                id_payment_method=payment_method_instance,
-                **validated_data
+            # Adiciona dados específicos
+            if result['type'] == 'INSTALLMENT':
+                data = result['data']
+                response_data.update({
+                    'installment_plan_id': str(data['installment_plan'].id_installment_plan),
+                    'installments': data['installment_plan'].installments,
+                    'installment_amount': float(data['installment_amount']),
+                    'total_with_interest': float(data['total_with_interest']),
+                    'transactions_created': len(data['transactions'])
+                })
+            elif result['type'] == 'RECURRENT':
+                rule = result['data']
+                response_data.update({
+                    'recurrence_rule_id': str(rule.id_recurrence_rule),
+                    'frequency': rule.frequency,
+                    'next_execution': rule.next_execution,
+                    'max_executions': rule.max_executions
+                })
+            else:  # MANUAL
+                transaction = result['data']
+                response_data.update({
+                    'transaction_id': str(transaction.id_transaction),
+                    'amount': float(transaction.amount),
+                    'direction': transaction.direction
+                })
+            
+            return Response(response_data, status=status.HTTP_201_CREATED)
+            
+        except ValueError as e:
+            # Erros de validação do serviço
+            logger.error(f"Erro de validação: {str(e)}")
+            return Response(
+                {'detail': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
             )
-            
-            # Cria relação transação-conta com role apropriado
-            TransactionAccount.objects.create(
-                id_transaction=transaction_obj,
-                id_account_id=account_id,
-                role='source' if transaction_obj.direction == 'OUT' else 'destination'
-            )
-            
-            # Atualização do saldo da conta (função externa)
-            recalculate_account_balance(account)
-            
-            # Associação de tags à transação
-            for tag_uuid in tags:
-                try:
-                    TransactionTag.objects.create(
-                        id_transaction=transaction_obj,
-                        id_tag_id=tag_uuid
-                    )
-                except Exception as e:
-                    logger.warning(f"Erro ao relacionar tag {tag_uuid}: {e}")
-            
-            # Resposta de sucesso
-            return Response({
-                'id_transaction': str(transaction_obj.id_transaction),
-                'message': 'Transação criada com sucesso'
-            }, status=status.HTTP_201_CREATED)
-            
         except Exception as e:
-            # Log e tratamento de erros
-            logger.error(f"Erro ao criar transação: {str(e)}")
+            logger.error(f"Erro ao criar transação: {str(e)}", exc_info=True)
             return Response(
                 {'detail': 'Erro ao processar a transação. Tente novamente.'},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
+class ProcessRecurrencesView(generics.GenericAPIView):
+    """
+    Endpoint para processar recorrências pendentes.
+    Usar com cron job.
+    """
+    permission_classes = []  # Ajuste conforme sua autenticação
+    
+    def post(self, request):
+        try:
+            count = process_pending_recurrences()
+            return Response({
+                'processed_count': count,
+                'message': f'{count} transações recorrentes processadas'
+            }, status=status.HTTP_200_OK)
+        except Exception as e:
+            logger.error(f"Erro ao processar recorrências: {str(e)}")
+            return Response(
+                {'detail': 'Erro ao processar recorrências'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
 class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
     """

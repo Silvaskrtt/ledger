@@ -17,7 +17,7 @@ from rest_framework.permissions import IsAuthenticated
 @login_required
 def budget_view(request):
     return render(request, 'budget/budget.html', {
-        'categories': Category.objects.all()
+        'categories': Category.objects.filter(id_user=request.user)
     })
 
 class BudgetOverviewAPIView(generics.ListAPIView):

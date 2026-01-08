@@ -1,4 +1,6 @@
-﻿import uuid
+﻿# backend/recurrence/models.py
+
+import uuid
 from django.db import models
 from categories.models import Category
 from django.contrib.auth.models import User
@@ -9,12 +11,13 @@ from django.db.models import Q, CheckConstraint
 
 class RecurrenceRule(models.Model):
     FREQUENCY_CHOICES = [
-        ('DAILY', 'Daily'),
-        ('WEEKLY', 'Weekly'),
-        ('BIWEEKLY', 'Biweekly'),
-        ('MONTHLY', 'Monthly'),
-        ('QUARTERLY', 'Quarterly'),
-        ('YEARLY', 'Yearly'),
+        ('DAILY', 'Diário'),
+        ('WEEKLY', 'Semanal'),
+        ('BIWEEKLY', 'Quinzenal'),
+        ('MONTHLY', 'Mensal'),
+        ('QUARTERLY', 'Trimestral'),
+        ('SEMIANNUAL', 'Semestral'),
+        ('ANNUAL', 'Anual'),
     ]
 
     DIRECTION_CHOICES = [
@@ -31,6 +34,9 @@ class RecurrenceRule(models.Model):
     frequency = models.CharField(max_length=50, choices=FREQUENCY_CHOICES)
     next_execution = models.DateField()
     max_executions = models.IntegerField(null=True, blank=True)
+    executions_count = models.IntegerField(default=0)
+    amount = models.DecimalField(max_digits=14, decimal_places=2)
+    direction = models.CharField(max_length=50, choices=DIRECTION_CHOICES)
     
     class Meta:
         verbose_name = "Recurrence Rule"
@@ -42,26 +48,26 @@ class RecurrenceRule(models.Model):
             )
         ]
     
-    executions_count = models.IntegerField(default=0)
-    amount = models.DecimalField(max_digits=14, decimal_places=2)
-    direction = models.CharField(max_length=50, choices=DIRECTION_CHOICES)
     
     id_user = models.ForeignKey(
-        User,
+        to=User,
         on_delete=models.CASCADE,
         related_name='recurrence_rules')
 
     id_category = models.ForeignKey(
-        Category,
+        to=Category,
         on_delete=models.CASCADE,
         related_name='recurrence_rules')
 
     id_payment_method = models.ForeignKey(
-        PaymentMethod,
+        to=PaymentMethod,
         on_delete=models.CASCADE,
         related_name='recurrence_rules')
 
     id_account = models.ForeignKey(
-        Account,
+        to=Account,
         on_delete=models.CASCADE,
         related_name='recurrence_rules')
+
+    def __str__(self):
+        return f"{self.get_frequency_display()} - R${self.amount} ({self.get_direction_display()})"

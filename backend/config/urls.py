@@ -6,6 +6,7 @@ Arquitetura:
 - Cada app é responsável por expor suas próprias URLs
 - Rotas Web (HTML) ficam separadas das rotas de API
 """
+# backend/config/urls.py
 
 from django.contrib import admin
 from django.urls import path, include

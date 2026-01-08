@@ -52,18 +52,6 @@ class InstallmentPlan(models.Model):
     
     total_amount = models.DecimalField(max_digits=14, decimal_places=2)
     # Constraints to ensure total_amount is positive and below a certain limit
-    class Meta:
-        verbose_name = "Installment Plan"
-        verbose_name_plural = "Installment Plans"
-        constraints = [
-            CheckConstraint(condition=Q(total_amount__gt=0), name='total_amount_positive'),
-            CheckConstraint(condition=Q(total_amount__lt=10000), name='total_amount_max_limit'),
-            CheckConstraint(condition=Q(installments__gt=0), name='installments_positive'),
-            CheckConstraint(condition=Q(installments__lte=36), name='installments_max_limit'),
-        ]
-        
-    def __str__(self):
-        return f"Total: {self.total_amount}"
     
     installments = models.IntegerField()   
     start_date = models.DateField(default=timezone.now)
@@ -82,3 +70,16 @@ class InstallmentPlan(models.Model):
         Category,
         on_delete=models.CASCADE,
         related_name='installment_plans')
+
+    class Meta:
+        verbose_name = "Installment Plan"
+        verbose_name_plural = "Installment Plans"
+        constraints = [
+            CheckConstraint(condition=Q(total_amount__gt=0), name='total_amount_positive'),
+            CheckConstraint(condition=Q(total_amount__lt=10000), name='total_amount_max_limit'),
+            CheckConstraint(condition=Q(installments__gt=0), name='installments_positive'),
+            CheckConstraint(condition=Q(installments__lte=36), name='installments_max_limit'),
+        ]
+        
+    def __str__(self):
+        return f"Total: {self.total_amount}"

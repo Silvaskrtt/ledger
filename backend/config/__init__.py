@@ -18,7 +18,6 @@ class PatchConfig(AppConfig):
         # Tenta desregistrar o User padrão se já estiver registrado
         try:
             admin.site.unregister(User)
-            print("✓ User padrão desregistrado do admin")
         except admin.sites.NotRegistered:
             # Se não estiver registrado, não faz nada
             pass

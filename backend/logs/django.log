@@ -4375,3 +4375,1505 @@ Watching for file changes with StatReloader
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+"GET / HTTP/1.1" 200 7401
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14087
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14087
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\recurrence_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\installment_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\services\recurrence_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7401
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/global.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+"GET /transactions/new/ HTTP/1.1" 200 14087
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14144
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14144
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 7430
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 9039
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+"GET /transactions/new/ HTTP/1.1" 200 14144
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14144
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14550
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14550
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8882
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 15165
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7583
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6318
+"GET /static/js/budget/budget.js HTTP/1.1" 200 7963
+"GET /goals/ HTTP/1.1" 200 5910
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 304 0
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 453
+"GET / HTTP/1.1" 200 7401
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14550
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Erro ao criar transação: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 158, in create
+    result = serializer.save()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\serializers.py", line 171, in create
+    result = create_transaction_service(
+        user=request.user,
+    ...<5 lines>...
+        **validated_data
+    )
+TypeError: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /admin/ HTTP/1.1" 200 28018
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/css/base.css HTTP/1.1" 200 23100
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+"GET /transactions/new/ HTTP/1.1" 200 14550
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /admin/transactions/transactionaccount/ HTTP/1.1" 200 28431
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/img/search.svg HTTP/1.1" 200 607
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+"GET /admin/transactions/transaction/ HTTP/1.1" 200 34223
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14550
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14550
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Erro ao criar transação: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 158, in create
+    result = serializer.save()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\serializers.py", line 171, in create
+    result = create_transaction_service(
+        user=request.user,
+    ...<5 lines>...
+        **validated_data
+    )
+TypeError: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+Erro ao criar transação: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 158, in create
+    result = serializer.save()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\serializers.py", line 171, in create
+    result = create_transaction_service(
+        user=request.user,
+    ...<5 lines>...
+        **validated_data
+    )
+TypeError: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /transactions/new/ HTTP/1.1" 200 14550
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+"GET /admin/transactions/transaction/ HTTP/1.1" 200 34223
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/transactions/transaction/ HTTP/1.1" 200 34223
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8882
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 15165
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8882
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 15165
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5489
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 10219
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 18342
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 10219
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 18342
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+Erro ao criar transação: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 158, in create
+    result = serializer.save()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\serializers.py", line 175, in create
+    result = create_transaction_service(
+        user=request.user,
+    ...<5 lines>...
+        **validated_data
+    )
+TypeError: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7583
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Erro ao criar transação: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 158, in create
+    result = serializer.save()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\serializers.py", line 175, in create
+    result = create_transaction_service(
+        user=request.user,
+    ...<5 lines>...
+        **validated_data
+    )
+TypeError: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+Erro ao criar transação: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 158, in create
+    result = serializer.save()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\serializers.py", line 175, in create
+    result = create_transaction_service(
+        user=request.user,
+    ...<5 lines>...
+        **validated_data
+    )
+TypeError: create_transaction_service() got an unexpected keyword argument 'id_category'. Did you mean 'category'?
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 18342
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 10219
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+Erro ao criar transação: cannot access local variable 'account' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 158, in create
+    result = serializer.save()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\serializers.py", line 175, in create
+    result = create_transaction_service(
+        user=request.user,
+    ...<5 lines>...
+        **validated_data
+    )
+  File "C:\Users\muril\ledger\backend\transactions\services\transaction_service.py", line 114, in create_transaction_service
+    account = Account.objects.select_for_update().get(id=account.id)
+                                                         ^^^^^^^
+UnboundLocalError: cannot access local variable 'account' where it is not associated with a value
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7583
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\installment_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\installment_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 10219
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 18342
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+Erro ao criar transação: cannot access local variable 'account' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 158, in create
+    result = serializer.save()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\serializers.py", line 175, in create
+    result = create_transaction_service(
+        user=request.user,
+    ...<5 lines>...
+        **validated_data
+    )
+  File "C:\Users\muril\ledger\backend\transactions\services\transaction_service.py", line 123, in create_transaction_service
+    account = Account.objects.select_for_update().get(id=account.id)
+                                                         ^^^^^^^
+UnboundLocalError: cannot access local variable 'account' where it is not associated with a value
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 7401
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14569
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16582
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7583
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\recurrence\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7401
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9466
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+"GET /budget/ HTTP/1.1" 200 7583
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6318
+"GET /static/js/budget/budget.js HTTP/1.1" 200 7963
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedColumn: column accounts_account.id_account does not exist
+LINE 1: SELECT "accounts_account"."id_account", "accounts_account"."...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 118, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 202, in render
+    len_values = len(values)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2002, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1369, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2451, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2626, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: column accounts_account.id_account does not exist
+LINE 1: SELECT "accounts_account"."id_account", "accounts_account"."...
+               ^
+"GET /transactions/list/ HTTP/1.1" 500 265074
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7401
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedColumn: column accounts_account.id_account does not exist
+LINE 1: SELECT "accounts_account"."id_account", "accounts_account"."...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 118, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 202, in render
+    len_values = len(values)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2002, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1369, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2451, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2626, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: column accounts_account.id_account does not exist
+LINE 1: SELECT "accounts_account"."id_account", "accounts_account"."...
+               ^
+"GET /transactions/list/ HTTP/1.1" 500 265067
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedColumn: column accounts_account.id_account does not exist
+LINE 1: SELECT "accounts_account"."id_account", "accounts_account"."...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 118, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 202, in render
+    len_values = len(values)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2002, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1369, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2451, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2626, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: column accounts_account.id_account does not exist
+LINE 1: SELECT "accounts_account"."id_account", "accounts_account"."...
+               ^
+"GET /transactions/list/ HTTP/1.1" 500 265332
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5378
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedColumn: column accounts_account.id_account does not exist
+LINE 1: SELECT "accounts_account"."id_account", "accounts_account"."...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 118, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 202, in render
+    len_values = len(values)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2002, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1369, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2451, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2626, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: column accounts_account.id_account does not exist
+LINE 1: SELECT "accounts_account"."id_account", "accounts_account"."...
+               ^
+"GET /transactions/list/ HTTP/1.1" 500 265204
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedFunction: operator does not exist: bigint = uuid
+LINE 1: ...accounts_account" WHERE ("accounts_account"."id") IN (('0000...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 118, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 202, in render
+    len_values = len(values)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2002, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1369, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2451, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2626, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: operator does not exist: bigint = uuid
+LINE 1: ...accounts_account" WHERE ("accounts_account"."id") IN (('0000...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+"GET /transactions/list/ HTTP/1.1" 500 293373
+Watching for file changes with StatReloader
+Internal Server Error: /transactions/list/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedFunction: operator does not exist: bigint = uuid
+LINE 1: ...accounts_account" WHERE ("accounts_account"."id") IN (('0000...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 118, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 202, in render
+    len_values = len(values)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2002, in _fetch_all
+    self._prefetch_related_objects()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1369, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2451, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ~~~~~~~~~~~~~~~~~~^
+        obj_to_fetch,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        level,
+        ^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2626, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: operator does not exist: bigint = uuid
+LINE 1: ...accounts_account" WHERE ("accounts_account"."id") IN (('0000...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+"GET /transactions/list/ HTTP/1.1" 500 293373
+Watching for file changes with StatReloader
+"GET /transactions/list/ HTTP/1.1" 200 16402
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET / HTTP/1.1" 200 7401
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Internal Server Error: /transactions/new/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 229, in get
+    context = self.get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 48, in get_context_data
+    context['accounts'] = Account.objects.filter(id_user=self.request.user)
+                          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_user' into field. Choices are: balance, created_at, id_account, installment_plans, name, recurrence_rules, transaction_accounts, transactions_from, transactions_to, type, updated_at, user, user_id
+"GET /transactions/new/ HTTP/1.1" 500 140407
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /transactions/new/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 229, in get
+    context = self.get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 48, in get_context_data
+    context['accounts'] = Account.objects.filter(id_user=self.request.user)
+                          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_user' into field. Choices are: balance, created_at, id_account, installment_plans, name, recurrence_rules, transaction_accounts, transactions_from, transactions_to, type, updated_at, user, user_id
+"GET /transactions/new/ HTTP/1.1" 500 140544
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 14113
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 10219
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 200 16855
+"GET / HTTP/1.1" 200 7401
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14113
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16402
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7583
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 5910
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 200 1471
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 200 2270
+"GET /api/financial-goals/ HTTP/1.1" 200 453
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 14113
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14545
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Erro ao criar transação: {'id_account': [ErrorDetail(string='Invalid pk "52457965" - object does not exist.', code='does_not_exist')], 'tags': [ErrorDetail(string='Invalid pk "2d9eb0d7-9402-4628-a4d4-28fefc133a11" - object does not exist.', code='does_not_exist')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 156, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'id_account': [ErrorDetail(string='Invalid pk "52457965" - object does not exist.', code='does_not_exist')], 'tags': [ErrorDetail(string='Invalid pk "2d9eb0d7-9402-4628-a4d4-28fefc133a11" - object does not exist.', code='does_not_exist')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /budget/ HTTP/1.1" 200 7583
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 5910
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 453
+"GET /transactions/list/ HTTP/1.1" 200 16402
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14545
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16402
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 16402
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14545
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Erro ao criar transação: {'id_account': [ErrorDetail(string='Invalid pk "52457965" - object does not exist.', code='does_not_exist')], 'tags': [ErrorDetail(string='Invalid pk "eae17c8a-7c6e-43ee-abfc-570d42086439" - object does not exist.', code='does_not_exist')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 156, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'id_account': [ErrorDetail(string='Invalid pk "52457965" - object does not exist.', code='does_not_exist')], 'tags': [ErrorDetail(string='Invalid pk "eae17c8a-7c6e-43ee-abfc-570d42086439" - object does not exist.', code='does_not_exist')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 14545
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Erro ao criar transação: {'id_account': [ErrorDetail(string='Invalid pk "9" - object does not exist.', code='does_not_exist')], 'tags': [ErrorDetail(string='Invalid pk "eae17c8a-7c6e-43ee-abfc-570d42086439" - object does not exist.', code='does_not_exist')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 156, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'id_account': [ErrorDetail(string='Invalid pk "9" - object does not exist.', code='does_not_exist')], 'tags': [ErrorDetail(string='Invalid pk "eae17c8a-7c6e-43ee-abfc-570d42086439" - object does not exist.', code='does_not_exist')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 14549
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 17900
+Erro ao criar transação: {'tags': [ErrorDetail(string='Invalid pk "eae17c8a-7c6e-43ee-abfc-570d42086439" - object does not exist.', code='does_not_exist')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 156, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'tags': [ErrorDetail(string='Invalid pk "eae17c8a-7c6e-43ee-abfc-570d42086439" - object does not exist.', code='does_not_exist')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 14549
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Erro ao criar transação: {'tags': [ErrorDetail(string='Invalid pk "eae17c8a-7c6e-43ee-abfc-570d42086439" - object does not exist.', code='does_not_exist')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 156, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'tags': [ErrorDetail(string='Invalid pk "eae17c8a-7c6e-43ee-abfc-570d42086439" - object does not exist.', code='does_not_exist')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62

@@ -1,108 +1,205 @@
-# serializers.py
+# backend/transactions/serializers.py
+
 from rest_framework import serializers
+from django.utils import timezone
+from decimal import Decimal
 from .models import Transaction, TransactionAccount, TransactionTag
 from django.utils import timezone
+from recurrence.models import RecurrenceRule
 from categories.models import Category
 from payments.models import PaymentMethod
 from accounts.models import Account
 from tags.models import Tag
+from .services.transaction_service import create_transaction_service
 
 class TransactionCreateSerializer(serializers.ModelSerializer):
-    id_account = serializers.IntegerField(write_only=True)
-    id_category = serializers.UUIDField(write_only=True)
-    id_payment_method = serializers.UUIDField(write_only=True)
-    tags = serializers.ListField(
-        child=serializers.UUIDField(),
-        required=False,
-        default=[]
+    """
+    Serializer unificado para criação de transações.
+    Suporta: Manual, Parcelado, Recorrente
+    """
+    # Campos básicos (comuns a todos os tipos)
+    id_category = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.none(),
+        write_only=True
     )
-
+    id_payment_method = serializers.PrimaryKeyRelatedField(
+        queryset=PaymentMethod.objects.none(),
+        write_only=True
+    )
+    id_account = serializers.PrimaryKeyRelatedField(
+        queryset=Account.objects.none(),
+        write_only=True 
+    )
+    amount = serializers.DecimalField(
+        max_digits=14, 
+        decimal_places=2,
+        min_value=Decimal('0.01')
+    )
+    currency = serializers.ChoiceField(
+        choices=['BRL', 'USD', 'EUR'],
+        default='BRL'
+    )
+    direction = serializers.ChoiceField(
+        choices=['IN', 'OUT']
+    )
+    origin = serializers.ChoiceField(
+        choices=['MANUAL', 'INSTALLMENT', 'RECURRENT'],
+        default='MANUAL'
+    )
+    occurred_at = serializers.DateTimeField(
+        default=timezone.now
+    )
+    tags = serializers.PrimaryKeyRelatedField(
+        queryset=Tag.objects.none(),
+        many=True,
+        required=False,
+        write_only=True
+    )
+    description = serializers.CharField(
+        max_length=255,
+        required=False,
+        allow_blank=True,
+        help_text="Descrição da transação"
+    )
+    
+    # Campos específicos para parcelamento
+    installments = serializers.IntegerField(
+        min_value=2,
+        max_value=360,
+        required=False,
+        write_only=True,
+        help_text="Número de parcelas (apenas para origin='INSTALLMENT')"
+    )
+    interest_rate = serializers.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        min_value=Decimal('0'),
+        max_value=Decimal('100'),
+        required=False,
+        default=Decimal('0'),
+        write_only=True,
+        help_text="Taxa de juros mensal em % (0 para sem juros)"
+    )
+    
+    # Campos específicos para recorrência
+    recurrence_frequency = serializers.ChoiceField(
+        choices=[
+            ('DAILY', 'Diário'),
+            ('WEEKLY', 'Semanal'),
+            ('BIWEEKLY', 'Quinzenal'),
+            ('MONTHLY', 'Mensal'),
+            ('QUARTERLY', 'Trimestral'),
+            ('SEMIANNUAL', 'Semestral'),
+            ('ANNUAL', 'Anual'),
+        ],
+        required=False,
+        write_only=True,
+        help_text="Frequência (apenas para origin='RECURRENT')"
+    )
+    max_recurrences = serializers.IntegerField(
+        min_value=1,
+        required=False,
+        write_only=True,
+        help_text="Número máximo de ocorrências (opcional)"
+    )
+    
     class Meta:
         model = Transaction
         fields = [
-            'id_category',
-            'id_payment_method',
-            'amount',
-            'direction',
-            'currency',
-            'origin',    
-            'occurred_at',
-            'id_account',
-            'tags'
+            'id_category', 'id_payment_method', 'id_account', 'amount',
+            'currency', 'direction', 'origin', 'occurred_at', 'tags',
+            'installments', 'interest_rate', 'recurrence_frequency',
+            'max_recurrences', 'description'
         ]
-        read_only_fields = ['id_user']  # Será definido na view
+
+        read_only_fields = ['id_transaction', 'created_at']
         
-    def validate_id_category(self, value):
-        try:
-            # Verificar se o UUID é válido e se a categoria existe
-            category = Category.objects.get(id_category=value)
-            return category  # Retorna a instância, não o UUID
-        except Category.DoesNotExist:
-            raise serializers.ValidationError("Categoria não encontrada")
-        except Exception as e:
-            raise serializers.ValidationError(f"ID da categoria inválido: {str(e)}")
-        
-    def validate_id_payment_method(self, value):
-        try:
-            # Verificar se o UUID é válido e se o método existe
-            payment_method = PaymentMethod.objects.get(id_payment_method=value)
-            return payment_method  # Retorna a instância, não o UUID
-        except PaymentMethod.DoesNotExist:
-            raise serializers.ValidationError("Método de pagamento não encontrado")
-        except Exception as e:
-            raise serializers.ValidationError(f"ID do método de pagamento inválido: {str(e)}")
-        
-    def validate_id_account(self, value):
-        try:
-            # Buscar a instância da conta
-            account = Account.objects.get(id=value)
-            return account.id  # Mantém o ID para usar depois
-        except Account.DoesNotExist:
-            raise serializers.ValidationError("Conta não encontrada")
-        except Exception as e:
-            raise serializers.ValidationError(f"ID da conta inválido: {str(e)}")
-        
-    def validate_tags(self, value):
-        valid_tags = []
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         user = self.context['request'].user
         
-        for tag_uuid in value:
-            try:
-                # Tenta encontrar a tag pelo UUID
-                tag = Tag.objects.get(id_tag=tag_uuid, id_user=user)
-                valid_tags.append(tag.id_tag)  # Mantém o UUID
-            except Tag.DoesNotExist:
-                raise serializers.ValidationError(f"Tag com ID {tag_uuid} não encontrada")
-        
-        return valid_tags
-    
-    def validate_direction(self, value):
-        if value not in ['IN', 'OUT']:
-            raise serializers.ValidationError("Direção inválida. Use 'IN' ou 'OUT'.")
-        return value
-    
-    def validate_occurred_at(self, value):
-        if value > timezone.now():
-            raise serializers.ValidationError("Data futura não permitida.")
-        return value
-    
-    def validate_origin(self, value):
-        valid_origins = ['MANUAL', 'RECURRENT', 'INSTALLMENT']
-        if value not in valid_origins:
-            raise serializers.ValidationError(f"Origem inválida. Use: {', '.join(valid_origins)}")
-        return value
-    
-    def validate_currency(self, value):
-        valid_currencies = ['BRL', 'USD', 'EUR']
-        if value not in valid_currencies:
-            raise serializers.ValidationError(f"Moeda inválida. Use: {', '.join(valid_currencies)}")
-        return value
-    
-    def validate(self, data):
-        if data['amount'] <= 0:
-            raise serializers.ValidationError({"amount": "O valor deve ser maior que zero."})
-        return data
+        # Filtrar querysets por usuário
+        self.fields['id_category'].queryset = Category.objects.filter(id_user=user)
+        self.fields['id_payment_method'].queryset = PaymentMethod.objects.filter(id_user=user)
+        self.fields['id_account'].queryset = Account.objects.filter(user=user)
+        self.fields['tags'].queryset = Tag.objects.filter(id_user=user)
 
+    def validate(self, data):
+        """Validações cruzadas entre campos."""
+        origin = data.get('origin', 'MANUAL')
+        
+        user = self.context['request'].user
+        # Validar ownership de cada campo
+        if data['id_category'].id_user != user:
+            raise serializers.ValidationError("Category não pertence ao usuário")
+        
+        # Validações para parcelamento
+        if origin == 'INSTALLMENT':
+            installments = data.get('installments')
+            if not installments:
+                raise serializers.ValidationError({
+                    "installments": "Para transação parcelada, informe o número de parcelas."
+                })
+            if installments < 1:
+                raise serializers.ValidationError({
+                    "installments": "Parcelamento requer pelo menos 1 parcelas."
+                })
+                
+            # Garantir que interest_rate tenha valor padrão 0
+            if 'interest_rate' not in data:
+                data['interest_rate'] = Decimal('0')
+        
+        # Validações para recorrência
+        if origin == 'RECURRENT':
+            if not data.get('recurrence_frequency'):
+                raise serializers.ValidationError({
+                    "recurrence_frequency": "Para transação recorrente, informe a frequência."
+                })
+        
+        # Valida que campos específicos não são usados com origem errada
+        if origin == 'MANUAL':
+            if data.get('installments'):
+                raise serializers.ValidationError({
+                    "installments": "Campo 'installments' só é válido para origin='INSTALLMENT'."
+                })
+            if data.get('recurrence_frequency'):
+                raise serializers.ValidationError({
+                    "recurrence_frequency": "Campo 'recurrence_frequency' só é válido para origin='RECURRENT'."
+                })
+        
+        # Valida data futura (pode ser permitida para agendamentos)
+        occurred_at = data.get('occurred_at', timezone.now())
+        if occurred_at > timezone.now() and origin == 'MANUAL':
+            # Pode querer permitir agendamentos, ajuste conforme necessidade
+            pass
+        
+        return data
+    
+    def create(self, validated_data):
+        """Usa o serviço para criar a transação."""
+        request = self.context['request']
+        
+        # Extrai dados específicos
+        tags = validated_data.pop('tags', [])
+        installments = validated_data.pop('installments', None)
+        interest_rate = validated_data.pop('interest_rate', Decimal('0'))
+        recurrence_frequency = validated_data.pop('recurrence_frequency', None)
+        max_recurrences = validated_data.pop('max_recurrences', None)
+        
+        # Chama o serviço unificado
+        result = create_transaction_service(
+            user=request.user,
+            tags=tags,
+            installments=installments,
+            interest_rate=interest_rate,
+            recurrence_frequency=recurrence_frequency,
+            max_recurrences=max_recurrences,
+            **validated_data
+        )
+        
+        return result
+
+# Manter os outros serializers existentes
 class TransactionUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
@@ -117,3 +214,8 @@ class TransactionTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransactionTag
         fields = ['id_transaction', 'id_tag']
+
+class RecurrenceRuleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RecurrenceRule
+        fields = '__all__'

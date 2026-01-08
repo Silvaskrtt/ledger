@@ -1,5 +1,5 @@
 ﻿import uuid
-from django.db.models import Q, CheckConstraint
+from django.db.models import Q, F, CheckConstraint, Manager
 from django.utils import timezone
 from django.db import models
 from accounts.models import Account
@@ -7,6 +7,12 @@ from categories.models import Category
 from payments.models import PaymentMethod, InstallmentPlan
 from django.contrib.auth.models import User
 from tags.models import Tag
+
+
+class NotDeletedManager(Manager):
+    """Manager que filtra apenas transações não deletadas"""
+    def get_queryset(self):
+        return super().get_queryset().filter(is_deleted=False)
 
 
 class Transaction(models.Model):
@@ -34,11 +40,29 @@ class Transaction(models.Model):
     )
     
     amount = models.DecimalField(max_digits=14, decimal_places=2)
+    
     direction = models.CharField(max_length=3, choices=DIRECTION_CHOICES)
+    
     occurred_at = models.DateTimeField(default=timezone.now)
+    
     created_at = models.DateTimeField(auto_now_add=True)
+    
     currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default='BRL')
+    
     origin = models.CharField(max_length=20, choices=ORIGIN_CHOICES)
+    
+    description = models.CharField(max_length=255, blank=True, null=True, help_text="Descrição da transação")
+    
+    installment_number = models.IntegerField(null=True, blank=True, help_text="Número da parcela (apenas para parcelamentos)")
+    
+    total_installments = models.IntegerField(null=True, blank=True, help_text="Total de parcelas (apenas para parcelamentos)")
+    
+    account_from = models.ForeignKey(Account, null=True, blank=True, on_delete=models.CASCADE, related_name='transactions_from')
+    account_to = models.ForeignKey(Account, null=True, blank=True, on_delete=models.CASCADE, related_name='transactions_to')
+    
+    deleted_at = models.DateTimeField(null=True, blank=True)
+    is_deleted = models.BooleanField(default=False)
+    
     id_user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -62,6 +86,9 @@ class Transaction(models.Model):
         blank=True
     )
     
+    # Gerenciador customizado para filtrar transações não deletadas
+    objects = NotDeletedManager()
+    
     # Constraints to ensure direction is either 'income' or 'expense' and amount is positive
     class Meta:
         verbose_name = "Transaction"
@@ -74,13 +101,45 @@ class Transaction(models.Model):
             CheckConstraint(
                 condition=Q(amount__gt=0),
                 name='amount_positive'
+            ),
+            CheckConstraint(
+                condition=(
+                    Q(installment_number__isnull=True) | 
+                    Q(installment_number__gt=0)
+                ),
+                name='valid_installment_number'
+            ),
+            CheckConstraint(
+                condition=(
+                    Q(total_installments__isnull=True) | 
+                    Q(total_installments__gt=0)
+                ),
+                name='valid_total_installments'
+            ),
+            CheckConstraint(
+                condition=(
+                    Q(installment_number__isnull=True) |
+                    Q(total_installments__isnull=True) |
+                    Q(installment_number__lte=F('total_installments'))
+                ),
+                name='installment_number_lte_total'
             )
         ]
-        
+    
+    def delete(self, *args, **kwargs):
+        self.is_deleted = True
+        self.deleted_at = timezone.now()
+        self.save()
+    
     def __str__(self):
         return f"Transaction {self.id_transaction}: {self.direction} of {self.amount} {self.currency} on {self.occurred_at}"
 
 class TransactionAccount(models.Model):
+    ROLE_CHOICES = [
+        ('source', 'Source Account'),
+        ('destination', 'Destination Account'),
+    ]
+    
     id_transaction = models.ForeignKey(
         Transaction,
         on_delete=models.CASCADE,
@@ -91,7 +150,11 @@ class TransactionAccount(models.Model):
         on_delete=models.CASCADE,
         related_name='transaction_accounts')
     
-    role = models.CharField(max_length=50)
+    role = models.CharField(
+        max_length=20,
+        choices=ROLE_CHOICES,
+        default='source'
+    )
     
     class Meta:
         verbose_name = "Transaction Account"
