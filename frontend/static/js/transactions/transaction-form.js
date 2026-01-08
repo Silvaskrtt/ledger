@@ -8,6 +8,7 @@ class TransactionForm {
         }
 
         this.tomSelectInstances = {};
+        this.dynamicFields = {};
         this.init();
     }
 
@@ -15,42 +16,68 @@ class TransactionForm {
         this.initTomSelects();
         this.setDefaults();
         this.bindEvents();
-        this.setupFormSubmit();
+        this.setupOriginDependencies();
     }
 
     initTomSelects() {
+        const baseConfig = {
+            create: false,
+            allowEmptyOption: false,
+            placeholder: 'Selecione uma opção',
+            render: {
+                option: function(data, escape) {
+                    return '<div>' + escape(data.text) + '</div>';
+                },
+                item: function(data, escape) {
+                    return '<div>' + escape(data.text) + '</div>';
+                }
+            }
+        };
+
         const selectConfigs = [
             {
                 id: 'id_account',
                 config: {
-                    create: false,
-                    sortField: { field: 'text', direction: 'asc' },
+                    ...baseConfig,
                     placeholder: 'Selecione uma conta',
-                    allowEmptyOption: false
+                    sortField: { field: 'text', direction: 'asc' }
                 }
             },
             {
                 id: 'id_category',
                 config: {
-                    create: false,
-                    placeholder: 'Selecione uma categoria',
-                    allowEmptyOption: false
+                    ...baseConfig,
+                    placeholder: 'Selecione uma categoria'
                 }
             },
             {
                 id: 'id_payment_method',
                 config: {
-                    create: false,
-                    placeholder: 'Selecione um método de pagamento',
-                    allowEmptyOption: false
+                    ...baseConfig,
+                    placeholder: 'Selecione um método de pagamento'
+                }
+            },
+            {
+                id: 'currency',
+                config: {
+                    ...baseConfig,
+                    placeholder: 'Selecione uma moeda'
+                }
+            },
+            {
+                id: 'origin',
+                config: {
+                    ...baseConfig,
+                    placeholder: 'Selecione a origem',
+                    onChange: (value) => this.onOriginChange(value)
                 }
             },
             {
                 id: 'id_tags',
                 config: {
+                    ...baseConfig,
                     plugins: ['remove_button'],
                     placeholder: 'Selecione tags (opcional)',
-                    create: false,
                     maxItems: 10
                 }
             }
@@ -60,7 +87,10 @@ class TransactionForm {
             const element = document.getElementById(id);
             if (element) {
                 try {
+                    console.log(`Inicializando TomSelect ${id}`);
+                    console.log(`HTML options:`, element.innerHTML);
                     this.tomSelectInstances[id] = new TomSelect(element, config);
+                    console.log(`TomSelect ${id} inicializado com opções:`, this.tomSelectInstances[id].options);
                 } catch (error) {
                     console.error(`Erro ao inicializar TomSelect para ${id}:`, error);
                 }
@@ -68,33 +98,199 @@ class TransactionForm {
         });
     }
 
+    onOriginChange(value) {
+        this.hideDynamicFields();
+        
+        if (value === 'RECURRENT') {
+            this.showRecurrenceFields();
+        } else if (value === 'INSTALLMENT') {
+            this.showInstallmentFields();
+        }
+    }
+
+    setupOriginDependencies() {
+        // Container para campos dinâmicos
+        this.dynamicFieldsContainer = document.getElementById('dynamicFieldsContainer');
+        if (!this.dynamicFieldsContainer) {
+            console.error('Container de campos dinâmicos não encontrado');
+            return;
+        }
+        
+        // Criar campos dinâmicos
+        this.createDynamicFields();
+    }
+
+    createDynamicFields() {
+        // Campos para recorrência
+        this.createRecurrenceField('recurrence_frequency', 'Frequência', [
+            {value: 'DAILY', text: 'Diário'},
+            {value: 'WEEKLY', text: 'Semanal'},
+            {value: 'BIWEEKLY', text: 'Quinzenal'},
+            {value: 'MONTHLY', text: 'Mensal'},
+            {value: 'QUARTERLY', text: 'Trimestral'},
+            {value: 'SEMIANNUAL', text: 'Semestral'},
+            {value: 'ANNUAL', text: 'Anual'}
+        ]);
+
+        this.createDynamicField('max_recurrences', 'Número Máximo de Recorrências', 'number', {
+            min: '1',
+            max: '999',
+            placeholder: 'Deixe em branco para ilimitado'
+        });
+
+        // Campos para parcelamento
+        this.createDynamicField('installments', 'Número de Parcelas', 'number', {
+            min: '2',
+            max: '360',
+            placeholder: 'Ex: 12'
+        });
+
+        this.createDynamicField('interest_rate', 'Taxa de Juros Mensal (%)', 'number', {
+            min: '0',
+            max: '100',
+            step: '0.01',
+            placeholder: '0 para sem juros',
+            value: '0'
+        });
+
+        // Esconder todos inicialmente
+        this.hideDynamicFields();
+    }
+
+    createRecurrenceField(name, label, options) {
+        const container = document.createElement('div');
+        container.id = `${name}_container`;
+        container.className = 'fields dynamic-field';
+        container.style.display = 'none';
+        
+        const labelEl = document.createElement('label');
+        labelEl.htmlFor = name;
+        labelEl.textContent = `${label}:`;
+        
+        const select = document.createElement('select');
+        select.id = name;
+        select.name = name;
+        select.className = 'tom-select';
+        
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = `Selecione ${label.toLowerCase()}`;
+        select.appendChild(defaultOption);
+        
+        if (options) {
+            options.forEach(option => {
+                const opt = document.createElement('option');
+                opt.value = option.value;
+                opt.textContent = option.text;
+                select.appendChild(opt);
+            });
+        }
+
+        container.appendChild(labelEl);
+        container.appendChild(select);
+        this.dynamicFieldsContainer.appendChild(container);
+        
+        // Armazenar referência
+        this.dynamicFields[name] = { element: container, type: 'select' };
+    }
+
+    createDynamicField(name, label, type = 'text', attributes = {}) {
+        const container = document.createElement('div');
+        container.id = `${name}_container`;
+        container.className = 'fields dynamic-field';
+        container.style.display = 'none';
+        
+        const labelEl = document.createElement('label');
+        labelEl.htmlFor = name;
+        labelEl.textContent = `${label}:`;
+        
+        const input = document.createElement('input');
+        input.type = type;
+        input.id = name;
+        input.name = name;
+        input.className = 'dynamic-input';
+        
+        // Aplicar atributos
+        Object.keys(attributes).forEach(key => {
+            input.setAttribute(key, attributes[key]);
+            if (key === 'value') {
+                input.value = attributes[key];
+            }
+        });
+
+        container.appendChild(labelEl);
+        container.appendChild(input);
+        this.dynamicFieldsContainer.appendChild(container);
+        
+        // Armazenar referência
+        this.dynamicFields[name] = { element: container, type: 'input' };
+    }
+
+    showRecurrenceFields() {
+        this.showField('recurrence_frequency');
+        this.showField('max_recurrences');
+        
+        // Inicializar TomSelect para frequência
+        const frequencySelect = document.getElementById('recurrence_frequency');
+        if (frequencySelect && !this.tomSelectInstances['recurrence_frequency']) {
+            try {
+                this.tomSelectInstances['recurrence_frequency'] = new TomSelect(frequencySelect, {
+                    create: false,
+                    placeholder: 'Selecione a frequência',
+                    allowEmptyOption: false
+                });
+            } catch (error) {
+                console.error('Erro ao inicializar TomSelect para frequência:', error);
+            }
+        }
+    }
+
+    showInstallmentFields() {
+        this.showField('installments');
+        this.showField('interest_rate');
+    }
+
+    showField(fieldName) {
+        const field = this.dynamicFields[fieldName];
+        if (field) {
+            field.element.style.display = 'flex';
+        }
+    }
+
+    hideDynamicFields() {
+        Object.values(this.dynamicFields).forEach(field => {
+            field.element.style.display = 'none';
+        });
+    }
+
     setDefaults() {
-        const dateTimeInput = document.getElementById('id_occurred_at');
+        // Data e hora atual
+        const dateTimeInput = document.getElementById('occurred_at');
         if (dateTimeInput && !dateTimeInput.value) {
             const now = new Date();
             const localDateTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
-                .toISOString().slice(0, 16);
+                .toISOString()
+                .slice(0, 16);
             dateTimeInput.value = localDateTime;
         }
-
-        const currencySelect = document.getElementById('id_currency');
-        if (currencySelect) currencySelect.value = 'BRL';
-
-        const originSelect = document.getElementById('id_origin');
-        if (originSelect) originSelect.value = 'MANUAL';
+        
+        // Moeda padrão BRL
+        const currencySelect = document.getElementById('currency');
+        if (currencySelect) {
+            this.tomSelectInstances['currency'].setValue('BRL');
+        }
     }
 
     bindEvents() {
-        const cancelBtn = this.form.querySelector('button[type="reset"]');
+        // Botão cancelar
+        const cancelBtn = document.getElementById('cancelBtn');
         if (cancelBtn) {
-            cancelBtn.addEventListener('click', (e) => {
-                e.preventDefault();
+            cancelBtn.addEventListener('click', () => {
                 window.location.href = '/transactions/list/';
             });
         }
-    }
-
-    setupFormSubmit() {
+        
+        // Submit do formulário
         this.form.addEventListener('submit', async (e) => {
             e.preventDefault();
             await this.submitForm();
@@ -105,6 +301,8 @@ class TransactionForm {
         const tomSelect = this.tomSelectInstances[selectId];
         if (tomSelect) {
             const value = tomSelect.getValue();
+            console.log(`getTomSelectValue(${selectId}) from TomSelect:`, value, typeof value);
+            
             if (Array.isArray(value) && value.length === 0) return null;
             if (value === '' || value === null || value === undefined) return null;
             return value;
@@ -113,6 +311,7 @@ class TransactionForm {
         const element = document.getElementById(selectId);
         if (element) {
             const value = element.value;
+            console.log(`getTomSelectValue(${selectId}) from HTML element:`, value, typeof value);
             return value && value !== '' ? value : null;
         }
         
@@ -122,12 +321,21 @@ class TransactionForm {
     validateForm() {
         const errors = [];
 
-        const amount = parseFloat(document.getElementById('id_amount').value);
+        // Validar valor
+        const amount = parseFloat(document.getElementById('amount').value);
         if (isNaN(amount) || amount <= 0) {
             errors.push('O valor deve ser maior que zero');
         }
 
-        const requiredFields = ['id_category', 'id_payment_method', 'id_account'];
+        // Validar campos obrigatórios
+        const requiredFields = [
+            'id_category',
+            'id_payment_method', 
+            'id_account',
+            'origin',
+            'currency'
+        ];
+        
         requiredFields.forEach(fieldId => {
             const value = this.getTomSelectValue(fieldId);
             if (!value) {
@@ -136,6 +344,20 @@ class TransactionForm {
             }
         });
 
+        // Validar origem específica
+        const origin = this.getTomSelectValue('origin');
+        if (origin === 'RECURRENT') {
+            const frequency = this.getTomSelectValue('recurrence_frequency');
+            if (!frequency) {
+                errors.push('Para transação recorrente, selecione uma frequência');
+            }
+        } else if (origin === 'INSTALLMENT') {
+            const installments = document.getElementById('installments');
+            if (!installments || !installments.value || parseInt(installments.value) < 2) {
+                errors.push('Para parcelamento, informe o número de parcelas (mínimo 2)');
+            }
+        }
+
         return { isValid: errors.length === 0, errors };
     }
 
@@ -143,7 +365,9 @@ class TransactionForm {
         const labels = {
             'id_category': 'Categoria',
             'id_payment_method': 'Método de Pagamento',
-            'id_account': 'Conta'
+            'id_account': 'Conta',
+            'origin': 'Origem',
+            'currency': 'Moeda'
         };
         return labels[fieldId] || fieldId;
     }
@@ -156,77 +380,94 @@ class TransactionForm {
         }
 
         try {
-            const amount = parseFloat(document.getElementById('id_amount').value);
-            const occurred_at = document.getElementById('id_occurred_at').value;
-            const direction = document.querySelector('input[name="direction"]:checked').value;
-            const currency = document.getElementById('id_currency').value;
-            const origin = document.getElementById('id_origin').value;
-
-            const id_category = this.getTomSelectValue('id_category');
-            const id_payment_method = this.getTomSelectValue('id_payment_method');
-            const id_account = this.getTomSelectValue('id_account');
-            
-            const tagsSelect = document.getElementById('id_tags');
-            const tags = tagsSelect ? 
-                Array.from(tagsSelect.selectedOptions)
-                    .map(option => option.value)
-                    .filter(value => value && value !== '') : [];
-
-            // Validação de UUIDs
-            const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-            
-            if (!uuidRegex.test(id_category)) {
-                alert('❌ Selecione uma categoria válida.');
-                return;
-            }
-            
-            if (!uuidRegex.test(id_payment_method)) {
-                alert('❌ Selecione um método de pagamento válido.');
-                return;
-            }
-
-            const id_account_num = parseInt(id_account);
-            if (isNaN(id_account_num)) {
-                alert('❌ Selecione uma conta válida.');
-                return;
-            }
-
-            const payload = {
-                amount: amount,
-                occurred_at: occurred_at,
-                direction: direction,
-                currency: currency,
-                origin: origin,
-                id_category: id_category,
-                id_payment_method: id_payment_method,
-                id_account: id_account_num,
-                tags: tags
-            };
+            const formData = this.collectFormData();
+            console.log('Dados enviados:', formData);
 
             const response = await fetch('/api/transactions/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': this.getCSRFToken()
+                    'X-CSRFToken': this.getCSRFToken(),
+                    'X-Requested-With': 'XMLHttpRequest'
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(formData)
             });
 
             const responseData = await response.json();
+            console.log('Resposta da API:', responseData);
             
             if (response.ok) {
-                alert('✅ Transação criada com sucesso!');
+                alert('✅ ' + (responseData.message || 'Transação criada com sucesso!'));
                 window.location.href = '/transactions/list/';
             } else {
                 this.handleApiError(responseData);
             }
         } catch (error) {
-            console.error('Erro:', error);
+            console.error('Erro completo:', error);
             alert('❌ Erro de conexão. Verifique sua internet e tente novamente.');
         }
     }
 
+    collectFormData() {
+        const id_account_value = this.getTomSelectValue('id_account');
+        const id_category_value = this.getTomSelectValue('id_category');
+        const id_payment_method_value = this.getTomSelectValue('id_payment_method');
+        const tags_value = this.getTomSelectValue('id_tags') || [];
+        
+        console.log('DEBUG - id_account:', id_account_value, typeof id_account_value);
+        console.log('DEBUG - id_category:', id_category_value, typeof id_category_value);
+        console.log('DEBUG - id_payment_method:', id_payment_method_value, typeof id_payment_method_value);
+        console.log('DEBUG - tags:', tags_value, typeof tags_value);
+        
+        const payload = {
+            amount: parseFloat(document.getElementById('amount').value),
+            occurred_at: document.getElementById('occurred_at').value,
+            direction: document.querySelector('input[name="direction"]:checked').value,
+            currency: this.getTomSelectValue('currency'),
+            origin: this.getTomSelectValue('origin'),
+            id_category: id_category_value,
+            id_payment_method: id_payment_method_value,
+            id_account: id_account_value,
+            tags: tags_value
+        };
+
+        // Descrição
+        const description = document.getElementById('description');
+        if (description && description.value.trim()) {
+            payload.description = description.value.trim();
+        }
+
+        // Campos específicos por origem
+        const origin = payload.origin;
+        
+        if (origin === 'RECURRENT') {
+            const frequency = this.getTomSelectValue('recurrence_frequency');
+            if (frequency) {
+                payload.recurrence_frequency = frequency;
+            }
+
+            const maxRecurrences = document.getElementById('max_recurrences');
+            if (maxRecurrences && maxRecurrences.value) {
+                payload.max_recurrences = parseInt(maxRecurrences.value);
+            }
+        } else if (origin === 'INSTALLMENT') {
+            const installments = document.getElementById('installments');
+            if (installments && installments.value) {
+                payload.installments = parseInt(installments.value);
+            }
+            
+            const interestRate = document.getElementById('interest_rate');
+            if (interestRate) {
+                payload.interest_rate = interestRate.value ? parseFloat(interestRate.value) : 0;
+            }
+        }
+
+        return payload;
+    }
+
     handleApiError(responseData) {
+        console.error('Erro da API:', responseData);
+        
         let errorMessage = '❌ Erro ao salvar transação';
         
         if (responseData.detail) {
@@ -252,7 +493,7 @@ class TransactionForm {
     }
 }
 
-// Inicializar
+// Inicializar quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     new TransactionForm();
 });
