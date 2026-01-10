@@ -1,105 +1,210 @@
+<!-- frontend/templates/categories_management/categories_management.html -->
+
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Gerenciar Categorias - Ledger{% endblock %}
+{% block title %}Gerenciar Categorias e Tags - Ledger{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/categories_management/categories_management.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 {% endblock %}
 
 {% block content %}
 <div class="container-categories">
     
+    <!-- Cabeçalho -->
     <div class="header-row">
-        <h2>Gerenciar Categorias</h2>
+        <h2>Gerenciar Categorias e Tags</h2>
     </div>
 
-    <div class="add-section-card">
-        <div class="add-title">
-            <i class="fa-solid fa-cart-shopping"></i> Adicionar Nova Categoria
-        </div>
-        
-        <form class="inline-form">
-            <div class="input-group">
-                <input type="text" placeholder="Nome da categoria">
-            </div>
-
-            <div class="input-group">
-                <select>
-                    <option value="despesa">Despesa</option>
-                    <option value="receita">Receita</option>
-                </select>
-            </div>
-
-            <div class="input-group icon-picker">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <input type="text" placeholder="Shopping..." readonly>
-            </div>
-
-            <button type="submit" class="btn-add-dark">
-                <i class="fa-solid fa-plus"></i> Adicionar
-            </button>
-        </form>
-    </div>
-
-    <div class="list-header">
-        <h3>Categorias</h3>
-        <button class="btn-show-hidden">
-            <i class="fa-solid fa-eye"></i> Mostrar Ocultas (8)
+    <!-- Abas -->
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="categories">
+            <i class="fas fa-tags"></i> Categorias
+        </button>
+        <button class="tab-btn" data-tab="tags">
+            <i class="fas fa-hashtag"></i> Tags
         </button>
     </div>
 
-    <div class="category-list">
-        <div class="category-item">
-            <div class="category-main">
-                <div class="icon-box">
-                    <i class="fa-solid fa-briefcase"></i>
+    <!-- Conteúdo das Abas -->
+    <div class="tab-content">
+        
+        <!-- TAB CATEGORIAS -->
+        <div id="categories-tab" class="tab-pane active">
+            <!-- Formulário de adição de categoria -->
+            <div class="add-section-card">
+                <div class="add-title">
+                    <i class="fa-solid fa-plus"></i> Adicionar Nova Categoria
                 </div>
-                <div class="category-details">
-                    <div class="name-row">
-                        <strong>Salário</strong>
-                        <span class="badge badge-success">Receita</span>
+                
+                <form id="add-category-form" class="inline-form">
+                    <div class="input-group">
+                        <input type="text" id="category-name" placeholder="Nome da categoria" required>
                     </div>
-                    <span class="subtext">Categoria Padrão</span>
-                </div>
+
+                    <div class="input-group">
+                        <select id="category-type" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="OUT">Despesa</option>
+                            <option value="IN">Receita</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="color" id="category-color" value="#3B82F6" title="Escolha uma cor">
+                    </div>
+
+                    <div class="input-group icon-picker">
+                        <i class="fa-solid" id="icon-preview">shopping-cart</i>
+                        <input type="text" id="category-icon" placeholder="Ícone (ex: shopping-cart)" 
+                               list="icon-list" value="shopping-cart">
+                        <datalist id="icon-list">
+                            <option value="shopping-cart">
+                            <option value="home">
+                            <option value="car">
+                            <option value="utensils">
+                            <option value="heart">
+                            <option value="graduation-cap">
+                            <option value="plane">
+                            <option value="gift">
+                            <option value="coffee">
+                            <option value="film">
+                            <option value="music">
+                            <option value="book">
+                            <option value="dumbbell">
+                            <option value="briefcase">
+                            <option value="receipt">
+                            <option value="credit-card">
+                            <option value="wallet">
+                            <option value="money-bill-wave">
+                        </datalist>
+                    </div>
+
+                    <div class="input-group">
+                        <select id="category-parent">
+                            <option value="">Sem categoria pai</option>
+                            {% comment %} Será preenchido via JavaScript {% endcomment %}
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-add-dark">
+                        <i class="fa-solid fa-plus"></i> Adicionar Categoria
+                    </button>
+                </form>
+            </div>
+
+            <!-- Lista de categorias -->
+            <div class="list-header">
+                <h3>Minhas Categorias</h3>
+                <button class="btn-show-hidden" id="toggle-hidden-categories">
+                    <i class="fa-solid fa-eye"></i> Mostrar Ocultas (<span id="hidden-count">0</span>)
+                </button>
+            </div>
+
+            <div id="categories-list" class="category-list">
+                <!-- Categorias serão carregadas aqui via JavaScript -->
+                <div class="loading">Carregando categorias...</div>
             </div>
         </div>
 
-        <h4 class="group-title despesa-color">
-            <i class="fa-solid fa-chart-line-down"></i> Categorias de Despesa <span>(24)</span>
-        </h4>
-
-        <div class="category-item">
-            <div class="category-main">
-                <div class="icon-box">
-                    <i class="fa-solid fa-dumbbell"></i>
+        <!-- TAB TAGS -->
+        <div id="tags-tab" class="tab-pane">
+            <!-- Formulário de adição de tag -->
+            <div class="add-section-card">
+                <div class="add-title">
+                    <i class="fa-solid fa-plus"></i> Adicionar Nova Tag
                 </div>
-                <div class="category-details">
-                    <div class="name-row">
-                        <strong>Academia</strong>
-                        <span class="badge badge-danger">Despesa</span>
+                
+                <form id="add-tag-form" class="inline-form">
+                    <div class="input-group">
+                        <input type="text" id="tag-name" placeholder="Nome da tag" required>
                     </div>
-                    <span class="subtext">Categoria Padrão</span>
+
+                    <div class="input-group">
+                        <input type="color" id="tag-color" value="#6B7280" title="Escolha uma cor">
+                    </div>
+
+                    <button type="submit" class="btn-add-dark">
+                        <i class="fa-solid fa-plus"></i> Adicionar Tag
+                    </button>
+                </form>
+            </div>
+
+            <!-- Lista de tags -->
+            <div class="list-header">
+                <h3>Minhas Tags</h3>
+                <div class="tags-stats">
+                    <span id="tags-count">0 tags</span>
                 </div>
             </div>
-        </div>
 
-        <div class="category-item">
-            <div class="category-main">
-                <div class="icon-box">
-                    <i class="fa-solid fa-house"></i>
-                </div>
-                <div class="category-details">
-                    <div class="name-row">
-                        <strong>Aluguel</strong>
-                        <span class="badge badge-danger">Despesa</span>
-                    </div>
-                    <span class="subtext">Categoria Padrão</span>
-                </div>
+            <div id="tags-list" class="tags-grid">
+                <!-- Tags serão carregadas aqui via JavaScript -->
+                <div class="loading">Carregando tags...</div>
             </div>
         </div>
     </div>
 
 </div>
+
+<!-- Template para categoria -->
+<template id="category-template">
+    <div class="category-item" data-id="">
+        <div class="category-main">
+            <div class="icon-box" style="background-color: var(--icon-bg);">
+                <i class="fa-solid" style="color: var(--icon-color);"></i>
+            </div>
+            <div class="category-details">
+                <div class="name-row">
+                    <strong class="category-name"></strong>
+                    <span class="badge badge-type"></span>
+                </div>
+                <div class="category-info">
+                    <span class="subtext">
+                        <i class="fas fa-clock"></i> Criada em: <span class="created-date"></span>
+                    </span>
+                    <span class="subtext subcategories-count">
+                        <i class="fas fa-folder"></i> Subcategorias: <span>0</span>
+                    </span>
+                </div>
+            </div>
+            <div class="category-actions">
+                <button class="btn-edit" title="Editar">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-delete" title="Excluir">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+        <div class="category-edit-form" style="display: none;">
+            <!-- Formulário de edição será inserido aqui -->
+        </div>
+    </div>
+</template>
+
+<!-- Template para tag -->
+<template id="tag-template">
+    <div class="tag-item" data-id="" style="background-color: var(--tag-bg);">
+        <div class="tag-content">
+            <span class="tag-name"></span>
+            <span class="tag-color-badge" style="background-color: var(--tag-color);"></span>
+        </div>
+        <div class="tag-actions">
+            <button class="btn-tag-edit" title="Editar">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn-tag-delete" title="Excluir">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</template>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/categories_management/categories_management.js' %}"></script>
 {% endblock %}
