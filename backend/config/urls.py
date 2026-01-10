@@ -46,4 +46,5 @@ urlpatterns = [
     path('', include('budgets.urls_web')),
     path('', include('goals.urls_web')),
     path('', include('accounts.urls')),
+    path('', include('categories.urls')),
 ]
