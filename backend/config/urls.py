@@ -29,7 +29,7 @@ urlpatterns = [
     # =====================================================
 
     path('api/', include('transactions.urls_api')),
-    path('api/', include('accounts.urls')),
+    path('api/', include('accounts.urls_api')),
     path('api/', include('categories.urls')),
     path('api/', include('budgets.urls_api')),
     path('api/', include('payments.urls')),
@@ -45,6 +45,6 @@ urlpatterns = [
     path('', include('home.urls_web')),
     path('', include('budgets.urls_web')),
     path('', include('goals.urls_web')),
-    path('', include('accounts.urls')),
+    path('', include('accounts.urls_web')),
     path('', include('categories.urls')),
 ]
