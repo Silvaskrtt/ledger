@@ -1,0 +1,95 @@
+/* ===== CREDIT CARD MANAGER ===== */
+
+.credit-card-manager {
+    width: 100%;
+}
+
+.card-header h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #080214;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 30px 0 15px;
+    color: #080214;
+}
+
+/* LISTA DE CARTÕES */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+
+.card-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-info strong {
+    font-size: 15px;
+    color: #080214;
+}
+
+.card-info span {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* AÇÕES */
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.icon-btn.edit {
+    background: rgba(80, 11, 217, 0.15);
+    color: #500BD9;
+}
+
+.icon-btn.edit:hover {
+    background: #500BD9;
+    color: #fff;
+}
+
+.icon-btn.delete {
+    background: rgba(239, 68, 68, 0.15);
+    color: #EF4444;
+}
+
+.icon-btn.delete:hover {
+    background: #EF4444;
+    color: #fff;
+}
