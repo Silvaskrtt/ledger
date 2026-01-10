@@ -1,4 +1,6 @@
-﻿import uuid
+﻿# backend/transactions/models.py
+
+import uuid
 from django.db.models import Q, F, CheckConstraint, Manager
 from django.utils import timezone
 from django.db import models
@@ -84,6 +86,15 @@ class Transaction(models.Model):
         related_name='transactions',
         null=True,
         blank=True
+    )
+    
+    credit_card_bill = models.ForeignKey(
+        'accounts.CreditCardBill',  # String reference
+        on_delete=models.SET_NULL,
+        related_name='transactions',
+        null=True,
+        blank=True,
+        help_text="Fatura do cartão de crédito onde esta transação será incluída"
     )
     
     # Gerenciador customizado para filtrar transações não deletadas
