@@ -297,26 +297,7 @@ class TransactionForm {
         });
     }
 
-    getTomSelectValue(selectId) {
-        const tomSelect = this.tomSelectInstances[selectId];
-        if (tomSelect) {
-            const value = tomSelect.getValue();
-            console.log(`getTomSelectValue(${selectId}) from TomSelect:`, value, typeof value);
-            
-            if (Array.isArray(value) && value.length === 0) return null;
-            if (value === '' || value === null || value === undefined) return null;
-            return value;
-        }
-        
-        const element = document.getElementById(selectId);
-        if (element) {
-            const value = element.value;
-            console.log(`getTomSelectValue(${selectId}) from HTML element:`, value, typeof value);
-            return value && value !== '' ? value : null;
-        }
-        
-        return null;
-    }
+    
 
     validateForm() {
         const errors = [];
@@ -381,7 +362,17 @@ class TransactionForm {
 
         try {
             const formData = this.collectFormData();
-            console.log('Dados enviados:', formData);
+            console.log('=== DADOS COMPLETOS A SEREM ENVIADOS ===');
+            console.log(JSON.stringify(formData, null, 2));
+
+             // DEBUG: Verifique especialmente as tags
+            if (formData.tags && Array.isArray(formData.tags)) {
+                console.log('Tags a serem enviadas:');
+                formData.tags.forEach((tagId, index) => {
+                    console.log(`  Tag ${index}: ${tagId} | Tipo: ${typeof tagId}`);
+                    console.log(`  UUID válido? ${/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(tagId)}`);
+                });
+            }
 
             const response = await fetch('/api/transactions/', {
                 method: 'POST',
@@ -393,7 +384,18 @@ class TransactionForm {
                 body: JSON.stringify(formData)
             });
 
-            const responseData = await response.json();
+            // DEBUG: Ver resposta bruta
+            const responseText = await response.text();
+            console.log('Resposta bruta:', responseText);
+
+            let responseData;
+            try {
+                responseData = JSON.parse(responseText);
+            } catch (e) {
+                console.error('Erro ao parsear resposta:', e);
+                responseData = { detail: responseText };
+            }
+            
             console.log('Resposta da API:', responseData);
             
             if (response.ok) {
@@ -408,16 +410,61 @@ class TransactionForm {
         }
     }
 
+    getTomSelectValue(selectId) {
+        const tomSelect = this.tomSelectInstances[selectId];
+        if (tomSelect) {
+            const value = tomSelect.getValue();
+            console.log(`=== DEBUG getTomSelectValue(${selectId}) ===`);
+            console.log('Valor do TomSelect:', value);
+            console.log('Tipo:', typeof value);
+            console.log('É array?', Array.isArray(value));
+            
+            if (Array.isArray(value)) {
+                console.log('Conteúdo do array:');
+                value.forEach((item, index) => {
+                    console.log(`  [${index}]: ${item} | Tipo: ${typeof item}`);
+                });
+            }
+            
+            if (Array.isArray(value) && value.length === 0) return null;
+            if (value === '' || value === null || value === undefined) return null;
+            return value;
+        }
+        
+        const element = document.getElementById(selectId);
+        if (element) {
+            const value = element.value;
+            console.log(`getTomSelectValue(${selectId}) from HTML element:`, value, typeof value);
+            return value && value !== '' ? value : null;
+        }
+        
+        return null;
+    }
+
     collectFormData() {
         const id_account_value = this.getTomSelectValue('id_account');
         const id_category_value = this.getTomSelectValue('id_category');
         const id_payment_method_value = this.getTomSelectValue('id_payment_method');
         const tags_value = this.getTomSelectValue('id_tags') || [];
         
-        console.log('DEBUG - id_account:', id_account_value, typeof id_account_value);
-        console.log('DEBUG - id_category:', id_category_value, typeof id_category_value);
-        console.log('DEBUG - id_payment_method:', id_payment_method_value, typeof id_payment_method_value);
-        console.log('DEBUG - tags:', tags_value, typeof tags_value);
+        // DEBUG detalhado
+        console.log('=== DEBUG FORM DATA ===');
+        console.log('id_account:', id_account_value, typeof id_account_value);
+        console.log('id_category:', id_category_value, typeof id_category_value);
+        console.log('id_payment_method:', id_payment_method_value, typeof id_payment_method_value);
+        console.log('tags (raw):', tags_value, 'Array?', Array.isArray(tags_value));
+        
+        // Verificar cada tag individualmente
+        if (Array.isArray(tags_value)) {
+            tags_value.forEach((tagId, index) => {
+                console.log(`Tag ${index}:`, tagId, 'Length:', tagId ? tagId.length : 0);
+                // Verificar se é um UUID válido
+                const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+                if (tagId && !uuidRegex.test(tagId)) {
+                    console.error(`⚠️ Tag ID inválido (não é UUID): ${tagId}`);
+                }
+            });
+        }
         
         const payload = {
             amount: parseFloat(document.getElementById('amount').value),
