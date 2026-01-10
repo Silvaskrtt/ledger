@@ -6917,3 +6917,187 @@ Not Found: /favicon.ico
 "GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 6183
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6294
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6294
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6294
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 1702
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6294
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6183
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 1821
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 1973
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 2038
+"GET /cartoes/ HTTP/1.1" 200 7710
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 2172
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7849
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 2354
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6294
+"GET /cartoes/ HTTP/1.1" 200 7877
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6679
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7951
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6679
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6723
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /cartoes/ HTTP/1.1" 200 7877
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7649
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7649
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7649
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7649
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 3147
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6183
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 7667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 3147
+"GET /static/css/global.css HTTP/1.1" 200 1115
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6461
+"GET /menegementAccount/ HTTP/1.1" 200 9485
+"GET /static/css/accounts/account_management.css HTTP/1.1" 404 1919
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9495
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/account_management/account_management.css HTTP/1.1" 404 1949
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6461
+"GET /menegementAccount/ HTTP/1.1" 200 9495
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/account_management/account_management.css HTTP/1.1" 404 1949
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6461
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /menegementAccount/ HTTP/1.1" 200 9496
+"GET /static/css/account_managementt/account_management.css HTTP/1.1" 404 1952
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6461
+C:\Users\muril\ledger\backend\accounts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /menegementAccount/ HTTP/1.1" 200 9496
+"GET /static/css/account_managementt/account_management.css HTTP/1.1" 404 1952
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6461
+"GET /menegementAccount/ HTTP/1.1" 200 9496
+"GET /static/css/account_managementt/account_management.css HTTP/1.1" 404 1952
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7667
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9496
+"GET /static/css/account_managementt/account_management.css HTTP/1.1" 404 1952
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9495
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 3087
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Forbidden (CSRF token missing.): /menegementAccount/
+"POST /menegementAccount/ HTTP/1.1" 403 2491
+"GET / HTTP/1.1" 200 8199
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13282
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6697
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6697
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7969
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6741
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /menegementAccount/ HTTP/1.1" 200 9495
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9495
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 404 1967
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 2819
+"GET /managementCategories/? HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8220
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
