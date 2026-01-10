@@ -7756,3 +7756,180 @@ Bad Request: /api/tags/
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 "GET /api/categories/ HTTP/1.1" 200 52
 "GET /api/tags/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /management/ HTTP/1.1" 200 15639
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 404 1943
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /management/ HTTP/1.1" 200 15639
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 404 1943
+"GET /management/ HTTP/1.1" 200 15639
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 404 1943
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 9512
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /management/ HTTP/1.1" 200 15639
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 20107
+"GET /api/accounts/ HTTP/1.1" 200 996
+Internal Server Error: /api/accounts/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "unique_account_name_per_user"
+DETAIL:  Key (user_id, name)=(1, BB) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\accounts\views.py", line 17, in perform_create
+    serializer.save(user=self.request.user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\accounts\serializers.py", line 91, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\accounts\models.py", line 135, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "unique_account_name_per_user"
+DETAIL:  Key (user_id, name)=(1, BB) already exists.
+
+"POST /api/accounts/ HTTP/1.1" 500 238196
+"GET /transactions/new/ HTTP/1.1" 200 13691
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 577
+"GET /management/ HTTP/1.1" 200 15639
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 996
+"GET / HTTP/1.1" 200 8213
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13691
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52

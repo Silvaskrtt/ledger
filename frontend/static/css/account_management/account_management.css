@@ -1,14 +1,52 @@
 .container-accounts {
-    max-width: 650px;
+    max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
     font-family: 'Lexend', sans-serif;
 }
 
+/* Cabeçalho */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
 .header-row h2 {
-    font-size: 20px;
+    font-size: 24px;
     color: #1a202c;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.accounts-summary {
+    display: flex;
+    gap: 20px;
+    background: #f8fafc;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.summary-item i {
+    color: #4a5568;
+}
+
+.summary-item span:last-child {
+    font-weight: 700;
+    color: #1a202c;
 }
 
 /* CARD DO FORMULÁRIO */
@@ -16,28 +54,42 @@
     background: #f7f7f7;
     padding: 30px;
     border-radius: 12px;
-    width: 620px;
+    width: 100%;
     box-shadow: 0 4px 12px #12013359;
-    border-radius: 12px;
     margin-bottom: 40px;
 }
 
 .form-title {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     color: #2d3748;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4a5568;
+    margin: 20px 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .vertical-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .form-row {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .flex-1 { flex: 1; }
@@ -46,109 +98,358 @@
 .field-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    flex: 1;
 }
 
 .field-group label {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.field-group input, .field-group select {
-    padding: 10px 15px;
+.field-group input,
+.field-group select,
+.field-group textarea {
+    padding: 12px 15px;
     border-radius: 8px;
     border: 1px solid #e2e8f0;
     background: #fff;
     font-size: 14px;
+    transition: border-color 0.3s;
+    width: 100%;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.field-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.icon-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0 12px;
+}
+
+.icon-selector i {
+    color: #64748b;
+    font-size: 18px;
+    min-width: 24px;
+}
+
+.icon-selector select {
+    border: none;
+    padding: 12px 5px;
+    background: transparent;
 }
 
 .form-actions {
     display: flex;
     justify-content: flex-end;
-    margin-top: 10px;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
 }
 
 .btn-primary {
-    background: #2563eb; /* Azul do botão Adicionar */
+    background: #2563eb;
     color: #fff;
     border: none;
-    padding: 10px 25px;
+    padding: 12px 25px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #4a5568;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e0;
 }
 
 /* LISTAGEM */
+.list-section {
+    margin-top: 40px;
+}
+
 .section-subtitle {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     margin-bottom: 20px;
     color: #1a202c;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.count-badge {
+    background: #3b82f6;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background: #e2e8f0;
+}
+
+.filter-btn.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+/* Mensagens */
+#message-container {
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.message.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.message.error {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+
+.message.info {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #93c5fd;
+}
+
+/* Lista de contas */
 .account-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
+.loading-accounts {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .account-item {
     background: #fff;
     border: 1px solid #edf2f7;
     border-radius: 12px;
-    padding: 15px 20px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.account-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #cbd5e0;
+}
+
+.account-item.inactive {
+    opacity: 0.6;
+    background: #f8fafc;
 }
 
 .account-main {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex: 1;
 }
 
 .account-icon {
-    width: 45px;
-    height: 45px;
-    background: #f7fafc;
-    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    color: #718096;
+    font-size: 22px;
+    flex-shrink: 0;
 }
 
-.account-details .name-line strong {
+.account-details {
+    flex: 1;
+}
+
+.name-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.name-line strong {
     font-size: 16px;
     color: #2d3748;
 }
 
+.type-badge {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.type-badge.CHECKING { background: #dbeafe; color: #1e40af; }
+.type-badge.SAVINGS { background: #dcfce7; color: #166534; }
+.type-badge.CREDIT_CARD { background: #fef3c7; color: #92400e; }
+.type-badge.INVESTMENT { background: #e0e7ff; color: #3730a3; }
+.type-badge.CASH { background: #f3e8ff; color: #6b21a8; }
+.type-badge.OTHER { background: #f1f5f9; color: #334155; }
+
+.inactive-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #f1f5f9;
+    color: #64748b;
+}
+
 .info-line {
     font-size: 13px;
+    color: #64748b;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.dot {
+    color: #cbd5e0;
+    font-weight: bold;
+}
+
+.balance-text {
+    font-weight: 600;
+}
+
+.balance-value.positive {
+    color: #10b981;
+    font-weight: 700;
+}
+
+.balance-value.negative {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.initial-value {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.extra-info {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.description-text {
+    font-size: 13px;
     color: #718096;
-    margin: 2px 0;
+    font-style: italic;
+}
+
+.credit-limit-text {
+    font-size: 12px;
+    color: #f59e0b;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.dot { font-weight: bold; }
-
-.positive {
-    color: #10b981; /* Verde do saldo */
-    font-weight: 700;
+.credit-limit-text i {
+    font-size: 11px;
 }
 
-.initial-value {
-    font-size: 12px;
-    color: #a0aec0;
+.limit-value {
+    font-weight: 600;
 }
 
 /* BOTÕES DE AÇÃO */
@@ -165,8 +466,71 @@
     background: #fff;
     cursor: pointer;
     color: #718096;
-    transition: 0.2s;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.action-btn.edit:hover { background: #f0f4ff; color: #2563eb; }
-.action-btn.delete:hover { background: #fff5f5; color: #e53e3e; }
+.action-btn.edit:hover { 
+    background: #f0f4ff; 
+    color: #2563eb; 
+    border-color: #93c5fd;
+}
+
+.action-btn.delete:hover { 
+    background: #fff5f5; 
+    color: #e53e3e; 
+    border-color: #fca5a5;
+}
+
+.action-btn.hide:hover { 
+    background: #f1f5f9; 
+    color: #64748b; 
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container-accounts {
+        padding: 0 15px;
+    }
+    
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .account-form-card {
+        padding: 20px;
+    }
+    
+    .account-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .item-actions {
+        align-self: flex-end;
+    }
+    
+    .info-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .dot {
+        display: none;
+    }
+    
+    .filters {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+}

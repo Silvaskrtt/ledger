@@ -1,9 +1,8 @@
 # backend/accounts/views.py
 
-from rest_framework import generics, status
+from django.shortcuts import render
+from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from django.shortcuts import render, get_object_or_404
 from .models import Account
 from .serializers import AccountSerializer, CreditCardSerializer
 
@@ -12,10 +11,15 @@ class AccountListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return Account.objects.filter(user=self.request.user)
+        return Account.objects.filter(user=self.request.user, is_active=True)
     
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+    
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
 
 
 class AccountDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -24,6 +28,20 @@ class AccountDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     def get_queryset(self):
         return Account.objects.filter(user=self.request.user)
+    
+    def perform_destroy(self, instance):
+        # Soft delete: marca como inativa
+        instance.is_active = False
+        instance.save()
+    
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
+
+
+def account_management_view(request):
+    return render(request, 'account/account_management.html')
 
 
 class CreditCardListCreateView(generics.ListCreateAPIView):
