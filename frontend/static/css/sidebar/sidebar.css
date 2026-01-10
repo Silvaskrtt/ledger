@@ -2,6 +2,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
 
+/* =============== ROOT VARIABLES =============== */
+:root {
+    --header-height: 3.5rem;
+    
+    /* Light theme colors */
+    --first-color: hsl(258, 85%, 63%);
+    --title-color: hsl(228, 18%, 16%);
+    --text-color: hsl(228, 8%, 56%);
+    --body-color: hsl(228, 100%, 99%);
+    --shadow-color: hsla(228, 80%, 4%, .1);
+    --sidebar-bg: #111111;
+    --sidebar-hover: #500BD9;
+    --input-bg: #2f2f2f;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -95,7 +110,7 @@
     margin-top: 20px;
     height: calc(100% - 140px);
     overflow-y: auto;
-    padding-right: 5px;
+    padding-right: 0;
 }
 
 .sidebar li {
@@ -115,14 +130,19 @@
     width: 100%;
     height: 100%;
     border-radius: 12px;
-    border: none;
+    border: 2px solid transparent;
     outline: none;
-    background: #2f2f2f;
+    background: var(--input-bg);
     color: #fff;
     padding: 0 20px 0 52px;
     font-size: 15px;
     font-weight: 400;
     transition: all 0.5s ease;
+}
+
+.search-container input:focus {
+    border-color: var(--first-color);
+    background: rgba(80, 11, 217, 0.1);
 }
 
 .sidebar:not(.open) .search-container input {
@@ -141,12 +161,6 @@
     cursor: pointer;
     transition: all 0.3s ease;
     color: #fff;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 1;
 }
 
@@ -156,9 +170,8 @@
     transform: translate(-50%, -50%);
 }
 
-.sidebar .bx-search:hover {
-    background: #500bd9;
-    color: #111111;
+.search-container .bx-search:hover {
+    color: var(--first-color);
 }
 
 /* ===== LINKS ===== */
@@ -398,24 +411,6 @@
 .sidebar.open ~ .main-content {
     margin-left: 250px;
     width: calc(100% - 250px);
-}
-
-/* ===== SCROLLBAR ===== */
-.nav-list::-webkit-scrollbar {
-    width: 5px;
-}
-
-.nav-list::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.nav-list::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-}
-
-.nav-list::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
 }
 
 /* ===== RESPONSIVIDADE ===== */

@@ -1,4 +1,5 @@
 // frontend/static/js/sidebar.js
+
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('.sidebar');
     const btn = document.getElementById('btn');
@@ -99,11 +100,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchInput.focus();
             });
             
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    alert('Funcionalidade de busca em desenvolvimento');
-                    this.value = '';
-                }
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const navItems = document.querySelectorAll('.nav-list li:not(.search-container)');
+                
+                navItems.forEach(item => {
+                    const linkName = item.querySelector('.links_name');
+                    if (linkName) {
+                        const text = linkName.textContent.toLowerCase();
+                        item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+                    }
+                });
             });
         }
     }

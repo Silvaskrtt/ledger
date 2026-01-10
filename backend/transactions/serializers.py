@@ -1,5 +1,8 @@
 # backend/transactions/serializers.py
 
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 from rest_framework import serializers
 from django.utils import timezone
 from decimal import Decimal
@@ -49,9 +52,8 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
     occurred_at = serializers.DateTimeField(
         default=timezone.now
     )
-    tags = serializers.PrimaryKeyRelatedField(
-        queryset=Tag.objects.none(),
-        many=True,
+    tags = serializers.ListField(
+        child=serializers.UUIDField(),
         required=False,
         write_only=True
     )
@@ -123,14 +125,41 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         self.fields['id_payment_method'].queryset = PaymentMethod.objects.filter(id_user=user)
         self.fields['id_account'].queryset = Account.objects.filter(user=user)
         self.fields['tags'].queryset = Tag.objects.filter(id_user=user)
+        
+        # Debug: log das tags disponíveis
+        tags_count = self.fields['tags'].queryset.count()
+        logger.debug(f"Usuário {user.username} tem {tags_count} tags disponíveis")
 
     def validate(self, data):
         """Validações cruzadas entre campos."""
         origin = data.get('origin', 'MANUAL')
         
+        # OBTER O USUÁRIO PRIMEIRO
         user = self.context['request'].user
+        
+        # DEBUG: Log do que está chegando
+        logger.debug(f"=== VALIDATE TRANSACTION ===")
+        logger.debug(f"Usuário: {user.username}")
+        logger.debug(f"Dados recebidos: {data}")
+        
+        tags = data.get('tags', [])
+        logger.debug(f"Tags recebidas: {tags}")
+        logger.debug(f"Número de tags: {len(tags)}")
+        
+        # Validação de tags (agora são UUIDs strings)
+        for tag_id in tags:
+            try:
+                # Converter string UUID para objeto Tag
+                from tags.models import Tag
+                tag = Tag.objects.get(id_tag=tag_id, id_user=user)
+                logger.debug(f"  Tag válida: {tag.id_tag} | Nome: {tag.name} | Usuário: {tag.id_user.username}")
+            except Tag.DoesNotExist:
+                raise serializers.ValidationError({
+                    "tags": f"Tag com ID {tag_id} não encontrada ou não pertence ao usuário."
+                })
+        
         # Validar ownership de cada campo
-        if data['id_category'].id_user != user:
+        if 'id_category' in data and data['id_category'].id_user != user:
             raise serializers.ValidationError("Category não pertence ao usuário")
         
         # Validações para parcelamento
@@ -140,9 +169,9 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({
                     "installments": "Para transação parcelada, informe o número de parcelas."
                 })
-            if installments < 1:
+            if installments < 2:
                 raise serializers.ValidationError({
-                    "installments": "Parcelamento requer pelo menos 1 parcelas."
+                    "installments": "Parcelamento requer pelo menos 2 parcelas."
                 })
                 
             # Garantir que interest_rate tenha valor padrão 0
@@ -179,17 +208,30 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         """Usa o serviço para criar a transação."""
         request = self.context['request']
         
+        #Debug
+        print(f"Usuário autenticado: {request.user}")
+        print(f"Está autenticado? {request.user.is_authenticated}")
+        
         # Extrai dados específicos
-        tags = validated_data.pop('tags', [])
+        tag_ids = validated_data.pop('tags', [])
         installments = validated_data.pop('installments', None)
         interest_rate = validated_data.pop('interest_rate', Decimal('0'))
         recurrence_frequency = validated_data.pop('recurrence_frequency', None)
         max_recurrences = validated_data.pop('max_recurrences', None)
         
+        # Converter IDs de tag para objetos Tag
+        tag_objects = []
+        for tag_id in tag_ids:
+            try:
+                tag = Tag.objects.get(id_tag=tag_id, id_user=request.user)
+                tag_objects.append(tag)
+            except Tag.DoesNotExist:
+                logger.warning(f"Tag {tag_id} não encontrada para usuário {request.user}")
+        
         # Chama o serviço unificado
         result = create_transaction_service(
             user=request.user,
-            tags=tags,
+            tags=tag_objects,
             installments=installments,
             interest_rate=interest_rate,
             recurrence_frequency=recurrence_frequency,
