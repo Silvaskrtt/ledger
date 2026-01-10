@@ -1,4 +1,6 @@
-﻿import uuid
+﻿# backend/budgets/models.py
+
+import uuid
 from django.db import models
 from django.db.models import CheckConstraint, Q
 from django.contrib.auth.models import User
