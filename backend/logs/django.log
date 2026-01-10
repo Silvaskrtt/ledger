@@ -7933,3 +7933,63 @@ DETAIL:  Key (user_id, name)=(1, BB) already exists.
 "GET /goals/ HTTP/1.1" 200 6755
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 "GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 15639
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 996
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 577
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+"GET /api/credit-cards/ HTTP/1.1" 200 577
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 8133
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 16552
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /api/credit-cards/15cd5ded-a4ca-4232-b2a9-4c4d1adfbdb7/ HTTP/1.1" 200 462
+"GET /api/credit-cards/ec9eca67-ef31-4f49-b4a7-85a190fb0309/ HTTP/1.1" 200 481
+"GET /api/credit-cards/15cd5ded-a4ca-4232-b2a9-4c4d1adfbdb7/ HTTP/1.1" 200 462
+"GET /management/ HTTP/1.1" 200 15639
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 996
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 996

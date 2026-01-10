@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.form-card');
     const submitBtn = document.querySelector('.btn-submit');
     const cardList = document.querySelector('.card-list');
-    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
     
     // Inicialização
     loadCreditCards();
@@ -14,36 +14,84 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Delegated events for edit/delete buttons
-    cardList.addEventListener('click', function(e) {
-        if (e.target.closest('.edit')) {
-            handleEdit(e.target.closest('.card-item'));
-        } else if (e.target.closest('.delete')) {
-            handleDelete(e.target.closest('.card-item'));
-        }
-    });
+    if (cardList) {
+        cardList.addEventListener('click', function(e) {
+            if (e.target.closest('.edit')) {
+                handleEdit(e.target.closest('.card-item'));
+            } else if (e.target.closest('.delete')) {
+                handleDelete(e.target.closest('.card-item'));
+            }
+        });
+    }
     
     // Função para carregar cartões
     async function loadCreditCards() {
         try {
             const response = await fetch('/api/credit-cards/');
-            if (!response.ok) throw new Error('Erro ao carregar cartões');
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.detail || 'Erro ao carregar cartões');
+            }
             
-            const cards = await response.json();
-            renderCards(cards);
+            const data = await response.json();
+            
+            // DEBUG: Verificar o que está sendo retornado
+            console.log('Resposta da API:', data);
+            
+            // Verificar se é um array
+            if (Array.isArray(data)) {
+                renderCards(data);
+            } else if (data && typeof data === 'object') {
+                // Se for um objeto, verificar se tem resultados
+                if (data.results) {
+                    renderCards(data.results);
+                } else {
+                    // Tentar extrair array do objeto
+                    const cardsArray = Object.values(data).filter(item => 
+                        item && typeof item === 'object' && item.id_account
+                    );
+                    if (cardsArray.length > 0) {
+                        renderCards(cardsArray);
+                    } else {
+                        renderCards([]);
+                    }
+                }
+            } else {
+                renderCards([]);
+            }
         } catch (error) {
             console.error('Erro:', error);
-            showToast('Erro ao carregar cartões', 'error');
+            showToast('Erro ao carregar cartões: ' + error.message, 'error');
+            
+            // Mostrar estado de erro
+            if (cardList) {
+                cardList.innerHTML = `
+                    <div class="empty-state error">
+                        <p>❌ Erro ao carregar cartões</p>
+                        <p>${error.message}</p>
+                        <button class="retry-btn" onclick="location.reload()">Tentar novamente</button>
+                    </div>
+                `;
+            }
         }
     }
     
     // Função para renderizar cartões
     function renderCards(cards) {
+        if (!cardList) return;
+        
+        // Verificar se cards é um array
+        if (!Array.isArray(cards)) {
+            console.error('cards não é um array:', cards);
+            cards = [];
+        }
+        
         cardList.innerHTML = '';
         
         if (cards.length === 0) {
             cardList.innerHTML = `
                 <div class="empty-state">
-                    <p>Nenhum cartão cadastrado ainda.</p>
+                    <p>📭 Nenhum cartão cadastrado ainda.</p>
                     <p>Adicione seu primeiro cartão!</p>
                 </div>
             `;
@@ -51,42 +99,68 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         cards.forEach(card => {
-            const cardElement = createCardElement(card);
-            cardList.appendChild(cardElement);
+            try {
+                const cardElement = createCardElement(card);
+                if (cardElement) {
+                    cardList.appendChild(cardElement);
+                }
+            } catch (error) {
+                console.error('Erro ao criar elemento do cartão:', card, error);
+            }
         });
     }
     
     // Criar elemento HTML do cartão
     function createCardElement(card) {
+        // Validar dados do cartão
+        if (!card || !card.id_account) {
+            console.error('Dados inválidos do cartão:', card);
+            return null;
+        }
+        
         const div = document.createElement('div');
         div.className = 'card-item';
         div.dataset.id = card.id_account;
         
-        const balanceClass = card.balance < 0 ? 'negative' : 'positive';
-        const balanceText = card.balance < 0 ? `-R$ ${Math.abs(card.balance).toFixed(2)}` : `R$ ${card.balance.toFixed(2)}`;
+        const balance = parseFloat(card.balance || 0);
+        const creditLimit = parseFloat(card.credit_limit || 0);
+        const balanceClass = balance < 0 ? 'negative' : 'positive';
+        const balanceText = balance < 0 
+            ? `-R$ ${Math.abs(balance).toFixed(2)}` 
+            : `R$ ${balance.toFixed(2)}`;
+        
+        // Calcular crédito disponível
+        const availableCredit = creditLimit + balance; // balance é negativo para cartões
+        const availableCreditText = `R$ ${Math.max(0, availableCredit).toFixed(2)}`;
         
         div.innerHTML = `
             <div class="card-info">
                 <div class="card-header">
-                    <strong>${card.name}</strong>
+                    <strong>${card.name || 'Cartão sem nome'}</strong>
                     <span class="bank-badge">${card.bank_name || 'Sem banco'}</span>
                 </div>
                 <div class="card-details">
                     <div class="detail">
                         <span class="label">Limite:</span>
-                        <span class="value">R$ ${parseFloat(card.credit_limit || 0).toFixed(2)}</span>
+                        <span class="value">R$ ${creditLimit.toFixed(2)}</span>
                     </div>
                     <div class="detail">
-                        <span class="label">Fatura atual:</span>
+                        <span class="label">Disponível:</span>
+                        <span class="value positive">${availableCreditText}</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">Fatura:</span>
                         <span class="value ${balanceClass}">${balanceText}</span>
                     </div>
-                    <div class="detail">
-                        <span class="label">Fechamento:</span>
-                        <span class="value">dia ${card.closing_day || '--'}</span>
-                    </div>
-                    <div class="detail">
-                        <span class="label">Vencimento:</span>
-                        <span class="value">dia ${card.due_day || '--'}</span>
+                    <div class="detail-group">
+                        <div class="detail small">
+                            <span class="label">Fechamento:</span>
+                            <span class="value">dia ${card.closing_day || '--'}</span>
+                        </div>
+                        <div class="detail small">
+                            <span class="label">Vencimento:</span>
+                            <span class="value">dia ${card.due_day || '--'}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,6 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Função para submeter formulário
     async function handleSubmit() {
+        if (!submitBtn) return;
+        
         const formData = collectFormData();
         
         if (!validateForm(formData)) {
@@ -116,64 +192,82 @@ document.addEventListener('DOMContentLoaded', function() {
                 ? `/api/credit-cards/${formData.id}/`
                 : '/api/credit-cards/';
             
+            // Preparar dados para envio
+            const dataToSend = {
+                name: formData.name,
+                bank_name: formData.bank_name || '',
+                credit_limit: formData.credit_limit,
+                closing_day: formData.closing_day,
+                due_day: formData.due_day
+            };
+            
+            console.log('Enviando dados:', dataToSend);
+            
             const response = await fetch(url, {
                 method: method,
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': csrfToken
+                    'X-CSRFToken': csrfToken || ''
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(dataToSend)
             });
             
+            const responseData = await response.json();
+            
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.detail || JSON.stringify(errorData));
+                let errorMessage = 'Erro ao salvar cartão';
+                if (responseData && typeof responseData === 'object') {
+                    // Extrair mensagens de erro do serializer
+                    const errors = [];
+                    for (const [field, messages] of Object.entries(responseData)) {
+                        if (Array.isArray(messages)) {
+                            errors.push(...messages);
+                        } else if (typeof messages === 'string') {
+                            errors.push(messages);
+                        }
+                    }
+                    if (errors.length > 0) {
+                        errorMessage = errors.join(', ');
+                    }
+                }
+                throw new Error(errorMessage);
             }
             
             showToast(formData.id ? 'Cartão atualizado!' : 'Cartão adicionado!', 'success');
             resetForm();
-            loadCreditCards();
+            await loadCreditCards();
             
         } catch (error) {
             console.error('Erro:', error);
             showToast(error.message || 'Erro ao salvar cartão', 'error');
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = formData.id ? 'Atualizar Cartão' : '+ Adicionar Cartão';
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = formData.id ? 'Atualizar Cartão' : '+ Adicionar Cartão';
+            }
         }
     }
     
     // Coletar dados do formulário
     function collectFormData() {
-        const fields = {
-            name: document.querySelector('input[name="name"]'),
-            bank_name: document.querySelector('input[name="bank_name"]'),
-            credit_limit: document.querySelector('input[name="credit_limit"]'),
-            closing_day: document.querySelector('input[name="closing_day"]'),
-            due_day: document.querySelector('input[name="due_day"]')
+        const data = {
+            name: document.getElementById('card-name')?.value || '',
+            bank_name: document.getElementById('bank-name')?.value || '',
+            credit_limit: document.getElementById('credit-limit')?.value || '0',
+            closing_day: document.getElementById('closing-day')?.value || '1',
+            due_day: document.getElementById('due-day')?.value || '1'
         };
         
-        const data = {};
-        for (const [key, element] of Object.entries(fields)) {
-            if (element) {
-                data[key] = element.value;
-            }
+        // Verificar se está editando
+        const form = document.querySelector('.form-card');
+        if (form && form.dataset.editId) {
+            data.id = form.dataset.editId;
         }
         
         // Converter valores
-        if (data.credit_limit && data.credit_limit !== '') {
-            data.credit_limit = parseFloat(data.credit_limit);
-        } else {
-            data.credit_limit = 0;  // Valor padrão
-        }
-        
-        if (data.closing_day && data.closing_day !== '') {
-            data.closing_day = parseInt(data.closing_day);
-        }
-        
-        if (data.due_day && data.due_day !== '') {
-            data.due_day = parseInt(data.due_day);
-        }
+        data.credit_limit = parseFloat(data.credit_limit) || 0;
+        data.closing_day = parseInt(data.closing_day) || 1;
+        data.due_day = parseInt(data.due_day) || 1;
         
         return data;
     }
@@ -186,15 +280,15 @@ document.addEventListener('DOMContentLoaded', function() {
             errors.push('Nome do cartão é obrigatório');
         }
         
-        if (data.credit_limit !== undefined && data.credit_limit < 0) {
+        if (data.credit_limit < 0) {
             errors.push('Limite de crédito não pode ser negativo');
         }
         
-        if (data.closing_day !== undefined && (data.closing_day < 1 || data.closing_day > 31)) {
+        if (data.closing_day < 1 || data.closing_day > 31) {
             errors.push('Dia de fechamento deve ser entre 1 e 31');
         }
         
-        if (data.due_day !== undefined && (data.due_day < 1 || data.due_day > 31)) {
+        if (data.due_day < 1 || data.due_day > 31) {
             errors.push('Dia de vencimento deve ser entre 1 e 31');
         }
         
@@ -208,86 +302,108 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Resetar formulário
     function resetForm() {
-        const inputs = form.querySelectorAll('input');
-        inputs.forEach(input => {
-            if (input.name === 'closing_day' || input.name === 'due_day') {
-                input.value = '1';  // Valor padrão
-            } else if (input.name === 'credit_limit') {
-                input.value = '';
-            } else if (input.name === 'name' || input.name === 'bank_name') {
-                input.value = '';
+        // Resetar inputs
+        const inputs = [
+            document.getElementById('card-name'),
+            document.getElementById('bank-name'),
+            document.getElementById('credit-limit'),
+            document.getElementById('closing-day'),
+            document.getElementById('due-day')
+        ];
+        
+        inputs.forEach((input, index) => {
+            if (input) {
+                if (index === 0 || index === 1) {
+                    input.value = ''; // Nome e banco
+                } else if (index === 2) {
+                    input.value = ''; // Limite
+                } else {
+                    input.value = '1'; // Dias padrão
+                }
             }
         });
         
-        submitBtn.textContent = '+ Adicionar Cartão';
-        if (form.dataset.editId) {
+        // Remover estado de edição
+        const form = document.querySelector('.form-card');
+        if (form && form.dataset.editId) {
             delete form.dataset.editId;
+        }
+        
+        // Resetar botão
+        if (submitBtn) {
+            submitBtn.textContent = '+ Adicionar Cartão';
         }
     }
     
     // Editar cartão
-    function handleEdit(cardItem) {
+    async function handleEdit(cardItem) {
+        if (!cardItem) return;
+        
         const cardId = cardItem.dataset.id;
         
-        // Buscar dados do cartão
-        fetch(`/api/credit-cards/${cardId}/`)
-            .then(response => response.json())
-            .then(card => {
-                // Preencher formulário
-                const fields = {
-                    name: card.name,
-                    bank_name: card.bank_name || '',
-                    credit_limit: card.credit_limit || '',
-                    closing_day: card.closing_day || '1',
-                    due_day: card.due_day || '1'
-                };
-                
-                // Usar os names dos inputs
-                for (const [key, value] of Object.entries(fields)) {
-                    const input = document.querySelector(`input[name="${key}"]`);
-                    if (input) input.value = value;
-                }
-                
-                // Alterar botão
+        try {
+            const response = await fetch(`/api/credit-cards/${cardId}/`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar dados do cartão');
+            }
+            
+            const card = await response.json();
+            
+            // Preencher formulário
+            document.getElementById('card-name').value = card.name || '';
+            document.getElementById('bank-name').value = card.bank_name || '';
+            document.getElementById('credit-limit').value = card.credit_limit || '';
+            document.getElementById('closing-day').value = card.closing_day || '1';
+            document.getElementById('due-day').value = card.due_day || '1';
+            
+            // Alterar botão e marcar como edição
+            if (submitBtn) {
                 submitBtn.textContent = 'Atualizar Cartão';
+            }
+            
+            const form = document.querySelector('.form-card');
+            if (form) {
                 form.dataset.editId = cardId;
-                
-                // Scroll para o formulário
-                form.scrollIntoView({ behavior: 'smooth' });
-            })
-            .catch(error => {
-                console.error('Erro ao buscar cartão:', error);
-                showToast('Erro ao carregar dados do cartão', 'error');
-            });
+            }
+            
+            // Scroll para o formulário
+            form?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+        } catch (error) {
+            console.error('Erro ao buscar cartão:', error);
+            showToast('Erro ao carregar dados do cartão', 'error');
+        }
     }
     
     // Excluir cartão
     async function handleDelete(cardItem) {
-        const cardId = cardItem.dataset.id;
-        const cardName = cardItem.querySelector('strong').textContent;
+        if (!cardItem) return;
         
-        if (!confirm(`Tem certeza que deseja excluir o cartão "${cardName}"?`)) {
+        const cardId = cardItem.dataset.id;
+        const cardName = cardItem.querySelector('strong')?.textContent || 'este cartão';
+        
+        if (!confirm(`Tem certeza que deseja excluir o cartão "${cardName}"?\n\nEsta ação não pode ser desfeita.`)) {
             return;
         }
         
         try {
-            // CORRIGIDO: URL correta
             const response = await fetch(`/api/credit-cards/${cardId}/`, {
                 method: 'DELETE',
                 headers: {
-                    'X-CSRFToken': csrfToken
+                    'X-CSRFToken': csrfToken || ''
                 }
             });
             
             if (response.ok) {
                 showToast('Cartão excluído com sucesso', 'success');
-                loadCreditCards();
+                await loadCreditCards();
             } else {
-                throw new Error('Erro ao excluir cartão');
+                const errorData = await response.json();
+                throw new Error(errorData.detail || 'Erro ao excluir cartão');
             }
         } catch (error) {
             console.error('Erro:', error);
-            showToast('Erro ao excluir cartão', 'error');
+            showToast(error.message || 'Erro ao excluir cartão', 'error');
         }
     }
     
@@ -300,17 +416,32 @@ document.addEventListener('DOMContentLoaded', function() {
         // Criar novo toast
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
-        toast.textContent = message;
+        
+        // Adicionar ícone baseado no tipo
+        const icons = {
+            success: '✅',
+            error: '❌',
+            info: 'ℹ️'
+        };
+        
+        toast.innerHTML = `
+            <span class="toast-icon">${icons[type] || icons.info}</span>
+            <span class="toast-message">${message}</span>
+        `;
         
         document.body.appendChild(toast);
         
-        // Mostrar
+        // Mostrar com animação
         setTimeout(() => toast.classList.add('show'), 10);
         
-        // Remover após 3 segundos
+        // Remover após 4 segundos
         setTimeout(() => {
             toast.classList.remove('show');
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 300);
+        }, 4000);
     }
 });
