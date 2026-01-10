@@ -5,15 +5,24 @@ from .models import Account
 
 class CreditCardSerializer(serializers.ModelSerializer):
     is_credit_card = serializers.BooleanField(read_only=True)
+    type_display = serializers.CharField(source='get_type_display', read_only=True)
+    available_credit = serializers.SerializerMethodField()
     
     class Meta:
         model = Account
         fields = [
-            'id_account', 'name', 'bank_name', 'credit_limit',
-            'closing_day', 'due_day', 'type', 'balance',
-            'created_at', 'is_credit_card'
+            'id_account', 'name', 'type', 'type_display', 'initial_balance', 'balance',
+            'bank_name', 'description', 'credit_limit', 'closing_day', 'due_day',
+            'icon', 'color', 'is_active', 'created_at', 'updated_at',
+            'is_credit_card', 'available_credit', 'user'
         ]
-        read_only_fields = ['id_account', 'created_at', 'is_credit_card']
+        read_only_fields = [
+            'id_account', 'created_at', 'updated_at', 
+            'is_credit_card', 'balance', 'user'
+        ]
+    
+    def get_available_credit(self, obj):
+        return obj.available_credit
     
     def validate(self, data):
         # Define type como CREDIT_CARD
