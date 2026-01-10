@@ -7620,3 +7620,57 @@ Not Found: /favicon.ico
 "GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
 "GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8634
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 577
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13691
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 577
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 577
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13691
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13691
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8634
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\categories\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\tags\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\models.py changed, reloading.
+Watching for file changes with StatReloader
