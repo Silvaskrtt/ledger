@@ -20,28 +20,28 @@
             <div class="form-card">
                 <div class="form-grid">
                     <div class="fields full-width">
-                        <label>Nome do Cartão</label>
-                        <input type="text" placeholder="Ex: Nubank Roxinho">
+                        <label>Nome do Cartão *</label>
+                        <input type="text" id="card-name" name="name" placeholder="Ex: Nubank Roxinho" required>
                     </div>
 
                     <div class="fields">
                         <label>Banco (opcional)</label>
-                        <input type="text" placeholder="Ex: Nubank">
+                        <input type="text" id="bank-name" name="bank_name" placeholder="Ex: Nubank">
                     </div>
 
                     <div class="fields">
                         <label>Limite de Crédito</label>
-                        <input type="number" placeholder="R$ 0,00">
+                        <input type="number" id="credit-limit" name="credit_limit" step="0.01" min="0" placeholder="R$ 0,00">
                     </div>
 
                     <div class="fields">
                         <label>Dia do Fechamento</label>
-                        <input type="number" min="1" max="31" placeholder="1">
+                        <input type="number" id="closing-day" name="closing_day" min="1" max="31" placeholder="1" value="1">
                     </div>
 
                     <div class="fields">
                         <label>Dia do Vencimento</label>
-                        <input type="number" min="1" max="31" placeholder="1">
+                        <input type="number" id="due-day" name="due_day" min="1" max="31" placeholder="1" value="1">
                     </div>
                 </div>
 
@@ -54,19 +54,17 @@
         <div class="list-section">
             <h3 class="section-title">Cartões Cadastrados</h3>
             <div class="card-list">
-                <div class="card-item">
-                    <div class="card-info">
-                        <strong>Infinity Visa Pass</strong>
-                        <span>Limite: R$ 50.000 | Fechamento: dia 30 | Vencimento: dia 5</span>
-                    </div>
-                    <div class="card-actions">
-                        <button class="icon-btn edit" title="Editar">✎</button>
-                        <button class="icon-btn delete" title="Excluir">🗑</button>
-                    </div>
+                <!-- Cartões serão carregados dinamicamente via JavaScript -->
+                <div class="empty-state">
+                    <p>Carregando cartões...</p>
                 </div>
-                </div>
+            </div>
         </div>
 
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/card_credit/card_credit.js' %}"></script>
 {% endblock %}

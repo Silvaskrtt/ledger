@@ -13,10 +13,12 @@
 
 /* CARD DO FORMULÁRIO */
 .account-form-card {
-    background: #f0f4ff; /* Azul bem claro do fundo do form */
+    background: #f7f7f7;
+    padding: 30px;
     border-radius: 12px;
-    padding: 25px;
-    border: 1px solid #e0e7ff;
+    width: 620px;
+    box-shadow: 0 4px 12px #12013359;
+    border-radius: 12px;
     margin-bottom: 40px;
 }
 

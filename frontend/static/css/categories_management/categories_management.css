@@ -8,12 +8,13 @@
 
 /* CARD DE ADICIONAR */
 .add-section-card {
-    background: #fff;
+    background: #f7f7f7;
+    padding: 30px;
+    width: 620px;
+    box-shadow: 0 4px 12px #12013359;
     border: 1px solid #edf0f5;
     border-radius: 12px;
-    padding: 20px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
 
 .add-title {
