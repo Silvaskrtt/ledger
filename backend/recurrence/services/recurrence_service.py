@@ -74,6 +74,14 @@ def create_recurrence_rule(
     # Cria primeira transação
     create_recurrence_transaction(recurrence_rule)
     
+    # Adicionar tags à primeira transação
+    if tags and transaction:
+        for tag in tags:
+            TransactionTag.objects.create(
+                id_transaction=transaction,
+                id_tag=tag  # tag já é objeto Tag
+            )
+    
     return recurrence_rule
 
 def create_recurrence_transaction(recurrence_rule):
