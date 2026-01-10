@@ -30,10 +30,10 @@ urlpatterns = [
 
     path('api/', include('transactions.urls_api')),
     path('api/', include('accounts.urls_api')),
-    path('api/', include('categories.urls')),
+    path('api/', include('categories.urls_api')),
     path('api/', include('budgets.urls_api')),
     path('api/', include('payments.urls')),
-    path('api/', include('tags.urls')),
+    path('api/', include('tags.urls_api')),
     path('api/', include('recurrence.urls')),
     path('api/', include('goals.urls_api')),
 
@@ -46,5 +46,5 @@ urlpatterns = [
     path('', include('budgets.urls_web')),
     path('', include('goals.urls_web')),
     path('', include('accounts.urls_web')),
-    path('', include('categories.urls')),
+    path('', include('categories.urls_web')),
 ]
