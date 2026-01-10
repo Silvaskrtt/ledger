@@ -1,4 +1,6 @@
-﻿from django.db import models
+﻿# backend/users/models.py
+
+from django.db import models
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
