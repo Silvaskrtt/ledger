@@ -7101,3 +7101,522 @@ Watching for file changes with StatReloader
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 "GET / HTTP/1.1" 200 8220
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7990
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6762
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /goals/ HTTP/1.1" 200 6762
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 3171
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 7294
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 3167
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 3238
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 7294
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 3154
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 3122
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 3101
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 2947
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/global.css HTTP/1.1" 200 1115
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 7294
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 2814
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 2834
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 2926
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 2814
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 2834
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 7294
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 2834
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7405
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /menegementAccount/ HTTP/1.1" 200 9516
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7688
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13303
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13303
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6718
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13303
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6718
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7990
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6762
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 8641
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /managementCategories/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\categories\views.py", line 28, in categories_management_view
+    return render(request, 'categories_management/categories_management.html')
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 176, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'menegement-account' not found. 'menegement-account' is not a valid view function or pattern name.
+"GET /managementCategories/ HTTP/1.1" 500 167692
+"GET /managementCategories/ HTTP/1.1" 200 8634
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7455
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 8133
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 11778
+Not Found: /accounts/api/credit-cards/
+"GET /accounts/api/credit-cards/ HTTP/1.1" 404 14775
+"GET /cartoes/ HTTP/1.1" 200 7455
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /accounts/api/credit-cards/
+"GET /accounts/api/credit-cards/ HTTP/1.1" 404 14775
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 7455
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /accounts/api/credit-cards/
+"GET /accounts/api/credit-cards/ HTTP/1.1" 404 14775
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7975
+"GET /cartoes/ HTTP/1.1" 200 7455
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7975
+Not Found: /accounts/api/credit-cards/
+"GET /accounts/api/credit-cards/ HTTP/1.1" 404 14775
+Internal Server Error: /cartoes/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\accounts\views.py", line 60, in credit_cards_view
+    return render(request, 'card_credit/card_credit.html')
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 176, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'menegement-account' not found. 'menegement-account' is not a valid view function or pattern name.
+"GET /cartoes/ HTTP/1.1" 500 168213
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7975
+"GET /cartoes/ HTTP/1.1" 200 7455
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 11778
+Not Found: /accounts/api/credit-cards/
+"GET /accounts/api/credit-cards/ HTTP/1.1" 404 14775
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 11946
+Not Found: /accounts/api/credit-cards/
+"GET /accounts/api/credit-cards/ HTTP/1.1" 404 13655
+Not Found: /accounts/api/credit-cards/
+"POST /accounts/api/credit-cards/ HTTP/1.1" 404 13656
+Not Found: /accounts/api/credit-cards/
+"POST /accounts/api/credit-cards/ HTTP/1.1" 404 13656
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6855
+Not Found: /accounts/api/credit-cards/
+"POST /accounts/api/credit-cards/ HTTP/1.1" 404 13656
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6855
+Not Found: /accounts/api/credit-cards/
+"GET /accounts/api/credit-cards/ HTTP/1.1" 404 13655
+Not Found: /accounts/api/credit-cards/
+"POST /accounts/api/credit-cards/ HTTP/1.1" 404 13656
+Not Found: /accounts/api/credit-cards/
+"POST /accounts/api/credit-cards/ HTTP/1.1" 404 13656
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 11910
+"GET /api/credit-cards/ HTTP/1.1" 200 52
+"POST /api/credit-cards/ HTTP/1.1" 201 252
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 11874
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 11506
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"GET /transactions/new/ HTTP/1.1" 200 13490
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 8634
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 8634
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13490
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 8213
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6744
+"GET /cartoes/ HTTP/1.1" 200 7616
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 304
+"POST /api/credit-cards/ HTTP/1.1" 201 272
+"GET /api/credit-cards/ HTTP/1.1" 200 577
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 304 0
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 13691
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
