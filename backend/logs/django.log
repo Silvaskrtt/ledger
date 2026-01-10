@@ -7674,3 +7674,85 @@ C:\Users\muril\ledger\backend\tags\models.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Users\muril\ledger\backend\categories\models.py changed, reloading.
 Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 25837
+"GET /api/categories/ HTTP/1.1" 200 52
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 7101
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 25837
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /api/categories/ HTTP/1.1" 200 52
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /api/tags/ HTTP/1.1" 200 52
+Bad Request: /api/categories/
+"POST /api/categories/ HTTP/1.1" 400 158
+Bad Request: /api/tags/
+"POST /api/tags/ HTTP/1.1" 400 80
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 9509
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /api/tags/ HTTP/1.1" 200 52
