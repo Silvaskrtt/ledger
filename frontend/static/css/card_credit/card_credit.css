@@ -1,20 +1,99 @@
-/* ===== CREDIT CARD MANAGER ===== */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend', sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    color: #080214;
+}
+
+/* Container para centralizar o conteúdo na página */
+.container-center {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
 
 .credit-card-manager {
     width: 100%;
+    max-width: 700px; /* Largura máxima confortável */
 }
 
 .card-header h2 {
-    font-size: 22px;
-    margin-bottom: 25px;
-    color: #080214;
+    font-size: 24px;
+    margin-bottom: 5px;
 }
 
 .section-title {
     font-size: 16px;
     font-weight: 600;
     margin: 30px 0 15px;
-    color: #080214;
+    opacity: 0.8;
+}
+
+/* FORM CARD */
+.form-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(18, 1, 51, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.fields label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.fields input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-family: 'Lexend', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.fields input:focus {
+    outline: none;
+    border-color: #500BD9;
+}
+
+.form-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-submit {
+    background: #500BD9;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background: #4009b0;
 }
 
 /* LISTA DE CARTÕES */
@@ -27,69 +106,60 @@
 .card-item {
     background: #fff;
     border-radius: 10px;
-    padding: 14px 18px;
+    padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     border: 1px solid #e5e7eb;
-    transition: all 0.2s ease;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .card-info {
     display: flex;
     flex-direction: column;
-    gap: 4px;
 }
 
 .card-info strong {
     font-size: 15px;
-    color: #080214;
+    margin-bottom: 4px;
 }
 
 .card-info span {
-    font-size: 13px;
+    font-size: 12px;
     color: #6b7280;
 }
 
 /* AÇÕES */
 .card-actions {
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
 .icon-btn {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
 }
 
-.icon-btn.edit {
-    background: rgba(80, 11, 217, 0.15);
-    color: #500BD9;
-}
+.icon-btn.edit { background: #eeebff; color: #500BD9; }
+.icon-btn.edit:hover { background: #500BD9; color: #fff; }
 
-.icon-btn.edit:hover {
-    background: #500BD9;
-    color: #fff;
-}
+.icon-btn.delete { background: #ffebeb; color: #EF4444; }
+.icon-btn.delete:hover { background: #EF4444; color: #fff; }
 
-.icon-btn.delete {
-    background: rgba(239, 68, 68, 0.15);
-    color: #EF4444;
-}
-
-.icon-btn.delete:hover {
-    background: #EF4444;
-    color: #fff;
+/* Responsividade simples */
+@media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .full-width { grid-column: span 1; }
 }

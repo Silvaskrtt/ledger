@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gerenciar Categorias - Ledger{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/categories_management/categories_management.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="container-categories">
+    
+    <div class="header-row">
+        <h2>Gerenciar Categorias</h2>
+    </div>
+
+    <div class="add-section-card">
+        <div class="add-title">
+            <i class="fa-solid fa-cart-shopping"></i> Adicionar Nova Categoria
+        </div>
+        
+        <form class="inline-form">
+            <div class="input-group">
+                <input type="text" placeholder="Nome da categoria">
+            </div>
+
+            <div class="input-group">
+                <select>
+                    <option value="despesa">Despesa</option>
+                    <option value="receita">Receita</option>
+                </select>
+            </div>
+
+            <div class="input-group icon-picker">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <input type="text" placeholder="Shopping..." readonly>
+            </div>
+
+            <button type="submit" class="btn-add-dark">
+                <i class="fa-solid fa-plus"></i> Adicionar
+            </button>
+        </form>
+    </div>
+
+    <div class="list-header">
+        <h3>Categorias</h3>
+        <button class="btn-show-hidden">
+            <i class="fa-solid fa-eye"></i> Mostrar Ocultas (8)
+        </button>
+    </div>
+
+    <div class="category-list">
+        <div class="category-item">
+            <div class="category-main">
+                <div class="icon-box">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="category-details">
+                    <div class="name-row">
+                        <strong>Salário</strong>
+                        <span class="badge badge-success">Receita</span>
+                    </div>
+                    <span class="subtext">Categoria Padrão</span>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="group-title despesa-color">
+            <i class="fa-solid fa-chart-line-down"></i> Categorias de Despesa <span>(24)</span>
+        </h4>
+
+        <div class="category-item">
+            <div class="category-main">
+                <div class="icon-box">
+                    <i class="fa-solid fa-dumbbell"></i>
+                </div>
+                <div class="category-details">
+                    <div class="name-row">
+                        <strong>Academia</strong>
+                        <span class="badge badge-danger">Despesa</span>
+                    </div>
+                    <span class="subtext">Categoria Padrão</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <div class="category-main">
+                <div class="icon-box">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="category-details">
+                    <div class="name-row">
+                        <strong>Aluguel</strong>
+                        <span class="badge badge-danger">Despesa</span>
+                    </div>
+                    <span class="subtext">Categoria Padrão</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
