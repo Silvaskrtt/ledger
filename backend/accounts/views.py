@@ -27,3 +27,6 @@ class AccountDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 def credit_cards_view(request):
     return render(request, 'card_credit/card_credit.html')
+
+def account_menegement_view(request):
+    return render(request, 'account/account_management.html')

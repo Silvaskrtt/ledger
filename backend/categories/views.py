@@ -3,6 +3,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from .models import Category
 from .serializers import CategorySerializer
+from django.shortcuts import render
 
 
 class CategoryListCreateView(generics.ListCreateAPIView):
@@ -22,3 +23,6 @@ class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     def get_queryset(self):
         return Category.objects.filter(id_user=self.request.user)
+    
+def categories_management_view(request):
+    return render(request, 'categories_management/categories_management.html')
