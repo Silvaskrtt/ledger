@@ -1,4 +1,6 @@
-﻿import uuid
+﻿# backend/payments/models.py
+
+import uuid
 from django.utils import timezone
 from django.db.models import Q, CheckConstraint
 from django.db import models
