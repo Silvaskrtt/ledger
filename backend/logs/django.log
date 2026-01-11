@@ -11631,3 +11631,25 @@ Watching for file changes with StatReloader
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
 Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\services\recurrence_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\tags\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\goals\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\payments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader

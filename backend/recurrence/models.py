@@ -60,6 +60,8 @@ class RecurrenceRule(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)  # Soft delete
+    is_deleted = models.BooleanField(default=False)  # Soft delete
     
     class Meta:
         verbose_name = "Recurrence Rule"
@@ -73,6 +75,10 @@ class RecurrenceRule(models.Model):
                 condition=Q(executions_count__gte=0),
                 name='executions_count_non_negative'
             )
+        ]
+        indexes = [
+            models.Index(fields=['user', 'status']),
+            models.Index(fields=['next_execution']),
         ]
     
     
@@ -113,3 +119,21 @@ class RecurrenceRule(models.Model):
             return False
         
         return True
+    
+    def clean(self):
+        """Validar que category, account e payment_method pertencem ao mesmo user."""
+        from django.core.exceptions import ValidationError
+        
+        if self.category and self.category.user != self.user:
+            raise ValidationError("Categoria deve pertencer ao mesmo usuário.")
+        
+        if self.account and self.account.user != self.user:
+            raise ValidationError("Conta deve pertencer ao mesmo usuário.")
+        
+        if self.payment_method and self.payment_method.user != self.user:
+            raise ValidationError("Método de pagamento deve pertencer ao mesmo usuário.")
+    
+    def save(self, *args, **kwargs):
+        """Executar validações antes de salvar."""
+        self.clean()
+        super().save(*args, **kwargs)

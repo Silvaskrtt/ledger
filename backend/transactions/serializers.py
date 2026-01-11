@@ -288,11 +288,39 @@ class TransactionAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransactionAccount
         fields = ['transaction', 'account', 'role']
+    
+    def validate(self, data):
+        """Validar que account pertence ao mesmo user que a transaction."""
+        transaction = data.get('transaction')
+        account = data.get('account')
+        
+        if transaction and account:
+            # Validar propriedade
+            if account.user != transaction.user:
+                raise serializers.ValidationError(
+                    "A conta não pertence ao mesmo usuário da transação."
+                )
+        
+        return data
 
 class TransactionTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransactionTag
         fields = ['transaction', 'tag']
+    
+    def validate(self, data):
+        """Validar que tag pertence ao mesmo user que a transaction."""
+        transaction = data.get('transaction')
+        tag = data.get('tag')
+        
+        if transaction and tag:
+            # Validar propriedade
+            if tag.user != transaction.user:
+                raise serializers.ValidationError(
+                    "A tag não pertence ao mesmo usuário da transação."
+                )
+        
+        return data
 
 class RecurrenceRuleSerializer(serializers.ModelSerializer):
     class Meta:

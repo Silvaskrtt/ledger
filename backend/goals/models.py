@@ -25,7 +25,8 @@ class FinancialGoal(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='financial_goals',
-        db_column='id_user_id'
+        db_column='id_user_id',
+        db_index=True  # Índice para queries frequentes
     )
 
     name = models.CharField(max_length=120)
@@ -43,6 +44,8 @@ class FinancialGoal(models.Model):
         editable=False,
         db_index=True
     )
+    deleted_at = models.DateTimeField(null=True, blank=True)  # Soft delete
+    is_deleted = models.BooleanField(default=False)  # Soft delete
 
     class Meta:
         verbose_name = "Financial Goal"

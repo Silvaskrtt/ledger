@@ -25,11 +25,14 @@ class Tag(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='tags',
-        db_column='id_user_id'
+        db_column='id_user_id',
+        db_index=True  # Índice para queries frequentes
     )
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)  # Soft delete
+    is_deleted = models.BooleanField(default=False)  # Soft delete
     
     class Meta:
         verbose_name = "Tag"

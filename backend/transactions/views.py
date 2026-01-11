@@ -2,6 +2,7 @@
 
 from rest_framework import generics, status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.timezone import make_aware
@@ -211,7 +212,7 @@ class ProcessRecurrencesView(generics.GenericAPIView):
     Endpoint para processar recorrências pendentes.
     Usar com cron job.
     """
-    permission_classes = []  # Ajuste conforme sua autenticação
+    permission_classes = [IsAuthenticated]  # ✓ Apenas usuários autenticados
     
     def post(self, request):
         try:

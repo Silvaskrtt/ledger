@@ -73,19 +73,22 @@ class Transaction(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='transactions',
-        db_column='id_user_id')
+        db_column='id_user_id',
+        db_index=True)
     
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
         related_name='transactions',
-        db_column='id_category_id')
+        db_column='id_category_id',
+        db_index=True)
     
     payment_method = models.ForeignKey(
         PaymentMethod,
         on_delete=models.CASCADE,
         related_name='transactions',
-        db_column='id_payment_method_id')
+        db_column='id_payment_method_id',
+        db_index=True)
     
     installment_plan = models.ForeignKey(
         InstallmentPlan,

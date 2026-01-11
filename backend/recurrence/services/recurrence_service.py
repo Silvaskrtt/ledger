@@ -112,6 +112,11 @@ def create_recurrence_transaction(recurrence_rule):
         
         # Relaciona com conta
         role = 'source' if recurrence_rule.direction == 'OUT' else 'destination'
+        
+        # Validar que conta pertence ao mesmo user
+        if recurrence_rule.account.user != recurrence_rule.user:
+            raise ValueError("Conta não pertence ao usuário da regra de recorrência")
+        
         TransactionAccount.objects.create(
             transaction=transaction,
             account=recurrence_rule.account,

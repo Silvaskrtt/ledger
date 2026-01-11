@@ -23,7 +23,11 @@ class Account(models.Model):
         db_column='id_account'
     )
     
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        db_index=True
+    )
     name = models.CharField(max_length=100, verbose_name="Nome da Conta")
     
     # Saldo inicial e atual

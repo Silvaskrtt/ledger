@@ -38,7 +38,8 @@ class PaymentMethod(models.Model):
         User, 
         on_delete=models.CASCADE, 
         related_name='payment_methods',
-        db_column='id_user_id')
+        db_column='id_user_id',
+        db_index=True)
     
     class Meta:
         verbose_name = "Payment Method"

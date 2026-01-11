@@ -44,7 +44,8 @@ class Category(models.Model):
         User, 
         on_delete=models.CASCADE, 
         related_name='categories',
-        db_column='id_user_id'
+        db_column='id_user_id',
+        db_index=True
     )
     
     parent_category = models.ForeignKey(
@@ -58,6 +59,8 @@ class Category(models.Model):
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)  # Soft delete
+    is_deleted = models.BooleanField(default=False)  # Soft delete
     
     class Meta:
         verbose_name = "Category"

@@ -34,7 +34,8 @@ class Budget(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='budgets',
-        db_column='id_user_id')
+        db_column='id_user_id',
+        db_index=True)
     period_type = models.CharField(max_length=20, choices=PERIOD_TYPE_CHOICES)
     period_start = models.DateField()
     period_end = models.DateField(null=True, blank=True)  # NOVO: data de fim
@@ -45,6 +46,8 @@ class Budget(models.Model):
     )  # NOVO: status do orçamento
     created_at = models.DateTimeField(auto_now_add=True)  # NOVO: rastreamento
     updated_at = models.DateTimeField(auto_now=True)  # NOVO: rastreamento
+    deleted_at = models.DateTimeField(null=True, blank=True)  # Soft delete
+    is_deleted = models.BooleanField(default=False)  # Soft delete
 
     class Meta:
         verbose_name = "Budget"
@@ -53,6 +56,10 @@ class Budget(models.Model):
             models.UniqueConstraint(
                 fields=['user', 'period_type', 'period_start'],
                 name='unique_budget_period'
+            ),
+            models.CheckConstraint(
+                condition=models.Q(period_end__gte=models.F('period_start')),
+                name='period_end_gte_start'
             )
         ]
 
