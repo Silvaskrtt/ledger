@@ -79,26 +79,26 @@ class RecurrenceRule(models.Model):
     user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
-        db_column='id_user',
+        db_column='id_user_id',
         related_name='recurrence_rules')
 
     category = models.ForeignKey(
         to=Category,
         on_delete=models.CASCADE,
         related_name='recurrence_rules',
-        db_column='id_category')
+        db_column='id_category_id')
 
     payment_method = models.ForeignKey(
         to=PaymentMethod,
         on_delete=models.CASCADE,
         related_name='recurrence_rules',
-        db_column='id_payment_method')
+        db_column='id_payment_method_id')
 
     account = models.ForeignKey(
         to=Account,
         on_delete=models.CASCADE,
         related_name='recurrence_rules',
-        db_column='id_account')
+        db_column='id_account_id')
 
     def __str__(self):
         return f"{self.get_frequency_display()} - R${self.amount} ({self.get_direction_display()}) - {self.get_status_display()}"

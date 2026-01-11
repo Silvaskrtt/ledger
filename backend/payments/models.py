@@ -38,7 +38,7 @@ class PaymentMethod(models.Model):
         User, 
         on_delete=models.CASCADE, 
         related_name='payment_methods',
-        db_column='id_user')
+        db_column='id_user_id')
     
     class Meta:
         verbose_name = "Payment Method"
@@ -75,13 +75,13 @@ class InstallmentPlan(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='installment_plans',
-        db_column='id_user')
+        db_column='id_user_id')
 
     account = models.ForeignKey(
         Account,
         on_delete=models.CASCADE,
         related_name='installment_plans',
-        db_column='id_account')
+        db_column='id_account_id')
 
     id_category = models.ForeignKey(
         Category,

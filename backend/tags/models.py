@@ -25,7 +25,7 @@ class Tag(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='tags',
-        db_column='id_user'
+        db_column='id_user_id'
     )
     
     created_at = models.DateTimeField(auto_now_add=True)

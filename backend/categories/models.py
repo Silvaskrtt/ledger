@@ -44,16 +44,16 @@ class Category(models.Model):
         User, 
         on_delete=models.CASCADE, 
         related_name='categories',
-        db_column='id_user'
+        db_column='id_user_id'
     )
     
     parent_category = models.ForeignKey(
         'self',
-        on_delete=models.SET_NULL,  # Alterado de CASCADE para SET_NULL
+        on_delete=models.SET_NULL,
         null=True,
         blank=True,
         related_name='subcategories',
-        db_column='id_parent_category'
+        db_column='id_parent_category_id'
     )
     
     created_at = models.DateTimeField(auto_now_add=True)

@@ -73,19 +73,19 @@ class Transaction(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='transactions',
-        db_column='id_user')
+        db_column='id_user_id')
     
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
         related_name='transactions',
-        db_column='id_category')
+        db_column='id_category_id')
     
     payment_method = models.ForeignKey(
         PaymentMethod,
         on_delete=models.CASCADE,
         related_name='transactions',
-        db_column='id_payment_method')
+        db_column='id_payment_method_id')
     
     installment_plan = models.ForeignKey(
         InstallmentPlan,
@@ -93,7 +93,7 @@ class Transaction(models.Model):
         related_name='transactions',
         null=True,
         blank=True,
-        db_column='id_installment_plan'
+        db_column='id_installment_plan_id'
     )
     
     credit_card_bill = models.ForeignKey(
@@ -204,13 +204,13 @@ class TransactionTag(models.Model):
         Transaction,
         on_delete=models.CASCADE,
         related_name='transaction_tags',
-        db_column='id_transaction')
+        db_column='id_transaction_id')
 
     tag = models.ForeignKey(
         Tag,
         on_delete=models.CASCADE,
         related_name='transaction_tags',
-        db_column='id_tag')
+        db_column='id_tag_id')
     
     # Unique constraint to prevent duplicate tag assignments to the same transaction
     class Meta:

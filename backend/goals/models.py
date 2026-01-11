@@ -25,7 +25,7 @@ class FinancialGoal(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='financial_goals',
-        db_column='id_user'
+        db_column='id_user_id'
     )
 
     name = models.CharField(max_length=120)

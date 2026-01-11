@@ -10726,3 +10726,66 @@ C:\Users\muril\ledger\backend\tags\serializers.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
 Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column transactions_transaction.id_user does not exist
+LINE 1: ...026-12-31T23:59:59.999999+00:00'::timestamptz AND "transacti...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "transactions_transaction.id_user_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\home\views.py", line 69, in home_view
+    ).aggregate(total=Sum('amount'))['total'] or 0
+      ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 594, in aggregate
+    return self.query.chain().get_aggregation(self.db, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 633, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column transactions_transaction.id_user does not exist
+LINE 1: ...026-12-31T23:59:59.999999+00:00'::timestamptz AND "transacti...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "transactions_transaction.id_user_id".
+
+"GET / HTTP/1.1" 500 141705
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\payments\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\goals\models.py changed, reloading.
+Watching for file changes with StatReloader

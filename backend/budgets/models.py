@@ -34,7 +34,7 @@ class Budget(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='budgets',
-        db_column='id_user')
+        db_column='id_user_id')
     period_type = models.CharField(max_length=20, choices=PERIOD_TYPE_CHOICES)
     period_start = models.DateField()
     period_end = models.DateField(null=True, blank=True)  # NOVO: data de fim
@@ -83,13 +83,13 @@ class BudgetCategoryLimit(models.Model):
         Budget,
         on_delete=models.CASCADE,
         related_name='budget_categories_limits',
-        db_column='id_budget')
+        db_column='id_budget_id')
 
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
         related_name='budget_categories_limits',
-        db_column='id_category')
+        db_column='id_category_id')
 
     limit_amount = models.DecimalField(max_digits=14, decimal_places=2)
 
