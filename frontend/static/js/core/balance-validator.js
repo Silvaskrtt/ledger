@@ -1,3 +1,5 @@
+// frontend/static/js/core/balance-validator.js
+
 /**
  * Validador de consistência de saldos
  * Verifica se saldos das contas estão consistentes com transações
