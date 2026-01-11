@@ -11607,3 +11607,27 @@ C:\Users\muril\ledger\backend\transactions\services\transaction_service.py chang
 Watching for file changes with StatReloader
 C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
 Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /api/tags/ HTTP/1.1" 200 180
+"GET /goals/ HTTP/1.1" 200 7759
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 9097
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
