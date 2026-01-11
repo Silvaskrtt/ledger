@@ -124,24 +124,41 @@ class Account(models.Model):
     
     @property
     def available_credit(self):
-        """Crédito disponível para cartões."""
+        """
+        Crédito disponível para cartões de crédito.
+        
+        PADRÃO: Saldo de cartão é NEGATIVO (representa dívida)
+        Exemplo: Limite 5000, Saldo -1000 (dívida de 1000)
+        Disponível = Limite - Dívida = 5000 - 1000 = 4000
+        """
         if self.is_credit_card and self.credit_limit:
-            # Para cartões, balance é NEGATIVO (dívida)
-            # Ex: limite 5000, dívida -1000 → disponível 4000
-            # Disponível = Limite - Dívida (onde dívida é positiva)
-            current_debt = abs(self.balance)  # Converte negativo para positivo
+            # Balance é NEGATIVO (ex: -1000 = dívida de 1000)
+            # Pegar valor absoluto para calcular crédito disponível
+            current_debt = abs(self.balance)  # abs(-1000) = 1000
             available = self.credit_limit - current_debt
-            return max(0, available)  # Nunca abaixo de zero
+            return max(0, available)  # Nunca retorna negativo
         return None
     
     def save(self, *args, **kwargs):
-        """Não sobrescreve balance automaticamente."""
+        """
+        Não sobrescreve balance automaticamente por transações.
+        Balance deve ser calculado apenas através de recalculate_account_balance().
+        
+        PADRÃO DE SALDO:
+        - Contas normais: Pode ser qualquer valor
+        - Cartões de crédito: Deve ser NEGATIVO ou ZERO (representa dívida)
+        """
         if not self.pk:
             # Apenas na criação
             self.balance = self.initial_balance
         
-        # VALIDAÇÃO CRÍTICA: Cartões nunca podem ter saldo positivo
+        # VALIDAÇÃO CRÍTICA: Cartões de crédito nunca podem ter saldo positivo
         if self.is_credit_card and self.balance > 0:
+            logger_instance = __import__('logging').getLogger(__name__)
+            logger_instance.warning(
+                f"Cartão de crédito '{self.name}' tem saldo positivo ({self.balance}). "
+                f"Ajustando para 0."
+            )
             self.balance = 0
         
         # Validar consistência

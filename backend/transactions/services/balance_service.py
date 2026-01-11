@@ -1,15 +1,20 @@
 # backend/transactions/services/balance_service.py
 
-from asyncio.log import logger
+import logging
 from django.db.models import Sum, Q
 from django.db import transaction as db_transaction
-from django.db.models import Sum
 from accounts.models import Account
 from transactions.models import Transaction
+
+logger = logging.getLogger(__name__)
 
 def recalculate_account_balance(account):
     """
     Recalcula saldo CORRETAMENTE baseado em transações.
+    
+    PADRÃO DE SALDO:
+    - Contas Normais: Saldo = Saldo_Inicial + Entradas - Saídas (pode ser positivo ou negativo)
+    - Cartões de Crédito: Saldo = -(Saídas - Entradas) ou seja, SEMPRE NEGATIVO (dívida) ou ZERO
     """
     with db_transaction.atomic():
         locked_account = Account.objects.select_for_update().get(pk=account.pk)
@@ -32,24 +37,21 @@ def recalculate_account_balance(account):
         
         # 3. FÓRMULA CORRETA
         if locked_account.is_credit_card:
-            # CARTÃO DE CRÉDITO:
-            # Saldo inicial DEVE SER 0 (cartão começa sem dívida)
-            # Fórmula: Saídas - Entradas
+            # CARTÃO DE CRÉDITO: Saldo NEGATIVO representa dívida
+            # Fórmula: -(Saídas - Entradas) = Entradas - Saídas
             # Ex: compras de 100 + 500 = 600 saídas, 0 entradas = -600
-            calculated_balance = totals_out - totals_in
+            # Ex: pagamento de 200 = 200 entradas, 0 saídas = -400
+            calculated_balance = totals_in - totals_out
             
-            # VERIFICAÇÃO CRÍTICA: 
-            # Cartão NÃO pode ter saldo positivo (não pode ter crédito)
-            # Mas PODE e DEVE ter saldo NEGATIVO (dívida)
+            # VALIDAÇÃO: Cartão NUNCA pode ter saldo positivo
             if calculated_balance > 0:
-                # Se cálculo deu positivo, algo está errado
-                # Isso pode acontecer se houver mais entradas que saídas
-                # Mas cartão não pode ter crédito, então mantém como está
-                # ou loga o erro
-                logger.warning(f"Cartão {locked_account.name} tem saldo positivo: {calculated_balance}")
+                logger.warning(
+                    f"Cartão {locked_account.name} teria saldo positivo ({calculated_balance}). "
+                    f"Ajustando para 0. Verifique se há entradas incorretas."
+                )
+                calculated_balance = 0
         else:
-            # CONTAS NORMAIS:
-            # Fórmula: Saldo Inicial + Entradas - Saídas
+            # CONTAS NORMAIS: Saldo = Saldo Inicial + Entradas - Saídas
             calculated_balance = initial_balance + totals_in - totals_out
         
         # 4. Atualizar e retornar

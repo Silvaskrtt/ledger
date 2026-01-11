@@ -61,6 +61,13 @@ class InstallmentPlan(models.Model):
     installments = models.IntegerField()   
     start_date = models.DateField(default=timezone.now)
     
+    interest_rate = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        default=0,
+        help_text="Taxa de juros mensal em % (0 para sem juros)"
+    )
+    
     id_user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -84,6 +91,8 @@ class InstallmentPlan(models.Model):
             CheckConstraint(condition=Q(total_amount__lt=10000), name='total_amount_max_limit'),
             CheckConstraint(condition=Q(installments__gt=0), name='installments_positive'),
             CheckConstraint(condition=Q(installments__lte=36), name='installments_max_limit'),
+            CheckConstraint(condition=Q(interest_rate__gte=0), name='interest_rate_non_negative'),
+            CheckConstraint(condition=Q(interest_rate__lte=100), name='interest_rate_max_100'),
         ]
         
     def __str__(self):

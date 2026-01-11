@@ -59,9 +59,6 @@ class Transaction(models.Model):
     
     total_installments = models.IntegerField(null=True, blank=True, help_text="Total de parcelas (apenas para parcelamentos)")
     
-    account_from = models.ForeignKey(Account, null=True, blank=True, on_delete=models.CASCADE, related_name='transactions_from')
-    account_to = models.ForeignKey(Account, null=True, blank=True, on_delete=models.CASCADE, related_name='transactions_to')
-    
     deleted_at = models.DateTimeField(null=True, blank=True)
     is_deleted = models.BooleanField(default=False)
     
@@ -95,6 +92,13 @@ class Transaction(models.Model):
         null=True,
         blank=True,
         help_text="Fatura do cartão de crédito onde esta transação será incluída"
+    )
+    
+    # Relacionamento muitos-para-muitos com tags
+    tags = models.ManyToManyField(
+        Tag,
+        through='TransactionTag',
+        related_name='transactions'
     )
     
     # Gerenciador customizado para filtrar transações não deletadas
