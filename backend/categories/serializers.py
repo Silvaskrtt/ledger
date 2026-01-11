@@ -3,7 +3,6 @@
 from rest_framework import serializers
 from .models import Category
 
-
 class CategorySerializer(serializers.ModelSerializer):
     subcategories_count = serializers.IntegerField(read_only=True)
     type_display = serializers.CharField(source='get_type_display', read_only=True)
@@ -18,7 +17,16 @@ class CategorySerializer(serializers.ModelSerializer):
         read_only_fields = ['id_category', 'created_at', 'updated_at', 'id_user']
     
     def validate(self, data):
-        # Valida se o usuário está tentando criar uma categoria para si mesmo
-        if self.context['request'].user != data.get('id_user', self.context['request'].user):
-            raise serializers.ValidationError("Você só pode criar categorias para seu próprio usuário.")
+        # Remover validação problemática
         return data
+    
+    def validate_icon(self, value):
+        """Permite ícone vazio, usa padrão se não especificado"""
+        if not value:
+            return 'receipt'
+        return value
+    
+    def create(self, validated_data):
+        # Garantir que o usuário seja o atual
+        validated_data['id_user'] = self.context['request'].user
+        return super().create(validated_data)

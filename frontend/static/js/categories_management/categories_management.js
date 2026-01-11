@@ -30,6 +30,151 @@ const elements = {
 const categoryTemplate = document.getElementById('category-template');
 const tagTemplate = document.getElementById('tag-template');
 
+// Gerenciamento do modal de ícones
+let iconModal = null;
+let selectedIcon = null;
+let currentIconTarget = null;
+
+function initIconModal() {
+    iconModal = document.getElementById('icon-modal');
+    if (!iconModal) return;
+    
+    const modalContent = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Selecionar Ícone</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="icon-search">
+                    <input type="text" id="icon-search" placeholder="Buscar ícone...">
+                </div>
+                <div class="icons-grid" id="icons-grid"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel">Cancelar</button>
+                <button type="button" class="btn-confirm" disabled>Selecionar</button>
+            </div>
+        </div>
+    `;
+    
+    iconModal.innerHTML = modalContent;
+    
+    // Lista de ícones disponíveis
+    const availableIcons = [
+        'shopping-cart', 'home', 'car', 'utensils', 'heart', 'graduation-cap',
+        'plane', 'gift', 'coffee', 'film', 'music', 'book', 'dumbbell',
+        'briefcase', 'receipt', 'credit-card', 'wallet', 'money-bill-wave',
+        'pizza-slice', 'wine-bottle', 'shirt', 'gamepad', 'mobile-alt',
+        'wifi', 'lightbulb', 'water', 'gas-pump', 'stethoscope', 'pills',
+        'dog', 'cat', 'baby', 'book-open', 'tools', 'palette', 'running',
+        'cocktail', 'umbrella-beach', 'plane-departure', 'hotel', 'heartbeat',
+        'hand-holding-usd', 'piggy-bank', 'chart-line', 'university',
+        'handshake', 'question-circle'
+    ];
+    
+    renderIcons(availableIcons);
+    
+    // Event listeners do modal
+    iconModal.querySelector('.modal-close').addEventListener('click', closeIconModal);
+    iconModal.querySelector('.btn-cancel').addEventListener('click', closeIconModal);
+    iconModal.querySelector('.btn-confirm').addEventListener('click', confirmIconSelection);
+    
+    // Busca de ícones
+    const iconSearch = iconModal.querySelector('#icon-search');
+    iconSearch.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const filteredIcons = availableIcons.filter(icon => 
+            icon.toLowerCase().includes(searchTerm)
+        );
+        renderIcons(filteredIcons);
+    });
+    
+    // Fechar modal ao clicar fora
+    iconModal.addEventListener('click', function(e) {
+        if (e.target === iconModal) {
+            closeIconModal();
+        }
+    });
+}
+
+function renderIcons(icons) {
+    const iconsGrid = iconModal.querySelector('#icons-grid');
+    if (!iconsGrid) return;
+    
+    iconsGrid.innerHTML = '';
+    
+    icons.forEach(iconName => {
+        const iconItem = document.createElement('div');
+        iconItem.className = 'icon-item';
+        iconItem.dataset.icon = iconName;
+        
+        iconItem.innerHTML = `
+            <i class="fa-solid fa-${iconName}"></i>
+            <span>${iconName.replace(/-/g, ' ')}</span>
+        `;
+        
+        iconItem.addEventListener('click', function() {
+            // Remover seleção anterior
+            iconsGrid.querySelectorAll('.icon-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            // Selecionar novo ícone
+            this.classList.add('selected');
+            selectedIcon = iconName;
+            
+            // Habilitar botão de confirmação
+            iconModal.querySelector('.btn-confirm').disabled = false;
+        });
+        
+        iconsGrid.appendChild(iconItem);
+    });
+}
+
+function openIconModal(targetInput, currentIcon) {
+    currentIconTarget = targetInput;
+    selectedIcon = currentIcon;
+    
+    // Abrir modal
+    iconModal.classList.add('active');
+    
+    // Preencher campo de busca
+    iconModal.querySelector('#icon-search').value = '';
+    
+    // Selecionar ícone atual se existir
+    if (currentIcon) {
+        const iconItem = iconModal.querySelector(`[data-icon="${currentIcon}"]`);
+        if (iconItem) {
+            iconItem.classList.add('selected');
+            iconModal.querySelector('.btn-confirm').disabled = false;
+        }
+    } else {
+        iconModal.querySelector('.btn-confirm').disabled = true;
+    }
+}
+
+function closeIconModal() {
+    if (iconModal) {
+        iconModal.classList.remove('active');
+    }
+    selectedIcon = null;
+    currentIconTarget = null;
+}
+
+function confirmIconSelection() {
+    if (selectedIcon && currentIconTarget) {
+        if (currentIconTarget.type === 'category-add') {
+            elements.categoryIconInput.value = selectedIcon;
+            elements.iconPreview.className = `fa-solid fa-${selectedIcon}`;
+        } else if (currentIconTarget.type === 'category-edit') {
+            currentIconTarget.input.value = selectedIcon;
+            currentIconTarget.preview.className = `fa-solid fa-${selectedIcon}`;
+        }
+    }
+    closeIconModal();
+}
+
 // Funções utilitárias
 function showMessage(message, type = 'success') {
     const messageDiv = document.createElement('div');
@@ -48,25 +193,36 @@ function showMessage(message, type = 'success') {
 }
 
 function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('pt-BR');
+    if (!dateString) return 'N/A';
+    try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('pt-BR');
+    } catch (e) {
+        return dateString;
+    }
 }
 
 function lightenColor(color, percent) {
-    const num = parseInt(color.replace("#", ""), 16);
-    const amt = Math.round(2.55 * percent);
-    const R = (num >> 16) + amt;
-    const G = (num >> 8 & 0x00FF) + amt;
-    const B = (num & 0x0000FF) + amt;
+    if (!color) return '#3B82F6';
     
-    return `#${(
-        0x1000000 +
-        (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
-        (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
-        (B < 255 ? (B < 1 ? 0 : B) : 255)
-    )
-        .toString(16)
-        .slice(1)}`;
+    try {
+        const num = parseInt(color.replace("#", ""), 16);
+        const amt = Math.round(2.55 * percent);
+        const R = (num >> 16) + amt;
+        const G = (num >> 8 & 0x00FF) + amt;
+        const B = (num & 0x0000FF) + amt;
+        
+        return `#${(
+            0x1000000 +
+            (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
+            (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
+            (B < 255 ? (B < 1 ? 0 : B) : 255)
+        )
+            .toString(16)
+            .slice(1)}`;
+    } catch (e) {
+        return color;
+    }
 }
 
 // Funções de API
@@ -137,6 +293,7 @@ async function createCategory(categoryData) {
         elements.categoryForm.reset();
         elements.iconPreview.className = 'fa-solid fa-shopping-cart';
         elements.categoryIconInput.value = 'shopping-cart';
+        document.getElementById('category-color').value = '#3B82F6';
         
         return newCategory;
     } catch (error) {
@@ -365,8 +522,8 @@ function renderCategoryItem(category) {
     return `
         <div class="category-item" data-id="${category.id_category}">
             <div class="category-main">
-                <div class="icon-box" style="background-color: ${lightColor}; color: ${category.color || '#3B82F6'}">
-                    <i class="fa-solid fa-${category.icon || 'receipt'}"></i>
+                <div class="icon-box" style="background-color: ${lightColor};">
+                    <i class="fa-solid fa-${category.icon || 'receipt'}" style="color: ${category.color || '#3B82F6'}"></i>
                 </div>
                 <div class="category-details">
                     <div class="name-row">
@@ -501,7 +658,7 @@ function showEditCategoryForm(categoryItem, category) {
         <form class="edit-category-form" data-id="${category.id_category}">
             <div class="inline-form" style="margin-top: 15px; padding: 15px; background: #f8fafc; border-radius: 8px;">
                 <div class="input-group">
-                    <input type="text" name="name" value="${category.name}" placeholder="Nome" required>
+                    <input type="text" name="name" value="${category.name || ''}" placeholder="Nome" required>
                 </div>
                 <div class="input-group">
                     <select name="type" required>
@@ -513,9 +670,19 @@ function showEditCategoryForm(categoryItem, category) {
                     <input type="color" name="color" value="${category.color || '#3B82F6'}" title="Escolha uma cor">
                 </div>
                 <div class="input-group icon-picker">
-                    <i class="fa-solid fa-${category.icon || 'receipt'}" id="edit-icon-preview-${category.id_category}"></i>
-                    <input type="text" name="icon" value="${category.icon || 'receipt'}" 
-                           placeholder="Ícone" list="icon-list">
+                    <div class="icon-picker-wrapper">
+                        <div class="icon-preview">
+                            <i class="fa-solid fa-${category.icon || 'receipt'}" id="edit-icon-preview-${category.id_category}"></i>
+                        </div>
+                        <input type="text" 
+                               name="icon" 
+                               value="${category.icon || 'receipt'}" 
+                               placeholder="Ícone"
+                               class="edit-category-icon">
+                        <button type="button" class="btn-icon-picker open-edit-icon-modal" data-id="${category.id_category}">
+                            <i class="fa-solid fa-list"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="input-group">
                     <select name="id_parent_category">
@@ -533,7 +700,7 @@ function showEditCategoryForm(categoryItem, category) {
                     <button type="submit" class="btn-add-dark">
                         <i class="fas fa-save"></i> Salvar
                     </button>
-                    <button type="button" class="btn-cancel" style="background: #ef4444; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                    <button type="button" class="btn-cancel">
                         <i class="fas fa-times"></i> Cancelar
                     </button>
                 </div>
@@ -547,9 +714,27 @@ function showEditCategoryForm(categoryItem, category) {
     const iconInput = editForm.querySelector('input[name="icon"]');
     const iconPreview = editForm.querySelector(`#edit-icon-preview-${category.id_category}`);
     
-    iconInput.addEventListener('input', function() {
-        iconPreview.className = `fa-solid fa-${this.value || 'receipt'}`;
-    });
+    if (iconInput && iconPreview) {
+        iconInput.addEventListener('input', function() {
+            iconPreview.className = `fa-solid fa-${this.value || 'receipt'}`;
+        });
+    }
+    
+    // Botão para abrir modal de ícones no formulário de edição
+    const editIconBtn = editForm.querySelector('.open-edit-icon-modal');
+    if (editIconBtn) {
+        editIconBtn.addEventListener('click', function() {
+            const iconValue = editForm.querySelector('.edit-category-icon').value;
+            openIconModal(
+                { 
+                    type: 'category-edit',
+                    input: editForm.querySelector('.edit-category-icon'),
+                    preview: editForm.querySelector(`#edit-icon-preview-${category.id_category}`)
+                },
+                iconValue
+            );
+        });
+    }
     
     // Submeter formulário de edição
     editForm.querySelector('.edit-category-form').addEventListener('submit', async function(e) {
@@ -581,7 +766,7 @@ function showEditTagForm(tagItem, tag) {
         <form class="edit-tag-form" data-id="${tag.id_tag}" style="margin-top: 10px; padding: 15px; background: #f8fafc; border-radius: 8px;">
             <div class="inline-form">
                 <div class="input-group">
-                    <input type="text" name="name" value="${tag.name}" placeholder="Nome da tag" required>
+                    <input type="text" name="name" value="${tag.name || ''}" placeholder="Nome da tag" required>
                 </div>
                 <div class="input-group">
                     <input type="color" name="color" value="${tag.color || '#6B7280'}" title="Escolha uma cor">
@@ -590,7 +775,7 @@ function showEditTagForm(tagItem, tag) {
                     <button type="submit" class="btn-add-dark">
                         <i class="fas fa-save"></i> Salvar
                     </button>
-                    <button type="button" class="btn-cancel" style="background: #ef4444; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                    <button type="button" class="btn-cancel">
                         <i class="fas fa-times"></i> Cancelar
                     </button>
                 </div>
@@ -650,13 +835,12 @@ function init() {
         elements.categoryForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
             const categoryData = {
-                name: formData.get('category-name'),
-                type: formData.get('category-type'),
-                color: formData.get('category-color'),
-                icon: formData.get('category-icon'),
-                id_parent_category: formData.get('category-parent') || null
+                name: document.getElementById('category-name').value,
+                type: document.getElementById('category-type').value,
+                color: document.getElementById('category-color').value,
+                icon: document.getElementById('category-icon').value,
+                id_parent_category: document.getElementById('category-parent').value || null
             };
             
             await createCategory(categoryData);
@@ -668,10 +852,9 @@ function init() {
         elements.tagForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
             const tagData = {
-                name: formData.get('tag-name'),
-                color: formData.get('tag-color')
+                name: document.getElementById('tag-name').value,
+                color: document.getElementById('tag-color').value
             };
             
             await createTag(tagData);
@@ -697,10 +880,28 @@ function init() {
             renderCategories();
         });
     }
+
+    // Inicializar modal de ícones
+    initIconModal();
+    
+    // Botão para abrir modal de ícones (formulário de adição)
+    const openIconModalBtn = document.getElementById('open-icon-modal');
+    if (openIconModalBtn) {
+        openIconModalBtn.addEventListener('click', function() {
+            openIconModal(
+                { type: 'category-add' },
+                elements.categoryIconInput.value
+            );
+        });
+    }
     
     // Carregar dados iniciais
     fetchCategories();
 }
 
 // Iniciar quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', init);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}

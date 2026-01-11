@@ -8,7 +8,6 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/categories_management/categories_management.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 {% endblock %}
 
 {% block content %}
@@ -58,10 +57,20 @@
                     </div>
 
                     <div class="input-group icon-picker">
-                        <i class="fa-solid" id="icon-preview">shopping-cart</i>
-                        <input type="text" id="category-icon" placeholder="Ícone (ex: shopping-cart)" 
-                               list="icon-list" value="shopping-cart">
-                        <datalist id="icon-list">
+                        <div class="icon-picker-wrapper">
+                            <div class="icon-preview">
+                                <i class="fa-solid fa-shopping-cart" id="icon-preview"></i>
+                            </div>
+                            <input type="text" 
+                                id="category-icon" 
+                                placeholder="Ícone (ex: shopping-cart)"
+                                value="shopping-cart"
+                                list="icon-suggestions">
+                            <button type="button" class="btn-icon-picker" id="open-icon-modal">
+                                <i class="fa-solid fa-list"></i>
+                            </button>
+                        </div>
+                        <datalist id="icon-suggestions">
                             <option value="shopping-cart">
                             <option value="home">
                             <option value="car">
@@ -148,6 +157,11 @@
         </div>
     </div>
 
+</div>
+
+<!-- Modal de seleção de ícones -->
+<div id="icon-modal" class="modal">
+    <!-- Modal será preenchido pelo JavaScript -->
 </div>
 
 <!-- Template para categoria -->

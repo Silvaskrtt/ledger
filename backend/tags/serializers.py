@@ -3,7 +3,6 @@
 from rest_framework import serializers
 from .models import Tag
 
-
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
@@ -11,6 +10,10 @@ class TagSerializer(serializers.ModelSerializer):
         read_only_fields = ['id_tag', 'created_at', 'updated_at', 'id_user']
     
     def validate(self, data):
-        if self.context['request'].user != data.get('id_user', self.context['request'].user):
-            raise serializers.ValidationError("Você só pode criar tags para seu próprio usuário.")
+        # Remover a validação problemática
         return data
+    
+    def create(self, validated_data):
+        # Garantir que o usuário seja o atual
+        validated_data['id_user'] = self.context['request'].user
+        return super().create(validated_data)

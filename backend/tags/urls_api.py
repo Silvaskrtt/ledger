@@ -5,5 +5,5 @@ from .views import TagListCreateView, TagDetailView
 
 urlpatterns = [
     path('tags/', TagListCreateView.as_view(), name='tag-list'),
-    path('tags/<int:pk>/', TagDetailView.as_view(), name='tag-detail'),
+    path('tags/<uuid:pk>/', TagDetailView.as_view(), name='tag-detail'),
 ]

@@ -8858,3 +8858,663 @@ Bad Request: /api/accounts/
 "GET /transactions/new/ HTTP/1.1" 200 13901
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 3589
+"GET /static/admin/css/base.css HTTP/1.1" 200 23100
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET / HTTP/1.1" 200 8213
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 304 0
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 827
+"GET /api/accounts/ HTTP/1.1" 200 827
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 827
+"GET /api/accounts/ HTTP/1.1" 200 827
+"POST /api/accounts/ HTTP/1.1" 201 401
+"GET / HTTP/1.1" 200 8213
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 7983
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6711
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14095
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /managementCategories/ HTTP/1.1" 200 13440
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /api/tags/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 15790
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 16689
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 16689
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /api/tags/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 16689
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /api/tags/ HTTP/1.1" 200 52
+C:\Users\muril\ledger\backend\categories\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /api/tags/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /api/tags/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 32936
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 12132
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /api/categories/ HTTP/1.1" 200 52
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /api/tags/ HTTP/1.1" 200 52
+C:\Users\muril\ledger\backend\tags\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\tags\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 12132
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 12132
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 32936
+"GET /api/categories/ HTTP/1.1" 200 52
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"POST /api/categories/ HTTP/1.1" 201 267
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Comida) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\categories\views.py", line 24, in perform_create
+    serializer.save(id_user=self.request.user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\categories\serializers.py", line 32, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Comida) already exists.
+
+"POST /api/categories/ HTTP/1.1" 500 222024
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Comida) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\categories\views.py", line 24, in perform_create
+    serializer.save(id_user=self.request.user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\categories\serializers.py", line 32, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Comida) already exists.
+
+"POST /api/categories/ HTTP/1.1" 500 222024
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 319
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Comida) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\categories\views.py", line 24, in perform_create
+    serializer.save(id_user=self.request.user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\categories\serializers.py", line 32, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Comida) already exists.
+
+"POST /api/categories/ HTTP/1.1" 500 222029
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+"GET /api/tags/ HTTP/1.1" 200 52
+"POST /api/tags/ HTTP/1.1" 201 193
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Comida) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\categories\views.py", line 24, in perform_create
+    serializer.save(id_user=self.request.user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\categories\serializers.py", line 32, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Comida) already exists.
+
+"POST /api/categories/ HTTP/1.1" 500 222014
+"GET /managementCategories/ HTTP/1.1" 200 13983
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 6175
+"GET /api/categories/ HTTP/1.1" 200 319
+"GET /cartoes/ HTTP/1.1" 200 7682
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /management/ HTTP/1.1" 200 16090
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /managementCategories/ HTTP/1.1" 200 13983
+"GET /api/categories/ HTTP/1.1" 200 319
+"GET /goals/ HTTP/1.1" 200 6763
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\tags\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\tags\views.py changed, reloading.
+Watching for file changes with StatReloader

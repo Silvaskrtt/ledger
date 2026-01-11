@@ -89,52 +89,15 @@
     border-radius: 8px;
     font-size: 14px;
     background: #f8fafc;
+    box-sizing: border-box;
 }
 
 .input-group input[type="color"] {
     padding: 5px;
     height: 40px;
     cursor: pointer;
-}
-
-.icon-picker {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 0 12px;
-    max-width: 200px;
-}
-
-.icon-picker i {
-    color: #64748b;
-    margin-right: 10px;
-    min-width: 20px;
-}
-
-.icon-picker input {
-    border: none;
-    background: transparent;
-    flex: 1;
-}
-
-.btn-add-dark {
-    background: #0f172a;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.3s;
-}
-
-.btn-add-dark:hover {
-    background: #1e293b;
+    width: 60px;
+    min-width: 60px;
 }
 
 /* LISTAGEM */
@@ -156,6 +119,9 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .btn-show-hidden:hover {
@@ -201,10 +167,12 @@
     justify-content: center;
     color: #475569;
     border: 1px solid #f1f5f9;
+    flex-shrink: 0;
 }
 
 .category-details {
     flex: 1;
+    min-width: 0;
 }
 
 .name-row {
@@ -212,6 +180,7 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 5px;
+    flex-wrap: wrap;
 }
 
 .badge {
@@ -219,6 +188,7 @@
     border-radius: 12px;
     font-size: 11px;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .badge-danger {
@@ -243,6 +213,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap;
 }
 
 .subcategories-count span {
@@ -252,6 +223,7 @@
 .category-actions {
     display: flex;
     gap: 8px;
+    flex-shrink: 0;
 }
 
 .btn-edit, .btn-delete, .btn-tag-edit, .btn-tag-delete {
@@ -262,6 +234,11 @@
     cursor: pointer;
     color: #64748b;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
 }
 
 .btn-edit:hover {
@@ -304,11 +281,15 @@
     align-items: center;
     gap: 10px;
     flex: 1;
+    min-width: 0;
 }
 
 .tag-name {
     font-weight: 600;
     color: #1f2937;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .tag-color-badge {
@@ -317,11 +298,13 @@
     border-radius: 50%;
     border: 2px solid white;
     box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+    flex-shrink: 0;
 }
 
 .tag-actions {
     display: flex;
     gap: 5px;
+    flex-shrink: 0;
 }
 
 /* Grupo de categorias */
@@ -379,15 +362,278 @@
     border: 1px solid #fca5a5;
 }
 
+.message.info {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #7dd3fc;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Estilos para o icon picker */
+.icon-picker {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0 12px;
+    min-width: 200px;
+}
+
+.icon-picker-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.icon-preview {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    flex-shrink: 0;
+}
+
+.icon-picker-wrapper input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 0;
+    min-width: 120px;
+    outline: none;
+}
+
+.btn-icon-picker {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.btn-icon-picker:hover {
+    background: #f1f5f9;
+}
+
+/* Modal de ícones */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #1a202c;
+    font-size: 18px;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #64748b;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #dc2626;
+}
+
+.modal-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.icon-search {
+    margin-bottom: 20px;
+}
+
+.icon-search input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    text-align: center;
+}
+
+.icon-item:hover {
+    border-color: #3b82f6;
+    background: #f8fafc;
+}
+
+.icon-item.selected {
+    border-color: #3b82f6;
+    background: #dbeafe;
+}
+
+.icon-item i {
+    font-size: 24px;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.icon-item span {
+    font-size: 11px;
+    color: #64748b;
+    text-align: center;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.modal-footer .btn-cancel {
+    background: #f1f5f9;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modal-footer .btn-confirm {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modal-footer button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Botão adicionar */
+.btn-add-dark {
+    background: #0f172a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+    height: 40px;
+    white-space: nowrap;
+}
+
+.btn-add-dark:hover {
+    background: #1e293b;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
+    .container-categories {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+    
+    .tabs {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .add-section-card {
+        padding: 20px;
+    }
+    
     .inline-form {
         flex-direction: column;
         align-items: stretch;
+        gap: 15px;
     }
     
     .input-group {
         min-width: 100%;
+        width: 100%;
     }
     
     .btn-add-dark {
@@ -401,11 +647,36 @@
     
     .category-main {
         flex-wrap: wrap;
+        gap: 10px;
     }
     
     .category-actions {
         margin-top: 10px;
         width: 100%;
         justify-content: flex-end;
+    }
+    
+    .list-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .icons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 10px;
+    }
+    
+    .icon-item {
+        padding: 10px 5px;
+    }
+    
+    .icon-item i {
+        font-size: 20px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
     }
 }
