@@ -36,6 +36,11 @@
         </h3>
         
         <form id="account-form" class="vertical-form">
+            <!-- REMOVA a linha abaixo - o Django já adiciona automaticamente -->
+            <!-- <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}"> -->
+            
+            {% csrf_token %} <!-- Mantenha APENAS esta tag Django -->
+            
             <!-- Campo oculto para ID (edição) -->
             <input type="hidden" id="account-id">
             
@@ -43,8 +48,7 @@
                 <label for="account-name">
                     <i class="fas fa-signature"></i> Nome da Conta *
                 </label>
-                <input type="text" id="account-name" name="name" 
-                       placeholder="Ex: Conta Corrente Banco X" required>
+                <input type="text" id="account-name" name="name" placeholder="Ex: Conta Corrente Banco Y" required>
             </div>
 
             <div class="form-row">
@@ -68,7 +72,7 @@
                         <i class="fas fa-coins"></i> Saldo Inicial *
                     </label>
                     <input type="number" id="initial-balance" name="initial_balance" 
-                           step="0.01" min="0" placeholder="0.00" required>
+                           step="0.01" min="0" value="0" placeholder="0.00" required>
                 </div>
             </div>
 
@@ -129,7 +133,7 @@
                             <i class="fas fa-chart-bar"></i> Limite de Crédito *
                         </label>
                         <input type="number" id="credit-limit" name="credit_limit" 
-                               step="0.01" min="0" placeholder="0.00">
+                               step="0.01" min="0" value="0" placeholder="0.00">
                     </div>
                 </div>
                 
@@ -139,7 +143,7 @@
                             <i class="fas fa-calendar-times"></i> Dia do Fechamento *
                         </label>
                         <input type="number" id="closing-day" name="closing_day" 
-                               min="1" max="31" placeholder="Ex: 10">
+                               min="1" max="31" value="1" placeholder="Ex: 10">
                     </div>
                     
                     <div class="field-group flex-1">
@@ -147,7 +151,7 @@
                             <i class="fas fa-calendar-check"></i> Dia do Vencimento *
                         </label>
                         <input type="number" id="due-day" name="due_day" 
-                               min="1" max="31" placeholder="Ex: 20">
+                               min="1" max="31" value="1" placeholder="Ex: 20">
                     </div>
                 </div>
             </div>
