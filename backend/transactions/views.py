@@ -101,7 +101,7 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
                 transactions = transactions.filter(category_id=category_uuid_obj)
             except (ValueError, AttributeError):
                 # Fallback: filtra por nome contendo a string
-                transactions = transactions.filter(id_category__name__icontains=category_uuid)
+                transactions = transactions.filter(category__name__icontains=category_uuid)
 
         # Contexto para renderização do template
         context = {
@@ -253,7 +253,7 @@ class TransactionAccountListCreateView(generics.ListCreateAPIView):
     
     def get_queryset(self):
         """Filtra relações TransactionAccount por transações do usuário."""
-        return TransactionAccount.objects.filter(id_transaction__user=self.request.user)
+        return TransactionAccount.objects.filter(transaction__user=self.request.user)
 
 
 class TransactionAccountDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -264,7 +264,7 @@ class TransactionAccountDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     def get_queryset(self):
         """Filtra relações TransactionAccount por transações do usuário."""
-        return TransactionAccount.objects.filter(id_transaction__user=self.request.user)
+        return TransactionAccount.objects.filter(transaction__user=self.request.user)
 
 
 class TransactionTagListCreateView(generics.ListCreateAPIView):
@@ -277,7 +277,7 @@ class TransactionTagListCreateView(generics.ListCreateAPIView):
     
     def get_queryset(self):
         """Filtra relações TransactionTag por transações do usuário."""
-        return TransactionTag.objects.filter(id_transaction__user=self.request.user)
+        return TransactionTag.objects.filter(transaction__user=self.request.user)
 
 
 class TransactionTagDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -288,4 +288,4 @@ class TransactionTagDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     def get_queryset(self):
         """Filtra relações TransactionTag por transações do usuário."""
-        return TransactionTag.objects.filter(id_transaction__user=self.request.user)
+        return TransactionTag.objects.filter(transaction__user=self.request.user)

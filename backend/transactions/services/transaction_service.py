@@ -32,10 +32,10 @@ def convert_tags_to_objects(tags, user):
         return []
     
     # Se já são objetos Tag
-    if hasattr(tags[0], 'id_tag'):
+    if hasattr(tags[0], 'tag'):
         # Verificar se todas pertencem ao usuário
         for tag in tags:
-            if tag.id_user != user:
+            if tag.user != user:
                 raise ValueError(f"A tag '{tag.name}' não pertence ao usuário {user.username}")
         return tags
     
@@ -103,9 +103,9 @@ def create_transaction_service(
     user,
     amount: Decimal,
     direction: str,
-    id_category,
-    id_payment_method,
-    id_account,
+    category,
+    payment_method,
+    account,
     origin: str = 'MANUAL',
     tags=None,
     currency: str = 'BRL',
@@ -138,15 +138,15 @@ def create_transaction_service(
         origin = 'MANUAL'
     
     # OBTER OBJETO CONTA E MÉTODO DE PAGAMENTO
-    if isinstance(id_account, Account):
-        account_obj = id_account
+    if isinstance(account, Account):
+        account_obj = account
     else:
-        account_obj = Account.objects.get(pk=id_account, user=user)
+        account_obj = Account.objects.get(pk=account, user=user)
     
-    if isinstance(id_payment_method, PaymentMethod):
-        payment_method_obj = id_payment_method
+    if isinstance(payment_method, PaymentMethod):
+        payment_method_obj = payment_method
     else:
-        payment_method_obj = PaymentMethod.objects.get(pk=id_payment_method, user=user)
+        payment_method_obj = PaymentMethod.objects.get(pk=payment_method, user=user)
         
     # VALIDAR COMPATIBILIDADE
     if not validate_payment_method_compatibility(
@@ -163,7 +163,7 @@ def create_transaction_service(
     
     # CONVERTER TAGS
     tag_objects = convert_tags_to_objects(tags or [], user)
-    logger.debug(f"Tags convertidas: {[str(tag.id_tag) for tag in tag_objects]}")
+    logger.debug(f"Tags convertidas: {[str(tag.tag) for tag in tag_objects]}")
     
     # VERIFICAR SALDO ANTES DA TRANSAÇÃO
     balance_before = account_obj.balance
@@ -179,8 +179,8 @@ def create_transaction_service(
             user=user,
             total_amount=amount,
             installments=installments,
-            category=id_category,
-            payment_method=id_payment_method,
+            category=category,
+            payment_method=payment_method,
             account=account_obj,
             tags=tag_objects,
             interest_rate=interest_rate,
@@ -209,8 +209,8 @@ def create_transaction_service(
             user=user,
             amount=amount,
             direction=direction,
-            category=id_category,
-            payment_method=id_payment_method,
+            category=category,
+            payment_method=payment_method,
             account=account_obj,
             frequency=recurrence_frequency,
             tags=tag_objects,
@@ -238,8 +238,8 @@ def create_transaction_service(
             # Cria transação
             transaction = Transaction.objects.create(
                 user=user,
-                category=id_category,
-                payment_method=id_payment_method,
+                category=category,
+                payment_method=payment_method,
                 amount=amount,
                 direction=direction,
                 currency=currency,
@@ -271,13 +271,13 @@ def create_transaction_service(
             
             if not is_consistent:
                 logger.error(
-                    f"INCONSISTÊNCIA DETECTADA após criação da transação {transaction.id_transaction}"
+                    f"INCONSISTÊNCIA DETECTADA após criação da transação {transaction.transaction}"
                 )
                 # Tenta corrigir
                 account.balance = calculated_balance
                 account.save(update_fields=['balance'])
             
-            logger.info(f"Transação manual criada: {transaction.id_transaction}")
+            logger.info(f"Transação manual criada: {transaction.transaction}")
             logger.info(f"Saldo: {balance_before} -> {account.balance}")
             
             return {

@@ -11574,3 +11574,36 @@ Not Found: /favicon.ico
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 "GET / HTTP/1.1" 200 9477
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\recurrence\services\recurrence_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 16552
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 8133
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader

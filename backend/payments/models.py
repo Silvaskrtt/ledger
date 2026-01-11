@@ -83,10 +83,11 @@ class InstallmentPlan(models.Model):
         related_name='installment_plans',
         db_column='id_account_id')
 
-    id_category = models.ForeignKey(
+    category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
-        related_name='installment_plans')
+        related_name='installment_plans',
+        db_column='id_category_id')
 
     class Meta:
         verbose_name = "Installment Plan"
