@@ -13,7 +13,7 @@ class Command(BaseCommand):
         self.stdout.write("Verificando métodos de pagamento para todos os usuários...")
         
         for user in User.objects.all():
-            methods_count = PaymentMethod.objects.filter(id_user=user).count()
+            methods_count = PaymentMethod.objects.filter(user=user).count()
             
             if methods_count == 0:
                 self.stdout.write(f"Criando métodos para {user.username}...")
@@ -21,8 +21,8 @@ class Command(BaseCommand):
                 try:
                     for method_data in DEFAULT_PAYMENT_METHODS:
                         PaymentMethod.objects.create(
-                            id_payment_method=uuid.uuid4(),
-                            id_user=user,
+                            payment_method=uuid.uuid4(),
+                            user=user,
                             type=method_data['type'],
                             description=method_data['description'],
                             requires_account=method_data['requires_account'],

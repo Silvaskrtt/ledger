@@ -46,12 +46,12 @@ Utiliza Tom-Select para melhorar experiência em campos select.
 
                 <!-- Campo: Conta associada -->
                 <div class="fields">
-                    <label for="id_account">Conta:</label>
-                    <select id="id_account" name="id_account" required class="tom-select">
+                    <label for="account">Conta:</label>
+                    <select id="account" name="account" required class="tom-select">
                         <option value="">Selecione uma conta</option>
                         <!-- Loop dinâmico: contas do usuário -->
                         {% for account in accounts %}
-                            <option value="{{ account.id_account|stringformat:'s' }}">
+                            <option value="{{ account.account|stringformat:'s' }}">
                                 {{ account.name }} {% if account.type %}({{ account.type }}){% endif %}
                             </option>
                         {% endfor %}
@@ -68,12 +68,12 @@ Utiliza Tom-Select para melhorar experiência em campos select.
 
                 <!-- Campo: Categoria da transação -->
                 <div class="fields">
-                    <label for="id_category">Categoria:</label>
-                    <select id="id_category" name="id_category" required class="tom-select">
+                    <label for="category">Categoria:</label>
+                    <select id="category" name="category" required class="tom-select">
                         <option value="">Selecione uma categoria</option>
                         <!-- Loop: categorias disponíveis no sistema -->
                         {% for category in categories %}
-                        <option value="{{ category.id_category|stringformat:'s' }}">
+                        <option value="{{ category.category|stringformat:'s' }}">
                             {{ category.name }}
                         </option>
                         {% endfor %}
@@ -82,12 +82,12 @@ Utiliza Tom-Select para melhorar experiência em campos select.
 
                 <!-- Campo: Método de pagamento -->
                 <div class="fields">
-                    <label for="id_payment_method">Método de Pagamento:</label>
-                    <select id="id_payment_method" name="id_payment_method" required class="tom-select">
+                    <label for="payment_method">Método de Pagamento:</label>
+                    <select id="payment_method" name="payment_method" required class="tom-select">
                         <option value="">Selecione um método</option>
                         <!-- Loop: métodos de pagamento configurados -->
                         {% for method in payment_methods %}
-                        <option value="{{ method.id_payment_method|stringformat:'s' }}">
+                        <option value="{{ method.payment_method|stringformat:'s' }}">
                             {{ method.type }}
                         </option>
                         {% endfor %}
@@ -125,12 +125,12 @@ Utiliza Tom-Select para melhorar experiência em campos select.
 
                 <!-- Campo: Tags (opcional, múltipla seleção) -->
                 <div class="fields full-width">
-                    <label for="id_tags">Tags (opcional):</label>
-                    <select id="id_tags" name="tags" multiple class="tom-select">
+                    <label for="tags">Tags (opcional):</label>
+                    <select id="tags" name="tags" multiple class="tom-select">
                         <!-- Atributo 'multiple' permite selecionar várias tags -->
                         <option value="">Selecione tags</option>
                         {% for tag in tags %}
-                        <option value="{{ tag.id_tag|stringformat:'s' }}">
+                        <option value="{{ tag.tag|stringformat:'s' }}">
                             {{ tag.name }}
                         </option>
                         {% empty %}
@@ -213,8 +213,8 @@ NOTAS SOBRE O TEMPLATE:
 
 1. ESTRUTURA DE DADOS:
    - O formulário envia dados para uma view que processa a criação da transação
-   - Campos obrigatórios: amount, id_account, occurred_at, id_category, 
-     id_payment_method, currency, origin, direction
+   - Campos obrigatórios: amount, account, occurred_at, category, 
+     payment_method, currency, origin, direction
 
 2. COMPONENTES EXTERNOS:
    - Tom-Select: Melhora experiência em campos select, especialmente para múltipla seleção

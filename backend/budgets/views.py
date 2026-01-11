@@ -26,7 +26,7 @@ class BudgetOverviewAPIView(generics.ListAPIView):
 
     def get_queryset(self):
         return BudgetCategoryLimit.objects.filter(
-            id_budget__id_user=self.request.user
+            id_budget__user=self.request.user
         ).select_related('category')
 
     def list(self, request, *args, **kwargs):
@@ -75,7 +75,7 @@ class BudgetCategoryLimitListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         return BudgetCategoryLimit.objects.filter(
-            id_budget__id_user=self.request.user
+            id_budget__user=self.request.user
         )
 
     def get_serializer_context(self):
@@ -86,5 +86,5 @@ class BudgetCategoryLimitDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return BudgetCategoryLimit.objects.filter(
-            id_budget__id_user=self.request.user
+            id_budget__user=self.request.user
         )

@@ -70,13 +70,13 @@ def create_installment_transactions(
     try:
         # Cria plano de parcelamento
         installment_plan = InstallmentPlan.objects.create(
-            id_installment_plan=uuid.uuid4(),
+            installment_plan=uuid.uuid4(),
             total_amount=total_amount,
             installments=installments,
             start_date=start_date,
-            id_user=user,
-            id_account=account,
-            id_category=category
+            user=user,
+            account=account,
+            category=category
         )
         
         # Gera transações para cada parcela
@@ -86,11 +86,11 @@ def create_installment_transactions(
             
             # Cria transação
             transaction = Transaction.objects.create(
-                id_transaction=uuid.uuid4(),
-                id_user=user,
-                id_category=category,
-                id_payment_method=payment_method,
-                id_installment_plan=installment_plan,
+                transaction=uuid.uuid4(),
+                user=user,
+                category=category,
+                payment_method=payment_method,
+                installment_plan=installment_plan,
                 amount=installment_amount,
                 direction='OUT',  # Parcelas são sempre despesas
                 currency='BRL',
@@ -105,8 +105,8 @@ def create_installment_transactions(
             
             # Relaciona com conta
             TransactionAccount.objects.create(
-                id_transaction=transaction,
-                id_account=account,
+                transaction=transaction,
+                account=account,
                 role='source'
             )
             
@@ -114,8 +114,8 @@ def create_installment_transactions(
             if tags:
                 for tag in tags:
                     TransactionTag.objects.create(
-                        id_transaction=transaction,
-                        id_tag=tag
+                        transaction=transaction,
+                        tag=tag
                     )
             
             created_transactions.append(transaction)
@@ -138,13 +138,13 @@ def cancel_installment_plan(installment_plan_id, user):
     """
     try:
         plan = InstallmentPlan.objects.get(
-            id_installment_plan=installment_plan_id,
-            id_user=user
+            installment_plan=installment_plan_id,
+            user=user
         )
         
         # Encontra transações futuras
         future_transactions = Transaction.objects.filter(
-            id_installment_plan=plan,
+            installment_plan=plan,
             occurred_at__gt=timezone.now()
         )
         

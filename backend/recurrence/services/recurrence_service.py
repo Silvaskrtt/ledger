@@ -58,17 +58,17 @@ def create_recurrence_rule(
     next_execution = calculate_next_execution(frequency, start_date)
     
     recurrence_rule = RecurrenceRule.objects.create(
-        id_recurrence_rule=uuid.uuid4(),
+        recurrence_rule=uuid.uuid4(),
         frequency=frequency,
         next_execution=next_execution,
         max_executions=max_executions,
         executions_count=0,
         amount=amount,
         direction=direction,
-        id_user=user,
-        id_category=category,
-        id_payment_method=payment_method,
-        id_account=account
+        user=user,
+        category=category,
+        payment_method=payment_method,
+        account=account
     )
     
     # Cria primeira transação
@@ -78,8 +78,8 @@ def create_recurrence_rule(
     if tags and transaction:
         for tag in tags:
             TransactionTag.objects.create(
-                id_transaction=transaction,
-                id_tag=tag  # tag já é objeto Tag
+                transaction=transaction,
+                tag=tag  # tag já é objeto Tag
             )
     
     return recurrence_rule
@@ -97,10 +97,10 @@ def create_recurrence_transaction(recurrence_rule):
     with db_transaction.atomic():
         # Cria transação
         transaction = Transaction.objects.create(
-            id_transaction=uuid.uuid4(),
-            id_user=recurrence_rule.id_user,
-            id_category=recurrence_rule.id_category,
-            id_payment_method=recurrence_rule.id_payment_method,
+            transaction=uuid.uuid4(),
+            user=recurrence_rule.id_user,
+            category=recurrence_rule.id_category,
+            payment_method=recurrence_rule.id_payment_method,
             amount=recurrence_rule.amount,
             direction=recurrence_rule.direction,
             currency='BRL',
@@ -113,8 +113,8 @@ def create_recurrence_transaction(recurrence_rule):
         # Relaciona com conta
         role = 'source' if recurrence_rule.direction == 'OUT' else 'destination'
         TransactionAccount.objects.create(
-            id_transaction=transaction,
-            id_account=recurrence_rule.id_account,
+            transaction=transaction,
+            account=recurrence_rule.id_account,
             role=role
         )
         

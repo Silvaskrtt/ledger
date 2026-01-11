@@ -26,8 +26,8 @@ def create_user_payment_methods(sender, instance, created, **kwargs):
                                    if k in ['type', 'description', 'requires_account', 'allows_installments']}
                 
                 PaymentMethod.objects.create(
-                    id_payment_method=uuid.uuid4(),
-                    id_user=instance,
+                    payment_method=uuid.uuid4(),
+                    user=instance,
                     **method_data_copy
                 )
             

@@ -29,7 +29,7 @@ class EnsurePaymentMethodsMiddleware(MiddlewareMixin):
             return None
         
         # Verifica se tem métodos de pagamento
-        has_methods = PaymentMethod.objects.filter(id_user=request.user).exists()
+        has_methods = PaymentMethod.objects.filter(user=request.user).exists()
         
         if not has_methods:
             try:

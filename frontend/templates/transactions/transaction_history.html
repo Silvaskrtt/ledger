@@ -29,8 +29,8 @@
                     <select name="category"> 
                         <option value="">Todas as categorias</option> 
                         {% for category in categories %} 
-                        <option value="{{ category.id_category }}" 
-                            {% if selected_category == category.id_category|stringformat:"s" %}selected{% endif %}>
+                        <option value="{{ category.category }}" 
+                            {% if selected_category == category.category|stringformat:"s" %}selected{% endif %}>
                             {{ category.name }} 
                         </option> {% endfor %} 
                     </select> 
@@ -63,9 +63,9 @@
                 <!-- Infos -->
                 <div class="transaction-info">
                     <div class="transaction-title">
-                        {{ transaction.id_category.name }}
+                        {{ transaction.category.name }}
                         <span class="transaction-category">
-                            {{ transaction.id_category.id|slice:":8" }}
+                            {{ transaction.category.id|slice:":8" }}
                         </span>
                     </div>
 
@@ -73,14 +73,14 @@
                         {{ transaction.occurred_at|date:"d/m/Y" }} •
                         
                         <!-- MÉTODO DE PAGAMENTO -->
-                        {{ transaction.id_payment_method.get_type_display }}
+                        {{ transaction.payment_method.get_type_display }}
                         
                         <!-- CONTA -->
                         {% if transaction.transaction_accounts.exists %}
                             • Conta: 
                             {% for ta in transaction.transaction_accounts.all %}
-                                {{ ta.id_account.name }} 
-                                ({{ ta.id_account.get_type_display }})
+                                {{ ta.account.name }} 
+                                ({{ ta.account.get_type_display }})
                             {% endfor %}
                         {% else %}
                             • Sem conta

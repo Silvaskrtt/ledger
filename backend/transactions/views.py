@@ -71,7 +71,7 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
             "category",
             "payment_method"
         ).prefetch_related(
-            "transaction_accounts__id_account"
+            "transaction_accounts__account"
         ).order_by(
             "-occurred_at"  # Ordena por data mais recente primeiro
         )
@@ -253,7 +253,7 @@ class TransactionAccountListCreateView(generics.ListCreateAPIView):
     
     def get_queryset(self):
         """Filtra relações TransactionAccount por transações do usuário."""
-        return TransactionAccount.objects.filter(id_transaction__id_user=self.request.user)
+        return TransactionAccount.objects.filter(id_transaction__user=self.request.user)
 
 
 class TransactionAccountDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -264,7 +264,7 @@ class TransactionAccountDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     def get_queryset(self):
         """Filtra relações TransactionAccount por transações do usuário."""
-        return TransactionAccount.objects.filter(id_transaction__id_user=self.request.user)
+        return TransactionAccount.objects.filter(id_transaction__user=self.request.user)
 
 
 class TransactionTagListCreateView(generics.ListCreateAPIView):
@@ -277,7 +277,7 @@ class TransactionTagListCreateView(generics.ListCreateAPIView):
     
     def get_queryset(self):
         """Filtra relações TransactionTag por transações do usuário."""
-        return TransactionTag.objects.filter(id_transaction__id_user=self.request.user)
+        return TransactionTag.objects.filter(id_transaction__user=self.request.user)
 
 
 class TransactionTagDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -288,4 +288,4 @@ class TransactionTagDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     def get_queryset(self):
         """Filtra relações TransactionTag por transações do usuário."""
-        return TransactionTag.objects.filter(id_transaction__id_user=self.request.user)
+        return TransactionTag.objects.filter(id_transaction__user=self.request.user)

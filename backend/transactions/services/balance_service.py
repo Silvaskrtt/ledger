@@ -24,13 +24,13 @@ def recalculate_account_balance(account):
         
         # 2. Calcular totais de transações
         totals_in = Transaction.objects.filter(
-            transaction_accounts__id_account=locked_account,
+            transaction_accounts__account=locked_account,
             direction='IN',
             is_deleted=False
         ).aggregate(total=Sum('amount'))['total'] or 0
         
         totals_out = Transaction.objects.filter(
-            transaction_accounts__id_account=locked_account,
+            transaction_accounts__account=locked_account,
             direction='OUT',
             is_deleted=False
         ).aggregate(total=Sum('amount'))['total'] or 0

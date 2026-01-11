@@ -43,7 +43,7 @@ def convert_tags_to_objects(tags, user):
     tag_objects = []
     for tag_id in tags:
         try:
-            tag = Tag.objects.get(id_tag=tag_id, id_user=user)
+            tag = Tag.objects.get(tag=tag_id, user=user)
             tag_objects.append(tag)
         except Tag.DoesNotExist:
             raise ValueError(f"Tag com ID {tag_id} não encontrada para o usuário {user.username}")
@@ -146,7 +146,7 @@ def create_transaction_service(
     if isinstance(id_payment_method, PaymentMethod):
         payment_method_obj = id_payment_method
     else:
-        payment_method_obj = PaymentMethod.objects.get(pk=id_payment_method, id_user=user)
+        payment_method_obj = PaymentMethod.objects.get(pk=id_payment_method, user=user)
         
     # VALIDAR COMPATIBILIDADE
     if not validate_payment_method_compatibility(
@@ -237,9 +237,9 @@ def create_transaction_service(
             
             # Cria transação
             transaction = Transaction.objects.create(
-                id_user=user,
-                id_category=id_category,
-                id_payment_method=id_payment_method,
+                user=user,
+                category=id_category,
+                payment_method=id_payment_method,
                 amount=amount,
                 direction=direction,
                 currency=currency,
@@ -251,16 +251,16 @@ def create_transaction_service(
             # Relaciona com conta
             role = 'source' if direction == 'OUT' else 'destination'
             TransactionAccount.objects.create(
-                id_transaction=transaction,
-                id_account=account,
+                transaction=transaction,
+                account=account,
                 role=role
             )
             
             # Adiciona tags
             for tag in tag_objects:
                 TransactionTag.objects.create(
-                    id_transaction=transaction,
-                    id_tag=tag
+                    transaction=transaction,
+                    tag=tag
                 )
             
             # ATUALIZA SALDO

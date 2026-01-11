@@ -59,7 +59,7 @@ def create_default_payment_methods_for_user(user):
         method_data_copy.pop('color', None)
         
         method, created = PaymentMethod.objects.get_or_create(
-            id_user=user,
+            user=user,
             type=method_data['type'],
             defaults={
                 'id_payment_method': uuid.uuid4(),
