@@ -216,6 +216,24 @@ class CreditCardBill(models.Model):
     class Meta:
         unique_together = ['credit_card', 'start_date', 'end_date']
         ordering = ['-end_date']
+        constraints = [
+            models.CheckConstraint(
+                condition=models.Q(paid_amount__lte=models.F('total_amount')),
+                name='paid_amount_lte_total'
+            ),
+            models.CheckConstraint(
+                condition=models.Q(minimum_payment__lte=models.F('total_amount')),
+                name='minimum_payment_lte_total'
+            ),
+            models.CheckConstraint(
+                condition=models.Q(paid_amount__gte=0),
+                name='paid_amount_non_negative'
+            ),
+            models.CheckConstraint(
+                condition=models.Q(minimum_payment__gte=0),
+                name='minimum_payment_non_negative'
+            ),
+        ]
     
     def __str__(self):
         return f"Fatura {self.end_date.strftime('%m/%Y')} - {self.credit_card.name}"

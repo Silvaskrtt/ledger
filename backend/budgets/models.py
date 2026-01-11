@@ -1,9 +1,11 @@
 ﻿# backend/budgets/models.py
 
 import uuid
+from datetime import timedelta
 from django.db import models
 from django.db.models import CheckConstraint, Q
 from django.contrib.auth.models import User
+from django.utils.timezone import now
 from categories.models import Category
 
 
@@ -13,6 +15,13 @@ class Budget(models.Model):
         ('WEEKLY', 'Weekly'),
         ('MONTHLY', 'Monthly'),
         ('YEARLY', 'Yearly'),
+    ]
+    
+    STATUS_CHOICES = [
+        ('ACTIVE', 'Ativo'),
+        ('COMPLETED', 'Cumprido'),
+        ('EXCEEDED', 'Excedido'),
+        ('EXPIRED', 'Expirado'),
     ]
 
     id_budget = models.UUIDField(
@@ -26,6 +35,14 @@ class Budget(models.Model):
         related_name='budgets')
     period_type = models.CharField(max_length=20, choices=PERIOD_TYPE_CHOICES)
     period_start = models.DateField()
+    period_end = models.DateField(null=True, blank=True)  # NOVO: data de fim
+    status = models.CharField(
+        max_length=20, 
+        choices=STATUS_CHOICES, 
+        default='ACTIVE'
+    )  # NOVO: status do orçamento
+    created_at = models.DateTimeField(auto_now_add=True)  # NOVO: rastreamento
+    updated_at = models.DateTimeField(auto_now=True)  # NOVO: rastreamento
 
     class Meta:
         verbose_name = "Budget"
@@ -39,6 +56,24 @@ class Budget(models.Model):
 
     def __str__(self):
         return f"Budget {self.period_type} - {self.id_user.email}"
+    
+    def save(self, *args, **kwargs):
+        """Calcular period_end automaticamente se não informado."""
+        if not self.period_end:
+            if self.period_type == 'DAILY':
+                self.period_end = self.period_start
+            elif self.period_type == 'WEEKLY':
+                self.period_end = self.period_start + timedelta(days=6)
+            elif self.period_type == 'MONTHLY':
+                # Último dia do mês
+                if self.period_start.month == 12:
+                    self.period_end = self.period_start.replace(year=self.period_start.year + 1, month=1, day=1) - timedelta(days=1)
+                else:
+                    self.period_end = self.period_start.replace(month=self.period_start.month + 1, day=1) - timedelta(days=1)
+            elif self.period_type == 'YEARLY':
+                self.period_end = self.period_start.replace(year=self.period_start.year + 1, day=31, month=12)
+        
+        super().save(*args, **kwargs)
 
 
 class BudgetCategoryLimit(models.Model):

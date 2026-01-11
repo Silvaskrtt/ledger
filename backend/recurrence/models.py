@@ -24,6 +24,13 @@ class RecurrenceRule(models.Model):
         ('IN', 'Income'),
         ('OUT', 'Expense'),
     ]
+    
+    STATUS_CHOICES = [
+        ('ACTIVE', 'Ativa'),
+        ('PAUSED', 'Pausada'),
+        ('COMPLETED', 'Completada'),
+        ('CANCELLED', 'Cancelada'),
+    ]
 
     id_recurrence_rule = models.UUIDField(
         primary_key=True,
@@ -38,13 +45,32 @@ class RecurrenceRule(models.Model):
     amount = models.DecimalField(max_digits=14, decimal_places=2)
     direction = models.CharField(max_length=50, choices=DIRECTION_CHOICES)
     
+    # NOVOS CAMPOS
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='ACTIVE',
+        help_text="Status da regra de recorrência"
+    )
+    last_execution = models.DateField(
+        null=True,
+        blank=True,
+        help_text="Data da última execução"
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
     class Meta:
         verbose_name = "Recurrence Rule"
         verbose_name_plural = "Recurrence Rules"
         constraints = [
             CheckConstraint(
-                condition=Q(max_executions__gt=0),
-                name='max_executions_positive'
+                condition=Q(max_executions__gt=0) | Q(max_executions__isnull=True),
+                name='max_executions_positive_or_null'
+            ),
+            CheckConstraint(
+                condition=Q(executions_count__gte=0),
+                name='executions_count_non_negative'
             )
         ]
     
@@ -70,4 +96,15 @@ class RecurrenceRule(models.Model):
         related_name='recurrence_rules')
 
     def __str__(self):
-        return f"{self.get_frequency_display()} - R${self.amount} ({self.get_direction_display()})"
+        return f"{self.get_frequency_display()} - R${self.amount} ({self.get_direction_display()}) - {self.get_status_display()}"
+    
+    def is_active(self):
+        """Verifica se a regra está ativa e pode ser executada."""
+        if self.status != 'ACTIVE':
+            return False
+        
+        # Verificar se atingiu max_executions
+        if self.max_executions and self.executions_count >= self.max_executions:
+            return False
+        
+        return True

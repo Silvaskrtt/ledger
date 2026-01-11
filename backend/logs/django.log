@@ -10675,3 +10675,22 @@ Watching for file changes with StatReloader
 "GET /managementCategories/ HTTP/1.1" 200 14979
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 "GET /api/categories/ HTTP/1.1" 200 283
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\payments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\models.py changed, reloading.
+Watching for file changes with StatReloader

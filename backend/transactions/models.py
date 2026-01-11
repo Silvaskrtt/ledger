@@ -17,6 +17,12 @@ class NotDeletedManager(Manager):
         return super().get_queryset().filter(is_deleted=False)
 
 
+class AllTransactionsManager(Manager):
+    """Manager que retorna TODAS as transações, incluindo deletadas"""
+    def get_queryset(self):
+        return super().get_queryset()
+
+
 class Transaction(models.Model):
     DIRECTION_CHOICES = [
         ('IN', 'Income'),
@@ -102,7 +108,8 @@ class Transaction(models.Model):
     )
     
     # Gerenciador customizado para filtrar transações não deletadas
-    objects = NotDeletedManager()
+    objects = NotDeletedManager()  # Default: apenas ativas
+    all_objects = AllTransactionsManager()  # Acesso a todas, incluindo deletadas
     
     # Constraints to ensure direction is either 'income' or 'expense' and amount is positive
     class Meta:

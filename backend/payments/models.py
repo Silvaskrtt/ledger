@@ -88,9 +88,8 @@ class InstallmentPlan(models.Model):
         verbose_name_plural = "Installment Plans"
         constraints = [
             CheckConstraint(condition=Q(total_amount__gt=0), name='total_amount_positive'),
-            CheckConstraint(condition=Q(total_amount__lt=10000), name='total_amount_max_limit'),
             CheckConstraint(condition=Q(installments__gt=0), name='installments_positive'),
-            CheckConstraint(condition=Q(installments__lte=36), name='installments_max_limit'),
+            CheckConstraint(condition=Q(installments__lte=360), name='installments_max_limit'),
             CheckConstraint(condition=Q(interest_rate__gte=0), name='interest_rate_non_negative'),
             CheckConstraint(condition=Q(interest_rate__lte=100), name='interest_rate_max_100'),
         ]
