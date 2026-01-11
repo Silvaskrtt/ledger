@@ -11,10 +11,10 @@ class TagListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return Tag.objects.filter(id_user=self.request.user).order_by('name')
+        return Tag.objects.filter(user=self.request.user).order_by('name')
     
     def perform_create(self, serializer):
-        serializer.save(id_user=self.request.user)
+        serializer.save(user=self.request.user)
     
     def list(self, request, *args, **kwargs):
         try:
@@ -32,4 +32,4 @@ class TagDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return Tag.objects.filter(id_user=self.request.user)
+        return Tag.objects.filter(user=self.request.user)

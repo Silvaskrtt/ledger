@@ -17,7 +17,7 @@ from rest_framework.permissions import IsAuthenticated
 @login_required
 def budget_view(request):
     return render(request, 'budget/budget.html', {
-        'categories': Category.objects.filter(id_user=request.user)
+        'categories': Category.objects.filter(user=request.user)
     })
 
 class BudgetOverviewAPIView(generics.ListAPIView):
@@ -27,15 +27,15 @@ class BudgetOverviewAPIView(generics.ListAPIView):
     def get_queryset(self):
         return BudgetCategoryLimit.objects.filter(
             id_budget__id_user=self.request.user
-        ).select_related('id_category')
+        ).select_related('category')
 
     def list(self, request, *args, **kwargs):
         data = []
 
         for limit in self.get_queryset():
             spent = Transaction.objects.filter(
-                id_user=request.user,
-                id_category=limit.id_category,
+                user=request.user,
+                category=limit.category,
                 direction='OUT'
             ).aggregate(total=Sum('amount'))['total'] or 0
 
@@ -43,7 +43,7 @@ class BudgetOverviewAPIView(generics.ListAPIView):
 
             data.append({
                 'id': limit.id,
-                'category': limit.id_category.name,
+                'category': limit.category.name,
                 'limit_amount': limit.limit_amount,
                 'spent': spent,
                 'remaining': limit.limit_amount - spent,
@@ -57,17 +57,17 @@ class BudgetListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return Budget.objects.filter(id_user=self.request.user)
+        return Budget.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        serializer.save(id_user=self.request.user)
+        serializer.save(user=self.request.user)
 
 class BudgetDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BudgetSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Budget.objects.filter(id_user=self.request.user)
+        return Budget.objects.filter(user=self.request.user)
 
 class BudgetCategoryLimitListCreateView(generics.ListCreateAPIView):
     serializer_class = BudgetCategoryLimitSerializer

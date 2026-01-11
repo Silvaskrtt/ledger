@@ -4,11 +4,11 @@ from .models import PaymentMethod, InstallmentPlan
 
 @admin.register(PaymentMethod)
 class PaymentMethodAdmin(admin.ModelAdmin):
-    list_display = ('id_payment_method', 'type', 'description', 'requires_account', 'allows_installments','id_user')
+    list_display = ('payment_method', 'type', 'description', 'requires_account', 'allows_installments','user')
     search_fields = ('description',)
 
 
 @admin.register(InstallmentPlan)
 class InstallmentPlanAdmin(admin.ModelAdmin):
-    list_display = ('id_installment_plan', 'total_amount', 'installments', 'start_date', 'id_user', 'id_account', 'id_category')
-    search_fields = ('id_installment_plan',)
+    list_display = ('installment_plan', 'total_amount', 'installments', 'start_date', 'user', 'account')
+    search_fields = ('installment_plan',)

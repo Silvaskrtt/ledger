@@ -61,7 +61,7 @@ def home_view(request):
     
     # 7. Cálculo de entradas e saídas do mês
     entradas_mes = Transaction.objects.filter(
-        id_user=user,
+        user=user,
         direction='IN',
         occurred_at__year=today.year,
         occurred_at__month=today.month,
@@ -69,7 +69,7 @@ def home_view(request):
     ).aggregate(total=Sum('amount'))['total'] or 0
     
     saidas_mes = Transaction.objects.filter(
-        id_user=user,
+        user=user,
         direction='OUT',
         occurred_at__year=today.year,
         occurred_at__month=today.month,

@@ -21,15 +21,15 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
     Suporta: Manual, Parcelado, Recorrente
     """
     # Campos básicos (comuns a todos os tipos)
-    id_category = serializers.PrimaryKeyRelatedField(
+    category = serializers.PrimaryKeyRelatedField(
         queryset=Category.objects.none(),
         write_only=True
     )
-    id_payment_method = serializers.PrimaryKeyRelatedField(
+    payment_method = serializers.PrimaryKeyRelatedField(
         queryset=PaymentMethod.objects.none(),
         write_only=True
     )
-    id_account = serializers.PrimaryKeyRelatedField(
+    account = serializers.PrimaryKeyRelatedField(
         queryset=Account.objects.none(),
         write_only=True 
     )
@@ -108,23 +108,23 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = [
-            'id_category', 'id_payment_method', 'id_account', 'amount',
+            'category', 'payment_method', 'account', 'amount',
             'currency', 'direction', 'origin', 'occurred_at', 'tags',
             'installments', 'interest_rate', 'recurrence_frequency',
             'max_recurrences', 'description'
         ]
 
-        read_only_fields = ['id_transaction', 'created_at']
+        read_only_fields = ['transaction', 'created_at']
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         user = self.context['request'].user
         
         # Filtrar querysets por usuário
-        self.fields['id_category'].queryset = Category.objects.filter(id_user=user)
-        self.fields['id_payment_method'].queryset = PaymentMethod.objects.filter(id_user=user)
-        self.fields['id_account'].queryset = Account.objects.filter(user=user)
-        self.fields['tags'].queryset = Tag.objects.filter(id_user=user)
+        self.fields['category'].queryset = Category.objects.filter(user=user)
+        self.fields['payment_method'].queryset = PaymentMethod.objects.filter(user=user)
+        self.fields['account'].queryset = Account.objects.filter(user=user)
+        self.fields['tags'].queryset = Tag.objects.filter(user=user)
         
         # Debug: log das tags disponíveis
         tags_count = self.fields['tags'].queryset.count()
@@ -135,8 +135,8 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         origin = data.get('origin', 'MANUAL')
         direction = data.get('direction')
         amount = data.get('amount')
-        id_account = data.get('id_account')
-        payment_method = data.get('id_payment_method')
+        account = data.get('account')
+        payment_method = data.get('payment_method')
         
         # OBTER O USUÁRIO PRIMEIRO
         user = self.context['request'].user
@@ -151,9 +151,9 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         logger.debug(f"Número de tags: {len(tags)}")
         
          # Validar saldo da conta
-        if id_account and direction and amount:
+        if account and direction and amount:
             try:
-                account = Account.objects.get(pk=id_account.id_account if hasattr(id_account, 'id_account') else id_account, user=user)
+                account = Account.objects.get(pk=account.account if hasattr(account, 'account') else account, user=user)
                 
                 if not account.is_credit_card:
                     # Conta normal: verificar saldo para saídas
@@ -172,22 +172,22 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
                         })
                         
             except Account.DoesNotExist:
-                raise serializers.ValidationError({"id_account": "Conta não encontrada"})
+                raise serializers.ValidationError({"account": "Conta não encontrada"})
         
         # Validação de tags (agora são UUIDs strings)
         for tag_id in tags:
             try:
                 # Converter string UUID para objeto Tag
                 from tags.models import Tag
-                tag = Tag.objects.get(id_tag=tag_id, id_user=user)
-                logger.debug(f"  Tag válida: {tag.id_tag} | Nome: {tag.name} | Usuário: {tag.id_user.username}")
+                tag = Tag.objects.get(tag=tag_id, user=user)
+                logger.debug(f"  Tag válida: {tag.tag} | Nome: {tag.name} | Usuário: {tag.user.username}")
             except Tag.DoesNotExist:
                 raise serializers.ValidationError({
                     "tags": f"Tag com ID {tag_id} não encontrada ou não pertence ao usuário."
                 })
         
         # Validar ownership de cada campo
-        if 'id_category' in data and data['id_category'].id_user != user:
+        if 'category' in data and data['category'].user != user:
             raise serializers.ValidationError("Category não pertence ao usuário")
         
         # Validações para parcelamento
@@ -235,7 +235,7 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
             
             if not validate_payment_method_compatibility(payment_method.type, account.type):
                 raise serializers.ValidationError({
-                    "id_payment_method": f"Método de pagamento '{payment_method.get_type_display()}' "
+                    "payment_method": f"Método de pagamento '{payment_method.get_type_display()}' "
                                         f"não é compatível com conta '{account.name}' ({account.get_type_display()})."
                 })
         
@@ -260,7 +260,7 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         tag_objects = []
         for tag_id in tag_ids:
             try:
-                tag = Tag.objects.get(id_tag=tag_id, id_user=request.user)
+                tag = Tag.objects.get(tag=tag_id, user=request.user)
                 tag_objects.append(tag)
             except Tag.DoesNotExist:
                 logger.warning(f"Tag {tag_id} não encontrada para usuário {request.user}")
@@ -282,17 +282,17 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
 class TransactionUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ['id_category', 'id_payment_method', 'amount', 'direction', 'occurred_at']
+        fields = ['category', 'payment_method', 'amount', 'direction', 'occurred_at']
 
 class TransactionAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransactionAccount
-        fields = ['id_transaction', 'id_account', 'role']
+        fields = ['transaction', 'account', 'role']
 
 class TransactionTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransactionTag
-        fields = ['id_transaction', 'id_tag']
+        fields = ['transaction', 'tag']
 
 class RecurrenceRuleSerializer(serializers.ModelSerializer):
     class Meta:

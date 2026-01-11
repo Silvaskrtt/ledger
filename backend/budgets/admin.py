@@ -4,11 +4,11 @@ from .models import Budget, BudgetCategoryLimit
 
 @admin.register(Budget)
 class BudgetAdmin(admin.ModelAdmin):
-    list_display = ('id_budget', 'period_type', 'period_start', 'id_user')
-    search_fields = ('id_budget',)
+    list_display = ('budget', 'period_type', 'period_start', 'user')
+    search_fields = ('budget',)
 
 
 @admin.register(BudgetCategoryLimit)
 class BudgetCategoryLimitAdmin(admin.ModelAdmin):
-    list_display = ('id_budget', 'id_category', 'limit_amount')
-    search_fields = ('id_budget__id_budget',)
+    list_display = ('budget', 'category', 'limit_amount')
+    search_fields = ('budget__budget',)

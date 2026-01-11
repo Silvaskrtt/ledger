@@ -24,15 +24,17 @@ class Budget(models.Model):
         ('EXPIRED', 'Expirado'),
     ]
 
-    id_budget = models.UUIDField(
+    budget = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False
+        editable=False,
+        db_column='id_budget'
     )
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='budgets')
+        related_name='budgets',
+        db_column='id_user')
     period_type = models.CharField(max_length=20, choices=PERIOD_TYPE_CHOICES)
     period_start = models.DateField()
     period_end = models.DateField(null=True, blank=True)  # NOVO: data de fim
@@ -49,13 +51,13 @@ class Budget(models.Model):
         verbose_name_plural = "Budgets"
         constraints = [
             models.UniqueConstraint(
-                fields=['id_user', 'period_type', 'period_start'],
+                fields=['user', 'period_type', 'period_start'],
                 name='unique_budget_period'
             )
         ]
 
     def __str__(self):
-        return f"Budget {self.period_type} - {self.id_user.email}"
+        return f"Budget {self.period_type} - {self.user.email}"
     
     def save(self, *args, **kwargs):
         """Calcular period_end automaticamente se não informado."""
@@ -77,15 +79,17 @@ class Budget(models.Model):
 
 
 class BudgetCategoryLimit(models.Model):
-    id_budget = models.ForeignKey(
+    budget = models.ForeignKey(
         Budget,
         on_delete=models.CASCADE,
-        related_name='budget_categories_limits')
+        related_name='budget_categories_limits',
+        db_column='id_budget')
 
-    id_category = models.ForeignKey(
+    category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
-        related_name='budget_categories_limits')
+        related_name='budget_categories_limits',
+        db_column='id_category')
 
     limit_amount = models.DecimalField(max_digits=14, decimal_places=2)
 
@@ -98,11 +102,11 @@ class BudgetCategoryLimit(models.Model):
                 name='limit_amount_positive'
             ),
             models.UniqueConstraint(
-                fields=['id_budget', 'id_category'],
+                fields=['budget', 'category'],
                 name='unique_budget_category'
             )
         ]
 
     def __str__(self):
-        return f"{self.id_budget.id_user.email} - {self.id_category.name}: {self.limit_amount}"
+        return f"{self.budget.user.email} - {self.category.name}: {self.limit_amount}"
 

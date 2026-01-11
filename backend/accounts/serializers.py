@@ -11,13 +11,13 @@ class CreditCardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = [
-            'id_account', 'name', 'type', 'type_display', 'initial_balance', 'balance',
+            'account', 'name', 'type', 'type_display', 'initial_balance', 'balance',
             'bank_name', 'description', 'credit_limit', 'closing_day', 'due_day',
             'icon', 'color', 'is_active', 'created_at', 'updated_at',
             'is_credit_card', 'available_credit', 'user'
         ]
         read_only_fields = [
-            'id_account', 'created_at', 'updated_at', 
+            'account', 'created_at', 'updated_at', 
             'is_credit_card', 'balance', 'user'
         ]
     
@@ -48,12 +48,12 @@ class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = [
-            'id_account', 'name', 'type', 'initial_balance', 'balance',
+            'account', 'name', 'type', 'initial_balance', 'balance',
             'bank_name', 'description', 'credit_limit', 'closing_day', 'due_day',
             'icon', 'color', 'is_active', 'created_at', 'updated_at', 'user'
         ]
         read_only_fields = [
-            'id_account', 'created_at', 'updated_at', 'balance', 'user'
+            'account', 'created_at', 'updated_at', 'balance', 'user'
         ]
     
     def validate(self, data):
@@ -67,7 +67,7 @@ class AccountSerializer(serializers.ModelSerializer):
                 existing = Account.objects.filter(
                     user=user, 
                     name=name
-                ).exclude(id_account=self.instance.id_account).exists()
+                ).exclude(account=self.instance.account).exists()
             else:
                 existing = Account.objects.filter(user=user, name=name).exists()
             

@@ -4,5 +4,5 @@ from .models import FinancialGoal
 
 @admin.register(FinancialGoal)
 class FinancialGoalAdmin(admin.ModelAdmin):
-    list_display = ('id_financial_goal', 'target_amount', 'deadline', 'strategy', 'status', 'id_user')
-    search_fields = ('id_user__email',)
+    list_display = ('financial_goal', 'target_amount', 'deadline', 'strategy', 'status', 'user')
+    search_fields = ('user__email',)

@@ -10,11 +10,11 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = [
-            'id_category', 'name', 'type', 'type_display', 'icon', 'color',
-            'id_parent_category', 'id_user', 'created_at', 'updated_at',
+            'category', 'name', 'type', 'type_display', 'icon', 'color',
+            'parent_category', 'user', 'created_at', 'updated_at',
             'subcategories_count'
         ]
-        read_only_fields = ['id_category', 'created_at', 'updated_at', 'id_user']
+        read_only_fields = ['category', 'created_at', 'updated_at', 'user']
     
     def validate(self, data):
         # Remover validação problemática
@@ -28,5 +28,5 @@ class CategorySerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         # Garantir que o usuário seja o atual
-        validated_data['id_user'] = self.context['request'].user
+        validated_data['user'] = self.context['request'].user
         return super().create(validated_data)

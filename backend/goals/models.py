@@ -14,16 +14,18 @@ class FinancialGoal(models.Model):
         ('DEBT_PAYOFF', 'Debt Payoff')
     ]
 
-    id_financial_goal = models.UUIDField(
+    financial_goal = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False
+        editable=False,
+        db_column='id_financial_goal'
     )
 
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='financial_goals'
+        related_name='financial_goals',
+        db_column='id_user'
     )
 
     name = models.CharField(max_length=120)
@@ -52,11 +54,11 @@ class FinancialGoal(models.Model):
             )
         ]
         indexes = [
-            models.Index(fields=['id_user', 'deadline']),
+            models.Index(fields=['user', 'deadline']),
         ]
 
     def __str__(self):
-        return f"{self.id_financial_goal} - {self.id_user.email}"
+        return f"{self.financial_goal} - {self.user.email}"
 
 
     @property

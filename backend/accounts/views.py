@@ -20,7 +20,7 @@ def check_balance_consistency(request):
         is_consistent, calculated_balance, stored_balance = verify_account_balance(account)
         
         results.append({
-            'id_account': str(account.id_account),
+            'account': str(account.account),
             'name': account.name,
             'type': account.type,
             'is_consistent': is_consistent,

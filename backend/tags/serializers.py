@@ -6,8 +6,8 @@ from .models import Tag
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ['id_tag', 'name', 'color', 'id_user', 'created_at', 'updated_at']
-        read_only_fields = ['id_tag', 'created_at', 'updated_at', 'id_user']
+        fields = ['tag', 'name', 'color', 'user', 'created_at', 'updated_at']
+        read_only_fields = ['tag', 'created_at', 'updated_at', 'user']
     
     def validate(self, data):
         # Remover a validação problemática
@@ -15,5 +15,5 @@ class TagSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         # Garantir que o usuário seja o atual
-        validated_data['id_user'] = self.context['request'].user
+        validated_data['user'] = self.context['request'].user
         return super().create(validated_data)

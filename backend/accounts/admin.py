@@ -3,6 +3,6 @@ from .models import Account
 
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):
-    list_display = ['id_account', 'name', 'balance', 'created_at']
+    list_display = ['account', 'name', 'balance', 'created_at']
     search_fields = ['name', 'user__email']
     list_filter = ['created_at']

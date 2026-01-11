@@ -4,5 +4,5 @@ from .models import Category
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id_category', 'name', 'id_parent_category', 'id_user')
+    list_display = ('category', 'name', 'parent_category', 'user')
     search_fields = ('name',)

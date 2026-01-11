@@ -26,34 +26,37 @@ class PaymentMethod(models.Model):
         default='PIX'
         )
     
-    id_payment_method = models.UUIDField(
+    payment_method = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False)
+        editable=False,
+        db_column='id_payment_method')
     description = models.CharField(max_length=100, null=True, blank=True)
     requires_account = models.BooleanField(default=True)
     allows_installments = models.BooleanField(default=True)
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         User, 
         on_delete=models.CASCADE, 
-        related_name='payment_methods')
+        related_name='payment_methods',
+        db_column='id_user')
     
     class Meta:
         verbose_name = "Payment Method"
         verbose_name_plural = "Payment Methods"
         constraints = [
             models.UniqueConstraint(
-                fields=['id_user', 'type', 'description'],
+                fields=['user', 'type', 'description'],
                 name='unique_payment_method_per_user'
             )
         ]
 
 
 class InstallmentPlan(models.Model):
-    id_installment_plan = models.UUIDField(
+    installment_plan = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False)
+        editable=False,
+        db_column='id_installment_plan')
     
     total_amount = models.DecimalField(max_digits=14, decimal_places=2)
     # Constraints to ensure total_amount is positive and below a certain limit
@@ -68,15 +71,17 @@ class InstallmentPlan(models.Model):
         help_text="Taxa de juros mensal em % (0 para sem juros)"
     )
     
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='installment_plans')
+        related_name='installment_plans',
+        db_column='id_user')
 
-    id_account = models.ForeignKey(
+    account = models.ForeignKey(
         Account,
         on_delete=models.CASCADE,
-        related_name='installment_plans')
+        related_name='installment_plans',
+        db_column='id_account')
 
     id_category = models.ForeignKey(
         Category,

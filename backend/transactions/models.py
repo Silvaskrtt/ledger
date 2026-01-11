@@ -41,10 +41,11 @@ class Transaction(models.Model):
     ('EUR', 'Euro'),
     ]
     
-    id_transaction = models.UUIDField(
+    transaction = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False
+        editable=False,
+        db_column='id_transaction'
     )
     
     amount = models.DecimalField(max_digits=14, decimal_places=2)
@@ -68,27 +69,31 @@ class Transaction(models.Model):
     deleted_at = models.DateTimeField(null=True, blank=True)
     is_deleted = models.BooleanField(default=False)
     
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='transactions')
+        related_name='transactions',
+        db_column='id_user')
     
-    id_category = models.ForeignKey(
+    category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
-        related_name='transactions')
+        related_name='transactions',
+        db_column='id_category')
     
-    id_payment_method = models.ForeignKey(
+    payment_method = models.ForeignKey(
         PaymentMethod,
         on_delete=models.CASCADE,
-        related_name='transactions')
+        related_name='transactions',
+        db_column='id_payment_method')
     
-    id_installment_plan = models.ForeignKey(
+    installment_plan = models.ForeignKey(
         InstallmentPlan,
         on_delete=models.CASCADE,
         related_name='transactions',
         null=True,
-        blank=True
+        blank=True,
+        db_column='id_installment_plan'
     )
     
     credit_card_bill = models.ForeignKey(
@@ -162,15 +167,17 @@ class TransactionAccount(models.Model):
         ('destination', 'Destination Account'),
     ]
     
-    id_transaction = models.ForeignKey(
+    transaction = models.ForeignKey(
         Transaction,
         on_delete=models.CASCADE,
-        related_name='transaction_accounts')
+        related_name='transaction_accounts',
+        db_column='id_transaction')
 
-    id_account = models.ForeignKey(
+    account = models.ForeignKey(
         Account,
         on_delete=models.CASCADE,
-        related_name='transaction_accounts')
+        related_name='transaction_accounts',
+        db_column='id_account')
     
     role = models.CharField(
         max_length=20,
@@ -189,23 +196,25 @@ class TransactionAccount(models.Model):
         ]
         
         # Unique constraint to prevent duplicate account-role assignments for the same transaction
-        unique_together = [('id_transaction', 'id_account', 'role')] 
+        unique_together = [('transaction', 'account', 'role')] 
 
 
 class TransactionTag(models.Model):
-    id_transaction = models.ForeignKey(
+    transaction = models.ForeignKey(
         Transaction,
         on_delete=models.CASCADE,
-        related_name='transaction_tags')
+        related_name='transaction_tags',
+        db_column='id_transaction')
 
-    id_tag = models.ForeignKey(
+    tag = models.ForeignKey(
         Tag,
         on_delete=models.CASCADE,
-        related_name='transaction_tags')
+        related_name='transaction_tags',
+        db_column='id_tag')
     
     # Unique constraint to prevent duplicate tag assignments to the same transaction
     class Meta:
         verbose_name = "Transaction Tag"
         verbose_name_plural = "Transaction Tags"
-        unique_together = [('id_transaction', 'id_tag')]
+        unique_together = [('transaction', 'tag')]
 

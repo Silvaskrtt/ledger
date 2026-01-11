@@ -12,11 +12,11 @@ class RecurrenceRuleListCreateView(generics.ListCreateAPIView):
     
     def get_queryset(self):
         # Filtra apenas recorrências do usuário atual
-        return RecurrenceRule.objects.filter(id_user=self.request.user)
+        return RecurrenceRule.objects.filter(user=self.request.user)
     
     def perform_create(self, serializer):
         # Associa automaticamente ao usuário atual
-        serializer.save(id_user=self.request.user)
+        serializer.save(user=self.request.user)
 
 class RecurrenceRuleDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RecurrenceRuleSerializer
@@ -24,4 +24,4 @@ class RecurrenceRuleDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     def get_queryset(self):
         # Filtra apenas recorrências do usuário atual
-        return RecurrenceRule.objects.filter(id_user=self.request.user)
+        return RecurrenceRule.objects.filter(user=self.request.user)

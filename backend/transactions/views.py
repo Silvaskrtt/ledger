@@ -42,10 +42,10 @@ class CreateTransactionView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         
         # Dados para preencher os selects do formulário
-        context['categories'] = Category.objects.filter(id_user=self.request.user)
-        context['payment_methods'] = PaymentMethod.objects.filter(id_user=self.request.user)
+        context['categories'] = Category.objects.filter(user=self.request.user)
+        context['payment_methods'] = PaymentMethod.objects.filter(user=self.request.user)
         context['accounts'] = Account.objects.filter(user=self.request.user)
-        context['tags'] = Tag.objects.filter(id_user=self.request.user)
+        context['tags'] = Tag.objects.filter(user=self.request.user)
         
         return context
 
@@ -66,10 +66,10 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
         """Processa requisições GET com filtros opcionais."""
         # Query base com otimizações para relações N+1
         transactions = Transaction.objects.filter(
-            id_user=request.user
+            user=request.user
         ).select_related(
-            "id_category",
-            "id_payment_method"
+            "category",
+            "payment_method"
         ).prefetch_related(
             "transaction_accounts__id_account"
         ).order_by(
@@ -106,10 +106,10 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
         # Contexto para renderização do template
         context = {
             "transactions": transactions,
-            "categories": Category.objects.filter(id_user=self.request.user),
+            "categories": Category.objects.filter(user=self.request.user),
             "accounts": Account.objects.filter(user=request.user),
-            "tags": Tag.objects.filter(id_user=request.user),
-            "payment_methods": PaymentMethod.objects.filter(id_user=self.request.user),
+            "tags": Tag.objects.filter(user=request.user),
+            "payment_methods": PaymentMethod.objects.filter(user=self.request.user),
             "start": start or "",  # Mantém valores dos filtros no template
             "end": end or "",
             "selected_category": category_uuid or "",
@@ -131,7 +131,7 @@ class TransactionListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         """Retorna apenas transações do usuário atual."""
-        return Transaction.objects.filter(id_user=self.request.user)
+        return Transaction.objects.filter(user=self.request.user)
 
     @db_transaction.atomic
     def create(self, request, *args, **kwargs):
@@ -168,7 +168,7 @@ class TransactionListCreateView(generics.ListCreateAPIView):
             if result['type'] == 'INSTALLMENT':
                 data = result['data']
                 response_data.update({
-                    'installment_plan_id': str(data['installment_plan'].id_installment_plan),
+                    'installment_plan_id': str(data['installment_plan'].installment_plan),
                     'installments': data['installment_plan'].installments,
                     'installment_amount': float(data['installment_amount']),
                     'total_with_interest': float(data['total_with_interest']),
@@ -177,7 +177,7 @@ class TransactionListCreateView(generics.ListCreateAPIView):
             elif result['type'] == 'RECURRENT':
                 rule = result['data']
                 response_data.update({
-                    'recurrence_rule_id': str(rule.id_recurrence_rule),
+                    'recurrence_rule_id': str(rule.recurrence_rule),
                     'frequency': rule.frequency,
                     'next_execution': rule.next_execution,
                     'max_executions': rule.max_executions
@@ -185,7 +185,7 @@ class TransactionListCreateView(generics.ListCreateAPIView):
             else:  # MANUAL
                 transaction = result['data']
                 response_data.update({
-                    'transaction_id': str(transaction.id_transaction),
+                    'transaction_id': str(transaction.transaction),
                     'amount': float(transaction.amount),
                     'direction': transaction.direction
                 })
@@ -240,7 +240,7 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     def get_queryset(self):
         """Garante que usuário só acesse suas próprias transações."""
-        return Transaction.objects.filter(id_user=self.request.user)
+        return Transaction.objects.filter(user=self.request.user)
 
 
 class TransactionAccountListCreateView(generics.ListCreateAPIView):

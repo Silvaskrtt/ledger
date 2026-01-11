@@ -8,14 +8,14 @@ from .services import get_or_create_current_month_budget
 class BudgetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Budget
-        fields = ['id_budget', 'id_user', 'period_type', 'period_start']
-        read_only_fields = ['id_budget']
+        fields = ['budget', 'user', 'period_type', 'period_start']
+        read_only_fields = ['budget']
 
 
 class BudgetCategoryLimitSerializer(serializers.ModelSerializer):
     class Meta:
         model = BudgetCategoryLimit
-        fields = ['id', 'id_category', 'limit_amount']
+        fields = ['id', 'category', 'limit_amount']
 
     def create(self, validated_data):
         request = self.context.get('request')
@@ -25,6 +25,6 @@ class BudgetCategoryLimitSerializer(serializers.ModelSerializer):
         budget = get_or_create_current_month_budget(request.user)
 
         return BudgetCategoryLimit.objects.create(
-            id_budget=budget,
+            budget=budget,
             **validated_data
         )

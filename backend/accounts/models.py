@@ -16,10 +16,11 @@ class Account(models.Model):
         ('OTHER', 'Outro'),
     ]
     
-    id_account = models.UUIDField(
+    account = models.UUIDField(
         primary_key=True, 
         default=uuid.uuid4, 
-        editable=False
+        editable=False,
+        db_column='id_account'
     )
     
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

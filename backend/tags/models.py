@@ -6,10 +6,11 @@ from django.contrib.auth.models import User
 
 
 class Tag(models.Model):
-    id_tag = models.UUIDField(
+    tag = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False
+        editable=False,
+        db_column='id_tag'
     )
     
     name = models.CharField(max_length=100)
@@ -20,10 +21,11 @@ class Tag(models.Model):
         help_text="Cor em formato hexadecimal (#RRGGBB)"
     )
     
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='tags'
+        related_name='tags',
+        db_column='id_user'
     )
     
     created_at = models.DateTimeField(auto_now_add=True)
@@ -34,7 +36,7 @@ class Tag(models.Model):
         verbose_name_plural = "Tags"
         constraints = [
             models.UniqueConstraint(
-                fields=['id_user', 'name'],
+                fields=['user', 'name'],
                 name='unique_tag_per_user'
             )
         ]

@@ -11,10 +11,11 @@ class Category(models.Model):
         ('OUT', 'Saída'),     # Expense
     ]
     
-    id_category = models.UUIDField(
+    category = models.UUIDField(
         primary_key=True, 
         default=uuid.uuid4, 
-        editable=False
+        editable=False,
+        db_column='id_category'
     )
     
     name = models.CharField(max_length=100)
@@ -39,18 +40,20 @@ class Category(models.Model):
         help_text="Cor em formato hexadecimal (#RRGGBB)"
     )
     
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         User, 
         on_delete=models.CASCADE, 
-        related_name='categories'
+        related_name='categories',
+        db_column='id_user'
     )
     
-    id_parent_category = models.ForeignKey(
+    parent_category = models.ForeignKey(
         'self',
         on_delete=models.SET_NULL,  # Alterado de CASCADE para SET_NULL
         null=True,
         blank=True,
-        related_name='subcategories'
+        related_name='subcategories',
+        db_column='id_parent_category'
     )
     
     created_at = models.DateTimeField(auto_now_add=True)
@@ -61,7 +64,7 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
         constraints = [
             models.UniqueConstraint(
-                fields=['id_user', 'name'],
+                fields=['user', 'name'],
                 name='unique_category_per_user'
             )
         ]

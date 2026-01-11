@@ -11,7 +11,7 @@ class FinancialGoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = FinancialGoal
         fields = [
-            'id_financial_goal',
+            'financial_goal',
             'name',
             'target_amount',
             'current_amount',

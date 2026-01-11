@@ -20,10 +20,10 @@ class CategoryListCreateView(generics.ListCreateAPIView):
     
     def get_queryset(self):
         # Retorna apenas categorias do usuário atual
-        return Category.objects.filter(id_user=self.request.user).order_by('type', 'name')
+        return Category.objects.filter(user=self.request.user).order_by('type', 'name')
     
     def perform_create(self, serializer):
-        serializer.save(id_user=self.request.user)
+        serializer.save(user=self.request.user)
     
     def get_serializer_context(self):
         context = super().get_serializer_context()
@@ -46,7 +46,7 @@ class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return Category.objects.filter(id_user=self.request.user)
+        return Category.objects.filter(user=self.request.user)
     
     def get_serializer_context(self):
         context = super().get_serializer_context()

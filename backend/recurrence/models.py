@@ -32,10 +32,11 @@ class RecurrenceRule(models.Model):
         ('CANCELLED', 'Cancelada'),
     ]
 
-    id_recurrence_rule = models.UUIDField(
+    recurrence_rule = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False
+        editable=False,
+        db_column='id_recurrence_rule'
     )
     
     frequency = models.CharField(max_length=50, choices=FREQUENCY_CHOICES)
@@ -75,25 +76,29 @@ class RecurrenceRule(models.Model):
         ]
     
     
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
+        db_column='id_user',
         related_name='recurrence_rules')
 
-    id_category = models.ForeignKey(
+    category = models.ForeignKey(
         to=Category,
         on_delete=models.CASCADE,
-        related_name='recurrence_rules')
+        related_name='recurrence_rules',
+        db_column='id_category')
 
-    id_payment_method = models.ForeignKey(
+    payment_method = models.ForeignKey(
         to=PaymentMethod,
         on_delete=models.CASCADE,
-        related_name='recurrence_rules')
+        related_name='recurrence_rules',
+        db_column='id_payment_method')
 
-    id_account = models.ForeignKey(
+    account = models.ForeignKey(
         to=Account,
         on_delete=models.CASCADE,
-        related_name='recurrence_rules')
+        related_name='recurrence_rules',
+        db_column='id_account')
 
     def __str__(self):
         return f"{self.get_frequency_display()} - R${self.amount} ({self.get_direction_display()}) - {self.get_status_display()}"

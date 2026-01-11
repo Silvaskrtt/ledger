@@ -12,27 +12,27 @@ class PaymentMethodListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return PaymentMethod.objects.filter(id_user=self.request.user)
+        return PaymentMethod.objects.filter(user=self.request.user)
     
     def perform_create(self, serializer):
-        serializer.save(id_user=self.request.user)
+        serializer.save(user=self.request.user)
 
 class PaymentMethodDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PaymentMethodSerializer
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return PaymentMethod.objects.filter(id_user=self.request.user)
+        return PaymentMethod.objects.filter(user=self.request.user)
 
 class InstallmentPlanListCreateView(generics.ListCreateAPIView):
     serializer_class = InstallmentPlanSerializer
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return InstallmentPlan.objects.filter(id_user=self.request.user)
+        return InstallmentPlan.objects.filter(user=self.request.user)
     
     def perform_create(self, serializer):
-        serializer.save(id_user=self.request.user)
+        serializer.save(user=self.request.user)
 
 
 class InstallmentPlanDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -40,4 +40,4 @@ class InstallmentPlanDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return InstallmentPlan.objects.filter(id_user=self.request.user)
+        return InstallmentPlan.objects.filter(user=self.request.user)
