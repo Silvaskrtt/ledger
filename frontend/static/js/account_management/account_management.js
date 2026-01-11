@@ -514,16 +514,21 @@ function renderAccountItem(account) {
         const icon = account.icon || getIconForType(account.type);
 
         // Para cartões, mostrar saldo como positivo (dívida)
-        let balanceDisplay, balanceClass;
+        let balanceDisplay, balanceClass, balanceText;
     
         if (isCreditCard) {
-            // Cartão: saldo negativo = dívida, mostramos como positivo
-            const debt = Math.abs(balance); // Converte para positivo para exibição
+            // Cartão: saldo negativo = dívida
+            // Ex: -500 → Mostra "Dívida: R$ 500,00" (em vermelho)
+            const debt = Math.abs(balance);  // Pega valor absoluto
             balanceDisplay = formatCurrency(debt);
-            balanceClass = balance < 0 ? 'negative' : 'neutral';
-
-            // Texto diferente para cartões
-            balanceText = `Dívida: <span class="balance-value ${balanceClass}">${balanceDisplay}</span>`;
+            balanceClass = 'negative';  // Sempre vermelho para cartões (dívida)
+            
+            // Formata texto corretamente
+            if (balance === 0) {
+                balanceText = `Saldo: <span class="balance-value neutral">R$ 0,00</span>`;
+            } else {
+                balanceText = `Dívida: <span class="balance-value ${balanceClass}">${balanceDisplay}</span>`;
+            }
         } else {
             // Contas normais
             balanceDisplay = formatCurrency(Math.abs(balance));
@@ -612,6 +617,23 @@ function renderAccountItem(account) {
                 </div>
             </div>
         `;
+
+        // No HTML, mostrar corretamente:
+        const html = `
+            <div class="account-item">
+                <!-- ... outros elementos ... -->
+                <div class="info-line">
+                    ${bankNameHtml}
+                    ${balanceText}
+                    <span class="dot">•</span>
+                    <span class="initial-balance-text">Inicial: 
+                        <span class="initial-value">${formatCurrency(initialBalance)}</span>
+                    </span>
+                </div>
+            </div>
+        `;
+        
+        return html;
     } catch (error) {
         console.error('Erro ao criar HTML da conta:', account, error);
         return `<div class="message error">Erro ao carregar conta: ${error.message}</div>`;

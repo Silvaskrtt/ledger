@@ -136,6 +136,7 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         direction = data.get('direction')
         amount = data.get('amount')
         id_account = data.get('id_account')
+        payment_method = data.get('id_payment_method')
         
         # OBTER O USUÁRIO PRIMEIRO
         user = self.context['request'].user
@@ -228,6 +229,15 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         if occurred_at > timezone.now() and origin == 'MANUAL':
             # Pode querer permitir agendamentos, ajuste conforme necessidade
             pass
+        
+        if account and payment_method:
+            from .services.transaction_service import validate_payment_method_compatibility
+            
+            if not validate_payment_method_compatibility(payment_method.type, account.type):
+                raise serializers.ValidationError({
+                    "id_payment_method": f"Método de pagamento '{payment_method.get_type_display()}' "
+                                        f"não é compatível com conta '{account.name}' ({account.get_type_display()})."
+                })
         
         return data
     

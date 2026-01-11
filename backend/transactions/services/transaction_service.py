@@ -6,6 +6,7 @@ from django.db import transaction as db_transaction
 from django.core.exceptions import ValidationError
 
 # IMPORTAR TAG MODEL
+from payments.models import PaymentMethod
 from tags.models import Tag
 from transactions.models import Transaction, TransactionAccount, TransactionTag
 from accounts.models import Account
@@ -72,6 +73,31 @@ def validate_transaction_for_account(account, amount, direction):
                 f"Limite de crédito insuficiente no cartão {account.name}. "
                 f"Crédito disponível: {available_credit}, Valor da compra: {amount}"
             )
+            
+def validate_payment_method_compatibility(payment_method_type, account_type):
+    """
+    Valida se o método de pagamento é compatível com o tipo de conta.
+    
+    Regras:
+    - PIX, CASH, BANK_TRANSFER: Só podem ser usados com contas normais
+    - CREDIT: Só pode ser usado com cartões de crédito
+    - DEBIT: Pode ser usado com contas normais
+    """
+    COMPATIBILITY_RULES = {
+        # Método de pagamento: Tipos de conta permitidos
+        'PIX': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'CASH', 'OTHER'],
+        'CASH': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'CASH', 'OTHER'],
+        'BANK_TRANSFER': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],
+        'CREDIT': ['CREDIT_CARD'],  # Só cartão de crédito
+        'DEBIT': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],
+        'BOLETO': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],
+        'CRYPTO': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],
+        'OTHER': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'CASH', 'CREDIT_CARD', 'OTHER']
+    }
+    
+    allowed_accounts = COMPATIBILITY_RULES.get(payment_method_type, [])
+    
+    return account_type in allowed_accounts
 
 def create_transaction_service(
     user,
@@ -111,14 +137,26 @@ def create_transaction_service(
     if origin == 'INSTALLMENT' and (not installments or installments <= 1):
         origin = 'MANUAL'
     
-    # OBTER OBJETO CONTA
+    # OBTER OBJETO CONTA E MÉTODO DE PAGAMENTO
     if isinstance(id_account, Account):
         account_obj = id_account
     else:
-        try:
-            account_obj = Account.objects.get(pk=id_account, user=user)
-        except Account.DoesNotExist:
-            raise ValueError(f"Conta com ID {id_account} não encontrada para o usuário {user}")
+        account_obj = Account.objects.get(pk=id_account, user=user)
+    
+    if isinstance(id_payment_method, PaymentMethod):
+        payment_method_obj = id_payment_method
+    else:
+        payment_method_obj = PaymentMethod.objects.get(pk=id_payment_method, id_user=user)
+        
+    # VALIDAR COMPATIBILIDADE
+    if not validate_payment_method_compatibility(
+        payment_method_obj.type,
+        account_obj.type
+    ):
+        raise ValidationError(
+            f"Método de pagamento '{payment_method_obj.get_type_display()}' "
+            f"não é compatível com conta do tipo '{account_obj.get_type_display()}'."
+        )
     
     # VALIDAR TRANSAÇÃO PARA A CONTA
     validate_transaction_for_account(account_obj, amount, direction)

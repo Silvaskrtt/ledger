@@ -34,20 +34,32 @@ def home_view(request):
         .aggregate(total=Sum('balance'))['total'] or 0
     )
     
-    # 2. DÉBITO EM CARTÕES (valor absoluto para exibição)
-    debito_cartoes = abs(
+    # 2. DÉBITO EM CARTÕES (valor ABSOLUTO para exibição)
+    # OBS: balance de cartões é NEGATIVO
+    sum_credit_cards = (
         Account.objects
         .filter(user=user, is_active=True, type='CREDIT_CARD')
         .aggregate(total=Sum('balance'))['total'] or 0
     )
     
-    # 3. PATRIMÔNIO LÍQUIDO = Contas - Dívidas Cartões
-    total_patrimonio = patrimonio_contas - debito_cartoes
+    # 3. DÉBITO ABSOLUTO (apenas para exibição)
+    debito_absoluto = abs(sum_credit_cards)
     
-    # 4. SALDO DISPONÍVEL (apenas contas normais)
+    # 4. PATRIMÔNIO LÍQUIDO = Contas + Cartões (cartões são negativos)
+    # Ex: contas 2000 + cartões -500 = 1500
+    total_patrimonio = patrimonio_contas + sum_credit_cards
+    
+    # 5. SALDO DISPONÍVEL (apenas contas normais)
     saldo_atual = patrimonio_contas
     
-    # 5. Restante do cálculo permanece...
+    # 6. TOTAL INVESTIDO
+    total_investido = (
+        Account.objects
+        .filter(user=user, is_active=True, type='INVESTMENT')
+        .aggregate(total=Sum('balance'))['total'] or 0
+    )
+    
+    # 7. Cálculo de entradas e saídas do mês
     entradas_mes = Transaction.objects.filter(
         id_user=user,
         direction='IN',
@@ -64,17 +76,10 @@ def home_view(request):
         is_deleted=False
     ).aggregate(total=Sum('amount'))['total'] or 0
     
-    # 6. TOTAL INVESTIDO
-    total_investido = (
-        Account.objects
-        .filter(user=user, is_active=True, type='INVESTMENT')
-        .aggregate(total=Sum('balance'))['total'] or 0
-    )
-    
     return render(request, 'home/home.html', {
         'total_patrimonio': total_patrimonio,      # Patrimônio líquido
         'saldo_atual': saldo_atual,               # Saldo disponível (contas)
-        'debito_cartoes': debito_cartoes,         # Dívida cartões (valor absoluto)
+        'debito_cartoes': debito_absoluto,         # Dívida cartões (valor absoluto para exibição)
         'entradas_mes': entradas_mes,
         'saidas_mes': saidas_mes,
         'total_investido': total_investido,

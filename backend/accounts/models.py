@@ -124,9 +124,14 @@ class Account(models.Model):
     
     @property
     def available_credit(self):
-        """Crédito disponível para cartões"""
+        """Crédito disponível para cartões."""
         if self.is_credit_card and self.credit_limit:
-            return self.credit_limit + self.balance  # balance é negativo para cartões
+            # Para cartões, balance é NEGATIVO (dívida)
+            # Ex: limite 5000, dívida -1000 → disponível 4000
+            # Disponível = Limite - Dívida (onde dívida é positiva)
+            current_debt = abs(self.balance)  # Converte negativo para positivo
+            available = self.credit_limit - current_debt
+            return max(0, available)  # Nunca abaixo de zero
         return None
     
     def save(self, *args, **kwargs):
@@ -134,7 +139,11 @@ class Account(models.Model):
         if not self.pk:
             # Apenas na criação
             self.balance = self.initial_balance
-            
+        
+        # VALIDAÇÃO CRÍTICA: Cartões nunca podem ter saldo positivo
+        if self.is_credit_card and self.balance > 0:
+            self.balance = 0
+        
         # Validar consistência
         self.clean()
         super().save(*args, **kwargs)

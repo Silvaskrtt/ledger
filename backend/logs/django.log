@@ -10166,3 +10166,467 @@ Saldo: 0.00 -> -300.00
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+C:\Users\muril\ledger\backend\payments\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\home\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+"GET / HTTP/1.1" 200 9482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9482
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+Métodos de pagamento padrão criados para pysilvaskrtt
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /static/css/auth/login.css HTTP/1.1" 200 7972
+"GET /static/img/person-working.svg HTTP/1.1" 200 32156
+"POST /accounts/login/ HTTP/1.1" 200 2469
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4080
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4263
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 23978
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+"GET /admin/accounts/account/ HTTP/1.1" 200 28497
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/img/search.svg HTTP/1.1" 200 607
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1761
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+"GET /admin/auth/user/ HTTP/1.1" 200 26523
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 558
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 200 645
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/user/1/change/ HTTP/1.1" 200 43405
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8844
+"GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 16428
+"GET /static/admin/js/calendar.js HTTP/1.1" 200 9159
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19698
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 805
+"GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 2387
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1112
+"POST /admin/auth/user/1/change/ HTTP/1.1" 302 0
+"GET /admin/auth/user/ HTTP/1.1" 200 26740
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 200 558
+"GET /admin/auth/user/2/change/ HTTP/1.1" 200 43456
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/auth/user/2/change/ HTTP/1.1" 302 0
+"GET /admin/auth/user/ HTTP/1.1" 200 26746
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/ HTTP/1.1" 200 24701
+"GET / HTTP/1.1" 200 9465
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 7715
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 8987
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 7759
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 2
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 52
+"GET /api/accounts/ HTTP/1.1" 200 52
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 52
+"GET /api/accounts/ HTTP/1.1" 200 52
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 52
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 52
+"GET /api/accounts/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 2
+"GET /goals/ HTTP/1.1" 200 7759
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 8987
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 7715
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15161
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 52
+"POST /api/credit-cards/ HTTP/1.1" 201 465
+"GET /api/credit-cards/ HTTP/1.1" 200 517
+"GET /budget/ HTTP/1.1" 200 8987
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 7759
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /transactions/new/ HTTP/1.1" 200 15364
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 432
+"GET /api/accounts/ HTTP/1.1" 200 432
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 2
+"POST /api/categories/ HTTP/1.1" 201 281
+"GET /api/tags/ HTTP/1.1" 200 2
+"POST /api/tags/ HTTP/1.1" 201 184
+"GET /transactions/new/ HTTP/1.1" 200 15536
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Transação manual criada: 019161a8-95bb-4f2f-b1b9-1b433aac225c
+Saldo: 0.00 -> 0.00
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/list/ HTTP/1.1" 200 8963
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9467
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 517
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 432
+"GET /api/accounts/ HTTP/1.1" 200 432
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 38188
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 9512
+"GET /api/accounts/ HTTP/1.1" 200 432
+"GET /api/accounts/ HTTP/1.1" 200 432
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET / HTTP/1.1" 200 9467
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 517
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 432
+"GET /api/accounts/ HTTP/1.1" 200 432
+"POST /api/accounts/ HTTP/1.1" 201 410
+"GET / HTTP/1.1" 200 9475
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9475
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 517
+"GET /api/credit-cards/4be14715-acb9-4ac1-bea6-2f64971395fb/ HTTP/1.1" 200 465
+"PUT /api/credit-cards/4be14715-acb9-4ac1-bea6-2f64971395fb/ HTTP/1.1" 200 467
+"GET /api/credit-cards/ HTTP/1.1" 200 519
+"POST /api/credit-cards/ HTTP/1.1" 201 467
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET / HTTP/1.1" 200 9475
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15943
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Transação manual criada: 49692c06-874a-4dce-a68c-0599461c63f7
+Saldo: 0.00 -> 0.00
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/list/ HTTP/1.1" 200 10120
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9475
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9475
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9475
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /budget/ HTTP/1.1" 200 9106
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 10120
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9106
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15943
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Transação manual criada: dae06e11-c2c4-4264-bcda-2e9348371a54
+Saldo: 2000.00 -> 2300.00
+"POST /api/transactions/ HTTP/1.1" 201 163
+"GET /transactions/list/ HTTP/1.1" 200 11272
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9106
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 11272
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 283
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /transactions/new/ HTTP/1.1" 200 15943
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+Cartão Conta Teste 2 tem saldo positivo: 500.00
+INCONSISTÊNCIA na conta Conta Teste 2: Armazenado=0.00, Calculado=500.00
+Cartão Carta Teste 1 tem saldo positivo: 100.00
+INCONSISTÊNCIA na conta Carta Teste 1: Armazenado=0.00, Calculado=100.00
+Cartão Conta Teste 2 tem saldo positivo: 500.00
+INCONSISTÊNCIA na conta Conta Teste 2: Armazenado=0.00, Calculado=500.00
+Cartão Carta Teste 1 tem saldo positivo: 100.00
+INCONSISTÊNCIA na conta Carta Teste 1: Armazenado=0.00, Calculado=100.00
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+Cartão Conta Teste 2 tem saldo positivo: 500.00
+INCONSISTÊNCIA na conta Conta Teste 2: Armazenado=0.00, Calculado=500.00
+Cartão Carta Teste 1 tem saldo positivo: 100.00
+INCONSISTÊNCIA na conta Carta Teste 1: Armazenado=0.00, Calculado=100.00
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 9512
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 39024
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 9106
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 11272
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15943
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Erro ao criar transação: {'id_payment_method': [ErrorDetail(string="Método de pagamento 'PIX' não é compatível com conta 'Carta Teste 1' (Cartão de Crédito).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 155, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'id_payment_method': [ErrorDetail(string="Método de pagamento 'PIX' não é compatível com conta 'Carta Teste 1' (Cartão de Crédito).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /transactions/list/ HTTP/1.1" 200 11272
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15943
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Cartão Carta Teste 1 tem saldo positivo: 200.00
+Cartão Carta Teste 1 tem saldo positivo: 200.00
+INCONSISTÊNCIA na conta Carta Teste 1: Armazenado=0.00, Calculado=200.00
+INCONSISTÊNCIA DETECTADA após criação da transação 30df9e00-c5aa-4938-83f2-75c4a73890f9
+Transação manual criada: 30df9e00-c5aa-4938-83f2-75c4a73890f9
+Saldo: 0.00 -> 0
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 283
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 283
+"GET /goals/ HTTP/1.1" 200 7759
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52

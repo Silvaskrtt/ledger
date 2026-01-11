@@ -10,13 +10,12 @@ from transactions.models import Transaction
 def recalculate_account_balance(account):
     """
     Recalcula saldo CORRETAMENTE baseado em transações.
-    FÓRMULA ÚNICA E CONSISTENTE.
     """
     with db_transaction.atomic():
         locked_account = Account.objects.select_for_update().get(pk=account.pk)
         
-        # 1. Para TODAS as contas: pegar saldo inicial
-        balance = locked_account.initial_balance
+        # 1. Para TODAS as contas: saldo inicial
+        initial_balance = locked_account.initial_balance
         
         # 2. Calcular totais de transações
         totals_in = Transaction.objects.filter(
@@ -31,25 +30,33 @@ def recalculate_account_balance(account):
             is_deleted=False
         ).aggregate(total=Sum('amount'))['total'] or 0
         
-        # 3. APLICAR FÓRMULA ÚNICA
+        # 3. FÓRMULA CORRETA
         if locked_account.is_credit_card:
-            # Cartão: saldo = dívida (negativo)
-            # OUT aumenta dívida, IN reduz dívida
-            balance = totals_out - totals_in  # Negativo = dívida
+            # CARTÃO DE CRÉDITO:
+            # Saldo inicial DEVE SER 0 (cartão começa sem dívida)
+            # Fórmula: Saídas - Entradas
+            # Ex: compras de 100 + 500 = 600 saídas, 0 entradas = -600
+            calculated_balance = totals_out - totals_in
+            
+            # VERIFICAÇÃO CRÍTICA: 
+            # Cartão NÃO pode ter saldo positivo (não pode ter crédito)
+            # Mas PODE e DEVE ter saldo NEGATIVO (dívida)
+            if calculated_balance > 0:
+                # Se cálculo deu positivo, algo está errado
+                # Isso pode acontecer se houver mais entradas que saídas
+                # Mas cartão não pode ter crédito, então mantém como está
+                # ou loga o erro
+                logger.warning(f"Cartão {locked_account.name} tem saldo positivo: {calculated_balance}")
         else:
-            # Conta normal: saldo = dinheiro disponível
-            # IN aumenta saldo, OUT reduz saldo
-            balance = locked_account.initial_balance + totals_in - totals_out
+            # CONTAS NORMAIS:
+            # Fórmula: Saldo Inicial + Entradas - Saídas
+            calculated_balance = initial_balance + totals_in - totals_out
         
-        # 4. Garantir que cartões nunca tenham saldo positivo
-        if locked_account.is_credit_card and balance > 0:
-            balance = 0  # Cartão não pode ter crédito
-        
-        # 5. Atualizar e retornar
-        locked_account.balance = balance
+        # 4. Atualizar e retornar
+        locked_account.balance = calculated_balance
         locked_account.save(update_fields=['balance'])
         
-        return balance
+        return calculated_balance
 
 def verify_account_balance(account):
     """
