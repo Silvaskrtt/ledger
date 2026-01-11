@@ -98,7 +98,7 @@ class TransactionListView(LoginRequiredMixin, TemplateView):
             try:
                 # Tenta filtrar por UUID
                 category_uuid_obj = uuid.UUID(category_uuid)
-                transactions = transactions.filter(id_category_id=category_uuid_obj)
+                transactions = transactions.filter(category_id=category_uuid_obj)
             except (ValueError, AttributeError):
                 # Fallback: filtra por nome contendo a string
                 transactions = transactions.filter(id_category__name__icontains=category_uuid)

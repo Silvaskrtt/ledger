@@ -159,7 +159,7 @@ class Transaction(models.Model):
         self.save()
     
     def __str__(self):
-        return f"Transaction {self.id_transaction}: {self.direction} of {self.amount} {self.currency} on {self.occurred_at}"
+        return f"Transaction {self.transaction}: {self.direction} of {self.amount} {self.currency} on {self.occurred_at}"
 
 class TransactionAccount(models.Model):
     ROLE_CHOICES = [
@@ -171,13 +171,13 @@ class TransactionAccount(models.Model):
         Transaction,
         on_delete=models.CASCADE,
         related_name='transaction_accounts',
-        db_column='id_transaction')
+        db_column='id_transaction_id')
 
     account = models.ForeignKey(
         Account,
         on_delete=models.CASCADE,
         related_name='transaction_accounts',
-        db_column='id_account')
+        db_column='id_account_id')
     
     role = models.CharField(
         max_length=20,

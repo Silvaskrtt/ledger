@@ -61,10 +61,7 @@ def create_default_payment_methods_for_user(user):
         method, created = PaymentMethod.objects.get_or_create(
             user=user,
             type=method_data['type'],
-            defaults={
-                'id_payment_method': uuid.uuid4(),
-                **method_data_copy
-            }
+            defaults=method_data_copy
         )
         
         if created:

@@ -91,16 +91,16 @@ def create_recurrence_transaction(recurrence_rule):
     # Verifica se atingiu limite de execuções
     if (recurrence_rule.max_executions and 
         recurrence_rule.executions_count >= recurrence_rule.max_executions):
-        logger.info(f"Regra {recurrence_rule.id_recurrence_rule} atingiu limite de execuções")
+        logger.info(f"Regra {recurrence_rule.recurrence_rule} atingiu limite de execuções")
         return None
     
     with db_transaction.atomic():
         # Cria transação
         transaction = Transaction.objects.create(
             transaction=uuid.uuid4(),
-            user=recurrence_rule.id_user,
-            category=recurrence_rule.id_category,
-            payment_method=recurrence_rule.id_payment_method,
+            user=recurrence_rule.user,
+            category=recurrence_rule.category,
+            payment_method=recurrence_rule.payment_method,
             amount=recurrence_rule.amount,
             direction=recurrence_rule.direction,
             currency='BRL',
@@ -114,7 +114,7 @@ def create_recurrence_transaction(recurrence_rule):
         role = 'source' if recurrence_rule.direction == 'OUT' else 'destination'
         TransactionAccount.objects.create(
             transaction=transaction,
-            account=recurrence_rule.id_account,
+            account=recurrence_rule.account,
             role=role
         )
         
@@ -125,7 +125,7 @@ def create_recurrence_transaction(recurrence_rule):
         )
         recurrence_rule.save()
         
-        logger.info(f"Transação recorrente criada: {transaction.id_transaction}")
+        logger.info(f"Transação recorrente criada: {transaction.transaction}")
         return transaction
 
 def process_pending_recurrences():
@@ -145,7 +145,7 @@ def process_pending_recurrences():
             if transaction:
                 created_count += 1
         except Exception as e:
-            logger.error(f"Erro ao processar recorrência {rule.id_recurrence_rule}: {str(e)}")
+            logger.error(f"Erro ao processar recorrência {rule.recurrence_rule}: {str(e)}")
     
     logger.info(f"Processadas {created_count} transações recorrentes")
     return created_count

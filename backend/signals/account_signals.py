@@ -9,5 +9,5 @@ def update_account_balance(sender, instance, created, **kwargs):
     if created and not instance.is_deleted:
         # Para cada conta relacionada à transação
         for transaction_account in instance.transaction_accounts.all():
-            account = transaction_account.id_account
+            account = transaction_account.account
             account.refresh_balance()  # Recalcula saldo
