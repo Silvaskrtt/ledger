@@ -1,3 +1,5 @@
+# backend/payments/middleware.py
+
 from django.utils.deprecation import MiddlewareMixin
 from .models import PaymentMethod
 from .defaults import create_default_payment_methods_for_user

@@ -1,3 +1,5 @@
+# backend/accounts/management/commands/validate_balances.py
+
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 from accounts.models import Account

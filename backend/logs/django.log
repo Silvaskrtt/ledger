@@ -9813,3 +9813,173 @@ C:\Users\muril\ledger\backend\payments\apps.py changed, reloading.
 Watching for file changes with StatReloader
 Criando métodos padrão para 1 usuários existentes...
 Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 16307
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8679
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /managementCategories/ HTTP/1.1" 200 14980
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 33828
+"GET /api/categories/ HTTP/1.1" 200 547
+"POST /api/categories/ HTTP/1.1" 201 268
+"GET /api/tags/ HTTP/1.1" 200 195
+"POST /api/tags/ HTTP/1.1" 201 189
+"GET /budget/ HTTP/1.1" 200 9326
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 7760
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /transactions/new/ HTTP/1.1" 200 16665
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Recalculando saldo da conta Nubank: 1518.00 -> -50.00
+Recalculando saldo da conta Nubank: -50.00 -> -50.00
+Transação manual criada: fe448cdd-6b29-4b8a-9770-bc0a9acbf7d3
+Saldo: 1518.00 -> -50.00
+"POST /api/transactions/ HTTP/1.1" 201 163
+"GET /transactions/list/ HTTP/1.1" 200 9310
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9470
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8679
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /management/ HTTP/1.1" 200 17087
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /managementCategories/ HTTP/1.1" 200 14980
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 816
+"GET /management/ HTTP/1.1" 200 17087
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /transactions/new/ HTTP/1.1" 200 16665
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Recalculando saldo da conta Banco do brasil conta: 1518.00 -> 1518.00
+Recalculando saldo da conta Banco do brasil conta: 1518.00 -> 1518.00
+Transação manual criada: cf7ae720-3afe-445f-a42d-d71a202ffa94
+Saldo: 1518.00 -> 1518.00
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/list/ HTTP/1.1" 200 10445
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 14980
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /api/categories/ HTTP/1.1" 200 816
+"GET /management/ HTTP/1.1" 200 17087
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /managementCategories/ HTTP/1.1" 200 14980
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 816
+"GET /management/ HTTP/1.1" 200 17087
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"GET /api/accounts/ HTTP/1.1" 200 1228
+"PUT /api/accounts/b900c208-8464-436d-b0fc-fd856de4c192/ HTTP/1.1" 200 401
+"GET /transactions/new/ HTTP/1.1" 200 16666
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9326
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 10444
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9326
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 7760
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 9326
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 10444
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 7760
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 14980
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 816
+"GET /transactions/new/ HTTP/1.1" 200 16666
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Recalculando saldo da conta Banco do brasil conta: 1518.00 -> 1512.00
+Recalculando saldo da conta Banco do brasil conta: 1512.00 -> 1512.00
+Transação manual criada: c665f1c2-1b84-4089-9686-0aba95c0f50b
+Saldo: 1518.00 -> 1512.00
+"POST /api/transactions/ HTTP/1.1" 201 162
+"GET /transactions/list/ HTTP/1.1" 200 11575
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9326
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 7760
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 14980
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 816
+"GET /management/ HTTP/1.1" 200 17087
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\payments\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\payments\signals.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\payments\middleware.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\payments\apps.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\home\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9474
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\home\views.py changed, reloading.
+Watching for file changes with StatReloader

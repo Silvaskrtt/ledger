@@ -130,10 +130,33 @@ class Account(models.Model):
         return None
     
     def save(self, *args, **kwargs):
-        # Na criação, define saldo atual igual ao inicial
+        """Não sobrescreve balance automaticamente."""
         if not self.pk:
+            # Apenas na criação
             self.balance = self.initial_balance
+            
+        # Validar consistência
+        self.clean()
         super().save(*args, **kwargs)
+    
+    def get_calculated_balance(self):
+        """Calcula saldo baseado em transações (fonte da verdade)."""
+        from transactions.services.balance_service import recalculate_account_balance
+        return recalculate_account_balance(self)
+    
+    def refresh_balance(self):
+        """Atualiza balance com valor calculado das transações."""
+        calculated = self.get_calculated_balance()
+        if self.balance != calculated:
+            self.balance = calculated
+            self.save(update_fields=['balance'])
+        return self.balance
+    
+    @property
+    def is_consistent(self):
+        """Verifica se saldo armazenado = saldo calculado."""
+        calculated = self.get_calculated_balance()
+        return abs(self.balance - calculated) < 0.01
 
 class CreditCardBill(models.Model):
     STATUS_CHOICES = [
@@ -195,12 +218,12 @@ def clean(self):
     
         def save(self, *args, **kwargs):
             """Garante consistência ao salvar."""
-            self.clean()
-            
             # Na criação, balance = initial_balance
             if not self.pk:
                 self.balance = self.initial_balance
-            
+              
+            # Validar consistência   
+            self.clean()
             super().save(*args, **kwargs)
         
         @property

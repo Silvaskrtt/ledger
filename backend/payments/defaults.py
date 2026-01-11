@@ -1,3 +1,5 @@
+# backend/payments/defaults.py
+
 DEFAULT_PAYMENT_METHODS = [
     {
         'type': 'PIX',

@@ -1,3 +1,5 @@
+# backend/payments/management/commands/fix_payment_methods.py
+
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 from payments.models import PaymentMethod

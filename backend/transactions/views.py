@@ -25,7 +25,6 @@ from recurrence.services.recurrence_service import process_pending_recurrences
 # Configuração do logger para este módulo
 logger = logging.getLogger(__name__)
 
-
 class CreateTransactionView(LoginRequiredMixin, TemplateView):
     """
     View para renderizar a página de criação de transações.
