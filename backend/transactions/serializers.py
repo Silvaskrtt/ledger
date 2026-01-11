@@ -133,6 +133,9 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
     def validate(self, data):
         """Validações cruzadas entre campos."""
         origin = data.get('origin', 'MANUAL')
+        direction = data.get('direction')
+        amount = data.get('amount')
+        id_account = data.get('id_account')
         
         # OBTER O USUÁRIO PRIMEIRO
         user = self.context['request'].user
@@ -145,6 +148,30 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         tags = data.get('tags', [])
         logger.debug(f"Tags recebidas: {tags}")
         logger.debug(f"Número de tags: {len(tags)}")
+        
+         # Validar saldo da conta
+        if id_account and direction and amount:
+            try:
+                account = Account.objects.get(pk=id_account.id_account if hasattr(id_account, 'id_account') else id_account, user=user)
+                
+                if not account.is_credit_card:
+                    # Conta normal: verificar saldo para saídas
+                    if direction == 'OUT' and account.balance < amount:
+                        raise serializers.ValidationError({
+                            "amount": f"Saldo insuficiente na conta {account.name}. "
+                                     f"Saldo atual: R${account.balance:.2f}"
+                        })
+                else:
+                    # Cartão de crédito: verificar limite
+                    available_credit = account.available_credit
+                    if direction == 'OUT' and amount > available_credit:
+                        raise serializers.ValidationError({
+                            "amount": f"Limite de crédito insuficiente no cartão {account.name}. "
+                                     f"Crédito disponível: R${available_credit:.2f}"
+                        })
+                        
+            except Account.DoesNotExist:
+                raise serializers.ValidationError({"id_account": "Conta não encontrada"})
         
         # Validação de tags (agora são UUIDs strings)
         for tag_id in tags:

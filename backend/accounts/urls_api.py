@@ -6,10 +6,14 @@ from .views import (
     AccountDetailView,
     CreditCardListCreateView,
     CreditCardDetailView,
+    check_balance_consistency,
+    sync_account_balances,
 )
 
 urlpatterns = [
     # API endpoints
+    path('accounts/check-consistency/', check_balance_consistency, name='check-balance-consistency'),
+    path('accounts/sync-balances/', sync_account_balances, name='sync-balances'),
     path('accounts/', AccountListCreateView.as_view(), name='account-list'),
     path('accounts/<uuid:pk>/', AccountDetailView.as_view(), name='account-detail'),
     

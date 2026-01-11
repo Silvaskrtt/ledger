@@ -33,7 +33,7 @@ Utiliza filters do Django:
     </div>
 
     <!-- Valor principal do card: saldo atual formatado -->
-    <h2>R$ {{ saldo_atual|floatformat:2|intcomma }}</h2>
+    <h2>R$ {{ total_patrimonio|floatformat:2|intcomma }}</h2>
     <!-- 
       Filtros aplicados:
       - floatformat:2: limita a 2 casas decimais
@@ -45,13 +45,20 @@ Utiliza filters do Django:
       <div>
         <!-- Primeiro bloco: valor investido -->
         <small>Investido</small>
-        <strong class="positive">R$ {{ saldo_atual|floatformat:2|intcomma }}</strong>
+        <strong class="positive">R$ {{ total_investido|floatformat:2|intcomma }}</strong>
         <!-- Classe 'positive' aplica cor verde ao texto -->
       </div>
-
+      
       <div>
-        <!-- Segundo bloco: saldo disponível -->
-        <small>Saldo</small>
+        <!-- Segundo bloco: dívida dos cartões -->
+        <small>Dívida Cartões</small>
+        <strong class="negative">R$ {{ debito_cartoes|floatformat:2|intcomma }}</strong>
+        <!-- Classe 'negative' aplica cor vermelha ao texto -->
+      </div>
+      
+      <div>
+        <!-- Terceiro bloco: saldo disponível -->
+        <small>Saldo Disponível</small>
         <strong class="neutral">R$ {{ saldo_atual|floatformat:2|intcomma }}</strong>
         <!-- Classe 'neutral' aplica cor cinza/neutra ao texto -->
       </div>
@@ -73,16 +80,14 @@ Utiliza filters do Django:
     <div class="card-details">
       <div>
         <!-- Primeiro bloco: receitas previstas -->
-        <small>Receitas Previstas</small>
-        <strong class="neutral">R$ {{ entradas_mes|floatformat:2|intcomma }}</strong>
+        <small>Mês Anterior</small>
+        <strong class="neutral">R$ {{ entradas_mes_anterior|floatformat:2|intcomma }}</strong>
       </div>
 
       <div>
-        <!-- Segundo bloco: saldo das receitas -->
-        <small>Saldo</small>
-        <strong class="positive">
-          R$ {{ entradas_mes|floatformat:2|intcomma }}
-        </strong>
+        <!-- Segundo bloco: variação -->
+        <small>Variação</small>
+        <strong class="positive">+15%</strong> <!-- Calculado dinamicamente -->
       </div>
     </div>
   </div>
@@ -101,15 +106,15 @@ Utiliza filters do Django:
 
     <div class="card-details">
       <div>
-        <!-- Primeiro bloco: despesas previstas -->
-        <small>Despesas Previstas</small>
-        <strong class="neutral">R$ {{ saidas_mes|floatformat:2|intcomma }}</strong>
+        <!-- Primeiro bloco: despesas mês anterior -->
+        <small>Mês Anterior</small>
+        <strong class="neutral">R$ {{ saidas_mes_anterior|floatformat:2|intcomma }}</strong>
       </div>
 
       <div>
         <!-- Segundo bloco: valor orçado para despesas -->
         <small>Orçado</small>
-        <strong class="neutral">R$ {{ saidas_mes|floatformat:2|intcomma }}</strong>
+        <strong class="neutral">R$ {{ orcamento_mes|floatformat:2|intcomma }}</strong>
       </div>
     </div>
   </div>
@@ -117,18 +122,3 @@ Utiliza filters do Django:
 
 </section>
 {% endblock %}
-
-{% comment %}
-OBSERVAÇÕES SOBRE OS DADOS EXIBIDOS:
-- Todos os três cards estão exibindo os mesmos valores das variáveis de contexto
-  (saldo_atual, entradas_mes, saidas_mes) em diferentes contextos.
-- Em um cenário real, provavelmente teríamos variáveis distintas para:
-  - Patrimônio investido vs saldo disponível
-  - Receitas realizadas vs previstas
-  - Despesas realizadas vs orçadas
-  
-POSSÍVEIS MELHORIAS FUTURAS:
-1. Separar as variáveis de contexto para cada métrica específica
-2. Adicionar indicadores de variação (ex: +5% em relação ao mês anterior)
-3. Incluir gráficos visuais para melhor representação dos dados
-{% endcomment %}

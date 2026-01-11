@@ -9518,3 +9518,298 @@ C:\Users\muril\ledger\backend\tags\views.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Users\muril\ledger\backend\tags\views.py changed, reloading.
 Watching for file changes with StatReloader
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 269
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 32936
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 12132
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /api/categories/ HTTP/1.1" 200 269
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /api/tags/ HTTP/1.1" 200 195
+"PUT /api/tags/f75d581f-f762-429b-9bd6-b8b9db3044b0/ HTTP/1.1" 200 193
+"GET /budget/ HTTP/1.1" 200 8093
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 6891
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14267
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 8093
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 269
+"POST /api/categories/ HTTP/1.1" 201 277
+"GET /api/tags/ HTTP/1.1" 200 195
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 547
+"GET /api/tags/ HTTP/1.1" 200 195
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 547
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET / HTTP/1.1" 200 8213
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14441
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 7073
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 8205
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 547
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET / HTTP/1.1" 200 8213
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 547
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 8205
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 7073
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14441
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 8213
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 8205
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 8205
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 8205
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 7073
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14441
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 547
+"GET /api/tags/ HTTP/1.1" 200 195
+"GET /goals/ HTTP/1.1" 200 6755
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 8205
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 7073
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 7073
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14441
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+"GET /static/css/auth/login.css HTTP/1.1" 200 7972
+"GET /static/img/person-working.svg HTTP/1.1" 200 32156
+"GET /accounts/signup/ HTTP/1.1" 200 3146
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6306
+- Broken pipe from ('127.0.0.1', 64030)
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 8213
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\recurrence\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\transaction_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 8213
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET / HTTP/1.1" 200 8213
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 14441
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 7073
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 8205
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /managementCategories/ HTTP/1.1" 200 13975
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /api/categories/ HTTP/1.1" 200 547
+"GET /management/ HTTP/1.1" 200 16082
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET /api/accounts/ HTTP/1.1" 200 1229
+"GET / HTTP/1.1" 200 8213
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\home\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\home\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\home\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\home\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 8225
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8221
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8360
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8369
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8344
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8493
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8493
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8480
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8468
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8468
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8468
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8468
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8468
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 8468
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET /cartoes/ HTTP/1.1" 200 7674
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 8133
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 16552
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /cartoes/ HTTP/1.1" 200 8679
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 996
+"GET / HTTP/1.1" 200 9473
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15446
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8078
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9210
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 9473
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15446
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\payments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\payments\apps.py changed, reloading.
+Watching for file changes with StatReloader
+Criando métodos padrão para 1 usuários existentes...
+Watching for file changes with StatReloader

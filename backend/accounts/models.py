@@ -4,6 +4,7 @@ import uuid
 from django.db import models
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.forms import ValidationError
 
 class Account(models.Model):
     TYPE_CHOICES = [
@@ -169,3 +170,53 @@ class CreditCardBill(models.Model):
     
     def __str__(self):
         return f"Fatura {self.end_date.strftime('%m/%Y')} - {self.credit_card.name}"
+    
+def clean(self):
+        """Validações do modelo."""
+        super().clean()
+        
+        if self.is_credit_card:
+            # Cartões não podem ter saldo positivo
+            if self.balance > 0:
+                raise ValidationError({
+                    'balance': 'Cartões de crédito não podem ter saldo positivo.'
+                })
+            
+            # Dias devem estar entre 1 e 31
+            if self.closing_day and not (1 <= self.closing_day <= 31):
+                raise ValidationError({
+                    'closing_day': 'Dia de fechamento deve estar entre 1 e 31.'
+                })
+            
+            if self.due_day and not (1 <= self.due_day <= 31):
+                raise ValidationError({
+                    'due_day': 'Dia de vencimento deve estar entre 1 e 31.'
+                })
+    
+        def save(self, *args, **kwargs):
+            """Garante consistência ao salvar."""
+            self.clean()
+            
+            # Na criação, balance = initial_balance
+            if not self.pk:
+                self.balance = self.initial_balance
+            
+            super().save(*args, **kwargs)
+        
+        @property
+        def is_credit_card(self):
+            return self.type == 'CREDIT_CARD'
+        
+        @property
+        def available_credit(self):
+            """Crédito disponível para cartões."""
+            if self.is_credit_card and self.credit_limit:
+                # Para cartões, balance é negativo (dívida)
+                # Crédito disponível = limite + balance (balance é negativo)
+                return self.credit_limit + self.balance  # Ex: 5000 + (-1000) = 4000
+            return None
+        
+        def get_transaction_balance(self):
+            """Calcula saldo baseado em transações (fonte da verdade)."""
+            from transactions.services.balance_service import recalculate_account_balance
+            return recalculate_account_balance(self)

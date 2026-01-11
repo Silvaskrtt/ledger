@@ -87,3 +87,17 @@ class AccountSerializer(serializers.ModelSerializer):
         validated_data['balance'] = initial_balance
         
         return super().create(validated_data)
+    
+    def validate_balance(self, value):
+        """Impede modificação manual do saldo."""
+        if self.instance and 'balance' in self.initial_data:
+            raise serializers.ValidationError(
+                "O saldo não pode ser modificado diretamente. "
+                "Ele é calculado automaticamente a partir das transações."
+            )
+        return value
+    
+    def update(self, instance, validated_data):
+        """Remove balance dos dados a serem atualizados."""
+        validated_data.pop('balance', None)
+        return super().update(instance, validated_data)

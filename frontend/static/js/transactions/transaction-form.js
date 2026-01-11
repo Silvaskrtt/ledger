@@ -353,6 +353,49 @@ class TransactionForm {
         return labels[fieldId] || fieldId;
     }
 
+    async validateAccountBalance(accountId, amount, direction) {
+        try {
+            const response = await fetch(`/api/accounts/${accountId}/`, {
+                headers: {
+                    'Accept': 'application/json',
+                    'X-CSRFToken': this.getCSRFToken()
+                }
+            });
+            
+            if (response.ok) {
+                const account = await response.json();
+                console.log('Dados da conta:', account);
+                
+                if (account.type === 'CREDIT_CARD') {
+                    // Validação para cartão de crédito
+                    const availableCredit = account.available_credit || 0;
+                    if (direction === 'OUT' && amount > availableCredit) {
+                        return {
+                            valid: false,
+                            message: `Limite insuficiente no cartão ${account.name}. ` +
+                                    `Disponível: R$${availableCredit.toFixed(2)}`
+                        };
+                    }
+                } else {
+                    // Validação para contas normais
+                    const currentBalance = account.balance || 0;
+                    if (direction === 'OUT' && amount > currentBalance) {
+                        return {
+                            valid: false,
+                            message: `Saldo insuficiente na conta ${account.name}. ` +
+                                    `Disponível: R$${currentBalance.toFixed(2)}`
+                        };
+                    }
+                }
+                
+                return { valid: true };
+            }
+        } catch (error) {
+            console.error('Erro ao validar saldo:', error);
+            return { valid: true }; // Permite continuar em caso de erro
+        }
+    }
+
     async submitForm() {
         const validation = this.validateForm();
         if (!validation.isValid) {
@@ -364,6 +407,22 @@ class TransactionForm {
             const formData = this.collectFormData();
             console.log('=== DADOS COMPLETOS A SEREM ENVIADOS ===');
             console.log(JSON.stringify(formData, null, 2));
+
+            // VALIDAÇÃO DE SALDO ANTES DE ENVIAR
+            const accountId = formData.id_account;
+            const amount = parseFloat(formData.amount);
+            const direction = formData.direction;
+
+            const balanceValidation = await this.validateAccountBalance(
+                accountId, 
+                amount, 
+                direction
+            );
+
+            if (!balanceValidation.valid) {
+                alert('❌ ' + balanceValidation.message);
+                return;
+            }
 
              // DEBUG: Verifique especialmente as tags
             if (formData.tags && Array.isArray(formData.tags)) {

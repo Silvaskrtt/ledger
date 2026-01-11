@@ -8,17 +8,20 @@ from accounts.models import Account
 from django.contrib.auth.models import User
 from categories.models import Category
 
-
 class PaymentMethod(models.Model):
     TYPE_CHOICES = [
-        ('CREDIT', 'Credit'),
-        ('DEBIT', 'Debit'),
-        ('PIX', 'Pix'),
-        ('CASH', 'Cash'),
+        ('CREDIT', 'Cartão de Crédito'),
+        ('DEBIT', 'Cartão de Débito'),
+        ('PIX', 'PIX'),
+        ('CASH', 'Dinheiro'),
+        ('BANK_TRANSFER', 'Transferência Bancária'),
+        ('BOLETO', 'Boleto'),
+        ('CRYPTO', 'Criptomoeda'),
+        ('OTHER', 'Outro'),
     ]
     
     type = models.CharField(
-        max_length=10,
+        max_length=20,
         choices=TYPE_CHOICES,
         default='PIX'
         )

@@ -403,9 +403,36 @@ async function updateTag(tagId, tagData) {
     }
 }
 
+async function checkCategoryUsage(categoryId) {
+    try {
+        const response = await fetch(`${API_BASE}/transactions/?category=${categoryId}`);
+        if (response.ok) {
+            const transactions = await response.json();
+            return transactions.length > 0;
+        }
+        return false;
+    } catch (error) {
+        console.error('Erro ao verificar uso da categoria:', error);
+        return false;
+    }
+}
+
 async function deleteCategory(categoryId) {
-    if (!confirm('Tem certeza que deseja excluir esta categoria?')) {
-        return;
+    // Verificar se categoria está em uso
+    const hasTransactions = await checkCategoryUsage(categoryId);
+
+    if (hasTransactions) {
+        const confirmDelete = confirm(
+            'Esta categoria possui transações vinculadas. ' +
+            'Ao excluir, todas as transações perderão esta categoria. ' +
+            'Deseja continuar?'
+        );
+        
+        if (!confirmDelete) return;
+    } else {
+        if (!confirm('Tem certeza que deseja excluir esta categoria?')) {
+            return;
+        }
     }
     
     try {

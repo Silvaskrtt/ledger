@@ -3,6 +3,7 @@ import logging
 from decimal import Decimal
 from django.utils import timezone
 from django.db import transaction as db_transaction
+from django.core.exceptions import ValidationError
 
 # IMPORTAR TAG MODEL
 from tags.models import Tag
@@ -10,7 +11,7 @@ from transactions.models import Transaction, TransactionAccount, TransactionTag
 from accounts.models import Account
 from .installment_service import create_installment_transactions
 from recurrence.models import RecurrenceRule
-from .balance_service import recalculate_account_balance
+from .balance_service import recalculate_account_balance, verify_account_balance
 from recurrence.services.recurrence_service import create_recurrence_rule
 
 logger = logging.getLogger(__name__)
@@ -48,21 +49,43 @@ def convert_tags_to_objects(tags, user):
     
     return tag_objects
 
+def validate_transaction_for_account(account, amount, direction):
+    """
+    Valida se a transação é válida para a conta.
+    
+    Regras:
+    1. Contas normais: saldo não pode ficar negativo (a menos que permitido)
+    2. Cartões de crédito: valor não pode exceder limite disponível
+    """
+    if not account.is_credit_card:
+        # Para contas normais, verificar se há saldo suficiente para saída
+        if direction == 'OUT' and account.balance < amount:
+            raise ValidationError(
+                f"Saldo insuficiente na conta {account.name}. "
+                f"Saldo atual: {account.balance}, Valor necessário: {amount}"
+            )
+    else:
+        # Para cartões de crédito, verificar limite
+        available_credit = account.available_credit
+        if direction == 'OUT' and amount > available_credit:
+            raise ValidationError(
+                f"Limite de crédito insuficiente no cartão {account.name}. "
+                f"Crédito disponível: {available_credit}, Valor da compra: {amount}"
+            )
+
 def create_transaction_service(
     user,
     amount: Decimal,
     direction: str,
     id_category,
     id_payment_method,
-    id_account,  # Este é um objeto Account (PrimaryKeyRelatedField)
+    id_account,
     origin: str = 'MANUAL',
-    tags=None,  # Pode ser lista de UUIDs (strings) ou objetos Tag
+    tags=None,
     currency: str = 'BRL',
     occurred_at=None,
-    # Campos específicos para parcelamento
     installments: int = None,
     interest_rate: Decimal = Decimal('0'),
-    # Campos específicos para recorrência
     recurrence_frequency: str = None,
     max_recurrences: int = None,
     description: str = "",
@@ -70,41 +93,43 @@ def create_transaction_service(
     """
     Serviço unificado para criação de transações.
     
-    Args:
-        origin: 'MANUAL', 'INSTALLMENT', 'RECURRENT'
-        installments: número de parcelas (apenas para INSTALLMENT)
-        interest_rate: taxa de juros em % (apenas para INSTALLMENT)
-        recurrence_frequency: frequência da recorrência (apenas para RECURRENT)
-        max_recurrences: número máximo de ocorrências (apenas para RECURRENT)
+    GARANTE: Saldo da conta sempre reflete a soma das transações.
     """
     logger.debug(f"=== CREATE TRANSACTION SERVICE ===")
     logger.debug(f"Usuário: {user.username}")
+    logger.debug(f"Direction: {direction}")
+    logger.debug(f"Amount: {amount}")
     logger.debug(f"Origin: {origin}")
-    logger.debug(f"Tags recebidas: {tags}")
-    logger.debug(f"Tipo das tags: {type(tags)}")
     
     if not occurred_at:
         occurred_at = timezone.now()
     
-    # VALIDAÇÕES
+    # VALIDAÇÕES INICIAIS
     if origin not in ['MANUAL', 'INSTALLMENT', 'RECURRENT']:
         raise ValueError(f"Origem inválida: {origin}")
     
     if origin == 'INSTALLMENT' and (not installments or installments <= 1):
-        origin = 'MANUAL'  # Se 1 parcela, trata como manual
+        origin = 'MANUAL'
     
+    # OBTER OBJETO CONTA
     if isinstance(id_account, Account):
         account_obj = id_account
     else:
-        # Se for um ID numérico, buscar o objeto
         try:
-            account_obj = Account.objects.get(pk=id_account)
+            account_obj = Account.objects.get(pk=id_account, user=user)
         except Account.DoesNotExist:
-            raise ValueError(f"Conta com ID {id_account} não encontrada")
-        
-    # CONVERTER TAGS para objetos Tag - PARA TODOS OS TIPOS!
+            raise ValueError(f"Conta com ID {id_account} não encontrada para o usuário {user}")
+    
+    # VALIDAR TRANSAÇÃO PARA A CONTA
+    validate_transaction_for_account(account_obj, amount, direction)
+    
+    # CONVERTER TAGS
     tag_objects = convert_tags_to_objects(tags or [], user)
     logger.debug(f"Tags convertidas: {[str(tag.id_tag) for tag in tag_objects]}")
+    
+    # VERIFICAR SALDO ANTES DA TRANSAÇÃO
+    balance_before = account_obj.balance
+    logger.debug(f"Saldo antes: {balance_before}")
     
     # PROCESSAMENTO POR TIPO
     if origin == 'INSTALLMENT':
@@ -125,14 +150,16 @@ def create_transaction_service(
             description=description
         )
         
-        # Atualiza saldo da conta (apenas primeira parcela se já passou da data)
+        # Atualiza saldo apenas da primeira parcela (se já passou da data)
         if occurred_at.date() <= timezone.now().date():
             recalculate_account_balance(account_obj)
         
         return {
             'type': 'INSTALLMENT',
             'data': result,
-            'message': f'Parcelamento criado: {installments}x de R${result["installment_amount"]:.2f}'
+            'message': f'Parcelamento criado: {installments}x de R${result["installment_amount"]:.2f}',
+            'balance_before': balance_before,
+            'balance_after': account_obj.balance
         }
     
     elif origin == 'RECURRENT':
@@ -148,22 +175,24 @@ def create_transaction_service(
             payment_method=id_payment_method,
             account=account_obj,
             frequency=recurrence_frequency,
-            tags=tag_objects,  # Passar objetos Tag - VARIÁVEL CORRETA
+            tags=tag_objects,
             max_executions=max_recurrences,
             start_date=occurred_at.date()
         )
         
-        # Atualiza saldo da conta (primeira ocorrência)
+        # Atualiza saldo (primeira ocorrência)
         recalculate_account_balance(account_obj)
         
         return {
             'type': 'RECURRENT',
             'data': rule,
-            'message': f'Recorrência {recurrence_frequency.lower()} criada'
+            'message': f'Recorrência {recurrence_frequency.lower()} criada',
+            'balance_before': balance_before,
+            'balance_after': account_obj.balance
         }
     
     else:
-        # MANUAL
+        # MANUAL - Transação atômica
         with db_transaction.atomic():
             # Bloqueia conta para evitar race conditions
             account = Account.objects.select_for_update().get(pk=account_obj.pk)
@@ -185,7 +214,7 @@ def create_transaction_service(
             role = 'source' if direction == 'OUT' else 'destination'
             TransactionAccount.objects.create(
                 id_transaction=transaction,
-                id_account=account_obj,
+                id_account=account,
                 role=role
             )
             
@@ -195,15 +224,29 @@ def create_transaction_service(
                     id_transaction=transaction,
                     id_tag=tag
                 )
-                logger.debug(f"Tag '{tag.name}' adicionada à transação")
-                
-            # Atualiza saldo
-            recalculate_account_balance(account_obj)
             
-            logger.info(f"Transação manual criada: {transaction.id_transaction}")            
+            # ATUALIZA SALDO
+            recalculate_account_balance(account)
+            
+            # VERIFICA CONSISTÊNCIA
+            is_consistent, calculated_balance, stored_balance = verify_account_balance(account)
+            
+            if not is_consistent:
+                logger.error(
+                    f"INCONSISTÊNCIA DETECTADA após criação da transação {transaction.id_transaction}"
+                )
+                # Tenta corrigir
+                account.balance = calculated_balance
+                account.save(update_fields=['balance'])
+            
+            logger.info(f"Transação manual criada: {transaction.id_transaction}")
+            logger.info(f"Saldo: {balance_before} -> {account.balance}")
             
             return {
                 'type': 'MANUAL',
                 'data': transaction,
-                'message': 'Transação criada com sucesso'
+                'message': 'Transação criada com sucesso',
+                'balance_before': balance_before,
+                'balance_after': account.balance,
+                'is_consistent': is_consistent
             }

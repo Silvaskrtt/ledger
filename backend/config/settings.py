@@ -125,6 +125,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'users.middleware.RedirectToLoginMiddleware',  # Middleware customizado
+    'payments.middleware.EnsurePaymentMethodsMiddleware', # Middleware customizado
 ]
 
 # Arquivo principal de rotas

@@ -512,14 +512,28 @@ function renderAccountItem(account) {
         const isCreditCard = account.type === 'CREDIT_CARD';
         const isActive = account.is_active !== false;
         const icon = account.icon || getIconForType(account.type);
+
+        // Para cartões, mostrar saldo como positivo (dívida)
+        let balanceDisplay, balanceClass;
+    
+        if (isCreditCard) {
+            // Cartão: saldo negativo = dívida, mostramos como positivo
+            const debt = Math.abs(balance); // Converte para positivo para exibição
+            balanceDisplay = formatCurrency(debt);
+            balanceClass = balance < 0 ? 'negative' : 'neutral';
+
+            // Texto diferente para cartões
+            balanceText = `Dívida: <span class="balance-value ${balanceClass}">${balanceDisplay}</span>`;
+        } else {
+            // Contas normais
+            balanceDisplay = formatCurrency(Math.abs(balance));
+            balanceClass = balance >= 0 ? 'positive' : 'negative';
+            balanceText = `Saldo: <span class="balance-value ${balanceClass}">${balanceDisplay}</span>`;
+        }
         
         // Cores para o ícone
         const iconBg = account.color ? `${account.color}20` : '#3B82F620';
         const iconColor = account.color || '#3B82F6';
-        
-        // Para cartões de crédito, o saldo é geralmente negativo (gasto)
-        const balanceClass = balance >= 0 ? 'positive' : 'negative';
-        const balanceDisplay = formatCurrency(Math.abs(balance));
         
         // Limite de crédito para cartões
         const creditLimit = parseFloat(account.credit_limit || 0);
@@ -534,10 +548,15 @@ function renderAccountItem(account) {
             <span class="description-text">${account.description}</span>
         ` : '';
         
-        const creditLimitHtml = isCreditCard && creditLimit > 0 ? `
-            <span class="credit-limit-text">
+        // Para cartões, mostrar crédito disponível
+        const creditLimitHtml = isCreditCard ? `
+            <span class="credit-info">
                 <i class="fas fa-credit-card"></i> 
-                Limite: <span class="limit-value">${creditLimitDisplay}</span>
+                Limite: ${formatCurrency(account.credit_limit || 0)}
+                <span class="dot">•</span>
+                Disponível: <span class="available-credit ${account.available_credit > 0 ? 'positive' : 'negative'}">
+                    ${formatCurrency(account.available_credit || 0)}
+                </span>
             </span>
         ` : '';
         
