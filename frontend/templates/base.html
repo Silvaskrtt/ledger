@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="{% static 'css/sidebar/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     
+    <!-- TomSelect CSS (biblioteca de selects melhorados) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
+    
+    <!-- TomSelect Custom CSS (correções de visualização) -->
+    <link rel="stylesheet" href="{% static 'css/tom-select-custom.css' %}">
+    
     <!-- Bloco para estilos específicos das páginas -->
     {% block extra_css %}{% endblock %}
 </head>
@@ -47,6 +53,12 @@
     
     <!-- Scripts globais -->
     <script src="{% static 'js/global.js' %}"></script>
+    
+    <!-- TomSelect JS (biblioteca de selects melhorados) -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+    
+    <!-- TomSelectManager - Gerenciador global de instâncias TomSelect -->
+    <script src="{% static 'js/tom-select-manager.js' %}"></script>
 
     <script>
     // Adicionar ao BalanceValidator

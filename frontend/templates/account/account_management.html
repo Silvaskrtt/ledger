@@ -56,7 +56,7 @@
                     <label for="account-type">
                         <i class="fas fa-list"></i> Tipo *
                     </label>
-                    <select id="account-type" name="type" required>
+                    <select id="account-type" name="type" required class="tom-select" data-placeholder="Selecione o tipo...">
                         <option value="">Selecione o tipo...</option>
                         <option value="CHECKING">Conta Corrente</option>
                         <option value="SAVINGS">Conta Poupança</option>
@@ -100,7 +100,8 @@
                     </label>
                     <div class="icon-selector">
                         <i class="fas" id="icon-preview"></i>
-                        <select id="account-icon" name="icon">
+                        <select id="account-icon" name="icon" class="tom-select" data-placeholder="Escolha um ícone">
+                            <option value="">Selecione um ícone</option>
                             <option value="wallet">Carteira</option>
                             <option value="credit-card">Cartão</option>
                             <option value="building-columns">Banco</option>

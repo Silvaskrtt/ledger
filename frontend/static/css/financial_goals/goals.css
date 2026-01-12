@@ -84,6 +84,27 @@
     gap: 12px;
 }
 
+.modal-content form input,
+.modal-content form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* TomSelect em goals */
+.modal-content .ts-control {
+    background: #ffffff !important;
+    border: 1px solid #ddd !important;
+    padding: 10px 12px !important;
+}
+
+.modal-content .ts-control.focus {
+    border-color: #500BD9 !important;
+    box-shadow: 0 0 0 2px rgba(80, 11, 217, 0.1) !important;
+}
+
 .modal-actions {
     display: flex;
     justify-content: space-between;

@@ -20,82 +20,35 @@ class TransactionForm {
     }
 
     initTomSelects() {
-        const baseConfig = {
-            create: false,
-            allowEmptyOption: false,
-            placeholder: 'Selecione uma opção',
-            render: {
-                option: function(data, escape) {
-                    return '<div>' + escape(data.text) + '</div>';
-                },
-                item: function(data, escape) {
-                    return '<div>' + escape(data.text) + '</div>';
-                }
-            }
-        };
+        // Aguardar o TomSelectManager estar disponível e ter inicializado
+        if (typeof window.tomSelectManager === 'undefined') {
+            console.warn('TomSelectManager não está disponível ainda. Aguardando...');
+            setTimeout(() => this.initTomSelects(), 300);
+            return;
+        }
 
-        const selectConfigs = [
-            {
-                id: 'id_account',
-                config: {
-                    ...baseConfig,
-                    placeholder: 'Selecione uma conta',
-                    sortField: { field: 'text', direction: 'asc' }
-                }
-            },
-            {
-                id: 'id_category',
-                config: {
-                    ...baseConfig,
-                    placeholder: 'Selecione uma categoria'
-                }
-            },
-            {
-                id: 'id_payment_method',
-                config: {
-                    ...baseConfig,
-                    placeholder: 'Selecione um método de pagamento'
-                }
-            },
-            {
-                id: 'currency',
-                config: {
-                    ...baseConfig,
-                    placeholder: 'Selecione uma moeda'
-                }
-            },
-            {
-                id: 'origin',
-                config: {
-                    ...baseConfig,
-                    placeholder: 'Selecione a origem',
-                    onChange: (value) => this.onOriginChange(value)
-                }
-            },
-            {
-                id: 'id_tags',
-                config: {
-                    ...baseConfig,
-                    plugins: ['remove_button'],
-                    placeholder: 'Selecione tags (opcional)',
-                    maxItems: 10
-                }
-            }
+        // Obter instâncias do TomSelectManager global
+        const selectIds = [
+            'id_account',
+            'id_category', 
+            'id_payment_method',
+            'currency',
+            'origin',
+            'id_tags'
         ];
 
-        selectConfigs.forEach(({ id, config }) => {
-            const element = document.getElementById(id);
-            if (element) {
-                try {
-                    console.log(`Inicializando TomSelect ${id}`);
-                    console.log(`HTML options:`, element.innerHTML);
-                    this.tomSelectInstances[id] = new TomSelect(element, config);
-                    console.log(`TomSelect ${id} inicializado com opções:`, this.tomSelectInstances[id].options);
-                } catch (error) {
-                    console.error(`Erro ao inicializar TomSelect para ${id}:`, error);
-                }
+        selectIds.forEach(id => {
+            const instance = window.tomSelectManager.getInstance(id);
+            if (instance) {
+                this.tomSelectInstances[id] = instance;
             }
         });
+
+        // Configurar onChange para origin
+        const originInstance = this.tomSelectInstances['origin'];
+        if (originInstance) {
+            originInstance.on('change', (value) => this.onOriginChange(value));
+        }
     }
 
     onOriginChange(value) {
@@ -364,7 +317,6 @@ class TransactionForm {
             
             if (response.ok) {
                 const account = await response.json();
-                console.log('Dados da conta:', account);
                 
                 if (account.type === 'CREDIT_CARD') {
                     // Validação para cartão de crédito
@@ -405,8 +357,6 @@ class TransactionForm {
 
         try {
             const formData = this.collectFormData();
-            console.log('=== DADOS COMPLETOS A SEREM ENVIADOS ===');
-            console.log(JSON.stringify(formData, null, 2));
 
             // VALIDAÇÃO DE SALDO ANTES DE ENVIAR
             const accountId = formData.id_account;
@@ -422,12 +372,6 @@ class TransactionForm {
             if (!balanceValidation.valid) {
                 alert('❌ ' + balanceValidation.message);
                 return;
-            }
-
-            if (formData.tags && Array.isArray(formData.tags)) {
-                    console.log(`  Tag ${index}: ${tagId} | Tipo: ${typeof tagId}`);
-                    console.log(`  UUID válido? ${/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(tagId)}`);
-                });
             }
 
             const response = await fetch('/api/transactions/', {
@@ -450,8 +394,6 @@ class TransactionForm {
                 responseData = { detail: responseText };
             }
             
-            console.log('Resposta da API:', responseData);
-            
             if (response.ok) {
                 alert('✅ ' + (responseData.message || 'Transação criada com sucesso!'));
                 window.location.href = '/transactions/list/';
@@ -459,7 +401,7 @@ class TransactionForm {
                 this.handleApiError(responseData);
             }
         } catch (error) {
-            console.error('Erro completo:', error);
+            console.error('Erro ao enviar transação:', error);
             alert('❌ Erro de conexão. Verifique sua internet e tente novamente.');
         }
     }
@@ -542,8 +484,6 @@ class TransactionForm {
     }
 
     handleApiError(responseData) {
-        console.error('Erro da API:', responseData);
-        
         let errorMessage = '❌ Erro ao salvar transação';
         
         if (responseData.detail) {

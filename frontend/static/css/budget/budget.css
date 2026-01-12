@@ -251,6 +251,18 @@
     background: white;
 }
 
+/* TomSelect em budget */
+.form-group .ts-control {
+    background: #ffffff !important;
+    border: 2px solid #e0e0e0 !important;
+    padding: 12px 15px !important;
+}
+
+.form-group .ts-control.focus {
+    border-color: #500BD9 !important;
+    box-shadow: 0 0 0 3px rgba(80, 11, 217, 0.1) !important;
+}
+
 .form-group select:focus,
 .form-group input:focus {
     outline: none;

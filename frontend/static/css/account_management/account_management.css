@@ -123,6 +123,19 @@
     width: 100%;
 }
 
+/* TomSelect em account_management */
+.field-group .ts-control {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 12px 15px !important;
+    min-height: 42px !important;
+}
+
+.field-group .ts-control.focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
 .field-group input:focus,
 .field-group select:focus,
 .field-group textarea:focus {
@@ -156,6 +169,14 @@
     border: none;
     padding: 12px 5px;
     background: transparent;
+}
+
+/* TomSelect em icon-selector */
+.icon-selector .ts-control {
+    border: none !important;
+    background: transparent !important;
+    padding: 8px 5px !important;
+    min-height: auto !important;
 }
 
 .form-actions {
