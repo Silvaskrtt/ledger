@@ -430,12 +430,6 @@ class TransactionForm {
         const id_category_value = this.getTomSelectValue('id_category');
         const id_payment_method_value = this.getTomSelectValue('id_payment_method');
         const tags_value = this.getTomSelectValue('id_tags') || [];
-                const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-                if (tagId && !uuidRegex.test(tagId)) {
-                    console.error(`⚠️ Tag ID inválido (não é UUID): ${tagId}`);
-                }
-            });
-        }
         
         const payload = {
             amount: parseFloat(document.getElementById('amount').value),
