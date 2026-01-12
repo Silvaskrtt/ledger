@@ -35,9 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const data = await response.json();
             
-            // DEBUG: Verificar o que está sendo retornado
-            console.log('Resposta da API:', data);
-            
             // Verificar se é um array
             if (Array.isArray(data)) {
                 renderCards(data);

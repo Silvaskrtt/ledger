@@ -943,18 +943,15 @@ async function debugApi() {
         
         try {
             const json = JSON.parse(text);
-            console.log('Parsed JSON:', json);
-            console.log('Type:', typeof json);
-            console.log('Is Array?', Array.isArray(json));
             
             if (json && typeof json === 'object') {
-                console.log('Keys:', Object.keys(json));
+                return true;
             }
         } catch (e) {
-            console.log('Not valid JSON');
+            return false;
         }
     } catch (error) {
-        console.error('Debug error:', error);
+        return false;
     }
 }
 
@@ -967,39 +964,23 @@ async function testConnection() {
                 'Accept': 'application/json'
             }
         });
-        console.log('Teste de conexão:', response.status, response.statusText);
         return response.ok;
     } catch (error) {
-        console.error('Erro no teste de conexão:', error);
         return false;
     }
 }
 
 // Inicialização
 async function init() {
-    console.log('Inicializando gerenciamento de contas...');
-    
     // Verificar elementos do DOM
-    console.log('Elementos do DOM:', {
-        accountForm: !!elements.accountForm,
-        accountsList: !!elements.accountsList,
-        accountTypeSelect: !!elements.accountTypeSelect,
-        creditCardFields: !!elements.creditCardFields,
-        submitBtn: !!elements.submitBtn,
-        filters: elements.filters?.length || 0,
-        csrfToken: !!CSRF_TOKEN
-    });
+    const hasDom = !!(elements.accountForm && elements.accountsList && elements.accountTypeSelect);
     
     // Testar conexão
     const connected = await testConnection();
-    console.log('Conexão com API:', connected ? 'OK' : 'FALHA');
     
     if (!connected) {
         showMessage('Não foi possível conectar ao servidor. Verifique sua conexão.', 'error');
     }
-    
-    // Adicionar debug ao window
-    window.debugAccounts = debugApi;
     
     // Configurar listeners
     setupFormListeners();
@@ -1007,8 +988,6 @@ async function init() {
     
     // Carregar contas
     await fetchAccounts();
-    
-    console.log('Gerenciamento de contas inicializado');
 }
 
 // Iniciar quando o DOM estiver pronto

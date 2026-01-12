@@ -1,10 +1,13 @@
 # backend/tags/views.py
 
+import logging
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import generics, status
 from .models import Tag
 from .serializers import TagSerializer
+
+logger = logging.getLogger(__name__)
 
 class TagListCreateView(generics.ListCreateAPIView):
     serializer_class = TagSerializer
@@ -22,8 +25,9 @@ class TagListCreateView(generics.ListCreateAPIView):
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data)
         except Exception as e:
+            logger.error(f"Erro ao listar tags: {type(e).__name__}: {e}")
             return Response(
-                {'error': str(e), 'detail': 'Erro ao carregar tags'},
+                {'detail': 'Erro ao processar requisição'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 

@@ -1,11 +1,15 @@
 # backend/categories/views.py
 
+import logging
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Category
 from .serializers import CategorySerializer
+
+logger = logging.getLogger(__name__)
 
 """Views para gerenciamento de categorias."""
 from rest_framework import generics
@@ -36,8 +40,9 @@ class CategoryListCreateView(generics.ListCreateAPIView):
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data)
         except Exception as e:
+            logger.error(f"Erro ao listar categorias: {type(e).__name__}: {e}")
             return Response(
-                {'error': str(e), 'detail': 'Erro ao carregar categorias'},
+                {'detail': 'Erro ao processar requisição'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
@@ -54,5 +59,6 @@ class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
         return context
 
 
+@login_required(login_url='/accounts/login/')
 def categories_management_view(request):
     return render(request, 'categories_management/categories_management.html')

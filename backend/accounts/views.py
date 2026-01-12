@@ -2,6 +2,7 @@
 
 from rest_framework.decorators import api_view, permission_classes
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
@@ -119,5 +120,6 @@ def credit_cards_view(request):
     return render(request, 'card_credit/card_credit.html')
 
 
+@login_required(login_url='/accounts/login/')
 def account_management_view(request):
     return render(request, 'account/account_management.html')

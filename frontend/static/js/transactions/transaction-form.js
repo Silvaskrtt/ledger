@@ -424,10 +424,7 @@ class TransactionForm {
                 return;
             }
 
-             // DEBUG: Verifique especialmente as tags
             if (formData.tags && Array.isArray(formData.tags)) {
-                console.log('Tags a serem enviadas:');
-                formData.tags.forEach((tagId, index) => {
                     console.log(`  Tag ${index}: ${tagId} | Tipo: ${typeof tagId}`);
                     console.log(`  UUID válido? ${/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(tagId)}`);
                 });
@@ -443,9 +440,7 @@ class TransactionForm {
                 body: JSON.stringify(formData)
             });
 
-            // DEBUG: Ver resposta bruta
             const responseText = await response.text();
-            console.log('Resposta bruta:', responseText);
 
             let responseData;
             try {
@@ -473,17 +468,6 @@ class TransactionForm {
         const tomSelect = this.tomSelectInstances[selectId];
         if (tomSelect) {
             const value = tomSelect.getValue();
-            console.log(`=== DEBUG getTomSelectValue(${selectId}) ===`);
-            console.log('Valor do TomSelect:', value);
-            console.log('Tipo:', typeof value);
-            console.log('É array?', Array.isArray(value));
-            
-            if (Array.isArray(value)) {
-                console.log('Conteúdo do array:');
-                value.forEach((item, index) => {
-                    console.log(`  [${index}]: ${item} | Tipo: ${typeof item}`);
-                });
-            }
             
             if (Array.isArray(value) && value.length === 0) return null;
             if (value === '' || value === null || value === undefined) return null;
@@ -493,7 +477,6 @@ class TransactionForm {
         const element = document.getElementById(selectId);
         if (element) {
             const value = element.value;
-            console.log(`getTomSelectValue(${selectId}) from HTML element:`, value, typeof value);
             return value && value !== '' ? value : null;
         }
         
@@ -505,19 +488,6 @@ class TransactionForm {
         const id_category_value = this.getTomSelectValue('id_category');
         const id_payment_method_value = this.getTomSelectValue('id_payment_method');
         const tags_value = this.getTomSelectValue('id_tags') || [];
-        
-        // DEBUG detalhado
-        console.log('=== DEBUG FORM DATA ===');
-        console.log('id_account:', id_account_value, typeof id_account_value);
-        console.log('id_category:', id_category_value, typeof id_category_value);
-        console.log('id_payment_method:', id_payment_method_value, typeof id_payment_method_value);
-        console.log('tags (raw):', tags_value, 'Array?', Array.isArray(tags_value));
-        
-        // Verificar cada tag individualmente
-        if (Array.isArray(tags_value)) {
-            tags_value.forEach((tagId, index) => {
-                console.log(`Tag ${index}:`, tagId, 'Length:', tagId ? tagId.length : 0);
-                // Verificar se é um UUID válido
                 const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
                 if (tagId && !uuidRegex.test(tagId)) {
                     console.error(`⚠️ Tag ID inválido (não é UUID): ${tagId}`);

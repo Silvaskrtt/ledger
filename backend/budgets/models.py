@@ -62,6 +62,10 @@ class Budget(models.Model):
                 name='period_end_gte_start'
             )
         ]
+        indexes = [
+            models.Index(fields=['user', 'status']),
+            models.Index(fields=['period_start', 'period_end']),
+        ]
 
     def __str__(self):
         return f"Budget {self.period_type} - {self.user.email}"

@@ -63,7 +63,7 @@ class InstallmentPlan(models.Model):
     # Constraints to ensure total_amount is positive and below a certain limit
     
     installments = models.IntegerField()   
-    start_date = models.DateField(default=timezone.now)
+    start_date = models.DateField(auto_now_add=True)
     
     interest_rate = models.DecimalField(
         max_digits=5,

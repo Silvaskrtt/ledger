@@ -12771,3 +12771,174 @@ LINE 1: ..."created_at", "categories_category"."updated_at", "categorie...
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 "GET / HTTP/1.1" 200 9477
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15910
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/img/box-in.png HTTP/1.1" 304 0
+"GET /static/img/box-out.png HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 22352
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9097
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15910
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\payments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\tags\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\payments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\categories\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 15910
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 20733
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15910
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 200 3163
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /goals/ HTTP/1.1" 200 7759
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 38099
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /goals/ HTTP/1.1" 200 7759
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 9097
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 8678
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /management/ HTTP/1.1" 200 17086
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /managementCategories/ HTTP/1.1" 200 14979
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /goals/ HTTP/1.1" 200 7759
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 9097
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 12427
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15910
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 9477
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
