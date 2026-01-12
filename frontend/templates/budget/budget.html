@@ -10,50 +10,76 @@
 {% block content %}
 
 <section class="budget-header">
-    <h2>Orçamento Mensal</h2>
-    <button id="openBudgetModal" class="btn-primary">+ Nova Meta</button>
+    <div class="header-content">
+        <div>
+            <h2>Orçamento Mensal</h2>
+            <p class="subtitle">{{ current_month|default:"Mês Atual" }}</p>
+        </div>
+        <button id="openBudgetModal" class="btn-primary">+ Nova Meta</button>
+    </div>
+    
+    {% if error %}
+    <div class="alert alert-error">
+        <p>Erro ao carregar orçamentos: {{ error }}</p>
+    </div>
+    {% endif %}
 </section>
 
 <section class="budget-list">
     {% if limits %}
-        {% for limit in limits %}
+        {% for item in limits %}
         <div class="budget-card">
-            <div class="budget-header">
-                <h3>{{ limit.category.name }}</h3>
-                <span class="budget-amount">R$ {{ limit.spent|floatformat:2 }} / R$ {{ limit.limit_amount|floatformat:2 }}</span>
+            <div class="budget-card-header">
+                <h3>{{ item.category.name }}</h3>
+                <span class="budget-amount">
+                    R$ {{ item.spent|floatformat:2 }} / R$ {{ item.limit_amount|floatformat:2 }}
+                </span>
             </div>
 
             <div class="budget-progress">
                 <div class="progress-bar 
-                    {% if limit.percent > 90 %}danger
-                    {% elif limit.percent > 75 %}warning
+                    {% if item.percent > 100 %}danger
+                    {% elif item.percent > 90 %}warning
                     {% else %}success{% endif %}"
-                     style="width: {% if limit.percent > 100 %}100{% else %}{{ limit.percent }}{% endif %}%">
+                     style="width: {% if item.percent > 100 %}100{% else %}{{ item.percent }}{% endif %}%">
                 </div>
             </div>
 
             <div class="budget-footer">
                 <span class="budget-percent">
-                    {% if limit.percent > 100 %}
-                        <span class="text-danger">{{ limit.percent|floatformat:1 }}% (excedido)</span>
+                    {% if item.percent > 100 %}
+                        <span class="text-danger">{{ item.percent|floatformat:1 }}% (excedido)</span>
                     {% else %}
-                        {{ limit.percent|floatformat:1 }}% utilizado
+                        {{ item.percent|floatformat:1 }}% utilizado
                     {% endif %}
                 </span>
                 <span class="budget-remaining">
-                    {% if limit.remaining < 0 %}
-                        <span class="text-danger">R$ {{ limit.remaining|floatformat:2 }} excedido</span>
+                    {% if item.remaining < 0 %}
+                        <span class="text-danger">R$ {{ item.remaining|floatformat:2 }} excedido</span>
                     {% else %}
-                        R$ {{ limit.remaining|floatformat:2 }} restantes
+                        R$ {{ item.remaining|floatformat:2 }} restantes
                     {% endif %}
                 </span>
+            </div>
+            
+            <!-- Ações -->
+            <div class="budget-actions">
+                <button class="btn-icon edit-budget" data-id="{{ item.limit.id }}">
+                    ✏️ Editar
+                </button>
+                <button class="btn-icon delete-budget" data-id="{{ item.limit.id }}">
+                    🗑️ Excluir
+                </button>
             </div>
         </div>
         {% endfor %}
     {% else %}
         <div class="empty-state">
-            <p class="empty">Nenhuma meta de orçamento cadastrada.</p>
-            <p class="empty-hint">Clique em "+ Nova Meta" para começar.</p>
+            <div class="empty-icon">📊</div>
+            <h3>Nenhuma meta de orçamento cadastrada</h3>
+            <p>Você ainda não criou metas para este mês.</p>
+            <p class="empty-hint">Clique em "+ Nova Meta" para começar a planejar seu orçamento.</p>
+            <button id="openBudgetModal" class="btn-primary">Criar Primeira Meta</button>
         </div>
     {% endif %}
 </section>

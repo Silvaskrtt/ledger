@@ -1,6 +1,6 @@
 /* frontend/static/css/budget/budget.css */
 
-/* Header */
+/* Header principal da página */
 .budget-header {
     display: flex;
     justify-content: space-between;
@@ -16,6 +16,19 @@
     margin: 0;
 }
 
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 /* Botão primário */
 .btn-primary {
     background: #500BD9;
@@ -27,7 +40,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
 }
@@ -54,6 +67,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
 }
 
 .budget-card:hover {
@@ -61,17 +76,17 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Header do cartão */
-.budget-header {
+/* Header do cartão (MUDEI O NOME PARA EVITAR CONFLITO) */
+.budget-card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 15px;
-    border: none;
     padding: 0;
+    border: none;
 }
 
-.budget-header h3 {
+.budget-card-header h3 {
     font-size: 18px;
     color: #333;
     margin: 0;
@@ -83,6 +98,7 @@
     font-weight: 600;
     color: #500BD9;
     text-align: right;
+    white-space: nowrap;
 }
 
 /* Barra de progresso */
@@ -112,10 +128,6 @@
     background: linear-gradient(90deg, #f44336, #FF5252);
 }
 
-.progress-bar.purple {
-    background: linear-gradient(90deg, #500BD9, #7C3AED);
-}
-
 /* Footer do cartão */
 .budget-footer {
     display: flex;
@@ -124,6 +136,8 @@
     font-size: 14px;
     color: #666;
     margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .budget-percent {
@@ -135,6 +149,44 @@
 }
 
 .text-danger {
+    color: #f44336 !important;
+}
+
+/* Botões de ação */
+.budget-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.btn-icon {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.btn-icon:hover {
+    background: #f5f5f5;
+}
+
+.edit-budget:hover {
+    border-color: #2196F3;
+    color: #2196F3;
+}
+
+.delete-budget:hover {
+    border-color: #f44336;
     color: #f44336;
 }
 
@@ -143,17 +195,46 @@
     text-align: center;
     padding: 60px 20px;
     grid-column: 1 / -1;
+    background: #f9f9f9;
+    border-radius: 12px;
+    border: 2px dashed #ddd;
 }
 
-.empty {
-    font-size: 18px;
-    color: #666;
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 20px;
+    color: #333;
     margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #666;
+    margin-bottom: 5px;
 }
 
 .empty-hint {
     color: #999;
     font-size: 14px;
+    margin-top: 10px !important;
+}
+
+/* Alerta de erro */
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.alert-error {
+    background: #fee;
+    border: 1px solid #fcc;
+    color: #c00;
 }
 
 /* Modal */
@@ -199,6 +280,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
+    padding: 0;
+    border: none;
 }
 
 .modal-header h3 {
@@ -221,6 +304,7 @@
     justify-content: center;
     border-radius: 50%;
     transition: all 0.2s ease;
+    line-height: 1;
 }
 
 .modal-close:hover {
@@ -249,18 +333,7 @@
     font-size: 16px;
     transition: border-color 0.3s ease;
     background: white;
-}
-
-/* TomSelect em budget */
-.form-group .ts-control {
-    background: #ffffff !important;
-    border: 2px solid #e0e0e0 !important;
-    padding: 12px 15px !important;
-}
-
-.form-group .ts-control.focus {
-    border-color: #500BD9 !important;
-    box-shadow: 0 0 0 3px rgba(80, 11, 217, 0.1) !important;
+    box-sizing: border-box;
 }
 
 .form-group select:focus,
@@ -307,10 +380,12 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .budget-header {
+    .budget-header,
+    .header-content {
         flex-direction: column;
         gap: 15px;
         align-items: stretch;
+        text-align: center;
     }
     
     .budget-header h2 {
@@ -325,9 +400,26 @@
         padding: 15px;
     }
     
+    .budget-card-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .budget-amount {
+        text-align: left;
+        width: 100%;
+    }
+    
+    .budget-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
     .modal {
         width: 95%;
         padding: 20px;
+        margin: 10px;
     }
     
     .form-actions {

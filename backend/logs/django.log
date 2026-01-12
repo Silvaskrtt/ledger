@@ -14387,3 +14387,1868 @@ Not Found: /favicon.ico
 "GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
 "GET /static/js/sidebar.js HTTP/1.1" 404 1853
 "GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/css/global-standards.css HTTP/1.1" 304 0
+"GET /static/css/tom-select-custom.css HTTP/1.1" 304 0
+"GET /static/js/tom-select-manager.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /transactions/list/ HTTP/1.1" 200 13198
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 13198
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 16363
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9859
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 13198
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /api/tags/ HTTP/1.1" 200 180
+"GET /management/ HTTP/1.1" 200 17974
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /management/ HTTP/1.1" 200 17974
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /cartoes/ HTTP/1.1" 200 9378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /management/ HTTP/1.1" 200 17974
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /cartoes/ HTTP/1.1" 200 9378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 981
+"GET /transactions/list/ HTTP/1.1" 200 13198
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9859
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /admin HTTP/1.1" 301 0
+"GET /admin/ HTTP/1.1" 200 24701
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /admin/goals/financialgoal/ HTTP/1.1" 200 22464
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/img/search.svg HTTP/1.1" 200 607
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+"GET /admin/payments/paymentmethod/ HTTP/1.1" 200 31924
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 200 645
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 558
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/budgets/budgetcategorylimit/ HTTP/1.1" 200 22533
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/budgets/budget/ HTTP/1.1" 200 22402
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/budgets/budget/ HTTP/1.1" 200 22402
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/budgets/budgetcategorylimit/ HTTP/1.1" 200 22533
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /budget/ HTTP/1.1" 200 9859
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9859
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6632
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 7954
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"POST /api/budget-category-limits/ HTTP/1.1" 201 83
+"GET /budget/ HTTP/1.1" 200 9859
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9859
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6632
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/budget/budget.js HTTP/1.1" 200 7954
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /admin/budgets/budgetcategorylimit/ HTTP/1.1" 200 24327
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/budgets/budget/ HTTP/1.1" 200 24414
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET / HTTP/1.1" 200 10177
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 10177
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9859
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 9859
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /budget/ HTTP/1.1" 200 9740
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 9740
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6632
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 7954
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 667
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /budget/ HTTP/1.1" 200 9740
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 7954
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6632
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 10606
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 10606
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 121, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 105, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158321
+"GET /budget/ HTTP/1.1" 200 10606
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6632
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 121, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 105, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158586
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 10606
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6632
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 121, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 105, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158586
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 10606
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6632
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 121, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 105, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158586
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 10606
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/budget/budget.css HTTP/1.1" 200 6632
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 121, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 105, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158586
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 10553
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/budget/budget.css HTTP/1.1" 200 8252
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 121, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 105, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158586
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /budget/ HTTP/1.1" 200 10207
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/budget/budget.css HTTP/1.1" 200 8252
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/global.js HTTP/1.1" 200 667
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 111, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 95, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158581
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 10207
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 111, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 95, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158316
+"GET /budget/ HTTP/1.1" 200 10207
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/budget/budget.css HTTP/1.1" 200 8252
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 111, in list
+    for limit in self.get_queryset():
+                 ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 95, in get_queryset
+    return BudgetCategoryLimit.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        id_budget__user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).select_related('category')
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'id_budget' into field. Choices are: budget, budget_id, category, category_id, id, limit_amount
+"GET /api/budget-overview/ HTTP/1.1" 500 158581
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /budget/ HTTP/1.1" 200 10207
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/budget/budget.css HTTP/1.1" 200 8252
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/global.js HTTP/1.1" 200 667
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 104, in list
+    budget = get_or_create_current_month_budget(request.user)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'get_or_create_current_month_budget' is not defined
+"GET /api/budget-overview/ HTTP/1.1" 500 108398
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 10207
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/budget/budget.css HTTP/1.1" 200 8252
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 10296
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 104, in list
+    budget = get_or_create_current_month_budget(request.user)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'get_or_create_current_month_budget' is not defined
+"GET /api/budget-overview/ HTTP/1.1" 500 108398
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /budget/ HTTP/1.1" 200 10207
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Internal Server Error: /api/budget-overview/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 104, in list
+    budget = get_or_create_current_month_budget(request.user)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'get_or_create_current_month_budget' is not defined
+"GET /api/budget-overview/ HTTP/1.1" 500 108133
+"GET /budget/ HTTP/1.1" 200 10207
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/budget/budget.css HTTP/1.1" 200 8252
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/budget/budget.js HTTP/1.1" 200 9621
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+"GET /budget/ HTTP/1.1" 200 10207
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/budget/budget.css HTTP/1.1" 200 8252
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/budget/budget.js HTTP/1.1" 200 9621
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 158333
+C:\Users\muril\ledger\backend\budgets\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 158333
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 158265
+C:\Users\muril\ledger\backend\budgets\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\engine.py", line 234, in select_template
+    raise TemplateDoesNotExist(", ".join(not_found))
+django.template.exceptions.TemplateDoesNotExist: budget/budget_modal.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: budget/budget_modal.html
+"GET /budget/ HTTP/1.1" 500 236114
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\budgets\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 158393
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 158393
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 65474)
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 158265
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 158265
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 62, in budget_view
+    spent = Transaction.objects.filter(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user=request.user,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        direction='OUT'  # Apenas saídas (despesas)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).aggregate(total=Sum('amount'))['total'] or 0
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'date' into field. Choices are: amount, category, category_id, created_at, credit_card_bill, credit_card_bill_id, currency, deleted_at, description, direction, installment_number, installment_plan, installment_plan_id, is_deleted, occurred_at, origin, payment_method, payment_method_id, tags, total_installments, transaction, transaction_accounts, transaction_tags, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 126, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 158265
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /budget/ HTTP/1.1" 200 10553
+"GET /static/css/tom-select-custom.css HTTP/1.1" 304 0
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/budget/budget.js HTTP/1.1" 200 11726
+Internal Server Error: /api/budget-overview/
+"GET /api/budget-overview/ HTTP/1.1" 500 430
+"GET /budget/ HTTP/1.1" 200 10553
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Internal Server Error: /api/budget-overview/
+"GET /api/budget-overview/ HTTP/1.1" 500 430
+"GET /budget/ HTTP/1.1" 200 10553
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Internal Server Error: /api/budget-overview/
+"GET /api/budget-overview/ HTTP/1.1" 500 430
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\budgets\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /budget/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 124, in budget_view
+    return render(request, 'budgets/budget.html', context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\budgets\views.py", line 130, in budget_view
+    return render(request, 'budgets/budget.html', {
+        'limits': [],
+    ...<2 lines>...
+        'has_budget': False
+    })
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: budgets/budget.html
+"GET /budget/ HTTP/1.1" 500 124416
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6195
+C:\Users\muril\ledger\backend\budgets\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /budget/ HTTP/1.1" 200 10848
+"GET /static/css/global-standards.css HTTP/1.1" 304 0
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/tom-select-manager.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /api/budget-overview/ HTTP/1.1" 200 310
+"GET /api/budget-category-limits/1/ HTTP/1.1" 200 420
+"GET / HTTP/1.1" 200 10177
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 10177
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 16363
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET /transactions/list/ HTTP/1.1" 200 13198
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 10848
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/budget-overview/ HTTP/1.1" 200 310
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /management/ HTTP/1.1" 200 17974
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 1219
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 274
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/financial-goals/ HTTP/1.1" 200 52

@@ -1,5 +1,7 @@
 // frontend/static/js/budget/budget.js
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Budget module initializing...');
+    
     // Elementos
     const modal = document.getElementById('budgetModal');
     const openBtn = document.getElementById('openBudgetModal');
@@ -7,45 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelBtn = document.getElementById('cancelBudgetModal');
     const form = document.getElementById('budgetForm');
     
-    // Valores atuais para preencher o campo de mês
+    // Valores atuais
     const now = new Date();
     const currentYear = now.getFullYear();
     const currentMonth = String(now.getMonth() + 1).padStart(2, '0');
     
-    // Função para abrir modal
-    function openModal() {
-        if (modal) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Previne scroll da página
-            
-            // Preenche o mês atual por padrão
-            const monthInput = document.getElementById('month');
-            if (monthInput && !monthInput.value) {
-                monthInput.value = `${currentYear}-${currentMonth}`;
-            }
-            
-            // Foca no primeiro campo
-            const firstInput = form.querySelector('input, select');
-            if (firstInput) {
-                setTimeout(() => firstInput.focus(), 100);
-            }
-        }
-    }
+    // Carregar orçamentos
+    loadBudgets();
     
-    // Função para fechar modal
-    function closeModal() {
-        if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = ''; // Restaura scroll
-            form.reset(); // Limpa o formulário
-        }
-    }
-    
-    // Event Listeners
+    // Abrir modal
     if (openBtn) {
-        openBtn.addEventListener('click', openModal);
+        openBtn.addEventListener('click', function() {
+            openModal();
+        });
     }
     
+    // Fechar modal
     if (closeBtn) {
         closeBtn.addEventListener('click', closeModal);
     }
@@ -63,10 +42,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Fechar modal com ESC
+    // Fechar com ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
             closeModal();
+        }
+    });
+    
+    // Delegar eventos para botões dinâmicos
+    document.addEventListener('click', function(e) {
+        // Editar
+        if (e.target.closest('.edit-budget')) {
+            const btn = e.target.closest('.edit-budget');
+            const limitId = btn.dataset.id;
+            editBudget(limitId);
+        }
+        
+        // Excluir
+        if (e.target.closest('.delete-budget')) {
+            const btn = e.target.closest('.delete-budget');
+            const limitId = btn.dataset.id;
+            deleteBudget(limitId);
         }
     });
     
@@ -74,45 +70,43 @@ document.addEventListener('DOMContentLoaded', function() {
     if (form) {
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
+            console.log('Form submitted');
             
-            // Botão de submit
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.querySelector('.btn-text')?.textContent || submitBtn.textContent;
+            const originalText = submitBtn.textContent;
             
             // Mostrar loading
-            if (submitBtn.querySelector('.btn-text')) {
-                submitBtn.querySelector('.btn-text').textContent = 'Salvando...';
-            } else {
-                submitBtn.textContent = 'Salvando...';
-            }
+            submitBtn.textContent = 'Salvando...';
             submitBtn.disabled = true;
             
             try {
                 // Preparar dados
                 const formData = new FormData(form);
                 const data = {
-                    id_category: formData.get('id_category'),
-                    limit_amount: parseFloat(formData.get('limit_amount')),
+                    category: formData.get('category'),
+                    limit_amount: formData.get('limit_amount'),
                     month: formData.get('month')
                 };
                 
-                // Validar dados
-                if (!data.id_category) {
+                console.log('Form data:', data);
+                
+                // Validar
+                if (!data.category) {
                     throw new Error('Selecione uma categoria');
                 }
                 
-                if (!data.limit_amount || data.limit_amount <= 0) {
+                if (!data.limit_amount || parseFloat(data.limit_amount) <= 0) {
                     throw new Error('Valor da meta deve ser maior que zero');
                 }
                 
-                // Obter CSRF token
+                // CSRF Token
                 const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
                 if (!csrfToken) {
                     throw new Error('Token de segurança não encontrado');
                 }
                 
                 // Enviar requisição
-                const response = await fetch('/api/budget-category-limits/', {
+                const response = await fetch('/api/create-budget-limit/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -123,103 +117,222 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 const result = await response.json();
+                console.log('Response:', result);
                 
-                if (response.ok) {
-                    // Sucesso
-                    showNotification('Meta salva com sucesso!', 'success');
+                if (response.ok && result.success) {
+                    showNotification(result.message || 'Meta salva com sucesso!', 'success');
                     setTimeout(() => {
                         closeModal();
-                        location.reload(); // Recarregar para mostrar nova meta
+                        location.reload();
                     }, 1500);
                 } else {
-                    // Erro do servidor
-                    throw new Error(result.detail || result.message || 'Erro ao salvar meta');
+                    throw new Error(result.error || result.detail || 'Erro ao salvar meta');
                 }
                 
             } catch (error) {
-                // Mostrar erro
+                console.error('Error:', error);
                 showNotification(error.message, 'error');
-                console.error('Erro:', error);
                 
                 // Restaurar botão
-                if (submitBtn.querySelector('.btn-text')) {
-                    submitBtn.querySelector('.btn-text').textContent = originalText;
-                } else {
-                    submitBtn.textContent = originalText;
-                }
+                submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         });
     }
     
-    // Função para mostrar notificações
-    function showNotification(message, type = 'info') {
-        // Remove notificação anterior se existir
-        const existingNotification = document.querySelector('.notification');
-        if (existingNotification) {
-            existingNotification.remove();
+    // Inicializar TomSelect se disponível
+    if (typeof TomSelect !== 'undefined') {
+        const selectElement = document.getElementById('category');
+        if (selectElement) {
+            new TomSelect(selectElement, {
+                create: false,
+                sortField: {
+                    field: "text",
+                    direction: "asc"
+                }
+            });
+        }
+    }
+});
+
+// Funções
+function openModal() {
+    const modal = document.getElementById('budgetModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Preencher mês atual
+        const monthInput = document.getElementById('month');
+        if (monthInput && !monthInput.value) {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            monthInput.value = `${year}-${month}`;
         }
         
-        // Cria nova notificação
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.textContent = message;
-        
-        // Estilos básicos
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 12px 20px;
-            border-radius: 6px;
-            color: white;
-            font-weight: 500;
-            z-index: 10000;
-            animation: slideIn 0.3s ease;
-        `;
-        
-        if (type === 'success') {
-            notification.style.background = '#4CAF50';
-        } else if (type === 'error') {
-            notification.style.background = '#f44336';
-        } else {
-            notification.style.background = '#2196F3';
-        }
-        
-        document.body.appendChild(notification);
-        
-        // Remove após 5 segundos
+        // Focar no primeiro campo
         setTimeout(() => {
-            notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
-        }, 5000);
+            const firstInput = document.querySelector('#budgetForm input, #budgetForm select');
+            if (firstInput) firstInput.focus();
+        }, 100);
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('budgetModal');
+    const form = document.getElementById('budgetForm');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        if (form) form.reset();
+    }
+}
+
+async function loadBudgets() {
+    try {
+        const response = await fetch('/api/budget-overview/');
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+            console.log('Budgets loaded:', result.data);
+            // Aqui você pode atualizar a interface com os dados
+            updateBudgetDisplay(result.data);
+        } else {
+            console.error('Failed to load budgets:', result.error);
+        }
+    } catch (error) {
+        console.error('Error loading budgets:', error);
+    }
+}
+
+function updateBudgetDisplay(data) {
+    // Função para atualizar a interface com dados da API
+    // Pode ser usada para atualização dinâmica sem recarregar a página
+    console.log('Updating display with:', data);
+}
+
+async function editBudget(limitId) {
+    try {
+        // Buscar dados atuais
+        const response = await fetch(`/api/budget-category-limits/${limitId}/`);
+        if (!response.ok) throw new Error('Erro ao carregar dados');
+        
+        const data = await response.json();
+        console.log('Edit data:', data);
+        
+        // Preencher modal com dados
+        openModal();
+        
+        // Preencher formulário
+        setTimeout(() => {
+            const categorySelect = document.getElementById('category');
+            const amountInput = document.getElementById('limit_amount');
+            
+            if (categorySelect && data.category) {
+                categorySelect.value = data.category;
+            }
+            
+            if (amountInput && data.limit_amount) {
+                amountInput.value = data.limit_amount;
+            }
+            
+            // Mudar título do modal
+            const modalTitle = document.querySelector('#budgetModal h3');
+            if (modalTitle) {
+                modalTitle.textContent = 'Editar Meta';
+            }
+            
+            // Mudar ação do formulário para PUT
+            const form = document.getElementById('budgetForm');
+            if (form) {
+                form.dataset.editId = limitId;
+                const submitBtn = form.querySelector('button[type="submit"] .btn-text');
+                if (submitBtn) {
+                    submitBtn.textContent = 'Atualizar Meta';
+                }
+            }
+        }, 300);
+        
+    } catch (error) {
+        console.error('Error editing budget:', error);
+        showNotification('Erro ao carregar dados para edição', 'error');
+    }
+}
+
+async function deleteBudget(limitId) {
+    if (!confirm('Tem certeza que deseja excluir esta meta?')) {
+        return;
     }
     
-    // Adicionar estilos CSS para animações
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
+    try {
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+        
+        const response = await fetch(`/api/budget-category-limits/${limitId}/`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRFToken': csrfToken,
+                'X-Requested-With': 'XMLHttpRequest'
             }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        });
+        
+        if (response.ok) {
+            showNotification('Meta excluída com sucesso!', 'success');
+            setTimeout(() => location.reload(), 1000);
+        } else {
+            throw new Error('Erro ao excluir meta');
         }
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+    } catch (error) {
+        showNotification(error.message, 'error');
+        console.error('Error:', error);
+    }
+}
+
+function showNotification(message, type = 'info') {
+    // Remover notificação existente
+    const existing = document.querySelector('.notification');
+    if (existing) existing.remove();
     
-    console.log('Budget module initialized');
-});
+    // Criar notificação
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        border-radius: 6px;
+        color: white;
+        font-weight: 500;
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+        background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `;
+    
+    // Adicionar estilos de animação se não existirem
+    if (!document.querySelector('#notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(notification);
+    
+    // Auto-remover após 5 segundos
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
