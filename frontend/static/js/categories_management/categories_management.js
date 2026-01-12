@@ -353,7 +353,7 @@ async function updateCategory(categoryId, categoryData) {
         }
         
         const updatedCategory = await response.json();
-        const index = state.categories.findIndex(c => c.id_category === categoryId);
+        const index = state.categories.findIndex(c => c.category === categoryId);
         if (index !== -1) {
             state.categories[index] = updatedCategory;
         }
@@ -387,7 +387,7 @@ async function updateTag(tagId, tagData) {
         }
         
         const updatedTag = await response.json();
-        const index = state.tags.findIndex(t => t.id_tag === tagId);
+        const index = state.tags.findIndex(t => t.tag === tagId);
         if (index !== -1) {
             state.tags[index] = updatedTag;
         }
@@ -447,7 +447,7 @@ async function deleteCategory(categoryId) {
             throw new Error('Erro ao excluir categoria');
         }
         
-        state.categories = state.categories.filter(c => c.id_category !== categoryId);
+        state.categories = state.categories.filter(c => c.category !== categoryId);
         renderCategories();
         populateParentCategorySelect();
         showMessage('Categoria excluída com sucesso!');
@@ -474,7 +474,7 @@ async function deleteTag(tagId) {
             throw new Error('Erro ao excluir tag');
         }
         
-        state.tags = state.tags.filter(t => t.id_tag !== tagId);
+        state.tags = state.tags.filter(t => t.tag !== tagId);
         renderTags();
         showMessage('Tag excluída com sucesso!');
     } catch (error) {
@@ -491,7 +491,7 @@ function populateParentCategorySelect() {
     
     state.categories.forEach(category => {
         const option = document.createElement('option');
-        option.value = category.id_category;
+        option.value = category.category;
         option.textContent = `${category.name} (${category.type_display})`;
         elements.categoryParentSelect.appendChild(option);
     });
@@ -547,7 +547,7 @@ function renderCategoryItem(category) {
     const subcategoriesCount = category.subcategories_count || 0;
     
     return `
-        <div class="category-item" data-id="${category.id_category}">
+        <div class="category-item" data-id="${category.category}">
             <div class="category-main">
                 <div class="icon-box" style="background-color: ${lightColor};">
                     <i class="fa-solid fa-${category.icon || 'receipt'}" style="color: ${category.color || '#3B82F6'}"></i>
@@ -563,7 +563,7 @@ function renderCategoryItem(category) {
                         <span class="subtext">
                             <i class="fas fa-clock"></i> Criada em: ${formatDate(category.created_at)}
                         </span>
-                        ${category.id_parent_category ? `
+                        ${category.parent_category ? `
                             <span class="subtext">
                                 <i class="fas fa-level-up-alt"></i> Subcategoria
                             </span>
@@ -605,7 +605,7 @@ function renderTags() {
         const lightColor = lightenColor(tag.color || '#6B7280', 20);
         
         html += `
-            <div class="tag-item" data-id="${tag.id_tag}" style="background-color: ${lightColor};">
+            <div class="tag-item" data-id="${tag.tag}" style="background-color: ${lightColor};">
                 <div class="tag-content">
                     <span class="tag-name">${tag.name}</span>
                     <span class="tag-color-badge" style="background-color: ${tag.color || '#6B7280'}"></span>
@@ -633,7 +633,7 @@ function attachCategoryEventListeners() {
         btn.addEventListener('click', function() {
             const categoryItem = this.closest('.category-item');
             const categoryId = categoryItem.dataset.id;
-            const category = state.categories.find(c => c.id_category === categoryId);
+            const category = state.categories.find(c => c.category === categoryId);
             
             if (category) {
                 showEditCategoryForm(categoryItem, category);
@@ -656,7 +656,7 @@ function attachTagEventListeners() {
         btn.addEventListener('click', function() {
             const tagItem = this.closest('.tag-item');
             const tagId = tagItem.dataset.id;
-            const tag = state.tags.find(t => t.id_tag === tagId);
+            const tag = state.tags.find(t => t.tag === tagId);
             
             if (tag) {
                 showEditTagForm(tagItem, tag);
@@ -682,7 +682,7 @@ function showEditCategoryForm(categoryItem, category) {
     }
     
     editForm.innerHTML = `
-        <form class="edit-category-form" data-id="${category.id_category}">
+        <form class="edit-category-form" data-id="${category.category}">
             <div class="inline-form" style="margin-top: 15px; padding: 15px; background: #f8fafc; border-radius: 8px;">
                 <div class="input-group">
                     <input type="text" name="name" value="${category.name || ''}" placeholder="Nome" required>
@@ -699,25 +699,25 @@ function showEditCategoryForm(categoryItem, category) {
                 <div class="input-group icon-picker">
                     <div class="icon-picker-wrapper">
                         <div class="icon-preview">
-                            <i class="fa-solid fa-${category.icon || 'receipt'}" id="edit-icon-preview-${category.id_category}"></i>
+                            <i class="fa-solid fa-${category.icon || 'receipt'}" id="edit-icon-preview-${category.category}"></i>
                         </div>
                         <input type="text" 
                                name="icon" 
                                value="${category.icon || 'receipt'}" 
                                placeholder="Ícone"
                                class="edit-category-icon">
-                        <button type="button" class="btn-icon-picker open-edit-icon-modal" data-id="${category.id_category}">
+                        <button type="button" class="btn-icon-picker open-edit-icon-modal" data-id="${category.category}">
                             <i class="fa-solid fa-list"></i>
                         </button>
                     </div>
                 </div>
                 <div class="input-group">
-                    <select name="id_parent_category">
+                    <select name="parent_category">
                         <option value="">Sem categoria pai</option>
                         ${state.categories
-                            .filter(c => c.id_category !== category.id_category)
+                            .filter(c => c.category !== category.category)
                             .map(c => `
-                                <option value="${c.id_category}" ${c.id_category === category.id_parent_category ? 'selected' : ''}>
+                                <option value="${c.category}" ${c.category === category.parent_category ? 'selected' : ''}>
                                     ${c.name} (${c.type_display})
                                 </option>
                             `).join('')}
@@ -739,7 +739,7 @@ function showEditCategoryForm(categoryItem, category) {
     
     // Atualizar preview do ícone ao digitar
     const iconInput = editForm.querySelector('input[name="icon"]');
-    const iconPreview = editForm.querySelector(`#edit-icon-preview-${category.id_category}`);
+    const iconPreview = editForm.querySelector(`#edit-icon-preview-${category.category}`);
     
     if (iconInput && iconPreview) {
         iconInput.addEventListener('input', function() {
@@ -756,7 +756,7 @@ function showEditCategoryForm(categoryItem, category) {
                 { 
                     type: 'category-edit',
                     input: editForm.querySelector('.edit-category-icon'),
-                    preview: editForm.querySelector(`#edit-icon-preview-${category.id_category}`)
+                    preview: editForm.querySelector(`#edit-icon-preview-${category.category}`)
                 },
                 iconValue
             );
@@ -773,10 +773,10 @@ function showEditCategoryForm(categoryItem, category) {
             type: formData.get('type'),
             color: formData.get('color'),
             icon: formData.get('icon'),
-            id_parent_category: formData.get('id_parent_category') || null
+            parent_category: formData.get('parent_category') || null
         };
         
-        await updateCategory(category.id_category, categoryData);
+        await updateCategory(category.category, categoryData);
         editForm.style.display = 'none';
     });
     
@@ -790,7 +790,7 @@ function showEditTagForm(tagItem, tag) {
     const editForm = document.createElement('div');
     editForm.className = 'tag-edit-form';
     editForm.innerHTML = `
-        <form class="edit-tag-form" data-id="${tag.id_tag}" style="margin-top: 10px; padding: 15px; background: #f8fafc; border-radius: 8px;">
+        <form class="edit-tag-form" data-id="${tag.tag}" style="margin-top: 10px; padding: 15px; background: #f8fafc; border-radius: 8px;">
             <div class="inline-form">
                 <div class="input-group">
                     <input type="text" name="name" value="${tag.name || ''}" placeholder="Nome da tag" required>
@@ -822,7 +822,7 @@ function showEditTagForm(tagItem, tag) {
             color: formData.get('color')
         };
         
-        await updateTag(tag.id_tag, tagData);
+        await updateTag(tag.tag, tagData);
         editForm.remove();
     });
     
@@ -867,7 +867,7 @@ function init() {
                 type: document.getElementById('category-type').value,
                 color: document.getElementById('category-color').value,
                 icon: document.getElementById('category-icon').value,
-                id_parent_category: document.getElementById('category-parent').value || null
+                parent_category: document.getElementById('category-parent').value || null
             };
             
             await createCategory(categoryData);
