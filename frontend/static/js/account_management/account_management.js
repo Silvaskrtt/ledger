@@ -151,7 +151,7 @@ async function fetchAccounts() {
                     accountsArray = possibleArrays[0];
                 } else {
                     // Se for um objeto simples, verificar se tem campos de conta
-                    if (data.id_account || data.name) {
+                    if (data.account || data.name) {
                         accountsArray = [data];
                     } else {
                         accountsArray = [];
@@ -363,7 +363,7 @@ async function updateAccount(accountId, accountData) {
         const updatedAccount = await response.json();
         console.log('Conta atualizada:', updatedAccount);
         
-        const index = state.accounts.findIndex(acc => acc.id_account === accountId);
+        const index = state.accounts.findIndex(acc => acc.account === accountId);
         if (index !== -1) {
             state.accounts[index] = updatedAccount;
         } else {
@@ -401,7 +401,7 @@ async function deleteAccount(accountId) {
         }
         
         // Soft delete: marca como inativa localmente
-        const index = state.accounts.findIndex(acc => acc.id_account === accountId);
+        const index = state.accounts.findIndex(acc => acc.account === accountId);
         if (index !== -1) {
             state.accounts[index].is_active = false;
         }
@@ -432,7 +432,7 @@ async function toggleAccountStatus(accountId, isActive) {
         }
         
         const updatedAccount = await response.json();
-        const index = state.accounts.findIndex(acc => acc.id_account === accountId);
+        const index = state.accounts.findIndex(acc => acc.account === accountId);
         if (index !== -1) {
             state.accounts[index] = updatedAccount;
         }
@@ -569,7 +569,7 @@ function renderAccountItem(account) {
         
         return `
             <div class="account-item ${!isActive ? 'inactive' : ''}" 
-                 data-id="${account.id_account}" 
+                 data-id="${account.account}" 
                  data-type="${account.type}">
                 <div class="account-main">
                     <div class="account-icon" style="background-color: ${iconBg}; color: ${iconColor};">
@@ -649,7 +649,7 @@ function attachAccountEventListeners() {
             if (!accountItem) return;
             
             const accountId = accountItem.dataset.id;
-            const account = state.accounts.find(acc => acc.id_account === accountId);
+            const account = state.accounts.find(acc => acc.account === accountId);
             
             if (account) {
                 editAccount(account);
@@ -664,7 +664,7 @@ function attachAccountEventListeners() {
             if (!accountItem) return;
             
             const accountId = accountItem.dataset.id;
-            const account = state.accounts.find(acc => acc.id_account === accountId);
+            const account = state.accounts.find(acc => acc.account === accountId);
             
             if (account) {
                 if (this.classList.contains('delete')) {
@@ -807,11 +807,11 @@ function setupFilters() {
 function editAccount(account) {
     try {
         state.isEditing = true;
-        state.currentEditId = account.id_account;
+        state.currentEditId = account.account;
         
         // Atualizar formulário
         const accountIdField = document.getElementById('account-id');
-        if (accountIdField) accountIdField.value = account.id_account;
+        if (accountIdField) accountIdField.value = account.account;
         
         const nameField = document.getElementById('account-name');
         if (nameField) nameField.value = account.name || '';

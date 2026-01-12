@@ -61,12 +61,12 @@ body {
 .filter-group select {
     padding: 10px 14px;
     border-radius: 8px;
-    border: 1px solid #7c3aed;
+    border: 1px solid var(--color-primary);
     font-family: inherit;
 }
 
 .btn-filter {
-    background: #7c3aed;
+    background: var(--color-primary);
     color: #fff;
     border: none;
     padding: 10px 26px;
@@ -77,7 +77,8 @@ body {
 }
 
 .btn-filter:hover {
-    background: #5b21b6;
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
 }
 
 /* =====================

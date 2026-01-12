@@ -1,9 +1,11 @@
-/* CSS focado no padrão da imagem enviada */
+/* Padrão global aplicado - vide global-standards.css */
+/* Font: Lexend, Cores: roxo (#500BD9), cinza (#6b7280), branco (#ffffff) */
 
 .container-categories {
     max-width: 1000px;
     margin: 40px auto;
     padding: 0 20px;
+    font-family: 'Lexend', sans-serif;
 }
 
 /* Abas */
@@ -25,17 +27,17 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #64748b;
+    color: var(--color-text-secondary);
     transition: all 0.3s;
 }
 
 .tab-btn:hover {
-    background: #f1f5f9;
-    color: #334155;
+    background: var(--color-bg-light);
+    color: var(--color-text-primary-neutral);
 }
 
 .tab-btn.active {
-    background: #0f172a;
+    background: linear-gradient(135deg, #1d0350, #500BD9);
     color: white;
 }
 
@@ -49,11 +51,11 @@
 
 /* CARD DE ADICIONAR */
 .add-section-card {
-    background: #f7f7f7;
+    background: var(--color-bg-card);
     padding: 30px;
     width: 100%;
-    box-shadow: 0 4px 12px #12013359;
-    border: 1px solid #edf0f5;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     margin-bottom: 30px;
 }
@@ -61,7 +63,7 @@
 .add-title {
     font-size: 14px;
     font-weight: 700;
-    color: #1a202c;
+    color: var(--color-text-primary-neutral);
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -85,11 +87,12 @@
 .input-group select {
     width: 100%;
     padding: 10px 15px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-primary);
     border-radius: 8px;
     font-size: 14px;
-    background: #ffffff;
+    background: var(--color-bg-white);
     box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
 }
 
 /* TomSelect em categories_management */
@@ -260,9 +263,9 @@
 }
 
 .btn-edit:hover {
-    background: #dbeafe;
-    color: #1d4ed8;
-    border-color: #93c5fd;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    border-color: var(--color-primary-light);
 }
 
 .btn-delete:hover, .btn-tag-delete:hover {
@@ -393,7 +396,7 @@
     display: flex;
     align-items: center;
     background: #fff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-primary);
     border-radius: 8px;
     padding: 0 12px;
     min-width: 200px;
@@ -603,7 +606,7 @@
 
 /* Botão adicionar */
 .btn-add-dark {
-    background: #0f172a;
+    background: var(--color-primary);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -619,7 +622,7 @@
 }
 
 .btn-add-dark:hover {
-    background: #1e293b;
+    background: var(--color-primary-dark);
 }
 
 /* Responsividade */

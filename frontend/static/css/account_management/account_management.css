@@ -116,7 +116,7 @@
 .field-group textarea {
     padding: 12px 15px;
     border-radius: 8px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-primary);
     background: #fff;
     font-size: 14px;
     transition: border-color 0.3s;
@@ -132,7 +132,7 @@
 }
 
 .field-group .ts-control.focus {
-    border-color: #3b82f6 !important;
+    border-color: var(--color-primary-dark) !important;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
 }
 
@@ -140,7 +140,7 @@
 .field-group select:focus,
 .field-group textarea:focus {
     outline: none;
-    border-color: #3b82f6;
+    border-color: var(--color-primary-dark);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
@@ -189,7 +189,7 @@
 }
 
 .btn-primary {
-    background: #2563eb;
+    background: var(--color-primary);
     color: #fff;
     border: none;
     padding: 12px 25px;
@@ -240,7 +240,7 @@
 }
 
 .count-badge {
-    background: #3b82f6;
+    background: var(--color-primary);
     color: white;
     padding: 2px 8px;
     border-radius: 12px;
@@ -273,9 +273,8 @@
 }
 
 .filter-btn.active {
-    background: #3b82f6;
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
     color: white;
-    border-color: #3b82f6;
 }
 
 /* Mensagens */

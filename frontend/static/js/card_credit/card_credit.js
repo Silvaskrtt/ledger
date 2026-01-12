@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     // Tentar extrair array do objeto
                     const cardsArray = Object.values(data).filter(item => 
-                        item && typeof item === 'object' && item.id_account
+                        item && typeof item === 'object' && item.account
                     );
                     if (cardsArray.length > 0) {
                         renderCards(cardsArray);
@@ -110,14 +110,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Criar elemento HTML do cartão
     function createCardElement(card) {
         // Validar dados do cartão
-        if (!card || !card.id_account) {
+        if (!card || !card.account) {
             console.error('Dados inválidos do cartão:', card);
             return null;
         }
         
         const div = document.createElement('div');
         div.className = 'card-item';
-        div.dataset.id = card.id_account;
+        div.dataset.id = card.account;
         
         const balance = parseFloat(card.balance || 0);
         const creditLimit = parseFloat(card.credit_limit || 0);

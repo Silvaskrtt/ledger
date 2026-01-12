@@ -26,7 +26,7 @@
 
                 <div class="filter-group"> 
                     <label>Categoria</label> 
-                    <select name="category"> 
+                    <select name="category" required class="tom-select" data-placeholder="Selecione uma categoria"> 
                         <option value="">Todas as categorias</option> 
                         {% for category in categories %} 
                         <option value="{{ category.category }}" 
