@@ -50,7 +50,7 @@
     </div>
     
     <!-- Script do sidebar -->
-    <script src="{% static 'js/sidebar.js' %}"></script>
+    <script src="{% static 'js/sidebar/sidebar.js' %}"></script>
     
     <!-- Scripts globais -->
     <script src="{% static 'js/global.js' %}"></script>
@@ -60,23 +60,6 @@
     
     <!-- TomSelectManager - Gerenciador global de instâncias TomSelect -->
     <script src="{% static 'js/tom-select-manager.js' %}"></script>
-
-    <script>
-    // Adicionar ao BalanceValidator
-    BalanceValidator.showSyncAlert = function(message) {
-        const alertDiv = document.getElementById('balance-sync-alert');
-        if (alertDiv) {
-            const span = alertDiv.querySelector('span');
-            if (span) span.textContent = message;
-            alertDiv.style.display = 'block';
-            
-            // Auto-esconder após 30 segundos
-            setTimeout(() => {
-                alertDiv.style.display = 'none';
-            }, 30000);
-        }
-    };
-    </script>
     
     <!-- Bloco para scripts específicos das páginas -->
     {% block extra_js %}{% endblock %}
