@@ -29,12 +29,12 @@ class TransactionForm {
 
         // Obter instâncias do TomSelectManager global
         const selectIds = [
-            'id_account',
-            'id_category', 
-            'id_payment_method',
+            'account',
+            'category', 
+            'payment_method',
             'currency',
             'origin',
-            'id_tags'
+            'tags'
         ];
 
         selectIds.forEach(id => {
@@ -263,9 +263,9 @@ class TransactionForm {
 
         // Validar campos obrigatórios
         const requiredFields = [
-            'id_category',
-            'id_payment_method', 
-            'id_account',
+            'category',
+            'payment_method', 
+            'account',
             'origin',
             'currency'
         ];
@@ -297,9 +297,9 @@ class TransactionForm {
 
     getFieldLabel(fieldId) {
         const labels = {
-            'id_category': 'Categoria',
-            'id_payment_method': 'Método de Pagamento',
-            'id_account': 'Conta',
+            'category': 'Categoria',
+            'payment_method': 'Método de Pagamento',
+            'account': 'Conta',
             'origin': 'Origem',
             'currency': 'Moeda'
         };
@@ -315,37 +315,99 @@ class TransactionForm {
                 }
             });
             
-            if (response.ok) {
-                const account = await response.json();
-                
-                if (account.type === 'CREDIT_CARD') {
-                    // Validação para cartão de crédito
-                    const availableCredit = account.available_credit || 0;
-                    if (direction === 'OUT' && amount > availableCredit) {
+            if (!response.ok) {
+                throw new Error(`Erro ao buscar conta: ${response.status}`);
+            }
+            
+            const account = await response.json();
+            
+            // ✅ DEBUG detalhado
+            console.log('🔍 Dados da conta recebidos:', account);
+            console.log('📋 Campos disponíveis:', Object.keys(account));
+            
+            // ✅ CONVERTER todos os valores para número (segurança)
+            const validatedAmount = Number(amount);
+            const balance = Number(account.balance) || 0;
+            const availableCredit = Number(account.available_credit) || 0;
+            const creditLimit = Number(account.credit_limit) || 0;
+            
+            // ✅ DETERMINAR se é cartão (usando múltiplas fontes para compatibilidade)
+            const isCreditCard = Boolean(
+                account.is_credit_card === true || 
+                account.type === 'CREDIT_CARD'
+            );
+            
+            console.log('💰 Valores convertidos:', {
+                isCreditCard,
+                balance,
+                availableCredit,
+                creditLimit,
+                validatedAmount,
+                direction
+            });
+            
+            // ✅ VALIDAÇÃO para saídas (OUT)
+            if (direction === 'OUT') {
+                if (isCreditCard) {
+                    // Cartão de crédito: verificar limite disponível
+                    console.log(`💳 Validação cartão: ${validatedAmount} <= ${availableCredit} ?`);
+                    
+                    if (validatedAmount > availableCredit) {
                         return {
                             valid: false,
-                            message: `Limite insuficiente no cartão ${account.name}. ` +
-                                    `Disponível: R$${availableCredit.toFixed(2)}`
+                            message: this.formatCreditCardErrorMessage(
+                                account.name,
+                                availableCredit,
+                                validatedAmount
+                            )
                         };
                     }
                 } else {
-                    // Validação para contas normais
-                    const currentBalance = account.balance || 0;
-                    if (direction === 'OUT' && amount > currentBalance) {
+                    // Conta normal: verificar saldo
+                    console.log(`🏦 Validação conta normal: ${validatedAmount} <= ${balance} ?`);
+                    
+                    if (validatedAmount > balance) {
                         return {
                             valid: false,
-                            message: `Saldo insuficiente na conta ${account.name}. ` +
-                                    `Disponível: R$${currentBalance.toFixed(2)}`
+                            message: this.formatNormalAccountErrorMessage(
+                                account.name,
+                                balance,
+                                validatedAmount
+                            )
                         };
                     }
                 }
-                
-                return { valid: true };
             }
+            
+            // ✅ Entradas (IN) sempre são válidas
+            return { valid: true };
+            
         } catch (error) {
-            console.error('Erro ao validar saldo:', error);
-            return { valid: true }; // Permite continuar em caso de erro
+            console.error('❌ Erro na validação de saldo:', error);
+            
+            // Em caso de erro, não bloqueia mas registra o erro
+            return {
+                valid: true,
+                warning: '⚠️ Não foi possível validar o saldo. Continue com cautela.'
+            };
         }
+    }
+
+    // ✅ Funções auxiliares para mensagens
+    formatCreditCardErrorMessage(accountName, availableCredit, amount) {
+        return `❌ Limite de crédito insuficiente!\n\n` +
+            `Cartão: ${accountName}\n` +
+            `Crédito disponível: R$${availableCredit.toFixed(2)}\n` +
+            `Valor da transação: R$${amount.toFixed(2)}\n\n` +
+            `Dica: Pague parte da fatura para liberar mais crédito.`;
+    }
+
+    formatNormalAccountErrorMessage(accountName, currentBalance, amount) {
+        return `❌ Saldo insuficiente!\n\n` +
+            `Conta: ${accountName}\n` +
+            `Saldo atual: R$${currentBalance.toFixed(2)}\n` +
+            `Valor da transação: R$${amount.toFixed(2)}\n\n` +
+            `Dica: Transfira dinheiro para esta conta primeiro.`;
     }
 
     async submitForm() {
@@ -358,10 +420,25 @@ class TransactionForm {
         try {
             const formData = this.collectFormData();
 
-            // VALIDAÇÃO DE SALDO ANTES DE ENVIAR
-            const accountId = formData.id_account;
+            // ✅ Variáveis definidas antes de usar
+            const accountId = formData.account;
             const amount = parseFloat(formData.amount);
             const direction = formData.direction;
+
+            // ✅ DEBUG no console para ver todos os dados
+            console.log('=== DEBUG TRANSAÇÃO ===');
+            console.log('📤 Dados do formulário:', {
+                account: accountId,
+                amount: amount,
+                direction: direction,
+                currency: formData.currency,
+                origin: formData.origin,
+                payment_method: formData.payment_method,
+                category: formData.category,
+                occurred_at: formData.occurred_at,
+                tags: formData.tags || []
+            });
+            console.log('=====================');
 
             const balanceValidation = await this.validateAccountBalance(
                 accountId, 
@@ -374,6 +451,12 @@ class TransactionForm {
                 return;
             }
 
+            // Se tiver warning (mas é válida), mostrar alerta
+            if (balanceValidation.warning) {
+                const proceed = confirm(`⚠️ ${balanceValidation.warning}\n\nDeseja continuar mesmo assim?`);
+                if (!proceed) return;
+            }
+
             const response = await fetch('/api/transactions/', {
                 method: 'POST',
                 headers: {
@@ -382,6 +465,12 @@ class TransactionForm {
                     'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: JSON.stringify(formData)
+            });
+
+            // DEBUG da resposta
+            console.log('📥 Resposta do servidor:', {
+                status: response.status,
+                ok: response.ok
             });
 
             const responseText = await response.text();
@@ -395,13 +484,15 @@ class TransactionForm {
             }
             
             if (response.ok) {
+                console.log('✅ Transação criada com sucesso:', responseData);
                 alert('✅ ' + (responseData.message || 'Transação criada com sucesso!'));
                 window.location.href = '/transactions/list/';
             } else {
+                console.error('❌ Erro do servidor:', responseData);
                 this.handleApiError(responseData);
             }
         } catch (error) {
-            console.error('Erro ao enviar transação:', error);
+            console.error('❌ Erro ao enviar transação:', error);
             alert('❌ Erro de conexão. Verifique sua internet e tente novamente.');
         }
     }
@@ -426,10 +517,10 @@ class TransactionForm {
     }
 
     collectFormData() {
-        const id_account_value = this.getTomSelectValue('id_account');
-        const id_category_value = this.getTomSelectValue('id_category');
-        const id_payment_method_value = this.getTomSelectValue('id_payment_method');
-        const tags_value = this.getTomSelectValue('id_tags') || [];
+        const account_value = this.getTomSelectValue('account');
+        const category_value = this.getTomSelectValue('category');
+        const payment_method_value = this.getTomSelectValue('payment_method');
+        const tags_value = this.getTomSelectValue('tags') || [];
         
         const payload = {
             amount: parseFloat(document.getElementById('amount').value),
@@ -437,9 +528,9 @@ class TransactionForm {
             direction: document.querySelector('input[name="direction"]:checked').value,
             currency: this.getTomSelectValue('currency'),
             origin: this.getTomSelectValue('origin'),
-            id_category: id_category_value,
-            id_payment_method: id_payment_method_value,
-            id_account: id_account_value,
+            category: category_value,
+            payment_method: payment_method_value,
+            account: account_value,
             tags: tags_value
         };
 
