@@ -16837,3 +16837,7 @@ Not Found: /favicon.ico
 "GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 6438
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
