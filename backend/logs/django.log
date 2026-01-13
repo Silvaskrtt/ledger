@@ -16841,3 +16841,686 @@ C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
 Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8447
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8256
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8447
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8256
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8447
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 9527
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /transactions/list/ HTTP/1.1" 200 8486
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 304 0
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 2
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /cartoes/ HTTP/1.1" 200 9378
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 526
+"GET /transactions/new/ HTTP/1.1" 200 15978
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /cartoes/ HTTP/1.1" 200 9378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 526
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 2
+"POST /api/categories/ HTTP/1.1" 201 261
+"GET /api/tags/ HTTP/1.1" 200 2
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 263
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 263
+"GET /api/tags/ HTTP/1.1" 200 2
+"GET /cartoes/ HTTP/1.1" 200 9378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 526
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 10169
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/list/ HTTP/1.1" 200 8666
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 10049
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/budget-overview/ HTTP/1.1" 200 100
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/categories/ HTTP/1.1" 200 263
+"GET /management/ HTTP/1.1" 200 17974
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 869
+"GET /api/accounts/ HTTP/1.1" 200 869
+"GET /cartoes/ HTTP/1.1" 200 9378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/credit-cards/ HTTP/1.1" 200 526
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET / HTTP/1.1" 200 10169
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /cartoes/ HTTP/1.1" 200 9378
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /api/credit-cards/ HTTP/1.1" 200 526
+"GET /management/ HTTP/1.1" 200 17974
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /api/accounts/ HTTP/1.1" 200 869
+"GET /api/accounts/ HTTP/1.1" 200 869
+"GET /managementCategories/ HTTP/1.1" 200 15798
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /api/categories/ HTTP/1.1" 200 263
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 10049
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /api/budget-overview/ HTTP/1.1" 200 100
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /cartoes/ HTTP/1.1" 200 9378
+"GET /static/css/global-standards.css HTTP/1.1" 304 0
+"GET /static/css/tom-select-custom.css HTTP/1.1" 304 0
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/tom-select-manager.js HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /api/credit-cards/ HTTP/1.1" 200 526
+"GET / HTTP/1.1" 200 10169
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/list/ HTTP/1.1" 200 8666
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET / HTTP/1.1" 200 10169
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/list/ HTTP/1.1" 200 8666
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8458
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET / HTTP/1.1" 200 10169
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/list/ HTTP/1.1" 200 8666
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/list/ HTTP/1.1" 200 8666
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8451
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/list/ HTTP/1.1" 200 8666
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /budget/ HTTP/1.1" 200 10049
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/budget-overview/ HTTP/1.1" 200 100
+"GET /goals/ HTTP/1.1" 200 8521
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 10049
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/budget-overview/ HTTP/1.1" 200 100
+"GET /transactions/list/ HTTP/1.1" 200 8666
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /management/ HTTP/1.1" 200 17974
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /api/accounts/ HTTP/1.1" 200 869
+"GET /api/accounts/ HTTP/1.1" 200 869
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET / HTTP/1.1" 200 10169
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 16150
+"GET /static/js/sidebar.js HTTP/1.1" 404 1853
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8451
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 8858
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8451
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 8858
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 18016
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8451
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 8858
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17199
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 10746
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8451
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17199
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 10746
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18187
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET / HTTP/1.1" 200 10177
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /transactions/list/ HTTP/1.1" 200 8674
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /budget/ HTTP/1.1" 200 10057
+"GET /api/budget-overview/ HTTP/1.1" 200 100
+"GET /goals/ HTTP/1.1" 200 8529
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 304 0
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /goals/ HTTP/1.1" 200 8529
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 18021
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /goals/ HTTP/1.1" 200 8529
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17201
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /goals/ HTTP/1.1" 200 8529
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11114
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /cartoes/ HTTP/1.1" 200 9386
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 526
+"GET /management/ HTTP/1.1" 200 17982
+"GET /api/accounts/ HTTP/1.1" 200 869
+"GET /api/accounts/ HTTP/1.1" 200 869
+"GET /managementCategories/ HTTP/1.1" 200 15806
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /api/categories/ HTTP/1.1" 200 263
+"GET / HTTP/1.1" 200 10177
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17201
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 12303
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 12303
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17201
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17498
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 12303
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 10791
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 10791
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 10791
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET / HTTP/1.1" 200 10177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8451
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/global.js HTTP/1.1" 200 667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18115
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8451
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/global.js HTTP/1.1" 200 1272
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 18867
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 16158
+"GET /static/js/global.js HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET /transactions/new/ HTTP/1.1" 200 15607
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/img/box-out.png HTTP/1.1" 200 10897
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction.css HTTP/1.1" 200 8451
+"GET /static/img/box-in.png HTTP/1.1" 200 10894
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 19892
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET /api/accounts/670b9b1b-872e-414f-9713-2cdf0813d643/ HTTP/1.1" 200 389
+Transação manual criada: 9dfe55b0-8635-4d68-ad42-ad3aeb940ba6
+Saldo: 0.00 -> -20.00
+"POST /api/transactions/ HTTP/1.1" 201 163
+"GET /transactions/list/ HTTP/1.1" 200 9185
+"GET /static/css/transactions/transaction_history.css HTTP/1.1" 304 0
+"GET /static/js/global.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
+"GET / HTTP/1.1" 200 9628
+"GET /static/css/home/home.css HTTP/1.1" 200 3591
+"GET /api/accounts/670b9b1b-872e-414f-9713-2cdf0813d643/ HTTP/1.1" 200 14816
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+"GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+"GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+"GET /cartoes/ HTTP/1.1" 200 8835
+"GET /static/js/global.js HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 528
+"GET /management/ HTTP/1.1" 200 17431
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 871
+"GET /api/accounts/ HTTP/1.1" 200 871
+"GET /cartoes/ HTTP/1.1" 200 8835
+"GET /api/credit-cards/ HTTP/1.1" 200 528
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/accounts/670b9b1b-872e-414f-9713-2cdf0813d643/ HTTP/1.1" 200 15034
+"GET /cartoes/ HTTP/1.1" 200 8835
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /static/js/global.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 519
+"GET /cartoes/ HTTP/1.1" 200 8835
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 8133
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 16416
+"GET /api/credit-cards/ HTTP/1.1" 200 519
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6438
+"GET / HTTP/1.1" 200 9628
+"GET /transactions/new/ HTTP/1.1" 200 15607
+"GET /static/css/transactions/transaction.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 200 21921
+"GET /api/accounts/670b9b1b-872e-414f-9713-2cdf0813d643/ HTTP/1.1" 200 467
+"GET / HTTP/1.1" 200 9628
+"GET /transactions/new/ HTTP/1.1" 200 15607
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+"GET /transactions/list/ HTTP/1.1" 200 9185
+"GET /managementCategories/ HTTP/1.1" 200 15255
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /api/categories/ HTTP/1.1" 200 263
+"GET /goals/ HTTP/1.1" 200 7978
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 304 0
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /budget/ HTTP/1.1" 200 9506
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /api/budget-overview/ HTTP/1.1" 200 100
+"GET /goals/ HTTP/1.1" 200 7978
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 52
+"GET /transactions/new/ HTTP/1.1" 200 15607
+"GET /static/js/transactions/transaction-form.js?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6549
