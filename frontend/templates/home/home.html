@@ -2,123 +2,97 @@
 {% load humanize %}
 {% load static %}
 
-{% comment %}
-Template principal do dashboard financeiro.
-Exibe três cards principais com resumo financeiro do usuário:
-1. Patrimônio Total
-2. Total de Receitas (mês atual)
-3. Total de Despesas (mês atual)
-
-Utiliza filters do Django:
-- humanize: para formatação de números (intcomma)
-- floatformat: para formatação de casas decimais
-{% endcomment %}
-
 {% block extra_css %}
-<!-- Carrega CSS específico da página home -->
 <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
 {% endblock %}
 
 {% block content %}
 <section class="dashboard-cards">
-  <!-- Container dos cards usando grid layout definido no CSS -->
-
+  
   <!-- CARD 1 - PATRIMÔNIO -->
   <div class="summary-card blue">
-    <!-- Card com borda azul indicando informação geral/neutral -->
     <div class="card-header">
-      <!-- Cabeçalho do card com título e ícone -->
       <span>Patrimônio Total</span>
-      <span class="icon">📈</span> <!-- Ícone de tendência de crescimento -->
+      <span class="icon">📈</span>
     </div>
-
-    <!-- Valor principal do card: saldo atual formatado -->
     <h2>R$ {{ total_patrimonio|floatformat:2|intcomma }}</h2>
-    <!-- 
-      Filtros aplicados:
-      - floatformat:2: limita a 2 casas decimais
-      - intcomma: adiciona separadores de milhar
-    -->
-
+    
     <div class="card-details">
-      <!-- Seção de detalhes com dois blocos de informação -->
       <div>
-        <!-- Primeiro bloco: valor investido -->
         <small>Investido</small>
         <strong class="positive">R$ {{ total_investido|floatformat:2|intcomma }}</strong>
-        <!-- Classe 'positive' aplica cor verde ao texto -->
       </div>
       
       <div>
-        <!-- Segundo bloco: dívida dos cartões -->
         <small>Dívida Cartões</small>
         <strong class="negative">R$ {{ debito_cartoes|floatformat:2|intcomma }}</strong>
-        <!-- Classe 'negative' aplica cor vermelha ao texto -->
       </div>
       
       <div>
-        <!-- Terceiro bloco: saldo disponível -->
         <small>Saldo Disponível</small>
         <strong class="positive">R$ {{ saldo_atual|floatformat:2|intcomma }}</strong>
-        <!-- Classe 'neutral' aplica cor cinza/neutra ao texto -->
       </div>
     </div>
   </div>
-  <!-- FIM CARD 1 -->
-
+  
   <!-- CARD 2 - RECEITAS -->
   <div class="summary-card green">
-    <!-- Card com borda verde indicando valores positivos/entradas -->
     <div class="card-header">
       <span>Total de Receitas</span>
-      <span class="icon">💰</span> <!-- Ícone de dinheiro -->
+      <span class="icon">💰</span>
     </div>
-
-    <!-- Valor principal: total de entradas do mês -->
     <h2>R$ {{ entradas_mes|floatformat:2|intcomma }}</h2>
-
+    
     <div class="card-details">
       <div>
-        <!-- Primeiro bloco: receitas previstas -->
         <small>Mês Anterior</small>
-        <strong class="neutral">R$ {{ entradas_mes_anterior|floatformat:2|intcomma }}</strong>
+        {% if tem_historico_anterior %}
+          <strong class="neutral">R$ {{ entradas_mes_anterior|floatformat:2|intcomma }}</strong>
+        {% else %}
+          <strong class="neutral" style="font-size: 0.9em;">Sem histórico</strong>
+        {% endif %}
       </div>
 
       <div>
-        <!-- Segundo bloco: variação -->
         <small>Variação</small>
-        <strong class="positive">+15%</strong> <!-- Calculado dinamicamente -->
+        {% if tem_historico_anterior and entradas_mes_anterior > 0 %}
+          <strong class="{% if variacao_receitas >= 0 %}positive{% else %}negative{% endif %}">
+            {{ variacao_receitas|floatformat:1 }}%
+          </strong>
+        {% else %}
+          <strong class="neutral" style="font-size: 0.9em;">Nova</strong>
+        {% endif %}
       </div>
     </div>
   </div>
-  <!-- FIM CARD 2 -->
-
+  
   <!-- CARD 3 - DESPESAS -->
   <div class="summary-card red">
-    <!-- Card com borda vermelha indicando valores negativos/saídas -->
     <div class="card-header">
       <span>Total de Despesas</span>
-      <span class="icon">💸</span> <!-- Ícone de dinheiro saindo -->
+      <span class="icon">💸</span>
     </div>
-
-    <!-- Valor principal: total de saídas do mês -->
     <h2>R$ {{ saidas_mes|floatformat:2|intcomma }}</h2>
-
+    
     <div class="card-details">
       <div>
-        <!-- Primeiro bloco: despesas mês anterior -->
         <small>Mês Anterior</small>
-        <strong class="neutral">R$ {{ saidas_mes_anterior|floatformat:2|intcomma }}</strong>
+        {% if tem_historico_anterior %}
+          <strong class="neutral">R$ {{ saidas_mes_anterior|floatformat:2|intcomma }}</strong>
+        {% else %}
+          <strong class="neutral" style="font-size: 0.9em;">Sem histórico</strong>
+        {% endif %}
       </div>
 
       <div>
-        <!-- Segundo bloco: valor orçado para despesas -->
         <small>Orçado</small>
-        <strong class="neutral">R$ {{ orcamento_mes|floatformat:2|intcomma }}</strong>
+        {% if orcamento_mes > 0 %}
+          <strong class="neutral">R$ {{ orcamento_mes|floatformat:2|intcomma }}</strong>
+        {% else %}
+          <strong class="neutral" style="font-size: 0.9em;">Sem orçamento</strong>
+        {% endif %}
       </div>
     </div>
   </div>
-  <!-- FIM CARD 3 -->
-
 </section>
 {% endblock %}
