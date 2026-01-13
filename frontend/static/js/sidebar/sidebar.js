@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('.sidebar');
     const btn = document.getElementById('btn');
     const mainContent = document.querySelector('.main-content');
-    const appContainer = document.querySelector('.app-container');
     
     if (!sidebar || !btn) {
         console.warn('Sidebar elements not found');
@@ -18,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
         saveSidebarState();
     }
     
-    // Função para atualizar ícone do menu
+    // Função para atualizar ícone do menu (mantida por compatibilidade)
+    // O ideal seria remover essa função e fazer apenas com CSS
     function updateMenuIcon() {
         if (sidebar.classList.contains('open')) {
             btn.classList.replace('bx-menu', 'bx-menu-alt-right');
@@ -108,14 +108,64 @@ document.addEventListener('DOMContentLoaded', function() {
                     const linkName = item.querySelector('.links_name');
                     if (linkName) {
                         const text = linkName.textContent.toLowerCase();
-                        item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+                        // Usa classe CSS em vez de manipular style.display diretamente
+                        item.classList.toggle('hidden', !text.includes(searchTerm));
                     }
                 });
+            });
+            
+            // Limpar filtro quando campo for limpo com botão de limpar
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    const navItems = document.querySelectorAll('.nav-list li:not(.search-container)');
+                    navItems.forEach(item => {
+                        item.classList.remove('hidden');
+                    });
+                }
             });
         }
     }
     
-    // Inicializar
+    // Melhorar acessibilidade do sidebar
+    function setupAccessibility() {
+        // Fechar sidebar com tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                updateMenuIcon();
+                saveSidebarState();
+                btn.focus(); // Mantém foco no botão para acessibilidade
+            }
+        });
+        
+        // Focar no primeiro item da navegação quando sidebar abrir
+        btn.addEventListener('click', function() {
+            if (sidebar.classList.contains('open')) {
+                const firstNavItem = document.querySelector('.nav-list li:first-child a');
+                if (firstNavItem) {
+                    setTimeout(() => firstNavItem.focus(), 300);
+                }
+            }
+        });
+    }
+    
+    // Configurar tooltips dinâmicos
+    function setupTooltips() {
+        const tooltips = document.querySelectorAll('.sidebar li .tooltip');
+        
+        tooltips.forEach(tooltip => {
+            const link = tooltip.parentElement.querySelector('a');
+            if (link) {
+                const linkName = link.querySelector('.links_name');
+                if (linkName && linkName.textContent) {
+                    tooltip.textContent = linkName.textContent.trim();
+                }
+            }
+        });
+    }
+    
+    // Inicializar sidebar
     function initSidebar() {
         // Evento do botão menu
         btn.addEventListener('click', toggleSidebar);
@@ -132,22 +182,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // Configurar busca
         setupSearch();
         
-        // Atualizar ao redimensionar
+        // Configurar acessibilidade
+        setupAccessibility();
+        
+        // Configurar tooltips
+        setupTooltips();
+        
+        // Redimensionamento - apenas lógica, sem manipular estilos
         window.addEventListener('resize', function() {
-            
-            if (window.innerWidth > 768) {
-                sidebar.style.transform = 'translateX(0)';
-            } else {
-                if (!sidebar.classList.contains('open')) {
-                    sidebar.style.transform = 'translateX(-100%)';
-                }
+            // Se estiver em mobile e sidebar aberta, salvar estado
+            if (window.innerWidth > 768 && sidebar.classList.contains('open')) {
+                // Manter sidebar aberta ao voltar para desktop
+                saveSidebarState();
             }
         });
-        
-        // Inicializar transform para mobile
-        if (window.innerWidth <= 768 && !sidebar.classList.contains('open')) {
-            sidebar.style.transform = 'translateX(-100%)';
-        }
     }
     
     // Inicializar sidebar
@@ -156,22 +204,110 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Sidebar initialized successfully');
 });
 
-// Função para melhorar os tooltips
-function setupTooltips() {
-    const sidebar = document.querySelector('.sidebar');
-    const tooltips = document.querySelectorAll('.sidebar li .tooltip');
-    
-    // Garantir que tooltips tenham o texto correto
-    tooltips.forEach(tooltip => {
-        const link = tooltip.parentElement.querySelector('a');
-        if (link) {
-            const linkName = link.querySelector('.links_name');
-            if (linkName && linkName.textContent) {
-                tooltip.textContent = linkName.textContent.trim();
-            }
-        }
-    });
+// Função auxiliar para verificar se é dispositivo móvel
+function isMobileDevice() {
+    return window.innerWidth <= 768;
 }
 
-// Chame esta função após carregar a sidebar
-setupTooltips();
+// Função para abrir sidebar programaticamente (para uso externo)
+export function openSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const btn = document.getElementById('btn');
+    
+    if (sidebar && btn) {
+        sidebar.classList.add('open');
+        
+        // Atualizar ícone (remover quando CSS assumir essa responsabilidade)
+        btn.classList.replace('bx-menu', 'bx-menu-alt-right');
+        
+        // Salvar estado
+        localStorage.setItem('sidebarOpen', 'true');
+        
+        return true;
+    }
+    return false;
+}
+
+// Função para fechar sidebar programaticamente (para uso externo)
+export function closeSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const btn = document.getElementById('btn');
+    
+    if (sidebar && btn) {
+        sidebar.classList.remove('open');
+        
+        // Atualizar ícone (remover quando CSS assumir essa responsabilidade)
+        btn.classList.replace('bx-menu-alt-right', 'bx-menu');
+        
+        // Salvar estado
+        localStorage.setItem('sidebarOpen', 'false');
+        
+        return true;
+    }
+    return false;
+}
+
+// Função para alternar sidebar programaticamente (para uso externo)
+export function toggleSidebarState() {
+    const sidebar = document.querySelector('.sidebar');
+    
+    if (sidebar) {
+        if (sidebar.classList.contains('open')) {
+            return closeSidebar();
+        } else {
+            return openSidebar();
+        }
+    }
+    return false;
+}
+
+// Função para atualizar informações do usuário dinamicamente
+export function updateUserProfile(userData) {
+    const userNameElement = document.querySelector('.user-name');
+    const userEmailElement = document.querySelector('.user-email');
+    const userAvatar = document.querySelector('.user-avatar');
+    const avatarDefault = document.querySelector('.avatar-default');
+    
+    if (userData.name && userNameElement) {
+        userNameElement.textContent = userData.name;
+    }
+    
+    if (userData.email && userEmailElement) {
+        userEmailElement.textContent = userData.email;
+    }
+    
+    if (userData.avatarUrl && userAvatar) {
+        userAvatar.src = userData.avatarUrl;
+        userAvatar.style.display = 'block';
+        if (avatarDefault) avatarDefault.style.display = 'none';
+    } else if (userData.name && avatarDefault) {
+        const initial = userData.name.charAt(0).toUpperCase();
+        avatarDefault.textContent = initial;
+        avatarDefault.setAttribute('data-initial', initial);
+        
+        // Atualizar cor do avatar
+        const colors = [
+            '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7',
+            '#DDA0DD', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9'
+        ];
+        let hash = 0;
+        for (let i = 0; i < initial.length; i++) {
+            hash = initial.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        const color = colors[Math.abs(hash) % colors.length];
+        avatarDefault.style.background = `linear-gradient(135deg, ${color} 0%, ${color}80 100%)`;
+    }
+    
+    return true;
+}
+
+// Verificar e aplicar estado inicial baseado no dispositivo
+document.addEventListener('DOMContentLoaded', function() {
+    // Se for dispositivo móvel, fechar sidebar por padrão
+    if (isMobileDevice()) {
+        const savedState = localStorage.getItem('sidebarOpen');
+        if (savedState === null) {
+            localStorage.setItem('sidebarOpen', 'false');
+        }
+    }
+});
