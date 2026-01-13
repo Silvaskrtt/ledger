@@ -17730,3 +17730,5 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /api/accounts/ HTTP/1.1" 200 1019
 "GET /cartoes/ HTTP/1.1" 200 8835
 "GET /api/credit-cards/ HTTP/1.1" 200 519
+C:\Users\muril\ledger\backend\budgets\models.py changed, reloading.
+Watching for file changes with StatReloader
