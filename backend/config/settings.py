@@ -26,7 +26,7 @@ if not SECRET_KEY:
     SECRET_KEY = get_random_secret_key()
 
 # Debug ativado apenas em ambiente de desenvolvimento
-DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Usar variável de ambiente
+DEBUG = os.getenv('DEBUG', 'True') == 'True'  # Usar variável de ambiente
 
 # Hosts permitidos (vazio em desenvolvimento)
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
