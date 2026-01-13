@@ -104,7 +104,7 @@ def budget_view(request):
         # 5. Buscar categorias disponíveis para o formulário
         categories = Category.objects.filter(
             user=request.user,
-            type__in=['EXPENSE', 'BOTH']  # Apenas categorias de despesa
+            type='OUT'  # Apenas categorias de despesa
         ).order_by('name')
         
         context = {
@@ -129,7 +129,10 @@ def budget_view(request):
         traceback.print_exc()
         return render(request, 'budget/budget.html', {
             'limits': [],
-            'categories': [],
+            'categories': Category.objects.filter(user=request.user, type='OUT'),
+            'current_month': date.today().strftime('%B %Y'),
+            'current_year': date.today().year,
+            'current_month_num': date.today().month,
             'error': str(e),
             'has_budget': False
         })
@@ -278,10 +281,17 @@ def create_budget_limit(request):
                 'error': 'Categoria é obrigatória'
             }, status=status.HTTP_400_BAD_REQUEST)
         
-        if not limit_amount or float(limit_amount) <= 0:
+        try:
+            limit_amount_decimal = float(limit_amount)
+            if limit_amount_decimal <= 0:
+                return Response({
+                    'success': False,
+                    'error': 'Valor da meta deve ser maior que zero'
+                }, status=status.HTTP_400_BAD_REQUEST)
+        except (ValueError, TypeError):
             return Response({
                 'success': False,
-                'error': 'Valor da meta deve ser maior que zero'
+                'error': 'Valor da meta inválido'
             }, status=status.HTTP_400_BAD_REQUEST)
         
         # Obter categoria
@@ -299,7 +309,13 @@ def create_budget_limit(request):
         # Determinar o mês do orçamento
         if month:
             # Orçamento para mês específico
-            period_start = datetime.strptime(month + '-01', '%Y-%m-%d').date()
+            try:
+                period_start = datetime.strptime(month + '-01', '%Y-%m-%d').date()
+            except ValueError:
+                return Response({
+                    'success': False,
+                    'error': 'Mês inválido'
+                }, status=status.HTTP_400_BAD_REQUEST)
         else:
             # Mês atual
             today = date.today()
@@ -313,6 +329,9 @@ def create_budget_limit(request):
             defaults={'status': 'ACTIVE'}
         )
         
+        # O modelo espera DecimalField, não string
+        from decimal import Decimal
+        
         # Verificar se já existe limite para esta categoria neste orçamento
         existing_limit = BudgetCategoryLimit.objects.filter(
             budget=budget,
@@ -321,7 +340,7 @@ def create_budget_limit(request):
         
         if existing_limit:
             # Atualizar valor existente
-            existing_limit.limit_amount = limit_amount
+            existing_limit.limit_amount = Decimal(str(limit_amount_decimal))
             existing_limit.save()
             limit = existing_limit
             action = 'atualizada'
@@ -330,7 +349,7 @@ def create_budget_limit(request):
             limit = BudgetCategoryLimit.objects.create(
                 budget=budget,
                 category=category,
-                limit_amount=limit_amount
+                limit_amount=Decimal(str(limit_amount_decimal))
             )
             action = 'criada'
         
