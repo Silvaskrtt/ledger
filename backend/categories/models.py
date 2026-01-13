@@ -1,6 +1,4 @@
-﻿# backend/categories/models.py
-
-import uuid
+﻿import uuid
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -36,7 +34,7 @@ class Category(models.Model):
     
     color = models.CharField(
         max_length=7,
-        default='#3B82F6',  # Cor padrão azul
+        default='#3B82F6',
         help_text="Cor em formato hexadecimal (#RRGGBB)"
     )
     
@@ -50,7 +48,7 @@ class Category(models.Model):
     
     parent_category = models.ForeignKey(
         'self',
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         null=True,
         blank=True,
         related_name='subcategories',
@@ -59,8 +57,6 @@ class Category(models.Model):
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    deleted_at = models.DateTimeField(null=True, blank=True)  # Soft delete
-    is_deleted = models.BooleanField(default=False)  # Soft delete
     
     class Meta:
         verbose_name = "Category"
@@ -71,19 +67,36 @@ class Category(models.Model):
                 name='unique_category_per_user'
             )
         ]
-        ordering = ['type', 'name']  # Ordena por tipo e depois por nome
+        ordering = ['type', 'name']
 
     def __str__(self):
-        return f"{self.name} ({self.get_type_display()})"
+        parent_str = f" ({self.parent_category.name})" if self.parent_category else ""
+        return f"{self.name}{parent_str} ({self.get_type_display()})"
     
-    def is_expense(self):
-        """Verifica se é uma categoria de despesa"""
-        return self.type == 'OUT'
+    def get_type_display(self):
+        """Retorna o display name do tipo"""
+        return dict(self.TYPE_CHOICES).get(self.type, self.type)
     
-    def is_income(self):
-        """Verifica se é uma categoria de renda"""
-        return self.type == 'IN'
+    def get_subcategories_count(self):
+        """Retorna a quantidade de subcategorias"""
+        return self.subcategories.count()
     
-    def get_subcategories(self):
-        """Retorna todas as subcategorias desta categoria"""
-        return self.subcategories.all()
+    def is_root_category(self):
+        """Verifica se é uma categoria raiz (sem pai)"""
+        return self.parent_category is None
+    
+    def get_all_descendants(self):
+        """Retorna todas as categorias descendentes"""
+        descendants = []
+        for subcat in self.subcategories.all():
+            descendants.append(subcat)
+            descendants.extend(subcat.get_all_descendants())
+        return descendants
+    
+    def can_be_parent_of(self, category):
+        """Verifica se esta categoria pode ser pai de outra categoria"""
+        if self == category:
+            return False
+        if category in self.get_all_descendants():
+            return False
+        return True
