@@ -1,22 +1,42 @@
 /* frontend/static/css/sidebar/sidebar.css */
 
+/* =============== IMPORTS =============== */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
 
-/* =============== ROOT VARIABLES =============== */
+/* =============== VARIÁVEIS ROOT =============== */
 :root {
     --header-height: 3.5rem;
     
-    /* Light theme colors */
+    /* Cores - Tema claro (backup) */
     --first-color: hsl(258, 85%, 63%);
     --title-color: hsl(228, 18%, 16%);
     --text-color: hsl(228, 8%, 56%);
     --body-color: hsl(228, 100%, 99%);
     --shadow-color: hsla(228, 80%, 4%, .1);
+    
+    /* Cores - Sidebar (tema escuro) */
     --sidebar-bg: #111111;
     --sidebar-hover: #500BD9;
     --input-bg: #2f2f2f;
+    --profile-bg: #272727;
+    --text-white: #ffffff;
+    --text-gray: rgba(255, 255, 255, 0.7);
+    
+    /* Transições */
+    --transition-slow: all 0.5s ease;
+    --transition-fast: all 0.3s ease;
+    
+    /* Bordas */
+    --border-radius: 12px;
+    --border-radius-small: 8px;
+    
+    /* Sombras */
+    --shadow-medium: 0 5px 10px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 4px 12px rgba(80, 11, 217, 0.3);
+    --shadow-danger: 0 4px 12px rgba(255, 71, 87, 0.3);
 }
 
+/* =============== RESET GLOBAL =============== */
 * {
     margin: 0;
     padding: 0;
@@ -24,33 +44,39 @@
     font-family: 'Lexend', sans-serif;
 }
 
-/* Container principal movido para cá */
+/* =============== LAYOUT PRINCIPAL =============== */
+
+/* Container da aplicação */
 .app-container {
     display: flex;
     min-height: 100vh;
+    width: 100%;
 }
 
-/* ===== SIDEBAR BASE ===== */
+/* =============== SIDEBAR =============== */
+
+/* Sidebar - Estado padrão (fechado) */
 .sidebar {
     display: flex;
     flex-direction: column;
     position: fixed;
     left: 0;
     top: 0;
-    height: 100%;
+    height: 100vh; /* Alterado de 100% para 100vh para melhor compatibilidade */
     width: 78px;
-    background: #111111;
+    background: var(--sidebar-bg);
     padding: 6px 14px;
     z-index: 1000;
-    transition: all 0.5s ease;
-    overflow: hidden;
+    transition: var(--transition-slow);
+    overflow-x: hidden; /* Impede rolagem horizontal */
 }
 
+/* Sidebar - Estado aberto */
 .sidebar.open {
     width: 250px;
 }
 
-/* ===== LOGO ===== */
+/* =============== LOGO =============== */
 .sidebar .logo-details {
     height: 60px;
     display: flex;
@@ -59,20 +85,22 @@
     position: relative;
 }
 
+/* Nome do logo (visível apenas quando sidebar aberta) */
 .sidebar .logo-details .logo_name {
-    color: #fff;
+    color: var(--text-white);
     font-size: 20px;
     font-weight: 600;
     opacity: 0;
-    transition: all 0.5s ease;
+    transition: var(--transition-slow);
     white-space: nowrap;
+    margin-left: 10px;
 }
 
-.sidebar.open .logo-details,
 .sidebar.open .logo-details .logo_name {
     opacity: 1;
 }
 
+/* Botão de toggle (hamburger) */
 .sidebar .logo-details #btn {
     position: absolute;
     top: 50%;
@@ -84,60 +112,50 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.5s ease;
-    color: #fff;
+    transition: var(--transition-slow);
+    color: var(--text-white);
     background: none;
     border: none;
     z-index: 1001;
     width: 50px;
 }
 
-/* ===== ÍCONES ===== */
+.sidebar .logo-details #btn:hover {
+    color: var(--first-color);
+}
+
+/* =============== ÍCONES =============== */
 .sidebar i {
-    color: #fff;
+    color: var(--text-white);
     height: 60px;
     min-width: 50px;
     font-size: 28px;
     text-align: center;
     line-height: 60px;
+    transition: var(--transition-fast);
 }
 
-/* ===== LISTA DE NAVEGAÇÃO ===== */
-.sidebar .nav-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    height: calc(100% - 140px);
-    overflow-y: auto;
-    padding-right: 0;
-}
-
-.sidebar li {
-    position: relative;
-    margin: 8px 0;
-    list-style: none;
-}
-
-/* ===== BUSCA ===== */
+/* =============== BARRA DE PESQUISA =============== */
 .sidebar .search-container {
     position: relative;
     height: 50px;
     margin-bottom: 10px;
+    margin-top: 5px;
 }
 
+/* Campo de busca */
 .search-container input {
     width: 100%;
     height: 100%;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     border: 2px solid transparent;
     outline: none;
     background: var(--input-bg);
-    color: #fff;
+    color: var(--text-white);
     padding: 0 20px 0 52px;
     font-size: 15px;
     font-weight: 400;
-    transition: all 0.5s ease;
+    transition: var(--transition-slow);
 }
 
 .search-container input:focus {
@@ -145,6 +163,7 @@
     background: rgba(80, 11, 217, 0.1);
 }
 
+/* Esconde campo quando sidebar fechada */
 .sidebar:not(.open) .search-container input {
     opacity: 0;
     pointer-events: none;
@@ -152,6 +171,7 @@
     padding: 0;
 }
 
+/* Ícone de busca */
 .search-container .bx-search {
     position: absolute;
     top: 50%;
@@ -159,12 +179,12 @@
     transform: translateY(-50%);
     font-size: 22px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    color: #fff;
+    transition: var(--transition-fast);
+    color: var(--text-white);
     z-index: 1;
 }
 
-/* Ícone centralizado quando fechada */
+/* Ícone centralizado quando sidebar fechada */
 .sidebar:not(.open) .bx-search {
     left: 50%;
     transform: translate(-50%, -50%);
@@ -174,29 +194,64 @@
     color: var(--first-color);
 }
 
-/* ===== LINKS ===== */
+/* =============== NAVEGAÇÃO =============== */
+.sidebar .nav-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    height: calc(100% - 140px);
+    overflow-y: auto;
+    padding-right: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--first-color) transparent;
+}
+
+/* Estilização da barra de rolagem (Webkit) */
+.sidebar .nav-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar .nav-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar .nav-list::-webkit-scrollbar-thumb {
+    background: var(--first-color);
+    border-radius: 4px;
+}
+
+/* Itens da navegação */
+.sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+}
+
+/* Links de navegação */
 .sidebar li a {
     display: flex;
     height: 50px;
     align-items: center;
     text-decoration: none;
-    transition: all 0.4s ease;
-    border-radius: 12px;
-    background: #111111;
+    transition: var(--transition-fast);
+    border-radius: var(--border-radius);
+    background: var(--sidebar-bg);
 }
 
 .sidebar li a:hover {
-    background: #500BD9;
+    background: var(--sidebar-hover);
 }
 
+/* Nome dos links (visível apenas quando sidebar aberta) */
 .sidebar li a .links_name {
-    color: #fff;
+    color: var(--text-white);
     font-size: 15px;
     font-weight: 400;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: 0.4s;
+    transition: opacity 0.4s ease;
 }
 
 .sidebar.open li a .links_name {
@@ -204,21 +259,17 @@
     pointer-events: auto;
 }
 
-.sidebar li a:hover .links_name,
-.sidebar li a:hover i {
-    transition: all 0.5s ease;
-    color: #fff;
-}
+/* =============== TOOLTIPS =============== */
 
-/* ===== TOOLTIPS CORRIGIDOS ===== */
+/* Tooltip base */
 .sidebar li .tooltip {
     position: absolute;
     top: -20px;
     left: calc(100% + 15px);
-    background: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    background: var(--text-white);
+    box-shadow: var(--shadow-medium);
     padding: 8px 12px;
-    border-radius: 6px;
+    border-radius: var(--border-radius-small);
     font-size: 13px;
     font-weight: 500;
     opacity: 0;
@@ -226,33 +277,33 @@
     pointer-events: none;
     transition: 0s;
     z-index: 1000;
-    color: #111;
+    color: var(--sidebar-bg);
     text-align: center;
 }
 
-/* MOSTRAR TOOLTIP APENAS QUANDO SIDEBAR ESTÁ FECHADA */
+/* Mostra tooltip apenas quando sidebar fechada */
 .sidebar:not(.open) li:hover .tooltip {
     opacity: 1;
     pointer-events: auto;
-    transition: all 0.4s ease;
+    transition: var(--transition-fast);
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* ESCONDER TOOLTIP QUANDO SIDEBAR ESTÁ ABERTA */
+/* Esconde tooltip quando sidebar aberta */
 .sidebar.open li .tooltip {
     display: none;
 }
 
-/* ===== PERFIL ===== */
+/* =============== SEÇÃO DE PERFIL =============== */
 .profile-section {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 78px;
-    background: #272727;
+    background: var(--profile-bg);
     padding: 15px 14px;
-    transition: all 0.5s ease;
+    transition: var(--transition-slow);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -260,6 +311,7 @@
     width: 250px;
 }
 
+/* Container do perfil */
 .profile-content {
     display: flex;
     align-items: center;
@@ -267,7 +319,7 @@
     gap: 12px;
 }
 
-/* Avatar */
+/* Avatar do usuário */
 .avatar-container {
     position: relative;
     flex-shrink: 0;
@@ -278,8 +330,8 @@
     height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #500BD9;
-    background: #2f2f2f;
+    border: 2px solid var(--first-color);
+    background: var(--input-bg);
 }
 
 .avatar-default {
@@ -290,13 +342,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--text-white);
     font-weight: bold;
     font-size: 18px;
-    border: 2px solid #500BD9;
+    border: 2px solid var(--first-color);
     text-transform: uppercase;
 }
 
+/* Indicador de status online */
 .online-status {
     position: absolute;
     bottom: 2px;
@@ -305,7 +358,7 @@
     height: 10px;
     background: #00b894;
     border-radius: 50%;
-    border: 2px solid #272727;
+    border: 2px solid var(--profile-bg);
 }
 
 /* Informações do usuário */
@@ -322,7 +375,7 @@
 }
 
 .user-name {
-    color: #fff;
+    color: var(--text-white);
     font-size: 14px;
     font-weight: 600;
     white-space: nowrap;
@@ -332,28 +385,29 @@
 }
 
 .user-email {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-gray);
     font-size: 12px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-/* Botões */
+/* =============== BOTÕES DE LOGIN/LOGOUT =============== */
 .logout-form, .login-link {
     margin: 0;
     padding: 0;
     flex-shrink: 0;
 }
 
-.logout-btn, .login-btn {
+/* Botão de logout */
+.logout-btn {
     background: rgba(255, 71, 87, 0.2);
     border: 1px solid rgba(255, 71, 87, 0.3);
     color: rgba(255, 71, 87, 0.9);
     padding: 8px 12px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-small);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -364,28 +418,42 @@
     font-size: 14px;
 }
 
-.login-btn {
-    background: rgba(80, 11, 217, 0.2);
-    border: 1px solid rgba(80, 11, 217, 0.3);
-    color: rgba(80, 11, 217, 0.9);
-}
-
 .logout-btn:hover {
     background: #ff4757;
     border-color: #ff4757;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+    box-shadow: var(--shadow-danger);
+}
+
+/* Botão de login */
+.login-btn {
+    background: rgba(80, 11, 217, 0.2);
+    border: 1px solid rgba(80, 11, 217, 0.3);
+    color: rgba(80, 11, 217, 0.9);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 40px;
+    height: 40px;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .login-btn:hover {
-    background: #500BD9;
-    border-color: #500BD9;
-    color: white;
+    background: var(--sidebar-hover);
+    border-color: var(--sidebar-hover);
+    color: var(--text-white);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(80, 11, 217, 0.3);
+    box-shadow: var(--shadow-hover);
 }
 
+/* Texto dos botões (visível apenas quando sidebar aberta) */
 .logout-text, .login-text {
     opacity: 0;
     font-size: 13px;
@@ -399,13 +467,14 @@
     opacity: 1;
 }
 
-/* ===== CONTEÚDO PRINCIPAL ===== */
+/* =============== CONTEÚDO PRINCIPAL =============== */
 .main-content {
     margin-left: 78px;
     width: calc(100% - 78px);
     padding: 30px;
     min-height: 100vh;
-    transition: all 0.3s ease;
+    transition: var(--transition-slow);
+    background: var(--body-color);
 }
 
 .sidebar.open ~ .main-content {
@@ -413,11 +482,82 @@
     width: calc(100% - 250px);
 }
 
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
+/* =============== ANIMAÇÕES =============== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-content {
+    animation: fadeIn 0.5s ease;
+}
+
+/* =============== RESPONSIVIDADE =============== */
+
+/* 1. TELAS MUITO PEQUENAS (Mobile - até 480px) */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+        padding: 6px 10px;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+        width: 100%;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 15px;
+    }
+    
+    .profile-section {
+        width: 100%;
+        padding: 12px 10px;
+        position: relative;
+    }
+    
+    .user-avatar,
+    .avatar-default {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .logout-btn,
+    .login-btn {
+        padding: 6px 10px;
+        min-width: 35px;
+        height: 35px;
+        font-size: 13px;
+    }
+    
+    /* Ajusta tooltips para telas muito pequenas */
+    .sidebar:not(.open) li .tooltip {
+        display: none; /* Esconde tooltips em mobile */
+    }
+    
+    /* Botão toggle mais acessível */
+    .sidebar .logo-details #btn {
+        width: 44px;
+        font-size: 24px;
+    }
+}
+
+/* 2. TABLETS E MOBILE GRANDE (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
     .sidebar {
         width: 70px;
         transform: translateX(-100%);
+        padding: 6px 12px;
     }
     
     .sidebar.open {
@@ -442,31 +582,191 @@
     
     .user-avatar,
     .avatar-default {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
     }
     
     .logout-btn,
     .login-btn {
+        padding: 7px 11px;
+        min-width: 38px;
+        height: 38px;
+    }
+    
+    /* Tooltips apenas para sidebar fechada */
+    .sidebar:not(.open) li .tooltip {
+        font-size: 12px;
         padding: 6px 10px;
-        min-width: 35px;
-        height: 35px;
+        left: calc(100% + 10px);
     }
 }
 
-/* ===== ANIMAÇÕES ===== */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+/* 3. NOTEBOOKS (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar {
+        width: 78px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .sidebar.open {
+        width: 220px; /* Ligeiramente menor para notebooks */
+    }
+    
+    .main-content {
+        margin-left: 78px;
+        width: calc(100% - 78px);
+        padding: 25px;
+    }
+    
+    .sidebar.open ~ .main-content {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+    
+    .profile-section {
+        width: 78px;
+    }
+    
+    .sidebar.open .profile-section {
+        width: 220px;
+    }
+    
+    /* Ajustes menores para melhor encaixe */
+    .sidebar li a .links_name {
+        font-size: 14px;
+    }
+    
+    .user-name {
+        font-size: 13px;
+    }
+    
+    .user-email {
+        font-size: 11px;
     }
 }
 
-.profile-content {
-    animation: fadeIn 0.5s ease;
+/* 4. DESKTOPS (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    /* Configuração padrão já é ideal para desktops */
+    .sidebar.open {
+        width: 250px;
+    }
+    
+    .sidebar.open ~ .main-content {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+}
+
+/* 5. TELAS MUITO GRANDES (acima de 1440px) */
+@media (min-width: 1441px) {
+    .sidebar {
+        width: 85px;
+    }
+    
+    .sidebar.open {
+        width: 280px; /* Sidebar mais larga para telas grandes */
+    }
+    
+    .main-content {
+        margin-left: 85px;
+        width: calc(100% - 85px);
+        padding: 40px;
+    }
+    
+    .sidebar.open ~ .main-content {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+    }
+    
+    .profile-section {
+        width: 85px;
+        padding: 20px 16px;
+    }
+    
+    .sidebar.open .profile-section {
+        width: 280px;
+    }
+    
+    /* Elementos maiores para telas grandes */
+    .user-avatar,
+    .avatar-default {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .user-name {
+        font-size: 15px;
+    }
+    
+    .user-email {
+        font-size: 13px;
+    }
+}
+
+/* 6. ORIENTAÇÃO LANDSCAPE (para tablets/mobile) */
+@media (max-width: 768px) and (orientation: landscape) {
+    .sidebar {
+        height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .sidebar .nav-list {
+        max-height: 60vh; /* Limita altura da lista em landscape */
+    }
+    
+    .profile-section {
+        position: relative;
+        margin-top: auto;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+}
+
+/* 7. SUPORTE PARA ALTA DENSIDADE DE PIXELS */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .sidebar {
+        border-right: 0.5px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* 8. MODOS DE CONTRASTE (para acessibilidade) */
+@media (prefers-contrast: high) {
+    :root {
+        --sidebar-bg: #000000;
+        --text-white: #ffffff;
+        --text-gray: #cccccc;
+    }
+    
+    .sidebar li a:hover {
+        outline: 2px solid var(--first-color);
+    }
+}
+
+/* 9. REDUÇÃO DE MOVIMENTO (para acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+    
+    .sidebar {
+        transition: none;
+    }
+}
+
+/* 10. AJUSTES PARA IMPRESSÃO */
+@media print {
+    .sidebar {
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 0;
+    }
 }
