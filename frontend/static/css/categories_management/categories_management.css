@@ -758,3 +758,45 @@
         margin-left: 15px;
     }
 }
+
+/* Estilos para formulário de edição de tags */
+.tag-edit-form {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tag-edit-form .inline-form {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-edit-form .input-group {
+    min-width: 150px;
+}
+
+.tag-edit-form input[type="text"],
+.tag-edit-form input[type="color"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Lexend', sans-serif;
+}
+
+.tag-edit-form input[type="color"] {
+    padding: 3px;
+    height: 35px;
+    width: 50px;
+    min-width: 50px;
+}
