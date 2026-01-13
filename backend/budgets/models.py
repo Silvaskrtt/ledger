@@ -1,4 +1,5 @@
 ﻿# backend/budgets/models.py
+from decimal import Decimal
 import uuid
 from datetime import timedelta, date, datetime
 from django.db import models
@@ -7,7 +8,7 @@ from django.contrib.auth.models import User
 from django.utils.timezone import now, make_aware
 from categories.models import Category
 from django.core.exceptions import ValidationError
-
+from django.core.validators import MinValueValidator
 
 class Budget(models.Model):
     PERIOD_TYPE_CHOICES = [
@@ -175,7 +176,7 @@ class BudgetCategoryLimit(models.Model):
         related_name='budget_categories_limits',
         db_column='id_category_id')
 
-    limit_amount = models.DecimalField(max_digits=14, decimal_places=2)
+    limit_amount = models.DecimalField(max_digits=14, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
 
     class Meta:
         verbose_name = "Budget Category Limit"
