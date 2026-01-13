@@ -1,4 +1,5 @@
 # backend/budgets/serializers.py
+from decimal import Decimal
 from rest_framework import serializers
 from .models import Budget, BudgetCategoryLimit
 from categories.models import Category
@@ -37,6 +38,12 @@ class BudgetCategoryLimitSerializer(serializers.ModelSerializer):
     spent = serializers.SerializerMethodField()
     percent = serializers.SerializerMethodField()
     remaining = serializers.SerializerMethodField()
+    
+    limit_amount = serializers.DecimalField(
+        max_digits=14, 
+        decimal_places=2,
+        min_value=Decimal('0.01')
+    )
     
     class Meta:
         model = BudgetCategoryLimit
