@@ -2,7 +2,7 @@
     <div class="modal">
         <div class="modal-header">
             <h3>Nova Meta de Orçamento</h3>
-            <button type="button" class="modal-close" id="closeBudgetModal">&times;</button>
+            <button type="button" class="modal-close" id="closeBudgetModal" aria-label="Fechar">&times;</button>
         </div>
         
         <form id="budgetForm" method="post">
@@ -10,10 +10,13 @@
             
             <div class="form-group">
                 <label for="category">Categoria *</label>
-                <select name="category" id="category" required class="tom-select" data-placeholder="Selecione uma categoria">
+                <select name="category" id="category" required class="tom-select" 
+                        data-placeholder="Selecione uma categoria">
                     <option value="">Selecione uma categoria</option>
                     {% for category in categories %}
-                    <option value="{{ category.category }}">{{ category.name }}</option>
+                    <option value="{{ category.category }}">
+                        {{ category.name }} ({{ category.get_type_display }})
+                    </option>
                     {% endfor %}
                 </select>
             </div>
@@ -35,7 +38,9 @@
                 <input type="month" 
                        name="month" 
                        id="month" 
-                       value="{{ current_year }}-{{ current_month|stringformat:'02d' }}">
+                       value="{{ current_year }}-{{ current_month_num|stringformat:'02d' }}"
+                       min="{{ current_year }}-01"
+                       max="{{ current_year|add:'1' }}-12">
                 <small class="form-hint">Deixe em branco para orçamento mensal recorrente</small>
             </div>
             
