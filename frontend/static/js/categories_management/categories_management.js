@@ -4,7 +4,7 @@ let CSRF_TOKEN = '';
 
 // Estado da aplicação
 let state = {
-    categories: [], // Inicializar como array vazio
+    categories: [],
     tags: [],
     showHidden: false,
     activeTab: 'categories'
@@ -33,7 +33,6 @@ let currentIconTarget = null;
 
 // Funções utilitárias
 function showMessage(message, type = 'success') {
-    // Remover mensagens existentes
     document.querySelectorAll('.message').forEach(msg => msg.remove());
     
     const messageDiv = document.createElement('div');
@@ -84,7 +83,9 @@ function lightenColor(color, percent) {
     }
 }
 
-// Funções de API
+// ============================
+// FUNÇÕES DE API - CATEGORIAS
+// ============================
 async function fetchCategories() {
     try {
         console.log('Buscando categorias da API...');
@@ -102,18 +103,14 @@ async function fetchCategories() {
         }
         
         const data = await response.json();
-        console.log('Dados recebidos da API:', data);
+        console.log('Dados de categorias recebidos:', data);
         
-        // A API está retornando um objeto paginado {count, next, previous, results}
-        // Precisamos extrair o array 'results'
         let categories = [];
         
         if (data && data.results && Array.isArray(data.results)) {
-            // Caso paginado
             categories = data.results;
             console.log('Extraído array de categorias do campo results:', categories.length);
         } else if (Array.isArray(data)) {
-            // Caso direto (array)
             categories = data;
             console.log('Dados são um array direto:', categories.length);
         } else {
@@ -121,10 +118,8 @@ async function fetchCategories() {
             categories = [];
         }
         
-        // Atualizar estado
         state.categories = categories;
-        
-        console.log('Estado atualizado:', state.categories.length, 'categorias');
+        console.log('Categorias no estado:', state.categories.length);
         
         renderCategories();
         populateParentCategorySelect();
@@ -132,8 +127,6 @@ async function fetchCategories() {
     } catch (error) {
         console.error('Erro ao buscar categorias:', error);
         showMessage('Erro ao carregar categorias: ' + error.message, 'error');
-        
-        // Definir array vazio em caso de erro
         state.categories = [];
         renderCategories();
     }
@@ -160,13 +153,11 @@ async function createCategory(categoryData) {
         const newCategory = await response.json();
         console.log('Categoria criada:', newCategory);
         
-        // Adicionar ao array de categorias
         state.categories.push(newCategory);
         renderCategories();
         populateParentCategorySelect();
         showMessage('Categoria criada com sucesso!');
         
-        // Limpar formulário
         elements.categoryForm.reset();
         elements.iconPreview.className = 'fa-solid fa-shopping-cart';
         elements.categoryIconInput.value = 'shopping-cart';
@@ -202,12 +193,10 @@ async function updateCategory(categoryId, categoryData) {
         const updatedCategory = await response.json();
         console.log('Categoria atualizada:', updatedCategory);
         
-        // Atualizar no array
         const index = state.categories.findIndex(c => c.category === categoryId);
         if (index !== -1) {
             state.categories[index] = updatedCategory;
         } else {
-            // Se não encontrou, adicionar
             state.categories.push(updatedCategory);
         }
         
@@ -224,7 +213,6 @@ async function updateCategory(categoryId, categoryData) {
 }
 
 async function deleteCategory(categoryId) {
-    // Verificar se tem subcategorias
     const category = state.categories.find(c => c.category === categoryId);
     
     if (category && category.subcategories_count > 0) {
@@ -248,7 +236,6 @@ async function deleteCategory(categoryId) {
             throw new Error('Erro ao excluir categoria');
         }
         
-        // Remover do array
         state.categories = state.categories.filter(c => c.category !== categoryId);
         renderCategories();
         populateParentCategorySelect();
@@ -259,7 +246,158 @@ async function deleteCategory(categoryId) {
     }
 }
 
-// Renderização
+// ============================
+// FUNÇÕES DE API - TAGS
+// ============================
+async function fetchTags() {
+    try {
+        console.log('Buscando tags da API...');
+        
+        const response = await fetch(`${API_BASE}/tags/`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': CSRF_TOKEN
+            }
+        });
+        
+        if (!response.ok) {
+            console.error('Erro na resposta:', response.status, response.statusText);
+            throw new Error(`Erro ao carregar tags: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('Dados de tags recebidos:', data);
+        
+        let tags = [];
+        
+        if (data && data.results && Array.isArray(data.results)) {
+            tags = data.results;
+            console.log('Extraído array de tags do campo results:', tags.length);
+        } else if (Array.isArray(data)) {
+            tags = data;
+            console.log('Dados são um array direto:', tags.length);
+        } else {
+            console.error('Formato de dados inesperado:', data);
+            tags = [];
+        }
+        
+        state.tags = tags;
+        console.log('Tags no estado:', state.tags.length);
+        
+        renderTags();
+        
+    } catch (error) {
+        console.error('Erro ao buscar tags:', error);
+        showMessage('Erro ao carregar tags: ' + error.message, 'error');
+        state.tags = [];
+        renderTags();
+    }
+}
+
+async function createTag(tagData) {
+    try {
+        console.log('Enviando tag:', tagData);
+        
+        const response = await fetch(`${API_BASE}/tags/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': CSRF_TOKEN
+            },
+            body: JSON.stringify(tagData)
+        });
+        
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || 'Erro ao criar tag');
+        }
+        
+        const newTag = await response.json();
+        console.log('Tag criada:', newTag);
+        
+        state.tags.push(newTag);
+        renderTags();
+        showMessage('Tag criada com sucesso!');
+        
+        elements.tagForm.reset();
+        document.getElementById('tag-color').value = '#6B7280';
+        
+        return newTag;
+    } catch (error) {
+        console.error('Erro:', error);
+        showMessage(error.message || 'Erro ao criar tag', 'error');
+        throw error;
+    }
+}
+
+async function updateTag(tagId, tagData) {
+    try {
+        console.log('Atualizando tag:', tagId, tagData);
+        
+        const response = await fetch(`${API_BASE}/tags/${tagId}/`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': CSRF_TOKEN
+            },
+            body: JSON.stringify(tagData)
+        });
+        
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || 'Erro ao atualizar tag');
+        }
+        
+        const updatedTag = await response.json();
+        console.log('Tag atualizada:', updatedTag);
+        
+        const index = state.tags.findIndex(t => t.tag === tagId);
+        if (index !== -1) {
+            state.tags[index] = updatedTag;
+        } else {
+            state.tags.push(updatedTag);
+        }
+        
+        renderTags();
+        showMessage('Tag atualizada com sucesso!');
+        
+        return updatedTag;
+    } catch (error) {
+        console.error('Erro:', error);
+        showMessage(error.message || 'Erro ao atualizar tag', 'error');
+        throw error;
+    }
+}
+
+async function deleteTag(tagId) {
+    if (!confirm('Tem certeza que deseja excluir esta tag?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`${API_BASE}/tags/${tagId}/`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRFToken': CSRF_TOKEN
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error('Erro ao excluir tag');
+        }
+        
+        state.tags = state.tags.filter(t => t.tag !== tagId);
+        renderTags();
+        showMessage('Tag excluída com sucesso!');
+    } catch (error) {
+        console.error('Erro:', error);
+        showMessage('Erro ao excluir tag', 'error');
+    }
+}
+
+// ============================
+// RENDERIZAÇÃO
+// ============================
 function populateParentCategorySelect() {
     if (!elements.categoryParentSelect) {
         console.error('Elemento categoryParentSelect não encontrado!');
@@ -268,22 +406,18 @@ function populateParentCategorySelect() {
     
     console.log('Populando dropdown de categorias pai...');
     
-    // Limpar opções
     elements.categoryParentSelect.innerHTML = '';
     
-    // Adicionar opção padrão
     const defaultOption = document.createElement('option');
     defaultOption.value = '';
     defaultOption.textContent = 'Sem categoria pai';
     elements.categoryParentSelect.appendChild(defaultOption);
     
-    // Garantir que state.categories é um array
     if (!Array.isArray(state.categories)) {
         console.error('state.categories não é um array:', state.categories);
         state.categories = [];
     }
     
-    // Adicionar apenas categorias raiz (sem pai)
     const rootCategories = state.categories.filter(cat => {
         return !cat.parent_category || cat.parent_category === null;
     });
@@ -309,13 +443,11 @@ function renderCategories() {
     console.log('Renderizando categorias...');
     console.log('Total de categorias no estado:', state.categories.length);
     
-    // Garantir que state.categories é um array
     if (!Array.isArray(state.categories)) {
         console.error('state.categories não é um array durante renderização:', state.categories);
         state.categories = [];
     }
     
-    // Separar categorias por tipo
     const incomeCategories = state.categories.filter(c => c.type === 'IN');
     const expenseCategories = state.categories.filter(c => c.type === 'OUT');
     
@@ -324,17 +456,13 @@ function renderCategories() {
     
     let html = '';
     
-    // Função para renderizar categorias hierarquicamente
     function renderCategoryTree(categories, parentId = null, level = 0) {
         let treeHtml = '';
         
-        // Filtrar categorias por parentId
         const filteredCategories = categories.filter(cat => {
             if (parentId === null) {
-                // Categorias raiz
                 return !cat.parent_category || cat.parent_category === null;
             } else {
-                // Subcategorias
                 return cat.parent_category && cat.parent_category.category === parentId;
             }
         });
@@ -387,13 +515,10 @@ function renderCategories() {
                             </button>
                         </div>
                     </div>
-                    <div class="category-edit-form" style="display: none;">
-                        <!-- Formulário de edição será inserido dinamicamente -->
-                    </div>
+                    <div class="category-edit-form" style="display: none;"></div>
                 </div>
             `;
             
-            // Renderizar subcategorias recursivamente se houver
             if (subcategoriesCount > 0) {
                 treeHtml += renderCategoryTree(categories, category.category, level + 1);
             }
@@ -402,7 +527,6 @@ function renderCategories() {
         return treeHtml;
     }
     
-    // Renderizar categorias de receita
     if (incomeCategories.length > 0) {
         html += `
             <div class="group-title receita-color">
@@ -410,7 +534,6 @@ function renderCategories() {
                 <span>(${incomeCategories.length})</span>
             </div>
         `;
-        
         html += renderCategoryTree(incomeCategories);
     } else {
         html += `
@@ -424,7 +547,6 @@ function renderCategories() {
         `;
     }
     
-    // Renderizar categorias de despesa
     if (expenseCategories.length > 0) {
         html += `
             <div class="group-title despesa-color">
@@ -432,7 +554,6 @@ function renderCategories() {
                 <span>(${expenseCategories.length})</span>
             </div>
         `;
-        
         html += renderCategoryTree(expenseCategories);
     } else {
         html += `
@@ -456,9 +577,59 @@ function renderCategories() {
     console.log('Categorias renderizadas com sucesso');
 }
 
-// Event Listeners
+function renderTags() {
+    if (!elements.tagsList) {
+        console.error('Elemento tagsList não encontrado!');
+        return;
+    }
+    
+    console.log('Renderizando tags...');
+    console.log('Total de tags no estado:', state.tags.length);
+    
+    if (!Array.isArray(state.tags)) {
+        console.error('state.tags não é um array:', state.tags);
+        state.tags = [];
+    }
+    
+    elements.tagsCountSpan.textContent = `${state.tags.length} tag${state.tags.length !== 1 ? 's' : ''}`;
+    
+    if (state.tags.length === 0) {
+        elements.tagsList.innerHTML = '<div class="message info">Nenhuma tag encontrada. Adicione sua primeira tag!</div>';
+        return;
+    }
+    
+    let html = '';
+    state.tags.forEach(tag => {
+        const lightColor = lightenColor(tag.color || '#6B7280', 20);
+        
+        html += `
+            <div class="tag-item" data-id="${tag.tag}" style="background-color: ${lightColor};">
+                <div class="tag-content">
+                    <span class="tag-name">${tag.name}</span>
+                    <span class="tag-color-badge" style="background-color: ${tag.color || '#6B7280'}"></span>
+                </div>
+                <div class="tag-actions">
+                    <button class="btn-tag-edit" title="Editar">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn-tag-delete" title="Excluir">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    elements.tagsList.innerHTML = html;
+    attachTagEventListeners();
+    
+    console.log('Tags renderizadas com sucesso');
+}
+
+// ============================
+// EVENT LISTENERS
+// ============================
 function attachCategoryEventListeners() {
-    // Botões de edição
     document.querySelectorAll('.btn-edit').forEach(btn => {
         btn.addEventListener('click', function() {
             const categoryItem = this.closest('.category-item');
@@ -471,11 +642,31 @@ function attachCategoryEventListeners() {
         });
     });
     
-    // Botões de exclusão
     document.querySelectorAll('.btn-delete').forEach(btn => {
         btn.addEventListener('click', function() {
             const categoryId = this.closest('.category-item').dataset.id;
             deleteCategory(categoryId);
+        });
+    });
+}
+
+function attachTagEventListeners() {
+    document.querySelectorAll('.btn-tag-edit').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tagItem = this.closest('.tag-item');
+            const tagId = tagItem.dataset.id;
+            const tag = state.tags.find(t => t.tag === tagId);
+            
+            if (tag) {
+                showEditTagForm(tagItem, tag);
+            }
+        });
+    });
+    
+    document.querySelectorAll('.btn-tag-delete').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tagId = this.closest('.tag-item').dataset.id;
+            deleteTag(tagId);
         });
     });
 }
@@ -488,26 +679,20 @@ function showEditCategoryForm(categoryItem, category) {
         return;
     }
     
-    // Fechar outros formulários abertos
     document.querySelectorAll('.category-edit-form').forEach(form => {
         if (form !== editForm) {
             form.style.display = 'none';
         }
     });
     
-    // Garantir que state.categories é um array
     if (!Array.isArray(state.categories)) {
         console.error('state.categories não é um array durante edição:', state.categories);
         state.categories = [];
     }
     
-    // Filtrar categorias que podem ser pais
     const availableParents = state.categories.filter(cat => {
-        // Não pode ser ela mesma
         if (cat.category === category.category) return false;
         
-        // Não pode ser uma subcategoria dela (evitar ciclos)
-        // Verificar se a categoria atual é ancestral da candidata a pai
         function isAncestor(currentCat, potentialParentId) {
             if (!currentCat.parent_category) return false;
             if (currentCat.parent_category.category === potentialParentId) return true;
@@ -515,8 +700,6 @@ function showEditCategoryForm(categoryItem, category) {
         }
         
         if (isAncestor(cat, category.category)) return false;
-        
-        // Apenas categorias do mesmo tipo
         return cat.type === category.type;
     });
     
@@ -579,7 +762,6 @@ function showEditCategoryForm(categoryItem, category) {
     
     editForm.style.display = 'block';
     
-    // Atualizar preview do ícone ao digitar
     const iconInput = editForm.querySelector('input[name="icon"]');
     const iconPreview = editForm.querySelector(`#edit-icon-preview-${category.category}`);
     
@@ -589,7 +771,6 @@ function showEditCategoryForm(categoryItem, category) {
         });
     }
     
-    // Botão para abrir modal de ícones
     const editIconBtn = editForm.querySelector('.open-edit-icon-modal');
     if (editIconBtn) {
         editIconBtn.addEventListener('click', function() {
@@ -605,7 +786,6 @@ function showEditCategoryForm(categoryItem, category) {
         });
     }
     
-    // Submeter formulário de edição
     editForm.querySelector('.edit-category-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         
@@ -622,13 +802,75 @@ function showEditCategoryForm(categoryItem, category) {
         editForm.style.display = 'none';
     });
     
-    // Botão cancelar
     editForm.querySelector('.btn-cancel').addEventListener('click', function() {
         editForm.style.display = 'none';
     });
 }
 
-// Inicialização do modal de ícones
+function showEditTagForm(tagItem, tag) {
+    const tagContainer = tagItem.parentNode;
+    
+    // Remover formulários de edição existentes
+    const existingForm = tagContainer.querySelector('.tag-edit-form');
+    if (existingForm) {
+        existingForm.remove();
+        return;
+    }
+    
+    const editForm = document.createElement('div');
+    editForm.className = 'tag-edit-form';
+    editForm.style.cssText = `
+        margin-top: 10px;
+        padding: 15px;
+        background: #f8fafc;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    `;
+    
+    editForm.innerHTML = `
+        <form class="edit-tag-form" data-id="${tag.tag}">
+            <div class="inline-form">
+                <div class="input-group">
+                    <input type="text" name="name" value="${tag.name || ''}" placeholder="Nome da tag" required>
+                </div>
+                <div class="input-group">
+                    <input type="color" name="color" value="${tag.color || '#6B7280'}" title="Escolha uma cor">
+                </div>
+                <div class="input-group">
+                    <button type="submit" class="btn-add-dark">
+                        <i class="fas fa-save"></i> Salvar
+                    </button>
+                    <button type="button" class="btn-cancel" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; cursor: pointer;">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+        </form>
+    `;
+    
+    tagContainer.insertBefore(editForm, tagItem.nextSibling);
+    
+    editForm.querySelector('.edit-tag-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const tagData = {
+            name: formData.get('name'),
+            color: formData.get('color')
+        };
+        
+        await updateTag(tag.tag, tagData);
+        editForm.remove();
+    });
+    
+    editForm.querySelector('.btn-cancel').addEventListener('click', function() {
+        editForm.remove();
+    });
+}
+
+// ============================
+// MODAL DE ÍCONES
+// ============================
 function initIconModal() {
     iconModal = document.getElementById('icon-modal');
     if (!iconModal) return;
@@ -654,7 +896,6 @@ function initIconModal() {
     
     iconModal.innerHTML = modalContent;
     
-    // Lista de ícones disponíveis
     const availableIcons = [
         'shopping-cart', 'home', 'car', 'utensils', 'heart', 'graduation-cap',
         'plane', 'gift', 'coffee', 'film', 'music', 'book', 'dumbbell',
@@ -670,12 +911,10 @@ function initIconModal() {
     
     renderIcons(availableIcons);
     
-    // Event listeners do modal
     iconModal.querySelector('.modal-close').addEventListener('click', closeIconModal);
     iconModal.querySelector('.btn-cancel').addEventListener('click', closeIconModal);
     iconModal.querySelector('.btn-confirm').addEventListener('click', confirmIconSelection);
     
-    // Busca de ícones
     const iconSearch = iconModal.querySelector('#icon-search');
     iconSearch.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase();
@@ -685,7 +924,6 @@ function initIconModal() {
         renderIcons(filteredIcons);
     });
     
-    // Fechar modal ao clicar fora
     iconModal.addEventListener('click', function(e) {
         if (e.target === iconModal) {
             closeIconModal();
@@ -710,16 +948,13 @@ function renderIcons(icons) {
         `;
         
         iconItem.addEventListener('click', function() {
-            // Remover seleção anterior
             iconsGrid.querySelectorAll('.icon-item').forEach(item => {
                 item.classList.remove('selected');
             });
             
-            // Selecionar novo ícone
             this.classList.add('selected');
             selectedIcon = iconName;
             
-            // Habilitar botão de confirmação
             iconModal.querySelector('.btn-confirm').disabled = false;
         });
         
@@ -731,18 +966,15 @@ function openIconModal(targetInput, currentIcon) {
     currentIconTarget = targetInput;
     selectedIcon = currentIcon;
     
-    // Abrir modal
     if (iconModal) {
         iconModal.classList.add('active');
         
-        // Preencher campo de busca
         const searchInput = iconModal.querySelector('#icon-search');
         if (searchInput) {
             searchInput.value = '';
             searchInput.focus();
         }
         
-        // Selecionar ícone atual se existir
         if (currentIcon) {
             const iconItem = iconModal.querySelector(`[data-icon="${currentIcon}"]`);
             if (iconItem) {
@@ -790,11 +1022,12 @@ function confirmIconSelection() {
     closeIconModal();
 }
 
-// Inicialização principal
+// ============================
+// INICIALIZAÇÃO
+// ============================
 function init() {
-    console.log('Inicializando gerenciamento de categorias...');
+    console.log('Inicializando gerenciamento de categorias e tags...');
     
-    // Obter CSRF token
     const csrfTokenElement = document.querySelector('[name=csrfmiddlewaretoken]');
     if (csrfTokenElement) {
         CSRF_TOKEN = csrfTokenElement.value;
@@ -803,12 +1036,10 @@ function init() {
         console.warn('CSRF Token não encontrado!');
     }
     
-    // Configurar abas
     elements.tabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const tabId = this.dataset.tab;
             
-            // Atualizar abas ativas
             elements.tabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
             
@@ -817,15 +1048,14 @@ function init() {
             
             state.activeTab = tabId;
             
-            // Carregar dados da aba se necessário
             if (tabId === 'categories') {
-                // Forçar recarregar categorias
                 fetchCategories();
+            } else if (tabId === 'tags') {
+                fetchTags();
             }
         });
     });
     
-    // Formulário de categoria
     if (elements.categoryForm) {
         elements.categoryForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -853,18 +1083,37 @@ function init() {
             
             await createCategory(categoryData);
         });
-    } else {
-        console.error('Formulário de categoria não encontrado!');
     }
     
-    // Atualizar preview do ícone
+    if (elements.tagForm) {
+        elements.tagForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const nameInput = document.getElementById('tag-name');
+            const colorInput = document.getElementById('tag-color');
+            
+            if (!nameInput) {
+                showMessage('Preencha o nome da tag', 'error');
+                return;
+            }
+            
+            const tagData = {
+                name: nameInput.value,
+                color: colorInput ? colorInput.value : '#6B7280'
+            };
+            
+            console.log('Criando tag com dados:', tagData);
+            
+            await createTag(tagData);
+        });
+    }
+    
     if (elements.categoryIconInput && elements.iconPreview) {
         elements.categoryIconInput.addEventListener('input', function() {
             elements.iconPreview.className = `fa-solid fa-${this.value || 'shopping-cart'}`;
         });
     }
     
-    // Botão para abrir modal de ícones (formulário de adição)
     const openIconModalBtn = document.getElementById('open-icon-modal');
     if (openIconModalBtn) {
         openIconModalBtn.addEventListener('click', function() {
@@ -876,15 +1125,17 @@ function init() {
         });
     }
     
-    // Inicializar modal de ícones
     initIconModal();
     
-    // Carregar dados iniciais
-    console.log('Carregando categorias iniciais...');
+    console.log('Carregando dados iniciais...');
     fetchCategories();
+    
+    // Se a aba de tags estiver ativa inicialmente, carregar tags também
+    if (state.activeTab === 'tags') {
+        fetchTags();
+    }
 }
 
-// Iniciar quando o DOM estiver pronto
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
