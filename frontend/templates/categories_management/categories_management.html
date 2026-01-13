@@ -8,6 +8,7 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/categories_management/categories_management.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -45,7 +46,7 @@
                     </div>
 
                     <div class="input-group">
-                        <select id="category-type" required class="tom-select" data-placeholder="Selecione o tipo">
+                        <select id="category-type" required>
                             <option value="">Selecione o tipo</option>
                             <option value="OUT">Despesa</option>
                             <option value="IN">Receita</option>
@@ -93,9 +94,9 @@
                     </div>
 
                     <div class="input-group">
-                        <select id="category-parent" class="tom-select" data-placeholder="Selecione a categoria pai">
+                        <select id="category-parent">
                             <option value="">Sem categoria pai</option>
-                            {% comment %} Será preenchido via JavaScript {% endcomment %}
+                            <!-- Será preenchido via JavaScript -->
                         </select>
                     </div>
 
@@ -114,7 +115,6 @@
             </div>
 
             <div id="categories-list" class="category-list">
-                <!-- Categorias serão carregadas aqui via JavaScript -->
                 <div class="loading">Carregando categorias...</div>
             </div>
         </div>
@@ -151,7 +151,6 @@
             </div>
 
             <div id="tags-list" class="tags-grid">
-                <!-- Tags serão carregadas aqui via JavaScript -->
                 <div class="loading">Carregando tags...</div>
             </div>
         </div>
@@ -175,6 +174,9 @@
                 <div class="name-row">
                     <strong class="category-name"></strong>
                     <span class="badge badge-type"></span>
+                    <span class="badge badge-subcategory" style="display: none;">
+                        <i class="fas fa-level-up-alt"></i> Subcategoria
+                    </span>
                 </div>
                 <div class="category-info">
                     <span class="subtext">
@@ -221,4 +223,5 @@
 
 {% block extra_js %}
 <script src="{% static 'js/categories_management/categories_management.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
 {% endblock %}
