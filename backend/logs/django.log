@@ -19213,3 +19213,63 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 6151
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7978
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/global.js HTTP/1.1" 200 2633
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+C:\Users\muril\ledger\backend\payments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\services\balance_service.py changed, reloading.
+Watching for file changes with StatReloader
+Cartão Bradesco card teria saldo positivo (300.00). Ajustando para 0. Verifique se há entradas incorretas.
+"GET / HTTP/1.1" 200 7972
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /transactions/ HTTP/1.1" 200 23215
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17733
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /api/transactions/form/ HTTP/1.1" 200 8725
+Transação manual criada: 7459e523-bd88-47d0-bdf1-6ce60fb1b21b
+Saldo: 297.05 -> 10297.05
+"POST /api/transactions/ HTTP/1.1" 201 165
+"GET /transactions/ HTTP/1.1" 200 25267
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 7983
+"GET /transactions/ HTTP/1.1" 200 25267
+Internal Server Error: /api/transactions/7459e523-bd88-47d0-bdf1-6ce60fb1b21b/
+"DELETE /api/transactions/7459e523-bd88-47d0-bdf1-6ce60fb1b21b/ HTTP/1.1" 500 67
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Internal Server Error: /api/transactions/7459e523-bd88-47d0-bdf1-6ce60fb1b21b/
+"DELETE /api/transactions/7459e523-bd88-47d0-bdf1-6ce60fb1b21b/ HTTP/1.1" 500 67
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"DELETE /api/transactions/7459e523-bd88-47d0-bdf1-6ce60fb1b21b/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 23215
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 7972
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
