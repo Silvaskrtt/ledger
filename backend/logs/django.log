@@ -19273,3 +19273,781 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET / HTTP/1.1" 200 7972
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 23215
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 23215
+"GET /cartoes/ HTTP/1.1" 200 8535
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 8133
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 16416
+"GET /api/credit-cards/ HTTP/1.1" 200 522
+"POST /api/credit-cards/ HTTP/1.1" 201 455
+"GET /api/credit-cards/ HTTP/1.1" 200 978
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/ HTTP/1.1" 200 455
+"GET /management/ HTTP/1.1" 200 17131
+"GET /static/css/account_management/account_management.css HTTP/1.1" 200 10195
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 38072
+"GET /api/accounts/ HTTP/1.1" 200 1993
+"GET /api/accounts/ HTTP/1.1" 200 1993
+"PUT /api/accounts/380a81ff-ad1e-426c-91ec-4e07269fc556/ HTTP/1.1" 200 460
+"GET /transactions/ HTTP/1.1" 200 23412
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 8927
+Parcela 1/7 criada: R$100.73
+Parcela 2/7 criada: R$100.73
+Parcela 3/7 criada: R$100.73
+Parcela 4/7 criada: R$100.73
+Parcela 5/7 criada: R$100.73
+Parcela 6/7 criada: R$100.73
+Parcela 7/7 criada: R$100.73
+"POST /api/transactions/ HTTP/1.1" 201 245
+"GET /transactions/ HTTP/1.1" 200 37461
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /cartoes/ HTTP/1.1" 200 8535
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /budget/ HTTP/1.1" 200 10785
+"GET /static/css/budget/budget.css HTTP/1.1" 200 8252
+"GET /static/js/budget/budget.js HTTP/1.1" 200 17503
+"GET /api/budget-overview/ HTTP/1.1" 200 298
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 15789
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 41987
+"GET /api/categories/ HTTP/1.1" 200 1738
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET / HTTP/1.1" 200 7974
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /goals/ HTTP/1.1" 200 7678
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 200 7778
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 200 11925
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 297
+"GET /budget/ HTTP/1.1" 200 10785
+"GET /api/budget-overview/ HTTP/1.1" 200 298
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 1738
+"GET /transactions/ HTTP/1.1" 200 37461
+"GET /api/transactions/201ff3c6-5ec2-4a46-8056-a72f4d78eda8/form/ HTTP/1.1" 200 9163
+"DELETE /api/transactions/201ff3c6-5ec2-4a46-8056-a72f4d78eda8/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 35454
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"DELETE /api/transactions/ce89747c-ed66-4b7f-9d86-6619c869ba4c/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 33447
+"DELETE /api/transactions/60d59824-9a05-46c3-81e9-279971957200/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 31440
+"DELETE /api/transactions/f8df2095-54b0-4065-89e4-e6f62daf1bfc/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 29433
+"DELETE /api/transactions/5a932aac-6c37-4022-a45b-679c15ea8118/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 27426
+"DELETE /api/transactions/f94b6b20-195d-4ca2-b64a-20ed42573534/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 25419
+"DELETE /api/transactions/b6b46da7-7e1c-42d7-a290-ed789a9c63ed/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 23412
+"GET / HTTP/1.1" 200 7972
+"GET /transactions/ HTTP/1.1" 200 23412
+"GET /api/transactions/form/ HTTP/1.1" 200 8927
+"GET /transactions/ HTTP/1.1" 200 23412
+"GET /cartoes/ HTTP/1.1" 200 8535
+"GET /api/credit-cards/ HTTP/1.1" 200 983
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 1998
+"GET /api/accounts/ HTTP/1.1" 200 1998
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 1738
+"POST /api/categories/ HTTP/1.1" 201 329
+"GET /api/tags/ HTTP/1.1" 200 364
+"POST /api/tags/ HTTP/1.1" 201 186
+"PUT /api/tags/dfbd88e3-351a-4a16-9667-06779bdae10d/ HTTP/1.1" 200 188
+"GET / HTTP/1.1" 200 7972
+"GET /transactions/ HTTP/1.1" 200 23631
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 9312
+Parcela 1/7 criada: R$100.86
+Parcela 2/7 criada: R$100.86
+Parcela 3/7 criada: R$100.86
+Parcela 4/7 criada: R$100.86
+Parcela 5/7 criada: R$100.86
+Parcela 6/7 criada: R$100.86
+Parcela 7/7 criada: R$100.86
+"POST /api/transactions/ HTTP/1.1" 201 245
+"GET /transactions/ HTTP/1.1" 200 39164
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 39164
+"GET /transactions/?start=&end=&category=68f7bd34-990c-48f5-aad6-8bd45ebe611f&account= HTTP/1.1" 200 27991
+"DELETE /api/transactions/a6df9b06-343b-4196-bc30-7210b1b4a844/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=68f7bd34-990c-48f5-aad6-8bd45ebe611f&account= HTTP/1.1" 200 25772
+"DELETE /api/transactions/83ea7d3e-4be7-4b48-bec5-d808259e7303/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=68f7bd34-990c-48f5-aad6-8bd45ebe611f&account= HTTP/1.1" 200 23553
+"DELETE /api/transactions/0f74764f-9c9f-4b6c-999b-9a265c4101df/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=68f7bd34-990c-48f5-aad6-8bd45ebe611f&account= HTTP/1.1" 200 21334
+"DELETE /api/transactions/32ad5879-a54d-4413-b604-d436b3f922b9/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=68f7bd34-990c-48f5-aad6-8bd45ebe611f&account= HTTP/1.1" 200 19115
+"DELETE /api/transactions/96caee22-43a1-4742-8e34-097f3812d7b9/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=68f7bd34-990c-48f5-aad6-8bd45ebe611f&account= HTTP/1.1" 200 16896
+"DELETE /api/transactions/0c71129f-9675-4ec1-b618-f4ca165bc00b/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=68f7bd34-990c-48f5-aad6-8bd45ebe611f&account= HTTP/1.1" 200 14677
+"DELETE /api/transactions/bd6c5690-c1de-4ab9-b187-9160ee16771d/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=68f7bd34-990c-48f5-aad6-8bd45ebe611f&account= HTTP/1.1" 200 12776
+"GET /transactions/ HTTP/1.1" 200 23631
+"GET /api/transactions/form/ HTTP/1.1" 200 9312
+Parcela 1/7 criada: R$110.52
+Parcela 2/7 criada: R$110.52
+Parcela 3/7 criada: R$110.52
+Parcela 4/7 criada: R$110.52
+Parcela 5/7 criada: R$110.52
+Parcela 6/7 criada: R$110.52
+Parcela 7/7 criada: R$110.52
+"POST /api/transactions/ HTTP/1.1" 201 245
+"GET /transactions/ HTTP/1.1" 200 39164
+"GET / HTTP/1.1" 200 7976
+"GET /transactions/ HTTP/1.1" 200 39164
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 9312
+Erro ao criar transação: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta 'Conta BB' (Conta Corrente).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 263, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta 'Conta BB' (Conta Corrente).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+Erro ao criar transação: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta 'Conta BB' (Conta Corrente).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 263, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta 'Conta BB' (Conta Corrente).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 39164
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/transactions/form/ HTTP/1.1" 200 9312
+Parcela 1/6 criada: R$15.13
+Parcela 2/6 criada: R$15.13
+Parcela 3/6 criada: R$15.13
+Parcela 4/6 criada: R$15.13
+Parcela 5/6 criada: R$15.13
+Parcela 6/6 criada: R$15.13
+"POST /api/transactions/ HTTP/1.1" 201 242
+"GET /transactions/ HTTP/1.1" 200 52466
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/?start=&end=&category=&account=4a97072d-5aba-4c0a-9ba6-b0abf3fe2f4b HTTP/1.1" 200 12629
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/?start=&end=&category=&account=670b9b1b-872e-414f-9713-2cdf0813d643 HTTP/1.1" 200 34895
+"GET /api/transactions/8401b42b-8355-4f4b-a12d-740befccf9ea/form/ HTTP/1.1" 200 9547
+"DELETE /api/transactions/8401b42b-8355-4f4b-a12d-740befccf9ea/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=&account=670b9b1b-872e-414f-9713-2cdf0813d643 HTTP/1.1" 200 32678
+"DELETE /api/transactions/41d004c4-e1d7-43da-9db9-1b2e8d08a6a4/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=&account=670b9b1b-872e-414f-9713-2cdf0813d643 HTTP/1.1" 200 30461
+"DELETE /api/transactions/97bf0868-ef74-40c4-a962-ee813f4798cf/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=&account=670b9b1b-872e-414f-9713-2cdf0813d643 HTTP/1.1" 200 28244
+"DELETE /api/transactions/67eed3d8-e8ef-47ae-8c76-49f70fe21065/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=&account=670b9b1b-872e-414f-9713-2cdf0813d643 HTTP/1.1" 200 26027
+"DELETE /api/transactions/e30f6170-75e1-4f9a-bfe9-5c37d2926477/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=&account=670b9b1b-872e-414f-9713-2cdf0813d643 HTTP/1.1" 200 23810
+"DELETE /api/transactions/6b430ca5-8348-44fb-9c25-f9a33a186c5c/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=&account=670b9b1b-872e-414f-9713-2cdf0813d643 HTTP/1.1" 200 21593
+"GET / HTTP/1.1" 200 7976
+"GET /transactions/ HTTP/1.1" 200 39164
+"GET /api/transactions/form/ HTTP/1.1" 200 9312
+Parcela 1/6 criada: R$90.80
+Parcela 2/6 criada: R$90.80
+Parcela 3/6 criada: R$90.80
+Parcela 4/6 criada: R$90.80
+Parcela 5/6 criada: R$90.80
+Parcela 6/6 criada: R$90.80
+"POST /api/transactions/ HTTP/1.1" 201 241
+"GET /transactions/ HTTP/1.1" 200 52466
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 7977
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /cartoes/ HTTP/1.1" 200 8535
+"GET /api/credit-cards/ HTTP/1.1" 200 987
+"POST /api/credit-cards/ HTTP/1.1" 201 457
+"GET /api/credit-cards/ HTTP/1.1" 200 1445
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2460
+"GET /api/accounts/ HTTP/1.1" 200 2460
+"PUT /api/accounts/246ddb35-a3b4-4251-974a-f60d76eb80bd/ HTTP/1.1" 200 462
+"GET /transactions/ HTTP/1.1" 200 52661
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 9512
+Erro ao criar transação: {'amount': [ErrorDetail(string='Limite de crédito insuficiente no cartão Roxinho. Crédito disponível: R$400.00', code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 263, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'amount': [ErrorDetail(string='Limite de crédito insuficiente no cartão Roxinho. Crédito disponível: R$400.00', code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+Erro ao criar transação: {'amount': [ErrorDetail(string='Limite de crédito insuficiente no cartão Roxinho. Crédito disponível: R$400.00', code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 263, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'amount': [ErrorDetail(string='Limite de crédito insuficiente no cartão Roxinho. Crédito disponível: R$400.00', code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+Erro ao criar transação: {'amount': [ErrorDetail(string='Limite de crédito insuficiente no cartão Roxinho. Crédito disponível: R$400.00', code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 263, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'amount': [ErrorDetail(string='Limite de crédito insuficiente no cartão Roxinho. Crédito disponível: R$400.00', code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 62
+"GET /cartoes/ HTTP/1.1" 200 8535
+"GET /api/credit-cards/ HTTP/1.1" 200 1450
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/ HTTP/1.1" 200 462
+"PUT /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/ HTTP/1.1" 200 462
+"GET /api/credit-cards/ HTTP/1.1" 200 1450
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/ HTTP/1.1" 200 462
+"PUT /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/ HTTP/1.1" 200 464
+"GET /api/credit-cards/ HTTP/1.1" 200 1452
+"GET /transactions/ HTTP/1.1" 200 52661
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 9512
+Parcela 1/5 criada: R$92.51
+Parcela 2/5 criada: R$92.51
+Parcela 3/5 criada: R$92.51
+Parcela 4/5 criada: R$92.51
+Parcela 5/5 criada: R$92.51
+"POST /api/transactions/ HTTP/1.1" 201 243
+"GET /transactions/ HTTP/1.1" 200 55689
+"GET / HTTP/1.1" 200 7979
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /transactions/ HTTP/1.1" 200 55689
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2468
+"GET /api/accounts/ HTTP/1.1" 200 2468
+"POST /api/accounts/ HTTP/1.1" 201 508
+"GET / HTTP/1.1" 200 7979
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7979
+"GET /static/css/global-standards.css HTTP/1.1" 304 0
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/tom-select-custom.css HTTP/1.1" 304 0
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/js/global.js HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /static/js/tom-select-manager.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /cartoes/ HTTP/1.1" 200 8535
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /management/ HTTP/1.1" 200 17131
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /cartoes/ HTTP/1.1" 200 8535
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET / HTTP/1.1" 200 7979
+"GET /cartoes/ HTTP/1.1" 200 8535
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+C:\Users\muril\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /static/css/global-standards.css HTTP/1.1" 304 0
+"GET /static/css/tom-select-custom.css HTTP/1.1" 304 0
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 304 0
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/js/global.js HTTP/1.1" 304 0
+"GET /static/js/tom-select-manager.js HTTP/1.1" 304 0
+"GET /api/categories/ HTTP/1.1" 200 2068
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 28993
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 2068
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 8137
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 28993
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 28993
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 2068
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/ HTTP/1.1" 200 463
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 28993
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 2068
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+C:\Users\muril\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 2068
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /transactions/ HTTP/1.1" 200 55887
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 28993
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 2068
+"GET / HTTP/1.1" 200 7979
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 28627
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 29609
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 29613
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 29613
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 29613
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 2068
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 20921
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 404 14341
+Not Found: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 404 14341
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 30380
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 404 14341
+Not Found: /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 404 14341
+Not Found: /api/credit-cards/670b9b1b-872e-414f-9713-2cdf0813d643/bills/
+"GET /api/credit-cards/670b9b1b-872e-414f-9713-2cdf0813d643/bills/ HTTP/1.1" 404 14341
+Not Found: /api/credit-cards/670b9b1b-872e-414f-9713-2cdf0813d643/bills/
+"GET /api/credit-cards/670b9b1b-872e-414f-9713-2cdf0813d643/bills/ HTTP/1.1" 404 14341
+Not Found: /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 404 14341
+C:\Users\muril\ledger\backend\accounts\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 404 15232
+Not Found: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 404 15232
+C:\Users\muril\ledger\backend\accounts\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 404 15232
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /cartoes/ HTTP/1.1" 200 12448
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 30380
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+Not Found: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 404 15232
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 30380
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+C:\Users\muril\ledger\backend\accounts\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\urls_api.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Fatura criada: Fatura 02/2026 - Roxinho - R$92.51
+Fatura criada: Fatura 03/2026 - Roxinho - R$92.51
+Fatura criada: Fatura 04/2026 - Roxinho - R$92.51
+Fatura criada: Fatura 05/2026 - Roxinho - R$92.51
+Internal Server Error: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 500 77
+Internal Server Error: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 500 77
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 12448
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 30380
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 13850
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+Internal Server Error: /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 500 77
+Fatura criada: Fatura 01/2026 - FREE VISA - R$110.52
+Fatura criada: Fatura 02/2026 - FREE VISA - R$110.52
+Fatura criada: Fatura 03/2026 - FREE VISA - R$110.52
+Fatura criada: Fatura 04/2026 - FREE VISA - R$110.52
+Fatura criada: Fatura 05/2026 - FREE VISA - R$110.52
+Internal Server Error: /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 500 77
+C:\Users\muril\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /management/ HTTP/1.1" 200 17131
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 2068
+"GET /transactions/ HTTP/1.1" 200 55887
+"GET /transactions/?page=2 HTTP/1.1" 200 21297
+"GET /transactions/?page=1 HTTP/1.1" 200 55887
+"GET /transactions/?page=2 HTTP/1.1" 200 21297
+"GET /transactions/?page=1 HTTP/1.1" 200 55887
+"GET /transactions/?page=1 HTTP/1.1" 200 55887
+"GET /cartoes/ HTTP/1.1" 200 12448
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 40610
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 40610
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 30380
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 40610
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 30380
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 30948
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+Erro no pagamento: You cannot access body after reading from request's data stream
+Internal Server Error: /api/credit-cards/pay-bill/
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 500 55
