@@ -4,7 +4,7 @@ import logging
 from decimal import Decimal
 from django.utils import timezone
 from django.db import transaction as db_transaction
-from django.db.models import Sum
+from django.db.models import Sum, Q
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 
@@ -128,6 +128,12 @@ class CreditCardService:
         Processa pagamento de uma fatura.
         """
         try:
+            from decimal import Decimal
+        
+            # Garantir que amount seja Decimal
+            if not isinstance(amount, Decimal):
+                amount = Decimal(str(amount))
+                
             # Buscar fatura
             bill = CreditCardBill.objects.select_for_update().get(
                 id_bill=bill_id,
