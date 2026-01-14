@@ -13,15 +13,58 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.addEventListener('click', handleSubmit);
     }
     
-    // Delegated events for edit/delete buttons
+    // Event listeners para botões de faturas
     if (cardList) {
         cardList.addEventListener('click', function(e) {
+            // Botão de faturas
+            if (e.target.closest('.bills') || e.target.classList.contains('fa-file-invoice-dollar')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const cardItem = e.target.closest('.card-item');
+                if (cardItem) {
+                    viewCardBills(cardItem);
+                }
+            }
+            
+            // Botões existentes de editar/excluir
             if (e.target.closest('.edit')) {
                 handleEdit(e.target.closest('.card-item'));
             } else if (e.target.closest('.delete')) {
                 handleDelete(e.target.closest('.card-item'));
             }
         });
+    }
+    
+    // Fechar modais
+    document.querySelectorAll('.close-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            closeAllModals();
+        });
+    });
+    
+    // Formulário de pagamento
+    const payBillForm = document.getElementById('payBillForm');
+    if (payBillForm) {
+        payBillForm.addEventListener('submit', processPayment);
+    }
+    
+    // Função para abrir modal de visualizar faturas
+    async function viewCardBills(cardItem) {
+        const cardId = cardItem.dataset.id;
+        
+        try {
+            const response = await fetch(`/api/credit-cards/${cardId}/bills/`);
+            const data = await response.json();
+            
+            if (data.success) {
+                showBillsModal(data.bills, cardId);
+            } else {
+                showToast(data.error || 'Erro ao carregar faturas', 'error');
+            }
+        } catch (error) {
+            console.error('Erro:', error);
+            showToast('Erro ao carregar faturas', 'error');
+        }
     }
     
     // Função para carregar cartões
@@ -56,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 renderCards([]);
             }
+            
         } catch (error) {
             console.error('Erro:', error);
             showToast('Erro ao carregar cartões: ' + error.message, 'error');
@@ -70,6 +114,282 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
             }
+        }
+    }
+
+    // Função para mostrar modal com faturas
+    function showBillsModal(bills, cardId) {
+        const modal = document.getElementById('viewBillsModal');
+        const billsList = document.getElementById('billsList');
+        
+        if (bills.length === 0) {
+            billsList.innerHTML = `
+                <div class="empty-state">
+                    <p>Nenhuma fatura encontrada para este cartão.</p>
+                    <p>As faturas são geradas automaticamente com base nas transações.</p>
+                </div>
+            `;
+        } else {
+            let html = '<div class="bills-container">';
+            
+            bills.forEach(bill => {
+                const pendingAmount = bill.pending_amount;
+                const statusClass = {
+                    'OPEN': 'status-open',
+                    'CLOSED': 'status-closed',
+                    'PAID': 'status-paid',
+                    'OVERDUE': 'status-overdue'
+                }[bill.status] || 'status-open';
+                
+                html += `
+                    <div class="bill-item ${statusClass}" data-bill-id="${bill.id}">
+                        <div class="bill-header">
+                            <h4>Fatura ${bill.end_date}</h4>
+                            <span class="bill-status ${statusClass}">${bill.status_display}</span>
+                        </div>
+                        
+                        <div class="bill-details">
+                            <div class="detail">
+                                <span class="label">Período:</span>
+                                <span class="value">${bill.start_date} a ${bill.end_date}</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Vencimento:</span>
+                                <span class="value ${bill.days_until_due < 0 ? 'overdue' : ''}">
+                                    ${bill.due_date} (${bill.days_until_due >= 0 ? `em ${bill.days_until_due} dias` : 'vencida'})
+                                </span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Total:</span>
+                                <span class="value">R$ ${bill.total_amount.toFixed(2)}</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Pago:</span>
+                                <span class="value paid">R$ ${bill.paid_amount.toFixed(2)}</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Pendente:</span>
+                                <span class="value pending">R$ ${pendingAmount.toFixed(2)}</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Transações:</span>
+                                <span class="value">${bill.transactions_count}</span>
+                            </div>
+                        </div>
+                        
+                        ${pendingAmount > 0 ? `
+                            <div class="bill-actions">
+                                <button class="btn-pay-bill" data-bill-id="${bill.id}" 
+                                        data-card-id="${cardId}" 
+                                        data-amount="${pendingAmount}">
+                                    <i class="fas fa-credit-card"></i> Pagar Fatura
+                                </button>
+                                <button class="btn-pay-partial" data-bill-id="${bill.id}" 
+                                        data-card-id="${cardId}">
+                                    <i class="fas fa-money-bill-wave"></i> Pagar Parcial
+                                </button>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            billsList.innerHTML = html;
+            
+            // Adicionar listeners aos botões de pagamento
+            document.querySelectorAll('.btn-pay-bill').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const billId = e.currentTarget.dataset.billId;
+                    const cardId = e.currentTarget.dataset.cardId;
+                    const amount = parseFloat(e.currentTarget.dataset.amount);
+                    openPayBillModal(billId, cardId, amount);
+                });
+            });
+            
+            document.querySelectorAll('.btn-pay-partial').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const billId = e.currentTarget.dataset.billId;
+                    const cardId = e.currentTarget.dataset.cardId;
+                    openPayBillModal(billId, cardId, null); // null para permitir edição do valor
+                });
+            });
+        }
+        
+        // FECHAR QUALQUER OUTRO MODAL ABERTO ANTES DE ABRIR ESTE
+        closeAllModals();
+        
+        // AGORA ABRIR O MODAL DE FATURAS
+        modal.classList.add('active');
+    }
+
+    // Função para abrir modal de pagamento
+    async function openPayBillModal(billId, cardId, amount = null) {
+        const modal = document.getElementById('payBillModal');
+        const billIdInput = document.getElementById('billId');
+        const creditCardIdInput = document.getElementById('creditCardId');
+        const paymentAmountInput = document.getElementById('paymentAmount');
+        const paymentAccountSelect = document.getElementById('paymentAccount');
+        const billInfo = document.getElementById('billInfo');
+        
+        // Preencher campos ocultos
+        billIdInput.value = billId;
+        creditCardIdInput.value = cardId;
+        
+        // Buscar informações da fatura
+        try {
+            const response = await fetch(`/api/credit-cards/${cardId}/bills/`);
+            const data = await response.json();
+            
+            if (data.success) {
+                const bill = data.bills.find(b => b.id === billId);
+                if (bill) {
+                    billInfo.innerHTML = `
+                        <div class="bill-summary">
+                            <h4>Fatura ${bill.end_date}</h4>
+                            <p>Período: ${bill.start_date} a ${bill.end_date}</p>
+                            <p>Vencimento: ${bill.due_date}</p>
+                            <p>Total: <strong>R$ ${bill.total_amount.toFixed(2)}</strong></p>
+                            <p>Pago: <strong>R$ ${bill.paid_amount.toFixed(2)}</strong></p>
+                            <p>Pendente: <strong class="pending">R$ ${bill.pending_amount.toFixed(2)}</strong></p>
+                        </div>
+                    `;
+                    
+                    // Definir valor do pagamento
+                    if (amount) {
+                        paymentAmountInput.value = amount.toFixed(2);
+                        paymentAmountInput.max = bill.pending_amount;
+                    } else {
+                        paymentAmountInput.value = bill.pending_amount.toFixed(2);
+                        paymentAmountInput.max = bill.pending_amount;
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Erro ao carregar fatura:', error);
+        }
+        
+        // Carregar contas de pagamento
+        try {
+            const response = await fetch('/api/accounts/payment-accounts/');
+            const data = await response.json();
+            
+            if (data.success) {
+                paymentAccountSelect.innerHTML = '<option value="">Selecione uma conta</option>';
+                
+                data.accounts.forEach(account => {
+                    const option = document.createElement('option');
+                    option.value = account.id;
+                    option.textContent = `${account.name} (${account.type_display}) - R$ ${account.balance.toFixed(2)}`;
+                    option.dataset.balance = account.balance;
+                    paymentAccountSelect.appendChild(option);
+                });
+            }
+        } catch (error) {
+            console.error('Erro ao carregar contas:', error);
+        }
+        
+        // FECHAR QUALQUER OUTRO MODAL ABERTO ANTES DE ABRIR ESTE
+        closeAllModals();
+        
+        // AGORA ABRIR O MODAL DE PAGAMENTO
+        modal.classList.add('active');
+        
+        // Focar no primeiro campo do formulário
+        setTimeout(() => {
+            if (amount === null) {
+                paymentAmountInput.focus();
+            } else {
+                paymentAccountSelect.focus();
+            }
+        }, 100);
+    }
+
+    // Função para atualizar resumo do patrimônio
+    function updatePatrimonySummary(patrimony) {
+        // Atualizar elementos na página se existirem
+        const elements = {
+            'totalPatrimony': document.getElementById('totalPatrimony'),
+            'creditCardDebt': document.getElementById('creditCardDebt'),
+            'availablePatrimony': document.getElementById('availablePatrimony')
+        };
+        
+        if (elements.totalPatrimony) {
+            elements.totalPatrimony.textContent = `R$ ${patrimony.total_patrimony.toFixed(2)}`;
+        }
+        
+        if (elements.creditCardDebt) {
+            elements.creditCardDebt.textContent = `R$ ${patrimony.credit_card_debt_abs.toFixed(2)}`;
+        }
+        
+        if (elements.availablePatrimony) {
+            elements.availablePatrimony.textContent = `R$ ${(patrimony.total_patrimony + patrimony.credit_card_debt_abs).toFixed(2)}`;
+        }
+    }
+
+    // Função para processar pagamento
+    async function processPayment(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const submitBtn = form.querySelector('#payBillBtn');
+        const originalText = submitBtn.textContent;
+        
+        try {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processando...';
+            
+            const formData = {
+                bill_id: document.getElementById('billId').value,
+                payment_account: document.getElementById('paymentAccount').value,
+                amount: parseFloat(document.getElementById('paymentAmount').value),
+                notes: document.getElementById('paymentNotes').value,
+                create_transaction: document.getElementById('createTransaction').checked
+            };
+            
+            // Validações
+            if (!formData.payment_account) {
+                throw new Error('Selecione uma conta para pagamento');
+            }
+            
+            if (formData.amount <= 0) {
+                throw new Error('Valor do pagamento deve ser maior que zero');
+            }
+            
+            const response = await fetch('/api/credit-cards/pay-bill/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken || ''
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showToast(result.message, 'success');
+                
+                // Fechar modais
+                closeAllModals();
+                
+                // Recarregar dados
+                await loadCreditCards();
+                
+                // Atualizar patrimônio se necessário
+                if (result.patrimony) {
+                    updatePatrimonySummary(result.patrimony);
+                }
+            } else {
+                throw new Error(result.error || 'Erro ao processar pagamento');
+            }
+            
+        } catch (error) {
+            console.error('Erro:', error);
+            showToast(error.message, 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
         }
     }
     
@@ -130,6 +450,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const availableCredit = creditLimit + balance; // balance é negativo para cartões
         const availableCreditText = `R$ ${Math.max(0, availableCredit).toFixed(2)}`;
         
+        // Formatar datas de fechamento e vencimento
+        const closingDay = card.closing_day || '--';
+        const dueDay = card.due_day || '--';
+        
+        // AGORA INCLUÍMOS O BOTÃO DE FATURAS
         div.innerHTML = `
             <div class="card-info">
                 <div class="card-header">
@@ -152,16 +477,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="detail-group">
                         <div class="detail small">
                             <span class="label">Fechamento:</span>
-                            <span class="value">dia ${card.closing_day || '--'}</span>
+                            <span class="value">dia ${closingDay}</span>
                         </div>
                         <div class="detail small">
                             <span class="label">Vencimento:</span>
-                            <span class="value">dia ${card.due_day || '--'}</span>
+                            <span class="value">dia ${dueDay}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-actions">
+                <button class="icon-btn bills" title="Ver Faturas">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </button>
                 <button class="icon-btn edit" title="Editar">✎</button>
                 <button class="icon-btn delete" title="Excluir">🗑</button>
             </div>
@@ -402,6 +730,13 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Erro:', error);
             showToast(error.message || 'Erro ao excluir cartão', 'error');
         }
+    }
+    
+    // Função para fechar todos os modais
+    function closeAllModals() {
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.classList.remove('active');
+        });
     }
     
     // Mostrar notificação
