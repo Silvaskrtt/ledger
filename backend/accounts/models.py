@@ -266,3 +266,44 @@ class CreditCardBill(models.Model):
     
     def __str__(self):
         return f"Fatura {self.end_date.strftime('%m/%Y')} - {self.credit_card.name}"
+    
+class CreditCardPayment(models.Model):
+    """
+    Registro de pagamento de fatura de cartão de crédito.
+    """
+    id_payment = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    bill = models.ForeignKey(
+        CreditCardBill,
+        on_delete=models.CASCADE,
+        related_name='payments'
+    )
+    
+    payment_account = models.ForeignKey(
+        Account,
+        on_delete=models.CASCADE,
+        related_name='credit_card_payments',
+        help_text="Conta de onde saiu o dinheiro para pagar a fatura"
+    )
+    
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    paid_at = models.DateTimeField(default=timezone.now)
+    
+    # Para registrar qual transação foi criada para este pagamento
+    transaction = models.OneToOneField(
+        'transactions.Transaction',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='credit_card_payment'
+    )
+    
+    notes = models.TextField(blank=True, null=True)
+    
+    class Meta:
+        ordering = ['-paid_at']
+        verbose_name = "Pagamento de Fatura"
+        verbose_name_plural = "Pagamentos de Faturas"
+    
+    def __str__(self):
+        return f"Pagamento de R${self.amount} para fatura {self.bill}"
