@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards - Ledger</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 24px;
+            padding: 20px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .dashboard-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .dashboard-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #3b82f6;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        .toggle-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #3b82f6;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            color: #6b7280;
+        }
+
+        .error-message {
+            color: #dc2626;
+            padding: 12px;
+            background: #fee2e2;
+            border-radius: 4px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .success-message {
+            color: #059669;
+            padding: 12px;
+            background: #d1fae5;
+            border-radius: 4px;
+            border-left: 4px solid #059669;
+        }
+
+        .total-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f3f4f6;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .total-label {
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .total-value {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .year-selector {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .year-selector input {
+            width: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-controls {
+                flex-direction: column;
+            }
+
+            .form-group input,
+            .form-group select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Dashboard: Gastos por Cartão -->
+        <div class="dashboard-card">
+            <div class="dashboard-header">
+                <h2 class="dashboard-title">💳 Gastos por Cartão</h2>
+            </div>
+            
+            <div class="dashboard-controls">
+                <div class="form-group">
+                    <label for="card-start-date">Data Inicial</label>
+                    <input type="date" id="card-start-date">
+                </div>
+                <div class="form-group">
+                    <label for="card-end-date">Data Final</label>
+                    <input type="date" id="card-end-date">
+                </div>
+                <div class="form-group" style="justify-content: flex-end;">
+                    <button class="btn" onclick="loadCardExpenses()">Carregar</button>
+                </div>
+            </div>
+
+            <div id="card-total" class="total-info" style="display: none;">
+                <span class="total-label">Total Gasto</span>
+                <span class="total-value" id="card-total-value">R$ 0,00</span>
+            </div>
+
+            <div id="card-loading" class="loading">Carregando...</div>
+            <div id="card-error" class="error-message" style="display: none;"></div>
+            <div class="chart-container">
+                <canvas id="cardChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Dashboard: Gastos por Categoria -->
+        <div class="dashboard-card">
+            <div class="dashboard-header">
+                <h2 class="dashboard-title">📊 Gastos por Categoria</h2>
+            </div>
+            
+            <div class="dashboard-controls">
+                <div class="form-group">
+                    <label for="category-start-date">Data Inicial</label>
+                    <input type="date" id="category-start-date">
+                </div>
+                <div class="form-group">
+                    <label for="category-end-date">Data Final</label>
+                    <input type="date" id="category-end-date">
+                </div>
+                <div class="toggle-wrapper">
+                    <label style="font-weight: 500; color: #4b5563; font-size: 13px;">Incluir Pendentes</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="category-include-pending">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="form-group" style="justify-content: flex-end;">
+                    <button class="btn" onclick="loadCategoryExpenses()">Carregar</button>
+                </div>
+            </div>
+
+            <div id="category-total" class="total-info" style="display: none;">
+                <span class="total-label">Total Gasto</span>
+                <span class="total-value" id="category-total-value">R$ 0,00</span>
+            </div>
+
+            <div id="category-loading" class="loading">Carregando...</div>
+            <div id="category-error" class="error-message" style="display: none;"></div>
+            <div class="chart-container">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Dashboard: Fluxo de Caixa -->
+        <div class="dashboard-card" style="grid-column: 1 / -1;">
+            <div class="dashboard-header">
+                <h2 class="dashboard-title">📈 Fluxo de Caixa</h2>
+            </div>
+            
+            <div class="year-selector">
+                <label for="cash-flow-year" style="font-weight: 500; color: #4b5563;">Ano:</label>
+                <input type="number" id="cash-flow-year" min="2020" step="1">
+                <button class="btn" onclick="loadCashFlow()">Carregar</button>
+            </div>
+
+            <div id="cash-flow-loading" class="loading">Carregando...</div>
+            <div id="cash-flow-error" class="error-message" style="display: none;"></div>
+            <div class="chart-container" style="height: 350px;">
+                <canvas id="cashFlowChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="{% static 'js/dashboards.js' %}"></script>
+
+    <script>
+        // Definir datas padrão (últimos 30 dias)
+        const today = new Date();
+        const thirtyDaysAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
+        
+        document.getElementById('card-start-date').valueAsDate = thirtyDaysAgo;
+        document.getElementById('card-end-date').valueAsDate = today;
+        document.getElementById('category-start-date').valueAsDate = thirtyDaysAgo;
+        document.getElementById('category-end-date').valueAsDate = today;
+        document.getElementById('cash-flow-year').value = today.getFullYear();
+
+        // Carregar dados ao iniciar
+        loadCardExpenses();
+        loadCategoryExpenses();
+        loadCashFlow();
+    </script>
+</body>
+</html>
