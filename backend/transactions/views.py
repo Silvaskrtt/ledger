@@ -6,13 +6,15 @@ from rest_framework.permissions import IsAuthenticated
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.timezone import make_aware
-from datetime import datetime
+from datetime import datetime, timezone
 from django.shortcuts import render
 from django.db import transaction as db_transaction
 import logging
 import uuid
+from django.core.paginator import Paginator
 
 # Model imports
+from transactions.services.balance_service import recalculate_account_balance
 from recurrence.models import RecurrenceRule
 from transactions.models import Transaction, TransactionAccount, TransactionTag
 from categories.models import Category
@@ -22,9 +24,113 @@ from tags.models import Tag
 from .serializers import TransactionCreateSerializer, TransactionUpdateSerializer, TransactionAccountSerializer, TransactionTagSerializer
 from .services.transaction_service import create_transaction_service
 from recurrence.services.recurrence_service import process_pending_recurrences
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 
 # Configuração do logger para este módulo
 logger = logging.getLogger(__name__)
+
+class TransactionManagerView(LoginRequiredMixin, TemplateView):
+    """
+    View principal para gerenciamento de transações com paginação.
+    """
+    template_name = "transactions/transaction_manager.html"
+    paginate_by = 20
+
+    def get(self, request, *args, **kwargs):
+        transactions = Transaction.objects.filter(
+            user=request.user
+        ).select_related(
+            "category",
+            "payment_method"
+        ).prefetch_related(
+            "transaction_accounts__account",
+            "tags"
+        ).order_by("-occurred_at")
+
+        # Aplicar filtros
+        start = request.GET.get("start")
+        end = request.GET.get("end")
+        category_uuid = request.GET.get("category")
+        account_uuid = request.GET.get("account")
+
+        if start and end:
+            try:
+                start_date = make_aware(datetime.strptime(start, "%Y-%m-%d"))
+                end_date = make_aware(datetime.strptime(end, "%Y-%m-%d"))
+                transactions = transactions.filter(
+                    occurred_at__range=(start_date, end_date)
+                )
+            except ValueError:
+                pass
+
+        if category_uuid:
+            try:
+                category_uuid_obj = uuid.UUID(category_uuid)
+                transactions = transactions.filter(category_id=category_uuid_obj)
+            except (ValueError, AttributeError):
+                transactions = transactions.filter(category__name__icontains=category_uuid)
+
+        if account_uuid:
+            try:
+                account_uuid_obj = uuid.UUID(account_uuid)
+                transactions = transactions.filter(
+                    transaction_accounts__account_id=account_uuid_obj
+                ).distinct()
+            except (ValueError, AttributeError):
+                transactions = transactions.filter(
+                    transaction_accounts__account__name__icontains=account_uuid
+                ).distinct()
+
+        # Paginação
+        paginator = Paginator(transactions, self.paginate_by)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        context = {
+            "transactions": page_obj,
+            "categories": Category.objects.filter(user=request.user),
+            "accounts": Account.objects.filter(user=request.user),
+            "tags": Tag.objects.filter(user=request.user),
+            "payment_methods": PaymentMethod.objects.filter(user=request.user),
+            "start": start or "",
+            "end": end or "",
+            "selected_category": category_uuid or "",
+            "selected_account": account_uuid or "",
+        }
+        return render(request, self.template_name, context)
+
+
+def get_transaction_form(request, transaction_id=None):
+    """
+    Retorna HTML do formulário para criar/editar transação via AJAX.
+    """
+    user = request.user
+    
+    context = {
+        'categories': Category.objects.filter(user=user),
+        'payment_methods': PaymentMethod.objects.filter(user=user),
+        'accounts': Account.objects.filter(user=user),
+        'tags': Tag.objects.filter(user=user),
+    }
+    
+    if transaction_id:
+        try:
+            transaction = Transaction.objects.get(
+                transaction=transaction_id,
+                user=user
+            )
+            context['transaction'] = transaction
+            
+            # Converter tags para lista de IDs
+            tag_ids = list(transaction.tags.values_list('tag', flat=True))
+            context['selected_tags'] = tag_ids
+            
+        except Transaction.DoesNotExist:
+            return JsonResponse({'error': 'Transação não encontrada'}, status=404)
+    
+    return render(request, 'transactions/partials/transaction_form.html', context)
+
 
 class CreateTransactionView(LoginRequiredMixin, TemplateView):
     """
@@ -242,6 +348,22 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         """Garante que usuário só acesse suas próprias transações."""
         return Transaction.objects.filter(user=self.request.user)
+    
+    def perform_update(self, serializer):
+        instance = serializer.save()
+        # Recalcular saldo da conta após atualização
+        for ta in instance.transaction_accounts.all():
+            recalculate_account_balance(ta.account)
+    
+    def perform_destroy(self, instance):
+        # Soft delete
+        instance.is_deleted = True
+        instance.deleted_at = timezone.now()
+        instance.save()
+        
+        # Recalcular saldo da conta
+        for ta in instance.transaction_accounts.all():
+            recalculate_account_balance(ta.account)
 
 
 class TransactionAccountListCreateView(generics.ListCreateAPIView):
