@@ -317,9 +317,71 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
 
 # Manter os outros serializers existentes
 class TransactionUpdateSerializer(serializers.ModelSerializer):
+    """
+    Serializer para atualização de transações.
+    Não precisa de todos os campos do TransactionCreateSerializer.
+    """
+    category = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.none(),
+        required=False
+    )
+    payment_method = serializers.PrimaryKeyRelatedField(
+        queryset=PaymentMethod.objects.none(),
+        required=False
+    )
+    account = serializers.PrimaryKeyRelatedField(
+        queryset=Account.objects.none(),
+        required=False
+    )
+    amount = serializers.DecimalField(
+        max_digits=14, 
+        decimal_places=2,
+        min_value=Decimal('0.01'),
+        required=False
+    )
+    currency = serializers.ChoiceField(
+        choices=['BRL', 'USD', 'EUR'],
+        required=False
+    )
+    direction = serializers.ChoiceField(
+        choices=['IN', 'OUT'],
+        required=False
+    )
+    origin = serializers.ChoiceField(
+        choices=['MANUAL', 'INSTALLMENT', 'RECURRENT'],
+        required=False
+    )
+    occurred_at = serializers.DateTimeField(
+        required=False
+    )
+    tags = serializers.ListField(
+        child=serializers.UUIDField(),
+        required=False,
+        write_only=True
+    )
+    description = serializers.CharField(
+        max_length=255,
+        required=False,
+        allow_blank=True
+    )
+    
     class Meta:
         model = Transaction
-        fields = ['category', 'payment_method', 'amount', 'direction', 'occurred_at']
+        fields = [
+            'category', 'payment_method', 'account', 'amount',
+            'currency', 'direction', 'origin', 'occurred_at', 'tags',
+            'description'
+        ]
+        read_only_fields = ['transaction', 'created_at']
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        user = self.context['request'].user
+        
+        # Filtrar querysets por usuário
+        self.fields['category'].queryset = Category.objects.filter(user=user)
+        self.fields['payment_method'].queryset = PaymentMethod.objects.filter(user=user)
+        self.fields['account'].queryset = Account.objects.filter(user=user)
 
 class TransactionAccountSerializer(serializers.ModelSerializer):
     class Meta:
