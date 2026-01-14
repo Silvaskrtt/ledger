@@ -3,10 +3,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Gerenciar Cartão de Crédito - Ledger{% endblock %}
+{% block title %}Gerenciar Cartões de Crédito - Ledger{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/card_credit/card_credit.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
@@ -14,51 +15,160 @@
     <div class="credit-card-manager">
 
         <div class="card-header">
-            <h2>Gerenciar Cartões de Crédito</h2>
+            <h2><i class="fas fa-credit-card" style="margin-right: 10px;"></i> Gerenciar Cartões de Crédito</h2>
         </div>
 
         <div class="form-section">
-            <h3 class="section-title">Adicionar Novo Cartão</h3>
-            <div class="form-card">
+            <h3 class="section-title">
+                <i class="fas fa-plus-circle" style="margin-right: 8px;"></i>
+                {% if not editing %}Adicionar Novo Cartão{% else %}Editar Cartão{% endif %}
+            </h3>
+            <div class="form-card" {% if editing %}data-edit-id="{{ card_id }}"{% endif %}>
                 <div class="form-grid">
                     <div class="fields full-width">
-                        <label>Nome do Cartão *</label>
-                        <input type="text" id="card-name" name="name" placeholder="Ex: Nubank Roxinho" required>
+                        <label class="required">Nome do Cartão *</label>
+                        <input type="text" id="card-name" name="name" 
+                               placeholder="Ex: Nubank Roxinho, Itaú Platinum" 
+                               required maxlength="100">
                     </div>
 
                     <div class="fields">
                         <label>Banco (opcional)</label>
-                        <input type="text" id="bank-name" name="bank_name" placeholder="Ex: Nubank">
+                        <input type="text" id="bank-name" name="bank_name" 
+                               placeholder="Ex: Nubank, Itaú, Santander">
                     </div>
 
                     <div class="fields">
                         <label>Limite de Crédito</label>
-                        <input type="number" id="credit-limit" name="credit_limit" step="0.01" min="0" placeholder="R$ 0,00">
+                        <input type="number" id="credit-limit" name="credit_limit" 
+                               step="0.01" min="0" max="9999999.99" 
+                               placeholder="R$ 0,00">
                     </div>
 
                     <div class="fields">
                         <label>Dia do Fechamento</label>
-                        <input type="number" id="closing-day" name="closing_day" min="1" max="31" placeholder="1" value="1">
+                        <input type="number" id="closing-day" name="closing_day" 
+                               min="1" max="31" placeholder="1" value="1">
                     </div>
 
                     <div class="fields">
                         <label>Dia do Vencimento</label>
-                        <input type="number" id="due-day" name="due_day" min="1" max="31" placeholder="1" value="1">
+                        <input type="number" id="due-day" name="due_day" 
+                               min="1" max="31" placeholder="1" value="1">
                     </div>
                 </div>
 
                 <div class="form-actions">
-                    <button class="btn-submit">+ Adicionar Cartão</button>
+                    <button class="btn-submit" id="submitBtn">
+                        {% if not editing %}
+                        <i class="fas fa-plus" style="margin-right: 8px;"></i> Adicionar Cartão
+                        {% else %}
+                        <i class="fas fa-save" style="margin-right: 8px;"></i> Atualizar Cartão
+                        {% endif %}
+                    </button>
                 </div>
             </div>
         </div>
 
         <div class="list-section">
-            <h3 class="section-title">Cartões Cadastrados</h3>
-            <div class="card-list">
+            <h3 class="section-title">
+                <i class="fas fa-credit-card" style="margin-right: 8px;"></i>
+                Cartões Cadastrados
+            </h3>
+            <div class="card-list" id="cardList">
                 <!-- Cartões serão carregados dinamicamente via JavaScript -->
-                <div class="empty-state">
-                    <p>Carregando cartões...</p>
+                <div class="skeleton" style="height: 150px; margin-bottom: 15px;"></div>
+                <div class="skeleton" style="height: 150px; margin-bottom: 15px;"></div>
+            </div>
+        </div>
+
+        <!-- Modal para Pagar Fatura -->
+        <div class="modal" id="payBillModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-credit-card" style="margin-right: 10px;"></i> Pagar Fatura</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                
+                <form id="payBillForm">
+                    <input type="hidden" id="billId" name="bill_id">
+                    <input type="hidden" id="creditCardId" name="credit_card_id">
+                    
+                    <div class="modal-body">
+                        <div class="bill-info" id="billInfo">
+                            <div class="skeleton" style="height: 150px;"></div>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="paymentAmount" class="required">Valor a Pagar *</label>
+                            <input type="number" id="paymentAmount" name="payment_amount" 
+                                step="0.01" min="0.01" required
+                                placeholder="R$ 0,00">
+                            <small class="helper-text">
+                                Informe o valor que deseja pagar da fatura. O valor não pode ser maior que o pendente.
+                            </small>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="paymentAccount" class="required">Conta de Pagamento *</label>
+                            <select id="paymentAccount" name="payment_account" required>
+                                <option value="">Selecione uma conta</option>
+                            </select>
+                            <small class="helper-text">
+                                Selecione a conta de onde o dinheiro será debitado para pagar a fatura.
+                            </small>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="paymentNotes">Observações (opcional)</label>
+                            <textarea id="paymentNotes" name="payment_notes" 
+                                    rows="3" placeholder="Ex: Pagamento via app do banco, Pagamento antecipado"></textarea>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="createTransaction">
+                                <input type="checkbox" id="createTransaction" name="create_transaction" checked>
+                                Criar transação para este pagamento
+                            </label>
+                            <small class="helper-text">
+                                Se marcado, será criada uma transação registrando a saída de dinheiro da conta de pagamento.
+                                Recomendado para manter o histórico financeiro completo.
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-modal">
+                            <i class="fas fa-times" style="margin-right: 8px;"></i> Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="payBillBtn">
+                            <i class="fas fa-check" style="margin-right: 8px;"></i> Confirmar Pagamento
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal para Visualizar Faturas -->
+        <div class="modal" id="viewBillsModal">
+            <div class="modal-content large-modal">
+                <div class="modal-header">
+                    <h2><i class="fas fa-file-invoice-dollar" style="margin-right: 10px;"></i> Faturas do Cartão</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="bills-list" id="billsList">
+                        <!-- Lista de faturas será carregada aqui -->
+                        <div class="skeleton" style="height: 200px; margin-bottom: 15px;"></div>
+                        <div class="skeleton" style="height: 200px;"></div>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-modal">
+                        <i class="fas fa-times" style="margin-right: 8px;"></i> Fechar
+                    </button>
                 </div>
             </div>
         </div>
