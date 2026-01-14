@@ -5,6 +5,8 @@ from django.db.models import Sum, Q
 from django.db import transaction as db_transaction
 from accounts.models import Account
 from transactions.models import Transaction
+from transactions.models import TransactionAccount
+from decimal import Decimal
 
 logger = logging.getLogger(__name__)
 
@@ -13,8 +15,10 @@ def recalculate_account_balance(account):
     Recalcula saldo CORRETAMENTE baseado em transações.
     
     PADRÃO DE SALDO:
-    - Contas Normais: Saldo = Saldo_Inicial + Entradas - Saídas (pode ser positivo ou negativo)
-    - Cartões de Crédito: Saldo = -(Saídas - Entradas) ou seja, SEMPRE NEGATIVO (dívida) ou ZERO
+    - Contas Normais: Saldo = Saldo_Inicial + Entradas - Saídas
+    - Cartões de Crédito: 
+        * Transações com role='source' = SAÍDA (aumenta dívida, -)
+        * Transações com role='destination' = ENTRADA (reduz dívida, +)
     """
     with db_transaction.atomic():
         locked_account = Account.objects.select_for_update().get(pk=account.pk)
@@ -22,23 +26,32 @@ def recalculate_account_balance(account):
         # 1. Para TODAS as contas: saldo inicial
         initial_balance = locked_account.initial_balance
         
-        # 2. Calcular totais de transações
-        totals_in = Transaction.objects.filter(
-            transaction_accounts__account=locked_account,
-            direction='IN',
-            is_deleted=False
-        ).aggregate(total=Sum('amount'))['total'] or 0
-        
-        totals_out = Transaction.objects.filter(
-            transaction_accounts__account=locked_account,
-            direction='OUT',
-            is_deleted=False
-        ).aggregate(total=Sum('amount'))['total'] or 0
-        
-        # 3. FÓRMULA CORRETA
         if locked_account.is_credit_card:
-            # CARTÕES DE CRÉDITO: Saldo = -(Saídas - Entradas)
-            calculated_balance = totals_in - totals_out
+            # ============================================
+            # CARTÕES DE CRÉDITO - NOVA LÓGICA
+            # ============================================
+            
+            # Buscar todas as relações TransactionAccount deste cartão
+            transaction_accounts = TransactionAccount.objects.filter(
+                account=locked_account,
+                transaction__is_deleted=False
+            ).select_related('transaction')
+            
+            total_debit = Decimal('0')   # Saídas (role='source') - AUMENTAM dívida
+            total_credit = Decimal('0')  # Entradas (role='destination') - REDUZEM dívida
+            
+            for ta in transaction_accounts:
+                if ta.role == 'source':
+                    # Transação onde cartão é fonte: SAÍDA (aumenta dívida)
+                    total_debit += ta.transaction.amount
+                elif ta.role == 'destination':
+                    # Transação onde cartão é destino: ENTRADA (reduz dívida)
+                    total_credit += ta.transaction.amount
+            
+            # Fórmula: Saldo = Entradas - Saídas (sempre negativo ou zero)
+            # Exemplo: 
+            #   Compras: 1000 (debit) + Pagamentos: 200 (credit) = 200 - 1000 = -800
+            calculated_balance = total_credit - total_debit
             
             # VALIDAÇÃO: Cartão NUNCA pode ter saldo positivo
             if calculated_balance > 0:
@@ -47,31 +60,47 @@ def recalculate_account_balance(account):
                     f"Ajustando para 0. Verifique se há entradas incorretas."
                 )
                 calculated_balance = 0
+                
         else:
-            # CONTAS NORMAIS: Saldo = Saldo Inicial + Entradas - Saídas
+            # ============================================
+            # CONTAS NORMAIS - MANTÉM LÓGICA ORIGINAL
+            # ============================================
+            totals_in = Transaction.objects.filter(
+                transaction_accounts__account=locked_account,
+                direction='IN',
+                is_deleted=False
+            ).aggregate(total=Sum('amount'))['total'] or 0
+            
+            totals_out = Transaction.objects.filter(
+                transaction_accounts__account=locked_account,
+                direction='OUT',
+                is_deleted=False
+            ).aggregate(total=Sum('amount'))['total'] or 0
+            
             calculated_balance = initial_balance + totals_in - totals_out
         
         # 4. Atualizar e retornar
         locked_account.balance = calculated_balance
         locked_account.save(update_fields=['balance'])
         
+        logger.debug(
+            f"Recalculado saldo {locked_account.name}: "
+            f"R$ {calculated_balance:.2f} "
+            f"(cartão: {locked_account.is_credit_card})"
+        )
+        
         return calculated_balance
 
 def verify_account_balance(account):
     """
     Verifica se o saldo da conta está consistente com as transações.
-    
-    Usado para validação e debug.
-    
-    Returns:
-        tuple: (is_consistent, calculated_balance, stored_balance)
     """
     with db_transaction.atomic():
         account.refresh_from_db()
         calculated_balance = recalculate_account_balance(account)
         account.refresh_from_db()
         
-        is_consistent = abs(account.balance - calculated_balance) < 0.01  # Tolerância de 1 centavo
+        is_consistent = abs(account.balance - calculated_balance) < 0.01
         
         if not is_consistent:
             logger.warning(
