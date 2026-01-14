@@ -157,9 +157,22 @@ class Transaction(models.Model):
         ]
     
     def delete(self, *args, **kwargs):
+        """
+        Soft delete da transação.
+        
+        Nota: O recálculo do saldo deve ser feito DEPOIS que este método
+        é chamado, na view ou onde for apropriado.
+        """
         self.is_deleted = True
         self.deleted_at = timezone.now()
-        self.save()
+        self.save(update_fields=['is_deleted', 'deleted_at'])
+    
+    def hard_delete(self, *args, **kwargs):
+        """
+        Exclusão física (apenas para casos especiais).
+        Use com cuidado!
+        """
+        super().delete(*args, **kwargs)
     
     def __str__(self):
         return f"Transaction {self.transaction}: {self.direction} of {self.amount} {self.currency} on {self.occurred_at}"
