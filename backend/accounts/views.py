@@ -61,13 +61,20 @@ def get_credit_card_bills(request, card_id):
 def pay_credit_card_bill(request):
     """Processa pagamento de uma fatura."""
     try:
-        data = json.loads(request.body)
+        data = request.data
         
         bill_id = data.get('bill_id')
         payment_account_id = data.get('payment_account')
-        amount = float(data.get('amount', 0))
+        amount = data.get('amount')
         notes = data.get('notes', '')
         create_transaction = data.get('create_transaction', True)
+        
+        print(f"=== DEBUG PAY BILL ===")
+        print(f"Bill ID: {bill_id}")
+        print(f"Payment Account ID: {payment_account_id}")
+        print(f"Amount: {amount}")
+        print(f"Type of amount: {type(amount)}")
+        print(f"User: {request.user}")
         
         if not all([bill_id, payment_account_id, amount]):
             return Response({
@@ -75,14 +82,33 @@ def pay_credit_card_bill(request):
                 'error': 'Dados incompletos'
             }, status=400)
         
+        # Converter amount para Decimal
+        try:
+            from decimal import Decimal, InvalidOperation
+            amount_decimal = Decimal(str(amount))  # Converter para string primeiro
+        except (ValueError, InvalidOperation, TypeError) as e:
+            print(f"Erro na conversão do valor: {e}")
+            return Response({
+                'success': False,
+                'error': f'Valor do pagamento inválido: {str(e)}'
+            }, status=400)
+        
+        if amount_decimal <= Decimal('0'):
+            return Response({
+                'success': False,
+                'error': 'Valor do pagamento deve ser maior que zero'
+            }, status=400)
+        
         result = CreditCardService.pay_bill(
             bill_id=bill_id,
             payment_account_id=payment_account_id,
-            amount=amount,
+            amount=amount_decimal,  # Agora é Decimal, não float
             user=request.user,
             notes=notes,
             create_transaction=create_transaction
         )
+        
+        print(f"Result: {result}")
         
         return Response({
             'success': True,
@@ -99,15 +125,21 @@ def pay_credit_card_bill(request):
         })
         
     except ValueError as e:
+        print(f"ValueError: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return Response({
             'success': False,
             'error': str(e)
         }, status=400)
     except Exception as e:
+        print(f"Exception: {str(e)}")
+        import traceback
+        traceback.print_exc()
         logger.error(f"Erro no pagamento: {str(e)}")
         return Response({
             'success': False,
-            'error': 'Erro ao processar pagamento'
+            'error': f'Erro ao processar pagamento: {str(e)}'
         }, status=500)
         
 @api_view(['GET'])
