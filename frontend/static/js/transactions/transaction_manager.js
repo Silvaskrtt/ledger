@@ -453,13 +453,23 @@ class TransactionManager {
                 }
             });
 
-            if (response.ok) {
+            console.log('Resposta DELETE:', response.status, response.statusText);
+
+            if (response.ok || response.status === 204) {
                 alert('Transação excluída com sucesso!');
                 this.closeAllModals();
                 window.location.reload();
             } else {
-                const result = await response.json();
-                throw new Error(result.detail || 'Erro ao excluir transação');
+                // Primeiro verificar o content-type
+                const contentType = response.headers.get('content-type');
+                
+                if (contentType && contentType.includes('application/json')) {
+                    const result = await response.json();
+                    throw new Error(result.detail || 'Erro ao excluir transação');
+                } else {
+                    // Se não for JSON, apenas usar status
+                    throw new Error(`Erro ${response.status}: ${response.statusText}`);
+                }
             }
         } catch (error) {
             console.error('Erro ao excluir transação:', error);
