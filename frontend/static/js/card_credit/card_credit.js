@@ -365,23 +365,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify(formData)
             });
             
-            const result = await response.json();
+            let result;
+            try {
+                result = await response.json();
+            } catch (parseError) {
+                console.error('Erro ao parsear resposta:', parseError);
+                throw new Error('Resposta do servidor inválida');
+            }
             
-            if (result.success) {
-                showToast(result.message, 'success');
-                
-                // Fechar modais
-                closeAllModals();
-                
-                // Recarregar dados
-                await loadCreditCards();
-                
-                // Atualizar patrimônio se necessário
-                if (result.patrimony) {
-                    updatePatrimonySummary(result.patrimony);
+            if (response.ok) {
+                if (result.success) {
+                    showToast(result.message, 'success');
+                    
+                    // Fechar modais
+                    closeAllModals();
+                    
+                    // Recarregar dados
+                    await loadCreditCards();
+                    
+                    // Atualizar patrimônio se necessário
+                    if (result.patrimony) {
+                        updatePatrimonySummary(result.patrimony);
+                    }
+                } else {
+                    throw new Error(result.error || 'Erro ao processar pagamento');
                 }
             } else {
-                throw new Error(result.error || 'Erro ao processar pagamento');
+                // Se a resposta não é OK, tentar extrair erro
+                if (result && result.detail) {
+                    throw new Error(result.detail);
+                } else if (result && result.error) {
+                    throw new Error(result.error);
+                } else {
+                    throw new Error(`Erro do servidor: ${response.status} ${response.statusText}`);
+                }
             }
             
         } catch (error) {
