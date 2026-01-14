@@ -440,7 +440,13 @@ class TransactionManager {
     async deleteTransaction() {
         if (!this.currentTransactionId) return;
 
-        if (!confirm('Tem certeza que deseja excluir esta transação? Esta ação não pode ser desfeita.')) {
+        // Mostrar mensagem mais descritiva
+        const confirmMessage = `Tem certeza que deseja excluir esta transação?\n\n` +
+                            `O valor será retirado do saldo da conta (se for saída) ou ` +
+                            `retornará ao saldo (se for entrada).\n\n` +
+                            `Esta ação não pode ser desfeita.`;
+        
+        if (!confirm(confirmMessage)) {
             return;
         }
 
@@ -456,7 +462,7 @@ class TransactionManager {
             console.log('Resposta DELETE:', response.status, response.statusText);
 
             if (response.ok || response.status === 204) {
-                alert('Transação excluída com sucesso!');
+            alert('Transação excluída com sucesso! O saldo da conta foi atualizado.');
                 this.closeAllModals();
                 window.location.reload();
             } else {
