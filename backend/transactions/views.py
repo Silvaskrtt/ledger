@@ -343,7 +343,7 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
     - Atualizar transação existente
     - Excluir transação
     """
-    serializer_class = TransactionUpdateSerializer
+    serializer_class = TransactionCreateSerializer
     
     def get_queryset(self):
         """Garante que usuário só acesse suas próprias transações."""
@@ -355,16 +355,37 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
         for ta in instance.transaction_accounts.all():
             recalculate_account_balance(ta.account)
     
-    def perform_destroy(self, instance):
-        # Soft delete
-        instance.is_deleted = True
-        instance.deleted_at = timezone.now()
-        instance.save()
+    def destroy(self, request, *args, **kwargs):
+        print("=" * 50)
+        print("DEBUG: Iniciando exclusão de transação")
+        print(f"URL: {request.path}")
+        print(f"Transaction ID: {kwargs.get('pk')}")
+        print(f"User: {request.user}")
+        print(f"Method: {request.method}")
+        print("=" * 50)
         
-        # Recalcular saldo da conta
-        for ta in instance.transaction_accounts.all():
-            recalculate_account_balance(ta.account)
-
+        try:
+            instance = self.get_object()
+            print(f"Transação encontrada: {instance.transaction}")
+            
+            self.perform_destroy(instance)
+            print("Transação excluída com sucesso")
+            
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Transaction.DoesNotExist:
+            print(f"Transação não encontrada")
+            return Response(
+                {'detail': 'Transação não encontrada'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            print(f"Erro ao excluir: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return Response(
+                {'detail': str(e)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
 class TransactionAccountListCreateView(generics.ListCreateAPIView):
     """
