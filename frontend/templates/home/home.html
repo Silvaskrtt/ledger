@@ -4,6 +4,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/home/dashboards.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -95,4 +96,100 @@
     </div>
   </div>
 </section>
+
+<!-- DASHBOARDS SECTION -->
+<section class="dashboards-section">
+  <h2 class="dashboards-title">📊 Dashboards Financeiros</h2>
+
+  <div class="dashboard-grid">
+    <!-- Dashboard: Gastos por Cartão -->
+    <div class="dashboard-widget">
+      <div class="dashboard-widget-header">
+        <h3 class="dashboard-widget-title">💳 Gastos por Cartão</h3>
+      </div>
+
+      <div class="dashboard-controls">
+        <div>
+          <label>Data Inicial</label>
+          <input type="date" id="card-start-date" class="dashboard-input">
+        </div>
+        <div>
+          <label>Data Final</label>
+          <input type="date" id="card-end-date" class="dashboard-input">
+        </div>
+        <button class="btn-small" onclick="loadCardExpensesHome()">Carregar</button>
+      </div>
+
+      <div id="card-error-home" class="dashboard-error"></div>
+      <div id="card-loading-home" class="chart-loading">Carregando...</div>
+      <div class="chart-container-home">
+        <canvas id="cardChartHome"></canvas>
+      </div>
+      <div id="card-total-home" class="dashboard-total" style="display: none;">
+        Total: <span class="dashboard-total-value" id="card-total-value-home">R$ 0,00</span>
+      </div>
+    </div>
+
+    <!-- Dashboard: Gastos por Categoria -->
+    <div class="dashboard-widget">
+      <div class="dashboard-widget-header">
+        <h3 class="dashboard-widget-title">📊 Gastos por Categoria</h3>
+      </div>
+
+      <div class="dashboard-controls">
+        <div>
+          <label>Data Inicial</label>
+          <input type="date" id="category-start-date" class="dashboard-input">
+        </div>
+        <div>
+          <label>Data Final</label>
+          <input type="date" id="category-end-date" class="dashboard-input">
+        </div>
+        <div class="toggle-wrapper">
+          <label>Incluir Pendentes</label>
+          <label class="toggle-switch">
+            <input type="checkbox" id="category-include-pending-home">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <button class="btn-small" onclick="loadCategoryExpensesHome()">Carregar</button>
+      </div>
+
+      <div id="category-error-home" class="dashboard-error"></div>
+      <div id="category-loading-home" class="chart-loading">Carregando...</div>
+      <div class="chart-container-home">
+        <canvas id="categoryChartHome"></canvas>
+      </div>
+      <div id="category-total-home" class="dashboard-total" style="display: none;">
+        Total: <span class="dashboard-total-value" id="category-total-value-home">R$ 0,00</span>
+      </div>
+    </div>
+
+    <!-- Dashboard: Fluxo de Caixa -->
+    <div class="dashboard-widget full-width">
+      <div class="dashboard-widget-header">
+        <h3 class="dashboard-widget-title">📈 Fluxo de Caixa</h3>
+      </div>
+
+      <div class="dashboard-controls">
+        <div>
+          <label>Ano</label>
+          <input type="number" id="cash-flow-year-home" min="2020" class="dashboard-input" style="width: 100px;">
+        </div>
+        <button class="btn-small" onclick="loadCashFlowHome()">Carregar</button>
+      </div>
+
+      <div id="cash-flow-error-home" class="dashboard-error"></div>
+      <div id="cash-flow-loading-home" class="chart-loading">Carregando...</div>
+      <div class="chart-container-home" style="height: 320px;">
+        <canvas id="cashFlowChartHome"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script src="{% static 'js/home/dashboards.js' %}"></script>
 {% endblock %}

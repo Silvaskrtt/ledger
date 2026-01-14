@@ -146,8 +146,8 @@ class CashFlowService:
             year = timezone.now().year
         
         # Definir período do ano
-        start_date = datetime(year, 1, 1, tzinfo=timezone.utc)
-        end_date = datetime(year, 12, 31, 23, 59, 59, tzinfo=timezone.utc)
+        start_date = datetime(year, 1, 1, tzinfo=timezone.UTC)
+        end_date = datetime(year, 12, 31, 23, 59, 59, tzinfo=timezone.UTC)
         
         # Transações do período
         transactions = Transaction.objects.filter(

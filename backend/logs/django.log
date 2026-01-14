@@ -20551,3 +20551,14 @@ Not Found: /favicon.ico
 "GET /static/css/style.css HTTP/1.1" 404 1853
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6671
+"GET / HTTP/1.1" 200 11601
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 3861
+"GET /static/js/home/dashboards.js HTTP/1.1" 404 1877
+C:\Users\muril\ledger\backend\dashboards\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\dashboards\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\dashboards\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\dashboards\services.py changed, reloading.
+Watching for file changes with StatReloader
