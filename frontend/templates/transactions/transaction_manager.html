@@ -1,0 +1,225 @@
+<!-- frontend/templates/transactions/transaction_manager.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gerenciar Transações - Ledger{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/transactions/transaction_manager.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="transaction-manager">
+    <!-- Cabeçalho com Botão de Nova Transação -->
+    <div class="manager-header">
+        <h1>Transações</h1>
+        <button class="btn btn-primary" id="newTransactionBtn">
+            <i class="fas fa-plus"></i> Nova Transação
+        </button>
+    </div>
+
+    <!-- Filtros -->
+    <form method="get" class="filter-form" id="filterForm">
+        <div class="filter-card">
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label for="start">De:</label>
+                    <input type="date" id="start" name="start" value="{{ start }}">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="end">Até:</label>
+                    <input type="date" id="end" name="end" value="{{ end }}">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="category">Categoria:</label>
+                    <select id="category" name="category" class="tom-select">
+                        <option value="">Todas as categorias</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category }}"
+                            {% if selected_category == category.category|stringformat:"s" %}selected{% endif %}>
+                            {{ category.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="account">Conta:</label>
+                    <select id="account" name="account" class="tom-select">
+                        <option value="">Todas as contas</option>
+                        {% for account in accounts %}
+                        <option value="{{ account.account }}">
+                            {{ account.name }} ({{ account.get_type_display }})
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filter-actions">
+                <button type="submit" class="btn btn-secondary">
+                    <i class="fas fa-filter"></i> Filtrar
+                </button>
+                {% if start or end or selected_category %}
+                <a href="{% url 'transaction-manager' %}" class="btn btn-outline">
+                    Limpar Filtros
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+
+    <!-- Lista de Transações -->
+    <div class="transaction-list" id="transactionList">
+        {% for transaction in transactions %}
+        <div class="transaction-item" data-id="{{ transaction.transaction }}">
+            <div class="transaction-info">
+                <div class="transaction-main">
+                    <span class="transaction-category">{{ transaction.category.name }}</span>
+                    <span class="transaction-description">
+                        {% if transaction.description %}
+                            {{ transaction.description }}
+                        {% else %}
+                            {{ transaction.category.name }}
+                        {% endif %}
+                    </span>
+                </div>
+                
+                <div class="transaction-details">
+                    <span class="transaction-date">
+                        {{ transaction.occurred_at|date:"d/m/Y H:i" }}
+                    </span>
+                    <span class="transaction-method">
+                        {{ transaction.payment_method.get_type_display }}
+                    </span>
+                    <span class="transaction-account">
+                        {% if transaction.transaction_accounts.exists %}
+                            {% for ta in transaction.transaction_accounts.all %}
+                                {{ ta.account.name }}
+                            {% endfor %}
+                        {% endif %}
+                    </span>
+                </div>
+                
+                {% if transaction.tags.exists %}
+                <div class="transaction-tags">
+                    {% for tag in transaction.tags.all %}
+                    <span class="tag">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="transaction-actions">
+                <div class="transaction-amount 
+                    {% if transaction.direction == 'IN' %}amount-income{% else %}amount-expense{% endif %}">
+                    {% if transaction.direction == 'IN' %}+{% else %}-{% endif %}
+                    R$ {{ transaction.amount|floatformat:2 }}
+                    
+                    {% if transaction.origin == 'INSTALLMENT' %}
+                    <small class="installment-info">
+                        {{ transaction.installment_number }}/{{ transaction.total_installments }}
+                    </small>
+                    {% endif %}
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn-icon edit-btn" title="Editar" data-id="{{ transaction.transaction }}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn-icon delete-btn" title="Excluir" data-id="{{ transaction.transaction }}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="empty-state">
+            <i class="fas fa-receipt"></i>
+            <p>Nenhuma transação encontrada</p>
+            <button class="btn btn-primary" id="addFirstTransaction">
+                <i class="fas fa-plus"></i> Adicionar Primeira Transação
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Paginação -->
+    {% if transactions.has_other_pages %}
+    <div class="pagination">
+        {% if transactions.has_previous %}
+        <a href="?page={{ transactions.previous_page_number }}{% if start %}&start={{ start }}{% endif %}{% if end %}&end={{ end }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}"
+           class="page-link">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        {% endif %}
+
+        <span class="current-page">
+            Página {{ transactions.number }} de {{ transactions.paginator.num_pages }}
+        </span>
+
+        {% if transactions.has_next %}
+        <a href="?page={{ transactions.next_page_number }}{% if start %}&start={{ start }}{% endif %}{% if end %}&end={{ end }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}"
+           class="page-link">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Modal para Criar/Editar Transação -->
+<div class="modal" id="transactionModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Nova Transação</h2>
+            <button class="close-modal">&times;</button>
+        </div>
+        
+        <form id="transactionForm" method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="transactionId" name="transaction_id">
+            
+            <div class="modal-body">
+                <!-- Formulário será carregado aqui via AJAX -->
+                <div id="formContainer"></div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-danger" id="deleteTransactionBtn" style="display: none;">
+                    Excluir
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de Confirmação de Exclusão -->
+<div class="modal" id="confirmDeleteModal">
+    <div class="modal-content confirm-modal">
+        <div class="modal-header">
+            <h2>Confirmar Exclusão</h2>
+            <button class="close-modal">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <p>Tem certeza que deseja excluir esta transação?</p>
+            <p class="warning-text">Esta ação não pode ser desfeita.</p>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close-modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Excluir</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/transactions/transaction_manager.js' %}?v=1"></script>
+{% endblock %}

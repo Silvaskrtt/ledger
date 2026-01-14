@@ -1,0 +1,185 @@
+<!-- backend/templates/transactions/partials/transaction_form.html -->
+
+<div class="form-container">
+    <div class="form-grid">
+        <!-- Valor -->
+        <div class="form-field">
+            <label for="amount">Valor *</label>
+            <input type="number" id="amount" name="amount" 
+                   step="0.01" min="0.01" required 
+                   placeholder="0.00"
+                   value="{% if transaction %}{{ transaction.amount }}{% endif %}">
+        </div>
+
+        <!-- Conta -->
+        <div class="form-field">
+            <label for="account">Conta *</label>
+            <select id="account" name="account" required class="tom-select">
+                <option value="">Selecione uma conta</option>
+                {% for account in accounts %}
+                    <option value="{{ account.account }}"
+                        {% if transaction and transaction.transaction_accounts.first.account.account == account.account %}
+                            selected
+                        {% endif %}>
+                        {{ account.name }} ({{ account.get_type_display }})
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Data e Hora -->
+        <div class="form-field">
+            <label for="occurred_at">Data e Hora *</label>
+            <input type="datetime-local" id="occurred_at" 
+                   name="occurred_at" required
+                   value="{% if transaction %}{{ transaction.occurred_at|date:'Y-m-d\TH:i' }}{% endif %}">
+        </div>
+
+        <!-- Categoria -->
+        <div class="form-field">
+            <label for="category">Categoria *</label>
+            <select id="category" name="category" required class="tom-select">
+                <option value="">Selecione uma categoria</option>
+                {% for category in categories %}
+                    <option value="{{ category.category }}"
+                        {% if transaction and transaction.category.category == category.category %}
+                            selected
+                        {% endif %}>
+                        {{ category.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Método de Pagamento -->
+        <div class="form-field">
+            <label for="payment_method">Método de Pagamento *</label>
+            <select id="payment_method" name="payment_method" required class="tom-select">
+                <option value="">Selecione um método</option>
+                {% for method in payment_methods %}
+                    <option value="{{ method.payment_method }}"
+                        {% if transaction and transaction.payment_method.payment_method == method.payment_method %}
+                            selected
+                        {% endif %}>
+                        {{ method.get_type_display }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Moeda -->
+        <div class="form-field">
+            <label for="currency">Moeda *</label>
+            <select id="currency" name="currency" required class="tom-select">
+                <option value="BRL" 
+                    {% if transaction and transaction.currency == 'BRL' or not transaction %}selected{% endif %}>
+                    Real (BRL)
+                </option>
+                <option value="USD"
+                    {% if transaction and transaction.currency == 'USD' %}selected{% endif %}>
+                    Dólar (USD)
+                </option>
+                <option value="EUR"
+                    {% if transaction and transaction.currency == 'EUR' %}selected{% endif %}>
+                    Euro (EUR)
+                </option>
+            </select>
+        </div>
+
+        <!-- Origem -->
+        <div class="form-field">
+            <label for="origin">Origem *</label>
+            <select id="origin" name="origin" required class="tom-select">
+                <option value="MANUAL"
+                    {% if transaction and transaction.origin == 'MANUAL' or not transaction %}selected{% endif %}>
+                    Manual
+                </option>
+                <option value="RECURRENT"
+                    {% if transaction and transaction.origin == 'RECURRENT' %}selected{% endif %}>
+                    Recorrente
+                </option>
+                <option value="INSTALLMENT"
+                    {% if transaction and transaction.origin == 'INSTALLMENT' %}selected{% endif %}>
+                    Parcelado
+                </option>
+            </select>
+        </div>
+
+        <!-- Tipo (Entrada/Saída) -->
+        <div class="form-field full-width">
+            <label>Tipo de Transação *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="direction" value="IN" 
+                        {% if transaction and transaction.direction == 'IN' or not transaction %}checked{% endif %}>
+                    <span>Entrada</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="direction" value="OUT"
+                        {% if transaction and transaction.direction == 'OUT' %}checked{% endif %}>
+                    <span>Saída</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Descrição -->
+        <div class="form-field full-width">
+            <label for="description">Descrição</label>
+            <input type="text" id="description" name="description" 
+                   maxlength="255" 
+                   placeholder="Descrição da transação"
+                   value="{% if transaction %}{{ transaction.description }}{% endif %}">
+        </div>
+
+        <!-- Tags -->
+        <div class="form-field full-width">
+            <label for="tags">Tags</label>
+            <select id="tags" name="tags" multiple class="tom-select">
+                <option value="">Selecione tags</option>
+                {% for tag in tags %}
+                    <option value="{{ tag.tag }}"
+                        {% if selected_tags and tag.tag|stringformat:"s" in selected_tags %}selected{% endif %}>
+                        {{ tag.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Campos Dinâmicos para Recorrência -->
+        <div class="form-field dynamic-field" data-field="recurrent">
+            <label for="recurrence_frequency">Frequência</label>
+            <select id="recurrence_frequency" name="recurrence_frequency" class="tom-select">
+                <option value="">Selecione a frequência</option>
+                <option value="DAILY">Diário</option>
+                <option value="WEEKLY">Semanal</option>
+                <option value="BIWEEKLY">Quinzenal</option>
+                <option value="MONTHLY">Mensal</option>
+                <option value="QUARTERLY">Trimestral</option>
+                <option value="SEMIANNUAL">Semestral</option>
+                <option value="ANNUAL">Anual</option>
+            </select>
+        </div>
+
+        <div class="form-field dynamic-field" data-field="recurrent">
+            <label for="max_recurrences">Número Máximo (opcional)</label>
+            <input type="number" id="max_recurrences" name="max_recurrences" 
+                   min="1" max="999" 
+                   placeholder="Deixe em branco para ilimitado">
+        </div>
+
+        <!-- Campos Dinâmicos para Parcelamento -->
+        <div class="form-field dynamic-field" data-field="installment">
+            <label for="installments">Número de Parcelas</label>
+            <input type="number" id="installments" name="installments" 
+                   min="2" max="360" 
+                   placeholder="Ex: 12">
+        </div>
+
+        <div class="form-field dynamic-field" data-field="installment">
+            <label for="interest_rate">Taxa de Juros Mensal (%)</label>
+            <input type="number" id="interest_rate" name="interest_rate" 
+                   step="0.01" min="0" max="100" 
+                   placeholder="0 para sem juros" value="0">
+        </div>
+    </div>
+</div>
