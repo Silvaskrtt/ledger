@@ -80,13 +80,21 @@ class CreditCardService:
                 
                 if total_amount > 0:
                     # Criar fatura
+                    # Calcular pagamento mínimo (10% do total, com mínimo de R$ 0.01)
+                    minimum_payment = max(
+                        Decimal('0.01'),  # Mínimo de 1 centavo
+                        (total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
+                    )
+                    # Garantir que não excede o total
+                    minimum_payment = min(minimum_payment, total_amount)
+                    
                     bill = CreditCardBill.objects.create(
                         credit_card=card,
                         start_date=bill_start_date,
                         end_date=bill_end_date,
                         due_date=due_date,
                         total_amount=total_amount,
-                        minimum_payment=total_amount * Decimal('0.10'),  # 10% mínimo
+                        minimum_payment=minimum_payment,
                         status='OPEN'
                     )
                     
@@ -286,11 +294,21 @@ class CreditCardService:
             transactions_total = Transaction.objects.filter(
                 credit_card_bill=bill,
                 is_deleted=False
-            ).aggregate(total=Sum('amount'))['total'] or 0
+            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
             
-            if bill.total_amount != transactions_total:
+            # Nunca permitir que o total seja reduzido para 0 (isso violaria as constraints)
+            if transactions_total > 0 and bill.total_amount != transactions_total:
                 bill.total_amount = transactions_total
-                bill.save(update_fields=['total_amount'])
+                
+                # Recalcular mínimo quando total muda
+                minimum_payment = max(
+                    Decimal('0.01'),
+                    (bill.total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
+                )
+                minimum_payment = min(minimum_payment, bill.total_amount)
+                bill.minimum_payment = minimum_payment
+                
+                bill.save(update_fields=['total_amount', 'minimum_payment'])
             
             # Verificar status
             if bill.status != 'PAID':
