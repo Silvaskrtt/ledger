@@ -182,6 +182,13 @@ class CreditCardService:
                     )[0]
                 )
                 
+                logger.info(f"Transação de pagamento criada:")
+                logger.info(f"  ID: {transaction.transaction}")
+                logger.info(f"  Direction: {transaction.direction}")
+                logger.info(f"  Valor: {transaction.amount}")
+                logger.info(f"  Cartão: {bill.credit_card.name}")
+                logger.info(f"  Saldo anterior do cartão: {bill.credit_card.balance}")
+                
                 # Relacionar com conta de pagamento (source)
                 TransactionAccount.objects.create(
                     transaction=transaction,
@@ -221,6 +228,25 @@ class CreditCardService:
             # Recalcular saldos
             recalculate_account_balance(payment_account)
             recalculate_account_balance(bill.credit_card)
+            
+            bill.credit_card.refresh_from_db()
+            new_balance = bill.credit_card.balance
+            
+            old_balance = new_balance + amount
+            
+            logger.info(f"Saldo do cartão {bill.credit_card.name}:")
+            logger.info(f"  Antes: {old_balance}")
+            logger.info(f"  Depois: {new_balance}")
+            logger.info(f"  Diferença: {new_balance - old_balance}")
+            
+            # Verificar consistência
+            from transactions.services.balance_service import verify_account_balance
+            is_consistent, calculated, stored = verify_account_balance(bill.credit_card)
+            
+            if not is_consistent:
+                logger.error(f"INCONSISTÊNCIA no cartão {bill.credit_card.name}")
+                logger.error(f"  Calculado: {calculated}")
+                logger.error(f"  Armazenado: {stored}")
             
             # Verificar consistência do patrimônio
             from services.patrimony_service import PatrimonyService
