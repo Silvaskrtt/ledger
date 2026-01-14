@@ -37,10 +37,7 @@ def recalculate_account_balance(account):
         
         # 3. FÓRMULA CORRETA
         if locked_account.is_credit_card:
-            # CARTÃO DE CRÉDITO: Saldo NEGATIVO representa dívida
-            # Fórmula: -(Saídas - Entradas) = Entradas - Saídas
-            # Ex: compras de 100 + 500 = 600 saídas, 0 entradas = -600
-            # Ex: pagamento de 200 = 200 entradas, 0 saídas = -400
+            # CARTÕES DE CRÉDITO: Saldo = -(Saídas - Entradas)
             calculated_balance = totals_in - totals_out
             
             # VALIDAÇÃO: Cartão NUNCA pode ter saldo positivo
