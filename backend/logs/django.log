@@ -18798,3 +18798,418 @@ Traceback (most recent call last):
                           ^^^^^^^^^^^^
 AttributeError: type object 'datetime.timezone' has no attribute 'now'
 "DELETE /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/ HTTP/1.1" 500 112657
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Internal Server Error: /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 295, in delete
+    return self.destroy(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 91, in destroy
+    self.perform_destroy(instance)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 361, in perform_destroy
+    instance.deleted_at = timezone.now()
+                          ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+"DELETE /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/ HTTP/1.1" 500 112657
+Internal Server Error: /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 295, in delete
+    return self.destroy(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 91, in destroy
+    self.perform_destroy(instance)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 361, in perform_destroy
+    instance.deleted_at = timezone.now()
+                          ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+"DELETE /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/ HTTP/1.1" 500 112657
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/ HTTP/1.1" 200 27126
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17252
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 27126
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10160
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17252
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+Internal Server Error: /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 295, in delete
+    return self.destroy(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 372, in destroy
+    self.perform_destroy(instance)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 361, in perform_destroy
+    instance.deleted_at = timezone.now()
+                          ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+"DELETE /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/ HTTP/1.1" 500 113031
+"GET /transactions/ HTTP/1.1" 200 27126
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17252
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/transactions/form/ HTTP/1.1" 200 8725
+"GET /transactions/ HTTP/1.1" 200 27126
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 12394
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17252
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/transactions/form/ HTTP/1.1" 200 8725
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17252
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/transactions/form/ HTTP/1.1" 200 8725
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17252
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/transactions/form/ HTTP/1.1" 200 9023
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 8725
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17252
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+Internal Server Error: /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 295, in delete
+    return self.destroy(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 400, in destroy
+    self.perform_destroy(instance)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 365, in perform_destroy
+    instance.deleted_at = timezone.now()
+                          ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+"DELETE /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/ HTTP/1.1" 500 113297
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Internal Server Error: /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\rest_framework\generics.py", line 295, in delete
+    return self.destroy(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 400, in destroy
+    self.perform_destroy(instance)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 365, in perform_destroy
+    instance.deleted_at = timezone.now()
+                          ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+"DELETE /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/ HTTP/1.1" 500 113297
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17259
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17259
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+Internal Server Error: /api/transactions/form/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 118, in get_transaction_form
+    'now': timezone.now(),
+           ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+"GET /api/transactions/form/ HTTP/1.1" 500 76773
+Internal Server Error: /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/
+"DELETE /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/ HTTP/1.1" 500 67
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Internal Server Error: /api/transactions/form/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\transactions\views.py", line 118, in get_transaction_form
+    'now': timezone.now(),
+           ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+"GET /api/transactions/form/ HTTP/1.1" 500 76773
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/transactions/form/ HTTP/1.1" 200 8725
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17259
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/transactions/form/ HTTP/1.1" 200 8725
+C:\Users\muril\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17395
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17395
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/transactions/form/ HTTP/1.1" 200 8725
+C:\Users\muril\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 27126
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17395
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"DELETE /api/transactions/4de2e6d3-c156-4a2a-891d-f7ccdb190068/ HTTP/1.1" 204 0
+"GET /transactions/?start=&end=&category=&account= HTTP/1.1" 200 25254
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 7981
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 25254
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"DELETE /api/transactions/8a3a2b9f-2015-467c-884c-b6d2df18e3e8/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 23215
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 7978
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 7978
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
