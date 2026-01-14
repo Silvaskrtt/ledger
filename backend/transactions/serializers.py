@@ -1,6 +1,8 @@
 # backend/transactions/serializers.py
 
 import logging
+
+from transactions.services.balance_service import recalculate_account_balance
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 from rest_framework import serializers
@@ -277,6 +279,41 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         )
         
         return result
+    
+    def update(self, instance, validated_data):
+        """
+        Atualiza uma transação existente.
+        """
+        # Remover transação antiga do saldo
+        old_amount = instance.amount
+        old_direction = instance.direction
+        
+        # Processar tags
+        tag_ids = validated_data.pop('tags', [])
+        tag_objects = []
+        for tag_id in tag_ids:
+            try:
+                tag = Tag.objects.get(tag=tag_id, user=self.context['request'].user)
+                tag_objects.append(tag)
+            except Tag.DoesNotExist:
+                pass
+        
+        # Atualizar campos básicos
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        
+        instance.save()
+        
+        # Atualizar tags
+        instance.tags.clear()
+        for tag in tag_objects:
+            TransactionTag.objects.create(transaction=instance, tag=tag)
+        
+        # Recalcular saldo das contas
+        for ta in instance.transaction_accounts.all():
+            recalculate_account_balance(ta.account)
+        
+        return instance
 
 # Manter os outros serializers existentes
 class TransactionUpdateSerializer(serializers.ModelSerializer):
