@@ -1,5 +1,3 @@
-# backend/transactions/urls_api.py
-
 from django.urls import path
 from .views import (
     TransactionListCreateView,
@@ -8,12 +6,17 @@ from .views import (
     TransactionAccountDetailView,
     TransactionTagListCreateView,
     TransactionTagDetailView,
+    get_transaction_form,  # Adicionar esta importação
 )
 
 urlpatterns = [
     # Transactions (API)
     path("transactions/", TransactionListCreateView.as_view(), name="api-transaction-list"),
     path("transactions/<uuid:pk>/", TransactionDetailView.as_view(), name="api-transaction-detail"),
+    
+    # Forms (HTML para modais)
+    path("transactions/form/", get_transaction_form, name="api-transaction-form"),
+    path("transactions/<uuid:transaction_id>/form/", get_transaction_form, name="api-transaction-edit-form"),
 
     # Transaction Accounts
     path("transaction-accounts/", TransactionAccountListCreateView.as_view(), name="api-transaction-account-list"),
