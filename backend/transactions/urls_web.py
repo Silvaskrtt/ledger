@@ -2,12 +2,10 @@
 
 from django.urls import path
 from .views import (
-    CreateTransactionView,
-    TransactionListView,
+    TransactionManagerView,
 )
 
 urlpatterns = [
     # HTML views
-    path("transactions/new/", CreateTransactionView.as_view(), name="create-transaction-form"),
-    path("transactions/list/", TransactionListView.as_view(), name="transaction-history"),
+    path("transactions/", TransactionManagerView.as_view(), name="transaction-manager"),
 ]
