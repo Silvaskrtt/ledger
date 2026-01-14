@@ -20051,3 +20051,195 @@ Not Found: /favicon.ico
 Erro no pagamento: You cannot access body after reading from request's data stream
 Internal Server Error: /api/credit-cards/pay-bill/
 "POST /api/credit-cards/pay-bill/ HTTP/1.1" 500 55
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 30948
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1246
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+Erro no pagamento: You cannot access body after reading from request's data stream
+Internal Server Error: /api/credit-cards/pay-bill/
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 500 55
+Erro no pagamento: You cannot access body after reading from request's data stream
+Internal Server Error: /api/credit-cards/pay-bill/
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 500 55
+C:\Users\muril\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 31734
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+Erro no pagamento: You cannot access body after reading from request's data stream
+Internal Server Error: /api/credit-cards/pay-bill/
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 500 55
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 14348
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 31734
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+Erro no pagamento: You cannot access body after reading from request's data stream
+Internal Server Error: /api/credit-cards/pay-bill/
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 500 55
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 14348
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 31734
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+Erro no pagamento: You cannot access body after reading from request's data stream
+Internal Server Error: /api/credit-cards/pay-bill/
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 500 120
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /cartoes/ HTTP/1.1" 200 14348
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/css/sidebar/sidebar.css HTTP/1.1" 200 17197
+"GET /static/js/global.js HTTP/1.1" 200 2633
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 31734
+"GET /static/css/global.css HTTP/1.1" 200 1115
+"GET /static/css/tom-select-custom.css HTTP/1.1" 200 6797
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/css/global-standards.css HTTP/1.1" 200 8177
+"GET /static/js/sidebar/sidebar.js HTTP/1.1" 200 11280
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+Erro ao processar pagamento: unsupported operand type(s) for +=: 'decimal.Decimal' and 'float'
+Erro no pagamento: unsupported operand type(s) for +=: 'decimal.Decimal' and 'float'
+Internal Server Error: /api/credit-cards/pay-bill/
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 500 122
+C:\Users\muril\ledger\backend\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/credit-cards/ HTTP/1.1" 200 1451
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1550
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 659
+Pagamento processado: 79ec4a91-7179-4dd7-af32-a6daa5ec8b07 - R$110.52
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 200 425
+"GET /api/credit-cards/ HTTP/1.1" 200 1447
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1548
+"GET / HTTP/1.1" 200 7979
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 7979
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 55861
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/?start=&end=&category=&account=380a81ff-ad1e-426c-91ec-4e07269fc556 HTTP/1.1" 200 30430
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1447
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /api/credit-cards/ HTTP/1.1" 200 1447
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/bills/ HTTP/1.1" 200 1548
+"GET /transactions/ HTTP/1.1" 200 55861
+"GET / HTTP/1.1" 200 7979
+"GET /budget/ HTTP/1.1" 200 11147
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /api/budget-overview/ HTTP/1.1" 200 298
+"GET /goals/ HTTP/1.1" 200 7678
+"GET /static/css/financial_goals/goals.css HTTP/1.1" 304 0
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 304 0
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 297
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /api/categories/ HTTP/1.1" 200 2392
+"GET /managementCategories/ HTTP/1.1" 200 15123
+"GET /api/categories/ HTTP/1.1" 200 2392
+"GET /cartoes/ HTTP/1.1" 200 14348
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1447
