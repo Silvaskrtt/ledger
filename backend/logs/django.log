@@ -20461,3 +20461,93 @@ Pagamento processado: c674adae-a379-49d1-bc47-292c77a903a5 - R$110.52
 "GET /transactions/ HTTP/1.1" 200 56087
 "GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
 "GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /cartoes/ HTTP/1.1" 200 14350
+"GET /api/credit-cards/ HTTP/1.1" 200 1454
+"GET /management/ HTTP/1.1" 200 17133
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /managementCategories/ HTTP/1.1" 200 15125
+"GET /api/categories/ HTTP/1.1" 200 2392
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 3740
+"GET / HTTP/1.1" 200 7979
+"GET /cartoes/ HTTP/1.1" 200 14350
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1454
+"GET /api/credit-cards/380a81ff-ad1e-426c-91ec-4e07269fc556/ HTTP/1.1" 200 463
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/ HTTP/1.1" 200 467
+"GET /api/credit-cards/246ddb35-a3b4-4251-974a-f60d76eb80bd/bills/ HTTP/1.1" 200 1244
+"GET /cartoes/ HTTP/1.1" 200 14350
+"GET /api/credit-cards/ HTTP/1.1" 200 1454
+"GET /management/ HTTP/1.1" 200 17133
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /managementCategories/ HTTP/1.1" 200 15125
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /api/categories/ HTTP/1.1" 200 2392
+"GET / HTTP/1.1" 200 7979
+"GET /transactions/ HTTP/1.1" 200 56087
+"GET /transactions/?page=2 HTTP/1.1" 200 27458
+"GET /transactions/?page=1 HTTP/1.1" 200 56087
+"GET /managementCategories/ HTTP/1.1" 200 15125
+"GET /api/categories/ HTTP/1.1" 200 2392
+"GET /cartoes/ HTTP/1.1" 200 14350
+"GET /api/credit-cards/ HTTP/1.1" 200 1454
+"GET /management/ HTTP/1.1" 200 17133
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /api/accounts/ HTTP/1.1" 200 2977
+"GET /managementCategories/ HTTP/1.1" 200 15125
+"GET /api/categories/ HTTP/1.1" 200 2392
+"GET /goals/ HTTP/1.1" 200 7680
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 297
+"GET /budget/ HTTP/1.1" 200 11149
+"GET /api/budget-overview/ HTTP/1.1" 200 298
+"GET /transactions/ HTTP/1.1" 200 56087
+"GET / HTTP/1.1" 200 7979
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\dashboards\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\dashboards\urls_web.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboards/ HTTP/1.1" 200 9979
+"GET /static/css/style.css HTTP/1.1" 404 1853
+"GET /static/js/dashboards.js HTTP/1.1" 200 13477
+Internal Server Error: /api/dashboard/cash-flow/
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 500 94
+"GET /api/dashboard/card-expenses/?start_date=2025-12-15&end_date=2026-01-14 HTTP/1.1" 200 240
+"GET /api/dashboard/category-expenses/?start_date=2025-12-15&end_date=2026-01-14&include_pending=false HTTP/1.1" 200 1172
+Internal Server Error: /api/dashboard/cash-flow/
+"GET /api/dashboard/cash-flow/?year=2025 HTTP/1.1" 500 94
+"GET /api/dashboard/category-expenses/?start_date=2025-12-15&end_date=2026-01-14&include_pending=true HTTP/1.1" 200 1171
+"GET /api/dashboard/category-expenses/?start_date=2025-12-15&end_date=2026-01-14&include_pending=true HTTP/1.1" 200 1171
+"GET /api/dashboard/category-expenses/?start_date=2025-12-15&end_date=2026-01-14&include_pending=false HTTP/1.1" 200 1172
+"GET /dashboards/ HTTP/1.1" 200 9979
+"GET /static/css/style.css HTTP/1.1" 404 1853
+"GET /static/js/dashboards.js HTTP/1.1" 304 0
+Internal Server Error: /api/dashboard/cash-flow/
+"GET /api/dashboard/card-expenses/?start_date=2025-12-15&end_date=2026-01-14 HTTP/1.1" 200 240
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 500 94
+"GET /api/dashboard/category-expenses/?start_date=2025-12-15&end_date=2026-01-14&include_pending=false HTTP/1.1" 200 1172
+"GET /dashboards/ HTTP/1.1" 200 9979
+"GET /static/css/style.css HTTP/1.1" 404 1853
+"GET /static/js/dashboards.js HTTP/1.1" 200 13477
+"GET /api/dashboard/card-expenses/?start_date=2025-12-15&end_date=2026-01-14 HTTP/1.1" 200 240
+Internal Server Error: /api/dashboard/cash-flow/
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 500 94
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6560
+"GET /api/dashboard/category-expenses/?start_date=2025-12-15&end_date=2026-01-14&include_pending=false HTTP/1.1" 200 1172
+"GET /static/css/style.css HTTP/1.1" 404 1853
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6671

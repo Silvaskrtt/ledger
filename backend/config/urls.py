@@ -36,6 +36,7 @@ urlpatterns = [
     path('api/', include('tags.urls_api')),
     path('api/', include('recurrence.urls')),
     path('api/', include('goals.urls_api')),
+    path('api/', include('dashboards.urls')),
 
     # =====================================================
     # Web (HTML / Server-side rendering)
@@ -47,4 +48,5 @@ urlpatterns = [
     path('', include('goals.urls_web')),
     path('', include('accounts.urls_web')),
     path('', include('categories.urls_web')),
+    path('', include('dashboards.urls_web')),
 ]
