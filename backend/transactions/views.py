@@ -6,7 +6,8 @@ from rest_framework.permissions import IsAuthenticated
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.timezone import make_aware
-from datetime import datetime, timezone
+from django.utils import timezone
+from datetime import datetime
 from django.shortcuts import render
 from django.db import transaction as db_transaction
 import logging
@@ -368,8 +369,26 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
             instance = self.get_object()
             print(f"Transação encontrada: {instance.transaction}")
             
+            # Log das contas afetadas
+            affected_accounts = list(instance.transaction_accounts.all())
+            print(f"Contas afetadas: {[ta.account.name for ta in affected_accounts]}")
+            
+            # Executar a exclusão (soft delete)
             self.perform_destroy(instance)
             print("Transação excluída com sucesso")
+            
+            # AGORA: Recalcular o saldo de todas as contas afetadas
+            from transactions.services.balance_service import recalculate_account_balance
+            
+            for ta in affected_accounts:
+                print(f"Recalculando saldo da conta: {ta.account.name}")
+                try:
+                    # Atualiza o saldo removendo o valor da transação deletada
+                    recalculate_account_balance(ta.account)
+                    print(f"Saldo da conta {ta.account.name} atualizado: {ta.account.balance}")
+                except Exception as e:
+                    print(f"Erro ao recalcular saldo da conta {ta.account.name}: {str(e)}")
+                    # Continue com outras contas mesmo se uma falhar
             
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Transaction.DoesNotExist:
@@ -386,6 +405,19 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
                 {'detail': str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+            
+    def perform_destroy(self, instance):
+        """
+        Sobrescreve para garantir que a exclusão seja lógica (soft delete)
+        e recalculada corretamente.
+        """
+        # Marca como deletada
+        instance.is_deleted = True
+        instance.deleted_at = timezone.now()
+        instance.save(update_fields=['is_deleted', 'deleted_at'])
+        
+        # Nota: O recálculo do saldo será feito no método destroy acima
+
 
 class TransactionAccountListCreateView(generics.ListCreateAPIView):
     """
