@@ -75,6 +75,12 @@ class CreditCardService:
                     credit_card_bill__isnull=False
                 )
                 
+                logger.debug(f"=== DEBUG BILL TRANSACTIONS ===")
+                logger.debug(f"Bill period: {bill_start_date} to {bill_end_date}")
+                logger.debug(f"Transaction count: {transactions.count()}")
+                for t in transactions:
+                    logger.debug(f"  - {t.occurred_at.date()} | {t.description} | R${t.amount}")
+                
                 # Calcular total da fatura
                 total_amount = sum(t.amount for t in transactions)
                 
@@ -113,6 +119,11 @@ class CreditCardService:
         """
         Calcula datas do ciclo da fatura.
         """
+        logger.debug(f"=== DEBUG CALCULATE_BILL_DATES ===")
+        logger.debug(f"Reference date: {reference_date}")
+        logger.debug(f"Closing day: {closing_day}")
+        logger.debug(f"Due day: {due_day}")
+        
         # Data de fechamento deste mês
         if reference_date.day <= closing_day:
             # Fechamento ainda não ocorreu este mês
@@ -126,6 +137,10 @@ class CreditCardService:
         
         # Data de vencimento (geralmente 7-10 dias após fechamento)
         due_date = end_date + timedelta(days=7)
+        
+        logger.debug(f"Start date: {start_date}")
+        logger.debug(f"End date: {end_date}")
+        logger.debug(f"Due date: {due_date}")
         
         return start_date, end_date, due_date
     
@@ -279,45 +294,96 @@ class CreditCardService:
         """
         Obtém todas as faturas de um cartão.
         """
+        from decimal import Decimal
+        from django.utils import timezone
+        from django.db.models import Sum
+        from datetime import timedelta
+        
         card = Account.objects.get(account=card_id, user=user)
         
-        # Gerar faturas pendentes
+        # PRIMEIRO: Garantir que faturas existem para transações não vinculadas
+        # Encontrar transações não vinculadas
+        unlinked_transactions = Transaction.objects.filter(
+            transaction_accounts__account=card,
+            direction='OUT',
+            is_deleted=False,
+            credit_card_bill__isnull=True,
+            occurred_at__lte=timezone.now().date() + timedelta(days=60)  # Últimos 60 dias
+        )
+        
+        if unlinked_transactions.exists():
+            print(f"DEBUG: Encontradas {unlinked_transactions.count()} transações não vinculadas")
+            
+            # Para cada transação não vinculada, garantir que sua fatura existe
+            for trans in unlinked_transactions:
+                # Calcular período da fatura para esta transação
+                bill_start_date, bill_end_date, due_date = CreditCardService.calculate_bill_dates(
+                    trans.occurred_at.date(), card.closing_day, card.due_day
+                )
+                
+                # Verificar/criar fatura
+                bill, created = CreditCardBill.objects.get_or_create(
+                    credit_card=card,
+                    start_date=bill_start_date,
+                    end_date=bill_end_date,
+                    defaults={
+                        'due_date': due_date,
+                        'status': 'OPEN'
+                    }
+                )
+                
+                # Vincular transação se ainda não estiver vinculada
+                if trans.credit_card_bill != bill:
+                    trans.credit_card_bill = bill
+                    trans.save()
+                    print(f"DEBUG: Transação {trans.description} vinculada à fatura {bill.end_date}")
+        
+        # SEGUNDO: Gerar faturas futuras (se necessário)
         CreditCardService.generate_credit_card_bills(card)
         
+        # TERCEIRO: Obter todas as faturas
         bills = CreditCardBill.objects.filter(
             credit_card=card
         ).order_by('-end_date')
         
-        # Calcular valores atualizados
+        # QUARTO: Atualizar totais e status
         for bill in bills:
-            # Atualizar total baseado em transações associadas
-            transactions_total = Transaction.objects.filter(
+            # Calcular total REAL baseado nas transações
+            transactions = Transaction.objects.filter(
                 credit_card_bill=bill,
                 is_deleted=False
-            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
+            )
             
-            # Nunca permitir que o total seja reduzido para 0 (isso violaria as constraints)
-            if transactions_total > 0 and bill.total_amount != transactions_total:
+            transactions_total = transactions.aggregate(
+                total=Sum('amount')
+            )['total'] or Decimal('0')
+            
+            # Atualizar se diferente
+            if bill.total_amount != transactions_total:
                 bill.total_amount = transactions_total
                 
-                # Recalcular mínimo quando total muda
-                minimum_payment = max(
-                    Decimal('0.01'),
-                    (bill.total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
-                )
-                minimum_payment = min(minimum_payment, bill.total_amount)
-                bill.minimum_payment = minimum_payment
+                # Recalcular pagamento mínimo (10% do total)
+                if transactions_total > 0:
+                    minimum_payment = max(
+                        Decimal('0.01'),
+                        (bill.total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
+                    )
+                    minimum_payment = min(minimum_payment, bill.total_amount)
+                    bill.minimum_payment = minimum_payment
                 
                 bill.save(update_fields=['total_amount', 'minimum_payment'])
             
-            # Verificar status
+            # Atualizar status
             if bill.status != 'PAID':
-                if timezone.now().date() > bill.due_date:
-                    bill.status = 'OVERDUE'
-                elif bill.paid_amount >= bill.total_amount:
+                if bill.paid_amount >= bill.total_amount:
                     bill.status = 'PAID'
-                else:
+                elif timezone.now().date() > bill.due_date:
+                    bill.status = 'OVERDUE'
+                elif bill.total_amount > 0:
                     bill.status = 'OPEN'
+                else:
+                    bill.status = 'CLOSED'
+                
                 bill.save(update_fields=['status'])
         
         return bills
