@@ -1,0 +1,36 @@
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+    margin-inline: 1.5rem;
+}
+
+.main {
+    padding-top: 5rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+    .header {
+        margin: 1rem;
+        padding-left: 340px;
+        transition: padding var(--transition-base);
+    }
+    
+    .sidebar {
+        left: 0;
+        width: var(--sidebar-width);
+        margin: 1rem;
+    }
+
+    .main {
+        padding-left: 340px;
+        padding-top: 8rem;
+        transition: padding var(--transition-base);
+    }
+
+    /* Add padding left */
+    .left-pd {
+        padding-left: 114px;
+    }
+}

@@ -1,55 +1,244 @@
 /* frontend/static/css/global.css */
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
 
+/* =============== VARIÁVEIS GLOBAIS =============== */
+:root {
+    --header-height: 60px;
+    --sidebar-width-closed: 78px;
+    --sidebar-width-open: 250px;
+    
+    /* Cores */
+    --primary-bg: #111111;
+    --primary-color: #500BD9;
+    --text-white: #ffffff;
+    --text-gray: rgba(255, 255, 255, 0.7);
+    --body-color: #f8f9fa;
+    --border-color: rgba(255, 255, 255, 0.1);
+    
+    /* Transições */
+    --transition-slow: all 0.5s ease;
+    --transition-fast: all 0.3s ease;
+    
+    /* Bordas */
+    --border-radius: 12px;
+    --border-radius-small: 8px;
+}
+
+/* =============== RESET E ESTILOS BASE =============== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lexend', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: #f5f7fa;
-    min-height: 100vh;
+    background-color: var(--body-color);
+    color: #333;
+    line-height: 1.6;
     overflow-x: hidden;
+    font-family: 'Lexend', sans-serif;
 }
 
-/* Estilos gerais para botões */
-.btn {
+/* =============== MAIN HEADER =============== */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background: var(--primary-bg);
+    color: var(--text-white);
+    z-index: 1100;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+/* Botão toggle do sidebar */
+.sidebar-toggle-btn {
+    background: transparent;
     border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
+    color: var(--text-white);
+    font-size: 24px;
     cursor: pointer;
-    transition: all 0.3s;
+    padding: 10px;
+    border-radius: var(--border-radius-small);
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    width: 44px;
+    height: 44px;
 }
 
-.btn-danger {
-    background-color: #EF4444;
-    color: white;
+.sidebar-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.btn-danger:hover {
-    background-color: #dc2626;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.sidebar-toggle-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
-.btn-success {
-    background: #4ED95F;
-    color: white;
-    border: none;
-    padding: 12px 40px;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
+/* Logo no cabeçalho */
+.header-logo {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.logo-text {
+    font-size: 1.2rem;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-.btn-success:hover {
-    background: #32a03f;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Ações do cabeçalho */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* =============== APP CONTAINER =============== */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.main-layout {
+    display: flex;
+    flex: 1;
+    margin-top: var(--header-height);
+    position: relative;
+    min-height: calc(100vh - var(--header-height));
+}
+
+/* =============== MAIN CONTENT =============== */
+.main-content {
+    margin-top: var(--header-height);
+    margin-left: 0;
+    padding: 30px;
+    transition: margin-left 0.3s ease;
+    min-height: calc(100vh - var(--header-height));
+}
+
+/* Quando sidebar está aberta */
+.sidebar.open ~ .main-content {
+    margin-left: var(--sidebar-width-open);
+    width: calc(100% - var(--sidebar-width-open));
+}
+
+/* =============== RESPONSIVIDADE =============== */
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .sidebar.open ~ .main-content {
+        margin-left: 260px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .main-content {
+        padding: 25px;
+    }
+    
+    .sidebar-toggle-btn {
+        font-size: 22px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 1023px) {
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 50px;
+    }
+    
+    .main-header {
+        height: var(--header-height);
+    }
+    
+    .header-content {
+        padding: 0 15px;
+    }
+    
+    .sidebar-toggle-btn {
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        padding: 8px;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    /* Em mobile, conteúdo ocupa toda a largura */
+    .main-content {
+        padding: 20px;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Sidebar sobreposta em mobile */
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: 999;
+        top: var(--header-height);
+        height: calc(100vh - var(--header-height));
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+        width: 280px !important;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 15px;
+    }
+    
+    .logo-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Telas grandes */
+@media (min-width: 1440px) {
+    .main-content {
+        padding: 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+        margin-left: calc((100% - 1400px) / 2 + var(--sidebar-width-closed));
+    }
+    
+    .sidebar.open ~ .main-content {
+        margin-left: calc((100% - 1400px) / 2 + var(--sidebar-width-open));
+    }
 }

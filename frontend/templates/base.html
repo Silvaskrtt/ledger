@@ -1,67 +1,102 @@
-<!-- frontend/templates/base.html -->
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Ledger{% endblock %}</title>
-    
-    <!-- Boxicons CSS -->
+
+    <!-- Ícones -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
     
-    <!-- Estilos globais -->
-    <link rel="stylesheet" href="{% static 'css/global-standards.css' %}">
-    <link rel="stylesheet" href="{% static 'css/sidebar/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <!-- CSS Core -->
+    <link rel="stylesheet" href="{% static 'css/core/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/typography.css' %}">
     
-    <!-- TomSelect CSS (biblioteca de selects melhorados) -->
+    <!-- CSS Components Bedimcode -->
+    <link rel="stylesheet" href="{% static 'css/components/bedimcode/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/bedimcode/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/bedimcode/sidebar.css' %}">
+    
+    <!-- Utilitários -->
+    <link rel="stylesheet" href="{% static 'css/components/utilities.css' %}">
+    
+    <!-- Bibliotecas Externas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
+    <link rel="stylesheet" href="{% static 'css/custom/tom-select-custom.css' %}">
     
-    <!-- TomSelect Custom CSS (correções de visualização) -->
-    <link rel="stylesheet" href="{% static 'css/tom-select-custom.css' %}">
-    
-    <!-- Bloco para estilos específicos das páginas -->
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- CSRF Token (CRÍTICO para logout funcionar) -->
+    <!-- CSRF Token -->
     {% csrf_token %}
     
-    <div id="balance-sync-alert" style="display: none;">
-        <div class="alert alert-warning">
-            <i class="fas fa-exclamation-triangle"></i>
-            <span>Inconsistência detectada nos saldos.</span>
-            <button onclick="BalanceValidator.syncAllBalances()" 
-                    class="btn btn-sm btn-outline-warning ml-2">
-                <i class="fas fa-sync"></i> Sincronizar
-            </button>
-        </div>
-    </div>
-
-    <!-- Layout com sidebar e conteúdo -->
-    <div class="app-container">
-        {% include 'sidebar/sidebar.html' %}
-        <main class="main-content">
+    <!-- APP Container -->
+    <div id="app">
+        <!-- Header Bedimcode -->
+        {% include 'components/header.html' %}
+        
+        <!-- Sidebar Bedimcode (APENAS UMA VEZ) -->
+        {% include 'components/sidebar.html' %}
+        
+        <!-- Main Content -->
+        <main class="main container" id="main-content">
             {% block content %}{% endblock %}
         </main>
+        
+        <!-- Alerta Global -->
+        <div id="balance-sync-alert" style="display: none;">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Inconsistência detectada nos saldos.</span>
+                <button onclick="BalanceValidator.syncAllBalances()" 
+                        class="btn btn-sm btn-outline-warning ml-2">
+                    <i class="fas fa-sync"></i> Sincronizar
+                </button>
+            </div>
+        </div>
     </div>
     
-    <!-- Script do sidebar -->
-    <script src="{% static 'js/sidebar/sidebar.js' %}"></script>
+    <!-- Scripts Core -->
+    <script src="{% static 'js/core/utilities.js' %}"></script>
+    <script src="{% static 'js/core/app-state.js' %}"></script>
     
-    <!-- Scripts globais -->
-    <script src="{% static 'js/global.js' %}"></script>
+    <!-- Scripts Components Bedimcode -->
+    <script src="{% static 'js/components/sidebar-manager.js' %}"></script>
+    <script src="{% static 'js/components/theme-manager.js' %}"></script>
     
-    <!-- TomSelect JS (biblioteca de selects melhorados) -->
+    <!-- Scripts Específicos -->
+    <script src="{% static 'js/components/balance-validator.js' %}"></script>
+    
+    <!-- Bibliotecas -->
     <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
-    
-    <!-- TomSelectManager - Gerenciador global de instâncias TomSelect -->
     <script src="{% static 'js/tom-select-manager.js' %}"></script>
+
+    <script>
+        // Teste de comunicação após carregamento
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 TESTE DE COMUNICAÇÃO:');
+            
+            // Teste 1: AppState existe?
+            console.log('AppState disponível?', !!window.AppState);
+            
+            if (window.AppState) {
+                // Teste 2: Toggle via AppState
+                setTimeout(() => {
+                    console.log('Testando toggle via AppState...');
+                    window.AppState.toggleSidebar();
+                }, 1000);
+                
+                // Teste 3: Ouvir eventos
+                window.AppState.subscribe('sidebar:toggle', function(state) {
+                    console.log('✅ Evento sidebar:toggle recebido:', state);
+                });
+            }
+        });
+    </script>
     
-    <!-- Bloco para scripts específicos das páginas -->
     {% block extra_js %}{% endblock %}
 </body>
 </html>

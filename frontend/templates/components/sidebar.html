@@ -1,0 +1,83 @@
+{% load static %}
+
+<!--=============== SIDEBAR BEDIMCODE ===============-->
+<nav class="sidebar" id="sidebar" aria-label="Menu de navegação principal">
+    <div class="sidebar__container">
+        <div class="sidebar__user">
+            <div class="sidebar__img">
+                <img src="{% static 'img/perfil.png' %}" alt="Foto do perfil">
+            </div>
+
+            <div class="sidebar__info">
+                {% if user.profile and user.profile.name %}
+                    <h3>{{ user.profile.name }}</h3>
+                {% else %}
+                    <h3>{{ user.username }}</h3>
+                {% endif %}
+                <span>{{ user.email }}</span>
+            </div>
+        </div>
+
+        <div class="sidebar__content">
+            <div>
+                <h3 class="sidebar__title">MENU PRINCIPAL</h3>
+
+                <div class="sidebar__list">
+                    <a href="{% url 'home' %}" class="sidebar__link">
+                        <i class='bx bx-grid-alt'></i>
+                        <span>Página Principal</span>
+                    </a>
+                    
+                    <a href="{% url 'transaction-manager' %}" class="sidebar__link">
+                        <i class="ri-arrow-up-down-line"></i>
+                        <span>Transações</span>
+                    </a>
+
+                    <a href="{% url 'budget' %}" class="sidebar__link">
+                        <i class='fa-solid fa-wallet'></i>
+                        <span>Orçamento Mensal</span>
+                    </a>
+
+                    <a href="{% url 'goals:financial-goals-page' %}" class="sidebar__link">
+                        <i class='fa-solid fa-flag'></i>
+                        <span>Metas Financeiras</span>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="sidebar__title">GERENCIAR</h3>
+
+                <div class="sidebar__list">
+                    <a href="{% url 'account-management' %}" class="sidebar__link">
+                        <i class='fa-solid fa-building-columns'></i>
+                        <span>Gerenciar Contas</span>
+                    </a>
+
+                    <a href="{% url 'credit-cards' %}" class="sidebar__link">
+                        <i class='fa-solid fa-credit-card'></i>
+                        <span>Gerenciar Cartões</span>
+                    </a>
+
+                    <a href="{% url 'management-categories' %}" class="sidebar__link">
+                        <i class='fa-solid fa-tags'></i>
+                        <span>Gerenciar Categorias</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar__actions">
+            <button type="button" id="theme-button" aria-label="Alternar tema claro/escuro">
+                <i class="ri-moon-clear-fill sidebar__link sidebar__theme">
+                    <span>Tema</span>
+                </i>
+            </button>
+
+            <button type="button" class="sidebar__link" onclick="window.location.href='{% url 'logout' %}';" aria-label="Sair do sistema">
+                <i class="ri-logout-box-r-fill"></i>
+                <span>Sair</span>
+            </button>
+        </div>
+    </div>
+</nav>

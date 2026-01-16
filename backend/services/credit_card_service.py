@@ -22,6 +22,7 @@ class CreditCardService:
     def generate_credit_card_bills(card, start_date=None, end_date=None):
         """
         Gera faturas para um cartão de crédito baseado nas transações.
+        CORRIGIDO: Agora vincula transações mesmo se fatura já existir.
         """
         if not card.is_credit_card:
             raise ValueError("Apenas cartões de crédito podem gerar faturas")
@@ -57,56 +58,64 @@ class CreditCardService:
                 current_date, card.closing_day, card.due_day
             )
             
-            # Verificar se fatura já existe
-            existing_bill = CreditCardBill.objects.filter(
-                credit_card=card,
-                start_date=bill_start_date,
-                end_date=bill_end_date
-            ).first()
+            # Buscar TODAS as transações do período (INCLUINDO as já vinculadas)
+            all_transactions = Transaction.objects.filter(
+                transaction_accounts__account=card,
+                occurred_at__date__range=[bill_start_date, bill_end_date],
+                direction='OUT',
+                is_deleted=False
+            )
             
-            if not existing_bill:
-                # Buscar transações do período
-                transactions = Transaction.objects.filter(
-                    transaction_accounts__account=card,
-                    occurred_at__date__range=[bill_start_date, bill_end_date],
-                    direction='OUT',
-                    is_deleted=False
-                ).exclude(
-                    credit_card_bill__isnull=False
+            # Calcular total baseado em TODAS as transações
+            total_amount = sum(t.amount for t in all_transactions)
+            
+            if total_amount > 0:
+                # Buscar ou criar fatura
+                bill, created = CreditCardBill.objects.get_or_create(
+                    credit_card=card,
+                    start_date=bill_start_date,
+                    end_date=bill_end_date,
+                    defaults={
+                        'due_date': due_date,
+                        'total_amount': total_amount,
+                        'status': 'OPEN'
+                    }
                 )
                 
-                logger.debug(f"=== DEBUG BILL TRANSACTIONS ===")
-                logger.debug(f"Bill period: {bill_start_date} to {bill_end_date}")
-                logger.debug(f"Transaction count: {transactions.count()}")
-                for t in transactions:
-                    logger.debug(f"  - {t.occurred_at.date()} | {t.description} | R${t.amount}")
+                if not created:
+                    # Se fatura já existe, atualizar total
+                    bill.total_amount = total_amount
+                    bill.due_date = due_date  # Atualizar vencimento também
+                    bill.save(update_fields=['total_amount', 'due_date'])
                 
-                # Calcular total da fatura
-                total_amount = sum(t.amount for t in transactions)
+                # VINCULAR transações que ainda não estão vinculadas
+                unlinked_transactions = all_transactions.filter(credit_card_bill__isnull=True)
                 
-                if total_amount > 0:
-                    # Criar fatura
-                    # Calcular pagamento mínimo (10% do total, com mínimo de R$ 0.01)
-                    minimum_payment = max(
-                        Decimal('0.01'),  # Mínimo de 1 centavo
-                        (total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
-                    )
-                    # Garantir que não excede o total
-                    minimum_payment = min(minimum_payment, total_amount)
+                if unlinked_transactions.exists():
+                    logger.debug(f"=== VINCULANDO TRANSAÇÕES ===")
+                    logger.debug(f"Fatura: {bill_start_date} a {bill_end_date}")
+                    logger.debug(f"Transações não vinculadas: {unlinked_transactions.count()}")
                     
-                    bill = CreditCardBill.objects.create(
-                        credit_card=card,
-                        start_date=bill_start_date,
-                        end_date=bill_end_date,
-                        due_date=due_date,
-                        total_amount=total_amount,
-                        minimum_payment=minimum_payment,
-                        status='OPEN'
-                    )
+                    for t in unlinked_transactions:
+                        logger.debug(f"  - {t.occurred_at.date()} | {t.description} | R${t.amount}")
                     
-                    # Associar transações à fatura
-                    transactions.update(credit_card_bill=bill)
+                    # Vincular em massa (mais eficiente)
+                    unlinked_transactions.update(credit_card_bill=bill)
                     
+                    logger.info(f"Vinculadas {unlinked_transactions.count()} transações à fatura {bill.end_date}")
+                
+                # Calcular/atualizar pagamento mínimo
+                minimum_payment = max(
+                    Decimal('0.01'),
+                    (bill.total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
+                )
+                minimum_payment = min(minimum_payment, bill.total_amount)
+                
+                if bill.minimum_payment != minimum_payment:
+                    bill.minimum_payment = minimum_payment
+                    bill.save(update_fields=['minimum_payment'])
+                
+                if created:
                     bills_created.append(bill)
                     logger.info(f"Fatura criada: {bill} - R${total_amount}")
             
@@ -294,10 +303,6 @@ class CreditCardService:
         """
         Obtém todas as faturas de um cartão.
         """
-        from decimal import Decimal
-        from django.utils import timezone
-        from django.db.models import Sum
-        from datetime import timedelta
         
         card = Account.objects.get(account=card_id, user=user)
         
