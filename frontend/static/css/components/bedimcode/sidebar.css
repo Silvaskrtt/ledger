@@ -10,7 +10,7 @@
     box-shadow: 2px 0 24px var(--shadow-color);
     padding-block: 1.5rem;
     margin: .75rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     transition: left var(--transition-base), 
                 background-color var(--transition-base), 
                 width var(--transition-base);
@@ -135,7 +135,6 @@
 
 .sidebar__actions {
     margin-top: auto;
-    padding: 0 1rem;
 }
 
 .sidebar__actions button {
@@ -163,10 +162,6 @@
     width: var(--sidebar-width-collapsed);
 }
 
-.sidebar.reduced .sidebar__user {
-    padding-left: 1.25rem;
-}
-
 .sidebar.reduced .sidebar__title {
     padding-left: 0;
     margin-inline: auto;
@@ -179,7 +174,6 @@
 }
 
 .sidebar.reduced .sidebar__link {
-    grid-template-columns: max-content;
     padding-inline: 2rem;
 }
 

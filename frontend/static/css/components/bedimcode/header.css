@@ -48,6 +48,19 @@
     transform: scale(1.1);
 }
 
+.header__toggle i.ri-arrow-left-line,
+.header__toggle i.ri-arrow-right-line {
+    transition: transform 0.3s ease;
+}
+
+.header__toggle:hover i.ri-arrow-left-line {
+    transform: translateX(-2px);
+}
+
+.header__toggle:hover i.ri-arrow-right-line {
+    transform: translateX(2px);
+}
+
 /* For small devices */
 @media screen and (max-width: 360px) {
     .header__container {

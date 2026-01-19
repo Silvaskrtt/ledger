@@ -1,26 +1,31 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
+
+
 /*=============== VARIABLES CSS ===============*/
 :root {
     /* Layout */
     --header-height: 3.5rem;
     --sidebar-width: 288px;
-    --sidebar-width-collapsed: 90px;
+    --sidebar-width-collapsed: 120px;
     
     /* Colors Light Theme */
-    --first-color: hsl(228, 85%, 63%);
+    --first-color: hsl(260, 86%, 56%);
     --title-color: hsl(228, 18%, 16%);
     --text-color: hsl(228, 8%, 56%);
     --body-color: hsl(228, 100%, 99%);
     --shadow-color: hsla(228, 80%, 4%, .1);
     
     /* Colors Dark Theme */
-    --first-color-dark: hsl(228, 70%, 63%);
+    --first-color-dark: hsl(228, 18%, 96%);
     --title-color-dark: hsl(228, 18%, 96%);
     --text-color-dark: hsl(228, 12%, 61%);
-    --body-color-dark: hsl(228, 24%, 16%);
-    --shadow-color-dark: hsla(228, 80%, 4%, .3);
+    --side-bar-color-dark: hsl(260, 86%, 56%);
+    --body-color-dark: hsl(245, 60%, 8%);
+    --shadow-color-dark: hsl(245, 60%, 8%);
     
     /* Typography */
-    --body-font: "Nunito Sans", system-ui;
+    --body-font:'Lexend', sans-serif;
     --normal-font-size: .938rem;
     --smaller-font-size: .75rem;
     --tiny-font-size: .75rem;

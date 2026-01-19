@@ -68,16 +68,23 @@
         </div>
 
         <div class="sidebar__actions">
-            <button type="button" id="theme-button" aria-label="Alternar tema claro/escuro">
-                <i class="ri-moon-clear-fill sidebar__link sidebar__theme">
-                    <span>Tema</span>
-                </i>
+            <button type="button" id="theme-button" class="sidebar__link" aria-label="Alternar tema claro/escuro">
+                <i class="ri-moon-clear-fill sidebar__theme"></i>
+                <span>Tema</span>
+                <span class="tooltip">Alternar Tema</span>
             </button>
 
-            <button type="button" class="sidebar__link" onclick="window.location.href='{% url 'logout' %}';" aria-label="Sair do sistema">
-                <i class="ri-logout-box-r-fill"></i>
-                <span>Sair</span>
-            </button>
+            <!-- Botão de Logout -->
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="sidebar__link" aria-label="Sair do sistema">
+                    <i class="ri-logout-box-r-fill"></i>
+                    <span>Sair</span>
+                    <span class="tooltip">Sair</span>
+                </button>
+            </form>
+            {% endif %}
         </div>
     </div>
 </nav>

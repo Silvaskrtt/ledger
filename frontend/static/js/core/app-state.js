@@ -27,24 +27,65 @@ class AppState {
     
     /* ========= SIDEBAR METHODS ========= */
     toggleSidebar() {
-        this.state.sidebar.isOpen = !this.state.sidebar.isOpen;
+        // Salvar estado anterior
+        const wasOpen = this.state.sidebar.isOpen;
+        const wasReduced = this.state.sidebar.isReduced;
+        
+        // **LÓGICA CORRIGIDA:**
+        if (this.state.sidebar.isMobile) {
+            // Em MOBILE: comportamento normal (show/hide)
+            this.state.sidebar.isOpen = !wasOpen;
+            this.state.sidebar.isReduced = false; // Nunca reduzido em mobile
+        } else {
+            // Em DESKTOP: nunca fechar, apenas alternar entre expandido/reduzido
+            if (wasOpen && !wasReduced) {
+                // Se estava expandido, reduzir
+                this.state.sidebar.isReduced = true;
+            } else if (wasOpen && wasReduced) {
+                // Se estava reduzido, expandir
+                this.state.sidebar.isReduced = false;
+            } else if (!wasOpen) {
+                // Se estava fechado (não deveria acontecer em desktop), abrir expandido
+                this.state.sidebar.isOpen = true;
+                this.state.sidebar.isReduced = false;
+            }
+            // isOpen sempre true em desktop
+            this.state.sidebar.isOpen = true;
+        }
+        
         this.persistState('sidebar');
         this.notify('sidebar:toggle', this.state.sidebar);
+        console.log('🔄 Sidebar toggle:', this.state.sidebar);
     }
     
     openSidebar() {
         if (!this.state.sidebar.isOpen) {
             this.state.sidebar.isOpen = true;
+            // Em desktop, abrir expandido por padrão
+            if (!this.state.sidebar.isMobile) {
+                this.state.sidebar.isReduced = false;
+            }
             this.persistState('sidebar');
             this.notify('sidebar:open', this.state.sidebar);
         }
     }
     
     closeSidebar() {
-        if (this.state.sidebar.isOpen) {
-            this.state.sidebar.isOpen = false;
-            this.persistState('sidebar');
-            this.notify('sidebar:close', this.state.sidebar);
+        // Em DESKTOP: não fechar, apenas reduzir
+        if (this.state.sidebar.isMobile) {
+            if (this.state.sidebar.isOpen) {
+                this.state.sidebar.isOpen = false;
+                this.state.sidebar.isReduced = false;
+                this.persistState('sidebar');
+                this.notify('sidebar:close', this.state.sidebar);
+            }
+        } else {
+            // Em desktop: reduzir em vez de fechar
+            if (!this.state.sidebar.isReduced) {
+                this.state.sidebar.isReduced = true;
+                this.notify('sidebar:reduced', this.state.sidebar);
+                console.log('💻 Desktop: reduzindo em vez de fechar');
+            }
         }
     }
     
@@ -84,13 +125,23 @@ class AppState {
             this.state.sidebar.isMobile = window.innerWidth <= 768;
             
             if (wasMobile !== this.state.sidebar.isMobile) {
-                // Auto-adjust sidebar on device change
+                console.log('📱 Dispositivo:', this.state.sidebar.isMobile ? 'Mobile' : 'Desktop');
+                
+                // **COMPORTAMENTO CORRETO:**
                 if (this.state.sidebar.isMobile) {
-                    this.closeSidebar();
+                    // Mobile: fechar sidebar
+                    this.state.sidebar.isOpen = false;
+                    this.state.sidebar.isReduced = false;
+                    console.log('📱→ Mudou para mobile, fechando sidebar');
                 } else {
-                    this.openSidebar();
+                    // Desktop: sempre abrir (expandido)
+                    this.state.sidebar.isOpen = true;
+                    this.state.sidebar.isReduced = false;
+                    console.log('💻→ Mudou para desktop, abrindo sidebar expandido');
                 }
-                this.notify('device:change', this.state.sidebar.isMobile);
+                
+                this.persistState('sidebar');
+                this.notify('device:change', this.state.sidebar);
             }
         };
         

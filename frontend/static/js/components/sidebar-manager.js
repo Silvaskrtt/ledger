@@ -49,27 +49,44 @@ class SidebarManager {
     updateUI(sidebarState) {
         if (!this.sidebar) return;
         
-        // Update visibility
-        if (sidebarState.isOpen) {
-            this.sidebar.classList.add('show-sidebar');
-            this.sidebar.setAttribute('aria-hidden', 'false');
-        } else {
-            this.sidebar.classList.remove('show-sidebar');
-            this.sidebar.setAttribute('aria-hidden', 'true');
-        }
+        console.log('🎨 Atualizando UI do sidebar:', sidebarState);
         
-        // Update reduced state
-        if (sidebarState.isReduced) {
-            this.sidebar.classList.add('reduced');
-        } else {
-            this.sidebar.classList.remove('reduced');
+        // **LÓGICA CORRIGIDA:**
+        
+        // 1. Em MOBILE: show/hide normal
+        if (sidebarState.isMobile) {
+            if (sidebarState.isOpen) {
+                this.sidebar.classList.add('show-sidebar');
+                this.sidebar.classList.remove('reduced', 'hidden');
+                console.log('📱 Mobile: sidebar aberta');
+            } else {
+                this.sidebar.classList.remove('show-sidebar', 'reduced');
+                this.sidebar.classList.add('hidden');
+                console.log('📱 Mobile: sidebar fechada');
+            }
+        }
+        // 2. Em DESKTOP: sempre visível, alternar entre expandido/reduzido
+        else {
+            // SEMPRE visível em desktop
+            this.sidebar.classList.add('show-sidebar');
+            this.sidebar.classList.remove('hidden');
+            
+            if (sidebarState.isReduced) {
+                this.sidebar.classList.add('reduced');
+                console.log('💻 Desktop: sidebar REDUZIDA (somente ícones)');
+            } else {
+                this.sidebar.classList.remove('reduced');
+                console.log('💻 Desktop: sidebar EXPANDIDA (textos + ícones)');
+            }
         }
         
         // Update toggle button
         this.updateToggleButton(sidebarState);
         
         // Update mobile overlay
-        this.updateMobileOverlay(sidebarState);
+        if (sidebarState.isMobile) {
+            this.updateMobileOverlay(sidebarState);
+        }
     }
     
     updateToggleButton(sidebarState) {
@@ -77,16 +94,31 @@ class SidebarManager {
         
         const icon = this.toggleBtn.querySelector('i');
         if (icon) {
-            if (sidebarState.isOpen) {
-                icon.classList.replace('ri-menu-line', 'ri-close-line');
-                this.toggleBtn.setAttribute('aria-label', 'Fechar menu de navegação');
+            // Diferentes comportamentos para mobile vs desktop
+            if (sidebarState.isMobile) {
+                // Mobile: alternar entre menu e X
+                if (sidebarState.isOpen) {
+                    icon.className = 'ri-close-line';
+                    this.toggleBtn.setAttribute('aria-label', 'Fechar menu');
+                } else {
+                    icon.className = 'ri-menu-line';
+                    this.toggleBtn.setAttribute('aria-label', 'Abrir menu');
+                }
             } else {
-                icon.classList.replace('ri-close-line', 'ri-menu-line');
-                this.toggleBtn.setAttribute('aria-label', 'Abrir menu de navegação');
+                // Desktop: alternar entre setas (expandir/reduzir)
+                if (sidebarState.isReduced) {
+                    icon.className = 'ri-arrow-right-line';
+                    this.toggleBtn.setAttribute('aria-label', 'Expandir menu');
+                } else {
+                    icon.className = 'ri-arrow-left-line';
+                    this.toggleBtn.setAttribute('aria-label', 'Reduzir menu');
+                }
             }
         }
         
-        this.toggleBtn.setAttribute('aria-expanded', sidebarState.isOpen.toString());
+        // Acessibilidade: em desktop sempre "expanded" pois nunca fecha
+        this.toggleBtn.setAttribute('aria-expanded', 
+            sidebarState.isMobile ? sidebarState.isOpen.toString() : 'true');
     }
     
     updateMobileOverlay(sidebarState) {
