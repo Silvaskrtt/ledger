@@ -6,29 +6,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <title>Cadastro</title>
-  
-  <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/auth/signup.css' %}">
 </head>
 
 <body>
-
   <div class="main-login">
-
     <div class="left-login">
       <h1>Crie sua conta<br>E gerencie suas finanças</h1>
       <img src="{% static 'img/person-working.svg' %}" class="left-login-image" alt="Pessoa trabalhando">
     </div>
 
     <div class="right-login">
-
       <div class="card-login">
-        <!-- TÍTULO -->
         <h1>CADASTRO</h1>
-
-        <!-- FORM DO ALLAUTH -->
-        <form method="POST" action="{% url 'account_signup' %}" novalidate>
+        
+        <form method="POST" action="{% url 'account_signup' %}">
           {% csrf_token %}
           
           {% if redirect_field_value %}
@@ -39,33 +32,29 @@
           {% if form.non_field_errors %}
           <div class="error-message">
             {% for error in form.non_field_errors %}
-              {{ error }}
+              <p>{{ error }}</p>
             {% endfor %}
           </div>
           {% endif %}
 
-          <!-- EMAIL -->
+          <!-- EMAIL (opcional para desenvolvimento) -->
           <div class="textfield">
-            <label for="id_email">E-mail</label>
+            <label for="id_email">E-mail <small>(opcional para teste)</small></label>
             <input 
               type="email" 
               id="id_email" 
               name="email"
-              placeholder="Digite seu e-mail"
-              required
-              autofocus
+              placeholder="Digite seu e-mail (ou deixe em branco)"
               value="{{ form.email.value|default:'' }}"
             />
-            {% if form.email.errors %}
-              <div class="field-error">
-                {{ form.email.errors }}
-              </div>
-            {% endif %}
+            {% for error in form.email.errors %}
+              <div class="field-error">{{ error }}</div>
+            {% endfor %}
           </div>
 
           <!-- NOME -->
           <div class="textfield">
-            <label for="id_first_name">Nome</label>
+            <label for="id_first_name">Nome *</label>
             <input 
               type="text" 
               id="id_first_name" 
@@ -74,16 +63,14 @@
               required
               value="{{ form.first_name.value|default:'' }}"
             />
-            {% if form.first_name.errors %}
-              <div class="field-error">
-                {{ form.first_name.errors }}
-              </div>
-            {% endif %}
+            {% for error in form.first_name.errors %}
+              <div class="field-error">{{ error }}</div>
+            {% endfor %}
           </div>
 
           <!-- SOBRENOME -->
           <div class="textfield">
-            <label for="id_last_name">Sobrenome</label>
+            <label for="id_last_name">Sobrenome *</label>
             <input 
               type="text" 
               id="id_last_name" 
@@ -92,16 +79,30 @@
               required
               value="{{ form.last_name.value|default:'' }}"
             />
-            {% if form.last_name.errors %}
-              <div class="field-error">
-                {{ form.last_name.errors }}
-              </div>
-            {% endif %}
+            {% for error in form.last_name.errors %}
+              <div class="field-error">{{ error }}</div>
+            {% endfor %}
+          </div>
+
+          <!-- USERNAME (OPCIONAL) -->
+          <div class="textfield">
+            <label for="id_username">Nome de Usuário</label>
+            <input 
+              type="text" 
+              id="id_username" 
+              name="username"
+              placeholder="Escolha um nome de usuário (opcional)"
+              value="{{ form.username.value|default:'' }}"
+            />
+            {% for error in form.username.errors %}
+              <div class="field-error">{{ error }}</div>
+            {% endfor %}
+            <small class="help-text">Deixe em branco para gerar automaticamente.</small>
           </div>
 
           <!-- SENHA -->
           <div class="textfield">
-            <label for="id_password1">Senha</label>
+            <label for="id_password1">Senha *</label>
             <input 
               type="password" 
               id="id_password1"
@@ -109,16 +110,14 @@
               placeholder="Digite sua senha"
               required
             />
-            {% if form.password1.errors %}
-              <div class="field-error">
-                {{ form.password1.errors }}
-              </div>
-            {% endif %}
+            {% for error in form.password1.errors %}
+              <div class="field-error">{{ error }}</div>
+            {% endfor %}
           </div>
 
           <!-- CONFIRMAR SENHA -->
           <div class="textfield">
-            <label for="id_password2">Confirme a Senha</label>
+            <label for="id_password2">Confirme a Senha *</label>
             <input 
               type="password" 
               id="id_password2"
@@ -126,29 +125,22 @@
               placeholder="Digite novamente sua senha"
               required
             />
-            {% if form.password2.errors %}
-              <div class="field-error">
-                {{ form.password2.errors }}
-              </div>
-            {% endif %}
+            {% for error in form.password2.errors %}
+              <div class="field-error">{{ error }}</div>
+            {% endfor %}
           </div>
 
           <button type="submit" class="btn-login">Cadastrar</button>
 
-          <!-- LINK PARA LOGIN -->
           <div class="auth-links">
             <p class="auth-link">
               Já tem uma conta? 
-              <a href="{% url 'account_login' %}">
-                Faça login
-              </a>
+              <a href="{% url 'account_login' %}">Faça login</a>
             </p>
           </div>
         </form>
       </div>
-
     </div>
-
   </div>
 </body>
 </html>

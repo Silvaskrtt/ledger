@@ -37,7 +37,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 INSTALLED_APPS = [
     # Apps do domínio da aplicação
-    'users',           # Usuários e autenticação
+    'users.apps.UsersConfig',           # Usuários e autenticação
     'transactions',    # Transações financeiras
     'categories',      # Categorias de transações
     'budgets',         # Orçamentos
@@ -77,22 +77,30 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 # Métodos de autenticação permitidos
-ACCOUNT_LOGIN_METHODS = {'email'}
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 
 # Campos obrigatórios no cadastro
-ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
 
 # Email deve ser único
 ACCOUNT_UNIQUE_EMAIL = True
 
 # Autenticação exclusivamente por email
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_AUTHENTICATION_METHOD = 'username_emails'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
 
 # Configurações de verificação de email
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # Em produção, usar 'mandatory'
-ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "none"  # Em produção, usar 'mandatory'
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_LOGIN_ON_SIGNUP = True  # Login automático após cadastro
+
+# Para garantir que o campo username esteja disponível
+ACCOUNT_USERNAME_MIN_LENGTH = 3
+ACCOUNT_PRESERVE_USERNAME_CASING = False
+ACCOUNT_MAX_EMAIL_ADDRESSES = 3
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Desabilita completamente confirmação por email (ambiente local)
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 0

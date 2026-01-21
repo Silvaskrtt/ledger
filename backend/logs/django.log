@@ -30678,3 +30678,2919 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4870
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 5706
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/home/dashboards.js HTTP/1.1" 200 12890
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 5086
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 5086
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 5706
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/home/dashboards.js HTTP/1.1" 200 12890
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET /transactions/ HTTP/1.1" 200 58490
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET /transactions/ HTTP/1.1" 200 58490
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET /transactions/ HTTP/1.1" 200 58490
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 5086
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 17733
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET / HTTP/1.1" 200 13489
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4836
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET / HTTP/1.1" 200 13489
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 243
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 920
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 1336
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET /transactions/ HTTP/1.1" 200 58490
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"GET /transactions/ HTTP/1.1" 200 58056
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4771
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1034
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /static/css/auth/login.css HTTP/1.1" 200 8134
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+"GET /accounts/signup/ HTTP/1.1" 200 3146
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+"GET /static/css/auth/login.css HTTP/1.1" 200 8523
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8523
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+"GET /static/css/auth/login.css HTTP/1.1" 200 9721
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+"GET /static/css/auth/login.css HTTP/1.1" 200 8134
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+"GET /static/css/auth/login.css HTTP/1.1" 200 8123
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8138
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+"GET /static/css/auth/login.css HTTP/1.1" 200 8327
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8134
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+"GET /static/css/auth/login.css HTTP/1.1" 200 8108
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8108
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8108
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8124
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8124
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8289
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3500
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 200 8134
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/signup.css HTTP/1.1" 200 8134
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/signup.css HTTP/1.1" 200 8311
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/signup.css HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/signup.css HTTP/1.1" 200 8316
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/signup.css HTTP/1.1" 200 8424
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/signup.css HTTP/1.1" 200 8316
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/signup.css HTTP/1.1" 304 0
+"POST /accounts/signup/ HTTP/1.1" 200 3745
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/auth/signup.css HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 19, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 259542
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 19, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 259542
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"POST /accounts/signup/ HTTP/1.1" 200 3742
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /static/css/auth/signup.css HTTP/1.1" 304 0
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 19, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 259546
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /static/img/person-working.svg HTTP/1.1" 304 0
+"GET /accounts/signup/ HTTP/1.1" 200 3498
+"GET /static/css/auth/signup.css HTTP/1.1" 304 0
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 19, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 259770
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 19, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 259762
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 19, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 259770
+C:\Users\muril\ledger\backend\users\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 38, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 260014
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 38, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 259902
+C:\Users\muril\ledger\backend\users\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Métodos de pagamento padrão criados para 
+"POST /accounts/signup/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13105
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 5706
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/home/dashboards.js HTTP/1.1" 200 12890
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 72
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET / HTTP/1.1" 200 13105
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-20&end_date=2026-01-19 HTTP/1.1" 200 72
+"GET /api/dashboard/category-expenses/?start_date=2025-12-20&end_date=2026-01-19&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+"POST /accounts/signup/ HTTP/1.1" 200 3900
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 64, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 260206
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"POST /accounts/login/ HTTP/1.1" 200 2469
+"POST /accounts/login/ HTTP/1.1" 200 2475
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13105
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4771
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 5706
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/home/dashboards.js HTTP/1.1" 200 12890
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET / HTTP/1.1" 200 13105
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /accounts/signup/ HTTP/1.1" 200 3501
+"GET /static/css/auth/signup.css HTTP/1.1" 200 8316
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 64, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 260931
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 64, in save
+    user = super(CustomSignupForm, self).save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 260947
+C:\Users\muril\ledger\backend\users\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 80, in post
+    form = self.get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 26, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"POST /accounts/signup/ HTTP/1.1" 500 165085
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 72, in get
+    response = super().get(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 183, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 135, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 26, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"GET /accounts/signup/ HTTP/1.1" 500 179736
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Watching for file changes with StatReloader
+"GET /accounts/login/ HTTP/1.1" 200 2278
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 72, in get
+    response = super().get(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 183, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 135, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 26, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"GET /accounts/signup/ HTTP/1.1" 500 179867
+C:\Users\muril\ledger\backend\users\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 72, in get
+    response = super().get(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 183, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 135, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 33, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"GET /accounts/signup/ HTTP/1.1" 500 179829
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 72, in get
+    response = super().get(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 183, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 135, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 33, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"GET /accounts/signup/ HTTP/1.1" 500 179829
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 72, in get
+    response = super().get(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 183, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 135, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 33, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"GET /accounts/signup/ HTTP/1.1" 500 179829
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 72, in get
+    response = super().get(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 183, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 135, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 33, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"GET /accounts/signup/ HTTP/1.1" 500 179957
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 72, in get
+    response = super().get(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 183, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 135, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 33, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"GET /accounts/signup/ HTTP/1.1" 500 179956
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /static/css/auth/login.css HTTP/1.1" 200 8134
+"GET /static/img/person-working.svg HTTP/1.1" 200 32157
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 72, in get
+    response = super().get(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 183, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 135, in get_context_data
+    ret = super().get_context_data(**kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 92, in get_form
+    form = super().get_form(form_class)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 33, in __init__
+    self.fields['username'].required = False
+    ~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+"GET /accounts/signup/ HTTP/1.1" 500 179819
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /accounts/signup/ HTTP/1.1" 200 3463
+Métodos de pagamento padrão criados para umbomjazz
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 173, in form_valid
+    return flows.signup.complete_signup(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.request,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        by_passkey=form.by_passkey,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\internal\flows\signup.py", line 114, in complete_signup
+    return perform_login(request, login)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\internal\flows\login.py", line 93, in perform_login
+    return resume_login(request, login)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\internal\flows\login.py", line 102, in resume_login
+    response = ctrl.handle()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\stages.py", line 122, in handle
+    response, cont = stage.handle()
+                     ~~~~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\stages.py", line 157, in handle
+    send_verification_email_at_login(self.request, login)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\internal\flows\email_verification.py", line 294, in send_verification_email_at_login
+    sent = send_verification_email_at_real_login(request, login)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\internal\flows\email_verification.py", line 308, in send_verification_email_at_real_login
+    return send_verification_email_to_address(request, address, signup=login.signup)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\internal\flows\email_verification.py", line 269, in send_verification_email_to_address
+    confirmation = address.send_confirmation(request, signup=signup)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\models.py", line 104, in send_confirmation
+    confirmation.send(request, signup=signup)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\models.py", line 181, in send
+    super().send(request=request, signup=signup)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\models.py", line 133, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 690, in send_confirmation_mail
+    self.send_mail(email_template, emailconfirmation.email_address.email, ctx)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 221, in send_mail
+    msg.send()
+    ~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\mail\message.py", line 358, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 130, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 88, in open
+    self.connection = self.connection_class(
+                      ~~~~~~~~~~~~~~~~~~~~~^
+        self.host, self.port, **connection_params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 264, in __init__
+    (code, msg) = self.connect(host, port)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 350, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 321, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                                    self.source_address)
+                                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+"POST /accounts/signup/ HTTP/1.1" 500 254884
+C:\Users\muril\ledger\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=(umbomjazz) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 126, in save
+    user = super().save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=(umbomjazz) already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 262002
+"GET /accounts/signup/ HTTP/1.1" 200 3528
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=(umbomjazz) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 162, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 53, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 118, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\mixins.py", line 82, in post
+    response = self.form_valid(form)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\views.py", line 168, in form_valid
+    self.user, resp = form.try_save(self.request)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 497, in try_save
+    return super().try_save(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 427, in try_save
+    user = self.save(request)
+  File "C:\Users\muril\ledger\backend\users\forms.py", line 126, in save
+    user = super().save(request)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\forms.py", line 437, in save
+    adapter.save_user(request, user, self)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\allauth\account\adapter.py", line 353, in save_user
+    user.save()
+    ~~~~~~~~~^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\ledger\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=(umbomjazz) already exists.
+
+"POST /accounts/signup/ HTTP/1.1" 500 261994
+"GET /accounts/signup/ HTTP/1.1" 200 3528
+Métodos de pagamento padrão criados para igorkarkarof
+"POST /accounts/signup/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13114
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET / HTTP/1.1" 200 13114
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET / HTTP/1.1" 200 13114
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"POST /accounts/login/ HTTP/1.1" 200 2475
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13114
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET / HTTP/1.1" 200 13001
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
