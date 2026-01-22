@@ -33594,3 +33594,769 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
 "GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
 "GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 12998
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 5706
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4771
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET / HTTP/1.1" 200 12998
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"POST /accounts/login/ HTTP/1.1" 200 2475
+"GET /accounts/signup/ HTTP/1.1" 200 3528
+Métodos de pagamento padrão criados para silvaskrtt
+"POST /accounts/signup/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 12999
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET / HTTP/1.1" 200 12999
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /transactions/ HTTP/1.1" 200 11936
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET / HTTP/1.1" 200 12999
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/css/home/dashboards.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /transactions/ HTTP/1.1" 200 11936
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /api/credit-cards/ HTTP/1.1" 200 52
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 200 15789
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /api/tags/ HTTP/1.1" 200 2
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"GET /api/categories/ HTTP/1.1" 200 52
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"POST /api/categories/ HTTP/1.1" 201 320
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 372
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"POST /api/categories/ HTTP/1.1" 201 330
+"GET /management/ HTTP/1.1" 200 18463
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 52
+"GET /api/accounts/ HTTP/1.1" 200 52
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 140
+"POST /api/accounts/ HTTP/1.1" 201 493
+"GET / HTTP/1.1" 200 12999
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 886
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 325
+"GET /transactions/ HTTP/1.1" 200 12564
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 325
+"GET /api/transactions/form/ HTTP/1.1" 200 7447
+Transação manual criada: 87d747a4-bed1-4a78-a648-2bc29cd3e6f5
+Saldo: 0.00 -> 1750.22
+"POST /api/transactions/ HTTP/1.1" 201 165
+"GET /transactions/ HTTP/1.1" 200 14132
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 333
+"GET /management/ HTTP/1.1" 200 18463
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 549
+"GET /api/accounts/ HTTP/1.1" 200 549
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 333
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 333
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 52
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 333
+"GET /management/ HTTP/1.1" 200 18463
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 549
+"GET /api/accounts/ HTTP/1.1" 200 549
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 333
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 703
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 333
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 52
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 333
+"POST /api/credit-cards/ HTTP/1.1" 201 461
+"GET /api/credit-cards/ HTTP/1.1" 200 513
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 200 86
+"POST /api/credit-cards/ HTTP/1.1" 201 450
+"GET /api/credit-cards/ HTTP/1.1" 200 964
+"POST /api/credit-cards/ HTTP/1.1" 201 452
+"GET /api/credit-cards/ HTTP/1.1" 200 1417
+"GET /management/ HTTP/1.1" 200 18463
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1915
+"GET /api/accounts/ HTTP/1.1" 200 1915
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+"GET /transactions/ HTTP/1.1" 200 14720
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+"GET /api/transactions/form/ HTTP/1.1" 200 8050
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+Parcela 1/6 criada: R$90.80
+Parcela 2/6 criada: R$90.80
+Parcela 3/6 criada: R$90.80
+Parcela 4/6 criada: R$90.80
+Parcela 5/6 criada: R$90.80
+Parcela 6/6 criada: R$90.80
+"POST /api/transactions/ HTTP/1.1" 201 241
+"GET /transactions/ HTTP/1.1" 200 26834
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"GET /api/transactions/d608b2dc-44eb-47ce-8688-26ab0a31b5ad/form/ HTTP/1.1" 200 8257
+"DELETE /api/transactions/2eebc8f9-0484-493c-89c7-dd3e9cf8e25f/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 24815
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"DELETE /api/transactions/45d8c3d9-2c58-4069-acdb-47d26b363f34/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 22796
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"DELETE /api/transactions/d608b2dc-44eb-47ce-8688-26ab0a31b5ad/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 20777
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"DELETE /api/transactions/5cceaf06-d047-4f8e-bd8e-3eb6655be4dd/ HTTP/1.1" 204 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"GET /transactions/ HTTP/1.1" 200 18758
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"DELETE /api/transactions/9a64b84b-c5d6-4089-a4c1-551feaeb2b35/ HTTP/1.1" 204 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 859
+"GET /transactions/ HTTP/1.1" 200 16739
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 859
+"DELETE /api/transactions/92112451-e49c-46e2-8655-e72064091a58/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 14720
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1417
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 200 86
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/css/home/dashboards.css HTTP/1.1" 304 0
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+"GET /transactions/ HTTP/1.1" 200 14720
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+"GET /api/transactions/form/ HTTP/1.1" 200 8050
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 1417
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 703
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+"POST /api/categories/ HTTP/1.1" 201 318
+"POST /api/categories/ HTTP/1.1" 201 431
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 96
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 72
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /transactions/ HTTP/1.1" 200 15129
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 8411
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 855
+Transação manual criada: 3283d159-832d-4e92-9dc8-c1a9046ff84f
+Saldo: 0.00 -> -111.80
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/ HTTP/1.1" 200 16990
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 1420
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 200 376
+"GET / HTTP/1.1" 200 13015
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 894
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 154
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 271
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"GET / HTTP/1.1" 200 13015
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 894
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 154
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 271
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 1454
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"POST /api/categories/ HTTP/1.1" 201 313
+"POST /api/categories/ HTTP/1.1" 201 433
+"GET /transactions/ HTTP/1.1" 200 17399
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 861
+"GET /api/transactions/form/ HTTP/1.1" 200 8772
+Transação manual criada: 7479a76b-72ee-400f-afc2-49e8a896b465
+Saldo: -111.80 -> -123.27
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/ HTTP/1.1" 200 19253
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 8772
+Transação manual criada: 646af898-2e3a-4bd4-bd51-1200c2133098
+Saldo: -123.27 -> -231.22
+"POST /api/transactions/ HTTP/1.1" 201 165
+"GET /transactions/ HTTP/1.1" 200 21114
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/646af898-2e3a-4bd4-bd51-1200c2133098/form/ HTTP/1.1" 200 8994
+"PUT /api/transactions/646af898-2e3a-4bd4-bd51-1200c2133098/ HTTP/1.1" 200 140
+"GET /transactions/ HTTP/1.1" 200 21114
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/3283d159-832d-4e92-9dc8-c1a9046ff84f/form/ HTTP/1.1" 200 8994
+"PUT /api/transactions/3283d159-832d-4e92-9dc8-c1a9046ff84f/ HTTP/1.1" 200 140
+"GET /transactions/ HTTP/1.1" 200 21114
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 8772
+Transação manual criada: 2fecf69e-2c63-46d1-b66d-a2c4c568b59a
+Saldo: -231.22 -> -251.22
+"POST /api/transactions/ HTTP/1.1" 201 163
+"GET /transactions/ HTTP/1.1" 200 22976
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 8772
+Transação manual criada: bbacbc94-b993-4e0c-a4e4-b16d7ad30fa8
+Saldo: -251.22 -> -272.22
+"POST /api/transactions/ HTTP/1.1" 201 163
+"GET /transactions/ HTTP/1.1" 200 24838
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 8772
+"GET /transactions/ HTTP/1.1" 200 24838
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET / HTTP/1.1" 200 13015
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/css/home/dashboards.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 154
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 894
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 442
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 2202
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"POST /api/categories/ HTTP/1.1" 201 316
+"POST /api/categories/ HTTP/1.1" 201 420
+"GET / HTTP/1.1" 200 13015
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 154
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 894
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 442
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 25243
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9129
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Transação manual criada: 58ee6ded-fbed-4cc4-8662-bae64dcc50e1
+Saldo: -272.22 -> -589.45
+"POST /api/transactions/ HTTP/1.1" 201 165
+"GET /transactions/ HTTP/1.1" 200 27094
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 200 378
+"GET /transactions/ HTTP/1.1" 200 27094
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9129
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Transação manual criada: 31e5f0ae-d78c-4873-a821-212e7de7b3a0
+Saldo: -589.45 -> -679.45
+"POST /api/transactions/ HTTP/1.1" 201 163
+"GET /transactions/ HTTP/1.1" 200 28954
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 9129
+"GET / HTTP/1.1" 200 13015
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 154
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 894
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 614
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 2940
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"POST /api/categories/ HTTP/1.1" 201 311
+"GET / HTTP/1.1" 200 13015
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 154
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 894
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 614
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 29153
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 9304
+Transação manual criada: 295e7ebf-a3f7-4cd3-8de4-47f2f8900c1c
+Saldo: -679.45 -> -718.49
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/ HTTP/1.1" 200 31010
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 9304
+"GET / HTTP/1.1" 200 13015
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 154
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 894
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 783
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 31010
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 3252
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"POST /api/categories/ HTTP/1.1" 201 327
+"PUT /api/categories/497192f5-5835-470d-9c6f-5bc604e06c9e/ HTTP/1.1" 200 328
+"GET / HTTP/1.1" 200 13015
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 154
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 894
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 783
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 31225
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /transactions/ HTTP/1.1" 200 31225
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9495
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Transação manual criada: dd57e43b-3fd0-4e20-bbad-7cec2f57c6d5
+Saldo: -718.49 -> -746.47
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/ HTTP/1.1" 200 33105
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 9495
+Transação manual criada: 8b5612fe-f13c-4f87-a0b2-166a99a89d26
+Saldo: -746.47 -> -822.33
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/ HTTP/1.1" 200 34965
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 968
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 34965
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 9495
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/css/home/dashboards.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 968
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 3582
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"POST /api/categories/ HTTP/1.1" 201 312
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 968
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 35168
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/form/ HTTP/1.1" 200 9674
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Transação manual criada: d5c1d998-7ee8-49ab-8db6-264e2a5d856d
+Saldo: -822.33 -> -870.65
+"POST /api/transactions/ HTTP/1.1" 201 164
+"GET /transactions/ HTTP/1.1" 200 37032
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 3895
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 200 674
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 1141
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 37032
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/d5c1d998-7ee8-49ab-8db6-264e2a5d856d/form/ HTTP/1.1" 200 9897
+"PUT /api/transactions/d5c1d998-7ee8-49ab-8db6-264e2a5d856d/ HTTP/1.1" 200 146
+"GET /transactions/ HTTP/1.1" 200 37169
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/d5c1d998-7ee8-49ab-8db6-264e2a5d856d/form/ HTTP/1.1" 200 9897
+"PUT /api/transactions/d5c1d998-7ee8-49ab-8db6-264e2a5d856d/ HTTP/1.1" 200 146
+"GET /transactions/ HTTP/1.1" 200 37169
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 200 674
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 1141
+"GET /transactions/ HTTP/1.1" 200 37169
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"DELETE /api/transactions/d5c1d998-7ee8-49ab-8db6-264e2a5d856d/ HTTP/1.1" 204 0
+"GET /transactions/ HTTP/1.1" 200 35168
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 35168
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9674
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Parcela 1/2 criada: R$24.16
+Parcela 2/2 criada: R$24.16
+"POST /api/transactions/ HTTP/1.1" 201 242
+"GET /transactions/ HTTP/1.1" 200 39158
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 39158
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 1141
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Fatura criada: Fatura 03/2026 - Ourocard - R$24.16
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 1141
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 39158
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 1141
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 1141
+"GET /transactions/ HTTP/1.1" 200 39158
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/transactions/ec74694a-83c8-4d68-a7b9-d7dd0f315168/form/ HTTP/1.1" 200 9897
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /managementCategories/ HTTP/1.1" 200 16444
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /api/categories/ HTTP/1.1" 200 3895
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 301
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/css/home/dashboards.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /api/dashboard/card-expenses/?start_date=2025-12-22&end_date=2026-01-21 HTTP/1.1" 200 155
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-22&end_date=2026-01-21&include_pending=false HTTP/1.1" 200 1141
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /transactions/ HTTP/1.1" 200 39158
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 200 964
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 200 964
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 254
+Transação de pagamento criada:
+  ID: 835fd77e-e4fb-4d57-9fe3-fad413f769fe
+  Direction: OUT
+  Valor: 24.16
+  Cartão: Ourocard
+  Saldo anterior do cartão: -870.65
+Saldo do cartão Ourocard:
+  Antes: -822.33
+  Depois: -846.49
+  Diferença: -24.16
+Pagamento processado: 53f1e64e-0b8b-419d-a6e8-874b29b5bae1 - R$24.16
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 200 419
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+Erro ao obter faturas: name 'transactions' is not defined
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 62
+Erro ao obter faturas: name 'transactions' is not defined
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 62
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+Erro ao obter faturas: name 'transactions' is not defined
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 62
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /cartoes/ HTTP/1.1" 200 15666
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 200 23667
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4771
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 31734
+"GET /api/credit-cards/ HTTP/1.1" 200 1422
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 863
+Erro ao obter faturas: name 'transactions' is not defined
+Internal Server Error: /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/
+"GET /api/credit-cards/96ce9640-140b-47fb-b46b-51aad262df2b/bills/ HTTP/1.1" 500 62
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\services\credit_card_service.py changed, reloading.
+Watching for file changes with StatReloader
