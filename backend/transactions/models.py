@@ -24,11 +24,6 @@ class AllTransactionsManager(Manager):
 
 
 class Transaction(models.Model):
-    DIRECTION_CHOICES = [
-        ('IN', 'Income'),
-        ('OUT', 'Expense'),
-    ]
-    
     ORIGIN_CHOICES = [
         ('MANUAL', 'Manual'),
         ('RECURRENT', 'Recurrent'),
@@ -41,6 +36,15 @@ class Transaction(models.Model):
     ('EUR', 'Euro'),
     ]
     
+    TRANSACTION_TYPES = [
+        ('PURCHASE', 'Compra'),
+        ('PAYMENT', 'Pagamento'),
+        ('TRANSFER', 'Transferência'),
+        ('INCOME', 'Receita'),
+        ('EXPENSE', 'Despesa'),
+        ('CREDIT_CARD_PAYMENT', 'Pagamento de Cartão'),
+    ]
+    
     transaction = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -50,7 +54,7 @@ class Transaction(models.Model):
     
     amount = models.DecimalField(max_digits=14, decimal_places=2)
     
-    direction = models.CharField(max_length=3, choices=DIRECTION_CHOICES)
+    direction = models.CharField(max_length=3, choices=[('IN', 'Entrada'), ('OUT', 'Saída')], default='OUT')
     
     occurred_at = models.DateTimeField(default=timezone.now)
     
@@ -58,7 +62,7 @@ class Transaction(models.Model):
     
     currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default='BRL')
     
-    origin = models.CharField(max_length=20, choices=ORIGIN_CHOICES)
+    origin = models.CharField(max_length=20, choices=[('MANUAL', 'Manual'), ('INSTALLMENT', 'Parcelado'), ('RECURRENT', 'Recorrente')], default='MANUAL')
     
     description = models.CharField(max_length=255, blank=True, null=True, help_text="Descrição da transação")
     
@@ -68,6 +72,12 @@ class Transaction(models.Model):
     
     deleted_at = models.DateTimeField(null=True, blank=True)
     is_deleted = models.BooleanField(default=False)
+    
+    transaction_type = models.CharField(
+        max_length=20, 
+        choices=TRANSACTION_TYPES, 
+        default='EXPENSE'
+    )
     
     user = models.ForeignKey(
         User,
@@ -102,7 +112,7 @@ class Transaction(models.Model):
     credit_card_bill = models.ForeignKey(
         'accounts.CreditCardBill',  # String reference
         on_delete=models.SET_NULL,
-        related_name='transactions',
+        related_name='bill_transactions',
         null=True,
         blank=True,
         help_text="Fatura do cartão de crédito onde esta transação será incluída"
@@ -123,6 +133,7 @@ class Transaction(models.Model):
     class Meta:
         verbose_name = "Transaction"
         verbose_name_plural = "Transactions"
+        ordering = ['-occurred_at']
         constraints = [
             CheckConstraint(
                 condition=Q(direction__in=['IN', 'OUT']),
@@ -175,7 +186,18 @@ class Transaction(models.Model):
         super().delete(*args, **kwargs)
     
     def __str__(self):
-        return f"Transaction {self.transaction}: {self.direction} of {self.amount} {self.currency} on {self.occurred_at}"
+        return f"{self.get_transaction_type_display()} - R${self.amount} - {self.occurred_at.strftime('%d/%m/%Y')}"
+    
+    @property
+    def is_credit_card_payment(self):
+        """Verifica se é um pagamento de cartão de crédito."""
+        return self.transaction_type == 'CREDIT_CARD_PAYMENT'
+    
+    @property
+    def is_credit_card_purchase(self):
+        """Verifica se é uma compra no cartão."""
+        return (self.transaction_type == 'PURCHASE' and 
+                any(acc.account.type == 'CREDIT_CARD' for acc in self.transaction_accounts.all()))
 
 class TransactionAccount(models.Model):
     ROLE_CHOICES = [

@@ -1,0 +1,523 @@
+====================================================================================================
+ANÁLISE DETALHADA DE CÓDIGOS PROBLEMÁTICOS - SISTEMA LEDGER
+Data: 22/01/2026 09:20:27
+Total de problemas identificados: 10
+Arquivos críticos analisados: 5
+====================================================================================================
+
+
+================================================================================
+ARQUIVO: backend\services\credit_card_service.py
+================================================================================
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 1: PAGAMENTO COM DIRECTION CONFUSA
+Linha: 149
+Descrição: Lógica complexa de direction/role para pagamentos
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+       logger.debug(f"End date: {end_date}")
+        logger.debug(f"Due date: {due_date}")
+        
+        return start_date, end_date, due_date
+    
+    @staticmethod
+    @db_transaction.atomic
+    def pay_bill(bill_id, payment_account_id, amount, user, notes=None, create_transaction=True):
+        """
+        Processa pagamento de uma fatura.
+        Criar transações separadas para conta de pagamento e cartão.
+        """
+        try:
+            from decimal import Decimal
+        
+...
+... [código omitido] ...
+...
+                    user=user,
+                    amount=amount,
+                    direction='OUT',  # Dinheiro SAI da conta corrente
+                    currency='BRL',
+                    origin='MANUAL',
+                    occurred_at=timezone.now(),
+                    description=f"Pagamento fatura {bill.credit_card.name} {bill.end_date.strftime('%m/%Y')}",
+                    category=Category.objects.get_or_create(
+                        user=user,
+                        name='Pagamento de Faturas',
+                        defaults={'color': '#EF4444'}
+                    )[0],
+                    payment_method=PaymentMethod.objects.get_or_create(
+                        user=user,
+                        type='BANK_TR
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Solução:
+1. Adicionar campo 'transaction_type' na model Transaction com valores:
+   - 'PURCHASE' para compras
+   - 'PAYMENT' para pagamentos de fatura
+   - 'TRANSFER' para transferências
+2. Simplificar pay_bill() para criar uma transação com type='PAYMENT'
+3. Ajustar cálculo de saldo para usar transaction_type ao invés de direction
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 2: VINCULAÇÃO DE TRANSAÇÕES À FATURA
+Linha: 106
+Descrição: Atualização em massa sem validação de período
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+estão vinculadas
+                unlinked_transactions = all_transactions.filter(credit_card_bill__isnull=True)
+                
+                if unlinked_transactions.exists():
+                    unlinked_transactions.update(credit_card_bill=bill)
+                    logger.info(f"Vinculadas {unlinked_transactions.count()} transações à fatura {bill.end_date}")
+                
+                if created:
+                    bills_created.appen
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Solução:
+1. Validar período da transação antes de vincular
+2. Garantir que transações de pagamento não sejam vinculadas como compras
+3. Criar validação: data_transacao deve estar entre start_date e end_date
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 3: GERAÇÃO DE FATURAS FUTURAS
+Linha: 22
+Descrição: Lógica de geração de faturas pode estar incorreta
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+lculate_account_balance
+from categories.models import Category
+from payments.models import PaymentMethod
+
+logger = logging.getLogger(__name__)
+
+class CreditCardService:
+    
+    @staticmethod
+    def generate_credit_card_bills(card, start_date=None, end_date=None):
+        """
+        Gera faturas para um cartão de crédito baseado nas transações.
+        CORRIGIDO: Agora vincula transações mesmo se fatura já existir.
+        """
+        if not card.is_credit_card:
+...
+... [código omitido] ...
+...
+                )
+            
+                # Garantir que minimum_payment nunca seja maior que total_amount
+                minimum_payment = min(minimum_payment, total_amount)
+            
+                # Buscar ou criar fatura
+                bill, created = CreditCardBill.objects.get_or_create(
+                    credit_card=card,
+                    start_date=bill_start_date,
+                    end_date=bill_end_date,
+                    defaults={
+                        'due_date': due_date,
+                        'total_amount': total_amount,
+                        'minimum_payment': minimum_payment,
+                        'stat
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Analisar caso específico para sugerir solução.
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 4: CÁLCULO DE DATAS DE FATURA
+Linha: 57
+Descrição: Lógica de cálculo de datas pode estar errada
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+ = []
+        current_date = start_date
+        
+        while current_date <= end_date:
+            # Calcular datas do ciclo
+            bill_start_date, bill_end_date, due_date = CreditCardService.calculate_bill_dates(
+                current_date, card.closing_day, card.due_day
+            )
+            
+            # Buscar TODAS as transações do período (INCLUINDO as já vinculadas)
+            all_transactions = Transaction.objects.filter(
+                transaction_accounts__account=card,
+                occurred_at__date__range=[bill_start_date, bill_end_date],
+                direction='OUT',
+                is_deleted=False
+...
+... [código omitido] ...
+...
+                if created:
+                    bills_created.append(bill)
+                    logger.info(f"Fatura criada: {bill} - R${total_amount} (mínimo: R${minimum_payment})")
+            
+            current_date = bill_end_date + timedelta(days=1)
+        
+        return bills_created
+    
+    @staticmethod
+    def calculate_bill_dates(reference_date, closing_day, due_day):
+        """
+        Calcula datas do ciclo da fatura.
+        """
+        logger.debug(f"=== DEBUG CALCULATE_BILL_DATES ===")
+        lo
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Analisar caso específico para sugerir solução.
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 5: CÁLCULO DE DATAS DE FATURA
+Linha: 118
+Descrição: Lógica de cálculo de datas pode estar errada
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+bill} - R${total_amount} (mínimo: R${minimum_payment})")
+            
+            current_date = bill_end_date + timedelta(days=1)
+        
+        return bills_created
+    
+    @staticmethod
+    def calculate_bill_dates(reference_date, closing_day, due_day):
+        """
+        Calcula datas do ciclo da fatura.
+        """
+        logger.debug(f"=== DEBUG CALCULATE_BILL_DATES ===")
+        logger.debug(f"Reference date: {reference_date}")
+        logger.debug(f"Closing day: {closing_day}")
+        logger.debug(f"Due day: {due_day}")
+...
+... [código omitido] ...
+...
+        # Data de vencimento (geralmente 7-10 dias após fechamento)
+        due_date = end_date + timedelta(days=7)
+        
+        logger.debug(f"Start date: {start_date}")
+        logger.debug(f"End date: {end_date}")
+        logger.debug(f"Due date: {due_date}")
+        
+        return start_date, end_date, due_date
+    
+    @staticmethod
+    @db_transaction.atomic
+    def pay_bill(bill_id, payment_account_id, amount, user, notes=None, create_transaction=True):
+        """
+        Processa pagamento de uma fatura.
+        Criar transações separadas para conta de pag
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Analisar caso específico para sugerir solução.
+
+
+================================================================================
+ARQUIVO: backend\transactions\services\balance_service.py
+================================================================================
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 1: CÁLCULO COMPLEXO PARA CARTÕES
+Linha: 29
+Descrição: Lógica muito complexa para cálculo de saldo de cartões
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+ed_account = Account.objects.select_for_update().get(pk=account.pk)
+        
+        # 1. Para TODAS as contas: saldo inicial
+        initial_balance = locked_account.initial_balance
+        
+        if locked_account.is_credit_card:
+            # ============================================
+            # CARTÕES DE CRÉDITO 
+            # ============================================
+            
+            # Buscar todas as relações TransactionAccount deste cartão
+            transaction_accounts = TransactionAccount.objects.filter(
+                account=locked_account,
+                transaction__is_deleted=False
+            ).select_related('transaction')
+            
+            total_out = Decimal('0')   # Compras (direction='OUT') - AUMENTAM dívida
+            total_in = Decimal('0')    # Pagamentos (direction='IN') - REDUZEM dívida
+            
+            for ta in transaction_accounts:
+                if ta.transaction.direction == 'OUT':
+                    # Transações de COMPRA: SAÍDA (aumenta dívida)
+                    total_out += ta.transaction.amount
+                elif ta.transaction.dire
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Solução:
+1. Simplificar a lógica para cartões:
+   saldo = total_pagamentos - total_compras
+2. Usar transaction_type para diferenciar
+3. Manter saldo sempre negativo ou zero para cartões
+4. Remover lógica complexa de role+direction
+
+
+================================================================================
+ARQUIVO: backend\transactions\views.py
+================================================================================
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 1: EXCLUSÃO SEM ATUALIZAR FATURAS
+Linha: 359
+Descrição: Exclusão não atualiza faturas relacionadas
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+  instance = serializer.save()
+        # Recalcular saldo da conta após atualização
+        for ta in instance.transaction_accounts.all():
+            recalculate_account_balance(ta.account)
+    
+    def destroy(self, request, *args, **kwargs):
+        print("=" * 50)
+        print("DEBUG: Iniciando exclusão de transação")
+        print(f"URL: {request.path}")
+        print(f"Transaction ID: {kwargs.get('pk')}")
+        print(f"User: {request.user}")
+        print(f"Method: {request.method}")
+        print("=" * 50)
+        
+        try:
+...
+... [código omitido] ...
+...
+        except Exception as e:
+            print(f"Erro ao excluir: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return Response(
+                {'detail': str(e)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+            
+    def perform_destroy(self, instance):
+        """
+        Sobrescreve para garantir que a exclusão seja lógica (soft delete)
+        e recalculada corretamente.
+        """
+        # Marca como deletad
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Solução:
+1. No método destroy(), após excluir a transação:
+   if transaction.credit_card_bill:
+       bill = transaction.credit_card_bill
+       bill.recalculate_total()
+       bill.save()
+2. Adicionar método recalculate_total() no modelo CreditCardBill
+3. Atualizar todos os totais automaticamente
+
+
+================================================================================
+ARQUIVO: backend\accounts\views.py
+================================================================================
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 1: BUSCA DE FATURAS SEM FILTRO
+Linha: 19
+Descrição: Não filtra transações deletadas na contagem
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+er, CreditCardSerializer
+from transactions.services.balance_service import verify_account_balance, sync_all_account_balances
+import json
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_credit_card_bills(request, card_id):
+    """Obtém faturas de um cartão de crédito."""
+    try:
+        bills = CreditCardService.get_card_bills(card_id, request.user)
+        
+        bills_data = []
+        for bill in bills:
+            bills_data.append({
+                'id': str(bill.id_bill),
+...
+... [código omitido] ...
+...
+    except Exception as e:
+        return Response({
+            'success': False,
+            'error': str(e)
+        }, status=500)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def pay_credit_card_bill(request):
+    """Processa pagamento de uma fatura."""
+    try:
+        data = request.data
+        
+        bill_id = data.get('bill_id')
+        payment_account_id = data.get
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Analisar caso específico para sugerir solução.
+
+
+================================================================================
+ARQUIVO: backend\transactions\services\installment_service.py
+================================================================================
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 1: EXCLUSÃO PARCIAL DE PARCELAMENTO
+Linha: 135
+Descrição: Só exclui parcelas futuras, não oferece opção completa
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+amount,
+            'total_with_interest': installment_amount * installments
+        }
+        
+    except Exception as e:
+        logger.error(f"Erro ao criar parcelamento: {str(e)}")
+        raise
+
+def cancel_installment_plan(installment_plan_id, user):
+    """
+    Cancela parcelamentos futuros.
+    """
+    try:
+        plan = InstallmentPlan.objects.get(
+            installment_plan=installment_plan_id,
+...
+... [código omitido] ...
+...
+        # Encontra transações futuras
+        future_transactions = Transaction.objects.filter(
+            installment_plan=plan,
+            occurred_at__gt=timezone.now()
+        )
+        
+        # Marca como canceladas ou deleta
+        deleted_count, _ = future_transactions.delete()
+        
+        logger.info(f"Canceladas {deleted_count} parcelas futuras")
+        return True
+        
+    except InstallmentPlan.DoesNotExist:
+        logger.error(f"Plano de parcelamento não encontrado: {installment_plan_id}")
+        return False
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Solução:
+1. Criar endpoint DELETE /api/installments/{plan_id}/
+2. Oferecer opções ao usuário:
+   - Excluir apenas esta parcela
+   - Excluir todas as parcelas futuras
+   - Excluir TODO o parcelamento
+3. Implementar exclusão em cascata
+
+
+────────────────────────────────────────────────────────────
+PROBLEMA 2: CRIAÇÃO DE TRANSAÇÕES INDEPENDENTES
+Linha: 43
+Descrição: Cria N transações sem relação forte entre elas
+────────────────────────────────────────────────────────────
+
+📍 CÓDIGO PROBLEMÁTICO:
+```python
+ts
+    denominator = (Decimal('1') + monthly_rate) ** installments - Decimal('1')
+    
+    installment = total_amount * (numerator / denominator)
+    return installment.quantize(Decimal('0.01'))
+
+def create_installment_transactions(
+    user,
+    total_amount: Decimal,
+    installments: int,
+    category,
+    payment_method,
+    account,
+    tags=None,
+    interest_rate: Decimal = Decimal('0'),
+...
+... [código omitido] ...
+...
+            'installment_amount': installment_amount,
+            'total_with_interest': installment_amount * installments
+        }
+        
+    except Exception as e:
+        logger.error(f"Erro ao criar parcelamento: {str(e)}")
+        raise
+
+def cancel_installment_plan(installment_plan_id, user):
+    """
+    Cancela parcelamentos futuros.
+    """
+    try:
+        plan = InstallmentPlan.objects.get(
+            installment_plan=installment
+```
+
+💡 SUGESTÃO DE SOLUÇÃO:
+Analisar caso específico para sugerir solução.
+
+
+====================================================================================================
+RESUMO E RECOMENDAÇÕES PRIORITÁRIAS
+====================================================================================================
+
+📊 DISTRIBUIÇÃO DE PROBLEMAS:
+  CÁLCULO DE DATAS DE FATURA: 2 ocorrências
+  PAGAMENTO COM DIRECTION CONFUSA: 1 ocorrências
+  VINCULAÇÃO DE TRANSAÇÕES À FATURA: 1 ocorrências
+  GERAÇÃO DE FATURAS FUTURAS: 1 ocorrências
+  CÁLCULO COMPLEXO PARA CARTÕES: 1 ocorrências
+  EXCLUSÃO SEM ATUALIZAR FATURAS: 1 ocorrências
+  BUSCA DE FATURAS SEM FILTRO: 1 ocorrências
+  EXCLUSÃO PARCIAL DE PARCELAMENTO: 1 ocorrências
+  CRIAÇÃO DE TRANSAÇÕES INDEPENDENTES: 1 ocorrências
+
+🚨 PROBLEMAS MAIS CRÍTICOS (resolver primeiro):
+  • PAGAMENTO COM DIRECTION CONFUSA: 1 ocorrência(s)
+  • EXCLUSÃO SEM ATUALIZAR FATURAS: 1 ocorrência(s)
+  • CÁLCULO COMPLEXO PARA CARTÕES: 1 ocorrência(s)
+
+🔧 AÇÕES RECOMENDADAS:
+1. Refatorar completamente pay_bill() no credit_card_service.py
+2. Implementar atualização automática de faturas após exclusão
+3. Simplificar cálculo de saldo para cartões de crédito
+4. Criar endpoint para excluir parcelamentos completos
+5. Adicionar modal de detalhes de fatura com transações

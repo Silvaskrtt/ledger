@@ -19,7 +19,7 @@ from transactions.services.balance_service import recalculate_account_balance
 from recurrence.models import RecurrenceRule
 from transactions.models import Transaction, TransactionAccount, TransactionTag
 from categories.models import Category
-from payments.models import PaymentMethod
+from payments.models import InstallmentPlan, PaymentMethod
 from accounts.models import Account
 from tags.models import Tag
 from .serializers import TransactionCreateSerializer, TransactionUpdateSerializer, TransactionAccountSerializer, TransactionTagSerializer
@@ -357,52 +357,61 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
             recalculate_account_balance(ta.account)
     
     def destroy(self, request, *args, **kwargs):
-        print("=" * 50)
-        print("DEBUG: Iniciando exclusão de transação")
-        print(f"URL: {request.path}")
-        print(f"Transaction ID: {kwargs.get('pk')}")
-        print(f"User: {request.user}")
-        print(f"Method: {request.method}")
-        print("=" * 50)
-        
         try:
             instance = self.get_object()
-            print(f"Transação encontrada: {instance.transaction}")
             
-            # Log das contas afetadas
-            affected_accounts = list(instance.transaction_accounts.all())
-            print(f"Contas afetadas: {[ta.account.name for ta in affected_accounts]}")
+            # Verificar se é transação parcelada
+            is_installment = instance.installment_plan is not None
+            
+            # Verificar se tem fatura vinculada
+            has_bill = instance.credit_card_bill is not None
+            
+            # LOG para debug
+            logger.info(f"Excluindo transação {instance.transaction}")
+            logger.info(f"  Tipo: {instance.transaction_type}")
+            logger.info(f"  Parcelada: {is_installment}")
+            logger.info(f"  Fatura vinculada: {has_bill}")
             
             # Executar a exclusão (soft delete)
             self.perform_destroy(instance)
-            print("Transação excluída com sucesso")
             
-            # AGORA: Recalcular o saldo de todas as contas afetadas
-            from transactions.services.balance_service import recalculate_account_balance
-            
+            # Recalcular saldo das contas afetadas
+            affected_accounts = list(instance.transaction_accounts.all())
             for ta in affected_accounts:
-                print(f"Recalculando saldo da conta: {ta.account.name}")
-                try:
-                    # Atualiza o saldo removendo o valor da transação deletada
-                    recalculate_account_balance(ta.account)
-                    print(f"Saldo da conta {ta.account.name} atualizado: {ta.account.balance}")
-                except Exception as e:
-                    print(f"Erro ao recalcular saldo da conta {ta.account.name}: {str(e)}")
-                    # Continue com outras contas mesmo se uma falhar
+                recalculate_account_balance(ta.account)
             
-            return Response(status=status.HTTP_204_NO_CONTENT)
+            # ATUALIZAR FATURA SE HOUVER
+            if has_bill:
+                bill = instance.credit_card_bill
+                logger.info(f"  Atualizando fatura {bill.end_date}")
+                bill.recalculate_totals()
+                
+            # Se for transação parcelada, oferecer opção de excluir outras
+            if is_installment:
+                response_data = {
+                    'success': True,
+                    'message': 'Transação excluída com sucesso.',
+                    'is_installment': True,
+                    'installment_plan_id': str(instance.installment_plan.installment_plan),
+                    'suggestion': 'Esta transação é parte de um parcelamento. Deseja excluir as outras parcelas também?'
+                }
+            else:
+                response_data = {
+                    'success': True,
+                    'message': 'Transação excluída com sucesso.'
+                }
+            
+            return Response(response_data, status=status.HTTP_200_OK)
+            
         except Transaction.DoesNotExist:
-            print(f"Transação não encontrada")
             return Response(
                 {'detail': 'Transação não encontrada'},
                 status=status.HTTP_404_NOT_FOUND
             )
         except Exception as e:
-            print(f"Erro ao excluir: {str(e)}")
-            import traceback
-            traceback.print_exc()
+            logger.error(f"Erro ao excluir transação: {str(e)}", exc_info=True)
             return Response(
-                {'detail': str(e)},
+                {'detail': f'Erro ao excluir transação: {str(e)}'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
             
@@ -418,6 +427,84 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
         
         # Nota: O recálculo do saldo será feito no método destroy acima
 
+# backend/transactions/views.py - Adicionar nova view
+
+class InstallmentPlanDeleteView(generics.GenericAPIView):
+    """
+    View para excluir parcelamentos completos.
+    """
+    permission_classes = [IsAuthenticated]
+    
+    def delete(self, request, plan_id, *args, **kwargs):
+        """
+        Exclui um plano de parcelamento completo.
+        Opções:
+        - delete_future: Excluir apenas parcelas futuras (default)
+        - delete_all: Excluir todas as parcelas
+        """
+        try:
+            # Buscar plano de parcelamento
+            plan = InstallmentPlan.objects.get(
+                installment_plan=plan_id,
+                user=request.user
+            )
+            
+            # Obter parâmetros
+            delete_all = request.query_params.get('delete_all', 'false').lower() == 'true'
+            delete_future_only = request.query_params.get('delete_future_only', 'true').lower() == 'true'
+            
+            # Buscar transações do parcelamento
+            if delete_all:
+                transactions = Transaction.objects.filter(
+                    installment_plan=plan,
+                    is_deleted=False
+                )
+                message = "Todas as parcelas do parcelamento foram excluídas."
+            else:
+                # Excluir apenas parcelas futuras
+                transactions = Transaction.objects.filter(
+                    installment_plan=plan,
+                    occurred_at__gt=timezone.now(),
+                    is_deleted=False
+                )
+                message = "Parcelas futuras do parcelamento foram excluídas."
+            
+            # Contar antes da exclusão
+            count_before = transactions.count()
+            
+            # Marcar como deletadas
+            for transaction in transactions:
+                transaction.is_deleted = True
+                transaction.deleted_at = timezone.now()
+                transaction.save()
+                
+                # Recalcular contas afetadas
+                for ta in transaction.transaction_accounts.all():
+                    recalculate_account_balance(ta.account)
+                
+                # Recalcular faturas se houver
+                if transaction.credit_card_bill:
+                    transaction.credit_card_bill.recalculate_totals()
+            
+            return Response({
+                'success': True,
+                'message': message,
+                'transactions_deleted': count_before,
+                'plan_id': str(plan.installment_plan),
+                'delete_all': delete_all
+            }, status=status.HTTP_200_OK)
+            
+        except InstallmentPlan.DoesNotExist:
+            return Response(
+                {'detail': 'Plano de parcelamento não encontrado'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            logger.error(f"Erro ao excluir parcelamento: {str(e)}")
+            return Response(
+                {'detail': f'Erro ao excluir parcelamento: {str(e)}'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
 class TransactionAccountListCreateView(generics.ListCreateAPIView):
     """

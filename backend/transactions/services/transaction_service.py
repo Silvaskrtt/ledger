@@ -118,8 +118,7 @@ def create_transaction_service(
 ):
     """
     Serviço unificado para criação de transações.
-    
-    GARANTE: Saldo da conta sempre reflete a soma das transações.
+    ATUALIZADO: Define transaction_type automaticamente.
     """
     logger.debug(f"=== CREATE TRANSACTION SERVICE ===")
     logger.debug(f"Usuário: {user.username}")
@@ -235,6 +234,15 @@ def create_transaction_service(
             # Bloqueia conta para evitar race conditions
             account = Account.objects.select_for_update().get(pk=account_obj.pk)
             
+            # DETERMINAR transaction_type BASEADO NO CONTEXTO
+            transaction_type = determine_transaction_type(
+                account=account,
+                direction=direction,
+                payment_method=payment_method_obj
+            )
+            
+            logger.debug(f"Transaction type determinado: {transaction_type}")
+            
             # Cria transação
             transaction = Transaction.objects.create(
                 user=user,
@@ -242,6 +250,7 @@ def create_transaction_service(
                 payment_method=payment_method,
                 amount=amount,
                 direction=direction,
+                transaction_type=transaction_type,  # <-- ATUALIZADO
                 currency=currency,
                 origin=origin,
                 occurred_at=occurred_at,
@@ -278,6 +287,7 @@ def create_transaction_service(
                 account.save(update_fields=['balance'])
             
             logger.info(f"Transação manual criada: {transaction.transaction}")
+            logger.info(f"Transaction Type: {transaction_type}")
             logger.info(f"Saldo: {balance_before} -> {account.balance}")
             
             return {
@@ -286,5 +296,30 @@ def create_transaction_service(
                 'message': 'Transação criada com sucesso',
                 'balance_before': balance_before,
                 'balance_after': account.balance,
+                'transaction_type': transaction_type,
                 'is_consistent': is_consistent
             }
+
+
+def determine_transaction_type(account, direction, payment_method):
+    """
+    Determina o tipo de transação baseado no contexto.
+    """
+    # Para cartões de crédito
+    if account.is_credit_card:
+        if direction == 'OUT':
+            # Saída em cartão de crédito = COMPRA
+            return 'PURCHASE'
+        elif direction == 'IN':
+            # Entrada em cartão de crédito = PAGAMENTO DE FATURA
+            return 'CREDIT_CARD_PAYMENT'
+    
+    # Para contas normais
+    if direction == 'IN':
+        return 'INCOME'
+    elif direction == 'OUT':
+        # Verificar se é transferência (tem duas contas)
+        # Isso será tratado em uma função separada para transferências
+        return 'EXPENSE'
+    
+    return 'EXPENSE'  # Default

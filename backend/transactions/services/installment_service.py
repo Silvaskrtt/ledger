@@ -54,8 +54,7 @@ def create_installment_transactions(
 ):
     """
     Cria transações parceladas automaticamente.
-    
-    Gera N transações, uma para cada parcela, com datas espaçadas de 30 dias.
+    ATUALIZADO: Define transaction_type para parcelamentos.
     """
     if not start_date:
         start_date = timezone.now().date()
@@ -79,6 +78,12 @@ def create_installment_transactions(
             category=category
         )
         
+        # Determinar transaction_type
+        if account.is_credit_card:
+            transaction_type = 'PURCHASE'
+        else:
+            transaction_type = 'EXPENSE'
+        
         # Gera transações para cada parcela
         for i in range(1, installments + 1):
             # Data da parcela (30 dias entre cada)
@@ -93,6 +98,7 @@ def create_installment_transactions(
                 installment_plan=installment_plan,
                 amount=installment_amount,
                 direction='OUT',  # Parcelas são sempre despesas
+                transaction_type=transaction_type,  # <-- ATUALIZADO
                 currency='BRL',
                 origin='INSTALLMENT',
                 occurred_at=timezone.make_aware(
@@ -119,7 +125,7 @@ def create_installment_transactions(
                     )
             
             created_transactions.append(transaction)
-            logger.info(f"Parcela {i}/{installments} criada: R${installment_amount}")
+            logger.info(f"Parcela {i}/{installments} criada: R${installment_amount} (Tipo: {transaction_type})")
         
         return {
             'installment_plan': installment_plan,

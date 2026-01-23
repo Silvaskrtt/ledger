@@ -2,7 +2,7 @@
 
 from rest_framework import serializers
 from decimal import Decimal
-from .models import Account
+from .models import CreditCardBill, Account
 
 class AccountSerializer(serializers.ModelSerializer):
     is_credit_card = serializers.BooleanField(read_only=True)
@@ -92,6 +92,46 @@ class AccountSerializer(serializers.ModelSerializer):
         """Remove balance dos dados a serem atualizados."""
         validated_data.pop('balance', None)
         return super().update(instance, validated_data)
+    
+class CreditCardBillSerializer(serializers.ModelSerializer):
+    credit_card_name = serializers.CharField(source='credit_card.name', read_only=True)
+    pending_amount = serializers.SerializerMethodField()
+    status_display = serializers.CharField(source='get_status_display', read_only=True)
+    due_date_formatted = serializers.SerializerMethodField()
+    period_formatted = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = CreditCardBill
+        fields = [
+            'id_bill',
+            'credit_card',
+            'credit_card_name',
+            'start_date',
+            'end_date',
+            'due_date',
+            'due_date_formatted',
+            'period_formatted',
+            'total_amount',
+            'paid_amount',
+            'pending_amount',
+            'minimum_payment',
+            'status',
+            'status_display'
+        ]
+    
+    def get_pending_amount(self, obj):
+        """Calcula valor pendente"""
+        return float(obj.total_amount - obj.paid_amount)
+    
+    def get_due_date_formatted(self, obj):
+        """Formata data de vencimento"""
+        return obj.due_date.strftime('%d/%m/%Y') if obj.due_date else ''
+    
+    def get_period_formatted(self, obj):
+        """Retorna período formatado"""
+        if obj.start_date and obj.end_date:
+            return f"{obj.start_date.strftime('%d/%m')} - {obj.end_date.strftime('%d/%m/%Y')}"
+        return ''
 
 class CreditCardSerializer(AccountSerializer):
     """

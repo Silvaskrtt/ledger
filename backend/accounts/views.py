@@ -1,12 +1,16 @@
 # backend/accounts/views.py
 
+import logging
+
 from asyncio.log import logger
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from .serializers import CreditCardBillSerializer
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from rest_framework.response import Response
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
 from .models import Account, CreditCardBill, CreditCardPayment
 from services.credit_card_service import CreditCardService
 from django.utils import timezone
@@ -14,47 +18,100 @@ from .serializers import AccountSerializer, CreditCardSerializer
 from transactions.services.balance_service import verify_account_balance, sync_all_account_balances
 import json
 
+logger = logging.getLogger(__name__)
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_credit_card_bills(request, card_id):
-    """Obtém faturas de um cartão de crédito."""
+    """
+    Obtém todas as faturas de um cartão de crédito.
+    """
     try:
-        bills = CreditCardService.get_card_bills(card_id, request.user)
+        logger.info(f"=== INICIANDO get_credit_card_bills ===")
+        logger.info(f"Card ID: {card_id}")
+        logger.info(f"User: {request.user.username}")
         
-        bills_data = []
+        # Buscar cartão
+        card = get_object_or_404(
+            Account, 
+            account=card_id, 
+            user=request.user,
+            type='CREDIT_CARD'
+        )
+        
+        logger.info(f"Cartão encontrado: {card.name} (Dia fechamento: {card.closing_day}, Dia vencimento: {card.due_day})")
+        
+        # 1. Primeiro, verificar se há compras não vinculadas
+        from transactions.models import Transaction
+        unlinked_purchases = Transaction.objects.filter(
+            transaction_accounts__account=card,
+            transaction_type='PURCHASE',
+            is_deleted=False,
+            credit_card_bill__isnull=True
+        )
+        
+        logger.info(f"Compras não vinculadas encontradas: {unlinked_purchases.count()}")
+        
+        # 2. Gerar faturas se necessário
+        if unlinked_purchases.exists():
+            logger.info("Gerando faturas para compras não vinculadas...")
+            try:
+                bills_created = CreditCardService.generate_credit_card_bills(card)
+                logger.info(f"Faturas geradas: {len(bills_created)}")
+            except Exception as e:
+                logger.error(f"Erro ao gerar faturas: {str(e)}", exc_info=True)
+                # Continua mesmo com erro
+                
+        # 3. Buscar todas as faturas
+        bills = CreditCardBill.objects.filter(
+            credit_card=card
+        ).order_by('-end_date')
+        
+        logger.info(f"Total de faturas encontradas: {bills.count()}")
+        
+        # 4. Para cada fatura, garantir que está atualizada
         for bill in bills:
-            bills_data.append({
-                'id': str(bill.id_bill),
-                'start_date': bill.start_date.strftime('%d/%m/%Y'),
-                'end_date': bill.end_date.strftime('%d/%m/%Y'),
-                'due_date': bill.due_date.strftime('%d/%m/%Y'),
-                'total_amount': float(bill.total_amount),
-                'paid_amount': float(bill.paid_amount),
-                'pending_amount': float(bill.total_amount - bill.paid_amount),
-                'minimum_payment': float(bill.minimum_payment),
-                'status': bill.status,
-                'status_display': bill.get_status_display(),
-                'days_until_due': (bill.due_date - timezone.now().date()).days,
-                'transactions_count': bill.transactions.count()
-            })
+            try:
+                bill.recalculate_totals()
+                logger.debug(f"Fatura {bill.end_date}: R${bill.total_amount} (pago: R${bill.paid_amount})")
+            except Exception as e:
+                logger.error(f"Erro ao recalcular fatura {bill.id_bill}: {str(e)}")
+                # Continua com próxima fatura
         
-        return Response({
+        # 5. Serializar dados
+        serializer = CreditCardBillSerializer(bills, many=True)
+        
+        response_data = {
             'success': True,
-            'card_id': card_id,
-            'bills': bills_data,
-            'count': len(bills_data)
-        })
+            'card': {
+                'id': str(card.account),
+                'name': card.name,
+                'type': card.type,
+                'credit_limit': float(card.credit_limit) if card.credit_limit else 0,
+                'available_credit': float(card.available_credit) if card.available_credit else 0,
+                'balance': float(card.balance),
+                'closing_day': card.closing_day,
+                'due_day': card.due_day
+            },
+            'bills': serializer.data,
+            'count': bills.count()
+        }
+        
+        logger.info(f"=== FINALIZANDO get_credit_card_bills ===")
+        return Response(response_data)
         
     except Account.DoesNotExist:
-        return Response({
-            'success': False,
-            'error': 'Cartão não encontrado'
-        }, status=404)
+        logger.error(f"Cartão não encontrado: {card_id} para usuário {request.user.username}")
+        return Response(
+            {'error': 'Cartão não encontrado'},
+            status=404
+        )
     except Exception as e:
-        return Response({
-            'success': False,
-            'error': str(e)
-        }, status=500)
+        logger.error(f"Erro em get_credit_card_bills: {str(e)}", exc_info=True)
+        return Response(
+            {'error': f'Erro interno: {str(e)}'},
+            status=500
+        )
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])

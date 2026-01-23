@@ -12,18 +12,12 @@ logger = logging.getLogger(__name__)
 
 def recalculate_account_balance(account):
     """
-    Recalcula saldo CORRETAMENTE baseado em transações.
-    
-    PADRÃO DE SALDO:
-    - Contas Normais: Saldo = Saldo_Inicial + Entradas - Saídas
-    - Cartões de Crédito: 
-        * Transações com role='source' = SAÍDA (aumenta dívida, -)
-        * Transações com role='destination' = ENTRADA (reduz dívida, +)
+    Recalcula saldo de forma simplificada.
+    ATUALIZADO: Compatível com transaction_type.
     """
     with db_transaction.atomic():
         locked_account = Account.objects.select_for_update().get(pk=account.pk)
         
-        # 1. Para TODAS as contas: saldo inicial
         initial_balance = locked_account.initial_balance
         
         if locked_account.is_credit_card:
@@ -37,56 +31,81 @@ def recalculate_account_balance(account):
                 transaction__is_deleted=False
             ).select_related('transaction')
             
-            total_debit = Decimal('0')   # Saídas (role='source') - AUMENTAM dívida
-            total_credit = Decimal('0')  # Entradas (role='destination') - REDUZEM dívida
+            total_purchases = Decimal('0')   # Compras (PURCHASE)
+            total_payments = Decimal('0')    # Pagamentos (CREDIT_CARD_PAYMENT)
             
             for ta in transaction_accounts:
-                if ta.role == 'source':
-                    # Transação onde cartão é fonte: SAÍDA (aumenta dívida)
-                    total_debit += ta.transaction.amount
-                elif ta.role == 'destination':
-                    # Transação onde cartão é destino: ENTRADA (reduz dívida)
-                    total_credit += ta.transaction.amount
+                transaction = ta.transaction
+                
+                if transaction.transaction_type == 'PURCHASE' and ta.role == 'source':
+                    # Compras no cartão: aumentam dívida
+                    total_purchases += transaction.amount
+                elif transaction.transaction_type == 'CREDIT_CARD_PAYMENT' and ta.role == 'destination':
+                    # Pagamentos de fatura: reduzem dívida
+                    total_payments += transaction.amount
             
-            # Fórmula: Saldo = Entradas - Saídas (sempre negativo ou zero)
-            # Exemplo: 
-            #   Compras: 1000 (debit) + Pagamentos: 200 (credit) = 200 - 1000 = -800
-            calculated_balance = total_credit - total_debit
+            # Fórmula: Dívida = Compras - Pagamentos
+            # Saldo NEGATIVO representa dívida
+            calculated_balance = -(total_purchases - total_payments)
             
-            # VALIDAÇÃO: Cartão NUNCA pode ter saldo positivo
+            # Cartão NUNCA pode ter saldo positivo
             if calculated_balance > 0:
                 logger.warning(
-                    f"Cartão {locked_account.name} teria saldo positivo ({calculated_balance}). "
-                    f"Ajustando para 0. Verifique se há entradas incorretas."
+                    f"Cartão {locked_account.name} com saldo positivo ({calculated_balance}). "
+                    f"Verificar transações."
                 )
-                calculated_balance = 0
+                calculated_balance = Decimal('0')
                 
         else:
             # ============================================
-            # CONTAS NORMAIS - MANTÉM LÓGICA ORIGINAL
+            # CONTAS NORMAIS - MANTÉM LÓGICA SIMPLES
             # ============================================
-            totals_in = Transaction.objects.filter(
-                transaction_accounts__account=locked_account,
-                direction='IN',
-                is_deleted=False
-            ).aggregate(total=Sum('amount'))['total'] or 0
             
-            totals_out = Transaction.objects.filter(
+            # ENTRADAS (INCOME)
+            income_total = Transaction.objects.filter(
                 transaction_accounts__account=locked_account,
-                direction='OUT',
+                transaction_type='INCOME',
                 is_deleted=False
-            ).aggregate(total=Sum('amount'))['total'] or 0
+            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
             
-            calculated_balance = initial_balance + totals_in - totals_out
+            # DESPESAS (EXPENSE, PURCHASE)
+            expense_total = Transaction.objects.filter(
+                transaction_accounts__account=locked_account,
+                transaction_type__in=['EXPENSE', 'PURCHASE'],
+                is_deleted=False
+            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
+            
+            # TRANSFERÊNCIAS
+            transfers_in = Transaction.objects.filter(
+                transaction_accounts__account=locked_account,
+                transaction_type='TRANSFER',
+                transaction_accounts__role='destination',
+                is_deleted=False
+            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
+            
+            transfers_out = Transaction.objects.filter(
+                transaction_accounts__account=locked_account,
+                transaction_type='TRANSFER',
+                transaction_accounts__role='source',
+                is_deleted=False
+            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
+            
+            # Fórmula: Saldo = Inicial + Entradas + Transf. Recebidas - Despesas - Transf. Enviadas
+            calculated_balance = (
+                initial_balance + 
+                income_total + 
+                transfers_in - 
+                expense_total - 
+                transfers_out
+            )
         
-        # 4. Atualizar e retornar
+        # Atualizar e retornar
         locked_account.balance = calculated_balance
         locked_account.save(update_fields=['balance'])
         
         logger.debug(
-            f"Recalculado saldo {locked_account.name}: "
-            f"R$ {calculated_balance:.2f} "
-            f"(cartão: {locked_account.is_credit_card})"
+            f"Recalculado {locked_account.name} ({locked_account.type}): "
+            f"R${calculated_balance:.2f} (cartão: {locked_account.is_credit_card})"
         )
         
         return calculated_balance

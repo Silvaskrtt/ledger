@@ -152,25 +152,44 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         logger.debug(f"Tags recebidas: {tags}")
         logger.debug(f"Número de tags: {len(tags)}")
         
-         # Validar saldo da conta
+        # Validar saldo da conta
         if account and direction and amount:
             try:
-                account = Account.objects.get(pk=account.account if hasattr(account, 'account') else account, user=user)
+                account_obj = Account.objects.get(pk=account.account if hasattr(account, 'account') else account, user=user)
                 
-                if not account.is_credit_card:
-                    # Conta normal: verificar saldo para saídas
-                    if direction == 'OUT' and account.balance < amount:
-                        raise serializers.ValidationError({
-                            "amount": f"Saldo insuficiente na conta {account.name}. "
-                                     f"Saldo atual: R${account.balance:.2f}"
-                        })
+                # VALIDAÇÃO ESPECÍFICA PARA CARTÕES DE CRÉDITO
+                if account_obj.is_credit_card:
+                    available_credit = account_obj.available_credit
+                    
+                    if direction == 'OUT':
+                        # Para compras no cartão, verificar limite
+                        if amount > available_credit:
+                            raise serializers.ValidationError({
+                                "amount": f"Limite de crédito insuficiente no cartão {account_obj.name}. "
+                                         f"Crédito disponível: R${available_credit:.2f}"
+                            })
+                        
+                        # Verificar se método de pagamento é CREDIT para compras no cartão
+                        if payment_method and payment_method.type != 'CREDIT':
+                            raise serializers.ValidationError({
+                                "payment_method": "Para compras no cartão de crédito, "
+                                                "o método de pagamento deve ser 'Crédito'"
+                            })
+                    
+                    elif direction == 'IN':
+                        # Para pagamentos de fatura, verificar se método é adequado
+                        if payment_method and payment_method.type in ['CREDIT', 'DEBIT']:
+                            raise serializers.ValidationError({
+                                "payment_method": "Para pagamento de fatura de cartão, "
+                                                "use métodos como PIX, Transferência ou Dinheiro"
+                            })
+                
                 else:
-                    # Cartão de crédito: verificar limite
-                    available_credit = account.available_credit
-                    if direction == 'OUT' and amount > available_credit:
+                    # Conta normal: verificar saldo para saídas
+                    if direction == 'OUT' and account_obj.balance < amount:
                         raise serializers.ValidationError({
-                            "amount": f"Limite de crédito insuficiente no cartão {account.name}. "
-                                     f"Crédito disponível: R${available_credit:.2f}"
+                            "amount": f"Saldo insuficiente na conta {account_obj.name}. "
+                                     f"Saldo atual: R${account_obj.balance:.2f}"
                         })
                         
             except Account.DoesNotExist:

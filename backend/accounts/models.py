@@ -1,5 +1,7 @@
 ﻿# backend/accounts/models.py
 
+from decimal import Decimal
+from django.db.models import Sum
 import uuid
 import logging
 from django.db import models
@@ -263,7 +265,89 @@ class CreditCardBill(models.Model):
                 name='minimum_payment_non_negative'
             ),
         ]
+        
+    def recalculate_totals(self):
+        """
+        Recalcula totais da fatura baseado nas transações ativas.
+        """
+        # Compras vinculadas a esta fatura (não deletadas)
+        purchases = self.bill_transactions.filter(
+            transaction_type='PURCHASE',
+            is_deleted=False
+        )
+        
+        purchases_total = purchases.aggregate(total=Sum('amount'))['total'] or Decimal('0')
+        
+        # Pagamentos vinculados a esta fatura (não deletados)
+        payments = self.bill_transactions.filter(
+            transaction_type='CREDIT_CARD_PAYMENT',
+            is_deleted=False
+        )
     
+        payments_total = payments.aggregate(total=Sum('amount'))['total'] or Decimal('0')
+        
+        # Atualizar valores
+        self.total_amount = purchases_total
+        self.paid_amount = payments_total
+        
+        # Recalcular pagamento mínimo
+        if self.total_amount > 0:
+            self.minimum_payment = max(
+                Decimal('0.01'),
+                (self.total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
+            )
+            self.minimum_payment = min(self.minimum_payment, self.total_amount)
+        else:
+            self.minimum_payment = Decimal('0.00')
+        
+        # Atualizar status
+        if self.paid_amount >= self.total_amount:
+            self.status = 'PAID'
+        elif timezone.now().date() > self.due_date:
+            self.status = 'OVERDUE'
+        elif self.total_amount > 0:
+            self.status = 'OPEN'
+        else:
+            self.status = 'CLOSED'
+        
+        self.save(update_fields=[
+            'total_amount', 
+            'paid_amount', 
+            'minimum_payment', 
+            'status'
+        ])
+        
+        return {
+            'total_amount': self.total_amount,
+            'paid_amount': self.paid_amount,
+            'pending': self.total_amount - self.paid_amount,
+            'status': self.status
+        }
+        
+    def clean(self):
+        """Validações do modelo."""
+        super().clean()
+        
+        # Verificar se paid_amount não excede total_amount
+        if self.paid_amount > self.total_amount:
+            raise ValidationError({
+                'paid_amount': f'O valor pago (R${self.paid_amount}) '
+                             f'não pode ser maior que o total da fatura (R${self.total_amount}).'
+            })
+    
+    def save(self, *args, **kwargs):
+        """Garante consistência ao salvar."""
+        self.clean()
+        super().save(*args, **kwargs)
+        
+    @property
+    def transactions(self):
+        """
+        Propriedade para compatibilidade.
+        Retorna bill_transactions (que é o nome correto do related_name).
+        """
+        return self.bill_transactions.all()
+        
     def __str__(self):
         return f"Fatura {self.end_date.strftime('%m/%Y')} - {self.credit_card.name}"
     
@@ -304,6 +388,29 @@ class CreditCardPayment(models.Model):
         ordering = ['-paid_at']
         verbose_name = "Pagamento de Fatura"
         verbose_name_plural = "Pagamentos de Faturas"
+        
+    @property
+    def transactions(self):
+        """Propriedade para compatibilidade com código antigo"""
+        return self.bill_transactions.all()
+    
+    def recalculate_totals(self):
+        """
+        Recalcula totais da fatura baseado nas transações ativas.
+        """
+        # Usar 'bill_transactions' em vez de 'transactions'
+        purchases = self.bill_transactions.filter(
+            transaction_type='PURCHASE',
+            is_deleted=False
+        )
+        
+        purchases_total = purchases.aggregate(total=Sum('amount'))['total'] or Decimal('0')
+        
+        # Pagamentos vinculados a esta fatura (não deletados)
+        payments = self.bill_transactions.filter(
+            transaction_type='CREDIT_CARD_PAYMENT',
+            is_deleted=False
+        )
     
     def __str__(self):
         return f"Pagamento de R${self.amount} para fatura {self.bill}"

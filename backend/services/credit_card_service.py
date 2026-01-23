@@ -8,11 +8,14 @@ from django.db.models import Sum, Q
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 
-from accounts.models import Account, CreditCardBill, CreditCardPayment
-from transactions.models import Transaction, TransactionAccount, TransactionTag
+# Importar Transaction corretamente
+from transactions.models import Transaction, TransactionAccount
 from transactions.services.balance_service import recalculate_account_balance
+
+# Importar modelos de outras apps
 from categories.models import Category
 from payments.models import PaymentMethod
+from accounts.models import Account, CreditCardBill, CreditCardPayment
 
 logger = logging.getLogger(__name__)
 
@@ -21,8 +24,7 @@ class CreditCardService:
     @staticmethod
     def generate_credit_card_bills(card, start_date=None, end_date=None):
         """
-        Gera faturas para um cartão de crédito baseado nas transações.
-        CORRIGIDO: Agora vincula transações mesmo se fatura já existir.
+        Gera faturas APENAS com transações de COMPRA (PURCHASE).
         """
         if not card.is_credit_card:
             raise ValueError("Apenas cartões de crédito podem gerar faturas")
@@ -34,15 +36,15 @@ class CreditCardService:
             raise ValueError("Cartão não tem dia de vencimento configurado")
         
         if not start_date:
-            # Data da primeira transação do cartão
-            first_transaction = Transaction.objects.filter(
+            # Data da primeira COMPRA (PURCHASE) do cartão
+            first_purchase = Transaction.objects.filter(
                 transaction_accounts__account=card,
-                direction='OUT',
+                transaction_type='PURCHASE',  # ← Alterado para transaction_type
                 is_deleted=False
             ).order_by('occurred_at').first()
             
-            if first_transaction:
-                start_date = first_transaction.occurred_at.date()
+            if first_purchase:
+                start_date = first_purchase.occurred_at.date()
             else:
                 start_date = timezone.now().date()
         
@@ -53,30 +55,28 @@ class CreditCardService:
         current_date = start_date
         
         while current_date <= end_date:
-            # Calcular datas do ciclo
             bill_start_date, bill_end_date, due_date = CreditCardService.calculate_bill_dates(
                 current_date, card.closing_day, card.due_day
             )
             
-            # Buscar TODAS as transações do período (INCLUINDO as já vinculadas)
-            all_transactions = Transaction.objects.filter(
+            # Buscar APENAS transações de COMPRA do período (não vinculadas)
+            purchase_transactions = Transaction.objects.filter(
                 transaction_accounts__account=card,
                 occurred_at__date__range=[bill_start_date, bill_end_date],
-                direction='OUT',
-                is_deleted=False
+                transaction_type='PURCHASE',  # ← APENAS compras
+                is_deleted=False,
+                credit_card_bill__isnull=True  # Apenas não vinculadas
             )
             
-            # Calcular total baseado em TODAS as transações
-            total_amount = sum(t.amount for t in all_transactions)
+            # Calcular total baseado em COMPRAS
+            total_amount = sum(t.amount for t in purchase_transactions)
             
             if total_amount > 0:
-                # Calcular pagamento mínimo (10% do total, mínimo R$ 0.01)
+                # Calcular pagamento mínimo
                 minimum_payment = max(
                     Decimal('0.01'),
                     (total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
                 )
-            
-                # Garantir que minimum_payment nunca seja maior que total_amount
                 minimum_payment = min(minimum_payment, total_amount)
             
                 # Buscar ou criar fatura
@@ -99,12 +99,10 @@ class CreditCardService:
                     bill.minimum_payment = minimum_payment
                     bill.save(update_fields=['total_amount', 'due_date', 'minimum_payment'])
                 
-                # Vincular transações que não estão vinculadas
-                unlinked_transactions = all_transactions.filter(credit_card_bill__isnull=True)
-                
-                if unlinked_transactions.exists():
-                    unlinked_transactions.update(credit_card_bill=bill)
-                    logger.info(f"Vinculadas {unlinked_transactions.count()} transações à fatura {bill.end_date}")
+                # Vincular APENAS transações de compra que não estão vinculadas
+                if purchase_transactions.exists():
+                    purchase_transactions.update(credit_card_bill=bill)
+                    logger.info(f"Vinculadas {purchase_transactions.count()} compras à fatura {bill.end_date}")
                 
                 if created:
                     bills_created.append(bill)
@@ -116,9 +114,7 @@ class CreditCardService:
     
     @staticmethod
     def calculate_bill_dates(reference_date, closing_day, due_day):
-        """
-        Calcula datas do ciclo da fatura.
-        """
+        """Calcula datas do ciclo da fatura."""
         logger.debug(f"=== DEBUG CALCULATE_BILL_DATES ===")
         logger.debug(f"Reference date: {reference_date}")
         logger.debug(f"Closing day: {closing_day}")
@@ -149,6 +145,7 @@ class CreditCardService:
     def pay_bill(bill_id, payment_account_id, amount, user, notes=None, create_transaction=True):
         """
         Processa pagamento de uma fatura.
+        IMPORTANTE: Atualiza a fatura ANTES de criar a transação vinculada.
         """
         try:
             from decimal import Decimal
@@ -167,27 +164,54 @@ class CreditCardService:
             payment_account = Account.objects.select_for_update().get(
                 account=payment_account_id,
                 user=user,
-                type__in=['CHECKING', 'SAVINGS', 'CASH']  # Contas que podem pagar faturas
+                type__in=['CHECKING', 'SAVINGS', 'CASH']
             )
             
             # Validar valores
             if amount <= 0:
                 raise ValueError("Valor do pagamento deve ser positivo")
             
+            # CRÍTICO: Verificar se o pagamento não excede o total
             if amount > bill.total_amount - bill.paid_amount:
-                raise ValueError("Valor do pagamento excede o valor em aberto da fatura")
+                raise ValueError(f"Valor do pagamento excede o valor em aberto da fatura. "
+                            f"Total: R${bill.total_amount}, Pago: R${bill.paid_amount}, "
+                            f"Máximo permitido: R${bill.total_amount - bill.paid_amount}")
             
-            # Validar saldo da conta de pagamento
             if payment_account.balance < amount:
                 raise ValueError(f"Saldo insuficiente na conta {payment_account.name}")
+            
+            # Verificar se fatura tem valor para pagar
+            if bill.total_amount <= 0:
+                raise ValueError(
+                    f"A fatura {bill.end_date.strftime('%m/%Y')} não tem valor para pagar. "
+                    f"Total: R${bill.total_amount}. Verifique as compras vinculadas."
+                )
+            
+            # ============================================================
+            # 1. PRIMEIRO: Atualizar a fatura ANTES de vincular transação
+            # ============================================================
+            bill.paid_amount += amount
+            
+            # Verificar se fatura foi totalmente paga
+            if bill.paid_amount >= bill.total_amount:
+                bill.status = 'PAID'
+            elif timezone.now().date() > bill.due_date:
+                bill.status = 'OVERDUE'
+            else:
+                bill.status = 'CLOSED'
+            
+            bill.save()  # Salva com paid_amount atualizado
             
             transaction = None
             
             if create_transaction:
-                # Criar transação para o pagamento
+                # ============================================================
+                # 2. DEPOIS: Criar transação de pagamento
+                # ============================================================
                 transaction = Transaction.objects.create(
                     user=user,
                     amount=amount,
+                    transaction_type='CREDIT_CARD_PAYMENT',
                     direction='OUT',
                     currency='BRL',
                     origin='MANUAL',
@@ -202,29 +226,27 @@ class CreditCardService:
                         user=user,
                         type='BANK_TRANSFER',
                         defaults={'description': 'Transferência para pagar fatura'}
-                    )[0]
+                    )[0],
+                    # AINDA vincula à fatura, mas a fatura já foi atualizada
+                    credit_card_bill=bill
                 )
                 
-                logger.info(f"Transação de pagamento criada:")
-                logger.info(f"  ID: {transaction.transaction}")
-                logger.info(f"  Direction: {transaction.direction}")
-                logger.info(f"  Valor: {transaction.amount}")
-                logger.info(f"  Cartão: {bill.credit_card.name}")
-                logger.info(f"  Saldo anterior do cartão: {bill.credit_card.balance}")
-                
-                # Relacionar com conta de pagamento (source)
+                # Relacionar com contas
                 TransactionAccount.objects.create(
                     transaction=transaction,
                     account=payment_account,
                     role='source'
                 )
                 
-                # Relacionar com cartão de crédito (destination - entrada no cartão)
                 TransactionAccount.objects.create(
                     transaction=transaction,
                     account=bill.credit_card,
-                    role='destination'  # Entrada no cartão
+                    role='destination'
                 )
+                
+                logger.info(f"=== PAGAMENTO PROCESSADO ===")
+                logger.info(f"Fatura {bill.end_date}: Pago R${amount}")
+                logger.info(f"Total pago: R${bill.paid_amount} de R${bill.total_amount}")
             
             # Criar registro de pagamento
             payment = CreditCardPayment.objects.create(
@@ -235,47 +257,13 @@ class CreditCardService:
                 notes=notes
             )
             
-            # Atualizar fatura
-            bill.paid_amount += amount
-            
-            # Verificar se fatura foi totalmente paga
-            if bill.paid_amount >= bill.total_amount:
-                bill.status = 'PAID'
-            elif timezone.now().date() > bill.due_date:
-                bill.status = 'OVERDUE'
-            else:
-                bill.status = 'CLOSED'
-            
-            bill.save()
-            
             # Recalcular saldos
             recalculate_account_balance(payment_account)
             recalculate_account_balance(bill.credit_card)
             
-            bill.credit_card.refresh_from_db()
-            new_balance = bill.credit_card.balance
-            
-            old_balance = new_balance + amount
-            
-            logger.info(f"Saldo do cartão {bill.credit_card.name}:")
-            logger.info(f"  Antes: {old_balance}")
-            logger.info(f"  Depois: {new_balance}")
-            logger.info(f"  Diferença: {new_balance - old_balance}")
-            
-            # Verificar consistência
-            from transactions.services.balance_service import verify_account_balance
-            is_consistent, calculated, stored = verify_account_balance(bill.credit_card)
-            
-            if not is_consistent:
-                logger.error(f"INCONSISTÊNCIA no cartão {bill.credit_card.name}")
-                logger.error(f"  Calculado: {calculated}")
-                logger.error(f"  Armazenado: {stored}")
-            
             # Verificar consistência do patrimônio
             from services.patrimony_service import PatrimonyService
             patrimony = PatrimonyService.calculate_user_patrimony(user)
-            
-            logger.info(f"Pagamento processado: {payment.id_payment} - R${amount}")
             
             return {
                 'payment': payment,
@@ -286,52 +274,57 @@ class CreditCardService:
             }
             
         except Exception as e:
-            logger.error(f"Erro ao processar pagamento: {str(e)}")
+            logger.error(f"Erro ao processar pagamento: {str(e)}", exc_info=True)
             raise
     
     @staticmethod
     def get_card_bills(card_id, user):
         """
-        Obtém todas as faturas de um cartão.
+        Obtém faturas do cartão.
+        CORREÇÃO: Usa transaction_type='PURCHASE' para encontrar compras não vinculadas.
         """
         try:
             card = Account.objects.get(account=card_id, user=user)
             
-            # PRIMEIRO: Garantir que faturas existem para transações não vinculadas
-            unlinked_transactions = Transaction.objects.filter(
+            # PRIMEIRO: Garantir que faturas existem para COMPRAS não vinculadas
+            unlinked_purchases = Transaction.objects.filter(
                 transaction_accounts__account=card,
-                direction='OUT',
+                transaction_type='PURCHASE',  # ← Alterado para transaction_type
                 is_deleted=False,
                 credit_card_bill__isnull=True,
                 occurred_at__lte=timezone.now().date() + timedelta(days=60)
             )
             
-            if unlinked_transactions.exists():
-                # Gerar faturas para transações não vinculadas
+            if unlinked_purchases.exists():
+                # Gerar faturas para compras não vinculadas
                 CreditCardService.generate_credit_card_bills(card)
             
-            # SEGUNDO: Atualizar totais e status de todas as faturas
+            # SEGUNDO: Obter todas as faturas
             bills = CreditCardBill.objects.filter(
                 credit_card=card
             ).order_by('-end_date')
             
             for bill in bills:
-                # Calcular total REAL baseado nas transações
-                transactions_total = Transaction.objects.filter(
+                # Calcular total baseado em COMPRAS (PURCHASE) vinculadas
+                purchases_total = Transaction.objects.filter(
                     credit_card_bill=bill,
+                    transaction_type='PURCHASE',  # ← APENAS compras
                     is_deleted=False
                 ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
                 
-                # Se não há transações, usar valor atual
-                if transactions_total == 0:
-                    transactions_total = bill.total_amount
+                # Calcular pagamentos (CREDIT_CARD_PAYMENT) vinculados
+                payments_total = Transaction.objects.filter(
+                    credit_card_bill=bill,
+                    transaction_type='CREDIT_CARD_PAYMENT',  # ← Pagamentos
+                    is_deleted=False
+                ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
                 
-                # Atualizar se diferente
-                if bill.total_amount != transactions_total:
-                    bill.total_amount = transactions_total
+                # Atualizar totais da fatura
+                if bill.total_amount != purchases_total:
+                    bill.total_amount = purchases_total
                     
-                    # Recalcular pagamento mínimo apenas se total > 0
-                    if transactions_total > 0:
+                    # Recalcular pagamento mínimo
+                    if purchases_total > 0:
                         minimum_payment = max(
                             Decimal('0.01'),
                             (bill.total_amount * Decimal('0.10')).quantize(Decimal('0.01'))
@@ -342,6 +335,11 @@ class CreditCardService:
                         bill.minimum_payment = Decimal('0.00')
                     
                     bill.save(update_fields=['total_amount', 'minimum_payment'])
+                
+                # Atualizar valor pago
+                if bill.paid_amount != payments_total:
+                    bill.paid_amount = payments_total
+                    bill.save(update_fields=['paid_amount'])
                 
                 # Atualizar status
                 if bill.status != 'PAID':

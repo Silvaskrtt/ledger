@@ -117,6 +117,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Função segura para formatar valores monetários
+    function safeFormatCurrency(value) {
+        if (value === null || value === undefined || value === '') {
+            return '0.00';
+        }
+        
+        // Se já é número
+        if (typeof value === 'number') {
+            return value.toFixed(2);
+        }
+        
+        // Se é string, tenta converter
+        if (typeof value === 'string') {
+            const num = parseFloat(value.replace(',', '.'));
+            return isNaN(num) ? '0.00' : num.toFixed(2);
+        }
+        
+        // Último recurso
+        try {
+            const num = parseFloat(value);
+            return isNaN(num) ? '0.00' : num.toFixed(2);
+        } catch (e) {
+            console.error('Erro ao formatar valor:', value, e);
+            return '0.00';
+        }
+    }
+
     // Função para mostrar modal com faturas
     function showBillsModal(bills, cardId) {
         const modal = document.getElementById('viewBillsModal');
@@ -133,7 +160,11 @@ document.addEventListener('DOMContentLoaded', function() {
             let html = '<div class="bills-container">';
             
             bills.forEach(bill => {
-                const pendingAmount = bill.pending_amount;
+                // USAR safeFormatCurrency EM VEZ DE .toFixed()
+                const total = safeFormatCurrency(bill.total_amount);
+                const paid = safeFormatCurrency(bill.paid_amount);
+                const pending = safeFormatCurrency(bill.pending_amount);
+                
                 const statusClass = {
                     'OPEN': 'status-open',
                     'CLOSED': 'status-closed',
@@ -141,50 +172,51 @@ document.addEventListener('DOMContentLoaded', function() {
                     'OVERDUE': 'status-overdue'
                 }[bill.status] || 'status-open';
                 
+                // Calcular dias até o vencimento
+                const dueDate = new Date(bill.due_date);
+                const today = new Date();
+                const daysUntilDue = Math.floor((dueDate - today) / (1000 * 60 * 60 * 24));
+                
                 html += `
-                    <div class="bill-item ${statusClass}" data-bill-id="${bill.id}">
+                    <div class="bill-item ${statusClass}" data-bill-id="${bill.id_bill}">
                         <div class="bill-header">
-                            <h4>Fatura ${bill.end_date}</h4>
+                            <h4>Fatura ${bill.end_date.split('-').reverse().join('/')}</h4>
                             <span class="bill-status ${statusClass}">${bill.status_display}</span>
                         </div>
                         
                         <div class="bill-details">
                             <div class="detail">
                                 <span class="label">Período:</span>
-                                <span class="value">${bill.start_date} a ${bill.end_date}</span>
+                                <span class="value">${bill.period_formatted}</span>
                             </div>
                             <div class="detail">
                                 <span class="label">Vencimento:</span>
-                                <span class="value ${bill.days_until_due < 0 ? 'overdue' : ''}">
-                                    ${bill.due_date} (${bill.days_until_due >= 0 ? `em ${bill.days_until_due} dias` : 'vencida'})
+                                <span class="value ${daysUntilDue < 0 ? 'overdue' : ''}">
+                                    ${bill.due_date_formatted} (${daysUntilDue >= 0 ? `em ${daysUntilDue} dias` : 'vencida'})
                                 </span>
                             </div>
                             <div class="detail">
                                 <span class="label">Total:</span>
-                                <span class="value">R$ ${bill.total_amount.toFixed(2)}</span>
+                                <span class="value">R$ ${total}</span>
                             </div>
                             <div class="detail">
                                 <span class="label">Pago:</span>
-                                <span class="value paid">R$ ${bill.paid_amount.toFixed(2)}</span>
+                                <span class="value paid">R$ ${paid}</span>
                             </div>
                             <div class="detail">
                                 <span class="label">Pendente:</span>
-                                <span class="value pending">R$ ${pendingAmount.toFixed(2)}</span>
-                            </div>
-                            <div class="detail">
-                                <span class="label">Transações:</span>
-                                <span class="value">${bill.transactions_count}</span>
+                                <span class="value pending">R$ ${pending}</span>
                             </div>
                         </div>
                         
-                        ${pendingAmount > 0 ? `
+                        ${bill.pending_amount > 0 ? `
                             <div class="bill-actions">
-                                <button class="btn-pay-bill" data-bill-id="${bill.id}" 
+                                <button class="btn-pay-bill" data-bill-id="${bill.id_bill}" 
                                         data-card-id="${cardId}" 
-                                        data-amount="${pendingAmount}">
+                                        data-amount="${pending}">
                                     <i class="fas fa-credit-card"></i> Pagar Fatura
                                 </button>
-                                <button class="btn-pay-partial" data-bill-id="${bill.id}" 
+                                <button class="btn-pay-partial" data-bill-id="${bill.id_bill}" 
                                         data-card-id="${cardId}">
                                     <i class="fas fa-money-bill-wave"></i> Pagar Parcial
                                 </button>
@@ -211,15 +243,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 btn.addEventListener('click', (e) => {
                     const billId = e.currentTarget.dataset.billId;
                     const cardId = e.currentTarget.dataset.cardId;
-                    openPayBillModal(billId, cardId, null); // null para permitir edição do valor
+                    openPayBillModal(billId, cardId, null);
                 });
             });
         }
         
-        // FECHAR QUALQUER OUTRO MODAL ABERTO ANTES DE ABRIR ESTE
         closeAllModals();
-        
-        // AGORA ABRIR O MODAL DE FATURAS
         modal.classList.add('active');
     }
 
@@ -242,25 +271,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             
             if (data.success) {
-                const bill = data.bills.find(b => b.id === billId);
+                const bill = data.bills.find(b => b.id_bill === billId);
                 if (bill) {
+                    // USAR safeFormatCurrency
+                    const total = safeFormatCurrency(bill.total_amount);
+                    const paid = safeFormatCurrency(bill.paid_amount);
+                    const pending = safeFormatCurrency(bill.pending_amount);
+                    
                     billInfo.innerHTML = `
                         <div class="bill-summary">
-                            <h4>Fatura ${bill.end_date}</h4>
-                            <p>Período: ${bill.start_date} a ${bill.end_date}</p>
-                            <p>Vencimento: ${bill.due_date}</p>
-                            <p>Total: <strong>R$ ${bill.total_amount.toFixed(2)}</strong></p>
-                            <p>Pago: <strong>R$ ${bill.paid_amount.toFixed(2)}</strong></p>
-                            <p>Pendente: <strong class="pending">R$ ${bill.pending_amount.toFixed(2)}</strong></p>
+                            <h4>Fatura ${bill.end_date.split('-').reverse().join('/')}</h4>
+                            <p>Período: ${bill.period_formatted}</p>
+                            <p>Vencimento: ${bill.due_date_formatted}</p>
+                            <p>Total: <strong>R$ ${total}</strong></p>
+                            <p>Pago: <strong>R$ ${paid}</strong></p>
+                            <p>Pendente: <strong class="pending">R$ ${pending}</strong></p>
                         </div>
                     `;
                     
                     // Definir valor do pagamento
                     if (amount) {
-                        paymentAmountInput.value = amount.toFixed(2);
+                        paymentAmountInput.value = safeFormatCurrency(amount);
                         paymentAmountInput.max = bill.pending_amount;
                     } else {
-                        paymentAmountInput.value = bill.pending_amount.toFixed(2);
+                        paymentAmountInput.value = pending;
                         paymentAmountInput.max = bill.pending_amount;
                     }
                 }
@@ -280,7 +314,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 data.accounts.forEach(account => {
                     const option = document.createElement('option');
                     option.value = account.id;
-                    option.textContent = `${account.name} (${account.type_display}) - R$ ${account.balance.toFixed(2)}`;
+                    // USAR safeFormatCurrency para o saldo da conta
+                    const balance = safeFormatCurrency(account.balance);
+                    option.textContent = `${account.name} (${account.type_display}) - R$ ${balance}`;
                     option.dataset.balance = account.balance;
                     paymentAccountSelect.appendChild(option);
                 });
@@ -289,10 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Erro ao carregar contas:', error);
         }
         
-        // FECHAR QUALQUER OUTRO MODAL ABERTO ANTES DE ABRIR ESTE
         closeAllModals();
-        
-        // AGORA ABRIR O MODAL DE PAGAMENTO
         modal.classList.add('active');
         
         // Focar no primeiro campo do formulário
@@ -307,7 +340,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para atualizar resumo do patrimônio
     function updatePatrimonySummary(patrimony) {
-        // Atualizar elementos na página se existirem
         const elements = {
             'totalPatrimony': document.getElementById('totalPatrimony'),
             'creditCardDebt': document.getElementById('creditCardDebt'),
@@ -315,15 +347,15 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         if (elements.totalPatrimony) {
-            elements.totalPatrimony.textContent = `R$ ${patrimony.total_patrimony.toFixed(2)}`;
+            elements.totalPatrimony.textContent = `R$ ${safeFormatCurrency(patrimony.total_patrimony)}`;
         }
         
         if (elements.creditCardDebt) {
-            elements.creditCardDebt.textContent = `R$ ${patrimony.credit_card_debt_abs.toFixed(2)}`;
+            elements.creditCardDebt.textContent = `R$ ${safeFormatCurrency(patrimony.credit_card_debt_abs)}`;
         }
         
         if (elements.availablePatrimony) {
-            elements.availablePatrimony.textContent = `R$ ${(patrimony.total_patrimony + patrimony.credit_card_debt_abs).toFixed(2)}`;
+            elements.availablePatrimony.textContent = `R$ ${safeFormatCurrency(patrimony.total_patrimony + patrimony.credit_card_debt_abs)}`;
         }
     }
 
@@ -446,7 +478,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Criar elemento HTML do cartão
     function createCardElement(card) {
-        // Validar dados do cartão
         if (!card || !card.account) {
             console.error('Dados inválidos do cartão:', card);
             return null;
@@ -456,22 +487,22 @@ document.addEventListener('DOMContentLoaded', function() {
         div.className = 'card-item';
         div.dataset.id = card.account;
         
+        // USAR safeFormatCurrency para valores monetários
         const balance = parseFloat(card.balance || 0);
         const creditLimit = parseFloat(card.credit_limit || 0);
         const balanceClass = balance < 0 ? 'negative' : 'positive';
         const balanceText = balance < 0 
-            ? `-R$ ${Math.abs(balance).toFixed(2)}` 
-            : `R$ ${balance.toFixed(2)}`;
+            ? `-R$ ${safeFormatCurrency(Math.abs(balance))}` 
+            : `R$ ${safeFormatCurrency(balance)}`;
         
         // Calcular crédito disponível
         const availableCredit = creditLimit + balance; // balance é negativo para cartões
-        const availableCreditText = `R$ ${Math.max(0, availableCredit).toFixed(2)}`;
+        const availableCreditText = `R$ ${safeFormatCurrency(Math.max(0, availableCredit))}`;
         
         // Formatar datas de fechamento e vencimento
         const closingDay = card.closing_day || '--';
         const dueDay = card.due_day || '--';
         
-        // AGORA INCLUÍMOS O BOTÃO DE FATURAS
         div.innerHTML = `
             <div class="card-info">
                 <div class="card-header">
@@ -481,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-details">
                     <div class="detail">
                         <span class="label">Limite:</span>
-                        <span class="value">R$ ${creditLimit.toFixed(2)}</span>
+                        <span class="value">R$ ${safeFormatCurrency(creditLimit)}</span>
                     </div>
                     <div class="detail">
                         <span class="label">Disponível:</span>

@@ -437,50 +437,133 @@ class TransactionManager {
         return element.value || null;
     }
 
-    async deleteTransaction() {
-        if (!this.currentTransactionId) return;
-
-        // Mostrar mensagem mais descritiva
-        const confirmMessage = `Tem certeza que deseja excluir esta transação?\n\n` +
-                            `O valor será retirado do saldo da conta (se for saída) ou ` +
-                            `retornará ao saldo (se for entrada).\n\n` +
-                            `Esta ação não pode ser desfeita.`;
+    async deleteTransaction(transactionId, options = {}) {
+        const confirmMessage = this.getDeleteConfirmationMessage(options);
         
         if (!confirm(confirmMessage)) {
-            return;
+            return false;
         }
 
         try {
-            const response = await fetch(`/api/transactions/${this.currentTransactionId}/`, {
-                method: 'DELETE',
+            let url = `/api/transactions/${transactionId}/`;
+            let method = 'DELETE';
+            
+            // Se for exclusão de parcelamento completo
+            if (options.deleteAllInstallments) {
+                url = `/api/installments/${options.planId}/`;
+                method = 'DELETE';
+            }
+
+            const response = await fetch(url, {
+                method: method,
                 headers: {
                     'X-CSRFToken': this.getCSRFToken(),
                     'X-Requested-With': 'XMLHttpRequest'
                 }
             });
 
-            console.log('Resposta DELETE:', response.status, response.statusText);
-
-            if (response.ok || response.status === 204) {
-            alert('Transação excluída com sucesso! O saldo da conta foi atualizado.');
-                this.closeAllModals();
-                window.location.reload();
-            } else {
-                // Primeiro verificar o content-type
-                const contentType = response.headers.get('content-type');
+            if (response.ok) {
+                const result = await response.json();
                 
-                if (contentType && contentType.includes('application/json')) {
-                    const result = await response.json();
-                    throw new Error(result.detail || 'Erro ao excluir transação');
+                if (result.is_installment && !options.deleteAllInstallments) {
+                    // Perguntar se quer excluir outras parcelas
+                    this.showInstallmentDeleteModal(transactionId, result.installment_plan_id);
                 } else {
-                    // Se não for JSON, apenas usar status
-                    throw new Error(`Erro ${response.status}: ${response.statusText}`);
+                    this.showSuccessMessage(result.message || 'Excluído com sucesso');
+                    this.closeAllModals();
+                    window.location.reload();
                 }
+                return true;
+            } else {
+                const error = await response.json();
+                throw new Error(error.detail || 'Erro ao excluir');
             }
         } catch (error) {
-            console.error('Erro ao excluir transação:', error);
-            alert('Erro: ' + error.message);
+            this.showErrorMessage('Erro: ' + error.message);
+            return false;
         }
+    }
+
+    getDeleteConfirmationMessage(options) {
+        const { isInstallment, deleteAll } = options;
+        
+        if (isInstallment && deleteAll) {
+            return `Tem certeza que deseja excluir TODAS as parcelas deste parcelamento?\n\n` +
+                   `Todas as transações serão removidas e os saldos atualizados.\n` +
+                   `Esta ação não pode ser desfeita.`;
+        } else if (isInstallment) {
+            return `Esta transação é parte de um parcelamento.\n\n` +
+                   `Deseja excluir apenas esta parcela ou todas as parcelas?\n\n` +
+                   `Escolha uma opção no próximo diálogo.`;
+        } else {
+            return `Tem certeza que deseja excluir esta transação?\n\n` +
+                   `O valor será retirado do saldo da conta.\n` +
+                   `Esta ação não pode ser desfeita.`;
+        }
+    }
+
+    showInstallmentDeleteModal(transactionId, planId) {
+        const modal = document.createElement('div');
+        modal.className = 'modal active';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Excluir Parcelamento</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Esta transação é parte de um parcelamento. O que deseja fazer?</p>
+                    <div class="installment-options">
+                        <button class="btn btn-secondary" id="deleteSingleBtn">
+                            Excluir apenas esta parcela
+                        </button>
+                        <button class="btn btn-warning" id="deleteFutureBtn">
+                            Excluir parcelas futuras
+                        </button>
+                        <button class="btn btn-danger" id="deleteAllBtn">
+                            Excluir TODAS as parcelas
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline close-modal">Cancelar</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Event listeners
+        modal.querySelector('#deleteSingleBtn').addEventListener('click', () => {
+            modal.remove();
+            this.deleteTransaction(transactionId, {
+                isInstallment: true,
+                deleteAll: false
+            });
+        });
+
+        modal.querySelector('#deleteFutureBtn').addEventListener('click', () => {
+            modal.remove();
+            this.deleteTransaction(transactionId, {
+                isInstallment: true,
+                deleteAll: false,
+                deleteFutureOnly: true,
+                planId: planId
+            });
+        });
+
+        modal.querySelector('#deleteAllBtn').addEventListener('click', () => {
+            modal.remove();
+            this.deleteTransaction(transactionId, {
+                isInstallment: true,
+                deleteAll: true,
+                planId: planId
+            });
+        });
+
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            modal.remove();
+        });
     }
 
     getCSRFToken() {
