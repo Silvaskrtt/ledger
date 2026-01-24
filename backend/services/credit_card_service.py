@@ -145,22 +145,22 @@ class CreditCardService:
     def pay_bill(bill_id, payment_account_id, amount, user, notes=None, create_transaction=True):
         """
         Processa pagamento de uma fatura.
-        IMPORTANTE: Atualiza a fatura ANTES de criar a transação vinculada.
+        Padrão: Só cria transação SE solicitado.
         """
         try:
             from decimal import Decimal
-        
+            
             # Garantir que amount seja Decimal
             if not isinstance(amount, Decimal):
                 amount = Decimal(str(amount))
                 
-            # Buscar fatura
+            # Buscar fatura com lock
             bill = CreditCardBill.objects.select_for_update().get(
                 id_bill=bill_id,
                 credit_card__user=user
             )
             
-            # Buscar conta de pagamento
+            # Buscar conta de pagamento com lock
             payment_account = Account.objects.select_for_update().get(
                 account=payment_account_id,
                 user=user,
@@ -171,28 +171,86 @@ class CreditCardService:
             if amount <= 0:
                 raise ValueError("Valor do pagamento deve ser positivo")
             
-            # CRÍTICO: Verificar se o pagamento não excede o total
-            if amount > bill.total_amount - bill.paid_amount:
-                raise ValueError(f"Valor do pagamento excede o valor em aberto da fatura. "
-                            f"Total: R${bill.total_amount}, Pago: R${bill.paid_amount}, "
-                            f"Máximo permitido: R${bill.total_amount - bill.paid_amount}")
-            
-            if payment_account.balance < amount:
-                raise ValueError(f"Saldo insuficiente na conta {payment_account.name}")
-            
-            # Verificar se fatura tem valor para pagar
-            if bill.total_amount <= 0:
+            # Verificar se o pagamento não excede o total
+            pending_amount = bill.total_amount - bill.paid_amount
+            if amount > pending_amount:
                 raise ValueError(
-                    f"A fatura {bill.end_date.strftime('%m/%Y')} não tem valor para pagar. "
-                    f"Total: R${bill.total_amount}. Verifique as compras vinculadas."
+                    f"Valor do pagamento excede o valor em aberto da fatura. "
+                    f"Total: R${bill.total_amount}, "
+                    f"Pago: R${bill.paid_amount}, "
+                    f"Pendente: R${pending_amount}, "
+                    f"Máximo permitido: R${pending_amount}"
+                )
+            
+            transaction = None
+            
+            # ============================================================
+            # 1. CRIAR TRANSAÇÃO APENAS SE SOLICITADO
+            # ============================================================
+            if create_transaction:
+                from categories.models import Category
+                from payments.models import PaymentMethod
+                
+                # Buscar categoria
+                payment_category, _ = Category.objects.get_or_create(
+                    user=user,
+                    name='Pagamento de Faturas',
+                    defaults={'color': '#EF4444'}
+                )
+                
+                # Buscar método de pagamento
+                payment_method, _ = PaymentMethod.objects.get_or_create(
+                    user=user,
+                    type='BANK_TRANSFER',
+                    defaults={'description': 'Transferência para pagar fatura'}
+                )
+                
+                # Criar transação de pagamento
+                transaction = Transaction.objects.create(
+                    user=user,
+                    amount=amount,
+                    transaction_type='CREDIT_CARD_PAYMENT',  # ← FIXO
+                    direction='OUT',  # Dinheiro saindo da conta
+                    currency='BRL',
+                    origin='MANUAL',
+                    occurred_at=timezone.now(),
+                    description=f"Pagamento fatura {bill.credit_card.name} {bill.end_date.strftime('%m/%Y')}",
+                    category=payment_category,
+                    payment_method=payment_method,
+                    credit_card_bill=bill  # Vincular à fatura
+                )
+                
+                # Relacionar com contas
+                TransactionAccount.objects.create(
+                    transaction=transaction,
+                    account=payment_account,
+                    role='source'  # Dinheiro saindo desta conta
+                )
+                
+                TransactionAccount.objects.create(
+                    transaction=transaction,
+                    account=bill.credit_card,
+                    role='destination'  # Pagamento entrando no cartão (reduz dívida)
                 )
             
             # ============================================================
-            # 1. PRIMEIRO: Atualizar a fatura ANTES de vincular transação
+            # 2. SEMPRE criar registro de pagamento
+            # ============================================================
+            payment = CreditCardPayment.objects.create(
+                bill=bill,
+                payment_account=payment_account,
+                amount=amount,
+                transaction=transaction,  # Pode ser None se não criou transação
+                notes=notes,
+                paid_at=timezone.now()
+            )
+            
+            # ============================================================
+            # 3. ATUALIZAR FATURA
             # ============================================================
             bill.paid_amount += amount
             
-            # Verificar se fatura foi totalmente paga
+            # Atualizar status
             if bill.paid_amount >= bill.total_amount:
                 bill.status = 'PAID'
             elif timezone.now().date() > bill.due_date:
@@ -200,76 +258,44 @@ class CreditCardService:
             else:
                 bill.status = 'CLOSED'
             
-            bill.save()  # Salva com paid_amount atualizado
+            bill.save(update_fields=['paid_amount', 'status'])
             
-            transaction = None
+            # ============================================================
+            # 4. RECALCULAR SALDOS (IMPORTANTE!)
+            # ============================================================
+            from transactions.services.balance_service import recalculate_account_balance
             
-            if create_transaction:
-                # ============================================================
-                # 2. DEPOIS: Criar transação de pagamento
-                # ============================================================
-                transaction = Transaction.objects.create(
-                    user=user,
-                    amount=amount,
-                    transaction_type='CREDIT_CARD_PAYMENT',
-                    direction='OUT',
-                    currency='BRL',
-                    origin='MANUAL',
-                    occurred_at=timezone.now(),
-                    description=f"Pagamento fatura {bill.credit_card.name} {bill.end_date.strftime('%m/%Y')}",
-                    category=Category.objects.get_or_create(
-                        user=user,
-                        name='Pagamento de Faturas',
-                        defaults={'color': '#EF4444'}
-                    )[0],
-                    payment_method=PaymentMethod.objects.get_or_create(
-                        user=user,
-                        type='BANK_TRANSFER',
-                        defaults={'description': 'Transferência para pagar fatura'}
-                    )[0],
-                    # AINDA vincula à fatura, mas a fatura já foi atualizada
-                    credit_card_bill=bill
-                )
-                
-                # Relacionar com contas
-                TransactionAccount.objects.create(
-                    transaction=transaction,
-                    account=payment_account,
-                    role='source'
-                )
-                
-                TransactionAccount.objects.create(
-                    transaction=transaction,
-                    account=bill.credit_card,
-                    role='destination'
-                )
-                
-                logger.info(f"=== PAGAMENTO PROCESSADO ===")
-                logger.info(f"Fatura {bill.end_date}: Pago R${amount}")
-                logger.info(f"Total pago: R${bill.paid_amount} de R${bill.total_amount}")
-            
-            # Criar registro de pagamento
-            payment = CreditCardPayment.objects.create(
-                bill=bill,
-                payment_account=payment_account,
-                amount=amount,
-                transaction=transaction,
-                notes=notes
-            )
-            
-            # Recalcular saldos
+            # Recalcular conta de pagamento
             recalculate_account_balance(payment_account)
+            
+            # Recalcular cartão de crédito
             recalculate_account_balance(bill.credit_card)
             
-            # Verificar consistência do patrimônio
-            from services.patrimony_service import PatrimonyService
-            patrimony = PatrimonyService.calculate_user_patrimony(user)
+            # ============================================================
+            # 5. VERIFICAR CONSISTÊNCIA
+            # ============================================================
+            from transactions.services.balance_service import verify_account_balance
             
+            # Verificar conta de pagamento
+            is_consistent_payment, calc_payment, stored_payment = verify_account_balance(payment_account)
+            
+            # Verificar cartão
+            is_consistent_card, calc_card, stored_card = verify_account_balance(bill.credit_card)
+            
+            if not is_consistent_payment or not is_consistent_card:
+                logger.error(f"INCONSISTÊNCIA após pagamento:")
+                if not is_consistent_payment:
+                    logger.error(f"  Conta {payment_account.name}: Armazenado={stored_payment}, Calculado={calc_payment}")
+                if not is_consistent_card:
+                    logger.error(f"  Cartão {bill.credit_card.name}: Armazenado={stored_card}, Calculado={calc_card}")
+            
+            # ============================================================
+            # 6. RETORNAR RESULTADO
+            # ============================================================
             return {
                 'payment': payment,
-                'transaction': transaction,
+                'transaction': transaction,  # Pode ser None
                 'bill': bill,
-                'patrimony': patrimony,
                 'message': f'Pagamento de R${amount:.2f} realizado com sucesso!'
             }
             

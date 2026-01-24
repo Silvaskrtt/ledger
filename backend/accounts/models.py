@@ -138,16 +138,16 @@ class Account(models.Model):
         """
         Crédito disponível para cartões de crédito.
         
-        PADRÃO: Saldo de cartão é NEGATIVO (representa dívida)
-        Exemplo: Limite 5000, Saldo -1000 (dívida de 1000)
-        Disponível = Limite - Dívida = 5000 - 1000 = 4000
+        REGRA CORRIGIDA:
+        - Balance é NEGATIVO (ex: -1000 = dívida de 1000)
+        - Available = Limite - (Valor Absoluto do Balance)
+        - Ex: Limite 5000, Balance -1000 → Available = 5000 - 1000 = 4000
         """
         if self.is_credit_card and self.credit_limit:
-            # Balance é NEGATIVO (ex: -1000 = dívida de 1000)
-            # Pegar valor absoluto para calcular crédito disponível
-            current_debt = abs(self.balance)  # abs(-1000) = 1000
+            # Balance é NEGATIVO, pegar valor absoluto
+            current_debt = abs(self.balance) if self.balance < 0 else 0
             available = self.credit_limit - current_debt
-            return max(0, available)  # Nunca retorna negativo
+            return max(0, available)  # Nunca negativo
         return None
     
     def clean(self):
@@ -155,13 +155,11 @@ class Account(models.Model):
         super().clean()
         
         if self.is_credit_card:
-            # Cartões não podem ter saldo positivo
+            # Cartões NUNCA podem ter saldo positivo
             if self.balance > 0:
-                raise ValidationError({
-                    'balance': 'Cartões de crédito não podem ter saldo positivo.'
-                })
+                self.balance = 0  # Corrige automaticamente
             
-            # Dias devem estar entre 1 e 31
+            # Validar dias
             if self.closing_day and not (1 <= self.closing_day <= 31):
                 raise ValidationError({
                     'closing_day': 'Dia de fechamento deve estar entre 1 e 31.'

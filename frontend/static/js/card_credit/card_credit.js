@@ -123,25 +123,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return '0.00';
         }
         
-        // Se já é número
+        // Converter para número
+        let num;
         if (typeof value === 'number') {
-            return value.toFixed(2);
+            num = value;
+        } else if (typeof value === 'string') {
+            // Remover R$, pontos, e converter vírgula para ponto
+            const cleanValue = value.replace(/[R$\s.]/g, '').replace(',', '.');
+            num = parseFloat(cleanValue);
+        } else {
+            num = parseFloat(value);
         }
         
-        // Se é string, tenta converter
-        if (typeof value === 'string') {
-            const num = parseFloat(value.replace(',', '.'));
-            return isNaN(num) ? '0.00' : num.toFixed(2);
-        }
-        
-        // Último recurso
-        try {
-            const num = parseFloat(value);
-            return isNaN(num) ? '0.00' : num.toFixed(2);
-        } catch (e) {
-            console.error('Erro ao formatar valor:', value, e);
+        if (isNaN(num)) {
             return '0.00';
         }
+        
+        // Formatar com 2 casas decimais e separador de milhar
+        return num.toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
     }
 
     // Função para mostrar modal com faturas
@@ -487,19 +489,21 @@ document.addEventListener('DOMContentLoaded', function() {
         div.className = 'card-item';
         div.dataset.id = card.account;
         
-        // USAR safeFormatCurrency para valores monetários
+        // Balance é NEGATIVO para cartões
         const balance = parseFloat(card.balance || 0);
         const creditLimit = parseFloat(card.credit_limit || 0);
-        const balanceClass = balance < 0 ? 'negative' : 'positive';
-        const balanceText = balance < 0 
-            ? `-R$ ${safeFormatCurrency(Math.abs(balance))}` 
-            : `R$ ${safeFormatCurrency(balance)}`;
         
-        // Calcular crédito disponível
-        const availableCredit = creditLimit + balance; // balance é negativo para cartões
-        const availableCreditText = `R$ ${safeFormatCurrency(Math.max(0, availableCredit))}`;
+        // Para cartões, mostrar dívida como valor POSITIVO
+        const debt = Math.abs(balance);  // Converte negativo para positivo para exibição
+        const debtText = `R$ ${safeFormatCurrency(debt)}`;
+        const debtClass = balance < 0 ? 'negative' : 'neutral';
         
-        // Formatar datas de fechamento e vencimento
+        // Crédito disponível CORRETO
+        // Balance negativo = dívida, então: Available = Limite - Dívida
+        const availableCredit = Math.max(0, creditLimit - debt);
+        const availableCreditText = `R$ ${safeFormatCurrency(availableCredit)}`;
+        
+        // Formatar datas
         const closingDay = card.closing_day || '--';
         const dueDay = card.due_day || '--';
         
@@ -516,11 +520,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="detail">
                         <span class="label">Disponível:</span>
-                        <span class="value positive">${availableCreditText}</span>
+                        <span class="value ${availableCredit > 0 ? 'positive' : 'negative'}">
+                            ${availableCreditText}
+                        </span>
                     </div>
                     <div class="detail">
-                        <span class="label">Fatura:</span>
-                        <span class="value ${balanceClass}">${balanceText}</span>
+                        <span class="label">Dívida:</span>
+                        <span class="value ${debtClass}">${debtText}</span>
                     </div>
                     <div class="detail-group">
                         <div class="detail small">

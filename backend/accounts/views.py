@@ -124,14 +124,15 @@ def pay_credit_card_bill(request):
         payment_account_id = data.get('payment_account')
         amount = data.get('amount')
         notes = data.get('notes', '')
-        create_transaction = data.get('create_transaction', True)
         
-        print(f"=== DEBUG PAY BILL ===")
-        print(f"Bill ID: {bill_id}")
-        print(f"Payment Account ID: {payment_account_id}")
-        print(f"Amount: {amount}")
-        print(f"Type of amount: {type(amount)}")
-        print(f"User: {request.user}")
+        # CORREÇÃO: Sempre criar transação
+        create_transaction = True
+        
+        logger.info(f"=== PROCESSANDO PAGAMENTO ===")
+        logger.info(f"Bill ID: {bill_id}")
+        logger.info(f"Payment Account ID: {payment_account_id}")
+        logger.info(f"Amount: {amount}")
+        logger.info(f"User: {request.user}")
         
         if not all([bill_id, payment_account_id, amount]):
             return Response({
@@ -141,10 +142,10 @@ def pay_credit_card_bill(request):
         
         # Converter amount para Decimal
         try:
-            from decimal import Decimal, InvalidOperation
-            amount_decimal = Decimal(str(amount))  # Converter para string primeiro
-        except (ValueError, InvalidOperation, TypeError) as e:
-            print(f"Erro na conversão do valor: {e}")
+            from decimal import Decimal
+            amount_decimal = Decimal(str(amount))
+        except (ValueError, TypeError) as e:
+            logger.error(f"Erro na conversão do valor: {e}")
             return Response({
                 'success': False,
                 'error': f'Valor do pagamento inválido: {str(e)}'
@@ -156,16 +157,21 @@ def pay_credit_card_bill(request):
                 'error': 'Valor do pagamento deve ser maior que zero'
             }, status=400)
         
+        # Chamar serviço SEMPRE criando transação
         result = CreditCardService.pay_bill(
             bill_id=bill_id,
             payment_account_id=payment_account_id,
-            amount=amount_decimal,  # Agora é Decimal, não float
+            amount=amount_decimal,
             user=request.user,
             notes=notes,
-            create_transaction=create_transaction
+            create_transaction=create_transaction  # ← SEMPRE True
         )
         
-        print(f"Result: {result}")
+        logger.info(f"Pagamento processado: {result['message']}")
+        
+        # Calcular patrimônio atualizado
+        from services.patrimony_service import PatrimonyService
+        patrimony = PatrimonyService.calculate_user_patrimony(request.user)
         
         return Response({
             'success': True,
@@ -178,22 +184,17 @@ def pay_credit_card_bill(request):
                 'paid_amount': float(result['bill'].paid_amount),
                 'status': result['bill'].status
             },
-            'patrimony': result['patrimony']
+            'patrimony': patrimony
         })
         
     except ValueError as e:
-        print(f"ValueError: {str(e)}")
-        import traceback
-        traceback.print_exc()
+        logger.error(f"ValueError: {str(e)}")
         return Response({
             'success': False,
             'error': str(e)
         }, status=400)
     except Exception as e:
-        print(f"Exception: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        logger.error(f"Erro no pagamento: {str(e)}")
+        logger.error(f"Exception: {str(e)}", exc_info=True)
         return Response({
             'success': False,
             'error': f'Erro ao processar pagamento: {str(e)}'

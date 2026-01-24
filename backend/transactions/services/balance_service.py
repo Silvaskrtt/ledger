@@ -12,94 +12,59 @@ logger = logging.getLogger(__name__)
 
 def recalculate_account_balance(account):
     """
-    Recalcula saldo de forma simplificada.
-    ATUALIZADO: Compatível com transaction_type.
+    Recalcula saldo de forma consistente.
+    ATUALIZADO: Lógica unificada para cartões e contas normais.
     """
     with db_transaction.atomic():
         locked_account = Account.objects.select_for_update().get(pk=account.pk)
         
         initial_balance = locked_account.initial_balance
         
+        # Buscar TODAS as relações TransactionAccount
+        transaction_accounts = TransactionAccount.objects.filter(
+            account=locked_account,
+            transaction__is_deleted=False
+        ).select_related('transaction')
+        
+        total_credit = Decimal('0')    # Entradas (IN)
+        total_debit = Decimal('0')     # Saídas (OUT)
+        
+        for ta in transaction_accounts:
+            transaction = ta.transaction
+            
+            if ta.role == 'destination':
+                # Dinheiro entrando na conta
+                total_credit += transaction.amount
+            elif ta.role == 'source':
+                # Dinheiro saindo da conta
+                total_debit += transaction.amount
+        
+        # ============================================
+        # FÓRMULA UNIFICADA:
+        # Saldo = Saldo Inicial + Entradas - Saídas
+        # ============================================
+        calculated_balance = initial_balance + total_credit - total_debit
+        
+        # ============================================
+        # VALIDAÇÃO ESPECÍFICA PARA CARTÕES
+        # ============================================
         if locked_account.is_credit_card:
-            # ============================================
-            # CARTÕES DE CRÉDITO - NOVA LÓGICA
-            # ============================================
-            
-            # Buscar todas as relações TransactionAccount deste cartão
-            transaction_accounts = TransactionAccount.objects.filter(
-                account=locked_account,
-                transaction__is_deleted=False
-            ).select_related('transaction')
-            
-            total_purchases = Decimal('0')   # Compras (PURCHASE)
-            total_payments = Decimal('0')    # Pagamentos (CREDIT_CARD_PAYMENT)
-            
-            for ta in transaction_accounts:
-                transaction = ta.transaction
-                
-                if transaction.transaction_type == 'PURCHASE' and ta.role == 'source':
-                    # Compras no cartão: aumentam dívida
-                    total_purchases += transaction.amount
-                elif transaction.transaction_type == 'CREDIT_CARD_PAYMENT' and ta.role == 'destination':
-                    # Pagamentos de fatura: reduzem dívida
-                    total_payments += transaction.amount
-            
-            # Fórmula: Dívida = Compras - Pagamentos
-            # Saldo NEGATIVO representa dívida
-            calculated_balance = -(total_purchases - total_payments)
-            
             # Cartão NUNCA pode ter saldo positivo
+            # Balance deve ser <= 0 (zero ou negativo)
             if calculated_balance > 0:
                 logger.warning(
                     f"Cartão {locked_account.name} com saldo positivo ({calculated_balance}). "
-                    f"Verificar transações."
+                    f"Ajustando para 0."
                 )
                 calculated_balance = Decimal('0')
-                
-        else:
-            # ============================================
-            # CONTAS NORMAIS - MANTÉM LÓGICA SIMPLES
-            # ============================================
             
-            # ENTRADAS (INCOME)
-            income_total = Transaction.objects.filter(
-                transaction_accounts__account=locked_account,
-                transaction_type='INCOME',
-                is_deleted=False
-            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
-            
-            # DESPESAS (EXPENSE, PURCHASE)
-            expense_total = Transaction.objects.filter(
-                transaction_accounts__account=locked_account,
-                transaction_type__in=['EXPENSE', 'PURCHASE'],
-                is_deleted=False
-            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
-            
-            # TRANSFERÊNCIAS
-            transfers_in = Transaction.objects.filter(
-                transaction_accounts__account=locked_account,
-                transaction_type='TRANSFER',
-                transaction_accounts__role='destination',
-                is_deleted=False
-            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
-            
-            transfers_out = Transaction.objects.filter(
-                transaction_accounts__account=locked_account,
-                transaction_type='TRANSFER',
-                transaction_accounts__role='source',
-                is_deleted=False
-            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
-            
-            # Fórmula: Saldo = Inicial + Entradas + Transf. Recebidas - Despesas - Transf. Enviadas
-            calculated_balance = (
-                initial_balance + 
-                income_total + 
-                transfers_in - 
-                expense_total - 
-                transfers_out
-            )
+            # Balance NEGATIVO = Dívida
+            # Balance ZERO = Sem dívida
+            # Balance POSITIVO = IMPOSSÍVEL (corrigido acima)
         
-        # Atualizar e retornar
+        # ============================================
+        # ATUALIZAR E RETORNAR
+        # ============================================
         locked_account.balance = calculated_balance
         locked_account.save(update_fields=['balance'])
         
