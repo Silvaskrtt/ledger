@@ -360,6 +360,10 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
         try:
             instance = self.get_object()
             
+            # 1. CAPTURAR CONTA ANTES DA EXCLUSÃO
+            old_accounts = list(instance.transaction_accounts.all())
+            old_bill = instance.credit_card_bill
+            
             # Verificar se é transação parcelada
             is_installment = instance.installment_plan is not None
             
@@ -372,8 +376,17 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
             logger.info(f"  Parcelada: {is_installment}")
             logger.info(f"  Fatura vinculada: {has_bill}")
             
-            # Executar a exclusão (soft delete)
+            # 2. EXECUTAR A EXCLUSÃO (soft delete)
             self.perform_destroy(instance)
+            
+            # 3. RECALCULAR SALDO DAS CONTAS AFETADAS
+            for ta in old_accounts:
+                recalculate_account_balance(ta.account)
+            
+            # 4. ATUALIZAR FATURA SE HOUVER
+            if old_bill:
+                logger.info(f"  Atualizando fatura {old_bill.end_date}")
+                old_bill.recalculate_totals()
             
             # Recalcular saldo das contas afetadas
             affected_accounts = list(instance.transaction_accounts.all())

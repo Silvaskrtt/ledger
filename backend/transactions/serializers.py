@@ -15,7 +15,7 @@ from categories.models import Category
 from payments.models import PaymentMethod
 from accounts.models import Account
 from tags.models import Tag
-from .services.transaction_service import create_transaction_service
+from .services.transaction_service import create_transaction_service, validate_payment_method_compatibility
 
 class TransactionCreateSerializer(serializers.ModelSerializer):
     """
@@ -262,52 +262,21 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
         
         return data
     
-    def create(self, validated_data):
-        """Usa o serviço para criar a transação."""
-        request = self.context['request']
-        
-        #Debug
-        print(f"Usuário autenticado: {request.user}")
-        print(f"Está autenticado? {request.user.is_authenticated}")
-        
-        # Extrai dados específicos
-        tag_ids = validated_data.pop('tags', [])
-        installments = validated_data.pop('installments', None)
-        interest_rate = validated_data.pop('interest_rate', Decimal('0'))
-        recurrence_frequency = validated_data.pop('recurrence_frequency', None)
-        max_recurrences = validated_data.pop('max_recurrences', None)
-        
-        # Converter IDs de tag para objetos Tag
-        tag_objects = []
-        for tag_id in tag_ids:
-            try:
-                tag = Tag.objects.get(tag=tag_id, user=request.user)
-                tag_objects.append(tag)
-            except Tag.DoesNotExist:
-                logger.warning(f"Tag {tag_id} não encontrada para usuário {request.user}")
-        
-        # Chama o serviço unificado
-        result = create_transaction_service(
-            user=request.user,
-            tags=tag_objects,
-            installments=installments,
-            interest_rate=interest_rate,
-            recurrence_frequency=recurrence_frequency,
-            max_recurrences=max_recurrences,
-            **validated_data
-        )
-        
-        return result
-    
     def update(self, instance, validated_data):
         """
         Atualiza uma transação existente.
+        Remove de conta antiga e adiciona à nova conta.
         """
-        # Remover transação antiga do saldo
+        # ============================================
+        # 1. CAPTURAR INFORMAÇÕES ANTIGAS
+        # ============================================
+        old_accounts = list(instance.transaction_accounts.all())
         old_amount = instance.amount
         old_direction = instance.direction
         
-        # Processar tags
+        # ============================================
+        # 2. PROCESSAR TAGS
+        # ============================================
         tag_ids = validated_data.pop('tags', [])
         tag_objects = []
         for tag_id in tag_ids:
@@ -317,20 +286,81 @@ class TransactionCreateSerializer(serializers.ModelSerializer):
             except Tag.DoesNotExist:
                 pass
         
-        # Atualizar campos básicos
+        # ============================================
+        # 3. IDENTIFICAR MUDANÇA DE CONTA
+        # ============================================
+        new_account = validated_data.get('account')
+        is_account_changed = new_account and (
+            not old_accounts or 
+            old_accounts[0].account != new_account
+        )
+        
+        # ============================================
+        # 4. ATUALIZAR CAMPOS BÁSICOS
+        # ============================================
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         
         instance.save()
         
-        # Atualizar tags
+        # ============================================
+        # 5. SE CONTA MUDOU, ATUALIZAR RELACIONAMENTOS
+        # ============================================
+        if is_account_changed:
+            # Remover todas as relações antigas
+            instance.transaction_accounts.all().delete()
+            
+            # Criar nova relação
+            role = 'source' if instance.direction == 'OUT' else 'destination'
+            TransactionAccount.objects.create(
+                transaction=instance,
+                account=new_account,
+                role=role
+            )
+            
+            logger.info(f"Conta da transação atualizada: {old_accounts[0].account.name if old_accounts else 'Nenhuma'} → {new_account.name}")
+        
+        # ============================================
+        # 6. ATUALIZAR TAGS
+        # ============================================
         instance.tags.clear()
         for tag in tag_objects:
-            TransactionTag.objects.create(transaction=instance, tag=tag)
+            TransactionTag.objects.create(
+                transaction=instance,
+                tag=tag
+            )
         
-        # Recalcular saldo das contas
-        for ta in instance.transaction_accounts.all():
+        # ============================================
+        # 7. RECALCULAR SALDOS DE TODAS AS CONTAS AFETADAS
+        # ============================================
+        # Contas antigas
+        for ta in old_accounts:
             recalculate_account_balance(ta.account)
+        
+        # Nova conta
+        if is_account_changed:
+            recalculate_account_balance(new_account)
+        else:
+            # Se não mudou conta, recalcular apenas a conta atual
+            current_account = instance.transaction_accounts.first().account
+            recalculate_account_balance(current_account)
+        
+        # ============================================
+        # 8. ATUALIZAR FATURAS SE FOR CARTÃO DE CRÉDITO
+        # ============================================
+        if instance.credit_card_bill:
+            instance.credit_card_bill.recalculate_totals()
+        
+        # Para cartões de crédito antigos (se mudou de conta)
+        for ta in old_accounts:
+            if ta.account.type == 'CREDIT_CARD' and ta.account != new_account:
+                # Recalcular faturas do cartão antigo
+                from accounts.models import CreditCardBill
+                bills = CreditCardBill.objects.filter(credit_card=ta.account)
+                for bill in bills:
+                    bill.recalculate_totals()
+        
+        logger.info(f"Transação {instance.transaction} atualizada com sucesso")
         
         return instance
 
@@ -408,16 +438,38 @@ class TransactionAccountSerializer(serializers.ModelSerializer):
         fields = ['transaction', 'account', 'role']
     
     def validate(self, data):
-        """Validar que account pertence ao mesmo user que a transaction."""
+        """Validações cruzadas entre campos."""
         transaction = data.get('transaction')
         account = data.get('account')
         
+        # Validar ownership
         if transaction and account:
             # Validar propriedade
             if account.user != transaction.user:
                 raise serializers.ValidationError(
                     "A conta não pertence ao mesmo usuário da transação."
                 )
+        # VALIDAR MUDANÇA DE CONTA PARA TRANSAÇÕES EXISTENTES
+        if self.instance and 'account' in data:
+            old_account = self.instance.transaction_accounts.first().account
+            new_account = data['account']
+            
+            if old_account != new_account:
+                # Validar compatibilidade do novo método de pagamento
+                if 'payment_method' in data:
+                    if not validate_payment_method_compatibility(
+                        data['payment_method'].type,
+                        new_account.type
+                    ):
+                        raise serializers.ValidationError({
+                            "payment_method": f"Método de pagamento não compatível com {new_account.name} ({new_account.get_type_display()})"
+                        })
+                
+                # Se está saindo de um cartão de crédito, atualizar fatura
+                if old_account.type == 'CREDIT_CARD':
+                    if self.instance.credit_card_bill:
+                        logger.info(f"Transação removida da fatura {self.instance.credit_card_bill.end_date}")
+                        # A fatura será atualizada no método update()
         
         return data
 

@@ -38636,3 +38636,34 @@ Saldo atualizado para transação 826d3f03-b64f-4863-a64c-d1bafe78631b (PURCHASE)
 "GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 889
 "GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 441
 "GET /api/accounts/check-consistency/ HTTP/1.1" 200 511
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 889
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 441
+"GET /transactions/ HTTP/1.1" 200 18380
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 511
+"GET /admin/transactions/transaction/ HTTP/1.1" 200 28316
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/payments/paymentmethod/ HTTP/1.1" 200 28093
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/transactions/transactionaccount/ HTTP/1.1" 200 25210
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 511
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 511
+C:\Users\muril\Documents\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 511
+C:\Users\muril\Documents\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\transactions\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\muril\Documents\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
