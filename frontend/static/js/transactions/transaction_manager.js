@@ -376,6 +376,18 @@ class TransactionManager {
         data.payment_method = this.getTomSelectValue('payment_method');
         data.account = this.getTomSelectValue('account');
         
+        // Verificar se a conta mudou
+        const newAccount = this.getTomSelectValue('account');
+        data.account = newAccount;
+
+        // Flag para identificar mudança de conta (para logs)
+        if (this.isEditMode) {
+            const oldAccountInput = document.getElementById('old_account_id');
+            if (oldAccountInput && oldAccountInput.value) {
+                data.old_account_id = oldAccountInput.value;
+            }
+        }
+
         // Data e hora
         const occurredAt = form.querySelector('#occurred_at');
         if (occurredAt) {
