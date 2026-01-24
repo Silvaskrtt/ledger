@@ -79,9 +79,9 @@ def validate_payment_method_compatibility(payment_method_type, account_type):
     Valida se o método de pagamento é compatível com o tipo de conta.
     
     Regras:
-    - PIX, CASH, BANK_TRANSFER: Só podem ser usados com contas normais
+    - PIX, CASH, BANK_TRANSFER, BOLETO, CRYPTO, OTHER: Só podem ser usados com contas normais
     - CREDIT: Só pode ser usado com cartões de crédito
-    - DEBIT: Pode ser usado com contas normais
+    - DEBIT: Pode ser usado com contas normais (correção importante!)
     """
     COMPATIBILITY_RULES = {
         # Método de pagamento: Tipos de conta permitidos
@@ -89,7 +89,7 @@ def validate_payment_method_compatibility(payment_method_type, account_type):
         'CASH': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'CASH', 'OTHER'],
         'BANK_TRANSFER': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],
         'CREDIT': ['CREDIT_CARD'],  # Só cartão de crédito
-        'DEBIT': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],
+        'DEBIT': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],  # DEBITO é permitido em contas normais!
         'BOLETO': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],
         'CRYPTO': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'OTHER'],
         'OTHER': ['CHECKING', 'SAVINGS', 'INVESTMENT', 'CASH', 'CREDIT_CARD', 'OTHER']
@@ -314,12 +314,17 @@ def determine_transaction_type(account, direction, payment_method):
             # Entrada em cartão de crédito = PAGAMENTO DE FATURA
             return 'CREDIT_CARD_PAYMENT'
     
-    # Para contas normais
+    # Para contas normais com método DEBIT
+    if payment_method and payment_method.type == 'DEBIT':
+        if direction == 'OUT':
+            return 'EXPENSE'  # Despesa no débito
+        elif direction == 'IN':
+            return 'INCOME'   # Receita via débito
+    
+    # Para contas normais em geral
     if direction == 'IN':
         return 'INCOME'
     elif direction == 'OUT':
-        # Verificar se é transferência (tem duas contas)
-        # Isso será tratado em uma função separada para transferências
         return 'EXPENSE'
     
     return 'EXPENSE'  # Default

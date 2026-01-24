@@ -1,8 +1,7 @@
-# backend/transactions/views.py
-
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.timezone import make_aware
@@ -30,6 +29,7 @@ from django.shortcuts import get_object_or_404
 
 # Configuração do logger para este módulo
 logger = logging.getLogger(__name__)
+
 
 class TransactionManagerView(LoginRequiredMixin, TemplateView):
     """
@@ -254,16 +254,26 @@ class TransactionListCreateView(generics.ListCreateAPIView):
         5. Recalcula saldo da conta
         6. Associa tags à transação
         """
+        
+        logger.info(f"=== API CREATE TRANSACTION ===")
+        logger.info(f"Usuário: {request.user.username}")
+        logger.info(f"Dados recebidos: {request.data}")
+        
         try:
             # Validação dos dados de entrada
             serializer = self.get_serializer(
                 data=request.data, 
                 context={'request': request}
             )
+            
+            logger.info("Validando serializer...")
             serializer.is_valid(raise_exception=True)
+            logger.info("Serializer validado com sucesso")
             
             # O serializer já chama o serviço
+            logger.info("Chamando serializer.save()...")
             result = serializer.save()
+            logger.info(f"Resultado: {result['type']}")
             
             # Formata resposta baseada no tipo
             response_data = {
@@ -272,47 +282,30 @@ class TransactionListCreateView(generics.ListCreateAPIView):
                 'type': result['type']
             }
             
-            # Adiciona dados específicos
-            if result['type'] == 'INSTALLMENT':
-                data = result['data']
-                response_data.update({
-                    'installment_plan_id': str(data['installment_plan'].installment_plan),
-                    'installments': data['installment_plan'].installments,
-                    'installment_amount': float(data['installment_amount']),
-                    'total_with_interest': float(data['total_with_interest']),
-                    'transactions_created': len(data['transactions'])
-                })
-            elif result['type'] == 'RECURRENT':
-                rule = result['data']
-                response_data.update({
-                    'recurrence_rule_id': str(rule.recurrence_rule),
-                    'frequency': rule.frequency,
-                    'next_execution': rule.next_execution,
-                    'max_executions': rule.max_executions
-                })
-            else:  # MANUAL
+            # Adicionar dados específicos
+            if result['type'] == 'MANUAL':
                 transaction = result['data']
                 response_data.update({
                     'transaction_id': str(transaction.transaction),
                     'amount': float(transaction.amount),
-                    'direction': transaction.direction
+                    'direction': transaction.direction,
+                    'transaction_type': transaction.transaction_type
                 })
             
+            logger.info(f"Transação criada com sucesso: {response_data}")
             return Response(response_data, status=status.HTTP_201_CREATED)
             
-        except ValueError as e:
-            # Erros de validação do serviço
-            logger.error(f"Erro de validação: {str(e)}")
-            return Response(
-                {'detail': str(e)},
-                status=status.HTTP_400_BAD_REQUEST
-            )
         except Exception as e:
+            # LOG DETALHADO DO ERRO
             logger.error(f"Erro ao criar transação: {str(e)}", exc_info=True)
-            return Response(
-                {'detail': 'Erro ao processar a transação. Tente novamente.'},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+            
+            # Retornar erro detalhado
+            return Response({
+                'detail': str(e),
+                'error_type': type(e).__name__,
+                'message': 'Erro ao processar a transação'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
 
 class ProcessRecurrencesView(generics.GenericAPIView):
     """
@@ -335,6 +328,7 @@ class ProcessRecurrencesView(generics.GenericAPIView):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+
 class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
     """
     API View para operações CRUD em transações específicas.
@@ -345,6 +339,12 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
     - Excluir transação
     """
     serializer_class = TransactionCreateSerializer
+    
+    # Sobrescreve para usar serializer diferente na atualização
+    def get_serializer_class(self):
+        if self.request.method in ['PUT', 'PATCH']:
+            return TransactionUpdateSerializer
+        return TransactionCreateSerializer
     
     def get_queryset(self):
         """Garante que usuário só acesse suas próprias transações."""
@@ -440,7 +440,6 @@ class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
         
         # Nota: O recálculo do saldo será feito no método destroy acima
 
-# backend/transactions/views.py - Adicionar nova view
 
 class InstallmentPlanDeleteView(generics.GenericAPIView):
     """
@@ -519,6 +518,7 @@ class InstallmentPlanDeleteView(generics.GenericAPIView):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+
 class TransactionAccountListCreateView(generics.ListCreateAPIView):
     """
     API View para gerenciar relações entre transações e contas.
@@ -565,3 +565,199 @@ class TransactionTagDetailView(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         """Filtra relações TransactionTag por transações do usuário."""
         return TransactionTag.objects.filter(transaction__user=self.request.user)
+
+
+# Adicione estas views de teste também
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def test_simple_transaction(request):
+    """Endpoint simplificado para testar transação."""
+    from decimal import Decimal
+    
+    try:
+        # Usar dados hardcoded para testar
+        account = Account.objects.get(
+            account="a28888c5-fedd-4c61-a61d-718ab7a05f9c",
+            user=request.user
+        )
+        
+        category = Category.objects.get(
+            category="d7b88a6d-6c9a-4a49-a898-46518212f397",
+            user=request.user
+        )
+        
+        payment_method = PaymentMethod.objects.get(
+            payment_method="b82f2a18-59ce-46ca-b64a-4ca37414758d",
+            user=request.user
+        )
+        
+        logger.info(f"=== TEST SIMPLE TRANSACTION ===")
+        logger.info(f"User: {request.user.username}")
+        logger.info(f"Account: {account.name} ({account.type})")
+        logger.info(f"Category: {category.name}")
+        logger.info(f"Payment Method: {payment_method.get_type_display()} ({payment_method.type})")
+        
+        # Criar transação manualmente
+        transaction = Transaction.objects.create(
+            user=request.user,
+            category=category,
+            payment_method=payment_method,
+            amount=Decimal('7.5'),
+            direction='OUT',
+            transaction_type='EXPENSE',
+            currency='BRL',
+            origin='MANUAL',
+            description='Moto 99 - Teste Simples'
+        )
+        
+        TransactionAccount.objects.create(
+            transaction=transaction,
+            account=account,
+            role='source'
+        )
+        
+        # Recalcular saldo
+        recalculate_account_balance(account)
+        
+        return Response({
+            'success': True,
+            'message': 'Transação de teste criada!',
+            'transaction_id': str(transaction.transaction),
+            'account_balance': float(account.balance)
+        })
+        
+    except Exception as e:
+        logger.error(f"Erro no teste simples: {str(e)}", exc_info=True)
+        return Response({
+            'success': False,
+            'error': str(e)
+        }, status=400)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def test_transaction_api(request):
+    """Endpoint para testar API de transação."""
+    import logging
+    logger = logging.getLogger(__name__)
+    
+    logger.info("=== TEST API ENDPOINT ===")
+    logger.info(f"User: {request.user}")
+    logger.info(f"Data: {request.data}")
+    logger.info(f"Headers: {dict(request.headers)}")
+    
+    # Tentar criar transação simples
+    from decimal import Decimal
+    
+    try:
+        account = Account.objects.get(
+            account="a28888c5-fedd-4c61-a61d-718ab7a05f9c",
+            user=request.user
+        )
+        category = Category.objects.get(
+            category="d7b88a6d-6c9a-4a49-a898-46518212f397",
+            user=request.user
+        )
+        payment_method = PaymentMethod.objects.get(
+            payment_method="b82f2a18-59ce-46ca-b64a-4ca37414758d",
+            user=request.user
+        )
+        
+        transaction = Transaction.objects.create(
+            user=request.user,
+            category=category,
+            payment_method=payment_method,
+            amount=Decimal('7.5'),
+            direction='OUT',
+            transaction_type='EXPENSE',
+            currency='BRL',
+            origin='MANUAL',
+            description='Moto 99 - Teste API'
+        )
+        
+        TransactionAccount.objects.create(
+            transaction=transaction,
+            account=account,
+            role='source'
+        )
+        
+        return Response({
+            'success': True,
+            'message': 'Transação criada via API',
+            'transaction_id': str(transaction.transaction)
+        })
+        
+    except Exception as e:
+        logger.error(f"Erro: {str(e)}", exc_info=True)
+        return Response({
+            'success': False,
+            'error': str(e)
+        }, status=400)
+        
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def simple_debug_view(request):
+    """View simples para debug."""
+    logger.info("=" * 50)
+    logger.info("=== SIMPLE DEBUG VIEW ===")
+    logger.info(f"User: {request.user.username}")
+    logger.info(f"Data: {request.data}")
+    logger.info(f"Method: {request.method}")
+    
+    try:
+        from decimal import Decimal
+        
+        account = Account.objects.get(
+            account="a28888c5-fedd-4c61-a61d-718ab7a05f9c",
+            user=request.user
+        )
+        
+        category = Category.objects.get(
+            category="d7b88a6d-6c9a-4a49-a898-46518212f397",
+            user=request.user
+        )
+        
+        payment_method = PaymentMethod.objects.get(
+            payment_method="b82f2a18-59ce-46ca-b64a-4ca37414758d",
+            user=request.user
+        )
+        
+        logger.info(f"Objects found: account={account.name}, category={category.name}, payment_method={payment_method.type}")
+        
+        # Criar transação manual
+        transaction = Transaction.objects.create(
+            user=request.user,
+            category=category,
+            payment_method=payment_method,
+            amount=Decimal('9.00'),
+            direction='OUT',
+            transaction_type='EXPENSE',
+            currency='BRL',
+            origin='MANUAL',
+            description='Debug simple'
+        )
+        
+        TransactionAccount.objects.create(
+            transaction=transaction,
+            account=account,
+            role='source'
+        )
+        
+        from transactions.services.balance_service import recalculate_account_balance
+        recalculate_account_balance(account)
+        
+        logger.info(f"Transaction created: {transaction.transaction}")
+        
+        return Response({
+            'success': True,
+            'message': 'Transação criada via debug',
+            'transaction_id': str(transaction.transaction)
+        })
+        
+    except Exception as e:
+        logger.error(f"ERROR in simple_debug_view: {str(e)}", exc_info=True)
+        return Response({
+            'success': False,
+            'error': str(e),
+            'error_type': type(e).__name__
+        }, status=400)

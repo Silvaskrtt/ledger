@@ -267,6 +267,9 @@ class TransactionManager {
             // Coletar dados do formulário
             const formData = this.collectFormData();
 
+            // DEBUG: Mostrar dados que estão sendo enviados
+            console.log('Dados do formulário:', formData);
+
             // Validar dados básicos
             if (!this.validateFormData(formData)) {
                 throw new Error('Preencha todos os campos obrigatórios');
@@ -279,6 +282,10 @@ class TransactionManager {
             
             const method = this.isEditMode ? 'PUT' : 'POST';
 
+            console.log('URL:', url);
+            console.log('Método:', method);
+            console.log('Dados JSON:', JSON.stringify(formData));
+
             // Enviar requisição
             const response = await fetch(url, {
                 method: method,
@@ -290,23 +297,38 @@ class TransactionManager {
                 body: JSON.stringify(formData)
             });
 
-            const result = await response.json();
+            console.log('Resposta status:', response.status);
+
+            // Tentar ler a resposta mesmo se der erro
+            let result;
+            try {
+                const responseText = await response.text();
+                console.log('Resposta texto:', responseText);
+                result = JSON.parse(responseText);
+            } catch (parseError) {
+                console.error('Erro ao parsear resposta:', parseError);
+                throw new Error('Resposta do servidor inválida');
+            }
 
             if (response.ok) {
                 // Sucesso
-                alert(result.message || 'Transação salva com sucesso!');
+                this.showSuccessMessage(result.message || 'Transação salva com sucesso!');
                 this.closeAllModals();
                 
                 // Recarregar página para ver mudanças
                 window.location.reload();
             } else {
-                // Erro
-                throw new Error(result.detail || result.message || JSON.stringify(result));
+                // Erro - mostrar detalhes
+                console.error('Erro detalhado:', result);
+                const errorMessage = result.detail || result.message || 
+                                (result.payment_method ? result.payment_method.join(', ') : '') ||
+                                JSON.stringify(result);
+                throw new Error(errorMessage);
             }
 
         } catch (error) {
-            console.error('Erro ao salvar transação:', error);
-            alert('Erro ao salvar transação: ' + error.message);
+            console.error('Erro completo ao salvar transação:', error);
+            this.showErrorMessage('Erro ao salvar transação: ' + error.message);
         } finally {
             // Reabilitar botão
             if (submitBtn) {
@@ -321,7 +343,7 @@ class TransactionManager {
         
         for (const field of requiredFields) {
             if (!data[field]) {
-                alert(`O campo ${this.getFieldLabel(field)} é obrigatório`);
+                this.showErrorMessage(`O campo ${this.getFieldLabel(field)} é obrigatório`);
                 return false;
             }
         }
@@ -450,21 +472,11 @@ class TransactionManager {
     }
 
     async deleteTransaction(transactionId, options = {}) {
-        const confirmMessage = this.getDeleteConfirmationMessage(options);
-        
-        if (!confirm(confirmMessage)) {
-            return false;
-        }
-
         try {
             let url = `/api/transactions/${transactionId}/`;
             let method = 'DELETE';
             
-            // Se for exclusão de parcelamento completo
-            if (options.deleteAllInstallments) {
-                url = `/api/installments/${options.planId}/`;
-                method = 'DELETE';
-            }
+            console.log('Deletando transação:', transactionId);
 
             const response = await fetch(url, {
                 method: method,
@@ -476,24 +488,31 @@ class TransactionManager {
 
             if (response.ok) {
                 const result = await response.json();
-                
-                if (result.is_installment && !options.deleteAllInstallments) {
-                    // Perguntar se quer excluir outras parcelas
-                    this.showInstallmentDeleteModal(transactionId, result.installment_plan_id);
-                } else {
-                    this.showSuccessMessage(result.message || 'Excluído com sucesso');
-                    this.closeAllModals();
-                    window.location.reload();
-                }
+                this.showSuccessMessage(result.message || 'Transação excluída com sucesso!');
+                this.closeAllModals();
+                window.location.reload();
                 return true;
             } else {
                 const error = await response.json();
                 throw new Error(error.detail || 'Erro ao excluir');
             }
         } catch (error) {
+            console.error('Erro ao excluir:', error);
             this.showErrorMessage('Erro: ' + error.message);
             return false;
         }
+    }
+
+    showSuccessMessage(message) {
+        // Implementação simples usando alert
+        alert('✅ ' + message);
+        // Ou implementar um sistema de toast melhorado
+    }
+
+    showErrorMessage(message) {
+        // Implementação simples usando alert
+        alert('❌ ' + message);
+        // Ou implementar um sistema de toast melhorado
     }
 
     getDeleteConfirmationMessage(options) {

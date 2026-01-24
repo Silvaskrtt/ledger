@@ -1,4 +1,5 @@
 from django.urls import path
+
 from .views import (
     TransactionListCreateView,
     TransactionDetailView,
@@ -6,7 +7,8 @@ from .views import (
     TransactionAccountDetailView,
     TransactionTagListCreateView,
     TransactionTagDetailView,
-    get_transaction_form,  # Adicionar esta importação
+    get_transaction_form,
+    simple_debug_view,
 )
 
 urlpatterns = [
@@ -25,4 +27,6 @@ urlpatterns = [
     # Transaction Tags
     path("transaction-tags/", TransactionTagListCreateView.as_view(), name="api-transaction-tag-list"),
     path("transaction-tags/<int:pk>/", TransactionTagDetailView.as_view(), name="api-transaction-tag-detail"),
+    
+    path('simple-debug/', simple_debug_view, name='api-transaction-simple-debug'),
 ]
