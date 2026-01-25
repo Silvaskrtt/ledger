@@ -39544,3 +39544,3211 @@ Transação criada com sucesso: {'success': True, 'message': 'Transação criada com
 "GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
 "GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
 "GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /transactions/ HTTP/1.1" 200 31469
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6409
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Not Found: /api/transactions/undefined/
+"DELETE /api/transactions/undefined/ HTTP/1.1" 404 16260
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 31469
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 200 10166
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4771
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 200 22789
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação bae7d561-8345-45a5-a4df-3be3c3fbc8a3
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação bae7d561-8345-45a5-a4df-3be3c3fbc8a3 (EXPENSE)
+"DELETE /api/transactions/bae7d561-8345-45a5-a4df-3be3c3fbc8a3/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 29596
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13005
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 304
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 891
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 442
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 304
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 891
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 442
+"GET /transactions/ HTTP/1.1" 200 29596
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação 55f33bd5-77d5-4748-ae8c-ee0d1e38c4d6
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação 55f33bd5-77d5-4748-ae8c-ee0d1e38c4d6 (EXPENSE)
+"DELETE /api/transactions/55f33bd5-77d5-4748-ae8c-ee0d1e38c4d6/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 27739
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação ee033518-5215-45b6-a370-c8aeb88efab1
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação ee033518-5215-45b6-a370-c8aeb88efab1 (EXPENSE)
+"DELETE /api/transactions/ee033518-5215-45b6-a370-c8aeb88efab1/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 25890
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação 4e9d32e5-1ab7-44b6-bdef-9daa88b97b2d
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação 4e9d32e5-1ab7-44b6-bdef-9daa88b97b2d (EXPENSE)
+"DELETE /api/transactions/4e9d32e5-1ab7-44b6-bdef-9daa88b97b2d/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 24026
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação d520ae28-19d0-4573-8cba-d8130bcdf907
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação d520ae28-19d0-4573-8cba-d8130bcdf907 (EXPENSE)
+"DELETE /api/transactions/d520ae28-19d0-4573-8cba-d8130bcdf907/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 22155
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação 5d00122f-e5af-4532-b620-65ec35827268
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação 5d00122f-e5af-4532-b620-65ec35827268 (EXPENSE)
+"DELETE /api/transactions/5d00122f-e5af-4532-b620-65ec35827268/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 20284
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 889
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 441
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 889
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 441
+"GET /transactions/ HTTP/1.1" 200 20284
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/333d1cb1-5dce-4fd8-bc1e-05d7f07e93a8/form/ HTTP/1.1" 200 8208
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/333d1cb1-5dce-4fd8-bc1e-05d7f07e93a8/form/ HTTP/1.1" 200 8208
+=== UPDATE TRANSACTION 333d1cb1-5dce-4fd8-bc1e-05d7f07e93a8 ===
+Saldo atualizado para transação 333d1cb1-5dce-4fd8-bc1e-05d7f07e93a8 (EXPENSE)
+Transação 333d1cb1-5dce-4fd8-bc1e-05d7f07e93a8 atualizada com sucesso
+"PUT /api/transactions/333d1cb1-5dce-4fd8-bc1e-05d7f07e93a8/ HTTP/1.1" 200 286
+"GET /transactions/ HTTP/1.1" 200 20276
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/form/ HTTP/1.1" 200 7987
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 304 0
+"GET /static/css/categories_management/categories_management.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 1517
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"POST /api/categories/ HTTP/1.1" 201 432
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 441
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 889
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /transactions/ HTTP/1.1" 200 20490
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/form/ HTTP/1.1" 200 8177
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 4.6, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '38b76898-b786-48ff-b369-3ce1ca7f57f6', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-06-24T15:20', 'description': 'Passagem de Ônibus', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 4.60
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Transporte público (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Transporte público
+Compatibilidade: True
+Transação agendada para o futuro: 2026-06-24 15:20:00+00:00
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 71ab5750-a13e-4ed7-b87f-fde97798e1b9 (EXPENSE)
+Transação manual criada: 71ab5750-a13e-4ed7-b87f-fde97798e1b9
+Transaction Type: EXPENSE
+Saldo: 1343.14 -> 1338.54
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '71ab5750-a13e-4ed7-b87f-fde97798e1b9', 'amount': 4.6, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 22366
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 890
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 441
+"GET /transactions/ HTTP/1.1" 200 22366
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/categories/ HTTP/1.1" 200 1950
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"POST /api/categories/ HTTP/1.1" 201 308
+"POST /api/categories/ HTTP/1.1" 201 419
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 890
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 441
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 22768
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 22768
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 8531
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/form/ HTTP/1.1" 200 8531
+"GET /transactions/ HTTP/1.1" 200 22768
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/form/ HTTP/1.1" 200 8531
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 5, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'e7eefafb-b30f-4477-9521-3d43b8d7b969', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-05T22:30', 'description': 'Futebol na D', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 5.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Futebol (Lazer) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Futebol
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 0ceb082a-1d17-4d5a-a872-d122d0b61794 (EXPENSE)
+Transação manual criada: 0ceb082a-1d17-4d5a-a872-d122d0b61794
+Transaction Type: EXPENSE
+Saldo: 1338.54 -> 1333.54
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '0ceb082a-1d17-4d5a-a872-d122d0b61794', 'amount': 5.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 24625
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 890
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 612
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 890
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 612
+"GET /transactions/ HTTP/1.1" 200 24625
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/form/ HTTP/1.1" 200 8531
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 15, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'd7b88a6d-6c9a-4a49-a898-46518212f397', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-05T19:26', 'description': 'Moto 99', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 15.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: 99 App (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: 99 App
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 2e7fa990-9669-4911-b8f5-edfe28d3904b (EXPENSE)
+Transação manual criada: 2e7fa990-9669-4911-b8f5-edfe28d3904b
+Transaction Type: EXPENSE
+Saldo: 1333.54 -> 1318.54
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '2e7fa990-9669-4911-b8f5-edfe28d3904b', 'amount': 15.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 26492
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 890
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 612
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 26492
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 26492
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 2679
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UniqueViolation: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Futebol) already exists.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\muril\Documents\ledger\backend\categories\views.py", line 33, in perform_create
+    serializer.save(user=self.request.user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\Documents\ledger\backend\categories\serializers.py", line 75, in create
+    category = Category.objects.create(**validated_data)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 1167, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 1218, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "unique_category_per_user"
+DETAIL:  Key (id_user_id, name)=(1, Futebol) already exists.
+"POST /api/categories/ HTTP/1.1" 500 222391
+"POST /api/categories/ HTTP/1.1" 201 319
+"POST /api/categories/ HTTP/1.1" 201 327
+"GET / HTTP/1.1" 200 13004
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 890
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 612
+"GET /transactions/ HTTP/1.1" 200 26905
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 8896
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 400, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-06T13:24', 'description': 'Valor do Consórcio -  Eshiley', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 400.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 000d0034-56d5-4c36-9206-bfff9603362f (INCOME)
+Transação manual criada: 000d0034-56d5-4c36-9206-bfff9603362f
+Transaction Type: INCOME
+Saldo: 1318.54 -> 1718.54
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '000d0034-56d5-4c36-9206-bfff9603362f', 'amount': 400.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 28789
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 612
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 28789
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/form/ HTTP/1.1" 200 8896
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 4.6, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '38b76898-b786-48ff-b369-3ce1ca7f57f6', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-06T15:20', 'description': 'Passagem de Ônibus', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 4.60
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Transporte público (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Transporte público
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação ea74a523-b793-4dae-a1fd-85ac98a8dea3 (INCOME)
+Transação manual criada: ea74a523-b793-4dae-a1fd-85ac98a8dea3
+Transaction Type: INCOME
+Saldo: 1718.54 -> 1723.14
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'ea74a523-b793-4dae-a1fd-85ac98a8dea3', 'amount': 4.6, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 189
+"GET /transactions/ HTTP/1.1" 200 30664
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/form/ HTTP/1.1" 200 8896
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 20, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-06T16:04', 'description': 'Coxinha', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 20.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 91b7385b-f700-44ca-831b-05208bb476c8 (EXPENSE)
+Transação manual criada: 91b7385b-f700-44ca-831b-05208bb476c8
+Transaction Type: EXPENSE
+Saldo: 1723.14 -> 1703.14
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '91b7385b-f700-44ca-831b-05208bb476c8', 'amount': 20.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 32517
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 612
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 612
+"GET /transactions/ HTTP/1.1" 200 32517
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/ea74a523-b793-4dae-a1fd-85ac98a8dea3/form/ HTTP/1.1" 200 9121
+=== UPDATE TRANSACTION ea74a523-b793-4dae-a1fd-85ac98a8dea3 ===
+Saldo atualizado para transação ea74a523-b793-4dae-a1fd-85ac98a8dea3 (INCOME)
+Transação ea74a523-b793-4dae-a1fd-85ac98a8dea3 atualizada com sucesso
+"PUT /api/transactions/ea74a523-b793-4dae-a1fd-85ac98a8dea3/ HTTP/1.1" 200 298
+"GET /transactions/ HTTP/1.1" 200 32518
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /transactions/ HTTP/1.1" 200 32518
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /api/transactions/ea74a523-b793-4dae-a1fd-85ac98a8dea3/form/ HTTP/1.1" 200 9121
+=== UPDATE TRANSACTION ea74a523-b793-4dae-a1fd-85ac98a8dea3 ===
+Saldo atualizado para transação ea74a523-b793-4dae-a1fd-85ac98a8dea3 (INCOME)
+Transação ea74a523-b793-4dae-a1fd-85ac98a8dea3 atualizada com sucesso
+"PUT /api/transactions/ea74a523-b793-4dae-a1fd-85ac98a8dea3/ HTTP/1.1" 200 298
+"GET /transactions/ HTTP/1.1" 200 32518
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /transactions/ HTTP/1.1" 200 32518
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação ea74a523-b793-4dae-a1fd-85ac98a8dea3
+  Tipo: INCOME
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação ea74a523-b793-4dae-a1fd-85ac98a8dea3 (INCOME)
+"DELETE /api/transactions/ea74a523-b793-4dae-a1fd-85ac98a8dea3/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 30642
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 8896
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 4.6, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '38b76898-b786-48ff-b369-3ce1ca7f57f6', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-06T15:20', 'description': 'Passagem de Ônibus', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 4.60
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Transporte público (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Transporte público
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação f12841ed-58b9-4251-81e2-270dd4a54bcd (EXPENSE)
+Transação manual criada: f12841ed-58b9-4251-81e2-270dd4a54bcd
+Transaction Type: EXPENSE
+Saldo: 1698.54 -> 1693.94
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'f12841ed-58b9-4251-81e2-270dd4a54bcd', 'amount': 4.6, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 32518
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 32518
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /transactions/ HTTP/1.1" 200 32518
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 8896
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 55, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-07T20:37', 'description': 'Eshiley mandou mas não lembro do que se refere.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 55.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 45f8c76a-c9ea-4810-8b77-54eb899c31ea (EXPENSE)
+Transação manual criada: 45f8c76a-c9ea-4810-8b77-54eb899c31ea
+Transaction Type: EXPENSE
+Saldo: 1693.94 -> 1638.94
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '45f8c76a-c9ea-4810-8b77-54eb899c31ea', 'amount': 55.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 34420
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13007
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 236
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 977
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13007
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 977
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 236
+"GET /transactions/ HTTP/1.1" 200 34420
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/45f8c76a-c9ea-4810-8b77-54eb899c31ea/form/ HTTP/1.1" 200 9151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+=== UPDATE TRANSACTION 45f8c76a-c9ea-4810-8b77-54eb899c31ea ===
+Saldo atualizado para transação 45f8c76a-c9ea-4810-8b77-54eb899c31ea (EXPENSE)
+Transação 45f8c76a-c9ea-4810-8b77-54eb899c31ea atualizada com sucesso
+"PUT /api/transactions/45f8c76a-c9ea-4810-8b77-54eb899c31ea/ HTTP/1.1" 200 327
+"GET /transactions/ HTTP/1.1" 200 34419
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 34419
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação 45f8c76a-c9ea-4810-8b77-54eb899c31ea
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação 45f8c76a-c9ea-4810-8b77-54eb899c31ea (EXPENSE)
+"DELETE /api/transactions/45f8c76a-c9ea-4810-8b77-54eb899c31ea/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 32518
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 8896
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 55, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-07T20:37', 'description': 'Eshiley mandou mas não lembro do que se refere.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 55.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 51cf09ce-047d-4784-81f9-e657bc6ee720 (INCOME)
+Transação manual criada: 51cf09ce-047d-4784-81f9-e657bc6ee720
+Transaction Type: INCOME
+Saldo: 1693.94 -> 1748.94
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '51cf09ce-047d-4784-81f9-e657bc6ee720', 'amount': 55.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 190
+"GET /transactions/ HTTP/1.1" 200 34419
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /transactions/ HTTP/1.1" 200 34419
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /transactions/ HTTP/1.1" 200 34419
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 8896
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 3327
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"POST /api/categories/ HTTP/1.1" 201 328
+"GET / HTTP/1.1" 200 13006
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 234
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 892
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 795
+"GET /transactions/ HTTP/1.1" 200 34631
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9084
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 10, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-11T19:19', 'description': 'Não sei o que foi.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 10.00
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação b19cc31b-77a3-4fe6-ba88-eabe073845b5 (PURCHASE)
+Transação manual criada: b19cc31b-77a3-4fe6-ba88-eabe073845b5
+Transaction Type: PURCHASE
+Saldo: 0.00 -> -10.00
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'b19cc31b-77a3-4fe6-ba88-eabe073845b5', 'amount': 10.0, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 36507
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13008
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 315
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 978
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 511
+"GET /transactions/ HTTP/1.1" 200 36507
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 511
+"GET /api/transactions/form/ HTTP/1.1" 200 9084
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 1471.09, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-09T22:30', 'description': 'Fatura do mês de janeiro.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 1471.09
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 6bc733f0-4bbf-4aa1-8175-049b65412377 (PURCHASE)
+Transação manual criada: 6bc733f0-4bbf-4aa1-8175-049b65412377
+Transaction Type: PURCHASE
+Saldo: -10.00 -> -1481.09
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '6bc733f0-4bbf-4aa1-8175-049b65412377', 'amount': 1471.09, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 196
+"GET /transactions/ HTTP/1.1" 200 38392
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 2
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-02-05
+Fatura criada: Fatura 02/2026 - Ourocard - R$1481.09 (mínimo: R$148.11)
+Faturas geradas: 1
+Total de faturas encontradas: 1
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 647
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /transactions/ HTTP/1.1" 200 38392
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /api/transactions/6bc733f0-4bbf-4aa1-8175-049b65412377/form/ HTTP/1.1" 200 9319
+=== UPDATE TRANSACTION 6bc733f0-4bbf-4aa1-8175-049b65412377 ===
+Saldo atualizado para transação 6bc733f0-4bbf-4aa1-8175-049b65412377 (PURCHASE)
+Transação 6bc733f0-4bbf-4aa1-8175-049b65412377 atualizada com sucesso
+"PUT /api/transactions/6bc733f0-4bbf-4aa1-8175-049b65412377/ HTTP/1.1" 200 308
+"GET /transactions/ HTTP/1.1" 200 38392
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 1
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 647
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /transactions/ HTTP/1.1" 200 38392
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+Excluindo transação 6bc733f0-4bbf-4aa1-8175-049b65412377
+  Tipo: PURCHASE
+  Parcelada: False
+  Fatura vinculada: True
+Saldo atualizado para transação 6bc733f0-4bbf-4aa1-8175-049b65412377 (PURCHASE)
+  Atualizando fatura 2026-02-05
+  Atualizando fatura 2026-02-05
+"DELETE /api/transactions/6bc733f0-4bbf-4aa1-8175-049b65412377/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 36507
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 511
+"GET /api/transactions/form/ HTTP/1.1" 200 9084
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 1407.09, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-01T15:30', 'description': 'Fatura do mês de janeiro.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 1407.09
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 41dfa396-3f94-4331-8bd2-e74ec6a095bc (PURCHASE)
+Transação manual criada: 41dfa396-3f94-4331-8bd2-e74ec6a095bc
+Transaction Type: PURCHASE
+Saldo: -10.00 -> -1417.09
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '41dfa396-3f94-4331-8bd2-e74ec6a095bc', 'amount': 1407.09, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 196
+"GET /transactions/ HTTP/1.1" 200 38392
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 1
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-01-05
+Fatura criada: Fatura 01/2026 - Ourocard - R$1407.09 (mínimo: R$140.71)
+Faturas geradas: 1
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1066
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /transactions/ HTTP/1.1" 200 38392
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /transactions/ HTTP/1.1" 200 38392
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /api/transactions/b19cc31b-77a3-4fe6-ba88-eabe073845b5/form/ HTTP/1.1" 200 9310
+=== UPDATE TRANSACTION b19cc31b-77a3-4fe6-ba88-eabe073845b5 ===
+Saldo atualizado para transação b19cc31b-77a3-4fe6-ba88-eabe073845b5 (PURCHASE)
+Transação b19cc31b-77a3-4fe6-ba88-eabe073845b5 atualizada com sucesso
+"PUT /api/transactions/b19cc31b-77a3-4fe6-ba88-eabe073845b5/ HTTP/1.1" 200 299
+"GET /transactions/ HTTP/1.1" 200 38406
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /transactions/ HTTP/1.1" 200 38406
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1066
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /transactions/ HTTP/1.1" 200 38406
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+Excluindo transação b19cc31b-77a3-4fe6-ba88-eabe073845b5
+  Tipo: PURCHASE
+  Parcelada: False
+  Fatura vinculada: True
+Saldo atualizado para transação b19cc31b-77a3-4fe6-ba88-eabe073845b5 (PURCHASE)
+  Atualizando fatura 2026-02-05
+  Atualizando fatura 2026-02-05
+"DELETE /api/transactions/b19cc31b-77a3-4fe6-ba88-eabe073845b5/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 36516
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9084
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 10, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-08T19:09', 'description': 'Não sei o que foi.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 10.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação d8d56138-17ca-4adf-82e8-a2ed4d0db9df (EXPENSE)
+Transação manual criada: d8d56138-17ca-4adf-82e8-a2ed4d0db9df
+Transaction Type: EXPENSE
+Saldo: 1748.94 -> 1738.94
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'd8d56138-17ca-4adf-82e8-a2ed4d0db9df', 'amount': 10.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 38406
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1062
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /admin/ HTTP/1.1" 200 23972
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+"GET /static/admin/css/base.css HTTP/1.1" 200 23100
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+"GET /admin/transactions/transaction/ HTTP/1.1" 200 37650
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/img/search.svg HTTP/1.1" 200 607
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1761
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+"GET /admin/transactions/transactionaccount/ HTTP/1.1" 200 34410
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /transactions/ HTTP/1.1" 200 38406
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"POST /admin/transactions/transactionaccount/ HTTP/1.1" 200 22126
+"POST /admin/transactions/transactionaccount/ HTTP/1.1" 302 0
+"GET /admin/transactions/transactionaccount/ HTTP/1.1" 200 33650
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4771
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 5706
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/home/dashboards.js HTTP/1.1" 200 12890
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1056
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13009
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /transactions/ HTTP/1.1" 200 38282
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+Excluindo transação 41dfa396-3f94-4331-8bd2-e74ec6a095bc
+  Tipo: PURCHASE
+  Parcelada: False
+  Fatura vinculada: True
+Saldo atualizado para transação 41dfa396-3f94-4331-8bd2-e74ec6a095bc (PURCHASE)
+  Atualizando fatura 2026-01-05
+  Atualizando fatura 2026-01-05
+"DELETE /api/transactions/41dfa396-3f94-4331-8bd2-e74ec6a095bc/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 36521
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13007
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 235
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 978
+"GET / HTTP/1.1" 200 13007
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4771
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 5706
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/home/dashboards.js HTTP/1.1" 200 12890
+- Broken pipe from ('127.0.0.1', 56611)
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 235
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 978
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET / HTTP/1.1" 200 13007
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 235
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 893
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 978
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+"GET /admin/transactions/transactionaccount/ HTTP/1.1" 200 33500
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/transactions/transactionaccount/ HTTP/1.1" 200 21933
+"POST /admin/transactions/transactionaccount/ HTTP/1.1" 302 0
+"GET /admin/transactions/transactionaccount/ HTTP/1.1" 200 33198
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /transactions/ HTTP/1.1" 200 36521
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9084
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 507
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 1471.09, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-01T19:36', 'description': 'Fatura do mês de janeiro.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 1471.09
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 773cba3d-c3e1-4534-8eda-1d75d037869e (PURCHASE)
+Transação manual criada: 773cba3d-c3e1-4534-8eda-1d75d037869e
+Transaction Type: PURCHASE
+Saldo: 0.00 -> -1471.09
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '773cba3d-c3e1-4534-8eda-1d75d037869e', 'amount': 1471.09, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 196
+"GET /transactions/ HTTP/1.1" 200 38406
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 318
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 980
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 3657
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+=== INICIANDO get_credit_card_bills ===
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 517
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 1
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-01-05
+Faturas geradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1062
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1062
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 254
+=== PROCESSANDO PAGAMENTO ===
+Bill ID: 6ac3d908-b7ec-4618-8fcb-b5411c7254f2
+Payment Account ID: a28888c5-fedd-4c61-a61d-718ab7a05f9c
+Amount: 1471.09
+User: Murilo
+Saldo atualizado para transação 57577b40-93d2-4785-a931-ebc11c1f04dc (CREDIT_CARD_PAYMENT)
+Pagamento processado: Pagamento de R$1471.09 realizado com sucesso!
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 200 417
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1049
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 405
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1168
+"GET /transactions/ HTTP/1.1" 200 40606
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /transactions/ HTTP/1.1" 200 40606
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/form/ HTTP/1.1" 200 9275
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 14.8, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'd7b88a6d-6c9a-4a49-a898-46518212f397', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-11T19:38', 'description': 'Moto 99', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 14.80
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: 99 App (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: 99 App
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação e91fc8c3-912c-45c5-b257-36214743ffcd (EXPENSE)
+Transação manual criada: e91fc8c3-912c-45c5-b257-36214743ffcd
+Transaction Type: EXPENSE
+Saldo: 267.85 -> 253.05
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'e91fc8c3-912c-45c5-b257-36214743ffcd', 'amount': 14.8, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 42473
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/57577b40-93d2-4785-a931-ebc11c1f04dc/form/ HTTP/1.1" 200 9517
+=== UPDATE TRANSACTION 57577b40-93d2-4785-a931-ebc11c1f04dc ===
+Saldo atualizado para transação 57577b40-93d2-4785-a931-ebc11c1f04dc (CREDIT_CARD_PAYMENT)
+Transação 57577b40-93d2-4785-a931-ebc11c1f04dc atualizada com sucesso
+"PUT /api/transactions/57577b40-93d2-4785-a931-ebc11c1f04dc/ HTTP/1.1" 200 315
+"GET /transactions/ HTTP/1.1" 200 42473
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/57577b40-93d2-4785-a931-ebc11c1f04dc/form/ HTTP/1.1" 200 9517
+=== UPDATE TRANSACTION 57577b40-93d2-4785-a931-ebc11c1f04dc ===
+Saldo atualizado para transação 57577b40-93d2-4785-a931-ebc11c1f04dc (CREDIT_CARD_PAYMENT)
+Transação 57577b40-93d2-4785-a931-ebc11c1f04dc atualizada com sucesso
+"PUT /api/transactions/57577b40-93d2-4785-a931-ebc11c1f04dc/ HTTP/1.1" 200 315
+"GET /transactions/ HTTP/1.1" 200 42473
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 405
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1168
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 405
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1168
+"GET /transactions/ HTTP/1.1" 200 42473
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 405
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1168
+"GET /transactions/ HTTP/1.1" 200 42473
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/form/ HTTP/1.1" 200 9275
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 6, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-10T19:38', 'description': 'Bombom de cupuaçu', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 6.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 9bb2e3cd-1212-49c3-b028-074226cf7ffc (EXPENSE)
+Transação manual criada: 9bb2e3cd-1212-49c3-b028-074226cf7ffc
+Transaction Type: EXPENSE
+Saldo: 253.05 -> 247.05
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '9bb2e3cd-1212-49c3-b028-074226cf7ffc', 'amount': 6.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 44336
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/e91fc8c3-912c-45c5-b257-36214743ffcd/form/ HTTP/1.1" 200 9489
+=== UPDATE TRANSACTION e91fc8c3-912c-45c5-b257-36214743ffcd ===
+Saldo atualizado para transação e91fc8c3-912c-45c5-b257-36214743ffcd (EXPENSE)
+Transação e91fc8c3-912c-45c5-b257-36214743ffcd atualizada com sucesso
+"PUT /api/transactions/e91fc8c3-912c-45c5-b257-36214743ffcd/ HTTP/1.1" 200 287
+"GET /transactions/ HTTP/1.1" 200 44336
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/71ab5750-a13e-4ed7-b87f-fde97798e1b9/form/ HTTP/1.1" 200 9500
+=== UPDATE TRANSACTION 71ab5750-a13e-4ed7-b87f-fde97798e1b9 ===
+Saldo atualizado para transação 71ab5750-a13e-4ed7-b87f-fde97798e1b9 (EXPENSE)
+Transação 71ab5750-a13e-4ed7-b87f-fde97798e1b9 atualizada com sucesso
+"PUT /api/transactions/71ab5750-a13e-4ed7-b87f-fde97798e1b9/ HTTP/1.1" 200 298
+"GET /transactions/ HTTP/1.1" 200 44336
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/e91fc8c3-912c-45c5-b257-36214743ffcd/form/ HTTP/1.1" 200 9489
+"GET /transactions/ HTTP/1.1" 200 44336
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 3981
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"POST /api/categories/ HTTP/1.1" 201 421
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 405
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1168
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /transactions/ HTTP/1.1" 200 44539
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/transactions/form/ HTTP/1.1" 200 9454
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 50, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'fcb5e306-f5d3-430d-88e9-889d8b6187b8', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-10T19:39', 'description': 'Posto Ipiranga', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 50.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Gasolina (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Gasolina
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 1aa0ee70-6d9c-47ea-ab6b-6a46a71d4d8d (EXPENSE)
+Transação manual criada: 1aa0ee70-6d9c-47ea-ab6b-6a46a71d4d8d
+Transaction Type: EXPENSE
+Saldo: 247.05 -> 197.05
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '1aa0ee70-6d9c-47ea-ab6b-6a46a71d4d8d', 'amount': 50.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 46400
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1341
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1341
+"GET /transactions/ HTTP/1.1" 200 46400
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9454
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 4403
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"POST /api/categories/ HTTP/1.1" 201 315
+"POST /api/categories/ HTTP/1.1" 201 440
+"GET /transactions/ HTTP/1.1" 200 46826
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9832
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 317, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'f8144d27-b194-41be-8ca9-1beb64e5094e', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-14T21:32', 'description': 'Senai Curso', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 317.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Mensalidade universitária (Educação) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Mensalidade universitária
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 3b01373d-53e9-4529-8eda-78c0b526be1b (INCOME)
+Transação manual criada: 3b01373d-53e9-4529-8eda-78c0b526be1b
+Transaction Type: INCOME
+Saldo: 197.05 -> 514.05
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '3b01373d-53e9-4529-8eda-78c0b526be1b', 'amount': 317.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 48702
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1341
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /transactions/ HTTP/1.1" 200 48702
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/form/ HTTP/1.1" 200 9832
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 10.3, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'd7b88a6d-6c9a-4a49-a898-46518212f397', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-15T15:44', 'description': 'Moto 99', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 10.30
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: 99 App (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: 99 App
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 633bf645-679c-4b92-96cb-353d6507c392 (EXPENSE)
+Transação manual criada: 633bf645-679c-4b92-96cb-353d6507c392
+Transaction Type: EXPENSE
+Saldo: 514.05 -> 503.75
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '633bf645-679c-4b92-96cb-353d6507c392', 'amount': 10.3, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 50569
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /api/transactions/form/ HTTP/1.1" 200 9832
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 11, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'd7b88a6d-6c9a-4a49-a898-46518212f397', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-15T20:01', 'description': 'Moto 99', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 11.00
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: 99 App (Transporte) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: 99 App
+Compatibilidade: False
+Erro ao criar transação: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Débito' não é compatível com conta 'Ourocard' (Cartão de Crédito).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\ledger\backend\transactions\views.py", line 270, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Débito' não é compatível com conta 'Ourocard' (Cartão de Crédito).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 255
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 11, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'd7b88a6d-6c9a-4a49-a898-46518212f397', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-15T20:01', 'description': 'Moto 99', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 11.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: 99 App (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: 99 App
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 91d0b124-c13d-482e-ab38-3200735544f5 (EXPENSE)
+Transação manual criada: 91d0b124-c13d-482e-ab38-3200735544f5
+Transaction Type: EXPENSE
+Saldo: 503.75 -> 492.75
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '91d0b124-c13d-482e-ab38-3200735544f5', 'amount': 11.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 52436
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1341
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /transactions/ HTTP/1.1" 200 52436
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 9832
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"GET /budget/ HTTP/1.1" 200 12703
+"GET /static/css/budget/budget.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/budget/budget.js HTTP/1.1" 304 0
+"GET /api/budget-overview/ HTTP/1.1" 200 100
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1011
+"GET /api/accounts/ HTTP/1.1" 200 1011
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 505
+"POST /api/accounts/ HTTP/1.1" 201 513
+"GET /transactions/ HTTP/1.1" 200 52634
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10035
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 3.3, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': '36ced6a7-08db-49ce-ba5d-9b9b05db595e', 'occurred_at': '2026-01-02T15:59', 'description': 'Juros', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 3.30
+Account: 51 - Poupança (Conta Poupança)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: 51 - Poupança (SAVINGS)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação fe9cd1e1-ef81-4f58-93dd-9b34b8131c95 (INCOME)
+Transação manual criada: fe9cd1e1-ef81-4f58-93dd-9b34b8131c95
+Transaction Type: INCOME
+Saldo: 658.57 -> 661.87
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'fe9cd1e1-ef81-4f58-93dd-9b34b8131c95', 'amount': 3.3, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 189
+"GET /transactions/ HTTP/1.1" 200 52889
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 52889
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10035
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 1.08, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': '36ced6a7-08db-49ce-ba5d-9b9b05db595e', 'occurred_at': '2026-01-24T16:00', 'description': 'Reajuste Monetário - BACEN', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 1.08
+Account: 51 - Poupança (Conta Poupança)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: 51 - Poupança (SAVINGS)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 5441ba52-e6e0-443c-a09f-6f11297d28da (INCOME)
+Transação manual criada: 5441ba52-e6e0-443c-a09f-6f11297d28da
+Transaction Type: INCOME
+Saldo: 661.87 -> 662.95
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '5441ba52-e6e0-443c-a09f-6f11297d28da', 'amount': 1.08, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 190
+"GET /transactions/ HTTP/1.1" 200 52914
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 52914
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10035
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 92.52, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': '36ced6a7-08db-49ce-ba5d-9b9b05db595e', 'occurred_at': '2026-01-19T22:37', 'description': 'Transferência Para Conta-Corrente.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 92.52
+Account: 51 - Poupança (Conta Poupança)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: 51 - Poupança (SAVINGS)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 6b215d6d-1de6-4d73-ac54-a01bc47e3dd4 (EXPENSE)
+Transação manual criada: 6b215d6d-1de6-4d73-ac54-a01bc47e3dd4
+Transaction Type: EXPENSE
+Saldo: 662.95 -> 570.43
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '6b215d6d-1de6-4d73-ac54-a01bc47e3dd4', 'amount': 92.52, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 52832
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 52832
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10035
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 92.52, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-19T22:37', 'description': 'Conta Poupança para Corrente.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 92.52
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 17c8298e-a565-4a04-9e8c-5c6a3f999331 (INCOME)
+Transação manual criada: 17c8298e-a565-4a04-9e8c-5c6a3f999331
+Transaction Type: INCOME
+Saldo: 492.75 -> 585.27
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '17c8298e-a565-4a04-9e8c-5c6a3f999331', 'amount': 92.52, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 52885
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/transactions/5441ba52-e6e0-443c-a09f-6f11297d28da/form/ HTTP/1.1" 200 10268
+=== UPDATE TRANSACTION 5441ba52-e6e0-443c-a09f-6f11297d28da ===
+Saldo atualizado para transação 5441ba52-e6e0-443c-a09f-6f11297d28da (INCOME)
+Transação 5441ba52-e6e0-443c-a09f-6f11297d28da atualizada com sucesso
+"PUT /api/transactions/5441ba52-e6e0-443c-a09f-6f11297d28da/ HTTP/1.1" 200 305
+"GET /transactions/ HTTP/1.1" 200 52847
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/transactions/fe9cd1e1-ef81-4f58-93dd-9b34b8131c95/form/ HTTP/1.1" 200 10246
+"GET /transactions/?page=2 HTTP/1.1" 200 23005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/5441ba52-e6e0-443c-a09f-6f11297d28da/form/ HTTP/1.1" 200 10268
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+=== UPDATE TRANSACTION 5441ba52-e6e0-443c-a09f-6f11297d28da ===
+Saldo atualizado para transação 5441ba52-e6e0-443c-a09f-6f11297d28da (INCOME)
+Transação 5441ba52-e6e0-443c-a09f-6f11297d28da atualizada com sucesso
+"PUT /api/transactions/5441ba52-e6e0-443c-a09f-6f11297d28da/ HTTP/1.1" 200 305
+"GET /transactions/?page=2 HTTP/1.1" 200 22967
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /transactions/?page=1 HTTP/1.1" 200 52885
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/transactions/form/ HTTP/1.1" 200 10035
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 50, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-17T11:46', 'description': 'Não sei o que foi.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 50.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 3ec37cd0-bf1f-48b9-b52a-177671bf770a (INCOME)
+Transação manual criada: 3ec37cd0-bf1f-48b9-b52a-177671bf770a
+Transaction Type: INCOME
+Saldo: 585.27 -> 635.27
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '3ec37cd0-bf1f-48b9-b52a-177671bf770a', 'amount': 50.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 190
+"GET /transactions/?page=1 HTTP/1.1" 200 52888
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/transactions/form/ HTTP/1.1" 200 10035
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 25, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-19T21:19', 'description': 'Lanche - Mãe', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 25.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 482bb0c2-70ce-490c-9ce8-be5c42f583e9 (INCOME)
+Transação manual criada: 482bb0c2-70ce-490c-9ce8-be5c42f583e9
+Transaction Type: INCOME
+Saldo: 635.27 -> 660.27
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '482bb0c2-70ce-490c-9ce8-be5c42f583e9', 'amount': 25.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 190
+"GET /transactions/?page=1 HTTP/1.1" 200 52863
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13009
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1341
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 52863
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 52863
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 5160
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"POST /api/categories/ HTTP/1.1" 201 307
+"POST /api/categories/ HTTP/1.1" 201 310
+"PUT /api/categories/0ff254a6-8bee-4f61-a39d-a577489b2628/ HTTP/1.1" 200 421
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 5890
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 53270
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13009
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1341
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 53270
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 524.73, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '0ff254a6-8bee-4f61-a39d-a577489b2628', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-19T15:56', 'description': 'Boleto do Consórcio.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 524.73
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Consórcio (Moradia) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Consórcio
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação a36cba6e-b2d3-42ee-abd9-594575820a9a (EXPENSE)
+Transação manual criada: a36cba6e-b2d3-42ee-abd9-594575820a9a
+Transaction Type: EXPENSE
+Saldo: 660.27 -> 135.54
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'a36cba6e-b2d3-42ee-abd9-594575820a9a', 'amount': 524.73, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 53296
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 53296
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1518
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET / HTTP/1.1" 200 13005
+"GET /static/css/core/reset.css HTTP/1.1" 200 497
+"GET /static/css/core/typography.css HTTP/1.1" 200 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 200 1456
+"GET /static/css/core/variables.css HTTP/1.1" 200 1688
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 200 713
+"GET /static/css/components/utilities.css HTTP/1.1" 200 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/home/home.css HTTP/1.1" 200 3595
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 200 4771
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1545
+"GET /static/css/home/dashboards.css HTTP/1.1" 200 5706
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/home/dashboards.js HTTP/1.1" 200 12890
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1518
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 53296
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+Excluindo transação a36cba6e-b2d3-42ee-abd9-594575820a9a
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação a36cba6e-b2d3-42ee-abd9-594575820a9a (EXPENSE)
+"DELETE /api/transactions/a36cba6e-b2d3-42ee-abd9-594575820a9a/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 53270
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13009
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 895
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1341
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 53270
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 524.73, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '0ff254a6-8bee-4f61-a39d-a577489b2628', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-19T15:56', 'description': 'Boleto do Consórcio.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 524.73
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Consórcio (Moradia) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Consórcio
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação e6ce3ad6-c6ac-4a76-a8b2-3c86a22f991f (EXPENSE)
+Transação manual criada: e6ce3ad6-c6ac-4a76-a8b2-3c86a22f991f
+Transaction Type: EXPENSE
+Saldo: 660.27 -> 135.54
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'e6ce3ad6-c6ac-4a76-a8b2-3c86a22f991f', 'amount': 524.73, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 53296
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 4.6, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '38b76898-b786-48ff-b369-3ce1ca7f57f6', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-19T20:10', 'description': 'Passagem de Ônibus', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 4.60
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Transporte público (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Transporte público
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 73d21130-bac3-4b78-92e3-be7ba8686085 (EXPENSE)
+Transação manual criada: 73d21130-bac3-4b78-92e3-be7ba8686085
+Transaction Type: EXPENSE
+Saldo: 135.54 -> 130.94
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '73d21130-bac3-4b78-92e3-be7ba8686085', 'amount': 4.6, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 53306
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 92.52, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-19T22:38', 'description': 'Fatura Nubank - Empréstimo professor', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 92.52
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação a2e80cc4-5bdd-4379-8074-097f8c0e80be (EXPENSE)
+Transação manual criada: a2e80cc4-5bdd-4379-8074-097f8c0e80be
+Transaction Type: EXPENSE
+Saldo: 130.94 -> 38.42
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'a2e80cc4-5bdd-4379-8074-097f8c0e80be', 'amount': 92.52, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 53332
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 685
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 685
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1524
+"GET /api/accounts/ HTTP/1.1" 200 1524
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 685
+"GET /transactions/ HTTP/1.1" 200 53332
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 685
+"GET /transactions/ HTTP/1.1" 200 53332
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 685
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 100, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-20T23:00', 'description': 'Consórcio - Eshiley', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 100.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação ebce34e1-f1fd-4a56-96fc-aa690d066626 (INCOME)
+Transação manual criada: ebce34e1-f1fd-4a56-96fc-aa690d066626
+Transaction Type: INCOME
+Saldo: 38.42 -> 138.42
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'ebce34e1-f1fd-4a56-96fc-aa690d066626', 'amount': 100.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 53349
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET / HTTP/1.1" 200 13007
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 406
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1519
+"GET /transactions/ HTTP/1.1" 200 53349
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 9.2, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '38b76898-b786-48ff-b369-3ce1ca7f57f6', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-20T17:22', 'description': 'Passagem de Ônibus', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 9.20
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Transporte público (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Transporte público
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 0219fe2a-38a4-45b8-abcf-bba2e41e2347 (EXPENSE)
+Transação manual criada: 0219fe2a-38a4-45b8-abcf-bba2e41e2347
+Transaction Type: EXPENSE
+Saldo: 138.42 -> 129.22
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '0219fe2a-38a4-45b8-abcf-bba2e41e2347', 'amount': 9.2, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 53341
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /management/ HTTP/1.1" 200 18459
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/ HTTP/1.1" 200 1525
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+"GET /transactions/ HTTP/1.1" 200 53341
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 687
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 1621, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'ff675bc6-0bf0-4c39-aad8-a6a8a356ca35', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-21T06:00', 'description': 'Seguro-Desemprego', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 1621.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Salário (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Salário
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 0b6942c4-5324-4a60-b752-659554959deb (INCOME)
+Transação manual criada: 0b6942c4-5324-4a60-b752-659554959deb
+Transaction Type: INCOME
+Saldo: 129.22 -> 1750.22
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '0b6942c4-5324-4a60-b752-659554959deb', 'amount': 1621.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 53351
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 407
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1519
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1526
+"GET /api/accounts/ HTTP/1.1" 200 1526
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1526
+"GET /api/accounts/ HTTP/1.1" 200 1526
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+"GET / HTTP/1.1" 200 13011
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 407
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1519
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+"GET /transactions/ HTTP/1.1" 200 53351
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 20, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-22T20:20', 'description': 'Lanche Faculdade', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 20.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 3168bb1b-6430-4760-a881-8e07af5db1b7 (INCOME)
+Transação manual criada: 3168bb1b-6430-4760-a881-8e07af5db1b7
+Transaction Type: INCOME
+Saldo: 1750.22 -> 1770.22
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '3168bb1b-6430-4760-a881-8e07af5db1b7', 'amount': 20.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 190
+"GET /transactions/ HTTP/1.1" 200 53351
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+Excluindo transação 3168bb1b-6430-4760-a881-8e07af5db1b7
+  Tipo: INCOME
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação 3168bb1b-6430-4760-a881-8e07af5db1b7 (INCOME)
+"DELETE /api/transactions/3168bb1b-6430-4760-a881-8e07af5db1b7/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 53351
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 20, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-22T20:20', 'description': 'Lanche Faculdade', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 20.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação faeb45e9-2db9-4130-b931-2f029865e0f3 (EXPENSE)
+Transação manual criada: faeb45e9-2db9-4130-b931-2f029865e0f3
+Transaction Type: EXPENSE
+Saldo: 1750.22 -> 1730.22
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'faeb45e9-2db9-4130-b931-2f029865e0f3', 'amount': 20.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 53337
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 9.2, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '38b76898-b786-48ff-b369-3ce1ca7f57f6', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-22T15:24', 'description': 'Passagem de Ônibus', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 9.20
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Transporte público (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Transporte público
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 34b7c21a-1b12-4717-bd8a-7f91eaa09eb4 (EXPENSE)
+Transação manual criada: 34b7c21a-1b12-4717-bd8a-7f91eaa09eb4
+Transaction Type: EXPENSE
+Saldo: 1730.22 -> 1721.02
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '34b7c21a-1b12-4717-bd8a-7f91eaa09eb4', 'amount': 9.2, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 53360
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 9.2, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '38b76898-b786-48ff-b369-3ce1ca7f57f6', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-23T15:29', 'description': 'Lanche Faculdade', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 9.20
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Transporte público (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Transporte público
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação e7524ec6-3b09-4c66-b65e-c48e73adc9ee (EXPENSE)
+Transação manual criada: e7524ec6-3b09-4c66-b65e-c48e73adc9ee
+Transaction Type: EXPENSE
+Saldo: 1721.02 -> 1711.82
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'e7524ec6-3b09-4c66-b65e-c48e73adc9ee', 'amount': 9.2, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 53332
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1526
+"GET /api/accounts/ HTTP/1.1" 200 1526
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+"GET /transactions/ HTTP/1.1" 200 53332
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 689
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 111.8, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-07T18:00', 'description': 'BK', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 111.80
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação a7d9c8ce-acf3-40a8-93cc-d8dedfff68bd (PURCHASE)
+Transação manual criada: a7d9c8ce-acf3-40a8-93cc-d8dedfff68bd
+Transaction Type: PURCHASE
+Saldo: 0.00 -> -111.80
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'a7d9c8ce-acf3-40a8-93cc-d8dedfff68bd', 'amount': 111.8, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 53332
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 515
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 1
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-02-05
+Faturas geradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1059
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"GET /transactions/ HTTP/1.1" 200 53332
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"GET /api/transactions/form/ HTTP/1.1" 200 10394
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 5890
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"POST /api/categories/ HTTP/1.1" 201 311
+"POST /api/categories/ HTTP/1.1" 201 424
+"GET /transactions/ HTTP/1.1" 200 53742
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10756
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 11.47, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '9999099d-ec9d-42e3-8ff6-4e230838cc05', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-08T19:52', 'description': 'Netflix - Kotas', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 11.47
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Streaming (Assinaturas) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Streaming
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 78e0e35c-9058-4f4c-b8c6-42da7ff09cda (PURCHASE)
+Transação manual criada: 78e0e35c-9058-4f4c-b8c6-42da7ff09cda
+Transaction Type: PURCHASE
+Saldo: -111.80 -> -123.27
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '78e0e35c-9058-4f4c-b8c6-42da7ff09cda', 'amount': 11.47, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 53716
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 10756
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 20, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-12T20:20', 'description': 'Lanche Faculdade', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 20.00
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação e1f8dd84-2e53-49ee-83d6-fdc8f6663913 (PURCHASE)
+Transação manual criada: e1f8dd84-2e53-49ee-83d6-fdc8f6663913
+Transaction Type: PURCHASE
+Saldo: -123.27 -> -143.27
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'e1f8dd84-2e53-49ee-83d6-fdc8f6663913', 'amount': 20.0, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 53715
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10756
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 21, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-14T20:20', 'description': 'Lanche Faculdade', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 21.00
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação e4ca61c1-cb10-45c5-be99-d5ce796de1bf (PURCHASE)
+Transação manual criada: e4ca61c1-cb10-45c5-be99-d5ce796de1bf
+Transaction Type: PURCHASE
+Saldo: -143.27 -> -164.27
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'e4ca61c1-cb10-45c5-be99-d5ce796de1bf', 'amount': 21.0, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 53715
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 10756
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 317.23, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'f8144d27-b194-41be-8ca9-1beb64e5094e', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-14T20:40', 'description': 'Senai Curso', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 317.23
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Mensalidade universitária (Educação) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Mensalidade universitária
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 60b4f5f5-82a9-434f-8219-bea64562a9da (PURCHASE)
+Transação manual criada: 60b4f5f5-82a9-434f-8219-bea64562a9da
+Transaction Type: PURCHASE
+Saldo: -164.27 -> -481.50
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '60b4f5f5-82a9-434f-8219-bea64562a9da', 'amount': 317.23, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 195
+"GET /transactions/ HTTP/1.1" 200 53732
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"GET /transactions/ HTTP/1.1" 200 53732
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 407
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 1886
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"GET /transactions/ HTTP/1.1" 200 53732
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"GET /api/transactions/form/ HTTP/1.1" 200 10756
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 6627
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"POST /api/categories/ HTTP/1.1" 201 324
+"GET /transactions/ HTTP/1.1" 200 53945
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 695
+"GET /api/transactions/form/ HTTP/1.1" 200 10945
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 39.04, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'cc7859ff-f554-4a51-88a0-8722d4665e26', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-17T16:58', 'description': 'Plano da Vivo', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 39.04
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Plano de Operadora (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Plano de Operadora
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 9c1e69b4-d286-414b-bef2-089b71e0974c (PURCHASE)
+Transação manual criada: 9c1e69b4-d286-414b-bef2-089b71e0974c
+Transaction Type: PURCHASE
+Saldo: -481.50 -> -520.54
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '9c1e69b4-d286-414b-bef2-089b71e0974c', 'amount': 39.04, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 53949
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /transactions/?page=2 HTTP/1.1" 200 54040
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 10945
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 27.98, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-19T16:59', 'description': 'Monster', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 27.98
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 31958e96-be21-4553-affc-f871e2dcebb0 (PURCHASE)
+Transação manual criada: 31958e96-be21-4553-affc-f871e2dcebb0
+Transaction Type: PURCHASE
+Saldo: -520.54 -> -548.52
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '31958e96-be21-4553-affc-f871e2dcebb0', 'amount': 27.98, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/?page=2 HTTP/1.1" 200 54037
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 10945
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 71.9, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-22T20:00', 'description': 'Insano Burguer', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 71.90
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 5c88d62c-de3d-4a67-82c7-d417ead1afcf (PURCHASE)
+Transação manual criada: 5c88d62c-de3d-4a67-82c7-d417ead1afcf
+Transaction Type: PURCHASE
+Saldo: -548.52 -> -620.42
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '5c88d62c-de3d-4a67-82c7-d417ead1afcf', 'amount': 71.9, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/?page=2 HTTP/1.1" 200 53915
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 10945
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 107.95, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-10T17:01', 'description': 'BK', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 107.95
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação a0b1f080-ae69-4879-ac25-9072365e403b (PURCHASE)
+Transação manual criada: a0b1f080-ae69-4879-ac25-9072365e403b
+Transaction Type: PURCHASE
+Saldo: -620.42 -> -728.37
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'a0b1f080-ae69-4879-ac25-9072365e403b', 'amount': 107.95, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 195
+"GET /transactions/?page=2 HTTP/1.1" 200 53912
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 10945
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 90, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-16T17:02', 'description': 'Pizza KasPizza', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 90.00
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 44d1d7c6-5258-4d94-8d04-855b4f21a924 (PURCHASE)
+Transação manual criada: 44d1d7c6-5258-4d94-8d04-855b4f21a924
+Transaction Type: PURCHASE
+Saldo: -728.37 -> -818.37
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '44d1d7c6-5258-4d94-8d04-855b4f21a924', 'amount': 90.0, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/?page=2 HTTP/1.1" 200 53921
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 10945
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 75.86, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-19T17:03', 'description': 'BK', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 75.86
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação b45d2b3e-db7b-4e1b-89bc-c07e80b17f9f (PURCHASE)
+Transação manual criada: b45d2b3e-db7b-4e1b-89bc-c07e80b17f9f
+Transaction Type: PURCHASE
+Saldo: -818.37 -> -894.23
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'b45d2b3e-db7b-4e1b-89bc-c07e80b17f9f', 'amount': 75.86, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/?page=2 HTTP/1.1" 200 53906
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 6952
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"POST /api/categories/ HTTP/1.1" 201 311
+"GET /transactions/ HTTP/1.1" 200 54107
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/transactions/form/ HTTP/1.1" 200 11124
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 24.16, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'cd299205-9854-4dc2-92e7-4f3a12a87649', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-09T17:04', 'description': 'G5 Pro', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 24.16
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Hardware (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Hardware
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação f4c633d2-178a-4da5-a2d2-b0e9960732de (PURCHASE)
+Transação manual criada: f4c633d2-178a-4da5-a2d2-b0e9960732de
+Transaction Type: PURCHASE
+Saldo: -894.23 -> -918.39
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'f4c633d2-178a-4da5-a2d2-b0e9960732de', 'amount': 24.16, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 54107
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 517
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 11
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-02-05
+Faturas geradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1062
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 408
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 2244
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /transactions/ HTTP/1.1" 200 54107
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /transactions/?page=2 HTTP/1.1" 200 54097
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/f4c633d2-178a-4da5-a2d2-b0e9960732de/form/ HTTP/1.1" 200 11337
+=== UPDATE TRANSACTION f4c633d2-178a-4da5-a2d2-b0e9960732de ===
+Saldo atualizado para transação f4c633d2-178a-4da5-a2d2-b0e9960732de (PURCHASE)
+Transação f4c633d2-178a-4da5-a2d2-b0e9960732de atualizada com sucesso
+"PUT /api/transactions/f4c633d2-178a-4da5-a2d2-b0e9960732de/ HTTP/1.1" 200 314
+"GET /transactions/?page=2 HTTP/1.1" 200 54125
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/credit-cards/ HTTP/1.1" 200 517
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 2
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1062
+"GET /transactions/ HTTP/1.1" 200 54107
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 408
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 2244
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /transactions/ HTTP/1.1" 200 54107
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /budget/ HTTP/1.1" 200 13720
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/budget-overview/ HTTP/1.1" 200 100
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"POST /api/create-budget-limit/ HTTP/1.1" 200 163
+"GET /budget/ HTTP/1.1" 200 14597
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/budget-overview/ HTTP/1.1" 200 303
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 408
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 2244
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /transactions/ HTTP/1.1" 200 54107
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /managementCategories/ HTTP/1.1" 200 16440
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/categories/ HTTP/1.1" 200 7264
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-25&end_date=2026-01-24 HTTP/1.1" 200 408
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-25&end_date=2026-01-24&include_pending=false HTTP/1.1" 200 2244
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 2278
+"GET /static/img/person-working.svg HTTP/1.1" 304 0
+"GET /static/css/auth/login.css HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6298
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/core/reset.css HTTP/1.1" 304 0
+"GET /static/css/core/variables.css HTTP/1.1" 304 0
+"GET /static/css/core/typography.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/layout.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/header.css HTTP/1.1" 304 0
+"GET /static/css/components/bedimcode/sidebar.css HTTP/1.1" 304 0
+"GET /static/css/home/dashboards.css HTTP/1.1" 304 0
+"GET /static/css/home/home.css HTTP/1.1" 304 0
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/js/core/app-state.js HTTP/1.1" 304 0
+"GET /static/img/perfil.png HTTP/1.1" 304 0
+"GET /static/js/core/utilities.js HTTP/1.1" 304 0
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 304 0
+"GET /static/js/components/theme-manager.js HTTP/1.1" 304 0
+"GET /static/js/components/balance-validator.js HTTP/1.1" 304 0
+"GET /static/js/tom-select-manager.js HTTP/1.1" 304 0
+"GET /static/js/home/dashboards.js HTTP/1.1" 304 0
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-26&end_date=2026-01-25&include_pending=false HTTP/1.1" 200 2244
+"GET /api/dashboard/card-expenses/?start_date=2025-12-26&end_date=2026-01-25 HTTP/1.1" 200 408
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /transactions/ HTTP/1.1" 200 54107
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/transactions/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js?v=1 HTTP/1.1" 304 0
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 11124
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 50, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'fcb5e306-f5d3-430d-88e9-889d8b6187b8', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-24T14:48', 'description': 'Posto ICCAR', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 50.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Gasolina (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Gasolina
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 74ebf7d2-ad45-4369-a7b7-6090cf78f1ac (EXPENSE)
+Transação manual criada: 74ebf7d2-ad45-4369-a7b7-6090cf78f1ac
+Transaction Type: EXPENSE
+Saldo: 1711.82 -> 1661.82
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '74ebf7d2-ad45-4369-a7b7-6090cf78f1ac', 'amount': 50.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 54098
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 11124
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 3, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-24T19:55', 'description': 'Impressão', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 3.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 850511db-83b4-44d9-a5ea-b38f02016ba1 (EXPENSE)
+Transação manual criada: 850511db-83b4-44d9-a5ea-b38f02016ba1
+Transaction Type: EXPENSE
+Saldo: 1661.82 -> 1658.82
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '850511db-83b4-44d9-a5ea-b38f02016ba1', 'amount': 3.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 54096
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /cartoes/ HTTP/1.1" 200 15662
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/card_credit/card_credit.css HTTP/1.1" 304 0
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 304 0
+"GET /api/credit-cards/ HTTP/1.1" 200 517
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /static/css/account_management/account_management.css HTTP/1.1" 304 0
+"GET /static/js/account_management/account_management.js HTTP/1.1" 304 0
+"GET /api/accounts/ HTTP/1.1" 200 1531
+"GET /api/accounts/ HTTP/1.1" 200 1531
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET / HTTP/1.1" 200 13013
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/dashboard/card-expenses/?start_date=2025-12-26&end_date=2026-01-25 HTTP/1.1" 200 408
+"GET /api/dashboard/cash-flow/?year=2026 HTTP/1.1" 200 896
+"GET /api/dashboard/category-expenses/?start_date=2025-12-26&end_date=2026-01-25&include_pending=false HTTP/1.1" 200 2245
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /transactions/ HTTP/1.1" 200 54096
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /api/transactions/form/ HTTP/1.1" 200 11124
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 1, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '1df089d9-47ed-4d1f-a289-314be864a5ad', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-25T15:38', 'description': 'dssa', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 1.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Comida (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Comida
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 872b5efb-4b93-4e3d-8b43-dcf041599109 (EXPENSE)
+Transação manual criada: 872b5efb-4b93-4e3d-8b43-dcf041599109
+Transaction Type: EXPENSE
+Saldo: 1658.82 -> 1657.82
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '872b5efb-4b93-4e3d-8b43-dcf041599109', 'amount': 1.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 54083
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+Excluindo transação 872b5efb-4b93-4e3d-8b43-dcf041599109
+  Tipo: EXPENSE
+  Parcelada: False
+  Fatura vinculada: False
+Saldo atualizado para transação 872b5efb-4b93-4e3d-8b43-dcf041599109 (EXPENSE)
+"DELETE /api/transactions/872b5efb-4b93-4e3d-8b43-dcf041599109/ HTTP/1.1" 200 63
+"GET /transactions/ HTTP/1.1" 200 54096
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697
+"GET /management/ HTTP/1.1" 200 18459
+"GET /static/css/custom/tom-select-custom.css HTTP/1.1" 404 1910
+"GET /api/accounts/ HTTP/1.1" 200 1531
+"GET /api/accounts/ HTTP/1.1" 200 1531
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 697

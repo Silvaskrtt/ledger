@@ -3,6 +3,7 @@ class TransactionManager {
         this.currentTransactionId = null;
         this.isEditMode = false;
         this.tomSelectInstances = {};
+        console.log('TransactionManager inicializado'); // DEBUG
         this.init();
     }
 
@@ -34,6 +35,7 @@ class TransactionManager {
         document.querySelectorAll('.delete-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const transactionId = e.currentTarget.dataset.id;
+                console.log('Clicou excluir:', transactionId); // DEBUG
                 this.openDeleteModal(transactionId);
             });
         });
@@ -47,6 +49,7 @@ class TransactionManager {
 
         // Confirmar exclusão
         document.getElementById('confirmDeleteBtn')?.addEventListener('click', () => {
+            console.log('Confirmando exclusão:', this.currentTransactionId); // DEBUG
             this.deleteTransaction();
         });
 
@@ -224,7 +227,8 @@ class TransactionManager {
     }
 
     openDeleteModal(transactionId) {
-        this.currentTransactionId = transactionId;
+        console.log('Abrindo modal de exclusão para:', transactionId); // DEBUG
+        this.currentTransactionId = transactionId; // <-- ARMAZENAR NO ESTADO
         document.getElementById('confirmDeleteModal').classList.add('active');
     }
 
@@ -471,12 +475,18 @@ class TransactionManager {
         return element.value || null;
     }
 
-    async deleteTransaction(transactionId, options = {}) {
+    async deleteTransaction() {
+        if (!this.currentTransactionId) {
+            console.error('ID da transação não definido');
+            this.showErrorMessage('ID da transação não encontrado');
+            return false;
+        }
+
         try {
-            let url = `/api/transactions/${transactionId}/`;
+            let url = `/api/transactions/${this.currentTransactionId}/`;
             let method = 'DELETE';
             
-            console.log('Deletando transação:', transactionId);
+            console.log('Deletando transação:', this.currentTransactionId); // DEBUG
 
             const response = await fetch(url, {
                 method: method,
