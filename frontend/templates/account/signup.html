@@ -7,138 +7,154 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
-  <link rel="stylesheet" href="{% static 'css/auth/signup.css' %}">
+  
+  <link rel="stylesheet" href="{% static 'css/core/_variables.css' %}">
+  <link rel="stylesheet" href="{% static 'css/core/_reset.css' %}">
+  <link rel="stylesheet" href="{% static 'css/components/auth-components.css' %}">
+  <link rel="stylesheet" href="{% static 'css/layouts/auth-layout.css' %}">
+  <link rel="stylesheet" href="{% static 'css/pages/auth/signup.css' %}">
 </head>
 
-<body>
-  <div class="main-login">
-    <div class="left-login">
-      <h1>Crie sua conta<br>E gerencie suas finanças</h1>
-      <img src="{% static 'img/person-working.svg' %}" class="left-login-image" alt="Pessoa trabalhando">
-    </div>
+<body class="signup-page">
+  <!-- Adicionar classe signup-page no body -->
+  <div class="auth-container">
+    <!-- Usar auth-single-column para layout de cadastro -->
+    <div class="auth-single-column">
 
-    <div class="right-login">
-      <div class="card-login">
-        <h1>CADASTRO</h1>
-        
-        <form method="POST" action="{% url 'account_signup' %}">
-          {% csrf_token %}
+      <div class="auth-right-column">
+        <div class="auth-card">
+          <h1 class="auth-card__title">CADASTRO</h1>
           
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
+          <form method="POST" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
 
-          <!-- ERROS GERAIS -->
-          {% if form.non_field_errors %}
-          <div class="error-message">
-            {% for error in form.non_field_errors %}
-              <p>{{ error }}</p>
-            {% endfor %}
-          </div>
-          {% endif %}
+            <!-- ERROS GERAIS -->
+            {% if form.non_field_errors %}
+            <div class="auth-message auth-message--error">
+              {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
 
-          <!-- EMAIL (opcional para desenvolvimento) -->
-          <div class="textfield">
-            <label for="id_email">E-mail <small>(opcional para teste)</small></label>
-            <input 
-              type="email" 
-              id="id_email" 
-              name="email"
-              placeholder="Digite seu e-mail (ou deixe em branco)"
-              value="{{ form.email.value|default:'' }}"
-            />
-            {% for error in form.email.errors %}
-              <div class="field-error">{{ error }}</div>
-            {% endfor %}
-          </div>
+            <!-- EMAIL -->
+            <div class="auth-field auth-field--full">
+              <label for="id_email" class="auth-field__label">E-mail  </label>
+              <input 
+                type="email" 
+                id="id_email" 
+                name="email"
+                placeholder="Digite seu e-mail"
+                value="{{ form.email.value|default:'' }}"
+                class="auth-field__input"
+              />
+              {% for error in form.email.errors %}
+                <div class="field-error">{{ error }}</div>
+              {% endfor %}
+            </div>
 
-          <!-- NOME -->
-          <div class="textfield">
-            <label for="id_first_name">Nome *</label>
-            <input 
-              type="text" 
-              id="id_first_name" 
-              name="first_name"
-              placeholder="Seu nome"
-              required
-              value="{{ form.first_name.value|default:'' }}"
-            />
-            {% for error in form.first_name.errors %}
-              <div class="field-error">{{ error }}</div>
-            {% endfor %}
-          </div>
+            <!-- NOME -->
+            <div class="auth-field">
+              <label for="id_first_name" class="auth-field__label">Nome *</label>
+              <input 
+                type="text" 
+                id="id_first_name" 
+                name="first_name"
+                placeholder="Seu nome"
+                required
+                value="{{ form.first_name.value|default:'' }}"
+                class="auth-field__input"
+              />
+              {% for error in form.first_name.errors %}
+                <div class="field-error">{{ error }}</div>
+              {% endfor %}
+            </div>
 
-          <!-- SOBRENOME -->
-          <div class="textfield">
-            <label for="id_last_name">Sobrenome *</label>
-            <input 
-              type="text" 
-              id="id_last_name" 
-              name="last_name"
-              placeholder="Seu sobrenome"
-              required
-              value="{{ form.last_name.value|default:'' }}"
-            />
-            {% for error in form.last_name.errors %}
-              <div class="field-error">{{ error }}</div>
-            {% endfor %}
-          </div>
+            <!-- SOBRENOME -->
+            <div class="auth-field">
+              <label for="id_last_name" class="auth-field__label">Sobrenome *</label>
+              <input 
+                type="text" 
+                id="id_last_name" 
+                name="last_name"
+                placeholder="Seu sobrenome"
+                required
+                value="{{ form.last_name.value|default:'' }}"
+                class="auth-field__input"
+              />
+              {% for error in form.last_name.errors %}
+                <div class="field-error">{{ error }}</div>
+              {% endfor %}
+            </div>
 
-          <!-- USERNAME (OPCIONAL) -->
-          <div class="textfield">
-            <label for="id_username">Nome de Usuário</label>
-            <input 
-              type="text" 
-              id="id_username" 
-              name="username"
-              placeholder="Escolha um nome de usuário (opcional)"
-              value="{{ form.username.value|default:'' }}"
-            />
-            {% for error in form.username.errors %}
-              <div class="field-error">{{ error }}</div>
-            {% endfor %}
-            <small class="help-text">Deixe em branco para gerar automaticamente.</small>
-          </div>
+            <!-- USERNAME (OPCIONAL) -->
+            <div class="auth-field auth-field--full">
+              <label for="id_username" class="auth-field__label">Nome de Usuário</label>
+              <input 
+                type="text" 
+                id="id_username" 
+                name="username"
+                placeholder="Escolha um nome de usuário (opcional)"
+                value="{{ form.username.value|default:'' }}"
+                class="auth-field__input"
+              />
+              {% for error in form.username.errors %}
+                <div class="field-error">{{ error }}</div>
+              {% endfor %}
+              <small class="help-text" style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; margin-top: 4px;">
+                Deixe em branco para gerar automaticamente.
+              </small>
+            </div>
 
-          <!-- SENHA -->
-          <div class="textfield">
-            <label for="id_password1">Senha *</label>
-            <input 
-              type="password" 
-              id="id_password1"
-              name="password1" 
-              placeholder="Digite sua senha"
-              required
-            />
-            {% for error in form.password1.errors %}
-              <div class="field-error">{{ error }}</div>
-            {% endfor %}
-          </div>
+            <!-- SENHA -->
+            <div class="auth-field">
+              <label for="id_password1" class="auth-field__label">Senha *</label>
+              <input 
+                type="password" 
+                id="id_password1"
+                name="password1" 
+                placeholder="Digite sua senha"
+                required
+                class="auth-field__input"
+              />
+              {% for error in form.password1.errors %}
+                <div class="field-error">{{ error }}</div>
+              {% endfor %}
+            </div>
 
-          <!-- CONFIRMAR SENHA -->
-          <div class="textfield">
-            <label for="id_password2">Confirme a Senha *</label>
-            <input 
-              type="password" 
-              id="id_password2"
-              name="password2" 
-              placeholder="Digite novamente sua senha"
-              required
-            />
-            {% for error in form.password2.errors %}
-              <div class="field-error">{{ error }}</div>
-            {% endfor %}
-          </div>
+            <!-- CONFIRMAR SENHA -->
+            <div class="auth-field">
+              <label for="id_password2" class="auth-field__label">Confirme a Senha *</label>
+              <input 
+                type="password" 
+                id="id_password2"
+                name="password2" 
+                placeholder="Digite novamente sua senha"
+                required
+                class="auth-field__input"
+              />
+              {% for error in form.password2.errors %}
+                <div class="field-error">{{ error }}</div>
+              {% endfor %}
+            </div>
 
-          <button type="submit" class="btn-login">Cadastrar</button>
+            <!-- Botão ocupa toda a largura -->
+            <div class="auth-field auth-field--full">
+              <button type="submit" class="auth-button">Cadastrar</button>
+            </div>
 
-          <div class="auth-links">
-            <p class="auth-link">
-              Já tem uma conta? 
-              <a href="{% url 'account_login' %}">Faça login</a>
-            </p>
-          </div>
-        </form>
+            <div class="auth-links">
+              <p class="auth-link">
+                Já tem uma conta? 
+                <a href="{% url 'account_login' %}">Faça login</a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

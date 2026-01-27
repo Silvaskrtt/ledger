@@ -3,94 +3,99 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/home/home.css' %}">
-<link rel="stylesheet" href="{% static 'css/home/dashboards.css' %}">
+<link rel="stylesheet" href="{% static 'css/core/_variables.css' %}">
+<link rel="stylesheet" href="{% static 'css/core/_reset.css' %}">
+<link rel="stylesheet" href="{% static 'css/components/summary-card.css' %}">
+<link rel="stylesheet" href="{% static 'css/components/dashboard-components.css' %}">
+<link rel="stylesheet" href="{% static 'css/layouts/home-layout.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/dashboard.css' %}">
 {% endblock %}
 
 {% block content %}
 <section class="dashboard-cards">
   
   <!-- CARD 1 - PATRIMÔNIO -->
-  <div class="summary-card blue">
-    <div class="card-header">
-      <span>Patrimônio Total</span>
-      <span class="icon">📈</span>
+  <div class="summary-card summary-card--primary">
+    <div class="summary-card-header">
+      <span class="summary-card-title">Patrimônio Total</span>
+      <span class="summary-card-icon">📈</span>
     </div>
-    <h2>R$ {{ total_patrimonio|floatformat:2|intcomma }}</h2>
+    <div class="summary-card-value">R$ {{ total_patrimonio|floatformat:2|intcomma }}</div>
     
-    <div class="card-details">
-      <div>
-        <small>Investido</small>
-        <strong class="positive">R$ {{ total_investido|floatformat:2|intcomma }}</strong>
+    <div class="summary-card-details">
+      <div class="summary-card-detail">
+        <span class="summary-card-detail-label">Investido</span>
+        <strong class="summary-card-detail-value text-positive">R$ {{ total_investido|floatformat:2|intcomma }}</strong>
       </div>
       
-      <div>
-        <small>Dívida Cartões</small>
-        <strong class="negative">R$ {{ debito_cartoes|floatformat:2|intcomma }}</strong>
+      <div class="summary-card-detail">
+        <span class="summary-card-detail-label">Dívida Cartões</span>
+        <strong class="summary-card-detail-value text-negative">R$ {{ debito_cartoes|floatformat:2|intcomma }}</strong>
       </div>
       
-      <div>
-        <small>Saldo Disponível</small>
-        <strong class="positive">R$ {{ saldo_atual|floatformat:2|intcomma }}</strong>
+      <div class="summary-card-detail">
+        <span class="summary-card-detail-label">Saldo Disponível</span>
+        <strong class="summary-card-detail-value text-positive">R$ {{ saldo_atual|floatformat:2|intcomma }}</strong>
       </div>
     </div>
   </div>
   
   <!-- CARD 2 - RECEITAS -->
-  <div class="summary-card green">
-    <div class="card-header">
-      <span>Total de Receitas</span>
-      <span class="icon">💰</span>
+  <div class="summary-card summary-card--success">
+    <div class="summary-card-header">
+      <span class="summary-card-title">Total de Receitas</span>
+      <span class="summary-card-icon">💰</span>
     </div>
-    <h2>R$ {{ entradas_mes|floatformat:2|intcomma }}</h2>
+    <div class="summary-card-value">R$ {{ entradas_mes|floatformat:2|intcomma }}</div>
     
-    <div class="card-details">
-      <div>
-        <small>Mês Anterior</small>
+    <div class="summary-card-details">
+      <div class="summary-card-detail">
+        <span class="summary-card-detail-label">Mês Anterior</span>
         {% if tem_historico_anterior %}
-          <strong class="neutral">R$ {{ entradas_mes_anterior|floatformat:2|intcomma }}</strong>
+          <strong class="summary-card-detail-value text-neutral">R$ {{ entradas_mes_anterior|floatformat:2|intcomma }}</strong>
         {% else %}
-          <strong class="neutral" style="font-size: 0.9em;">Sem histórico</strong>
+          <strong class="summary-card-detail-value text-neutral" style="font-size: 0.9em;">Sem histórico</strong>
         {% endif %}
       </div>
 
-      <div>
-        <small>Variação</small>
+      <div class="summary-card-detail">
+        <span class="summary-card-detail-label">Variação</span>
         {% if tem_historico_anterior and entradas_mes_anterior > 0 %}
-          <strong class="{% if variacao_receitas >= 0 %}positive{% else %}negative{% endif %}">
+          <strong class="summary-card-detail-value {% if variacao_receitas >= 0 %}text-positive{% else %}text-negative{% endif %}">
             {{ variacao_receitas|floatformat:1 }}%
           </strong>
         {% else %}
-          <strong class="neutral" style="font-size: 0.9em;">Nova</strong>
+          <strong class="summary-card-detail-value text-neutral" style="font-size: 0.9em;">Nova</strong>
         {% endif %}
       </div>
     </div>
   </div>
   
   <!-- CARD 3 - DESPESAS -->
-  <div class="summary-card red">
-    <div class="card-header">
-      <span>Total de Despesas</span>
-      <span class="icon">💸</span>
+  <div class="summary-card summary-card--danger">
+    <div class="summary-card-header">
+      <span class="summary-card-title">Total de Despesas</span>
+      <span class="summary-card-icon">💸</span>
     </div>
-    <h2>R$ {{ saidas_mes|floatformat:2|intcomma }}</h2>
+    <div class="summary-card-value">R$ {{ saidas_mes|floatformat:2|intcomma }}</div>
     
-    <div class="card-details">
-      <div>
-        <small>Mês Anterior</small>
+    <div class="summary-card-details">
+      <div class="summary-card-detail">
+        <span class="summary-card-detail-label">Mês Anterior</span>
         {% if tem_historico_anterior %}
-          <strong class="neutral">R$ {{ saidas_mes_anterior|floatformat:2|intcomma }}</strong>
+          <strong class="summary-card-detail-value text-neutral">R$ {{ saidas_mes_anterior|floatformat:2|intcomma }}</strong>
         {% else %}
-          <strong class="neutral" style="font-size: 0.9em;">Sem histórico</strong>
+          <strong class="summary-card-detail-value text-neutral" style="font-size: 0.9em;">Sem histórico</strong>
         {% endif %}
       </div>
 
-      <div>
-        <small>Orçado</small>
+      <div class="summary-card-detail">
+        <span class="summary-card-detail-label">Orçado</span>
         {% if orcamento_mes > 0 %}
-          <strong class="neutral">R$ {{ orcamento_mes|floatformat:2|intcomma }}</strong>
+          <strong class="summary-card-detail-value text-neutral">R$ {{ orcamento_mes|floatformat:2|intcomma }}</strong>
         {% else %}
-          <strong class="neutral" style="font-size: 0.9em;">Sem orçamento</strong>
+          <strong class="summary-card-detail-value text-neutral" style="font-size: 0.9em;">Sem orçamento</strong>
         {% endif %}
       </div>
     </div>
@@ -98,8 +103,8 @@
 </section>
 
 <!-- DASHBOARDS SECTION -->
-<section class="dashboards-section">
-  <h2 class="dashboards-title">📊 Dashboards Financeiros</h2>
+<section class="dashboard-section">
+  <h2 class="dashboard-title">📊 Dashboards Financeiros</h2>
 
   <div class="dashboard-grid">
     <!-- Dashboard: Gastos por Cartão -->
@@ -109,24 +114,32 @@
       </div>
 
       <div class="dashboard-controls">
-        <div>
-          <label>Data Inicial</label>
-          <input type="date" id="card-start-date" class="dashboard-input">
+        <div class="dashboard-control-group">
+          <label class="dashboard-control-label">Data Inicial</label>
+          <input type="date" id="card-start-date-home" class="dashboard-input">
         </div>
-        <div>
-          <label>Data Final</label>
-          <input type="date" id="card-end-date" class="dashboard-input">
+        <div class="dashboard-control-group">
+          <label class="dashboard-control-label">Data Final</label>
+          <input type="date" id="card-end-date-home" class="dashboard-input">
         </div>
-        <button class="btn-small" onclick="loadCardExpensesHome()">Carregar</button>
+        <div class="dashboard-control-actions">
+          <button class="btn-control" onclick="loadCardExpensesHome()">Carregar</button>
+        </div>
       </div>
 
-      <div id="card-error-home" class="dashboard-error"></div>
-      <div id="card-loading-home" class="chart-loading">Carregando...</div>
-      <div class="chart-container-home">
-        <canvas id="cardChartHome"></canvas>
-      </div>
-      <div id="card-total-home" class="dashboard-total" style="display: none;">
-        Total: <span class="dashboard-total-value" id="card-total-value-home">R$ 0,00</span>
+      <div class="dashboard-widget-content">
+        <div id="card-error-home" class="chart-error"></div>
+        <div id="card-loading-home" class="chart-loading">
+          <div class="chart-loading-spinner"></div>
+          <span class="chart-loading-text">Carregando...</span>
+        </div>
+        <div class="chart-container">
+          <canvas id="cardChartHome"></canvas>
+        </div>
+        <div id="card-total-home" class="dashboard-total" style="display: none;">
+          <span class="dashboard-total-label">Total:</span>
+          <span class="dashboard-total-value" id="card-total-value-home">R$ 0,00</span>
+        </div>
       </div>
     </div>
 
@@ -137,31 +150,39 @@
       </div>
 
       <div class="dashboard-controls">
-        <div>
-          <label>Data Inicial</label>
-          <input type="date" id="category-start-date" class="dashboard-input">
+        <div class="dashboard-control-group">
+          <label class="dashboard-control-label">Data Inicial</label>
+          <input type="date" id="category-start-date-home" class="dashboard-input">
         </div>
-        <div>
-          <label>Data Final</label>
-          <input type="date" id="category-end-date" class="dashboard-input">
+        <div class="dashboard-control-group">
+          <label class="dashboard-control-label">Data Final</label>
+          <input type="date" id="category-end-date-home" class="dashboard-input">
         </div>
         <div class="toggle-wrapper">
-          <label>Incluir Pendentes</label>
+          <label class="dashboard-control-label">Incluir Pendentes</label>
           <label class="toggle-switch">
             <input type="checkbox" id="category-include-pending-home">
             <span class="toggle-slider"></span>
           </label>
         </div>
-        <button class="btn-small" onclick="loadCategoryExpensesHome()">Carregar</button>
+        <div class="dashboard-control-actions">
+          <button class="btn-control" onclick="loadCategoryExpensesHome()">Carregar</button>
+        </div>
       </div>
 
-      <div id="category-error-home" class="dashboard-error"></div>
-      <div id="category-loading-home" class="chart-loading">Carregando...</div>
-      <div class="chart-container-home">
-        <canvas id="categoryChartHome"></canvas>
-      </div>
-      <div id="category-total-home" class="dashboard-total" style="display: none;">
-        Total: <span class="dashboard-total-value" id="category-total-value-home">R$ 0,00</span>
+      <div class="dashboard-widget-content">
+        <div id="category-error-home" class="chart-error"></div>
+        <div id="category-loading-home" class="chart-loading">
+          <div class="chart-loading-spinner"></div>
+          <span class="chart-loading-text">Carregando...</span>
+        </div>
+        <div class="chart-container">
+          <canvas id="categoryChartHome"></canvas>
+        </div>
+        <div id="category-total-home" class="dashboard-total" style="display: none;">
+          <span class="dashboard-total-label">Total:</span>
+          <span class="dashboard-total-value" id="category-total-value-home">R$ 0,00</span>
+        </div>
       </div>
     </div>
 
@@ -172,17 +193,24 @@
       </div>
 
       <div class="dashboard-controls">
-        <div>
-          <label>Ano</label>
-          <input type="number" id="cash-flow-year-home" min="2020" class="dashboard-input" style="width: 100px;">
+        <div class="dashboard-control-group">
+          <label class="dashboard-control-label">Ano</label>
+          <input type="number" id="cash-flow-year-home" min="2020" class="dashboard-input" style="width: 120px;">
         </div>
-        <button class="btn-small" onclick="loadCashFlowHome()">Carregar</button>
+        <div class="dashboard-control-actions">
+          <button class="btn-control" onclick="loadCashFlowHome()">Carregar</button>
+        </div>
       </div>
 
-      <div id="cash-flow-error-home" class="dashboard-error"></div>
-      <div id="cash-flow-loading-home" class="chart-loading">Carregando...</div>
-      <div class="chart-container-home" style="height: 320px;">
-        <canvas id="cashFlowChartHome"></canvas>
+      <div class="dashboard-widget-content">
+        <div id="cash-flow-error-home" class="chart-error"></div>
+        <div id="cash-flow-loading-home" class="chart-loading">
+          <div class="chart-loading-spinner"></div>
+          <span class="chart-loading-text">Carregando...</span>
+        </div>
+        <div class="chart-container chart-container--lg">
+          <canvas id="cashFlowChartHome"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -192,4 +220,29 @@
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script src="{% static 'js/home/dashboards.js' %}"></script>
+<script>
+  // Definir datas padrão (últimos 30 dias) para a home
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const thirtyDaysAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
+    
+    // Configurar datas padrão
+    const cardStartDate = document.getElementById('card-start-date-home');
+    const cardEndDate = document.getElementById('card-end-date-home');
+    const categoryStartDate = document.getElementById('category-start-date-home');
+    const categoryEndDate = document.getElementById('category-end-date-home');
+    const cashFlowYear = document.getElementById('cash-flow-year-home');
+    
+    if (cardStartDate) cardStartDate.valueAsDate = thirtyDaysAgo;
+    if (cardEndDate) cardEndDate.valueAsDate = today;
+    if (categoryStartDate) categoryStartDate.valueAsDate = thirtyDaysAgo;
+    if (categoryEndDate) categoryEndDate.valueAsDate = today;
+    if (cashFlowYear) cashFlowYear.value = today.getFullYear();
+    
+    // Carregar dashboards na home
+    if (typeof loadCardExpensesHome === 'function') loadCardExpensesHome();
+    if (typeof loadCategoryExpensesHome === 'function') loadCategoryExpensesHome();
+    if (typeof loadCashFlowHome === 'function') loadCashFlowHome();
+  });
+</script>
 {% endblock %}
