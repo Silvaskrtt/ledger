@@ -6,161 +6,204 @@
 {% block title %}Gerenciar Categorias e Tags - Ledger{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/categories_management/categories_management.css' %}">
+<link rel="stylesheet" href="{% static 'css/vendors/tom-select-custom.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/categories_management.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-<div class="container-categories">
-    
-    <!-- Cabeçalho -->
-    <div class="header-row">
-        <h2>Gerenciar Categorias e Tags</h2>
-    </div>
-
-    <!-- Abas -->
-    <div class="tabs">
-        <button class="tab-btn active" data-tab="categories">
-            <i class="fas fa-tags"></i> Categorias
-        </button>
-        <button class="tab-btn" data-tab="tags">
-            <i class="fas fa-hashtag"></i> Tags
-        </button>
-    </div>
-
-    <!-- Conteúdo das Abas -->
-    <div class="tab-content">
-        
-        <!-- TAB CATEGORIAS -->
-        <div id="categories-tab" class="tab-pane active">
-            <!-- Formulário de adição de categoria -->
-            <div class="add-section-card">
-                <div class="add-title">
-                    <i class="fa-solid fa-plus"></i> Adicionar Nova Categoria
-                </div>
-                
-                <form id="add-category-form" class="inline-form">
-                    <div class="input-group">
-                        <input type="text" id="category-name" placeholder="Nome da categoria" required>
-                    </div>
-
-                    <div class="input-group">
-                        <select id="category-type" required>
-                            <option value="">Selecione o tipo</option>
-                            <option value="OUT">Despesa</option>
-                            <option value="IN">Receita</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <input type="color" id="category-color" value="#3B82F6" title="Escolha uma cor">
-                    </div>
-
-                    <div class="input-group icon-picker">
-                        <div class="icon-picker-wrapper">
-                            <div class="icon-preview">
-                                <i class="fa-solid fa-shopping-cart" id="icon-preview"></i>
-                            </div>
-                            <input type="text" 
-                                id="category-icon" 
-                                placeholder="Ícone (ex: shopping-cart)"
-                                value="shopping-cart"
-                                list="icon-suggestions">
-                            <button type="button" class="btn-icon-picker" id="open-icon-modal">
-                                <i class="fa-solid fa-list"></i>
-                            </button>
-                        </div>
-                        <datalist id="icon-suggestions">
-                            <option value="shopping-cart">
-                            <option value="home">
-                            <option value="car">
-                            <option value="utensils">
-                            <option value="heart">
-                            <option value="graduation-cap">
-                            <option value="plane">
-                            <option value="gift">
-                            <option value="coffee">
-                            <option value="film">
-                            <option value="music">
-                            <option value="book">
-                            <option value="dumbbell">
-                            <option value="briefcase">
-                            <option value="receipt">
-                            <option value="credit-card">
-                            <option value="wallet">
-                            <option value="money-bill-wave">
-                        </datalist>
-                    </div>
-
-                    <div class="input-group">
-                        <select id="category-parent">
-                            <option value="">Sem categoria pai</option>
-                            <!-- Será preenchido via JavaScript -->
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-add-dark">
-                        <i class="fa-solid fa-plus"></i> Adicionar Categoria
-                    </button>
-                </form>
+<div class="main-content">
+    <div class="content-wrapper">
+        <div class="container-categories">
+            
+            <!-- Cabeçalho -->
+            <div class="header-row">
+                <h2><i class="fas fa-tags"></i> Gerenciar Categorias e Tags</h2>
             </div>
 
-            <!-- Lista de categorias -->
-            <div class="list-header">
-                <h3>Minhas Categorias</h3>
-                <button class="btn-show-hidden" id="toggle-hidden-categories">
-                    <i class="fa-solid fa-eye"></i> Mostrar Ocultas (<span id="hidden-count">0</span>)
+            <!-- Abas -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="categories">
+                    <i class="fas fa-tags"></i> Categorias
+                </button>
+                <button class="tab-btn" data-tab="tags">
+                    <i class="fas fa-hashtag"></i> Tags
                 </button>
             </div>
 
-            <div id="categories-list" class="category-list">
-                <div class="loading">Carregando categorias...</div>
-            </div>
-        </div>
-
-        <!-- TAB TAGS -->
-        <div id="tags-tab" class="tab-pane">
-            <!-- Formulário de adição de tag -->
-            <div class="add-section-card">
-                <div class="add-title">
-                    <i class="fa-solid fa-plus"></i> Adicionar Nova Tag
-                </div>
+            <!-- Conteúdo das Abas -->
+            <div class="tab-content">
                 
-                <form id="add-tag-form" class="inline-form">
-                    <div class="input-group">
-                        <input type="text" id="tag-name" placeholder="Nome da tag" required>
+                <!-- TAB CATEGORIAS -->
+                <div id="categories-tab" class="tab-pane active">
+                    <!-- Formulário de adição de categoria -->
+                    <div class="add-section-card">
+                        <div class="add-title">
+                            <i class="fa-solid fa-plus"></i> Adicionar Nova Categoria
+                        </div>
+                        
+                        <form id="add-category-form" class="inline-form">
+                            <div class="input-group">
+                                <input type="text" 
+                                       id="category-name" 
+                                       placeholder="Nome da categoria" 
+                                       required
+                                       class="modal-content input">
+                            </div>
+
+                            <div class="input-group">
+                                <select id="category-type" required class="modal-content select">
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="OUT">Despesa</option>
+                                    <option value="IN">Receita</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="color" 
+                                       id="category-color" 
+                                       value="#3B82F6" 
+                                       title="Escolha uma cor"
+                                       class="color-input">
+                            </div>
+
+                            <div class="input-group icon-picker">
+                                <div class="icon-picker-wrapper">
+                                    <div class="icon-preview">
+                                        <i class="fa-solid fa-shopping-cart" id="icon-preview"></i>
+                                    </div>
+                                    <input type="text" 
+                                        id="category-icon" 
+                                        placeholder="Ícone (ex: shopping-cart)"
+                                        value="shopping-cart"
+                                        list="icon-suggestions"
+                                        class="modal-content input">
+                                    <button type="button" class="btn-icon-picker" id="open-icon-modal">
+                                        <i class="fa-solid fa-list"></i>
+                                    </button>
+                                </div>
+                                <datalist id="icon-suggestions">
+                                    <option value="shopping-cart">
+                                    <option value="home">
+                                    <option value="car">
+                                    <option value="utensils">
+                                    <option value="heart">
+                                    <option value="graduation-cap">
+                                    <option value="plane">
+                                    <option value="gift">
+                                    <option value="coffee">
+                                    <option value="film">
+                                    <option value="music">
+                                    <option value="book">
+                                    <option value="dumbbell">
+                                    <option value="briefcase">
+                                    <option value="receipt">
+                                    <option value="credit-card">
+                                    <option value="wallet">
+                                    <option value="money-bill-wave">
+                                </datalist>
+                            </div>
+
+                            <div class="input-group">
+                                <select id="category-parent" class="modal-content select">
+                                    <option value="">Sem categoria pai</option>
+                                    <!-- Será preenchido via JavaScript -->
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn-add-dark">
+                                <i class="fa-solid fa-plus"></i> Adicionar Categoria
+                            </button>
+                        </form>
                     </div>
 
-                    <div class="input-group">
-                        <input type="color" id="tag-color" value="#6B7280" title="Escolha uma cor">
+                    <!-- Lista de categorias -->
+                    <div class="list-header">
+                        <h3>Minhas Categorias</h3>
+                        <button class="btn-show-hidden" id="toggle-hidden-categories">
+                            <i class="fa-solid fa-eye"></i> Mostrar Ocultas (<span id="hidden-count">0</span>)
+                        </button>
                     </div>
 
-                    <button type="submit" class="btn-add-dark">
-                        <i class="fa-solid fa-plus"></i> Adicionar Tag
-                    </button>
-                </form>
-            </div>
+                    <div id="categories-list" class="category-list">
+                        <div class="loading">
+                            <i class="fas fa-spinner fa-spin"></i> Carregando categorias...
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Lista de tags -->
-            <div class="list-header">
-                <h3>Minhas Tags</h3>
-                <div class="tags-stats">
-                    <span id="tags-count">0 tags</span>
+                <!-- TAB TAGS -->
+                <div id="tags-tab" class="tab-pane">
+                    <!-- Formulário de adição de tag -->
+                    <div class="add-section-card">
+                        <div class="add-title">
+                            <i class="fa-solid fa-plus"></i> Adicionar Nova Tag
+                        </div>
+                        
+                        <form id="add-tag-form" class="inline-form">
+                            <div class="input-group">
+                                <input type="text" 
+                                       id="tag-name" 
+                                       placeholder="Nome da tag" 
+                                       required
+                                       class="modal-content input">
+                            </div>
+
+                            <div class="input-group">
+                                <input type="color" 
+                                       id="tag-color" 
+                                       value="#6B7280" 
+                                       title="Escolha uma cor"
+                                       class="color-input">
+                            </div>
+
+                            <button type="submit" class="btn-add-dark">
+                                <i class="fa-solid fa-plus"></i> Adicionar Tag
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Lista de tags -->
+                    <div class="list-header">
+                        <h3>Minhas Tags</h3>
+                        <div class="tags-stats">
+                            <span id="tags-count">0 tags</span>
+                        </div>
+                    </div>
+
+                    <div id="tags-list" class="tags-grid">
+                        <div class="loading">
+                            <i class="fas fa-spinner fa-spin"></i> Carregando tags...
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div id="tags-list" class="tags-grid">
-                <div class="loading">Carregando tags...</div>
-            </div>
         </div>
     </div>
-
 </div>
 
 <!-- Modal de seleção de ícones -->
 <div id="icon-modal" class="modal">
-    <!-- Modal será preenchido pelo JavaScript -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-icons"></i> Selecione um Ícone</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="icon-search">
+                <input type="text" placeholder="Buscar ícones..." id="icon-search">
+            </div>
+            <div class="icons-grid" id="icons-grid">
+                <!-- Ícones serão carregados via JavaScript -->
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel">Cancelar</button>
+            <button class="btn-confirm">Confirmar</button>
+        </div>
+    </div>
 </div>
 
 <!-- Template para categoria -->
@@ -219,9 +262,37 @@
         </div>
     </div>
 </template>
-{% endblock %}
 
-{% block extra_js %}
+<!-- Template para estado vazio -->
+<template id="empty-template">
+    <div class="empty-state">
+        <i class="fas fa-inbox"></i>
+        <h3>Nenhum item encontrado</h3>
+        <p>Comece adicionando sua primeira categoria ou tag!</p>
+    </div>
+</template>
+
+<!-- Template para estado de erro -->
+<template id="error-template">
+    <div class="empty-state error">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h3>Erro ao carregar</h3>
+        <p>Ocorreu um problema ao buscar os itens. Tente novamente.</p>
+        <button class="retry-btn">
+            <i class="fas fa-redo"></i> Tentar Novamente
+        </button>
+    </div>
+</template>
+
+<!-- Template para grupo de categorias -->
+<template id="group-template">
+    <div class="group-title" data-type="">
+        <i class="fas fa-folder"></i>
+        <span class="group-name"></span>
+        <span class="group-count">(0 itens)</span>
+    </div>
+</template>
+
 <script src="{% static 'js/categories_management/categories_management.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
 {% endblock %}
