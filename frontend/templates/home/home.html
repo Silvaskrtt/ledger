@@ -5,15 +5,16 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/core/_variables.css' %}">
 <link rel="stylesheet" href="{% static 'css/core/_reset.css' %}">
-<link rel="stylesheet" href="{% static 'css/components/summary-card.css' %}">
-<link rel="stylesheet" href="{% static 'css/components/dashboard-components.css' %}">
+<link rel="stylesheet" href="{% static 'css/components/_dashboard/_summary-card.css' %}">
+<link rel="stylesheet" href="{% static 'css/components/_dashboard/_dashboard-components.css' %}">
 <link rel="stylesheet" href="{% static 'css/layouts/home-layout.css' %}">
 <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
 <link rel="stylesheet" href="{% static 'css/pages/dashboard.css' %}">
 {% endblock %}
 
 {% block content %}
-<section class="dashboard-cards">
+<div class="centered-content">
+<section class="dashboard-cards centered-grid">
   
   <!-- CARD 1 - PATRIMÔNIO -->
   <div class="summary-card summary-card--primary">
@@ -103,10 +104,10 @@
 </section>
 
 <!-- DASHBOARDS SECTION -->
-<section class="dashboard-section">
+<section class="dashboard-section centered-content">
   <h2 class="dashboard-title">📊 Dashboards Financeiros</h2>
 
-  <div class="dashboard-grid">
+  <div class="dashboard-grid centered-grid">
     <!-- Dashboard: Gastos por Cartão -->
     <div class="dashboard-widget">
       <div class="dashboard-widget-header">
