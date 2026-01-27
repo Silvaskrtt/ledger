@@ -1,0 +1,134 @@
+/* frontend/static/css/core/_base.css */
+:root {
+    /* Variáveis de cores - unificar as existentes */
+    --color-primary: #500BD9;
+    --color-secondary: #6b7280;
+    --color-success: #4CAF50;
+    --color-danger: #dc2626;
+    --color-warning: #f59e0b;
+    
+    /* Espaçamentos consistentes */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* Tipografia */
+    --font-family: 'Lexend', sans-serif;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    
+    /* Bordas */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+
+/* Reset unificado - remove duplicação do global.css e reset.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--body-color, #f5f7fa);
+    color: var(--text-color, #333);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Container principal */
+.app-with-sidebar {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Conteúdo principal centralizado e responsivo */
+.main-content {
+    flex: 1;
+    min-height: 100vh;
+    transition: all var(--transition-base, 0.3s ease);
+    padding: var(--spacing-xl, 2rem);
+    margin-top: var(--header-height, 60px);
+    overflow-x: hidden;
+    position: relative;
+    /* Adicione estas propriedades para centralizar: */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    width: 100%;
+}
+
+/* Quando sidebar está aberta */
+.sidebar.open ~ .main-content,
+.sidebar.show-sidebar ~ .main-content {
+    margin-left: var(--sidebar-width-open, 250px);
+    width: calc(100% - var(--sidebar-width-open, 250px));
+    /* Mantém centralizado mesmo com sidebar */
+    align-items: center;
+}
+
+/* Quando sidebar está recolhida */
+.sidebar.collapsed ~ .main-content,
+.sidebar.reduced ~ .main-content {
+    margin-left: var(--sidebar-width-collapsed, 78px);
+    width: calc(100% - var(--sidebar-width-collapsed, 78px));
+    /* Mantém centralizado mesmo com sidebar */
+    align-items: center;
+}
+
+/* Container interno para o conteúdo */
+.main-content .content-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Largura máxima para o conteúdo */
+    margin: 0 auto; /* Centraliza o wrapper */
+}
+
+/* Unificar estilos de botões duplicados */
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-family: var(--font-family);
+}
+
+.btn-primary:hover {
+    background: #4009b0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(80, 11, 217, 0.3);
+}
+
+.btn-secondary {
+    background: #f5f5f5;
+    color: #666;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-family: var(--font-family);
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    color: #333;
+}

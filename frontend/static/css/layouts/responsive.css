@@ -1,0 +1,119 @@
+/* =============== MEDIA QUERIES OTIMIZADAS =============== */
+
+/* 1. Dispositivos muito pequenos (smartphones pequenos) */
+@media (max-width: 360px) {
+    :root {
+        --header-height: 50px;
+        --sidebar-width-open: 240px;
+    }
+    
+    .header-content {
+        padding: 0 12px;
+    }
+    
+    .sidebar-toggle-btn {
+        min-width: 40px;
+        min-height: 40px;
+        margin-right: 8px;
+    }
+    
+    .logo-text {
+        font-size: 0.85rem;
+    }
+    
+    .main-content {
+        padding: 12px;
+    }
+}
+
+/* 2. Smartphones (vertical) */
+@media (max-width: 480px) {
+    :root {
+        --sidebar-width-open: 85vw; /* Usa viewport width */
+    }
+    
+    .main-content {
+        padding: var(--spacing-md);
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Sidebar sobreposta em mobile com animação suave */
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: var(--z-sidebar);
+        top: var(--header-height);
+        height: calc(100vh - var(--header-height));
+        width: 85vw !important;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    /* Overlay para fechar sidebar */
+    .sidebar-overlay {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: calc(var(--z-sidebar) - 1);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-fast);
+    }
+    
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* ... (restante das media queries mantém mesma estrutura) ... */
+
+/* 9. Impressão */
+@media print {
+    .main-header,
+    .sidebar,
+    .sidebar-toggle-btn {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin: 0 !important;
+        padding: 20px !important;
+        width: 100% !important;
+    }
+}
+
+/* 10. Acessibilidade - Modo alto contraste */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: #ffffff;
+        --color-text-gray: #cccccc;
+    }
+    
+    .sidebar-toggle-btn {
+        outline-width: 3px;
+    }
+}
+
+/* 11. Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .sidebar,
+    .main-content {
+        transition: none !important;
+    }
+}

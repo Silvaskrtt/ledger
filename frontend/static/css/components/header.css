@@ -1,0 +1,69 @@
+/*=============== HEADER ===============*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    margin: .75rem;
+}
+
+.header__container {
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--body-color);
+    box-shadow: 0 2px 24px var(--shadow-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1.5rem;
+    border-radius: 1rem;
+    transition: background-color var(--transition-base);
+}
+
+.header__logo {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .25rem;
+}
+
+.header__logo i {
+    font-size: 1.5rem;
+    color: var(--first-color);
+}
+
+.header__logo span {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+.header__toggle {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: transform var(--transition-base);
+}
+
+.header__toggle:hover {
+    transform: scale(1.1);
+}
+
+.header__toggle i.ri-arrow-left-line,
+.header__toggle i.ri-arrow-right-line {
+    transition: transform 0.3s ease;
+}
+
+.header__toggle:hover i.ri-arrow-left-line {
+    transform: translateX(-2px);
+}
+
+.header__toggle:hover i.ri-arrow-right-line {
+    transform: translateX(2px);
+}
+
+/* For small devices */
+@media screen and (max-width: 360px) {
+    .header__container {
+        padding-inline: 1rem;
+    }
+}

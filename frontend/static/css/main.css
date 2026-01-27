@@ -1,0 +1,6 @@
+/* frontend/static/css/main.css */
+
+/* Importar componentes do sidebar */
+@import './components/sidebar-toggle.css';
+@import './components/sidebar.css';
+@import './layouts/sidebar-layout.css';

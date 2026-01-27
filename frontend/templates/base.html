@@ -11,21 +11,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
     
     <!-- CSS Core -->
-    <link rel="stylesheet" href="{% static 'css/core/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/core/variables.css' %}">
-    <link rel="stylesheet" href="{% static 'css/core/typography.css' %}">
-    
-    <!-- CSS Components Bedimcode -->
-    <link rel="stylesheet" href="{% static 'css/components/bedimcode/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/bedimcode/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/bedimcode/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/_base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/_reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/_typography.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/_utilities.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/_variables.css' %}">
+
+    <!-- CSS Components -->
+    <link rel="stylesheet" href="{% static 'css/components/_buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_cards.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_chart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_modal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_toggle.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/components/_widget.css' %}">
+
+    <!-- Sidebar Components -->
+    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar-toggle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar-utils.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/pages/transaction_manager.css' %}">
+
+    <!-- Layouts -->
+    <link rel="stylesheet" href="{% static 'css/layouts/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/sidebar-layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/features.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/global-layout.css' %}">
     
     <!-- Utilitários -->
     <link rel="stylesheet" href="{% static 'css/components/utilities.css' %}">
     
     <!-- Bibliotecas Externas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
-    <link rel="stylesheet" href="{% static 'css/custom/tom-select-custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendors/tom-select-custom.css' %}">
     
     {% block extra_css %}{% endblock %}
 </head>
@@ -34,7 +58,7 @@
     {% csrf_token %}
     
     <!-- APP Container -->
-    <div id="app">
+    <div id="app" class="app-container">
         <!-- Header Bedimcode -->
         {% include 'components/header.html' %}
         
@@ -42,8 +66,10 @@
         {% include 'components/sidebar.html' %}
         
         <!-- Main Content -->
-        <main class="main container" id="main-content">
-            {% block content %}{% endblock %}
+        <main class="main-content" id="main-content">
+            <div class="content-wrapper">
+                {% block content %}{% endblock %}
+            </div>
         </main>
         
         <!-- Alerta Global -->

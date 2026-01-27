@@ -1,0 +1,351 @@
+/* frontend/static/css/components/_tomselect.css */
+
+/**
+ * Componente TomSelect Padronizado
+ * Baseado no sistema de variáveis unificado
+ */
+
+/* ============================================
+   CONTAINER PRINCIPAL
+   ============================================ */
+
+.tom-select {
+    width: 100%;
+    font-family: var(--font-family) !important;
+}
+
+.ts-wrapper {
+    width: 100% !important;
+    position: relative;
+}
+
+/* ============================================
+   CONTROLE (INPUT)
+   ============================================ */
+
+.ts-control {
+    width: 100% !important;
+    font-family: var(--font-family) !important;
+    font-size: var(--font-size-sm) !important;
+    border: 1px solid var(--color-border-input) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: var(--spacing-sm) var(--spacing-md) !important;
+    min-height: 44px !important;
+    background: var(--color-bg-card) !important;
+    box-shadow: none !important;
+    color: var(--color-text-primary) !important;
+    transition: all var(--transition-base) !important;
+    line-height: 1.6 !important;
+}
+
+/* Estados */
+.ts-control.focus {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 3px rgba(80, 11, 217, 0.1) !important;
+    outline: none !important;
+}
+
+.ts-control.disabled {
+    background: var(--color-bg-light) !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+}
+
+.ts-control.has-items {
+    padding: var(--spacing-xs) var(--spacing-sm) !important;
+}
+
+/* Placeholder */
+.ts-control .placeholder {
+    color: var(--color-text-tertiary) !important;
+    font-style: normal !important;
+    opacity: 0.7 !important;
+}
+
+/* ============================================
+   DROPDOWN
+   ============================================ */
+
+.ts-dropdown {
+    border: 1px solid var(--color-border-light) !important;
+    border-radius: var(--border-radius-sm) !important;
+    margin-top: var(--spacing-xs) !important;
+    background: var(--color-bg-card) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    z-index: var(--z-dropdown) !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+}
+
+.ts-dropdown .option {
+    padding: var(--spacing-sm) var(--spacing-md) !important;
+    font-size: var(--font-size-sm) !important;
+    color: var(--color-text-primary) !important;
+    background: transparent !important;
+    transition: all var(--transition-fast) !important;
+    cursor: pointer !important;
+}
+
+.ts-dropdown .option:hover {
+    background: var(--color-bg-light) !important;
+    color: var(--color-primary) !important;
+}
+
+.ts-dropdown .option.active {
+    background: var(--color-primary) !important;
+    color: white !important;
+}
+
+.ts-dropdown .option.selected {
+    background: var(--color-primary) !important;
+    color: white !important;
+    font-weight: var(--font-semi-bold) !important;
+}
+
+/* Criação de nova opção */
+.ts-dropdown .create {
+    color: var(--color-primary) !important;
+    font-weight: var(--font-semi-bold) !important;
+    padding: var(--spacing-sm) var(--spacing-md) !important;
+}
+
+.ts-dropdown .create:hover {
+    background: var(--color-bg-light) !important;
+}
+
+/* ============================================
+   MULTI-SELECT (TAGS)
+   ============================================ */
+
+.ts-control.multi {
+    padding: var(--spacing-xs) !important;
+    min-height: 44px !important;
+}
+
+.ts-control .item {
+    background: var(--color-primary) !important;
+    color: white !important;
+    border-radius: var(--border-radius-full) !important;
+    padding: var(--spacing-xs) var(--spacing-sm) !important;
+    margin: var(--spacing-xs) !important;
+    font-size: var(--font-size-xs) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: var(--spacing-xs) !important;
+    border: none !important;
+    font-weight: var(--font-medium) !important;
+}
+
+.ts-control .item.active {
+    background: var(--color-primary-dark) !important;
+}
+
+.ts-control .item .remove {
+    border-left: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    padding-left: var(--spacing-xs) !important;
+    margin-left: var(--spacing-xs) !important;
+    opacity: 0.8 !important;
+    transition: opacity var(--transition-fast) !important;
+}
+
+.ts-control .item .remove:hover {
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 2px !important;
+}
+
+/* ============================================
+   INPUT INTERNO
+   ============================================ */
+
+.ts-control input {
+    background: transparent !important;
+    color: var(--color-text-primary) !important;
+    border: none !important;
+    outline: none !important;
+    font-size: var(--font-size-sm) !important;
+    font-family: var(--font-family) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ts-control input::placeholder {
+    color: var(--color-text-tertiary) !important;
+    opacity: 0.7 !important;
+}
+
+/* ============================================
+   ACESSIBILIDADE
+   ============================================ */
+
+.ts-control:focus-visible {
+    outline: 2px solid var(--color-primary) !important;
+    outline-offset: 2px !important;
+}
+
+/* Para navegação por teclado */
+.ts-dropdown [data-selectable].active:focus {
+    outline: 2px solid var(--color-primary) !important;
+    outline-offset: -2px !important;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .ts-control {
+        padding: var(--spacing-sm) !important;
+        font-size: 16px !important; /* Previne zoom no iOS */
+        min-height: 44px !important;
+    }
+
+    .ts-dropdown {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0 !important;
+        max-height: 60vh !important;
+        border: none !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .ts-dropdown .option {
+        padding: var(--spacing-md) !important;
+        font-size: var(--font-size-md) !important;
+    }
+}
+
+/* ============================================
+   CONTEXTOS ESPECÍFICOS
+   ============================================ */
+
+/* Em formulários inline */
+.inline-form .ts-control {
+    background: var(--color-bg-card) !important;
+    max-width: 300px !important;
+}
+
+/* Em modais */
+.modal .ts-control {
+    background: var(--color-bg-card) !important;
+}
+
+/* Em formulários complexos */
+.form-grid .ts-control,
+.form-row .ts-control {
+    background: var(--color-bg-card) !important;
+}
+
+/* ============================================
+   DARK THEME
+   ============================================ */
+
+[data-theme="dark"] .ts-control {
+    background: var(--color-bg-card) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .ts-dropdown {
+    background: var(--color-bg-card) !important;
+    border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .ts-dropdown .option:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .ts-control input {
+    color: var(--color-text-primary) !important;
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+
+.ts-control,
+.ts-dropdown .option,
+.ts-control .item {
+    transition: all var(--transition-fast) !important;
+}
+
+.ts-dropdown {
+    animation: dropdownFadeIn 0.2s ease !important;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   IMPRESSÃO
+   ============================================ */
+
+@media print {
+    .ts-wrapper .ts-dropdown {
+        display: none !important;
+    }
+    
+    .ts-control {
+        border: 1px solid #000 !important;
+        background: #fff !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .ts-control,
+    .ts-dropdown .option,
+    .ts-control .item,
+    .ts-dropdown {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ============================================
+   UTILITÁRIOS
+   ============================================ */
+
+/* Versão compacta para tabelas */
+.tom-select.compact .ts-control {
+    min-height: 36px !important;
+    padding: var(--spacing-xs) var(--spacing-sm) !important;
+    font-size: var(--font-size-xs) !important;
+}
+
+/* Versão grande para forms principais */
+.tom-select.large .ts-control {
+    min-height: 48px !important;
+    padding: var(--spacing-md) !important;
+    font-size: var(--font-size-md) !important;
+}
+
+/* Estado de erro */
+.tom-select.error .ts-control {
+    border-color: var(--color-error) !important;
+}
+
+.tom-select.error .ts-control:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}

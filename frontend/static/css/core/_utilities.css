@@ -1,0 +1,38 @@
+/* =============== UTILITÁRIOS RESPONSIVOS =============== */
+
+/* Container fluido */
+.responsive-container {
+    width: 100%;
+    padding-right: clamp(12px, 3vw, 20px);
+    padding-left: clamp(12px, 3vw, 20px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Grid responsivo */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: clamp(12px, 3vw, 24px);
+}
+
+/* Texto responsivo */
+.responsive-text-sm {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+}
+
+.responsive-text-md {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+}
+
+.responsive-text-lg {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+}
+
+/* Botões responsivos */
+.responsive-button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}

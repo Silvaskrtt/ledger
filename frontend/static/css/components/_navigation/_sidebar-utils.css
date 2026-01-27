@@ -1,0 +1,111 @@
+/* =============== SIDEBAR UTILITIES =============== */
+
+/* Animation classes */
+.sidebar-enter {
+    animation: sidebarSlideIn 0.3s ease forwards;
+}
+
+.sidebar-exit {
+    animation: sidebarSlideOut 0.3s ease forwards;
+}
+
+@keyframes sidebarSlideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes sidebarSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* State indicators */
+.sidebar--open {
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar--collapsed {
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge in sidebar */
+.sidebar__badge {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-primary, #500BD9);
+    color: white;
+    font-size: 0.625rem;
+    font-weight: var(--font-bold, 700);
+    padding: 0.125rem 0.375rem;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Nested menu items */
+.sidebar__sublist {
+    padding-left: 2.5rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.sidebar__link.has-children.active + .sidebar__sublist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sidebar__sublink {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-xs, 0.75rem);
+}
+
+/* Divider in sidebar */
+.sidebar__divider {
+    height: 1px;
+    background: var(--color-border-light, #e2e8f0);
+    margin: 1rem 1.5rem;
+}
+
+/* Compact sidebar variant */
+.sidebar--compact .sidebar__link {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-xs, 0.75rem);
+}
+
+.sidebar--compact .sidebar__link i {
+    font-size: 1rem;
+}
+
+/* Sidebar with background image */
+.sidebar--with-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/static/images/sidebar-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.sidebar--with-bg .sidebar__link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar--with-bg .sidebar__link:hover,
+.sidebar--with-bg .sidebar__link.active-link {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}

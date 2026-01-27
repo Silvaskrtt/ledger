@@ -1,0 +1,88 @@
+/* =============== SIDEBAR TOGGLE BUTTON =============== */
+.sidebar-toggle-btn {
+    /* Base styles */
+    background: transparent;
+    border: none;
+    color: var(--color-text-white, #ffffff);
+    cursor: pointer;
+    padding: var(--spacing-sm, 0.5rem);
+    border-radius: var(--border-radius-sm, 6px);
+    transition: all var(--transition-fast, 0.2s ease);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Responsive sizing */
+    font-size: clamp(1.25rem, 5vw, 1.5rem); /* 20px-24px responsivo */
+    min-width: 44px; /* Tamanho mínimo para toque (acessibilidade) */
+    min-height: 44px;
+    width: auto;
+    height: auto;
+    aspect-ratio: 1/1; /* Mantém proporção quadrada */
+    
+    /* Spacing */
+    margin-right: var(--spacing-sm, 0.5rem);
+}
+
+/* Hover & Focus states */
+.sidebar-toggle-btn:hover,
+.sidebar-toggle-btn:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: 2px solid var(--color-primary, #500BD9);
+    outline-offset: 2px;
+}
+
+.sidebar-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+/* Icon inside toggle */
+.sidebar-toggle-btn i {
+    transition: transform var(--transition-base, 0.3s ease);
+}
+
+/* When sidebar is open */
+.sidebar-open .sidebar-toggle-btn i {
+    transform: rotate(180deg);
+}
+
+/* Acessibilidade */
+.sidebar-toggle-btn:focus-visible {
+    outline: 3px solid var(--color-primary, #500BD9);
+    outline-offset: 3px;
+}
+
+/* Variants */
+.sidebar-toggle-btn.sm {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 1.125rem; /* 18px */
+    padding: var(--spacing-xs, 0.25rem);
+}
+
+.sidebar-toggle-btn.lg {
+    min-width: 52px;
+    min-height: 52px;
+    font-size: 1.75rem; /* 28px */
+    padding: var(--spacing-md, 1rem);
+}
+
+/* For header context */
+.header .sidebar-toggle-btn {
+    margin-right: var(--spacing-md, 1rem);
+}
+
+/* Mobile optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .sidebar-toggle-btn {
+        min-width: 48px;
+        min-height: 48px;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .sidebar-toggle-btn {
+        outline-width: 3px;
+    }
+}

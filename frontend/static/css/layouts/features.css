@@ -1,0 +1,32 @@
+/* =============== SUPORTE PARA DISPOSITIVOS FOLDÁVEIS =============== */
+
+/* Microsoft Surface Duo e dispositivos com dobra */
+@media (spanning: single-fold-vertical) {
+    .main-content {
+        padding-left: env(fold-left);
+        padding-right: env(fold-right);
+    }
+}
+
+/* Samsung Galaxy Fold e similares */
+@media (max-width: 280px) {
+    :root {
+        --header-height: 45px;
+    }
+    
+    .main-content {
+        padding: 8px;
+    }
+}
+
+/* Chrome Android */
+@media screen and (display-mode: standalone) {
+    .main-header {
+        padding-top: env(safe-area-inset-top);
+        height: calc(var(--header-height) + env(safe-area-inset-top));
+    }
+    
+    .main-content {
+        margin-top: calc(var(--header-height) + env(safe-area-inset-top));
+    }
+}

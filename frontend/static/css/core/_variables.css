@@ -1,0 +1,231 @@
+/* frontend/static/css/core/_variables.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
+
+/* =============== VARIÁVEIS CSS UNIFICADAS =============== */
+:root {
+    /* =============== 1. TIPOGRAFIA =============== */
+    --font-family: 'Lexend', sans-serif;
+    --body-font: var(--font-family); /* Alias para compatibilidade */
+    
+    /* Tamanhos base */
+    --font-size-base: 16px;
+    --normal-font-size: 0.938rem;    /* ~15px */
+    --smaller-font-size: 0.75rem;    /* ~12px */
+    --tiny-font-size: 0.75rem;       /* Alias */
+    
+    /* Escala moderna */
+    --font-size-xs: 0.75rem;         /* 12px */
+    --font-size-sm: 0.875rem;        /* 14px */
+    --font-size-md: 1rem;            /* 16px */
+    --font-size-lg: 1.125rem;        /* 18px */
+    --font-size-xl: 1.25rem;         /* 20px */
+    --font-size-2xl: 1.5rem;         /* 24px */
+    
+    /* Pesos */
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+    
+    /* =============== 2. CORES PRIMÁRIAS =============== */
+    --color-primary: #500BD9;                    /* Roxo principal */
+    --color-primary-hsl: 260, 86%, 56%;         /* HSL para compatibilidade */
+    --color-primary-dark: #1d0350;               /* Roxo escuro */
+    --color-primary-light: #e9dfff;              /* Roxo claro */
+    --color-primary-soft: rgba(80, 11, 217, 0.1); /* Roxo suave */
+    
+    /* Compatibilidade com Bedimcode */
+    --first-color: var(--color-primary);
+    --first-color-dark: hsl(228, 18%, 96%);      /* Mantém original */
+    --side-bar-color-dark: hsl(260, 86%, 56%);   /* Mantém original */
+    
+    /* =============== 3. CORES SEMÂNTICAS =============== */
+    --color-success: #10b981;
+    --color-error: #ef4444;
+    --color-warning: #f59e0b;
+    --color-info: #3b82f6;
+    --color-danger: #dc2626;                     /* Alias para error */
+    
+    /* =============== 4. CORES DE TEXTO =============== */
+    --color-text-primary: hsl(228, 18%, 16%);    /* Preto quase puro */
+    --color-text-secondary: hsl(228, 8%, 56%);   /* Cinza médio */
+    --color-text-tertiary: hsl(228, 12%, 61%);   /* Cinza mais claro */
+    --color-text-white: #ffffff;
+    --color-text-gray: rgba(255, 255, 255, 0.7);
+    
+    /* Compatibilidade */
+    --title-color: var(--color-text-primary);
+    --text-color: var(--color-text-secondary);
+    
+    /* =============== 5. CORES DE FUNDO =============== */
+    --color-bg-body: hsl(228, 100%, 99%);        /* Branco azulado claro */
+    --color-bg-primary: #111111;                 /* Preto para header */
+    --color-bg-card: #ffffff;                    /* Branco para cards */
+    --color-bg-light: #f8f9fa;                   /* Cinza muito claro */
+    
+    /* Compatibilidade */
+    --body-color: var(--color-bg-body);
+    
+    /* =============== 6. CORES DE BORDA =============== */
+    --color-border: rgba(255, 255, 255, 0.1);    /* Para dark mode */
+    --color-border-light: #e2e8f0;               /* Para light mode */
+    --color-border-input: #d1d5db;               /* Para inputs */
+    
+    /* =============== 7. CORES DE SOMBRA =============== */
+    --shadow-color: hsla(228, 80%, 4%, 0.1);
+    --shadow-color-dark: hsl(245, 60%, 8%);
+    
+    /* =============== 8. LAYOUT - DIMENSÕES =============== */
+    --header-height: 60px;                       /* Desktop padrão */
+    --sidebar-width-open: 250px;                 /* Sidebar expandida */
+    --sidebar-width-closed: 78px;                /* Sidebar recolhida */
+    
+    /* Compatibilidade Bedimcode */
+    --sidebar-width: 288px;
+    --sidebar-width-collapsed: 120px;
+    
+    /* =============== 9. ESPAÇAMENTOS =============== */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+    
+    /* =============== 10. BORDAS =============== */
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 20px;
+    --border-radius-full: 9999px;
+    
+    /* =============== 11. TRANSITIONS =============== */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.4s ease;
+    --transition-very-slow: 0.5s ease;
+    
+    /* =============== 12. Z-INDEX =============== */
+    --z-negative: -1;
+    --z-normal: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-popover: 600;
+    --z-tooltip: 700;
+    --z-toast: 800;
+    --z-max: 9999;
+    
+    /* Compatibilidade */
+    --z-tooltip-compat: 10;
+    --z-fixed-compat: 100;
+
+    /* Dashboard specific variables */
+    --shadow-dashboard-widget: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-dashboard-widget-hover: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-summary-card: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+    /* Chart colors */
+    --chart-color-1: #3b82f6;
+    --chart-color-2: #ef4444;
+    --chart-color-3: #10b981;
+    --chart-color-4: #f59e0b;
+    --chart-color-5: #8b5cf6;
+    --chart-color-6: #ec4899;
+    --chart-color-7: #14b8a6;
+    --chart-color-8: #f97316;
+
+    /* Grid gaps */
+    --grid-gap-xs: var(--spacing-sm, 0.5rem);
+    --grid-gap-sm: var(--spacing-md, 1rem);
+    --grid-gap-md: var(--spacing-lg, 1.5rem);
+    --grid-gap-lg: var(--spacing-xl, 2rem);
+    --grid-gap-xl: var(--spacing-xxl, 3rem);
+
+    /* Auth specific colors */
+    --color-bg-auth-1: hsl(246, 39%, 15%);
+    --color-bg-auth-2: hsl(248, 41%, 19%);
+    --color-bg-auth-input: hsl(245, 40%, 25%);
+    --color-bg-auth-input-focus: hsl(246, 43%, 15%);
+    --color-auth-border-focus: hsl(236, 99%, 65%);
+    --color-auth-shadow: hsl(236, 54%, 28%);
+
+    /* Auth specific shadows */
+    --shadow-auth-card: 0px 15px 50px rgba(0, 0, 0, 0.35);
+    --shadow-auth-input: 0px 8px 30px rgba(0, 0, 0, 0.35);
+    --shadow-auth-button: 0px 10px 30px -10px hsl(236, 54%, 28%);
+    --shadow-auth-button-hover: 0px 15px 35px -10px hsl(236, 54%, 28%);
+}
+
+/* =============== RESPONSIVE TYPOGRAPHY =============== */
+@media screen and (min-width: 1150px) {
+    :root {
+        --normal-font-size: 1rem;
+        --smaller-font-size: 0.813rem;
+        --sidebar-width: 316px;
+        
+        /* Ajustes para desktop */
+        --header-height: 64px;
+        --spacing-md: 20px;
+        --spacing-lg: 32px;
+    }
+}
+
+/* =============== MOBILE FIRST ADJUSTMENTS =============== */
+@media screen and (max-width: 768px) {
+    :root {
+        --header-height: 56px;
+        --sidebar-width-open: 85vw;
+        --spacing-md: 12px;
+        --spacing-lg: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --header-height: 50px;
+        --spacing-xs: 3px;
+        --spacing-sm: 6px;
+    }
+}
+
+/* =============== DARK THEME VARIABLES =============== */
+[data-theme="dark"] {
+    /* Cores Bedimcode */
+    --first-color: var(--first-color-dark);
+    --title-color: hsl(228, 18%, 96%);
+    --text-color: hsl(228, 12%, 61%);
+    --body-color: hsl(245, 60%, 8%);
+    --shadow-color: var(--shadow-color-dark);
+    
+    /* Nossas cores */
+    --color-bg-body: hsl(245, 60%, 8%);
+    --color-bg-card: hsl(245, 60%, 12%);
+    --color-text-primary: hsl(228, 18%, 96%);
+    --color-text-secondary: hsl(228, 12%, 61%);
+    --color-border: rgba(255, 255, 255, 0.15);
+    --color-border-light: rgba(255, 255, 255, 0.1);
+}
+
+/* =============== HIGH CONTRAST MODE =============== */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: #ffffff;
+        --color-text-gray: #cccccc;
+        --color-primary: #4a00e0;
+    }
+}
+
+/* =============== REDUCED MOTION =============== */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-fast: 0.01ms;
+        --transition-base: 0.01ms;
+        --transition-slow: 0.01ms;
+    }
+}
+
