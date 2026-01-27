@@ -4,17 +4,25 @@
     <div class="form-grid">
         <!-- Valor -->
         <div class="form-field">
-            <label for="amount">Valor *</label>
-            <input type="number" id="amount" name="amount" 
-                   step="0.01" min="0.01" required 
-                   placeholder="0.00"
-                   value="{% if transaction %}{{ transaction.amount }}{% endif %}">
+            <label for="amount" class="form-label required">
+                <i class="fas fa-money-bill-wave"></i> Valor
+            </label>
+            <div class="input-with-icon">
+                <input type="number" id="amount" name="amount" 
+                       step="0.01" min="0.01" required 
+                       placeholder="0.00"
+                       value="{% if transaction %}{{ transaction.amount }}{% endif %}"
+                       class="form-control">
+                <span class="input-icon">R$</span>
+            </div>
         </div>
 
         <!-- Conta -->
         <div class="form-field">
-            <label for="account">Conta *</label>
-            <select id="account" name="account" required class="tom-select">
+            <label for="account" class="form-label required">
+                <i class="fas fa-wallet"></i> Conta
+            </label>
+            <select id="account" name="account" required class="tom-select form-control">
                 <option value="">Selecione uma conta</option>
                 {% for account in accounts %}
                     <option value="{{ account.account }}"
@@ -29,16 +37,24 @@
 
         <!-- Data e Hora -->
         <div class="form-field">
-            <label for="occurred_at">Data e Hora *</label>
-            <input type="datetime-local" id="occurred_at" 
-                   name="occurred_at" required
-                   value="{% if transaction %}{{ transaction.occurred_at|date:'Y-m-d\TH:i' }}{% endif %}">
+            <label for="occurred_at" class="form-label required">
+                <i class="fas fa-calendar-alt"></i> Data e Hora
+            </label>
+            <div class="datetime-wrapper">
+                <input type="datetime-local" id="occurred_at" 
+                       name="occurred_at" required
+                       value="{% if transaction %}{{ transaction.occurred_at|date:'Y-m-d\TH:i' }}{% endif %}"
+                       class="form-control">
+                <i class="fas fa-clock datetime-icon"></i>
+            </div>
         </div>
 
         <!-- Categoria -->
         <div class="form-field">
-            <label for="category">Categoria *</label>
-            <select id="category" name="category" required class="tom-select">
+            <label for="category" class="form-label required">
+                <i class="fas fa-tags"></i> Categoria
+            </label>
+            <select id="category" name="category" required class="tom-select form-control">
                 <option value="">Selecione uma categoria</option>
                 {% for category in categories %}
                     <option value="{{ category.category }}"
@@ -53,8 +69,10 @@
 
         <!-- Método de Pagamento -->
         <div class="form-field">
-            <label for="payment_method">Método de Pagamento *</label>
-            <select id="payment_method" name="payment_method" required class="tom-select">
+            <label for="payment_method" class="form-label required">
+                <i class="fas fa-credit-card"></i> Método de Pagamento
+            </label>
+            <select id="payment_method" name="payment_method" required class="tom-select form-control">
                 <option value="">Selecione um método</option>
                 {% for method in payment_methods %}
                     <option value="{{ method.payment_method }}"
@@ -69,8 +87,10 @@
 
         <!-- Moeda -->
         <div class="form-field">
-            <label for="currency">Moeda *</label>
-            <select id="currency" name="currency" required class="tom-select">
+            <label for="currency" class="form-label required">
+                <i class="fas fa-coins"></i> Moeda
+            </label>
+            <select id="currency" name="currency" required class="tom-select form-control">
                 <option value="BRL" 
                     {% if transaction and transaction.currency == 'BRL' or not transaction %}selected{% endif %}>
                     Real (BRL)
@@ -88,8 +108,10 @@
 
         <!-- Origem -->
         <div class="form-field">
-            <label for="origin">Origem *</label>
-            <select id="origin" name="origin" required class="tom-select">
+            <label for="origin" class="form-label required">
+                <i class="fas fa-bullseye"></i> Origem
+            </label>
+            <select id="origin" name="origin" required class="tom-select form-control">
                 <option value="MANUAL"
                     {% if transaction and transaction.origin == 'MANUAL' or not transaction %}selected{% endif %}>
                     Manual
@@ -107,38 +129,53 @@
 
         <!-- Tipo (Entrada/Saída) -->
         <div class="form-field full-width">
-            <label>Tipo de Transação *</label>
+            <label class="form-label required">
+                <i class="fas fa-exchange-alt"></i> Tipo de Transação
+            </label>
             <div class="radio-group">
-                <label class="radio-option">
+                <label class="radio-option income-option">
                     <input type="radio" name="direction" value="IN" 
                         {% if transaction and transaction.direction == 'IN' or not transaction %}checked{% endif %}>
-                    <span>Entrada</span>
+                    <div class="radio-custom">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <span class="radio-text">Entrada</span>
                 </label>
-                <label class="radio-option">
+                <label class="radio-option expense-option">
                     <input type="radio" name="direction" value="OUT"
                         {% if transaction and transaction.direction == 'OUT' %}checked{% endif %}>
-                    <span>Saída</span>
+                    <div class="radio-custom">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <span class="radio-text">Saída</span>
                 </label>
             </div>
         </div>
 
         <!-- Descrição -->
         <div class="form-field full-width">
-            <label for="description">Descrição</label>
-            <input type="text" id="description" name="description" 
-                   maxlength="255" 
-                   placeholder="Descrição da transação"
-                   value="{% if transaction %}{{ transaction.description }}{% endif %}">
+            <label for="description" class="form-label">
+                <i class="fas fa-align-left"></i> Descrição
+            </label>
+            <div class="input-with-icon">
+                <input type="text" id="description" name="description" 
+                       maxlength="255" 
+                       placeholder="Descrição da transação"
+                       value="{% if transaction %}{{ transaction.description }}{% endif %}"
+                       class="form-control">
+            </div>
         </div>
 
         <!-- Tags -->
         <div class="form-field full-width">
-            <label for="tags">Tags</label>
-            <select id="tags" name="tags" multiple class="tom-select">
+            <label for="tags" class="form-label">
+                <i class="fas fa-hashtag"></i> Tags
+            </label>
+            <select id="tags" name="tags" multiple class="tom-select form-control">
                 <option value="">Selecione tags</option>
                 {% for tag in tags %}
                     <option value="{{ tag.tag }}"
-                        {% if selected_tags and tag.tag|stringformat:"s" in selected_tags %}selected{% endif %}>
+                        {% if transaction and tag in transaction.tags.all %}selected{% endif %}>
                         {{ tag.name }}
                     </option>
                 {% endfor %}
@@ -146,9 +183,11 @@
         </div>
 
         <!-- Campos Dinâmicos para Recorrência -->
-        <div class="form-field dynamic-field" data-field="recurrent">
-            <label for="recurrence_frequency">Frequência</label>
-            <select id="recurrence_frequency" name="recurrence_frequency" class="tom-select">
+        <div class="form-field dynamic-field" data-field="recurrent" style="display: none;">
+            <label for="recurrence_frequency" class="form-label">
+                <i class="fas fa-redo"></i> Frequência
+            </label>
+            <select id="recurrence_frequency" name="recurrence_frequency" class="tom-select form-control">
                 <option value="">Selecione a frequência</option>
                 <option value="DAILY">Diário</option>
                 <option value="WEEKLY">Semanal</option>
@@ -160,26 +199,83 @@
             </select>
         </div>
 
-        <div class="form-field dynamic-field" data-field="recurrent">
-            <label for="max_recurrences">Número Máximo (opcional)</label>
+        <div class="form-field dynamic-field" data-field="recurrent" style="display: none;">
+            <label for="max_recurrences" class="form-label">
+                <i class="fas fa-infinity"></i> Número Máximo (opcional)
+            </label>
             <input type="number" id="max_recurrences" name="max_recurrences" 
                    min="1" max="999" 
-                   placeholder="Deixe em branco para ilimitado">
+                   placeholder="Deixe em branco para ilimitado"
+                   value="{% if transaction and transaction.max_recurrences %}{{ transaction.max_recurrences }}{% endif %}"
+                   class="form-control">
         </div>
 
         <!-- Campos Dinâmicos para Parcelamento -->
-        <div class="form-field dynamic-field" data-field="installment">
-            <label for="installments">Número de Parcelas</label>
+        <div class="form-field dynamic-field" data-field="installment" style="display: none;">
+            <label for="installments" class="form-label required">
+                <i class="fas fa-list-ol"></i> Número de Parcelas
+            </label>
             <input type="number" id="installments" name="installments" 
                    min="2" max="360" 
-                   placeholder="Ex: 12">
+                   placeholder="Ex: 12"
+                   value="{% if transaction and transaction.total_installments %}{{ transaction.total_installments }}{% endif %}"
+                   class="form-control">
         </div>
 
-        <div class="form-field dynamic-field" data-field="installment">
-            <label for="interest_rate">Taxa de Juros Mensal (%)</label>
-            <input type="number" id="interest_rate" name="interest_rate" 
-                   step="0.01" min="0" max="100" 
-                   placeholder="0 para sem juros" value="0">
+        <div class="form-field dynamic-field" data-field="installment" style="display: none;">
+            <label for="interest_rate" class="form-label">
+                <i class="fas fa-percentage"></i> Taxa de Juros Mensal (%)
+            </label>
+            <div class="input-with-icon">
+                <input type="number" id="interest_rate" name="interest_rate" 
+                       step="0.01" min="0" max="100" 
+                       placeholder="0 para sem juros" 
+                       value="{% if transaction and transaction.interest_rate %}{{ transaction.interest_rate }}{% else %}0{% endif %}"
+                       class="form-control">
+                <span class="input-icon">%</span>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+// Script para mostrar/ocultar campos dinâmicos baseado na origem
+document.addEventListener('DOMContentLoaded', function() {
+    const originSelect = document.getElementById('origin');
+    const dynamicFields = document.querySelectorAll('.dynamic-field');
+    
+    function toggleDynamicFields() {
+        const origin = originSelect.value;
+        
+        // Oculta todos os campos dinâmicos
+        dynamicFields.forEach(field => {
+            field.style.display = 'none';
+        });
+        
+        // Mostra os campos específicos para a origem selecionada
+        const showFields = document.querySelectorAll(`.dynamic-field[data-field="${origin.toLowerCase()}"]`);
+        showFields.forEach(field => {
+            field.style.display = 'flex';
+        });
+    }
+    
+    // Event listener
+    if (originSelect) {
+        originSelect.addEventListener('change', toggleDynamicFields);
+        
+        // Trigger inicial
+        setTimeout(() => {
+            toggleDynamicFields();
+            
+            // Se já tiver uma transação, mostra os campos correspondentes
+            {% if transaction %}
+                const origin = originSelect.value.toLowerCase();
+                const fields = document.querySelectorAll(`.dynamic-field[data-field="${origin}"]`);
+                fields.forEach(field => {
+                    field.style.display = 'flex';
+                });
+            {% endif %}
+        }, 100);
+    }
+});
+</script>

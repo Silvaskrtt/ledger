@@ -1,0 +1,957 @@
+/* frontend/static/css/pages/transaction-manager.css */
+
+/**
+ * Página de Gerenciamento de Transações
+ * Padronizada com variáveis do sistema
+ */
+
+/* ============================================
+   CONTAINER PRINCIPAL
+   ============================================ */
+
+.transaction-manager {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.manager-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.manager-header h1 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.manager-header h1 i {
+    color: var(--color-primary);
+}
+
+/* ============================================
+   FILTROS MELHORADOS
+   ============================================ */
+
+.filter-form {
+    margin-bottom: var(--spacing-xl);
+}
+
+.filter-card {
+    background: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border-light);
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.filter-header h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.filter-header h3 i {
+    color: var(--color-primary);
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.filter-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-semi-bold);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.filter-label i {
+    color: var(--color-primary);
+    width: 16px;
+    text-align: center;
+}
+
+.filter-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.filter-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    padding-right: 40px;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    background: var(--color-bg-body);
+    transition: all var(--transition-base);
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(80, 11, 217, 0.1);
+}
+
+.filter-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+}
+
+.filter-input-wrapper:hover .filter-icon {
+    color: var(--color-primary);
+}
+
+/* Estilização customizada para input date */
+input[type="date"].filter-input::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+.filter-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border-light);
+}
+
+
+.btn-filter, .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #3c0aa3 100%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-sm);
+    font-weight: var(--font-semi-bold);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: all var(--transition-base);
+}
+
+.btn-filter:hover {
+    background: linear-gradient(135deg, #3c0aa3 0%, #320a7d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(80, 11, 217, 0.3);
+}
+
+.btn-clear {
+    background: transparent;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-text-secondary);
+    padding: 10px 20px;
+    border-radius: var(--border-radius-sm);
+    font-weight: var(--font-semi-bold);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: all var(--transition-base);
+    text-decoration: none;
+}
+
+.btn-clear:hover {
+    border-color: var(--color-error);
+    color: var(--color-error);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+/* ============================================
+   LISTA DE TRANSAÇÕES COM ÍCONES
+   ============================================ */
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background: var(--color-bg-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+    transition: all var(--transition-base);
+}
+
+.transaction-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-left-color: var(--color-primary-dark);
+}
+
+.transaction-item.income {
+    border-left-color: var(--color-success);
+}
+
+.transaction-item.expense {
+    border-left-color: var(--color-error);
+}
+
+.transaction-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.transaction-main {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.transaction-category {
+    font-weight: var(--font-semi-bold);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.transaction-category i {
+    color: var(--color-primary);
+    font-size: 0.9em;
+}
+
+.transaction-description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+.transaction-details {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-xs);
+}
+
+.transaction-date,
+.transaction-method,
+.transaction-account {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    padding: 2px 8px;
+    background: var(--color-bg-light);
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.transaction-date i {
+    font-size: 0.8em;
+}
+
+.transaction-method i {
+    font-size: 0.8em;
+    color: var(--color-primary);
+}
+
+.transaction-account i {
+    font-size: 0.8em;
+    color: var(--color-success);
+}
+
+.transaction-tags {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: var(--font-size-xs);
+    padding: 2px 8px;
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    border-radius: var(--border-radius-full);
+    font-weight: var(--font-medium);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tag i {
+    font-size: 0.8em;
+}
+
+.transaction-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.transaction-amount {
+    font-weight: var(--font-bold);
+    font-size: var(--font-size-lg);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.amount-income {
+    color: var(--color-success);
+}
+
+.amount-expense {
+    color: var(--color-error);
+}
+
+.installment-info {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    margin-left: var(--spacing-xs);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-bg-light);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+}
+
+.btn-icon:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.edit-btn:hover {
+    background: var(--color-primary);
+}
+
+.delete-btn:hover {
+    background: var(--color-error);
+}
+
+/* ============================================
+   ESTADO VAZIO
+   ============================================ */
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--color-bg-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.empty-state i {
+    font-size: 64px;
+    color: var(--color-border-light);
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+    font-size: 18px;
+}
+
+/* ============================================
+   PAGINAÇÃO
+   ============================================ */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+}
+
+.page-link {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-md);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-link:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.current-page {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    padding: 0 var(--spacing-md);
+}
+
+/* ============================================
+   MODAL ESTILIZADO (voltando ao estilo anterior)
+   ============================================ */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-modal-backdrop);
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--color-bg-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border-light);
+    position: sticky;
+    top: 0;
+    background: var(--color-bg-card);
+    z-index: var(--z-normal);
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    color: var(--color-text-primary);
+    font-weight: var(--font-semi-bold);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.modal-header h2 i {
+    color: var(--color-primary);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--transition-base);
+}
+
+.close-modal:hover {
+    background: var(--color-bg-light);
+    color: var(--color-error);
+}
+
+.modal-body {
+    padding: var(--spacing-lg);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--color-border-light);
+    position: sticky;
+    bottom: 0;
+    background: var(--color-bg-card);
+    z-index: var(--z-normal);
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+/* Modal de confirmação */
+.confirm-modal .modal-body {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.confirm-modal .warning-icon {
+    font-size: 48px;
+    color: var(--color-warning);
+    margin-bottom: var(--spacing-md);
+}
+
+.confirm-modal .warning-text {
+    color: var(--color-error);
+    font-weight: var(--font-semi-bold);
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+/* ============================================
+   FORMULÁRIO NO MODAL COM ÍCONES
+   ============================================ */
+
+.form-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    gap: var(--spacing-md);
+}
+
+.form-loading .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-border-light);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-field.full-width {
+    grid-column: span 2;
+}
+
+.form-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-semi-bold);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.form-label i {
+    color: var(--color-primary);
+    width: 16px;
+    text-align: center;
+}
+
+.form-label.required::after {
+    content: "*";
+    color: var(--color-error);
+    font-size: var(--font-size-sm);
+    margin-left: 2px;
+}
+
+/* Inputs com ícones */
+.input-with-icon {
+    position: relative;
+    width: 100%;
+}
+
+.input-with-icon input {
+    padding-right: 40px !important;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+    font-weight: var(--font-medium);
+}
+
+.input-icon-left {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+}
+
+/* Wrapper para datetime-local */
+.datetime-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.datetime-wrapper input {
+    padding-right: 40px !important;
+}
+
+.datetime-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+}
+
+.form-control {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    background: var(--color-bg-body);
+    transition: all var(--transition-base);
+    width: 100%;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(80, 11, 217, 0.1);
+}
+
+/* Radio buttons customizados */
+.radio-group {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xs);
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-base);
+    flex: 1;
+}
+
+.radio-option:hover {
+    background: var(--color-bg-light);
+}
+
+.radio-custom {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.radio-custom i {
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom i {
+    opacity: 1;
+    color: white;
+}
+
+.radio-option.income-option input[type="radio"]:checked + .radio-custom {
+    background: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.radio-option.expense-option input[type="radio"]:checked + .radio-custom {
+    background: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.radio-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+}
+
+/* ============================================
+   DARK THEME
+   ============================================ */
+
+[data-theme="dark"] {
+    .filter-card,
+    .transaction-item,
+    .empty-state,
+    .modal-content {
+        background: var(--color-bg-card);
+        border-color: var(--color-border);
+    }
+    
+    .transaction-date,
+    .transaction-method,
+    .transaction-account {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .tag {
+        background: var(--color-primary-dark);
+        color: var(--color-primary-light);
+    }
+    
+    .btn-icon {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .page-link {
+        background: var(--color-bg-card);
+        border-color: var(--color-border);
+    }
+    
+    .empty-state i {
+        color: var(--color-border);
+    }
+    
+    .filter-input,
+    .form-control {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.15);
+        color: var(--color-text-primary);
+    }
+    
+    .btn-filter {
+        background: linear-gradient(135deg, var(--color-primary) 0%, #6a2ae0 100%);
+    }
+    
+    .btn-filter:hover {
+        background: linear-gradient(135deg, #6a2ae0 0%, #500BD9 100%);
+    }
+    
+    .radio-custom {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .transaction-manager {
+        padding: var(--spacing-md);
+    }
+    
+    .manager-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+    }
+    
+    .transaction-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+    }
+    
+    .transaction-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-field.full-width {
+        grid-column: span 1;
+    }
+    
+    .modal-content {
+        margin: var(--spacing-sm);
+    }
+    
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .transaction-manager {
+        padding: var(--spacing-sm);
+    }
+    
+    .transaction-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+    
+    .transaction-main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+    
+    .transaction-description {
+        max-width: 100%;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .modal-footer button {
+        width: 100%;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .filter-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-filter,
+    .btn-clear {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .transaction-category i,
+    .transaction-date i,
+    .transaction-method i,
+    .transaction-account i,
+    .tag i,
+    .installment-info i {
+        display: none;
+    }
+}

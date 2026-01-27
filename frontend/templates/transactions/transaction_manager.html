@@ -6,14 +6,15 @@
 {% block title %}Gerenciar Transações - Ledger{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/transactions/transaction_manager.css' %}">
+<link rel="stylesheet" href="{% static 'css/components/_tomselect.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/transaction-manager.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="transaction-manager">
     <!-- Cabeçalho com Botão de Nova Transação -->
     <div class="manager-header">
-        <h1>Transações</h1>
+        <h1><i class="fas fa-exchange-alt"></i> Transações</h1>
         <button class="btn btn-primary" id="newTransactionBtn">
             <i class="fas fa-plus"></i> Nova Transação
         </button>
@@ -22,20 +23,38 @@
     <!-- Filtros -->
     <form method="get" class="filter-form" id="filterForm">
         <div class="filter-card">
+            <div class="filter-header">
+                <h3><i class="fas fa-filter"></i> Filtros</h3>
+            </div>
+            
             <div class="filter-grid">
                 <div class="filter-group">
-                    <label for="start">De:</label>
-                    <input type="date" id="start" name="start" value="{{ start }}">
+                    <label for="start" class="filter-label">
+                        <i class="fas fa-calendar-alt"></i> De:
+                    </label>
+                    <div class="filter-input-wrapper">
+                        <input type="date" id="start" name="start" value="{{ start }}" 
+                               class="filter-input">
+                        <i class="fas fa-calendar filter-icon"></i>
+                    </div>
                 </div>
                 
                 <div class="filter-group">
-                    <label for="end">Até:</label>
-                    <input type="date" id="end" name="end" value="{{ end }}">
+                    <label for="end" class="filter-label">
+                        <i class="fas fa-calendar-alt"></i> Até:
+                    </label>
+                    <div class="filter-input-wrapper">
+                        <input type="date" id="end" name="end" value="{{ end }}" 
+                               class="filter-input">
+                        <i class="fas fa-calendar filter-icon"></i>
+                    </div>
                 </div>
                 
                 <div class="filter-group">
-                    <label for="category">Categoria:</label>
-                    <select id="category" name="category" class="tom-select">
+                    <label for="category" class="filter-label">
+                        <i class="fas fa-tags"></i> Categoria:
+                    </label>
+                    <select id="category" name="category" class="tom-select filter-input">
                         <option value="">Todas as categorias</option>
                         {% for category in categories %}
                         <option value="{{ category.category }}"
@@ -47,8 +66,10 @@
                 </div>
                 
                 <div class="filter-group">
-                    <label for="account">Conta:</label>
-                    <select id="account" name="account" class="tom-select">
+                    <label for="account" class="filter-label">
+                        <i class="fas fa-wallet"></i> Conta:
+                    </label>
+                    <select id="account" name="account" class="tom-select filter-input">
                         <option value="">Todas as contas</option>
                         {% for account in accounts %}
                         <option value="{{ account.account }}">
@@ -60,12 +81,12 @@
             </div>
             
             <div class="filter-actions">
-                <button type="submit" class="btn btn-secondary">
-                    <i class="fas fa-filter"></i> Filtrar
+                <button type="submit" class="btn-filter">
+                    <i class="fas fa-filter"></i> Aplicar Filtros
                 </button>
                 {% if start or end or selected_category %}
-                <a href="{% url 'transaction-manager' %}" class="btn btn-outline">
-                    Limpar Filtros
+                <a href="{% url 'transaction-manager' %}" class="btn-clear">
+                    <i class="fas fa-times"></i> Limpar Filtros
                 </a>
                 {% endif %}
             </div>
@@ -75,10 +96,13 @@
     <!-- Lista de Transações -->
     <div class="transaction-list" id="transactionList">
         {% for transaction in transactions %}
-        <div class="transaction-item" data-id="{{ transaction.transaction }}">
+        <div class="transaction-item {% if transaction.direction == 'IN' %}income{% else %}expense{% endif %}" 
+             data-id="{{ transaction.transaction }}">
             <div class="transaction-info">
                 <div class="transaction-main">
-                    <span class="transaction-category">{{ transaction.category.name }}</span>
+                    <span class="transaction-category">
+                        <i class="fas fa-folder"></i> {{ transaction.category.name }}
+                    </span>
                     <span class="transaction-description">
                         {% if transaction.description %}
                             {{ transaction.description }}
@@ -90,12 +114,15 @@
                 
                 <div class="transaction-details">
                     <span class="transaction-date">
+                        <i class="far fa-calendar"></i>
                         {{ transaction.occurred_at|date:"d/m/Y H:i" }}
                     </span>
                     <span class="transaction-method">
+                        <i class="fas fa-credit-card"></i>
                         {{ transaction.payment_method.get_type_display }}
                     </span>
                     <span class="transaction-account">
+                        <i class="fas fa-wallet"></i>
                         {% if transaction.transaction_accounts.exists %}
                             {% for ta in transaction.transaction_accounts.all %}
                                 {{ ta.account.name }}
@@ -107,7 +134,9 @@
                 {% if transaction.tags.exists %}
                 <div class="transaction-tags">
                     {% for tag in transaction.tags.all %}
-                    <span class="tag">{{ tag.name }}</span>
+                    <span class="tag">
+                        <i class="fas fa-tag"></i> {{ tag.name }}
+                    </span>
                     {% endfor %}
                 </div>
                 {% endif %}
@@ -116,11 +145,12 @@
             <div class="transaction-actions">
                 <div class="transaction-amount 
                     {% if transaction.direction == 'IN' %}amount-income{% else %}amount-expense{% endif %}">
-                    {% if transaction.direction == 'IN' %}+{% else %}-{% endif %}
+                    {% if transaction.direction == 'IN' %}<i class="fas fa-arrow-down"></i>+{% else %}<i class="fas fa-arrow-up"></i>-{% endif %}
                     R$ {{ transaction.amount|floatformat:2 }}
                     
                     {% if transaction.origin == 'INSTALLMENT' %}
                     <small class="installment-info">
+                        <i class="fas fa-list-ol"></i>
                         {{ transaction.installment_number }}/{{ transaction.total_installments }}
                     </small>
                     {% endif %}
@@ -172,10 +202,10 @@
 </div>
 
 <!-- Modal para Criar/Editar Transação -->
-<div class="modal" id="transactionModal">
+<div class="modal-overlay" id="transactionModal">
     <div class="modal-content">
         <div class="modal-header">
-            <h2 id="modalTitle">Nova Transação</h2>
+            <h2 id="modalTitle"><i class="fas fa-exchange-alt"></i> Nova Transação</h2>
             <button class="close-modal">&times;</button>
         </div>
         
@@ -185,14 +215,17 @@
             
             <div class="modal-body">
                 <!-- Formulário será carregado aqui via AJAX -->
-                <div id="formContainer"></div>
+                <div id="formContainer" class="form-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Carregando formulário...</p>
+                </div>
             </div>
             
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Salvar</button>
                 <button type="button" class="btn btn-danger" id="deleteTransactionBtn" style="display: none;">
-                    Excluir
+                    <i class="fas fa-trash"></i> Excluir
                 </button>
             </div>
         </form>
@@ -200,21 +233,26 @@
 </div>
 
 <!-- Modal de Confirmação de Exclusão -->
-<div class="modal" id="confirmDeleteModal">
+<div class="modal-overlay" id="confirmDeleteModal">
     <div class="modal-content confirm-modal">
         <div class="modal-header">
-            <h2>Confirmar Exclusão</h2>
+            <h2><i class="fas fa-exclamation-triangle"></i> Confirmar Exclusão</h2>
             <button class="close-modal">&times;</button>
         </div>
         
         <div class="modal-body">
+            <div class="warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
             <p>Tem certeza que deseja excluir esta transação?</p>
             <p class="warning-text">Esta ação não pode ser desfeita.</p>
         </div>
         
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary close-modal">Cancelar</button>
-            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Excluir</button>
+            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+                <i class="fas fa-trash"></i> Excluir
+            </button>
         </div>
     </div>
 </div>
@@ -222,4 +260,79 @@
 
 {% block extra_js %}
 <script src="{% static 'js/transactions/transaction_manager.js' %}?v=1"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Função para abrir/fechar modais
+    function setupModal(modalId, openBtnId = null) {
+        const modal = document.getElementById(modalId);
+        
+        if (!modal) return;
+        
+        // Botão para abrir o modal (se fornecido)
+        if (openBtnId) {
+            const openBtn = document.getElementById(openBtnId);
+            if (openBtn) {
+                openBtn.addEventListener('click', () => {
+                    modal.classList.add('active');
+                });
+            }
+        }
+        
+        // Fechar modal ao clicar no botão X
+        const closeBtns = modal.querySelectorAll('.close-modal');
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        });
+        
+        // Fechar modal ao clicar fora do conteúdo
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+        
+        // Fechar modal com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+    
+    // Configurar modais
+    setupModal('transactionModal', 'newTransactionBtn');
+    setupModal('confirmDeleteModal'); // Este abre via JavaScript
+    
+    // Adicionar evento para botão de adicionar primeira transação
+    const addFirstBtn = document.getElementById('addFirstTransaction');
+    if (addFirstBtn) {
+        addFirstBtn.addEventListener('click', () => {
+            document.getElementById('transactionModal').classList.add('active');
+        });
+    }
+    
+    // Eventos para editar/excluir transações
+    document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const transactionId = this.getAttribute('data-id');
+            // Aqui você carregaria o formulário via AJAX
+            document.getElementById('transactionModal').classList.add('active');
+            // E definiria o título para "Editar Transação"
+            document.getElementById('modalTitle').innerHTML = '<i class="fas fa-edit"></i> Editar Transação';
+        });
+    });
+    
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const transactionId = this.getAttribute('data-id');
+            // Aqui você armazenaria o ID para exclusão
+            document.getElementById('confirmDeleteModal').classList.add('active');
+        });
+    });
+});
+</script>
+
 {% endblock %}

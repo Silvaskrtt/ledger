@@ -3,7 +3,6 @@ class TransactionManager {
         this.currentTransactionId = null;
         this.isEditMode = false;
         this.tomSelectInstances = {};
-        console.log('TransactionManager inicializado'); // DEBUG
         this.init();
     }
 
@@ -35,7 +34,6 @@ class TransactionManager {
         document.querySelectorAll('.delete-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const transactionId = e.currentTarget.dataset.id;
-                console.log('Clicou excluir:', transactionId); // DEBUG
                 this.openDeleteModal(transactionId);
             });
         });
@@ -49,7 +47,6 @@ class TransactionManager {
 
         // Confirmar exclusão
         document.getElementById('confirmDeleteBtn')?.addEventListener('click', () => {
-            console.log('Confirmando exclusão:', this.currentTransactionId); // DEBUG
             this.deleteTransaction();
         });
 
@@ -227,8 +224,7 @@ class TransactionManager {
     }
 
     openDeleteModal(transactionId) {
-        console.log('Abrindo modal de exclusão para:', transactionId); // DEBUG
-        this.currentTransactionId = transactionId; // <-- ARMAZENAR NO ESTADO
+        this.currentTransactionId = transactionId;
         document.getElementById('confirmDeleteModal').classList.add('active');
     }
 
@@ -271,9 +267,6 @@ class TransactionManager {
             // Coletar dados do formulário
             const formData = this.collectFormData();
 
-            // DEBUG: Mostrar dados que estão sendo enviados
-            console.log('Dados do formulário:', formData);
-
             // Validar dados básicos
             if (!this.validateFormData(formData)) {
                 throw new Error('Preencha todos os campos obrigatórios');
@@ -286,10 +279,6 @@ class TransactionManager {
             
             const method = this.isEditMode ? 'PUT' : 'POST';
 
-            console.log('URL:', url);
-            console.log('Método:', method);
-            console.log('Dados JSON:', JSON.stringify(formData));
-
             // Enviar requisição
             const response = await fetch(url, {
                 method: method,
@@ -301,38 +290,23 @@ class TransactionManager {
                 body: JSON.stringify(formData)
             });
 
-            console.log('Resposta status:', response.status);
-
-            // Tentar ler a resposta mesmo se der erro
-            let result;
-            try {
-                const responseText = await response.text();
-                console.log('Resposta texto:', responseText);
-                result = JSON.parse(responseText);
-            } catch (parseError) {
-                console.error('Erro ao parsear resposta:', parseError);
-                throw new Error('Resposta do servidor inválida');
-            }
+            const result = await response.json();
 
             if (response.ok) {
                 // Sucesso
-                this.showSuccessMessage(result.message || 'Transação salva com sucesso!');
+                alert(result.message || 'Transação salva com sucesso!');
                 this.closeAllModals();
                 
                 // Recarregar página para ver mudanças
                 window.location.reload();
             } else {
-                // Erro - mostrar detalhes
-                console.error('Erro detalhado:', result);
-                const errorMessage = result.detail || result.message || 
-                                (result.payment_method ? result.payment_method.join(', ') : '') ||
-                                JSON.stringify(result);
-                throw new Error(errorMessage);
+                // Erro
+                throw new Error(result.detail || result.message || JSON.stringify(result));
             }
 
         } catch (error) {
-            console.error('Erro completo ao salvar transação:', error);
-            this.showErrorMessage('Erro ao salvar transação: ' + error.message);
+            console.error('Erro ao salvar transação:', error);
+            alert('Erro ao salvar transação: ' + error.message);
         } finally {
             // Reabilitar botão
             if (submitBtn) {
@@ -347,7 +321,7 @@ class TransactionManager {
         
         for (const field of requiredFields) {
             if (!data[field]) {
-                this.showErrorMessage(`O campo ${this.getFieldLabel(field)} é obrigatório`);
+                alert(`O campo ${this.getFieldLabel(field)} é obrigatório`);
                 return false;
             }
         }
@@ -402,18 +376,6 @@ class TransactionManager {
         data.payment_method = this.getTomSelectValue('payment_method');
         data.account = this.getTomSelectValue('account');
         
-        // Verificar se a conta mudou
-        const newAccount = this.getTomSelectValue('account');
-        data.account = newAccount;
-
-        // Flag para identificar mudança de conta (para logs)
-        if (this.isEditMode) {
-            const oldAccountInput = document.getElementById('old_account_id');
-            if (oldAccountInput && oldAccountInput.value) {
-                data.old_account_id = oldAccountInput.value;
-            }
-        }
-
         // Data e hora
         const occurredAt = form.querySelector('#occurred_at');
         if (occurredAt) {
@@ -475,18 +437,22 @@ class TransactionManager {
         return element.value || null;
     }
 
-    async deleteTransaction() {
-        if (!this.currentTransactionId) {
-            console.error('ID da transação não definido');
-            this.showErrorMessage('ID da transação não encontrado');
+    async deleteTransaction(transactionId, options = {}) {
+        const confirmMessage = this.getDeleteConfirmationMessage(options);
+        
+        if (!confirm(confirmMessage)) {
             return false;
         }
 
         try {
-            let url = `/api/transactions/${this.currentTransactionId}/`;
+            let url = `/api/transactions/${transactionId}/`;
             let method = 'DELETE';
             
-            console.log('Deletando transação:', this.currentTransactionId); // DEBUG
+            // Se for exclusão de parcelamento completo
+            if (options.deleteAllInstallments) {
+                url = `/api/installments/${options.planId}/`;
+                method = 'DELETE';
+            }
 
             const response = await fetch(url, {
                 method: method,
@@ -498,31 +464,24 @@ class TransactionManager {
 
             if (response.ok) {
                 const result = await response.json();
-                this.showSuccessMessage(result.message || 'Transação excluída com sucesso!');
-                this.closeAllModals();
-                window.location.reload();
+                
+                if (result.is_installment && !options.deleteAllInstallments) {
+                    // Perguntar se quer excluir outras parcelas
+                    this.showInstallmentDeleteModal(transactionId, result.installment_plan_id);
+                } else {
+                    this.showSuccessMessage(result.message || 'Excluído com sucesso');
+                    this.closeAllModals();
+                    window.location.reload();
+                }
                 return true;
             } else {
                 const error = await response.json();
                 throw new Error(error.detail || 'Erro ao excluir');
             }
         } catch (error) {
-            console.error('Erro ao excluir:', error);
             this.showErrorMessage('Erro: ' + error.message);
             return false;
         }
-    }
-
-    showSuccessMessage(message) {
-        // Implementação simples usando alert
-        alert('✅ ' + message);
-        // Ou implementar um sistema de toast melhorado
-    }
-
-    showErrorMessage(message) {
-        // Implementação simples usando alert
-        alert('❌ ' + message);
-        // Ou implementar um sistema de toast melhorado
     }
 
     getDeleteConfirmationMessage(options) {
