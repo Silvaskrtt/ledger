@@ -215,8 +215,6 @@
 .empty-icon {
     font-size: 48px;
     margin-bottom: var(--spacing-lg);
-    color: var(--color-border-light);
-    opacity: 0.5;
 }
 
 .empty-title {
