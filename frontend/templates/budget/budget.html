@@ -1,87 +1,95 @@
+<!-- frontend/templates/budget/budget.html -->
+
 {% extends 'base.html' %}
 {% load static %}
 
 {% block title %}Orçamento Mensal - Ledger{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/budget/budget.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/budget.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<section class="budget-header">
-    <div class="header-content">
+<section class="budget-container">
+    <!-- Header Principal -->
+    <div class="budget-header">
         <div>
-            <h2>Orçamento Mensal</h2>
-            <p class="subtitle">{{ current_month|default:"Mês Atual" }}</p>
+            <h1 class="budget-title">
+                📊 Orçamento Mensal
+            </h1>
+            <p class="budget-subtitle">{{ current_month|default:"Mês Atual" }}</p>
         </div>
         <button id="openBudgetModal" class="btn-primary">+ Nova Meta</button>
     </div>
     
+    <!-- Alertas -->
     {% if error %}
     <div class="alert alert-error">
         <p>Erro ao carregar orçamentos: {{ error }}</p>
     </div>
     {% endif %}
-</section>
 
-<section class="budget-list">
-    {% if limits %}
-        {% for item in limits %}
-        <div class="budget-card">
-            <div class="budget-card-header">
-                <h3>{{ item.category.name }}</h3>
-                <span class="budget-amount">
-                    R$ {{ item.spent|floatformat:2 }} / R$ {{ item.limit_amount|floatformat:2 }}
-                </span>
-            </div>
+    <!-- Lista de Orçamentos -->
+    <div class="budget-list">
+        {% if limits %}
+            {% for item in limits %}
+            <div class="budget-card">
+                <div class="budget-card-top">
+                    <h3 class="budget-card-title">{{ item.category.name }}</h3>
+                    <div class="budget-card-amount">
+                        R$ {{ item.spent|floatformat:2 }} / R$ {{ item.limit_amount|floatformat:2 }}
+                    </div>
+                </div>
 
-            <div class="budget-progress">
-                <div class="progress-bar 
-                    {% if item.percent > 100 %}danger
-                    {% elif item.percent > 90 %}warning
-                    {% else %}success{% endif %}"
-                     style="width: {% if item.percent > 100 %}100{% else %}{{ item.percent }}{% endif %}%">
+                <div class="budget-progress">
+                    <div class="progress-bar 
+                        {% if item.percent > 100 %}danger
+                        {% elif item.percent > 90 %}warning
+                        {% else %}success{% endif %}"
+                         style="width: {% if item.percent > 100 %}100{% else %}{{ item.percent }}{% endif %}%">
+                    </div>
+                </div>
+
+                <div class="budget-card-bottom">
+                    <span class="budget-percent">
+                        {% if item.percent > 100 %}
+                            <span class="text-danger">{{ item.percent|floatformat:1 }}% (excedido)</span>
+                        {% else %}
+                            {{ item.percent|floatformat:1 }}% utilizado
+                        {% endif %}
+                    </span>
+                    <span class="budget-remaining">
+                        {% if item.remaining < 0 %}
+                            <span class="text-danger">R$ {{ item.remaining|floatformat:2 }} excedido</span>
+                        {% else %}
+                            R$ {{ item.remaining|floatformat:2 }} restantes
+                        {% endif %}
+                    </span>
+                </div>
+                
+                <!-- Ações -->
+                <div class="budget-actions">
+                    <button class="btn-budget-icon edit-budget" data-id="{{ item.limit.id }}">
+                        ✏️ Editar
+                    </button>
+                    <button class="btn-budget-icon delete-budget" data-id="{{ item.limit.id }}">
+                        🗑️ Excluir
+                    </button>
                 </div>
             </div>
-
-            <div class="budget-footer">
-                <span class="budget-percent">
-                    {% if item.percent > 100 %}
-                        <span class="text-danger">{{ item.percent|floatformat:1 }}% (excedido)</span>
-                    {% else %}
-                        {{ item.percent|floatformat:1 }}% utilizado
-                    {% endif %}
-                </span>
-                <span class="budget-remaining">
-                    {% if item.remaining < 0 %}
-                        <span class="text-danger">R$ {{ item.remaining|floatformat:2 }} excedido</span>
-                    {% else %}
-                        R$ {{ item.remaining|floatformat:2 }} restantes
-                    {% endif %}
-                </span>
+            {% endfor %}
+        {% else %}
+            <!-- Estado Vazio -->
+            <div class="empty-state">
+                <div class="empty-icon">📊</div>
+                <h3 class="empty-title">Nenhuma meta de orçamento cadastrada</h3>
+                <p class="empty-message">Você ainda não criou metas para este mês.</p>
+                <p class="empty-hint">Clique em "+ Nova Meta" para começar a planejar seu orçamento.</p>
+                <button id="openBudgetModal" class="btn-primary">Criar Primeira Meta</button>
             </div>
-            
-            <!-- Ações -->
-            <div class="budget-actions">
-                <button class="btn-icon edit-budget" data-id="{{ item.limit.id }}">
-                    ✏️ Editar
-                </button>
-                <button class="btn-icon delete-budget" data-id="{{ item.limit.id }}">
-                    🗑️ Excluir
-                </button>
-            </div>
-        </div>
-        {% endfor %}
-    {% else %}
-        <div class="empty-state">
-            <div class="empty-icon">📊</div>
-            <h3>Nenhuma meta de orçamento cadastrada</h3>
-            <p>Você ainda não criou metas para este mês.</p>
-            <p class="empty-hint">Clique em "+ Nova Meta" para começar a planejar seu orçamento.</p>
-            <button id="openBudgetModal" class="btn-primary">Criar Primeira Meta</button>
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
 </section>
 
 {% endblock %}

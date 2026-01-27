@@ -1,16 +1,22 @@
-<div class="modal-overlay" id="budgetModal" style="display: none;">
-    <div class="modal">
+<!-- frontend/templates/budget/budget_modal.html -->
+
+<div class="modal-overlay" id="budgetModal">
+    <div class="modal-content">
         <div class="modal-header">
-            <h3>Nova Meta de Orçamento</h3>
-            <button type="button" class="modal-close" id="closeBudgetModal" aria-label="Fechar">&times;</button>
+            <h3 class="modal-title">
+                🎯 Nova Meta de Orçamento
+            </h3>
+            <button type="button" class="close-modal" id="closeBudgetModal" aria-label="Fechar">
+                &times;
+            </button>
         </div>
         
         <form id="budgetForm" method="post">
             {% csrf_token %}
             
             <div class="form-group">
-                <label for="category">Categoria *</label>
-                <select name="category" id="category" required class="tom-select" 
+                <label for="category" class="form-label">Categoria *</label>
+                <select name="category" id="category" required class="form-control tom-select" 
                         data-placeholder="Selecione uma categoria">
                     <option value="">Selecione uma categoria</option>
                     {% for category in categories %}
@@ -22,10 +28,11 @@
             </div>
             
             <div class="form-group">
-                <label for="limit_amount">Valor da Meta (R$) *</label>
+                <label for="limit_amount" class="form-label">Valor da Meta (R$) *</label>
                 <input type="number" 
                        name="limit_amount" 
                        id="limit_amount" 
+                       class="form-control"
                        step="0.01" 
                        min="0.01" 
                        placeholder="Ex: 1000.00" 
@@ -34,10 +41,11 @@
             </div>
             
             <div class="form-group">
-                <label for="month">Mês</label>
+                <label for="month" class="form-label">Mês</label>
                 <input type="month" 
                        name="month" 
                        id="month" 
+                       class="form-control"
                        value="{{ current_year }}-{{ current_month_num|stringformat:'02d' }}"
                        min="{{ current_year }}-01"
                        max="{{ current_year|add:'1' }}-12">
