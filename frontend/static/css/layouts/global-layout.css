@@ -1,0 +1,119 @@
+/* frontend/static/css/layouts/global-layout.css */
+
+/* =============== LAYOUT GLOBAL CENTRALIZADO =============== */
+
+/* Container principal da aplicação */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Conteúdo principal - CENTRALIZADO GLOBALMENTE */
+.main-content {
+    flex: 1;
+    min-height: 100vh;
+    transition: all var(--transition-base, 0.3s ease);
+    margin-top: var(--header-height, 60px);
+    overflow-x: hidden;
+    position: relative;
+    
+    /* Centralização global */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Wrapper interno para centralizar conteúdo */
+.content-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Largura máxima */
+    padding: var(--spacing-xl, 2rem);
+    margin: 0 auto;
+}
+
+/* Ajustes para sidebar aberta */
+.sidebar.open ~ .main-content,
+.sidebar.show-sidebar ~ .main-content {
+    margin-left: var(--sidebar-width-open, 250px);
+    width: calc(100% - var(--sidebar-width-open, 250px));
+}
+
+/* Ajustes para sidebar recolhida */
+.sidebar.collapsed ~ .main-content,
+.sidebar.reduced ~ .main-content {
+    margin-left: var(--sidebar-width-collapsed, 78px);
+    width: calc(100% - var(--sidebar-width-collapsed, 78px));
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        align-items: stretch;
+    }
+    
+    .sidebar.open ~ .main-content,
+    .sidebar.show-sidebar ~ .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .content-wrapper {
+        padding: var(--spacing-md, 1rem);
+        max-width: 100%;
+    }
+}
+
+/* =============== COMPATIBILIDADE COM BEDIMCODE =============== */
+
+/* Ajuste para classes do Bedimcode */
+.main {
+    /* Remova os paddings que deslocam o conteúdo */
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+}
+
+.container {
+    /* Use margem automática para centralizar */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Remove paddings do header do Bedimcode */
+@media screen and (min-width: 1150px) {
+    .header {
+        margin: 0;
+        padding-left: 0;
+    }
+}
+
+/* =============== UTILITÁRIOS PARA CONTEÚDO =============== */
+
+/* Para conteúdo que precisa de largura total */
+.full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Para conteúdo que precisa de largura limitada */
+.centered-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md, 1rem);
+}
+
+/* Grid centralizado */
+.centered-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg, 1.5rem);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
