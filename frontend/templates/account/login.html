@@ -9,101 +9,115 @@
   
   <title>Login</title>
   
-  <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/core/_variables.css' %}">
+  <link rel="stylesheet" href="{% static 'css/core/_reset.css' %}">
+  <link rel="stylesheet" href="{% static 'css/components/auth-components.css' %}">
+  <link rel="stylesheet" href="{% static 'css/layouts/auth-layout.css' %}">
+  <link rel="stylesheet" href="{% static 'css/pages/auth/login.css' %}">
 </head>
 
-<body>
+<body class="login-page">
 
-  <div class="main-login">
+  <!-- Adicione esta classe ao body -->
+  <div class="auth-container">
 
-    <div class="left-login">
-      <h1>Faça login<br>E entre para o nosso time</h1>
-      <img src="{% static 'img/person-working.svg' %}" class="left-login-image" alt="Pessoa trabalhando">
-    </div>
+    <!-- Mude para auth-two-column -->
+    <div class="auth-two-column">
 
-    <div class="right-login">
+      <!-- Mude para auth-left-column -->
+      <div class="auth-left-column">
+        <h1 class="auth-left-column__title">Faça login<br>E entre para o nosso time</h1>
+        <img src="{% static 'img/person-working.svg' %}" class="auth-left-column__image" alt="Pessoa trabalhando">
+      </div>
 
-      <div class="card-login">
-        <!-- TÍTULO -->
-        <h1>LOGIN</h1>
+      <!-- Mude para auth-right-column -->
+      <div class="auth-right-column">
 
-        <!-- FORM DO ALLAUTH -->
-        <form method="POST" action="{% url 'account_login' %}" novalidate>
-          {% csrf_token %}
-          
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
+        <!-- Mude para auth-card -->
+        <div class="auth-card">
+          <!-- TÍTULO com a classe auth-card__title -->
+          <h1 class="auth-card__title">LOGIN</h1>
 
-          <!-- ERROS GERAIS -->
-          {% if form.non_field_errors %}
-          <div class="error-message">
-            {% for error in form.non_field_errors %}
-              {{ error }}
-            {% endfor %}
-          </div>
-          {% endif %}
-
-          <!-- EMAIL -->
-          <div class="textfield">
-            <label for="id_login">E-mail</label>
-            <input 
-              type="email" 
-              id="id_login" 
-              name="login"
-              placeholder="Digite seu e-mail"
-              required
-              autofocus
-              value="{{ form.login.value|default:'' }}"
-            />
-            {% if form.login.errors %}
-              <div class="field-error">
-                {{ form.login.errors }}
-              </div>
+          <!-- FORM DO ALLAUTH -->
+          <form method="POST" action="{% url 'account_login' %}" novalidate>
+            {% csrf_token %}
+            
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
-          </div>
 
-          <!-- SENHA -->
-          <div class="textfield">
-            <label for="id_password">Senha</label>
-            <input 
-              type="password" 
-              id="id_password"
-              name="password" 
-              placeholder="Digite sua senha"
-              required
-            />
-            {% if form.password.errors %}
-              <div class="field-error">
-                {{ form.password.errors }}
-              </div>
+            <!-- ERROS GERAIS - usar auth-message -->
+            {% if form.non_field_errors %}
+            <div class="auth-message auth-message--error">
+              {% for error in form.non_field_errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
             {% endif %}
-          </div>
 
-          <!-- LEMBRAR DE MIM -->
-          <div class="remember-me">
-            <label>
-              <input type="checkbox" name="remember" id="id_remember" />
-              Lembrar de mim
-            </label>
-          </div>
+            <!-- EMAIL - mudar para auth-field -->
+            <div class="auth-field">
+              <label for="id_login" class="auth-field__label">E-mail</label>
+              <input 
+                type="email" 
+                id="id_login" 
+                name="login"
+                placeholder="Digite seu e-mail"
+                required
+                autofocus
+                value="{{ form.login.value|default:'' }}"
+                class="auth-field__input"
+              />
+              {% if form.login.errors %}
+                <div class="field-error">
+                  {{ form.login.errors }}
+                </div>
+              {% endif %}
+            </div>
 
-          <button type="submit" class="btn-login">Login</button>
+            <!-- SENHA - mudar para auth-field -->
+            <div class="auth-field">
+              <label for="id_password" class="auth-field__label">Senha</label>
+              <input 
+                type="password" 
+                id="id_password"
+                name="password" 
+                placeholder="Digite sua senha"
+                required
+                class="auth-field__input"
+              />
+              {% if form.password.errors %}
+                <div class="field-error">
+                  {{ form.password.errors }}
+                </div>
+              {% endif %}
+            </div>
 
-          <!-- LINK PARA CADASTRO -->
-          <div class="auth-links">
-            <p class="auth-link">
-              Não tem uma conta? 
-              <a href="{% url 'account_signup' %}">
-                Cadastre-se
-              </a>
-            </p>
-          </div>
-        </form>
+            <!-- LEMBRAR DE MIM - mudar para auth-checkbox -->
+            <div class="auth-checkbox">
+              <label class="auth-checkbox__label">
+                <input type="checkbox" name="remember" id="id_remember" class="auth-checkbox__input" />
+                Lembrar de mim
+              </label>
+            </div>
+
+            <button type="submit" class="auth-button">Login</button>
+
+            <!-- LINK PARA CADASTRO - já está com auth-links -->
+            <div class="auth-links">
+              <p class="auth-link">
+                Não tem uma conta? 
+                <a href="{% url 'account_signup' %}">
+                  Cadastre-se
+                </a>
+              </p>
+            </div>
+          </form>
+        </div>
+
       </div>
 
     </div>
-
   </div>
 </body>
 </html>

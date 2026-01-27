@@ -1,0 +1,149 @@
+/* =============== AUTHENTICATION LAYOUT =============== */
+
+/* Container principal */
+.auth-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, 
+        var(--color-bg-auth-1, hsl(246, 39%, 15%)),
+        var(--color-bg-auth-2, hsl(248, 41%, 19%))
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md, 1rem);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decorative elements */
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(80, 11, 217, 0.1) 0%,
+        transparent 50%
+    );
+    animation: rotate 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Duas colunas (para login) */
+.auth-two-column {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+    z-index: 1;
+    position: relative;
+}
+
+/* Coluna da esquerda (ilustração) */
+.auth-left-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--spacing-xl, 2rem);
+    position: relative;
+}
+
+.auth-left-column__title {
+    color: var(--color-text-white, #ffffff);
+    font-size: var(--font-size-2xl, 2.5rem);
+    text-align: left;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-xl, 2rem);
+    padding: 0 var(--spacing-lg, 1.5rem);
+    font-weight: var(--font-bold, 700);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+}
+
+.auth-left-column__image {
+    width: 80%;
+    max-width: 550px;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Coluna da direita (formulário) */
+.auth-right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl, 2rem);
+}
+
+/* Layout de coluna única (para signup) */
+.auth-single-column {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl, 2rem);
+    z-index: 1;
+    position: relative;
+}
+
+/* Logo no auth */
+.auth-logo {
+    position: absolute;
+    top: var(--spacing-xl, 2rem);
+    left: var(--spacing-xl, 2rem);
+    z-index: 2;
+}
+
+.auth-logo__text {
+    color: var(--color-text-white, #ffffff);
+    font-size: var(--font-size-lg, 1.25rem);
+    font-weight: var(--font-bold, 700);
+    letter-spacing: 1px;
+}
+
+/* Loading state */
+.auth-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    border-radius: inherit;
+    backdrop-filter: blur(4px);
+}
+
+.auth-loading__spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--color-primary, #500BD9);
+    border-radius: 50%;
+    animation: auth-spin 1s linear infinite;
+}
+
+@keyframes auth-spin {
+    to { transform: rotate(360deg); }
+}

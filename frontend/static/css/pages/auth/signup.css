@@ -1,0 +1,119 @@
+/* =============== SIGNUP PAGE =============== */
+
+/* Layout específico do signup */
+.signup-page .auth-container {
+    padding: var(--spacing-xl, 2rem) var(--spacing-md, 1rem);
+}
+
+.signup-page .auth-single-column {
+    width: 100%;
+    max-width: 800px;
+}
+
+.signup-page .auth-card {
+    max-width: 550px;
+    padding: var(--spacing-xxl, 3rem) var(--spacing-xl, 2rem);
+}
+
+.signup-page .auth-card > form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg, 1.5rem);
+    align-items: start;
+}
+
+.signup-page .auth-field {
+    margin-bottom: 0;
+    height: auto;
+    min-height: 100px;
+}
+
+.signup-page .auth-left-column {
+    display: none; /* Signup não tem coluna da esquerda */
+}
+
+/* Responsividade específica do signup */
+@media only screen and (max-width: 1024px) {
+    .signup-page .auth-left-column__title {
+        font-size: 2.2rem;
+        margin-bottom: var(--spacing-lg, 1.5rem);
+    }
+    
+    .signup-page .auth-left-column__image {
+        width: 70%;
+        max-width: 450px;
+    }
+    
+    .signup-page .auth-card {
+        padding: var(--spacing-xl, 2rem) var(--spacing-lg, 1.5rem);
+        max-width: 450px;
+    }
+    
+    .signup-page .auth-card__title {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-lg, 1.5rem);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .signup-page .auth-card > form {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md, 1rem);
+    }
+    
+    .signup-page .auth-field--full {
+        grid-column: span 1;
+    }
+    
+    .signup-page .auth-field {
+        min-height: auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .signup-page .auth-card {
+        padding: var(--spacing-lg, 1.5rem) var(--spacing-md, 1rem);
+        border-radius: var(--border-radius-md, 20px);
+        max-width: 100%;
+    }
+    
+    .signup-page .auth-card__title {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-lg, 1.5rem);
+    }
+    
+    .signup-page .auth-field__input {
+        padding: var(--spacing-md, 1rem) var(--spacing-md, 1rem);
+        font-size: 0.95rem;
+    }
+    
+    .signup-page .auth-field__label {
+        font-size: 0.95rem;
+    }
+    
+    .signup-page .auth-button {
+        padding: var(--spacing-md, 1rem) 0;
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .signup-page .auth-card {
+        padding: var(--spacing-lg, 1.5rem) var(--spacing-md, 1rem);
+    }
+    
+    .signup-page .auth-card__title {
+        font-size: 1.3rem;
+    }
+    
+    .signup-page .auth-field__input {
+        padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+    }
+    
+    .signup-page .auth-button {
+        padding: var(--spacing-sm, 0.5rem) 0;
+        font-size: 0.9rem;
+    }
+}

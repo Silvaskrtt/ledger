@@ -1,0 +1,160 @@
+/* =============== LOGIN PAGE =============== */
+
+/* Sobrescrever específicos do login */
+.login-page .auth-left-column__title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.login-page .auth-card {
+    max-width: 500px;
+}
+
+/* Responsividade específica do login */
+@media only screen and (max-width: 1024px) {
+    .login-page .auth-left-column__title {
+        font-size: 2.2rem;
+        margin-bottom: var(--spacing-lg, 1.5rem);
+    }
+    
+    .login-page .auth-left-column__image {
+        width: 70%;
+        max-width: 450px;
+    }
+    
+    .login-page .auth-card {
+        padding: var(--spacing-xl, 2rem) var(--spacing-lg, 1.5rem);
+        max-width: 450px;
+    }
+    
+    .login-page .auth-card__title {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-lg, 1.5rem);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .login-page .auth-two-column {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .login-page .auth-left-column {
+        width: 100%;
+        min-height: auto;
+        padding: var(--spacing-xl, 2rem) var(--spacing-lg, 1.5rem) var(--spacing-lg, 1.5rem);
+    }
+    
+    .login-page .auth-right-column {
+        width: 100%;
+        min-height: auto;
+        padding: var(--spacing-lg, 1.5rem) var(--spacing-lg, 1.5rem) var(--spacing-xl, 2rem);
+    }
+    
+    .login-page .auth-left-column__title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-lg, 1.5rem);
+        text-align: center;
+    }
+    
+    .login-page .auth-left-column__image {
+        width: 60%;
+        max-width: 400px;
+        margin-bottom: var(--spacing-lg, 1.5rem);
+    }
+    
+    .login-page .auth-card {
+        max-width: 400px;
+    }
+    
+    .login-page .auth-message {
+        padding: var(--spacing-md, 1rem);
+        font-size: 0.85rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .login-page .auth-left-column {
+        padding: var(--spacing-lg, 1.5rem) var(--spacing-md, 1rem) var(--spacing-lg, 1.5rem);
+    }
+    
+    .login-page .auth-right-column {
+        padding: var(--spacing-lg, 1.5rem) var(--spacing-md, 1rem) var(--spacing-xl, 2rem);
+    }
+    
+    .login-page .auth-left-column__title {
+        font-size: 1.6rem;
+        margin-bottom: var(--spacing-md, 1rem);
+        padding: 0 var(--spacing-sm, 0.5rem);
+    }
+    
+    .login-page .auth-left-column__image {
+        width: 80%;
+        max-width: 300px;
+    }
+    
+    .login-page .auth-card {
+        padding: var(--spacing-lg, 1.5rem) var(--spacing-md, 1rem);
+        border-radius: var(--border-radius-md, 20px);
+        max-width: 100%;
+    }
+    
+    .login-page .auth-card__title {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-lg, 1.5rem);
+    }
+    
+    .login-page .auth-field__input {
+        padding: var(--spacing-md, 1rem) var(--spacing-md, 1rem);
+        font-size: 0.95rem;
+    }
+    
+    .login-page .auth-field__label {
+        font-size: 0.95rem;
+    }
+    
+    .login-page .auth-button {
+        padding: var(--spacing-md, 1rem) 0;
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+    }
+    
+    .login-page .auth-link {
+        font-size: 0.9rem;
+    }
+    
+    .login-page .auth-message {
+        padding: var(--spacing-sm, 0.5rem);
+        font-size: 0.8rem;
+    }
+    
+    .login-page .field-error {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .login-page .auth-left-column__title {
+        font-size: 1.4rem;
+    }
+    
+    .login-page .auth-card {
+        padding: var(--spacing-lg, 1.5rem) var(--spacing-md, 1rem);
+    }
+    
+    .login-page .auth-card__title {
+        font-size: 1.3rem;
+    }
+    
+    .login-page .auth-field__input {
+        padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+    }
+    
+    .login-page .auth-button {
+        padding: var(--spacing-sm, 0.5rem) 0;
+        font-size: 0.9rem;
+    }
+    
+    .login-page .auth-link {
+        font-size: 0.85rem;
+    }
+}
