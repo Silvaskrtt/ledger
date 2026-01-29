@@ -1,3 +1,5 @@
+// frontend/static/js/core/utilities.js
+
 /**
  * Utilitários Globais
  */
