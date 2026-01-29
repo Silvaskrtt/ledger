@@ -1,128 +1,167 @@
+<!-- frontend/templates/base.html -->
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ledger - Sistema Financeiro{% endblock %}</title>
 
-    <!-- Ícones -->
+    <!-- =============== ÍCONES EXTERNOS =============== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
     
-    <!-- CSS Core -->
-    <link rel="stylesheet" href="{% static 'css/core/_base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/core/_reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/core/_typography.css' %}">
-    <link rel="stylesheet" href="{% static 'css/core/_utilities.css' %}">
+    <!-- =============== CSS CORE (ORDEM ESTRATÉGICA) =============== -->
+    
+    <!-- 1. VARIÁVEIS (SEMPRE PRIMEIRO) -->
     <link rel="stylesheet" href="{% static 'css/core/_variables.css' %}">
-
-    <!-- CSS Components -->
-    <link rel="stylesheet" href="{% static 'css/components/_buttons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/_cards.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/_chart.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/_forms.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/_header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/_modal.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/_toggle.css' %}">
-
-
-    <link rel="stylesheet" href="{% static 'css/components/_widget.css' %}">
-
-    <!-- Sidebar Components -->
-    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar-toggle.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar-utils.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/pages/transaction_manager.css' %}">
-
-    <!-- Layouts -->
-    <link rel="stylesheet" href="{% static 'css/layouts/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layouts/sidebar-layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layouts/responsive.css' %}">
+    
+    <!-- 2. RESET E BASE -->
+    <link rel="stylesheet" href="{% static 'css/core/_reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/_base.css' %}">
+    
+    <!-- 3. UTILITÁRIOS -->
+    <link rel="stylesheet" href="{% static 'css/core/_utilities.css' %}">
+    
+    <!-- =============== CSS DE LAYOUT =============== -->
     <link rel="stylesheet" href="{% static 'css/layouts/features.css' %}">
     <link rel="stylesheet" href="{% static 'css/layouts/global-layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/sidebar-layout.css' %}">
+    
+    <!-- =============== CSS DE COMPONENTES BASE =============== -->
+    
+    <!-- Componentes estruturais -->
+    <link rel="stylesheet" href="{% static 'css/components/chart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/summary-card.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/toggle.css' %}">
+    
+    <!-- Componentes de navegação -->
+    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar-toggle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/_navigation/_sidebar-utils.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
     
     <!-- Utilitários -->
     <link rel="stylesheet" href="{% static 'css/components/utilities.css' %}">
-    
-    <!-- Bibliotecas Externas -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
+
+    <!-- Vendors -->
     <link rel="stylesheet" href="{% static 'css/vendors/tom-select-custom.css' %}">
     
+    <!-- =============== CSS DE DASHBOARD =============== -->
+    {% block dashboard_css %}
+    {% comment %}
+        Este bloco é opcional - use apenas em páginas de dashboard
+        Em páginas normais, estes CSS não são carregados
+    {% endcomment %}
+    {% endblock %}
+    
+    <!-- =============== CSS DE PÁGINAS ESPECÍFICAS =============== -->
+    {% block page_css %}
+
+    <link rel="stylesheet" href="{% static 'css/pages/categories_management.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/goals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/transaction_manager.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/card_credit.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/budget.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/account_management.css' %}">
+
+    {% endblock %}
+    
+    <!-- =============== BIBLIOTECAS EXTERNAS =============== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- =============== CSS EXTRA POR BLOCO =============== -->
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- CSRF Token -->
+    <!-- CSRF Token (para AJAX) -->
     {% csrf_token %}
     
     <!-- APP Container -->
     <div id="app" class="app-container">
-        <!-- Header Bedimcode -->
+        <!-- Header -->
         {% include 'components/header.html' %}
         
-        <!-- Sidebar Bedimcode (APENAS UMA VEZ) -->
+        <!-- Sidebar -->
         {% include 'components/sidebar.html' %}
         
         <!-- Main Content -->
         <main class="main-content" id="main-content">
             <div class="content-wrapper">
-                {% block content %}{% endblock %}
+                {% block content %}
+                <!-- Conteúdo específico da página vai aqui -->
+                {% endblock %}
             </div>
         </main>
         
-        <!-- Alerta Global -->
-        <div id="balance-sync-alert" style="display: none;">
-            <div class="alert alert-warning">
-                <i class="fas fa-exclamation-triangle"></i>
-                <span>Inconsistência detectada nos saldos.</span>
-                <button onclick="BalanceValidator.syncAllBalances()" 
-                        class="btn btn-sm btn-outline-warning ml-2">
-                    <i class="fas fa-sync"></i> Sincronizar
-                </button>
-            </div>
-        </div>
     </div>
     
-    <!-- Scripts Core -->
+    <!-- =============== SCRIPTS CORE =============== -->
+    
+    <!-- 1. Utilities primeiro (funções básicas) -->
     <script src="{% static 'js/core/utilities.js' %}"></script>
+    
+    <!-- 2. Gerenciadores de estado/app -->
     <script src="{% static 'js/core/app-state.js' %}"></script>
     
-    <!-- Scripts Components Bedimcode -->
+    <!-- 3. Gerenciadores de UI -->
     <script src="{% static 'js/components/sidebar-manager.js' %}"></script>
     <script src="{% static 'js/components/theme-manager.js' %}"></script>
     
-    <!-- Scripts Específicos -->
+    <!-- 4. Scripts específicos do app -->
     <script src="{% static 'js/components/balance-validator.js' %}"></script>
     
-    <!-- Bibliotecas -->
+    <!-- =============== BIBLIOTECAS EXTERNAS =============== -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <script src="{% static 'js/tom-select-manager.js' %}"></script>
-
+    
+    <!-- =============== INICIALIZAÇÃO PADRÃO =============== -->
     <script>
-        // Teste de comunicação após carregamento
+        // Inicialização após DOM carregado
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🧪 TESTE DE COMUNICAÇÃO:');
+            console.log('🚀 Ledger inicializado');
             
-            // Teste 1: AppState existe?
-            console.log('AppState disponível?', !!window.AppState);
+            // Inicializar gerenciadores
+            if (window.SidebarManager) {
+                window.SidebarManager.init();
+            }
             
-            if (window.AppState) {
-                // Teste 2: Toggle via AppState
-                setTimeout(() => {
-                    console.log('Testando toggle via AppState...');
-                    window.AppState.toggleSidebar();
-                }, 1000);
-                
-                // Teste 3: Ouvir eventos
-                window.AppState.subscribe('sidebar:toggle', function(state) {
-                    console.log('✅ Evento sidebar:toggle recebido:', state);
-                });
+            if (window.ThemeManager) {
+                window.ThemeManager.init();
+            }
+            
+            if (window.BalanceValidator) {
+                window.BalanceValidator.init();
+            }
+            
+            // Inicializar TomSelect se houver elementos
+            if (window.TomSelectManager && document.querySelector('.tom-select')) {
+                window.TomSelectManager.initAll();
             }
         });
     </script>
     
-    {% block extra_js %}{% endblock %}
+    <!-- =============== SCRIPTS EXTRA POR BLOCO =============== -->
+    {% block extra_js %}
+    {% endblock %}
+    
+    <!-- =============== SCRIPTS DE PÁGINA =============== -->
+    {% block page_js %}
+    <script src="{% static 'js/financial_goals/goals.js' %}"></script>
+    <script src="{% static 'js/transactions/transaction_manager.js' %}?v=1"></script>
+    <script src="{% static 'js/categories_management/categories_management.js' %}"></script>
+    <script src="{% static 'js/card_credit/card_credit.js' %}"></script>
+    <script src="{% static 'js/budget/budget.js' %}"></script>
+    <script src="{% static 'js/account_management/account_management.js' %}"></script>
+    {% endblock %}
 </body>
 </html>

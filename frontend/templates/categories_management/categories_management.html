@@ -5,13 +5,6 @@
 
 {% block title %}Gerenciar Categorias e Tags - Ledger{% endblock %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/vendors/tom-select-custom.css' %}">
-<link rel="stylesheet" href="{% static 'css/pages/categories_management.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.css" rel="stylesheet">
-{% endblock %}
-
 {% block content %}
 <div class="main-content">
     <div class="content-wrapper">
@@ -292,7 +285,4 @@
         <span class="group-count">(0 itens)</span>
     </div>
 </template>
-
-<script src="{% static 'js/categories_management/categories_management.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
 {% endblock %}

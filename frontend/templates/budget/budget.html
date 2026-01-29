@@ -5,10 +5,6 @@
 
 {% block title %}Orçamento Mensal - Ledger{% endblock %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/pages/budget.css' %}">
-{% endblock %}
-
 {% block content %}
 
 <section class="budget-container">
@@ -97,5 +93,4 @@
 {% block extra_js %}
 <!-- O modal é incluído aqui, fora do block content -->
 {% include "budget/budget_modal.html" %}
-<script src="{% static 'js/budget/budget.js' %}"></script>
 {% endblock %}
