@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'recurrence',      # Transações recorrentes
     'goals',           # Metas financeiras
     'accounts',        # Contas bancárias / carteiras
-    'dashboards',      # Dashboards de visualização de dados
 
     # Apps padrão do Django
     'django.contrib.admin',
