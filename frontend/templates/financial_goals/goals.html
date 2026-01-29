@@ -3,6 +3,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_css %}
+<!-- CSS específico para esta página -->
+<link rel="stylesheet" href="{% static 'css/pages/goals.css' %}">
+{% endblock %}
+
 {% block content %}
 <section class="goals-container">
 
@@ -41,4 +46,9 @@
         </form>
     </div>
 </div>
+{% endblock %}
+
+{% block page_js %}
+<!-- Scripts específicos para esta página -->
+<script src="{% static 'js/financial_goals/goals.js' %}"></script>
 {% endblock %}

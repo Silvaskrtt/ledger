@@ -5,6 +5,11 @@
 
 {% block title %}Gerenciar Categorias e Tags - Ledger{% endblock %}
 
+{% block page_css %}
+<!-- CSS específico para esta página -->
+<link rel="stylesheet" href="{% static 'css/pages/categories_management.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="main-content">
     <div class="content-wrapper">
@@ -285,4 +290,9 @@
         <span class="group-count">(0 itens)</span>
     </div>
 </template>
+{% endblock %}
+
+{% block page_js %}
+<!-- Scripts específicos para esta página -->
+<script src="{% static 'js/categories_management/categories_management.js' %}"></script>
 {% endblock %}

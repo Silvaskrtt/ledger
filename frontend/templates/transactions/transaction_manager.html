@@ -5,6 +5,11 @@
 
 {% block title %}Gerenciar Transações - Ledger{% endblock %}
 
+{% block page_css %}
+<!-- CSS específico para esta página -->
+<link rel="stylesheet" href="{% static 'css/pages/transaction_manager.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="transaction-manager">
     <!-- Cabeçalho com Botão de Nova Transação -->
@@ -251,6 +256,11 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block page_js %}
+<!-- Scripts específicos para esta página -->
+<script src="{% static 'js/transactions/transaction_manager.js' %}"></script>
 {% endblock %}
 
 {% block extra_js %}

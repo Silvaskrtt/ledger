@@ -4,6 +4,11 @@
 {% load humanize %}
 {% load static %}
 
+{% block page_css %}
+<!-- CSS específico para esta página -->
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="centered-content">
 <section class="dashboard-cards centered-grid">

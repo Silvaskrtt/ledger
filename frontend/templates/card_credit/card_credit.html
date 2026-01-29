@@ -5,6 +5,11 @@
 
 {% block title %}Gerenciar Cartões de Crédito - Ledger{% endblock %}
 
+{% block page_css %}
+<!-- CSS específico para esta página -->
+<link rel="stylesheet" href="{% static 'css/pages/card_credit.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="main-content">
     <div class="content-wrapper">
@@ -315,4 +320,9 @@
     </div>
 </template>
 
+{% endblock %}
+
+{% block page_js %}
+<!-- Scripts específicos para esta página -->
+<script src="{% static 'js/card_credit/card_credit.js' %}"></script>
 {% endblock %}

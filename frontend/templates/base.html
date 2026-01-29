@@ -1,5 +1,4 @@
 <!-- frontend/templates/base.html -->
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
@@ -10,7 +9,7 @@
 
     <!-- =============== ÍCONES EXTERNOS =============== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
     
     <!-- =============== CSS CORE (ORDEM ESTRATÉGICA) =============== -->
@@ -52,6 +51,9 @@
     <!-- Vendors -->
     <link rel="stylesheet" href="{% static 'css/vendors/tom-select-custom.css' %}">
     
+    <!-- =============== BIBLIOTECAS EXTERNAS =============== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
+    
     <!-- =============== CSS DE DASHBOARD =============== -->
     {% block dashboard_css %}
     {% comment %}
@@ -62,27 +64,16 @@
     
     <!-- =============== CSS DE PÁGINAS ESPECÍFICAS =============== -->
     {% block page_css %}
-
-    <link rel="stylesheet" href="{% static 'css/pages/categories_management.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/goals.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/transaction_manager.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/card_credit.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/budget.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/account_management.css' %}">
-
+    {% comment %}
+        CSS específico de cada página deve ser carregado aqui
+    {% endcomment %}
     {% endblock %}
     
-    <!-- =============== BIBLIOTECAS EXTERNAS =============== -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <!-- =============== CSS EXTRA POR BLOCO =============== -->
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- CSRF Token (para AJAX) -->
+    <!-- CSRF Token (para AJAX) - NÃO REPITA NO TEMPLATE -->
     {% csrf_token %}
     
     <!-- APP Container -->
@@ -119,9 +110,8 @@
     <!-- 4. Scripts específicos do app -->
     <script src="{% static 'js/components/balance-validator.js' %}"></script>
     
-    <!-- =============== BIBLIOTECAS EXTERNAS =============== -->
+    <!-- =============== BIBLIOTECAS EXTERNAS (APENAS UMA VEZ) =============== -->
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <script src="{% static 'js/tom-select-manager.js' %}"></script>
     
     <!-- =============== INICIALIZAÇÃO PADRÃO =============== -->
@@ -151,17 +141,13 @@
     </script>
     
     <!-- =============== SCRIPTS EXTRA POR BLOCO =============== -->
-    {% block extra_js %}
-    {% endblock %}
+    {% block extra_js %}{% endblock %}
     
     <!-- =============== SCRIPTS DE PÁGINA =============== -->
     {% block page_js %}
-    <script src="{% static 'js/financial_goals/goals.js' %}"></script>
-    <script src="{% static 'js/transactions/transaction_manager.js' %}?v=1"></script>
-    <script src="{% static 'js/categories_management/categories_management.js' %}"></script>
-    <script src="{% static 'js/card_credit/card_credit.js' %}"></script>
-    <script src="{% static 'js/budget/budget.js' %}"></script>
-    <script src="{% static 'js/account_management/account_management.js' %}"></script>
+    {% comment %}
+        Scripts específicos de cada página devem ser carregados aqui
+    {% endcomment %}
     {% endblock %}
 </body>
 </html>
