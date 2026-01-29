@@ -1,0 +1,60 @@
+<!-- frontend/templates/base_auth.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block auth_title %}Ledger - Sistema Financeiro{% endblock %}</title>
+    
+    <!-- CSS CORE -->
+    <link rel="stylesheet" href="{% static 'css/core/_variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/core/_reset.css' %}">
+    
+    <!-- CSS COMPONENTES AUTH -->
+    <link rel="stylesheet" href="{% static 'css/components/_auth/_auth-components.css' %}">
+    
+    <!-- CSS LAYOUT AUTH -->
+    <link rel="stylesheet" href="{% static 'css/layouts/auth-layout.css' %}">
+    
+    <!-- CSS PÁGINAS ESPECÍFICAS -->
+    {% block auth_page_css %}
+        <link rel="stylesheet" href="{% static 'css/pages/auth/login.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/auth/signup.css' %}">
+    {% endblock %}
+    
+    <!-- CSS EXTRA -->
+    {% block auth_extra_css %}{% endblock %}
+</head>
+
+<body class="{% block auth_body_class %}{% endblock %}">
+    <!-- CSRF Token -->
+    {% csrf_token %}
+    
+    <!-- Conteúdo específico -->
+    {% block auth_content %}
+    {% endblock %}
+    
+    <!-- SCRIPTS CORE -->
+    <script src="{% static 'js/core/utilities.js' %}"></script>
+    
+    <!-- INICIALIZAÇÃO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔐 Página de autenticação carregada');
+            
+            // Adicionar classe específica ao body
+            document.body.classList.add('auth-loaded');
+        });
+    </script>
+    
+    <!-- SCRIPTS EXTRA -->
+    {% block auth_extra_js %}{% endblock %}
+    
+    <!-- SCRIPTS DE PÁGINA -->
+    {% block auth_page_js %}{% endblock %}
+</body>
+</html>
