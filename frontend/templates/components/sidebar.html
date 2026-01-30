@@ -36,117 +36,102 @@
             <div class="sidebar__nav">
                 <h3 class="sidebar__title">MENU PRINCIPAL</h3>
                 
-                <ul class="sidebar__list">
-                    <li>
-                        <a href="{% url 'home' %}" 
-                           class="sidebar__link {% if request.resolver_match.url_name == 'home' %}active-link{% endif %}"
-                           aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">
-                            <i class='bx bx-grid-alt'></i>
-                            <span>Página Principal</span>
-                        </a>
-                    </li>
+                <!-- REMOVER UL/LI e usar div como antigo -->
+                <div class="sidebar__list">
+                    <a href="{% url 'home' %}" 
+                       class="sidebar__link {% if request.resolver_match.url_name == 'home' %}active-link{% endif %}"
+                       aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">
+                        <i class='bx bx-grid-alt'></i>
+                        <span>Página Principal</span>
+                    </a>
                     
-                    <li>
-                        <a href="{% url 'transaction-manager' %}" 
-                           class="sidebar__link {% if 'transaction' in request.resolver_match.url_name %}active-link{% endif %}"
-                           aria-current="{% if 'transaction' in request.resolver_match.url_name %}page{% endif %}">
-                            <i class="ri-arrow-up-down-line"></i>
-                            <span>Transações</span>
-                        </a>
-                    </li>
+                    <a href="{% url 'transaction-manager' %}" 
+                       class="sidebar__link {% if 'transaction' in request.resolver_match.url_name %}active-link{% endif %}"
+                       aria-current="{% if 'transaction' in request.resolver_match.url_name %}page{% endif %}">
+                        <i class="ri-arrow-up-down-line"></i>
+                        <span>Transações</span>
+                    </a>
 
-                    <li>
-                        <a href="{% url 'budget' %}" 
-                           class="sidebar__link {% if request.resolver_match.url_name == 'budget' %}active-link{% endif %}"
-                           aria-current="{% if request.resolver_match.url_name == 'budget' %}page{% endif %}">
-                            <i class='fa-solid fa-wallet'></i>
-                            <span>Orçamento Mensal</span>
-                        </a>
-                    </li>
+                    <a href="{% url 'budget' %}" 
+                       class="sidebar__link {% if request.resolver_match.url_name == 'budget' %}active-link{% endif %}"
+                       aria-current="{% if request.resolver_match.url_name == 'budget' %}page{% endif %}">
+                        <i class='fa-solid fa-wallet'></i>
+                        <span>Orçamento Mensal</span>
+                    </a>
 
-                    <li>
-                        <a href="{% url 'goals:financial-goals-page' %}" 
-                           class="sidebar__link {% if 'goals' in request.resolver_match.url_name %}active-link{% endif %}"
-                           aria-current="{% if 'goals' in request.resolver_match.url_name %}page{% endif %}">
-                            <i class='fa-solid fa-flag'></i>
-                            <span>Metas Financeiras</span>
-                        </a>
-                    </li>
-                </ul>
+                    <a href="{% url 'goals:financial-goals-page' %}" 
+                       class="sidebar__link {% if 'goals' in request.resolver_match.url_name %}active-link{% endif %}"
+                       aria-current="{% if 'goals' in request.resolver_match.url_name %}page{% endif %}">
+                        <i class='fa-solid fa-flag'></i>
+                        <span>Metas Financeiras</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Menu Gerenciar -->
             <div class="sidebar__nav">
                 <h3 class="sidebar__title">GERENCIAR</h3>
                 
-                <ul class="sidebar__list">
-                    <li>
-                        <a href="{% url 'account-management' %}" 
-                           class="sidebar__link {% if 'account' in request.resolver_match.url_name %}active-link{% endif %}"
-                           aria-current="{% if 'account' in request.resolver_match.url_name %}page{% endif %}">
-                            <i class='fa-solid fa-building-columns'></i>
-                            <span>Gerenciar Contas</span>
-                        </a>
-                    </li>
+                <!-- REMOVER UL/LI e usar div como antigo -->
+                <div class="sidebar__list">
+                    <a href="{% url 'account-management' %}" 
+                       class="sidebar__link {% if 'account' in request.resolver_match.url_name %}active-link{% endif %}"
+                       aria-current="{% if 'account' in request.resolver_match.url_name %}page{% endif %}">
+                        <i class='fa-solid fa-building-columns'></i>
+                        <span>Gerenciar Contas</span>
+                    </a>
 
-                    <li>
-                        <a href="{% url 'credit-cards' %}" 
-                           class="sidebar__link {% if 'credit' in request.resolver_match.url_name %}active-link{% endif %}"
-                           aria-current="{% if 'credit' in request.resolver_match.url_name %}page{% endif %}">
-                            <i class='fa-solid fa-credit-card'></i>
-                            <span>Gerenciar Cartões</span>
-                        </a>
-                    </li>
+                    <a href="{% url 'credit-cards' %}" 
+                       class="sidebar__link {% if 'credit' in request.resolver_match.url_name %}active-link{% endif %}"
+                       aria-current="{% if 'credit' in request.resolver_match.url_name %}page{% endif %}">
+                        <i class='fa-solid fa-credit-card'></i>
+                        <span>Gerenciar Cartões</span>
+                    </a>
 
-                    <li>
-                        <a href="{% url 'management-categories' %}" 
-                           class="sidebar__link {% if 'categories' in request.resolver_match.url_name %}active-link{% endif %}"
-                           aria-current="{% if 'categories' in request.resolver_match.url_name %}page{% endif %}">
-                            <i class='fa-solid fa-tags'></i>
-                            <span>Gerenciar Categorias</span>
-                        </a>
-                    </li>
-                </ul>
+                    <a href="{% url 'management-categories' %}" 
+                       class="sidebar__link {% if 'categories' in request.resolver_match.url_name %}active-link{% endif %}"
+                       aria-current="{% if 'categories' in request.resolver_match.url_name %}page{% endif %}">
+                        <i class='fa-solid fa-tags'></i>
+                        <span>Gerenciar Categorias</span>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Ações do Sidebar -->
         <div class="sidebar__actions">
-            <ul class="sidebar__list">
+            <!-- REMOVER UL/LI e usar div como antigo -->
+            <div class="sidebar__list">
                 <!-- Toggle Tema -->
-                <li>
-                    <button type="button" 
-                            id="theme-button" 
-                            class="sidebar__link sidebar__theme-toggle"
-                            aria-label="Alternar tema claro/escuro"
-                            data-theme-toggle>
-                        <i class="ri-moon-clear-fill"></i>
-                        <span>Tema</span>
-                    </button>
-                </li>
+                <button type="button" 
+                        id="theme-button" 
+                        class="sidebar__link sidebar__theme-toggle"
+                        aria-label="Alternar tema claro/escuro"
+                        data-theme-toggle>
+                    <i class="ri-moon-clear-fill"></i>
+                    <span>Tema</span>
+                </button>
 
                 <!-- Logout -->
                 {% if user.is_authenticated %}
-                <li>
-                    <form method="post" 
-                          action="{% url 'logout' %}" 
-                          class="logout-form"
-                          data-logout-form>
-                        {% csrf_token %}
-                        <button type="submit" 
-                                class="sidebar__link"
-                                aria-label="Sair do sistema"
-                                onclick="return confirm('Tem certeza que deseja sair?')">
-                            <i class="ri-logout-box-r-fill"></i>
-                            <span>Sair</span>
-                        </button>
-                    </form>
-                </li>
+                <form method="post" 
+                      action="{% url 'logout' %}" 
+                      class="logout-form"
+                      data-logout-form>
+                    {% csrf_token %}
+                    <button type="submit" 
+                            class="sidebar__link"
+                            aria-label="Sair do sistema"
+                            onclick="return confirm('Tem certeza que deseja sair?')">
+                        <i class="ri-logout-box-r-fill"></i>
+                        <span>Sair</span>
+                    </button>
+                </form>
                 {% endif %}
-            </ul>
+            </div>
         </div>
     </div>
 </aside>
 
-<!-- Overlay para mobile (será adicionado dinamicamente pelo JS) -->
+<!-- Overlay para mobile -->
 <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
