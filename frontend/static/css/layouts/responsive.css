@@ -29,7 +29,7 @@
 /* 2. Smartphones (vertical) */
 @media (max-width: 480px) {
     :root {
-        --sidebar-width-open: 85vw; /* Usa viewport width */
+        --sidebar-width-open: 75vw; /* Usa viewport width */
     }
     
     .main-content {
@@ -43,8 +43,7 @@
         transform: translateX(-100%);
         z-index: var(--z-sidebar);
         top: var(--header-height);
-        height: calc(100vh - var(--header-height));
-        width: 85vw !important;
+        width: 75vw !important;
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
