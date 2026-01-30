@@ -140,6 +140,8 @@
     font-family: inherit;
     font-size: inherit;
     transition: all var(--transition-base, 0.3s ease);
+    width: calc(100% - 1rem); /* Largura consistente */
+    box-sizing: border-box;
 }
 
 .sidebar__link i {
@@ -151,9 +153,7 @@
 
 .sidebar__link span {
     font-weight: var(--font-semi-bold, 600);
-    transition: opacity var(--transition-base, 0.3s ease),
-                width var(--transition-base, 0.3s ease),
-                margin var(--transition-base, 0.3s ease);
+    transition: opacity var(--transition-base, 0.3s ease);
     white-space: nowrap;
 }
 
@@ -184,36 +184,58 @@
     cursor: pointer;
 }
 
-/* =============== CORREÇÃO CRÍTICA PARA O LOGOUT =============== */
-/* Form do logout - remove margens e paddings que atrapalham */
+/* =============== SOLUÇÃO SIMPLES PARA LOGOUT =============== */
+/* TIRA TODOS OS ESTILOS DO FORM e faz ele se comportar como um link normal */
 .logout-form {
-    width: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    background: none !important;
-    display: block !important;
+    all: unset !important; /* Remove todos os estilos padrão do form */
+    display: contents !important; /* Faz o form desaparecer do fluxo */
 }
 
-/* O botão dentro do form */
-.logout-form .sidebar__link {
-    width: 100%;
-    margin: 0 !important;
+/* O botão de logout deve ter EXATAMENTE os mesmos estilos dos outros links */
+.logout-form .sidebar__link,
+.sidebar__actions .sidebar__link {
+    all: unset !important; /* Remove todos os estilos herdados */
+    position: relative;
     display: flex !important;
     align-items: center !important;
+    gap: 1rem !important;
+    color: var(--color-text-secondary, #64748b) !important;
+    padding: 0.5rem 1.5rem 0.5rem 2rem !important;
+    margin: 0 .5rem !important;
+    border-radius: .5rem !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    border: none !important;
+    background: transparent !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    transition: all var(--transition-base, 0.3s ease) !important;
+    width: calc(100% - 1rem) !important;
+    box-sizing: border-box !important;
 }
 
-/* Remove qualquer estilo de form que possa estar atrapalhando */
-.logout-form button {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    text-align: left;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
+/* Hover consistente */
+.logout-form .sidebar__link:hover,
+.sidebar__actions .sidebar__link:hover {
+    color: var(--color-primary, #500BD9) !important;
+    background-color: rgba(var(--color-primary-rgb, 80, 11, 217), 0.1) !important;
+}
+
+/* Ícones dos botões de ação */
+.logout-form .sidebar__link i,
+.sidebar__actions .sidebar__link i {
+    font-size: 1.25rem !important;
+    width: 24px !important;
+    text-align: center !important;
+    flex-shrink: 0 !important;
+}
+
+/* Texto dos botões de ação */
+.logout-form .sidebar__link span,
+.sidebar__actions .sidebar__link span {
+    font-weight: var(--font-semi-bold, 600) !important;
+    transition: opacity var(--transition-base, 0.3s ease) !important;
+    white-space: nowrap !important;
 }
 
 /* Show sidebar */
@@ -257,70 +279,49 @@
 
 /* =============== LINKS RECOLHIDOS =============== */
 .sidebar.reduced .sidebar__link span,
-.sidebar.collapsed .sidebar__link span {
-    display: none !important;
-}
-
-/* Centralização dos links recolhidos */
-.sidebar.reduced .sidebar__link,
-.sidebar.collapsed .sidebar__link {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 0.5rem !important;
-    margin: 0 .5rem !important;
-}
-
-/* Garante que o ícone fique sozinho e centralizado */
-.sidebar.reduced .sidebar__link i,
-.sidebar.collapsed .sidebar__link i {
-    margin: 0 !important;
-    display: block;
-}
-
-/* =============== CORREÇÃO ESPECÍFICA PARA LOGOUT RECOLHIDO =============== */
-/* Form do logout quando recolhido */
-.sidebar.reduced .logout-form,
-.sidebar.collapsed .logout-form {
-    display: flex !important;
-    justify-content: center !important;
-    width: 100% !important;
-}
-
-/* Botão de logout dentro do form quando recolhido */
-.sidebar.reduced .logout-form .sidebar__link,
-.sidebar.collapsed .logout-form .sidebar__link {
-    width: auto !important; /* Remove largura 100% que pode atrapalhar */
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 0.5rem !important;
-    margin: 0 .5rem !important;
-}
-
-/* Remove texto do logout quando recolhido */
+.sidebar.collapsed .sidebar__link span,
 .sidebar.reduced .logout-form .sidebar__link span,
 .sidebar.collapsed .logout-form .sidebar__link span {
     display: none !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
 }
 
-/* BOTÕES DE AÇÃO (TEMA E LOGOUT) RECOLHIDOS - REGRA GERAL */
-.sidebar.reduced .sidebar__actions .sidebar__link,
-.sidebar.collapsed .sidebar__actions .sidebar__link {
+/* Centralização dos links recolhidos - TODOS OS LINKS */
+.sidebar.reduced .sidebar__link,
+.sidebar.collapsed .sidebar__link,
+.sidebar.reduced .logout-form .sidebar__link,
+.sidebar.collapsed .logout-form .sidebar__link {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 0.5rem !important;
+    padding: 0.75rem !important; /* Padding maior para melhor visualização */
     margin: 0 .5rem !important;
+    width: calc(100% - 1rem) !important;
 }
 
-/* Active link */
-.sidebar__link.active-link {
-    color: var(--color-primary, #500BD9);
-    background-color: rgba(var(--color-primary-rgb, 80, 11, 217), 0.1);
+/* Ícones centralizados quando recolhido */
+.sidebar.reduced .sidebar__link i,
+.sidebar.collapsed .sidebar__link i,
+.sidebar.reduced .logout-form .sidebar__link i,
+.sidebar.collapsed .logout-form .sidebar__link i {
+    margin: 0 !important;
+    display: block !important;
+    text-align: center !important;
+    font-size: 1.25rem !important;
 }
 
-.sidebar__link.active-link::after {
+/* Active link - ESTADO EXPANDIDO */
+.sidebar__link.active-link,
+.logout-form .sidebar__link.active-link {
+    color: var(--color-primary, #500BD9) !important;
+    background-color: rgba(var(--color-primary-rgb, 80, 11, 217), 0.1) !important;
+}
+
+.sidebar__link.active-link::after,
+.logout-form .sidebar__link.active-link::after {
     content: '';
     position: absolute;
     left: 0;
@@ -328,12 +329,24 @@
     height: 20px;
     background-color: var(--color-primary, #500BD9);
     border-radius: 0 3px 3px 0;
+    transition: all var(--transition-base, 0.3s ease);
 }
 
-/* Quando recolhido, remove a barra lateral ativa */
+/* Active link - ESTADO RECOLHIDO */
+.sidebar.reduced .sidebar__link.active-link,
+.sidebar.collapsed .sidebar__link.active-link,
+.sidebar.reduced .logout-form .sidebar__link.active-link,
+.sidebar.collapsed .logout-form .sidebar__link.active-link {
+    background-color: rgba(var(--color-primary-rgb, 80, 11, 217), 0.2) !important;
+    color: var(--color-primary, #500BD9) !important;
+}
+
+/* Remove a barra lateral quando recolhido */
 .sidebar.reduced .sidebar__link.active-link::after,
-.sidebar.collapsed .sidebar__link.active-link::after {
-    display: none;
+.sidebar.collapsed .sidebar__link.active-link::after,
+.sidebar.reduced .logout-form .sidebar__link.active-link::after,
+.sidebar.collapsed .logout-form .sidebar__link.active-link::after {
+    display: none !important;
 }
 
 /* =============== RESPONSIVIDADE =============== */
@@ -344,7 +357,8 @@
     }
     
     .sidebar__info,
-    .sidebar__link span {
+    .sidebar__link span,
+    .logout-form .sidebar__link span {
         display: none;
     }
     
@@ -359,7 +373,8 @@
         padding: 0;
     }
     
-    .sidebar__link {
+    .sidebar__link,
+    .logout-form .sidebar__link {
         justify-content: center;
         padding: 0.75rem !important;
     }
@@ -367,12 +382,6 @@
     .sidebar__title {
         padding-inline: .5rem;
         margin-inline: auto;
-    }
-    
-    /* Mobile: logout recolhido */
-    .logout-form {
-        display: flex !important;
-        justify-content: center !important;
     }
 }
 
@@ -417,7 +426,8 @@
 .sidebar,
 .sidebar__user,
 .sidebar__link,
-.sidebar__info {
+.sidebar__info,
+.logout-form .sidebar__link {
     transition: all var(--transition-base, 0.3s ease) !important;
 }
 
@@ -426,7 +436,8 @@
     .sidebar,
     .sidebar__user,
     .sidebar__link,
-    .sidebar__info {
+    .sidebar__info,
+    .logout-form .sidebar__link {
         transition: none !important;
     }
 }
