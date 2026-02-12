@@ -14,6 +14,7 @@ import uuid
 from django.core.paginator import Paginator
 
 # Model imports
+from services.summary_service import SummaryService
 from transactions.services.balance_service import recalculate_account_balance
 from recurrence.models import RecurrenceRule
 from transactions.models import Transaction, TransactionAccount, TransactionTag
@@ -39,6 +40,11 @@ class TransactionManagerView(LoginRequiredMixin, TemplateView):
     paginate_by = 20
 
     def get(self, request, *args, **kwargs):
+        # ===== 1. DADOS DOS CARDS =====
+        # USA O MESMO SERVIÇO DA HOME!
+        summary_data = SummaryService.get_summary_data(request.user)
+        
+        # ===== 2. TRANSAÇÕES =====
         transactions = Transaction.objects.filter(
             user=request.user
         ).select_related(
@@ -88,17 +94,25 @@ class TransactionManagerView(LoginRequiredMixin, TemplateView):
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
 
+        # ===== 3. CONTEXTO =====
         context = {
+            # DADOS DOS CARDS (DA HOME!)
+            **summary_data,
+            
+            # Dados das transações
             "transactions": page_obj,
             "categories": Category.objects.filter(user=request.user),
             "accounts": Account.objects.filter(user=request.user),
             "tags": Tag.objects.filter(user=request.user),
             "payment_methods": PaymentMethod.objects.filter(user=request.user),
+            
+            # Filtros
             "start": start or "",
             "end": end or "",
             "selected_category": category_uuid or "",
             "selected_account": account_uuid or "",
         }
+        
         return render(request, self.template_name, context)
 
 

@@ -2,6 +2,7 @@
 
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block title %}Gerenciar Transações - Ledger{% endblock %}
 
@@ -12,7 +13,10 @@
 
 {% block content %}
 <div class="transaction-manager">
-    <!-- Cabeçalho com Botão de Nova Transação -->
+    <!-- ============= CARDS DE RESUMO ============= -->
+    {% include 'transactions/partials/summary_cards.html' %}
+    
+    <!-- ============= CABEÇALHO ============= -->
     <div class="manager-header">
         <h1><i class="fas fa-exchange-alt"></i> Transações</h1>
         <button class="btn btn-primary" id="newTransactionBtn">
@@ -145,7 +149,7 @@
             <div class="transaction-actions">
                 <div class="transaction-amount 
                     {% if transaction.direction == 'IN' %}amount-income{% else %}amount-expense{% endif %}">
-                    {% if transaction.direction == 'IN' %}<i class="fas fa-arrow-down"></i>+{% else %}<i class="fas fa-arrow-up"></i>-{% endif %}
+                    {% if transaction.direction == 'IN' %}<i class="fas fa-arrow-up"></i>+{% else %}<i class="fas fa-arrow-down"></i>-{% endif %}
                     R$ {{ transaction.amount|floatformat:2 }}
                     
                     {% if transaction.origin == 'INSTALLMENT' %}

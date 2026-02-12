@@ -68482,3 +68482,386 @@ Not Found: /favicon.ico
 "GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
 "GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
 Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /budget/ HTTP/1.1" 200 19097
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/budget.css HTTP/1.1" 200 13703
+"GET /static/js/budget/budget.js HTTP/1.1" 200 17503
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/budget-overview/ HTTP/1.1" 200 315
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /goals/ HTTP/1.1" 200 12198
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/goals.css HTTP/1.1" 200 13160
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 200 11925
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 542
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71631
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+Not Found: /api/transactions/undefined/
+"DELETE /api/transactions/undefined/ HTTP/1.1" 404 15411
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+"GET /api/transactions/f71f6229-00a6-4fa3-b387-743f1854bddb/form/ HTTP/1.1" 200 17036
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 24.16, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'cd299205-9854-4dc2-92e7-4f3a12a87649', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-12T18:18', 'description': 'controle', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 24.16
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Hardware (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Hardware
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação d621c0b8-9533-47d0-8e18-ae58f4be6804 (INCOME)
+Transação manual criada: d621c0b8-9533-47d0-8e18-ae58f4be6804
+Transaction Type: INCOME
+Saldo: 683.21 -> 707.37
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'd621c0b8-9533-47d0-8e18-ae58f4be6804', 'amount': 24.16, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/d621c0b8-9533-47d0-8e18-ae58f4be6804/form/ HTTP/1.1" 200 17015
+=== UPDATE TRANSACTION d621c0b8-9533-47d0-8e18-ae58f4be6804 ===
+Saldo atualizado para transação d621c0b8-9533-47d0-8e18-ae58f4be6804 (INCOME)
+Transação d621c0b8-9533-47d0-8e18-ae58f4be6804 atualizada com sucesso
+"PUT /api/transactions/d621c0b8-9533-47d0-8e18-ae58f4be6804/ HTTP/1.1" 200 288
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/d621c0b8-9533-47d0-8e18-ae58f4be6804/form/ HTTP/1.1" 200 17015
+=== UPDATE TRANSACTION d621c0b8-9533-47d0-8e18-ae58f4be6804 ===
+Saldo atualizado para transação d621c0b8-9533-47d0-8e18-ae58f4be6804 (INCOME)
+Transação d621c0b8-9533-47d0-8e18-ae58f4be6804 atualizada com sucesso
+"PUT /api/transactions/d621c0b8-9533-47d0-8e18-ae58f4be6804/ HTTP/1.1" 200 287
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/pages/account_management.css HTTP/1.1" 200 17514
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 38072
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/d621c0b8-9533-47d0-8e18-ae58f4be6804/form/ HTTP/1.1" 200 17015
+=== UPDATE TRANSACTION d621c0b8-9533-47d0-8e18-ae58f4be6804 ===
+Saldo atualizado para transação d621c0b8-9533-47d0-8e18-ae58f4be6804 (INCOME)
+Transação d621c0b8-9533-47d0-8e18-ae58f4be6804 atualizada com sucesso
+"PUT /api/transactions/d621c0b8-9533-47d0-8e18-ae58f4be6804/ HTTP/1.1" 200 288
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/d621c0b8-9533-47d0-8e18-ae58f4be6804/form/ HTTP/1.1" 200 17015
+=== UPDATE TRANSACTION d621c0b8-9533-47d0-8e18-ae58f4be6804 ===
+Saldo atualizado para transação d621c0b8-9533-47d0-8e18-ae58f4be6804 (INCOME)
+Transação d621c0b8-9533-47d0-8e18-ae58f4be6804 atualizada com sucesso
+"PUT /api/transactions/d621c0b8-9533-47d0-8e18-ae58f4be6804/ HTTP/1.1" 200 287
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /budget/ HTTP/1.1" 200 19097
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 315
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"POST /api/create-budget-limit/ HTTP/1.1" 200 162
+"GET /budget/ HTTP/1.1" 200 20478
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 513
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"POST /api/create-budget-limit/ HTTP/1.1" 200 162
+"GET /budget/ HTTP/1.1" 200 21861
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 712
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"POST /api/create-budget-limit/ HTTP/1.1" 200 164
+"GET /budget/ HTTP/1.1" 200 23247
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 914
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/budget-category-limits/5/ HTTP/1.1" 200 580
+"GET /api/budget-category-limits/5/ HTTP/1.1" 200 580
+"PUT /api/budget-category-limits/5/ HTTP/1.1" 200 578
+"GET /budget/ HTTP/1.1" 200 23245
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 912
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /budget/ HTTP/1.1" 200 23245
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 912
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /goals/ HTTP/1.1" 200 12198
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 542
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /budget/ HTTP/1.1" 200 23245
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 912
+"GET /api/budget-category-limits/5/ HTTP/1.1" 200 578
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /goals/ HTTP/1.1" 200 12198
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 542
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/pages/card_credit.css HTTP/1.1" 200 31633
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 32868
+"GET /api/credit-cards/ HTTP/1.1" 200 1433
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /managementCategories/ HTTP/1.1" 200 23089
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/categories_management.css HTTP/1.1" 200 24869
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 41987
+"GET /api/categories/ HTTP/1.1" 200 8771
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /budget/ HTTP/1.1" 200 23245
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 912
+"GET /goals/ HTTP/1.1" 200 12198
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 542
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 71597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+Internal Server Error: /transactions/
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\muril\Documents\ledger\backend\transactions\views.py", line 102, in get
+    return render(request, self.template_name, context)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 307, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 235, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 229, in do_block
+    raise TemplateSyntaxError(
+        "'%s' tag with name '%s' appears more than once" % (bits[0], block_name)
+    )
+django.template.exceptions.TemplateSyntaxError: Template: C:\Users\muril\Documents\ledger\frontend\templates\transactions\transaction_manager.html, 'block' tag with name 'content' appears more than once
+"GET /transactions/ HTTP/1.1" 500 279909
+"GET /transactions/ HTTP/1.1" 200 74471
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74471
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74471
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+C:\Users\muril\Documents\ledger\backend\transactions\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/ HTTP/1.1" 200 74457
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74457
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74457
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+C:\Users\muril\Documents\ledger\backend\home\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /transactions/ HTTP/1.1" 200 74457
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET / HTTP/1.1" 200 13512
+- Broken pipe from ('127.0.0.1', 52557)
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+C:\Users\muril\Documents\ledger\backend\home\views.py changed, reloading.
+Watching for file changes with StatReloader

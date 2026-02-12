@@ -1,102 +1,15 @@
-<!-- frontend/templates/home/home.html -->
-
 {% extends 'base.html' %}
 {% load humanize %}
 {% load static %}
 
 {% block page_css %}
-<!-- CSS específico para esta página -->
 <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="centered-content">
-<section class="dashboard-cards centered-grid">
-  
-  <!-- CARD 1 - PATRIMÔNIO -->
-  <div class="summary-card summary-card--primary">
-    <div class="summary-card-header">
-      <span class="summary-card-title">Patrimônio Total</span>
-      <span class="summary-card-icon">📈</span>
-    </div>
-    <div class="summary-card-value">R$ {{ total_patrimonio|floatformat:2|intcomma }}</div>
-    
-    <div class="summary-card-details">
-      <div class="summary-card-detail">
-        <span class="summary-card-detail-label">Investido</span>
-        <strong class="summary-card-detail-value text-positive">R$ {{ total_investido|floatformat:2|intcomma }}</strong>
-      </div>
-      
-      <div class="summary-card-detail">
-        <span class="summary-card-detail-label">Dívida Cartões</span>
-        <strong class="summary-card-detail-value text-negative">R$ {{ debito_cartoes|floatformat:2|intcomma }}</strong>
-      </div>
-      
-      <div class="summary-card-detail">
-        <span class="summary-card-detail-label">Saldo Disponível</span>
-        <strong class="summary-card-detail-value text-positive">R$ {{ saldo_atual|floatformat:2|intcomma }}</strong>
-      </div>
-    </div>
-  </div>
-  
-  <!-- CARD 2 - RECEITAS -->
-  <div class="summary-card summary-card--success">
-    <div class="summary-card-header">
-      <span class="summary-card-title">Total de Receitas</span>
-      <span class="summary-card-icon">💰</span>
-    </div>
-    <div class="summary-card-value">R$ {{ entradas_mes|floatformat:2|intcomma }}</div>
-    
-    <div class="summary-card-details">
-      <div class="summary-card-detail">
-        <span class="summary-card-detail-label">Mês Anterior</span>
-        {% if tem_historico_anterior %}
-          <strong class="summary-card-detail-value text-neutral">R$ {{ entradas_mes_anterior|floatformat:2|intcomma }}</strong>
-        {% else %}
-          <strong class="summary-card-detail-value text-neutral" style="font-size: 0.9em;">Sem histórico</strong>
-        {% endif %}
-      </div>
-
-      <div class="summary-card-detail">
-        <span class="summary-card-detail-label">Variação</span>
-        {% if tem_historico_anterior and entradas_mes_anterior > 0 %}
-          <strong class="summary-card-detail-value {% if variacao_receitas >= 0 %}text-positive{% else %}text-negative{% endif %}">
-            {{ variacao_receitas|floatformat:1 }}%
-          </strong>
-        {% else %}
-          <strong class="summary-card-detail-value text-neutral" style="font-size: 0.9em;">Nova</strong>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-  
-  <!-- CARD 3 - DESPESAS -->
-  <div class="summary-card summary-card--danger">
-    <div class="summary-card-header">
-      <span class="summary-card-title">Total de Despesas</span>
-      <span class="summary-card-icon">💸</span>
-    </div>
-    <div class="summary-card-value">R$ {{ saidas_mes|floatformat:2|intcomma }}</div>
-    
-    <div class="summary-card-details">
-      <div class="summary-card-detail">
-        <span class="summary-card-detail-label">Mês Anterior</span>
-        {% if tem_historico_anterior %}
-          <strong class="summary-card-detail-value text-neutral">R$ {{ saidas_mes_anterior|floatformat:2|intcomma }}</strong>
-        {% else %}
-          <strong class="summary-card-detail-value text-neutral" style="font-size: 0.9em;">Sem histórico</strong>
-        {% endif %}
-      </div>
-
-      <div class="summary-card-detail">
-        <span class="summary-card-detail-label">Orçado</span>
-        {% if orcamento_mes > 0 %}
-          <strong class="summary-card-detail-value text-neutral">R$ {{ orcamento_mes|floatformat:2|intcomma }}</strong>
-        {% else %}
-          <strong class="summary-card-detail-value text-neutral" style="font-size: 0.9em;">Sem orçamento</strong>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- REUTILIZA O MESMO PARTIAL DAS TRANSAÇÕES! -->
+    {% include 'transactions/partials/summary_cards.html' %}
+        
+</div>
 {% endblock %}
