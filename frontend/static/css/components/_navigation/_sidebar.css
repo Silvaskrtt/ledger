@@ -411,14 +411,104 @@
         width: 85vw;
         max-width: 320px;
         margin: 0;
-        border-radius: 0;
+        border-radius: 1rem;
         transform: translateX(-100%);
         transition: transform var(--transition-base, 0.3s ease);
+        /* Centralização vertical */
+        top: 50%;
+        transform: translateX(-100%) translateY(-50%); /* Adiciona translateY */
+        height: auto;
+        max-height: 90vh; /* Limita altura */
+        overflow-y: auto;
     }
     
     .sidebar.open,
     .sidebar.show-sidebar {
-        transform: translateX(0);
+        transform: translateX(0) translateY(-50%); /* Mantém centralização */
+        left: 50%; /* Centraliza horizontalmente */
+        margin-left: -42.5vw; /* Metade da largura (85vw / 2) */
+    }
+
+    /* Ajuste para max-width específico */
+    @media (min-width: 480px) {
+        .sidebar.open,
+        .sidebar.show-sidebar {
+            margin-left: -160px; /* Metade de 320px */
+        }
+    }
+    
+    /* Overlay para mobile */
+    .sidebar-overlay {
+        display: block;
+    }
+    
+    /* Ajuste do conteúdo principal */
+    .main-content {
+        padding: var(--spacing-md, 1rem);
+        margin-left: 0 !important;
+        width: 100% !important;
+        align-items: center;
+    }
+    
+    /* Ajuste do wrapper no mobile */
+    .main-content .content-wrapper {
+        padding: 0 var(--spacing-md, 1rem);
+    }
+}
+
+/* Small devices - Ajustes específicos */
+@media screen and (max-width: 360px) {
+    .sidebar {
+        width: 90vw;
+        max-width: 300px;
+        max-height: 85vh; /* Menor altura em dispositivos pequenos */
+    }
+    
+    .sidebar.open,
+    .sidebar.show-sidebar {
+        margin-left: -45vw; /* Metade da largura (90vw / 2) */
+    }
+    
+    /* Ajustes de conteúdo para sidebar centralizada */
+    .sidebar__info,
+    .sidebar__link span {
+        display: block !important; /* Mantém visível quando centralizado */
+    }
+    
+    .sidebar__user {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem !important;
+    }
+    
+    .sidebar__user,
+    .sidebar__list,
+    .sidebar__actions {
+        justify-content: center;
+        padding: 0 0.5rem;
+    }
+    
+    .sidebar__user {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    
+    .sidebar__link,
+    .logout-form .sidebar__link {
+        justify-content: flex-start; /* Alinha à esquerda */
+        padding: 0.75rem 1rem !important;
+    }
+    
+    .sidebar__title {
+        padding: 0 1rem;
+        text-align: center;
+        margin: 0 auto 1rem;
+        width: auto;
+    }
+    
+    /* Ajuste do container para scroll */
+    .sidebar__container {
+        padding: 1rem;
     }
 }
 

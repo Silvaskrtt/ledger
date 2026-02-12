@@ -64841,3 +64841,3644 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 6151
 "GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 9465
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 9447
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 9501
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10900
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10853
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/pages/account_management.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12441
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12441
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10853
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10853
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 9465
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10735
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10735
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10853
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 6839
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10853
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10853
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 4284
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 10853
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12073
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12073
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2737
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 10879
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 10879
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/header.css HTTP/1.1" 200 1456
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/components/header.css HTTP/1.1" 200 1518
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1656
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1852
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/header.css HTTP/1.1" 200 1597
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/header.css HTTP/1.1" 200 1597
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12077
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/header.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/header.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12080
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/header.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/components/header.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 12318
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /api/transactions/form/ HTTP/1.1" 200 15154
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/core/_base.css HTTP/1.1" 304 0
+"GET /static/css/core/_variables.css HTTP/1.1" 304 0
+"GET /static/css/core/_reset.css HTTP/1.1" 304 0
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 304 0
+"GET /static/css/core/_utilities.css HTTP/1.1" 304 0
+"GET /static/css/layouts/layout.css HTTP/1.1" 304 0
+"GET /static/css/layouts/responsive.css HTTP/1.1" 304 0
+"GET /static/css/components/chart.css HTTP/1.1" 304 0
+"GET /static/css/layouts/features.css HTTP/1.1" 304 0
+"GET /static/css/components/header.css HTTP/1.1" 304 0
+"GET /static/css/components/summary-card.css HTTP/1.1" 304 0
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 304 0
+"GET /static/css/components/toggle.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 304 0
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 304 0
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 304 0
+"GET /static/js/core/utilities.js HTTP/1.1" 304 0
+"GET /static/js/core/app-state.js HTTP/1.1" 304 0
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 304 0
+"GET /static/js/components/theme-manager.js HTTP/1.1" 304 0
+"GET /static/js/components/balance-validator.js HTTP/1.1" 304 0
+"GET /static/js/tom-select-manager.js HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/img/perfil.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /transactions/ HTTP/1.1" 200 67773
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 304 0
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 304 0
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/transactions/form/ HTTP/1.1" 200 15154
+"GET /managementCategories/ HTTP/1.1" 200 23089
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/categories_management.css HTTP/1.1" 200 24869
+"GET /static/js/categories_management/categories_management.js HTTP/1.1" 200 41987
+"GET /api/categories/ HTTP/1.1" 200 8012
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"POST /api/categories/ HTTP/1.1" 201 321
+"POST /api/categories/ HTTP/1.1" 201 436
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68186
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15519
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 35, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '4ceb6e83-889c-4bb6-a62c-2881551a9263', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-01-20T11:26', 'description': 'Corte de cabelo', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 35.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Cabelo (Cuidados pessoais) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Cabelo
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 7f5ce73a-7938-4ec2-b1bb-e95be31d3f3a (EXPENSE)
+Transação manual criada: 7f5ce73a-7938-4ec2-b1bb-e95be31d3f3a
+Transaction Type: EXPENSE
+Saldo: 1131.52 -> 1096.52
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '7f5ce73a-7938-4ec2-b1bb-e95be31d3f3a', 'amount': 35.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 68186
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 68186
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/?page=2 HTTP/1.1" 200 68416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/transactions/7f5ce73a-7938-4ec2-b1bb-e95be31d3f3a/form/ HTTP/1.1" 200 16031
+=== UPDATE TRANSACTION 7f5ce73a-7938-4ec2-b1bb-e95be31d3f3a ===
+Saldo atualizado para transação 7f5ce73a-7938-4ec2-b1bb-e95be31d3f3a (EXPENSE)
+Transação 7f5ce73a-7938-4ec2-b1bb-e95be31d3f3a atualizada com sucesso
+"PUT /api/transactions/7f5ce73a-7938-4ec2-b1bb-e95be31d3f3a/ HTTP/1.1" 200 295
+"GET /transactions/?page=2 HTTP/1.1" 200 68432
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /budget/ HTTP/1.1" 200 20403
+"GET /static/css/pages/budget.css HTTP/1.1" 200 13703
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/budget/budget.js HTTP/1.1" 200 17503
+"GET /api/budget-overview/ HTTP/1.1" 200 514
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/account_management.css HTTP/1.1" 200 17514
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 38072
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 68170
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68170
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15519
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /budget/ HTTP/1.1" 200 20403
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 514
+"GET /transactions/ HTTP/1.1" 200 68170
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68170
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15519
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 143.99, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '36ced6a7-08db-49ce-ba5d-9b9b05db595e', 'occurred_at': '2026-01-30T20:00', 'description': 'Dot Burguer', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 143.99
+Account: 51 - Poupança (Conta Poupança)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: 51 - Poupança (SAVINGS)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: False
+Erro ao criar transação: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta '51 - Poupança' (Conta Poupança).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\ledger\backend\transactions\views.py", line 270, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta '51 - Poupança' (Conta Poupança).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 258
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 143.99, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-30T20:00', 'description': 'Dot Burguer', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 143.99
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 518220c0-a20d-4556-aa38-f6df228a9aa5 (PURCHASE)
+Transação manual criada: 518220c0-a20d-4556-aa38-f6df228a9aa5
+Transaction Type: PURCHASE
+Saldo: -1252.55 -> -1396.54
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '518220c0-a20d-4556-aa38-f6df228a9aa5', 'amount': 143.99, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 195
+"GET /transactions/ HTTP/1.1" 200 68168
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13568
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 68168
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /budget/ HTTP/1.1" 200 20403
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 514
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /goals/ HTTP/1.1" 200 12198
+"GET /static/css/pages/goals.css HTTP/1.1" 200 13160
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 200 11925
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 542
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13504
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 68168
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/account_management.css HTTP/1.1" 200 17514
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 38072
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 68168
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/transactions/form/ HTTP/1.1" 200 15519
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 14.9, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'd7b88a6d-6c9a-4a49-a898-46518212f397', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-03-01T16:42', 'description': 'Moto 99', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 14.90
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: 99 App (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: 99 App
+Compatibilidade: False
+Erro ao criar transação: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta 'Banco do Brasil Digital' (Conta Corrente).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\ledger\backend\transactions\views.py", line 270, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta 'Banco do Brasil Digital' (Conta Corrente).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 266
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 14.9, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'd7b88a6d-6c9a-4a49-a898-46518212f397', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-03-01T16:42', 'description': 'Moto 99', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 14.90
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: 99 App (Transporte) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: 99 App
+Compatibilidade: True
+Transação agendada para o futuro: 2026-03-01 16:42:00+00:00
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação a63fd85c-56d6-4462-bda8-da5b49727423 (EXPENSE)
+Transação manual criada: a63fd85c-56d6-4462-bda8-da5b49727423
+Transaction Type: EXPENSE
+Saldo: 1096.52 -> 1081.62
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'a63fd85c-56d6-4462-bda8-da5b49727423', 'amount': 14.9, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 68173
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/pages/budget.css HTTP/1.1" 200 13703
+"GET /static/js/budget/budget.js HTTP/1.1" 200 17503
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /transactions/ HTTP/1.1" 200 68173
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/ HTTP/1.1" 200 1533
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 68173
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/transactions/form/ HTTP/1.1" 200 15519
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 4.37, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '09588a47-a100-4b22-90d8-2ef06512a070', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-03-01T21:01', 'description': 'Uber', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 4.37
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Uber (Transporte) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Uber
+Compatibilidade: True
+Transação agendada para o futuro: 2026-03-01 21:01:00+00:00
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação d45678a6-a579-43bd-9469-9d802da130df (PURCHASE)
+Transação manual criada: d45678a6-a579-43bd-9469-9d802da130df
+Transaction Type: PURCHASE
+Saldo: -1396.54 -> -1400.91
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'd45678a6-a579-43bd-9469-9d802da130df', 'amount': 4.37, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 68147
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/transactions/form/ HTTP/1.1" 200 15519
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 57, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-31T22:30', 'description': 'KAS PIZZA', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 57.00
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 884a7442-3a2f-436b-b25e-cc108c4b2e52 (PURCHASE)
+Transação manual criada: 884a7442-3a2f-436b-b25e-cc108c4b2e52
+Transaction Type: PURCHASE
+Saldo: -1400.91 -> -1457.91
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '884a7442-3a2f-436b-b25e-cc108c4b2e52', 'amount': 57.0, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 68111
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET / HTTP/1.1" 200 13504
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET / HTTP/1.1" 200 13504
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13504
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13504
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/card_credit.css HTTP/1.1" 200 31633
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 32868
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 3
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-02-05
+Vinculadas 0 compras à fatura 2026-03-05
+Fatura criada: Fatura 03/2026 - Ourocard - R$4.37 (mínimo: R$0.44)
+Faturas geradas: 1
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1480
+"GET / HTTP/1.1" 200 13504
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /transactions/ HTTP/1.1" 200 68111
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/transactions/a63fd85c-56d6-4462-bda8-da5b49727423/form/ HTTP/1.1" 200 16023
+=== UPDATE TRANSACTION a63fd85c-56d6-4462-bda8-da5b49727423 ===
+Saldo atualizado para transação a63fd85c-56d6-4462-bda8-da5b49727423 (EXPENSE)
+Transação a63fd85c-56d6-4462-bda8-da5b49727423 atualizada com sucesso
+"PUT /api/transactions/a63fd85c-56d6-4462-bda8-da5b49727423/ HTTP/1.1" 200 287
+"GET /transactions/ HTTP/1.1" 200 68111
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 701
+"GET /api/transactions/form/ HTTP/1.1" 200 15519
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 140, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '30a2dff0-4fe5-4895-9ed1-21b56e068588', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-02T15:33', 'description': 'Destroquei 140 reais para o professor.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 140.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Empréstimos a Terceiros (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Empréstimos a Terceiros
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação a0271e41-5d0a-4d38-815d-7238a0e91072 (EXPENSE)
+Transação manual criada: a0271e41-5d0a-4d38-815d-7238a0e91072
+Transaction Type: EXPENSE
+Saldo: 1081.62 -> 941.62
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'a0271e41-5d0a-4d38-815d-7238a0e91072', 'amount': 140.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 68155
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 699
+"GET /api/transactions/form/ HTTP/1.1" 200 15519
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/pages/account_management.css HTTP/1.1" 200 17514
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 38072
+"GET /api/accounts/ HTTP/1.1" 200 1532
+"GET /api/accounts/ HTTP/1.1" 200 1532
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 699
+"POST /api/accounts/ HTTP/1.1" 201 466
+"GET / HTTP/1.1" 200 13506
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68348
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 874
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 140, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': '5b5f4ec0-fdf8-4ee6-9971-27f444b966a7', 'account': 'af9a27c8-2766-4bc2-9072-8d0d012abdd1', 'occurred_at': '2026-02-07T18:30', 'description': 'Dinheiro trocado.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 140.00
+Account: Carteira Física (Dinheiro)
+Payment method: PaymentMethod object (5b5f4ec0-fdf8-4ee6-9971-27f444b966a7)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Carteira Física (CASH)
+Payment method encontrado: Dinheiro (CASH)
+Category encontrada: Outras receitas
+Compatibilidade: True
+Transação agendada para o futuro: 2026-02-07 18:30:00+00:00
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 2370ad4f-4d8c-42b5-bd2d-2a75fdcb7319 (INCOME)
+Transação manual criada: 2370ad4f-4d8c-42b5-bd2d-2a75fdcb7319
+Transaction Type: INCOME
+Saldo: 0.00 -> 140.00
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '2370ad4f-4d8c-42b5-bd2d-2a75fdcb7319', 'amount': 140.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 68353
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/ HTTP/1.1" 200 68353
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/pages/budget.css HTTP/1.1" 200 13703
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/budget/budget.js HTTP/1.1" 200 17503
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68353
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/ HTTP/1.1" 200 68353
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/?start=&end=&category=&account=a28888c5-fedd-4c61-a61d-718ab7a05f9c HTTP/1.1" 200 68500
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /goals/ HTTP/1.1" 200 12198
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/goals.css HTTP/1.1" 200 13160
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 200 11925
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 542
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/ HTTP/1.1" 200 68353
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/ HTTP/1.1" 200 68353
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 265, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-03T12:37', 'description': 'Valor para pagar o senai | Mãe.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 265.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 03a32cb8-db24-42ab-9f5e-3bf15ee4c22c (INCOME)
+Transação manual criada: 03a32cb8-db24-42ab-9f5e-3bf15ee4c22c
+Transaction Type: INCOME
+Saldo: 941.62 -> 1206.62
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '03a32cb8-db24-42ab-9f5e-3bf15ee4c22c', 'amount': 265.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 68390
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68390
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 20.5, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-07T15:07', 'description': 'Coxinha.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 20.50
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 668b9c4c-0200-469d-940f-b67b00b44f22 (EXPENSE)
+Transação manual criada: 668b9c4c-0200-469d-940f-b67b00b44f22
+Transaction Type: EXPENSE
+Saldo: 1206.62 -> 1186.12
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '668b9c4c-0200-469d-940f-b67b00b44f22', 'amount': 20.5, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 68394
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /api/transactions/668b9c4c-0200-469d-940f-b67b00b44f22/form/ HTTP/1.1" 200 16222
+=== UPDATE TRANSACTION 668b9c4c-0200-469d-940f-b67b00b44f22 ===
+Saldo atualizado para transação 668b9c4c-0200-469d-940f-b67b00b44f22 (EXPENSE)
+Transação 668b9c4c-0200-469d-940f-b67b00b44f22 atualizada com sucesso
+"PUT /api/transactions/668b9c4c-0200-469d-940f-b67b00b44f22/ HTTP/1.1" 200 288
+"GET /transactions/ HTTP/1.1" 200 68394
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68394
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 22, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '1df089d9-47ed-4d1f-a289-314be864a5ad', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-04T12:06', 'description': 'Açai', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 22.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Comida (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Comida
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 54ebcbeb-cc84-422c-8c02-04b5f52853b3 (EXPENSE)
+Transação manual criada: 54ebcbeb-cc84-422c-8c02-04b5f52853b3
+Transaction Type: EXPENSE
+Saldo: 1186.12 -> 1164.12
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '54ebcbeb-cc84-422c-8c02-04b5f52853b3', 'amount': 22.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 68384
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 100, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '30a2dff0-4fe5-4895-9ed1-21b56e068588', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-04T13:46', 'description': 'Dinheiro trocado para o professor.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 100.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Empréstimos a Terceiros (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Empréstimos a Terceiros
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação a44beeda-cb80-4b34-9bd9-1ed53641726f (EXPENSE)
+Transação manual criada: a44beeda-cb80-4b34-9bd9-1ed53641726f
+Transaction Type: EXPENSE
+Saldo: 1164.12 -> 1064.12
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'a44beeda-cb80-4b34-9bd9-1ed53641726f', 'amount': 100.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 68430
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/ HTTP/1.1" 200 2002
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /transactions/ HTTP/1.1" 200 68430
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 500, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-05T09:02', 'description': 'Para pagar a fatura retirei da poupança.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 500.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação e4890e35-8b92-4d4d-8df2-75534dfe14e6 (INCOME)
+Transação manual criada: e4890e35-8b92-4d4d-8df2-75534dfe14e6
+Transaction Type: INCOME
+Saldo: 1064.12 -> 1564.12
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'e4890e35-8b92-4d4d-8df2-75534dfe14e6', 'amount': 500.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 68471
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET / HTTP/1.1" 200 13509
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+"GET /transactions/ HTTP/1.1" 200 68471
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 880
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 500, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': '36ced6a7-08db-49ce-ba5d-9b9b05db595e', 'occurred_at': '2026-02-05T09:02', 'description': 'Saida para pagar fatura.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 500.00
+Account: 51 - Poupança (Conta Poupança)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: 51 - Poupança (SAVINGS)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 98a5dc38-71e1-4682-beab-21c5c658bac0 (EXPENSE)
+Transação manual criada: 98a5dc38-71e1-4682-beab-21c5c658bac0
+Transaction Type: EXPENSE
+Saldo: 1070.43 -> 570.43
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '98a5dc38-71e1-4682-beab-21c5c658bac0', 'amount': 500.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 68501
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/ HTTP/1.1" 200 68501
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/ HTTP/1.1" 200 68501
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 1, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': '36ced6a7-08db-49ce-ba5d-9b9b05db595e', 'occurred_at': '2026-02-05T15:16', 'description': 'Reajuste Monetário - BACEN', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 1.00
+Account: 51 - Poupança (Conta Poupança)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: 51 - Poupança (SAVINGS)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação d3979924-7939-4e30-8ac8-a4ea3383477f (INCOME)
+Transação manual criada: d3979924-7939-4e30-8ac8-a4ea3383477f
+Transaction Type: INCOME
+Saldo: 570.43 -> 571.43
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'd3979924-7939-4e30-8ac8-a4ea3383477f', 'amount': 1.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 189
+"GET /transactions/ HTTP/1.1" 200 68543
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 2.86, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'a2c75014-2b99-477a-a7eb-f98a6e1ecb5f', 'account': '36ced6a7-08db-49ce-ba5d-9b9b05db595e', 'occurred_at': '2026-02-05T15:17', 'description': 'Juros', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 2.86
+Account: 51 - Poupança (Conta Poupança)
+Payment method: PaymentMethod object (a2c75014-2b99-477a-a7eb-f98a6e1ecb5f)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: 51 - Poupança (SAVINGS)
+Payment method encontrado: Transferência Bancária (BANK_TRANSFER)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação cccf09a8-c7d2-454c-a027-6ee6910cfc17 (INCOME)
+Transação manual criada: cccf09a8-c7d2-454c-a027-6ee6910cfc17
+Transaction Type: INCOME
+Saldo: 571.43 -> 574.29
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'cccf09a8-c7d2-454c-a027-6ee6910cfc17', 'amount': 2.86, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 190
+"GET /transactions/ HTTP/1.1" 200 68542
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1480
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68542
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/?start=&end=&category=&account=6f7bc2ea-a229-46ce-b10a-cb8e72f92680 HTTP/1.1" 200 68237
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/ HTTP/1.1" 200 2001
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1480
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/ HTTP/1.1" 200 68542
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/ HTTP/1.1" 200 68542
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/?page=2 HTTP/1.1" 200 68511
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /transactions/?page=3 HTTP/1.1" 200 68501
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68542
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /api/transactions/d45678a6-a579-43bd-9469-9d802da130df/form/ HTTP/1.1" 200 16217
+=== UPDATE TRANSACTION d45678a6-a579-43bd-9469-9d802da130df ===
+Saldo atualizado para transação d45678a6-a579-43bd-9469-9d802da130df (PURCHASE)
+Transação d45678a6-a579-43bd-9469-9d802da130df atualizada com sucesso
+"PUT /api/transactions/d45678a6-a579-43bd-9469-9d802da130df/ HTTP/1.1" 200 283
+"GET /transactions/ HTTP/1.1" 200 68542
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1480
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /admin/ HTTP/1.1" 200 25374
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/css/base.css HTTP/1.1" 200 23100
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 689
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+"GET /admin/transactions/transaction/ HTTP/1.1" 200 99188
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/img/search.svg HTTP/1.1" 200 607
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1761
+"POST /admin/transactions/transaction/ HTTP/1.1" 200 22130
+"GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+Saldos atualizados antes de excluir transação d45678a6-a579-43bd-9469-9d802da130df
+"POST /admin/transactions/transaction/ HTTP/1.1" 302 0
+"GET /admin/transactions/transaction/ HTTP/1.1" 200 98388
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 200 558
+"GET /transactions/ HTTP/1.1" 200 68566
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1477
+"GET / HTTP/1.1" 200 13507
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68566
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 4.37, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '09588a47-a100-4b22-90d8-2ef06512a070', 'payment_method': 'b82f2a18-59ce-46ca-b64a-4ca37414758d', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-31T21:30', 'description': 'Uber Moto.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 4.37
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (b82f2a18-59ce-46ca-b64a-4ca37414758d)
+Category: Uber (Transporte) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Débito (DEBIT)
+Category encontrada: Uber
+Compatibilidade: False
+Erro ao criar transação: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Débito' não é compatível com conta 'Ourocard' (Cartão de Crédito).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\ledger\backend\transactions\views.py", line 270, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Débito' não é compatível com conta 'Ourocard' (Cartão de Crédito).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 255
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 4.37, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '09588a47-a100-4b22-90d8-2ef06512a070', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-01-31T21:30', 'description': 'Uber Moto.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 4.37
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Uber (Transporte) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Uber
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação ba4f6737-fc29-450a-a739-71be56218222 (PURCHASE)
+Transação manual criada: ba4f6737-fc29-450a-a739-71be56218222
+Transaction Type: PURCHASE
+Saldo: -1453.54 -> -1457.91
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'ba4f6737-fc29-450a-a739-71be56218222', 'amount': 4.37, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 68548
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 518
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 878
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 1
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-02-05
+Faturas geradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1477
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1477
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 653
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1477
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1477
+"GET /api/accounts/payment-accounts/ HTTP/1.1" 200 653
+=== PROCESSANDO PAGAMENTO ===
+Bill ID: bc613cbe-d886-4521-8ac0-10a7fb4815b7
+Payment Account ID: a28888c5-fedd-4c61-a61d-718ab7a05f9c
+Amount: 1457.91
+User: Murilo
+Saldo atualizado para transação 31ba515d-bc05-46d6-b768-fb04cbeb415e (CREDIT_CARD_PAYMENT)
+Pagamento processado: Pagamento de R$1457.91 realizado com sucesso!
+"POST /api/credit-cards/pay-bill/ HTTP/1.1" 200 415
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET / HTTP/1.1" 200 13503
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /transactions/ HTTP/1.1" 200 68633
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 1994
+"GET /api/accounts/ HTTP/1.1" 200 1994
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET / HTTP/1.1" 200 13503
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /transactions/ HTTP/1.1" 200 68633
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13503
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /transactions/ HTTP/1.1" 200 68633
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET / HTTP/1.1" 200 13503
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68633
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 20, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': '5b5f4ec0-fdf8-4ee6-9971-27f444b966a7', 'account': 'af9a27c8-2766-4bc2-9072-8d0d012abdd1', 'occurred_at': '2026-02-06T15:20', 'description': 'Ajudei uma pessoa no sinal.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 20.00
+Account: Carteira Física (Dinheiro)
+Payment method: PaymentMethod object (5b5f4ec0-fdf8-4ee6-9971-27f444b966a7)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Carteira Física (CASH)
+Payment method encontrado: Dinheiro (CASH)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação e26163b6-0b6d-411a-add2-dbf5f4b46ed7 (EXPENSE)
+Transação manual criada: e26163b6-0b6d-411a-add2-dbf5f4b46ed7
+Transaction Type: EXPENSE
+Saldo: 140.00 -> 120.00
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'e26163b6-0b6d-411a-add2-dbf5f4b46ed7', 'amount': 20.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 68638
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/pages/account_management.css HTTP/1.1" 200 17514
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/account_management/account_management.js HTTP/1.1" 200 38072
+"GET /api/accounts/ HTTP/1.1" 200 1994
+"GET /api/accounts/ HTTP/1.1" 200 1994
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+"GET / HTTP/1.1" 200 13503
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68638
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 866
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 50, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'fcb5e306-f5d3-430d-88e9-889d8b6187b8', 'payment_method': '5b5f4ec0-fdf8-4ee6-9971-27f444b966a7', 'account': 'af9a27c8-2766-4bc2-9072-8d0d012abdd1', 'occurred_at': '2026-02-06T19:30', 'description': 'Posto Ipiranga', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 50.00
+Account: Carteira Física (Dinheiro)
+Payment method: PaymentMethod object (5b5f4ec0-fdf8-4ee6-9971-27f444b966a7)
+Category: Gasolina (Transporte) (Saída)
+Tags: []
+Account encontrada: Carteira Física (CASH)
+Payment method encontrado: Dinheiro (CASH)
+Category encontrada: Gasolina
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 3da298fa-fb90-4c1d-a7f2-a77fd379d2e7 (EXPENSE)
+Transação manual criada: 3da298fa-fb90-4c1d-a7f2-a77fd379d2e7
+Transaction Type: EXPENSE
+Saldo: 120.00 -> 70.00
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '3da298fa-fb90-4c1d-a7f2-a77fd379d2e7', 'amount': 50.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 68608
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/pages/card_credit.css HTTP/1.1" 200 31633
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/card_credit/card_credit.js HTTP/1.1" 200 32868
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /transactions/ HTTP/1.1" 200 68608
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET / HTTP/1.1" 200 13503
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 1993
+"GET /api/accounts/ HTTP/1.1" 200 1993
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /transactions/ HTTP/1.1" 200 68608
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 50, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'fcb5e306-f5d3-430d-88e9-889d8b6187b8', 'payment_method': '5b5f4ec0-fdf8-4ee6-9971-27f444b966a7', 'account': 'af9a27c8-2766-4bc2-9072-8d0d012abdd1', 'occurred_at': '2026-02-07T20:30', 'description': 'Posto BR.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 50.00
+Account: Carteira Física (Dinheiro)
+Payment method: PaymentMethod object (5b5f4ec0-fdf8-4ee6-9971-27f444b966a7)
+Category: Gasolina (Transporte) (Saída)
+Tags: []
+Account encontrada: Carteira Física (CASH)
+Payment method encontrado: Dinheiro (CASH)
+Category encontrada: Gasolina
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 4e045a4a-220a-4810-a4df-0b2e32692193 (EXPENSE)
+Transação manual criada: 4e045a4a-220a-4810-a4df-0b2e32692193
+Transaction Type: EXPENSE
+Saldo: 70.00 -> 20.00
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '4e045a4a-220a-4810-a4df-0b2e32692193', 'amount': 50.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 68566
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 1993
+"GET /api/accounts/ HTTP/1.1" 200 1993
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET / HTTP/1.1" 200 13503
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 68566
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 15717
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 10, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': '5b5f4ec0-fdf8-4ee6-9971-27f444b966a7', 'account': 'af9a27c8-2766-4bc2-9072-8d0d012abdd1', 'occurred_at': '2026-02-06T07:30', 'description': 'Não sei o que foi.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 10.00
+Account: Carteira Física (Dinheiro)
+Payment method: PaymentMethod object (5b5f4ec0-fdf8-4ee6-9971-27f444b966a7)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Carteira Física (CASH)
+Payment method encontrado: Dinheiro (CASH)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação c2c942a8-11db-4abe-847b-002a573a3f3e (EXPENSE)
+Transação manual criada: c2c942a8-11db-4abe-847b-002a573a3f3e
+Transaction Type: EXPENSE
+Saldo: 20.00 -> 10.00
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'c2c942a8-11db-4abe-847b-002a573a3f3e', 'amount': 10.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 68572
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET / HTTP/1.1" 200 13503
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /transactions/ HTTP/1.1" 200 68572
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/pages/budget.css HTTP/1.1" 200 13703
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/js/budget/budget.js HTTP/1.1" 200 17503
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /goals/ HTTP/1.1" 200 12198
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/goals.css HTTP/1.1" 200 13160
+"GET /static/js/financial_goals/goals.js HTTP/1.1" 200 11925
+"GET /api/goals/financial-goals/ HTTP/1.1" 200 542
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 1993
+"GET /api/accounts/ HTTP/1.1" 200 1993
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 864
+"POST /api/accounts/ HTTP/1.1" 201 480
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 512
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1040
+"POST /api/credit-cards/ HTTP/1.1" 201 455
+"GET /api/credit-cards/ HTTP/1.1" 200 968
+=== INICIANDO get_credit_card_bills ===
+Card ID: bdf1193c-c5aa-4182-b37f-c3f4bafd35dd
+User: Murilo
+Cartão encontrado: FREE VISA (Dia fechamento: 7, Dia vencimento: 13)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 0
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/bdf1193c-c5aa-4182-b37f-c3f4bafd35dd/bills/ HTTP/1.1" 200 219
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 3
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 1468
+"GET / HTTP/1.1" 200 13503
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1215
+"GET /transactions/ HTTP/1.1" 200 68961
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1215
+"GET /api/transactions/form/ HTTP/1.1" 200 16116
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1215
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 114.18, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '30a2dff0-4fe5-4895-9ed1-21b56e068588', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': 'bdf1193c-c5aa-4182-b37f-c3f4bafd35dd', 'occurred_at': '2026-01-14T01:42', 'description': 'Empréstimo para o professor.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 114.18
+Account: FREE VISA (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Empréstimos a Terceiros (Saída)
+Tags: []
+Account encontrada: FREE VISA (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Empréstimos a Terceiros
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação d29fbb52-e658-4201-badb-26aae46db396 (PURCHASE)
+Transação manual criada: d29fbb52-e658-4201-badb-26aae46db396
+Transaction Type: PURCHASE
+Saldo: 0.00 -> -114.18
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'd29fbb52-e658-4201-badb-26aae46db396', 'amount': 114.18, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 195
+"GET /transactions/ HTTP/1.1" 200 68961
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+"GET /api/credit-cards/ HTTP/1.1" 200 973
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+=== INICIANDO get_credit_card_bills ===
+Card ID: bdf1193c-c5aa-4182-b37f-c3f4bafd35dd
+User: Murilo
+Cartão encontrado: FREE VISA (Dia fechamento: 7, Dia vencimento: 13)
+Compras não vinculadas encontradas: 1
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-02-07
+Fatura criada: Fatura 02/2026 - FREE VISA - R$114.18 (mínimo: R$11.42)
+Faturas geradas: 1
+Total de faturas encontradas: 1
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/bdf1193c-c5aa-4182-b37f-c3f4bafd35dd/bills/ HTTP/1.1" 200 643
+"GET / HTTP/1.1" 200 13505
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+"GET /transactions/ HTTP/1.1" 200 68961
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 16116
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 552.4, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'INSTALLMENT', 'category': '30a2dff0-4fe5-4895-9ed1-21b56e068588', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': 'bdf1193c-c5aa-4182-b37f-c3f4bafd35dd', 'occurred_at': '2026-02-14T01:48', 'description': 'Empréstimo para o professor', 'tags': [], 'installments': 5, 'interest_rate': 0}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: INSTALLMENT
+Direction: OUT
+Amount: 552.40
+Account: FREE VISA (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Empréstimos a Terceiros (Saída)
+Tags: []
+Account encontrada: FREE VISA (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Empréstimos a Terceiros
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 8dad9fb7-21b0-489c-8418-3e015b9e382b (PURCHASE)
+Parcela 1/5 criada: R$110.48 (Tipo: PURCHASE)
+Saldo atualizado para transação 395311a8-2994-43ce-ade0-f7b1ecaef6a8 (PURCHASE)
+Parcela 2/5 criada: R$110.48 (Tipo: PURCHASE)
+Saldo atualizado para transação 9b6b25cc-4bc9-403f-8754-5755eb63bef4 (PURCHASE)
+Parcela 3/5 criada: R$110.48 (Tipo: PURCHASE)
+Saldo atualizado para transação a937c461-3389-4338-a835-61bda3a6957e (PURCHASE)
+Parcela 4/5 criada: R$110.48 (Tipo: PURCHASE)
+Saldo atualizado para transação 0541f461-63b1-4e84-8961-525ef963ea64 (PURCHASE)
+Parcela 5/5 criada: R$110.48 (Tipo: PURCHASE)
+Resultado: INSTALLMENT
+Transação criada com sucesso: {'success': True, 'message': 'Parcelamento criado: 5x de R$110.48', 'type': 'INSTALLMENT'}
+"POST /api/transactions/ HTTP/1.1" 201 85
+"GET /transactions/ HTTP/1.1" 200 70031
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2935
+"GET /api/accounts/ HTTP/1.1" 200 2935
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 973
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+=== INICIANDO get_credit_card_bills ===
+Card ID: bdf1193c-c5aa-4182-b37f-c3f4bafd35dd
+User: Murilo
+Cartão encontrado: FREE VISA (Dia fechamento: 7, Dia vencimento: 13)
+Compras não vinculadas encontradas: 5
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-03-07
+Fatura criada: Fatura 03/2026 - FREE VISA - R$110.48 (mínimo: R$11.05)
+Vinculadas 0 compras à fatura 2026-04-07
+Fatura criada: Fatura 04/2026 - FREE VISA - R$110.48 (mínimo: R$11.05)
+Vinculadas 0 compras à fatura 2026-05-07
+Fatura criada: Fatura 05/2026 - FREE VISA - R$110.48 (mínimo: R$11.05)
+Vinculadas 0 compras à fatura 2026-06-07
+Fatura criada: Fatura 06/2026 - FREE VISA - R$110.48 (mínimo: R$11.05)
+Faturas geradas: 4
+Total de faturas encontradas: 5
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/bdf1193c-c5aa-4182-b37f-c3f4bafd35dd/bills/ HTTP/1.1" 200 2323
+"GET / HTTP/1.1" 200 13504
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+"GET /transactions/ HTTP/1.1" 200 70031
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 2935
+"GET /api/accounts/ HTTP/1.1" 200 2935
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1223
+"POST /api/accounts/ HTTP/1.1" 201 466
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 973
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1392
+"POST /api/credit-cards/ HTTP/1.1" 201 451
+"GET /api/credit-cards/ HTTP/1.1" 200 1425
+"GET /transactions/ HTTP/1.1" 200 70415
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1565
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 370.04, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'INSTALLMENT', 'category': '30a2dff0-4fe5-4895-9ed1-21b56e068588', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '8b59e192-0b29-4e37-9ae1-4d0db1cc33f0', 'occurred_at': '2026-01-10T01:54', 'description': 'Empréstimo para o professor', 'tags': [], 'installments': 4, 'interest_rate': 0}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: INSTALLMENT
+Direction: OUT
+Amount: 370.04
+Account: Roxinho (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Empréstimos a Terceiros (Saída)
+Tags: []
+Account encontrada: Roxinho (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Empréstimos a Terceiros
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 5374da5d-39c9-4f8b-8dfa-6c24c89608a1 (PURCHASE)
+Parcela 1/4 criada: R$92.51 (Tipo: PURCHASE)
+Saldo atualizado para transação 4db2e56a-5870-4abd-81e7-53e6b7565681 (PURCHASE)
+Parcela 2/4 criada: R$92.51 (Tipo: PURCHASE)
+Saldo atualizado para transação 53a9c70d-d40a-432d-ac87-bbcd51453b13 (PURCHASE)
+Parcela 3/4 criada: R$92.51 (Tipo: PURCHASE)
+Saldo atualizado para transação f71f6229-00a6-4fa3-b387-743f1854bddb (PURCHASE)
+Parcela 4/4 criada: R$92.51 (Tipo: PURCHASE)
+Resultado: INSTALLMENT
+Transação criada com sucesso: {'success': True, 'message': 'Parcelamento criado: 4x de R$92.51', 'type': 'INSTALLMENT'}
+"POST /api/transactions/ HTTP/1.1" 201 84
+"GET /transactions/ HTTP/1.1" 200 71042
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 1428
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET / HTTP/1.1" 200 13508
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /transactions/ HTTP/1.1" 200 71042
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1573
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 363.04, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '30a2dff0-4fe5-4895-9ed1-21b56e068588', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-23T20:00', 'description': 'Empréstimo para o professor.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 363.04
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Empréstimos a Terceiros (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Empréstimos a Terceiros
+Compatibilidade: False
+Erro ao criar transação: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta 'Banco do Brasil Digital' (Conta Corrente).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\ledger\backend\transactions\views.py", line 270, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'payment_method': [ErrorDetail(string="Método de pagamento 'Cartão de Crédito' não é compatível com conta 'Banco do Brasil Digital' (Conta Corrente).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 266
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 363.04, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'INSTALLMENT', 'category': '30a2dff0-4fe5-4895-9ed1-21b56e068588', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-23T20:00', 'description': 'Empréstimo para o professor.', 'tags': [], 'installments': 4, 'interest_rate': 0}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: INSTALLMENT
+Direction: OUT
+Amount: 363.04
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Empréstimos a Terceiros (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Empréstimos a Terceiros
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 6fc74b00-993e-4adc-b9b1-03c124f61969 (PURCHASE)
+Parcela 1/4 criada: R$90.76 (Tipo: PURCHASE)
+Saldo atualizado para transação 898d2a63-5122-4e43-8474-99e9a701da35 (PURCHASE)
+Parcela 2/4 criada: R$90.76 (Tipo: PURCHASE)
+Saldo atualizado para transação 601830b0-7940-4eee-9843-cdac74ed3688 (PURCHASE)
+Parcela 3/4 criada: R$90.76 (Tipo: PURCHASE)
+Saldo atualizado para transação b96a29e0-796d-43bc-84f7-4ecf1327ffee (PURCHASE)
+Parcela 4/4 criada: R$90.76 (Tipo: PURCHASE)
+Resultado: INSTALLMENT
+Transação criada com sucesso: {'success': True, 'message': 'Parcelamento criado: 4x de R$90.76', 'type': 'INSTALLMENT'}
+"POST /api/transactions/ HTTP/1.1" 201 84
+"GET /transactions/ HTTP/1.1" 200 71781
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13508
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 1433
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 4
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-03-05
+Vinculadas 0 compras à fatura 2026-04-05
+Fatura criada: Fatura 04/2026 - Ourocard - R$90.76 (mínimo: R$9.08)
+Vinculadas 0 compras à fatura 2026-05-05
+Fatura criada: Fatura 05/2026 - Ourocard - R$90.76 (mínimo: R$9.08)
+Vinculadas 0 compras à fatura 2026-06-05
+Fatura criada: Fatura 06/2026 - Ourocard - R$90.76 (mínimo: R$9.08)
+Faturas geradas: 3
+Total de faturas encontradas: 6
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 2726
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 1433
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 6
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 2726
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 6
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 2726
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71781
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 87, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-07T21:10', 'description': 'Eshiley mandou para pagar o lanche.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 87.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação e5a28f36-d2fe-4f5b-905a-7d85852d86b7 (INCOME)
+Transação manual criada: e5a28f36-d2fe-4f5b-905a-7d85852d86b7
+Transaction Type: INCOME
+Saldo: 106.21 -> 193.21
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'e5a28f36-d2fe-4f5b-905a-7d85852d86b7', 'amount': 87.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 190
+"GET /transactions/ HTTP/1.1" 200 71778
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 500, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-07T21:11', 'description': 'Consórcio - Eshiley', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 500.00
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: False
+Erro ao criar transação: {'payment_method': [ErrorDetail(string="Método de pagamento 'PIX' não é compatível com conta 'Ourocard' (Cartão de Crédito).", code='invalid')]}
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\ledger\backend\transactions\views.py", line 270, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'payment_method': [ErrorDetail(string="Método de pagamento 'PIX' não é compatível com conta 'Ourocard' (Cartão de Crédito).", code='invalid')]}
+Bad Request: /api/transactions/
+"POST /api/transactions/ HTTP/1.1" 400 240
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 500, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-07T21:11', 'description': 'Consórcio - Eshiley', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 500.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 7e219f42-46d4-43b0-bb07-43156a1cd81d (INCOME)
+Transação manual criada: 7e219f42-46d4-43b0-bb07-43156a1cd81d
+Transaction Type: INCOME
+Saldo: 193.21 -> 693.21
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '7e219f42-46d4-43b0-bb07-43156a1cd81d', 'amount': 500.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 191
+"GET /transactions/ HTTP/1.1" 200 71783
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13511
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /transactions/ HTTP/1.1" 200 71783
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 10, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-08T20:20', 'description': 'Trufa.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 10.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação f48a9b60-b2f4-49de-bd96-eb353381ef5d (EXPENSE)
+Transação manual criada: f48a9b60-b2f4-49de-bd96-eb353381ef5d
+Transaction Type: EXPENSE
+Saldo: 693.21 -> 683.21
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'f48a9b60-b2f4-49de-bd96-eb353381ef5d', 'amount': 10.0, 'direction': 'OUT', 'transaction_type': 'EXPENSE'}
+"POST /api/transactions/ HTTP/1.1" 201 192
+"GET /transactions/ HTTP/1.1" 200 71762
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71762
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 70, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-06T23:30', 'description': 'Cairu - sorvete.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 70.00
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 4b2e40f4-bf56-441d-b0d3-31c9488f2cd6 (PURCHASE)
+Transação manual criada: 4b2e40f4-bf56-441d-b0d3-31c9488f2cd6
+Transaction Type: PURCHASE
+Saldo: -363.04 -> -433.04
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '4b2e40f4-bf56-441d-b0d3-31c9488f2cd6', 'amount': 70.0, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 71744
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 157.68, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-07T21:30', 'description': 'komburguer', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 157.68
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação a0edb271-3180-4a2f-8d48-97c06bedca3b (PURCHASE)
+Transação manual criada: a0edb271-3180-4a2f-8d48-97c06bedca3b
+Transaction Type: PURCHASE
+Saldo: -433.04 -> -590.72
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'a0edb271-3180-4a2f-8d48-97c06bedca3b', 'amount': 157.68, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 195
+"GET /transactions/ HTTP/1.1" 200 71743
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 15.76, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-07T21:30', 'description': 'Gorjeta.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 15.76
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 6d008c84-575a-4bd3-a349-286bf25c2463 (PURCHASE)
+Transação manual criada: 6d008c84-575a-4bd3-a349-286bf25c2463
+Transaction Type: PURCHASE
+Saldo: -590.72 -> -606.48
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '6d008c84-575a-4bd3-a349-286bf25c2463', 'amount': 15.76, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 71735
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 16.5, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'c38086c7-557c-4a29-be4d-98c6aba2ed80', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-08T08:30', 'description': 'Lanche das crianças', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 16.50
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Despesas diversas (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Despesas diversas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação ffec22c9-9f80-499c-a54c-15b0be902345 (PURCHASE)
+Transação manual criada: ffec22c9-9f80-499c-a54c-15b0be902345
+Transaction Type: PURCHASE
+Saldo: -606.48 -> -622.98
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'ffec22c9-9f80-499c-a54c-15b0be902345', 'amount': 16.5, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 71627
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 11.47, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'e020140a-daf8-46eb-beb4-9dbdb8473114', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-09T02:58', 'description': 'Kotas - Netflix', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 11.47
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Assinaturas (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Assinaturas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação f07bb0e0-4a7e-4bba-afa0-628f9076b0b8 (PURCHASE)
+Transação manual criada: f07bb0e0-4a7e-4bba-afa0-628f9076b0b8
+Transaction Type: PURCHASE
+Saldo: -622.98 -> -634.45
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'f07bb0e0-4a7e-4bba-afa0-628f9076b0b8', 'amount': 11.47, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 71623
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 31.9, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'e020140a-daf8-46eb-beb4-9dbdb8473114', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-07T02:59', 'description': 'Spotify', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 31.90
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Assinaturas (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Assinaturas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação f1fa084d-fc73-405a-8699-b8f7e9d8386b (PURCHASE)
+Transação manual criada: f1fa084d-fc73-405a-8699-b8f7e9d8386b
+Transaction Type: PURCHASE
+Saldo: -634.45 -> -666.35
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'f1fa084d-fc73-405a-8699-b8f7e9d8386b', 'amount': 31.9, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 193
+"GET /transactions/ HTTP/1.1" 200 71623
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 1433
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 6
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-03-05
+Faturas geradas: 0
+Total de faturas encontradas: 6
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 2729
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 0
+Total de faturas encontradas: 6
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 2729
+"GET /budget/ HTTP/1.1" 200 18124
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 101
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"POST /api/create-budget-limit/ HTTP/1.1" 200 163
+"GET /budget/ HTTP/1.1" 200 19031
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/budget-overview/ HTTP/1.1" 200 316
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+Watching for file changes with StatReloader
+"GET /budget/ HTTP/1.1" 200 19031
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/budget-overview/ HTTP/1.1" 200 316
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71623
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 45.11, 'direction': 'OUT', 'currency': 'BRL', 'origin': 'MANUAL', 'category': '32425de8-2ed3-4a1d-b45a-717f9e671640', 'payment_method': 'e01de199-4f01-4ee3-bf3f-084b718560d8', 'account': '6f7bc2ea-a229-46ce-b10a-cb8e72f92680', 'occurred_at': '2026-02-09T12:02', 'description': 'Benqui Burguer.', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: OUT
+Amount: 45.11
+Account: Ourocard (Cartão de Crédito)
+Payment method: PaymentMethod object (e01de199-4f01-4ee3-bf3f-084b718560d8)
+Category: Lanches (Comida) (Saída)
+Tags: []
+Account encontrada: Ourocard (CREDIT_CARD)
+Payment method encontrado: Cartão de Crédito (CREDIT)
+Category encontrada: Lanches
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação 451238cb-855b-4297-a59f-4192956df7f1 (PURCHASE)
+Transação manual criada: 451238cb-855b-4297-a59f-4192956df7f1
+Transaction Type: PURCHASE
+Saldo: -666.35 -> -711.46
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': '451238cb-855b-4297-a59f-4192956df7f1', 'amount': 45.11, 'direction': 'OUT', 'transaction_type': 'PURCHASE'}
+"POST /api/transactions/ HTTP/1.1" 201 194
+"GET /transactions/ HTTP/1.1" 200 71631
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /management/ HTTP/1.1" 200 21416
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/ HTTP/1.1" 200 3862
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /cartoes/ HTTP/1.1" 200 25284
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/credit-cards/ HTTP/1.1" 200 1433
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+=== INICIANDO get_credit_card_bills ===
+Card ID: 6f7bc2ea-a229-46ce-b10a-cb8e72f92680
+User: Murilo
+Cartão encontrado: Ourocard (Dia fechamento: 5, Dia vencimento: 17)
+Compras não vinculadas encontradas: 1
+Gerando faturas para compras não vinculadas...
+Vinculadas 0 compras à fatura 2026-03-05
+Faturas geradas: 0
+Total de faturas encontradas: 6
+=== FINALIZANDO get_credit_card_bills ===
+"GET /api/credit-cards/6f7bc2ea-a229-46ce-b10a-cb8e72f92680/bills/ HTTP/1.1" 200 2729
+"GET /transactions/ HTTP/1.1" 200 71631
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/css/pages/home.css HTTP/1.1" 200 11066
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 71631
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+Watching for file changes with StatReloader
