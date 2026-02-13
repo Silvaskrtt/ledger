@@ -66,6 +66,39 @@ class TransactionManager {
         });
     }
 
+    showErrorMessage(message) {
+        // Criar elemento de notificação se não existir
+        let notification = document.querySelector('.error-notification');
+        if (!notification) {
+            notification = document.createElement('div');
+            notification.className = 'error-notification';
+            document.body.appendChild(notification);
+        }
+        
+        notification.textContent = message;
+        notification.classList.add('show');
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 5000);
+    }
+
+    showSuccessMessage(message) {
+        let notification = document.querySelector('.success-notification');
+        if (!notification) {
+            notification = document.createElement('div');
+            notification.className = 'success-notification';
+            document.body.appendChild(notification);
+        }
+        
+        notification.textContent = message;
+        notification.classList.add('show');
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 3000);
+    }
+
     async openModal(mode, transactionId = null) {
         this.isEditMode = mode === 'edit';
         this.currentTransactionId = transactionId;
@@ -437,50 +470,59 @@ class TransactionManager {
         return element.value || null;
     }
 
-    async deleteTransaction(transactionId, options = {}) {
-        const confirmMessage = this.getDeleteConfirmationMessage(options);
+    async deleteTransaction() {
+        // Usar o ID armazenado no estado da classe
+        const transactionId = this.currentTransactionId;
         
-        if (!confirm(confirmMessage)) {
+        if (!transactionId) {
+            console.error('ID da transação não encontrado');
+            this.showErrorMessage('Erro: ID da transação não encontrado');
             return false;
         }
 
         try {
-            let url = `/api/transactions/${transactionId}/`;
-            let method = 'DELETE';
-            
-            // Se for exclusão de parcelamento completo
-            if (options.deleteAllInstallments) {
-                url = `/api/installments/${options.planId}/`;
-                method = 'DELETE';
-            }
+            // Mostrar loading no botão
+            const confirmBtn = document.getElementById('confirmDeleteBtn');
+            const originalText = confirmBtn.textContent;
+            confirmBtn.disabled = true;
+            confirmBtn.textContent = 'Excluindo...';
 
-            const response = await fetch(url, {
-                method: method,
+            const response = await fetch(`/api/transactions/${transactionId}/`, {
+                method: 'DELETE',
                 headers: {
                     'X-CSRFToken': this.getCSRFToken(),
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/json'
                 }
             });
 
+            const result = await response.json();
+
             if (response.ok) {
-                const result = await response.json();
-                
-                if (result.is_installment && !options.deleteAllInstallments) {
-                    // Perguntar se quer excluir outras parcelas
+                // Verificar se é parcelamento
+                if (result.is_installment) {
                     this.showInstallmentDeleteModal(transactionId, result.installment_plan_id);
                 } else {
-                    this.showSuccessMessage(result.message || 'Excluído com sucesso');
+                    this.showSuccessMessage(result.message || 'Transação excluída com sucesso!');
                     this.closeAllModals();
                     window.location.reload();
                 }
                 return true;
             } else {
-                const error = await response.json();
-                throw new Error(error.detail || 'Erro ao excluir');
+                throw new Error(result.detail || result.message || 'Erro ao excluir transação');
             }
+
         } catch (error) {
+            console.error('Erro ao excluir:', error);
             this.showErrorMessage('Erro: ' + error.message);
             return false;
+        } finally {
+            // Restaurar botão
+            const confirmBtn = document.getElementById('confirmDeleteBtn');
+            if (confirmBtn) {
+                confirmBtn.disabled = false;
+                confirmBtn.textContent = 'Excluir';
+            }
         }
     }
 
@@ -536,36 +578,95 @@ class TransactionManager {
         // Event listeners
         modal.querySelector('#deleteSingleBtn').addEventListener('click', () => {
             modal.remove();
-            this.deleteTransaction(transactionId, {
-                isInstallment: true,
-                deleteAll: false
-            });
+            this.deleteSingleInstallment(transactionId);
         });
 
         modal.querySelector('#deleteFutureBtn').addEventListener('click', () => {
             modal.remove();
-            this.deleteTransaction(transactionId, {
-                isInstallment: true,
-                deleteAll: false,
-                deleteFutureOnly: true,
-                planId: planId
-            });
+            this.deleteFutureInstallments(planId);
         });
 
         modal.querySelector('#deleteAllBtn').addEventListener('click', () => {
             modal.remove();
-            this.deleteTransaction(transactionId, {
-                isInstallment: true,
-                deleteAll: true,
-                planId: planId
-            });
+            this.deleteAllInstallments(planId);
         });
 
-        modal.querySelector('.close-modal').addEventListener('click', () => {
-            modal.remove();
+        modal.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.remove();
+            });
         });
     }
 
+    async deleteSingleInstallment(transactionId) {
+        try {
+            const response = await fetch(`/api/transactions/${transactionId}/`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': this.getCSRFToken(),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+
+            if (response.ok) {
+                this.showSuccessMessage('Parcela excluída com sucesso!');
+                this.closeAllModals();
+                window.location.reload();
+            } else {
+                const error = await response.json();
+                throw new Error(error.detail);
+            }
+        } catch (error) {
+            this.showErrorMessage('Erro: ' + error.message);
+        }
+    }
+
+    async deleteFutureInstallments(planId) {
+        try {
+            const response = await fetch(`/api/installments/${planId}/?delete_future_only=true`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': this.getCSRFToken(),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+
+            if (response.ok) {
+                this.showSuccessMessage('Parcelas futuras excluídas com sucesso!');
+                this.closeAllModals();
+                window.location.reload();
+            } else {
+                const error = await response.json();
+                throw new Error(error.detail);
+            }
+        } catch (error) {
+            this.showErrorMessage('Erro: ' + error.message);
+        }
+    }
+
+    async deleteAllInstallments(planId) {
+        try {
+            const response = await fetch(`/api/installments/${planId}/?delete_all=true`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': this.getCSRFToken(),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+
+            if (response.ok) {
+                this.showSuccessMessage('Todas as parcelas foram excluídas!');
+                this.closeAllModals();
+                window.location.reload();
+            } else {
+                const error = await response.json();
+                throw new Error(error.detail);
+            }
+        } catch (error) {
+            this.showErrorMessage('Erro: ' + error.message);
+        }
+    }
+    
     getCSRFToken() {
         return document.querySelector('[name=csrfmiddlewaretoken]')?.value || '';
     }
