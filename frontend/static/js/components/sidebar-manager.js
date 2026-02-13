@@ -1,232 +1,282 @@
 /**
- * Sidebar Manager para template Bedimcode
- * Responsabilidade única: gerenciar UI da sidebar
+ * Gerencia a interface da sidebar e suas interações com o usuário.
+ * Esta classe é responsável exclusivamente pela UI da sidebar,
+ * delegando o gerenciamento de estado para o AppState.
+ * 
+ * Padrões utilizados:
+ * - Observer: Reage a mudanças de estado via subscribe
+ * - Single Responsibility: UI pura, sem lógica de estado
+ * - Composition: Utiliza AppState como fonte de verdade
+ * 
+ * @class
+ * @since 1.0.0
  */
 class SidebarManager {
-    constructor() {
-        this.sidebar = document.getElementById('sidebar');
-        this.toggleBtn = document.getElementById('header-toggle');
-        this.links = document.querySelectorAll('.sidebar__link');
-
-        console.log('🔍 SidebarManager encontrou:', {
-            sidebar: !!this.sidebar,
-            toggleBtn: !!this.toggleBtn,
-            AppState: !!window.AppState
-        });
-        
-        this.init();
-    }
+    /** @type {HTMLElement} Elemento DOM da sidebar */
+    #sidebar;
     
-    init() {
-        console.log('🔄 SidebarManager.init() chamado');
+    /** @type {HTMLElement} Botão de toggle da sidebar */
+    #toggleBtn;
+    
+    /** @type {NodeListOf<Element>} Links de navegação da sidebar */
+    #links;
 
+    /**
+     * Inicializa o gerenciador e configura subscribers.
+     * @constructor
+     */
+    constructor() {
+        this.#sidebar = document.getElementById('sidebar');
+        this.#toggleBtn = document.getElementById('header-toggle');
+        this.#links = document.querySelectorAll('.sidebar__link');
+        
+        this.#initialize();
+    }
+
+    /**
+     * Configura listeners e estado inicial.
+     * @private
+     */
+    #initialize() {
         if (!window.AppState) {
-            console.error('❌ AppState não disponível!');
-            this.setupFallback();
+            this.#setupFallback();
             return;
         }
 
-        // VERIFICAÇÃO: O subscribe está funcionando?
-        console.log('📡 Inscrito no AppState...');
-
-        // Estado inicial
         const initialState = window.AppState.getSidebarState();
-        console.log('📂 Estado inicial:', initialState);
 
-        this.setupEventListeners();
-        this.setupAccessibility();
+        this.#setupEventListeners();
+        this.#setupAccessibility();
         
-        // Subscribe to state changes
+        // Reage a todas as mudanças de estado da sidebar
         window.AppState.subscribe('sidebar:*', (sidebarState) => {
-            console.log('📨 Evento recebido do AppState:', sidebarState);
-            this.updateUI(sidebarState);
+            this.#updateUI(sidebarState);
         });
         
-        // Set initial state
-        this.updateUI(initialState);
+        this.#updateUI(initialState);
     }
-    
-    updateUI(sidebarState) {
-        if (!this.sidebar) return;
-        
-        console.log('🎨 Atualizando UI do sidebar:', sidebarState);
-        
-        // **LÓGICA CORRIGIDA:**
-        
-        // 1. Em MOBILE: show/hide normal
+
+    /**
+     * Fallback para quando AppState não está disponível.
+     * Mantém funcionalidade básica sem persistência de estado.
+     * @private
+     */
+    #setupFallback() {
+        if (!this.#sidebar || !this.#toggleBtn) return;
+
+        this.#toggleBtn.addEventListener('click', () => {
+            this.#sidebar.classList.toggle('show-sidebar');
+        });
+    }
+
+    /**
+     * Atualiza a interface baseado no estado atual.
+     * @param {Object} sidebarState - Estado atual da sidebar
+     * @param {boolean} sidebarState.isMobile - Se está em modo mobile
+     * @param {boolean} sidebarState.isOpen - Se está aberta (mobile)
+     * @param {boolean} sidebarState.isReduced - Se está reduzida (desktop)
+     * @private
+     */
+    #updateUI(sidebarState) {
+        if (!this.#sidebar) return;
+
+        // Mobile: comportamente de show/hide
         if (sidebarState.isMobile) {
             if (sidebarState.isOpen) {
-                this.sidebar.classList.add('show-sidebar');
-                this.sidebar.classList.remove('reduced', 'hidden');
-                console.log('📱 Mobile: sidebar aberta');
+                this.#sidebar.classList.add('show-sidebar');
+                this.#sidebar.classList.remove('reduced', 'hidden');
             } else {
-                this.sidebar.classList.remove('show-sidebar', 'reduced');
-                this.sidebar.classList.add('hidden');
-                console.log('📱 Mobile: sidebar fechada');
+                this.#sidebar.classList.remove('show-sidebar', 'reduced');
+                this.#sidebar.classList.add('hidden');
             }
-        }
-        // 2. Em DESKTOP: sempre visível, alternar entre expandido/reduzido
+        } 
+        // Desktop: sempre visível, alterna entre expandido/reduzido
         else {
-            // SEMPRE visível em desktop
-            this.sidebar.classList.add('show-sidebar');
-            this.sidebar.classList.remove('hidden');
+            this.#sidebar.classList.add('show-sidebar');
+            this.#sidebar.classList.remove('hidden');
             
             if (sidebarState.isReduced) {
-                this.sidebar.classList.add('reduced');
-                console.log('💻 Desktop: sidebar REDUZIDA (somente ícones)');
+                this.#sidebar.classList.add('reduced');
             } else {
-                this.sidebar.classList.remove('reduced');
-                console.log('💻 Desktop: sidebar EXPANDIDA (textos + ícones)');
+                this.#sidebar.classList.remove('reduced');
             }
         }
-        
-        // Update toggle button
-        this.updateToggleButton(sidebarState);
-        
-        // Update mobile overlay
+
+        this.#updateToggleButton(sidebarState);
+
         if (sidebarState.isMobile) {
-            this.updateMobileOverlay(sidebarState);
+            this.#updateMobileOverlay(sidebarState);
         }
     }
-    
-    updateToggleButton(sidebarState) {
-        if (!this.toggleBtn) return;
-        
-        const icon = this.toggleBtn.querySelector('i');
-        if (icon) {
-            // Diferentes comportamentos para mobile vs desktop
-            if (sidebarState.isMobile) {
-                // Mobile: alternar entre menu e X
-                if (sidebarState.isOpen) {
-                    icon.className = 'ri-close-line';
-                    this.toggleBtn.setAttribute('aria-label', 'Fechar menu');
-                } else {
-                    icon.className = 'ri-menu-line';
-                    this.toggleBtn.setAttribute('aria-label', 'Abrir menu');
-                }
-            } else {
-                // Desktop: alternar entre setas (expandir/reduzir)
-                if (sidebarState.isReduced) {
-                    icon.className = 'ri-arrow-right-line';
-                    this.toggleBtn.setAttribute('aria-label', 'Expandir menu');
-                } else {
-                    icon.className = 'ri-arrow-left-line';
-                    this.toggleBtn.setAttribute('aria-label', 'Reduzir menu');
-                }
-            }
+
+    /**
+     * Atualiza o ícone e acessibilidade do botão toggle.
+     * @param {Object} sidebarState - Estado atual da sidebar
+     * @private
+     */
+    #updateToggleButton(sidebarState) {
+        if (!this.#toggleBtn) return;
+
+        const icon = this.#toggleBtn.querySelector('i');
+        if (!icon) return;
+
+        if (sidebarState.isMobile) {
+            icon.className = sidebarState.isOpen ? 'ri-close-line' : 'ri-menu-line';
+            this.#toggleBtn.setAttribute('aria-label', 
+                sidebarState.isOpen ? 'Fechar menu' : 'Abrir menu'
+            );
+        } else {
+            icon.className = sidebarState.isReduced ? 'ri-arrow-right-line' : 'ri-arrow-left-line';
+            this.#toggleBtn.setAttribute('aria-label', 
+                sidebarState.isReduced ? 'Expandir menu' : 'Reduzir menu'
+            );
         }
-        
-        // Acessibilidade: em desktop sempre "expanded" pois nunca fecha
-        this.toggleBtn.setAttribute('aria-expanded', 
-            sidebarState.isMobile ? sidebarState.isOpen.toString() : 'true');
+
+        this.#toggleBtn.setAttribute('aria-expanded', 
+            sidebarState.isMobile ? sidebarState.isOpen.toString() : 'true'
+        );
     }
-    
-    updateMobileOverlay(sidebarState) {
-        if (!sidebarState.isMobile) return;
-        
-        const existingOverlay = document.querySelector('.sidebar-overlay');
+
+    /**
+     * Gerencia o overlay semitransparente em mobile.
+     * @param {Object} sidebarState - Estado atual da sidebar
+     * @private
+     */
+    #updateMobileOverlay(sidebarState) {
+        const selector = '.sidebar-overlay';
+        const existingOverlay = document.querySelector(selector);
         
         if (sidebarState.isOpen && !existingOverlay) {
-            const overlay = document.createElement('div');
-            overlay.className = 'sidebar-overlay';
-            overlay.setAttribute('role', 'presentation');
-            overlay.setAttribute('aria-hidden', 'true');
-            overlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: calc(var(--z-fixed) - 1);
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.3s ease, visibility 0.3s ease;
-            `;
-            
-            overlay.addEventListener('click', () => {
-                window.AppState.closeSidebar();
-            });
-            
-            document.body.appendChild(overlay);
-            
-            // Animate in
-            setTimeout(() => {
-                overlay.style.opacity = '1';
-                overlay.style.visibility = 'visible';
-            }, 10);
-            
+            this.#createOverlay(selector);
         } else if (!sidebarState.isOpen && existingOverlay) {
-            existingOverlay.style.opacity = '0';
-            existingOverlay.style.visibility = 'hidden';
-            
-            setTimeout(() => {
-                if (existingOverlay.parentNode) {
-                    existingOverlay.parentNode.removeChild(existingOverlay);
-                }
-            }, 300);
+            this.#removeOverlay(existingOverlay);
         }
     }
-    
-    setupEventListeners() {
-        // Toggle button
-        if (this.toggleBtn) {
-            this.toggleBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                window.AppState.toggleSidebar();
-            });
-        }
+
+    /**
+     * Cria e insere o overlay no DOM.
+     * @param {string} selector - Seletor CSS para o overlay
+     * @private
+     */
+    #createOverlay(selector) {
+        const overlay = document.createElement('div');
+        overlay.className = selector.substring(1);
+        overlay.setAttribute('role', 'presentation');
+        overlay.setAttribute('aria-hidden', 'true');
         
-        // Link clicks
-        this.links.forEach(link => {
-            link.addEventListener('click', () => {
-                this.setActiveLink(link);
-                window.AppState.setCurrentPage(link.getAttribute('href'));
-            });
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: calc(var(--z-fixed) - 1);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        `;
+        
+        overlay.addEventListener('click', () => {
+            window.AppState?.closeSidebar();
         });
         
-        // Close on outside click (mobile)
+        document.body.appendChild(overlay);
+        
+        requestAnimationFrame(() => {
+            overlay.style.opacity = '1';
+            overlay.style.visibility = 'visible';
+        });
+    }
+
+    /**
+     * Remove o overlay com animação.
+     * @param {HTMLElement} overlay - Elemento overlay a ser removido
+     * @private
+     */
+    #removeOverlay(overlay) {
+        overlay.style.opacity = '0';
+        overlay.style.visibility = 'hidden';
+        
+        setTimeout(() => {
+            overlay.remove();
+        }, 300);
+    }
+
+    /**
+     * Configura os event listeners principais.
+     * @private
+     */
+    #setupEventListeners() {
+        this.#toggleBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.AppState?.toggleSidebar();
+        });
+
+        this.#links.forEach(link => {
+            link.addEventListener('click', () => {
+                this.#setActiveLink(link);
+                window.AppState?.setCurrentPage(link.getAttribute('href'));
+            });
+        });
+
+        // Fecha sidebar mobile ao clicar fora
         document.addEventListener('click', (e) => {
-            const sidebarState = window.AppState.getSidebarState();
-            if (sidebarState.isMobile && sidebarState.isOpen) {
-                const isClickInsideSidebar = this.sidebar?.contains(e.target);
-                const isClickOnToggle = this.toggleBtn?.contains(e.target);
-                
-                if (!isClickInsideSidebar && !isClickOnToggle) {
-                    window.AppState.closeSidebar();
-                }
+            const sidebarState = window.AppState?.getSidebarState();
+            if (!sidebarState?.isMobile || !sidebarState.isOpen) return;
+
+            const isClickInsideSidebar = this.#sidebar?.contains(e.target);
+            const isClickOnToggle = this.#toggleBtn?.contains(e.target);
+            
+            if (!isClickInsideSidebar && !isClickOnToggle) {
+                window.AppState?.closeSidebar();
             }
         });
     }
-    
-    setActiveLink(activeLink) {
-        this.links.forEach(link => {
+
+    /**
+     * Marca um link como ativo e remove dos demais.
+     * @param {Element} activeLink - Link a ser marcado como ativo
+     * @private
+     */
+    #setActiveLink(activeLink) {
+        this.#links.forEach(link => {
             link.classList.remove('active-link');
         });
         activeLink.classList.add('active-link');
     }
-    
-    setupAccessibility() {
-        if (this.sidebar) {
-            this.sidebar.setAttribute('role', 'navigation');
-            this.sidebar.setAttribute('aria-label', 'Menu principal');
-        }
+
+    /**
+     * Configura atributos de acessibilidade.
+     * @private
+     */
+    #setupAccessibility() {
+        this.#sidebar?.setAttribute('role', 'navigation');
+        this.#sidebar?.setAttribute('aria-label', 'Menu principal');
         
-        // Keyboard navigation
-        this.sidebar?.addEventListener('keydown', (e) => {
+        this.#sidebar?.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                window.AppState.closeSidebar();
-                this.toggleBtn?.focus();
+                window.AppState?.closeSidebar();
+                this.#toggleBtn?.focus();
             }
         });
     }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+// Inicialização quando o DOM estiver pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+} else {
+    initialize();
+}
+
+/**
+ * Inicializa o SidebarManager se o elemento existir.
+ * @function
+ */
+function initialize() {
     if (document.getElementById('sidebar')) {
         new SidebarManager();
-        console.log('✅ Sidebar Manager inicializado');
     }
-});
+}

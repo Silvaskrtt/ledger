@@ -68865,3 +68865,111 @@ Not Found: /favicon.ico
 "GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
 C:\Users\muril\Documents\ledger\backend\home\views.py changed, reloading.
 Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13512
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74457
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74457
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13636
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74457
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET / HTTP/1.1" 200 13636
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET / HTTP/1.1" 200 13567
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74457
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+"GET /api/transactions/form/ HTTP/1.1" 200 16510
+=== API CREATE TRANSACTION ===
+Usuário: Murilo
+Dados recebidos: {'amount': 30, 'direction': 'IN', 'currency': 'BRL', 'origin': 'MANUAL', 'category': 'a746dfe7-df94-441e-abdf-dacfb52c9cf1', 'payment_method': 'c849315a-579b-41cc-a246-b53e63e17a9e', 'account': 'a28888c5-fedd-4c61-a61d-718ab7a05f9c', 'occurred_at': '2026-02-12T19:12', 'tags': []}
+Validando serializer...
+=== VALIDATE START ===
+User: Murilo
+Origin: MANUAL
+Direction: IN
+Amount: 30.00
+Account: Banco do Brasil Digital (Conta Corrente)
+Payment method: PaymentMethod object (c849315a-579b-41cc-a246-b53e63e17a9e)
+Category: Outras receitas (Entrada)
+Tags: []
+Account encontrada: Banco do Brasil Digital (CHECKING)
+Payment method encontrado: Transferência via PIX (PIX)
+Category encontrada: Outras receitas
+Compatibilidade: True
+=== VALIDATE END ===
+Serializer validado com sucesso
+Chamando serializer.save()...
+=== CREATE TRANSACTION ===
+Saldo atualizado para transação d1373839-34c6-4c0a-8ca5-ee21c09644c7 (INCOME)
+Transação manual criada: d1373839-34c6-4c0a-8ca5-ee21c09644c7
+Transaction Type: INCOME
+Saldo: 707.37 -> 737.37
+Resultado: MANUAL
+Transação criada com sucesso: {'success': True, 'message': 'Transação criada com sucesso', 'type': 'MANUAL', 'transaction_id': 'd1373839-34c6-4c0a-8ca5-ee21c09644c7', 'amount': 30.0, 'direction': 'IN', 'transaction_type': 'INCOME'}
+"POST /api/transactions/ HTTP/1.1" 201 190
+"GET /transactions/ HTTP/1.1" 200 74451
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /transactions/ HTTP/1.1" 200 74483
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74503
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6262
+"GET /static/css/core/_reset.css HTTP/1.1" 200 8844
+"GET /static/css/layouts/layout.css HTTP/1.1" 200 103
+"GET /static/css/core/_base.css HTTP/1.1" 200 3455
+"GET /static/css/core/_utilities.css HTTP/1.1" 200 896
+"GET /static/css/layouts/responsive.css HTTP/1.1" 200 2684
+"GET /static/css/core/_variables.css HTTP/1.1" 200 8069
+"GET /static/css/layouts/sidebar-layout.css HTTP/1.1" 200 3692
+"GET /static/css/components/chart.css HTTP/1.1" 200 2338
+"GET /static/css/components/header.css HTTP/1.1" 200 1968
+"GET /static/css/layouts/features.css HTTP/1.1" 200 798
+"GET /static/css/components/summary-card.css HTTP/1.1" 200 4382
+"GET /static/css/components/toggle.css HTTP/1.1" 200 1692
+"GET /static/css/components/_navigation/_sidebar-utils.css HTTP/1.1" 200 2446
+"GET /static/css/components/_navigation/_sidebar-toggle.css HTTP/1.1" 200 2265
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /static/css/components/_navigation/_sidebar.css HTTP/1.1" 200 14488
+"GET /static/css/layouts/global-layout.css HTTP/1.1" 200 2925
+"GET /static/css/vendors/tom-select-custom.css HTTP/1.1" 200 9845
+"GET /static/js/core/utilities.js HTTP/1.1" 200 1588
+"GET /static/css/pages/transaction_manager.css HTTP/1.1" 200 21386
+"GET /static/js/core/app-state.js HTTP/1.1" 200 9644
+"GET /static/js/components/sidebar-manager.js HTTP/1.1" 200 8340
+"GET /static/js/components/theme-manager.js HTTP/1.1" 200 2185
+"GET /static/js/components/balance-validator.js HTTP/1.1" 200 4786
+"GET /static/js/tom-select-manager.js HTTP/1.1" 200 8477
+"GET /static/js/transactions/transaction_manager.js HTTP/1.1" 200 20882
+"GET /static/img/perfil.png HTTP/1.1" 200 20290
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6151
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /transactions/ HTTP/1.1" 200 74483
+"GET /static/css/components/utilities.css HTTP/1.1" 404 1898
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+"GET /api/accounts/check-consistency/ HTTP/1.1" 200 1581
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
