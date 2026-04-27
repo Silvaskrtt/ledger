@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ======================
 # Environment
 # ======================
@@ -51,3 +52,23 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+=======
+# Python
+__pycache__/
+*.py[cod]
+.env
+.venv/
+
+# Django
+db.sqlite3
+staticfiles/
+
+# Node (se usar Tailwind depois)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+.log/
+>>>>>>> fb9a52762b16886b767865f2aabb4afaccbc8c60
