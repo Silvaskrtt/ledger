@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     
     # Apps customizados do projeto (adicionar abaixo)
+    'accounts',
 ]
 
 # ============================================================================
@@ -136,8 +137,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Idioma padrão: Português Brasileiro
 LANGUAGE_CODE = 'pt-br'
 
-# Fuso horário padrão (UTC recomendado)
-TIME_ZONE = 'UTC'
+# Fuso horário padrão
+TIME_ZONE = 'America/Sao_Paulo'
 
 # Habilita sistema de internacionalização
 USE_I18N = True
@@ -151,3 +152,10 @@ USE_TZ = True
 
 # URL base para acesso aos arquivos estáticos
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
