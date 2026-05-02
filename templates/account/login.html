@@ -1,0 +1,123 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth account %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at 30% 30%, #2b0a4a, #12001f);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .glass-card {
+        width: 360px;
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        color: #fff;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.3);
+        background: transparent;
+        color: #fff;
+        outline: none;
+    }
+
+    input::placeholder {
+        color: rgba(255,255,255,0.6);
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        background: linear-gradient(90deg, #7b2ff7, #9f44d3);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        opacity: 0.85;
+    }
+
+    .link {
+        margin-top: 15px;
+        display: block;
+        color: rgba(255,255,255,0.7);
+        font-size: 14px;
+    }
+
+    .link a {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+</style>
+
+<div class="glass-card">
+    <div class="logo">SHRUHH</div>
+    <h2>Welcome Back</h2>
+
+    {% url 'account_login' as login_url %}
+    <form method="post" action="{{ login_url }}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ form.login }}
+        </div>
+
+        <div class="form-group">
+            {{ form.password }}
+        </div>
+
+        {{ redirect_field }}
+
+        <button type="submit" class="btn">
+            {% trans "Sign In" %}
+        </button>
+    </form>
+
+    <span class="link">
+        {% trans "Forgot password?" %}
+    </span>
+
+    <span class="link">
+        {% trans "Are you new?" %}
+        <a href="{{ signup_url }}">{% trans "Sign Up" %}</a>
+    </span>
+</div>
+{% endblock %}
