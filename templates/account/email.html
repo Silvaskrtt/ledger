@@ -1,0 +1,204 @@
+{% load static allauth i18n %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MyLedger - {% trans "Gerenciar E-mails" %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/pages/email_management.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="email-container">
+        <!-- Animated Gradient Background -->
+        <div class="gradient-background">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="gradient-orb gradient-orb-3"></div>
+            <div class="gradient-orb gradient-orb-4"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="glass-card fade-up">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h1 class="logo-text">MyLedger</h1>
+                <p class="logo-subtitle">{% trans "Gerenciar E-mails" %}</p>
+            </div>
+
+            <!-- Title -->
+            <div class="title-section">
+                <h2>{% trans "Seus E-mails" %}</h2>
+                <p>{% trans "Gerencie os endereços de e-mail associados à sua conta" %}</p>
+            </div>
+
+            <!-- Email List Section -->
+            {% if emailaddresses %}
+                <div class="email-list-section">
+                    <div class="section-header">
+                        <i class="fas fa-list"></i>
+                        <span>{% trans "E-mails cadastrados" %}</span>
+                    </div>
+                    
+                    {% url 'account_email' as email_url %}
+                    <form method="post" action="{{ email_url }}" class="email-form" id="email-list-form">
+                        {% csrf_token %}
+                        
+                        <div class="email-list">
+                            {% for radio in emailaddress_radios %}
+                                {% with emailaddress=radio.emailaddress %}
+                                    <div class="email-item fade-up">
+                                        <div class="email-radio">
+                                            <input type="radio" 
+                                                   name="email" 
+                                                   value="{{ emailaddress.email }}" 
+                                                   id="{{ radio.id }}"
+                                                   {% if radio.checked %}checked{% endif %}>
+                                            <label for="{{ radio.id }}" class="email-label">
+                                                <span class="email-address">{{ emailaddress.email }}</span>
+                                                <div class="email-badges">
+                                                    {% if emailaddress.verified %}
+                                                        <span class="badge badge-success">
+                                                            <i class="fas fa-check-circle"></i>
+                                                            {% translate "Verificado" %}
+                                                        </span>
+                                                    {% else %}
+                                                        <span class="badge badge-warning">
+                                                            <i class="fas fa-clock"></i>
+                                                            {% translate "Não verificado" %}
+                                                        </span>
+                                                    {% endif %}
+                                                    {% if emailaddress.primary %}
+                                                        <span class="badge badge-primary">
+                                                            <i class="fas fa-star"></i>
+                                                            {% translate "Principal" %}
+                                                        </span>
+                                                    {% endif %}
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                {% endwith %}
+                            {% endfor %}
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button type="submit" name="action_primary" class="btn-action btn-primary-action">
+                                <i class="fas fa-star"></i>
+                                <span>{% trans 'Tornar Principal' %}</span>
+                            </button>
+                            <button type="submit" name="action_send" class="btn-action btn-secondary-action">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>{% trans 'Reenviar Verificação' %}</span>
+                            </button>
+                            <button type="submit" name="action_remove" class="btn-action btn-danger-action" onclick="return confirmDelete()">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>{% trans 'Remover' %}</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>{% trans "Nenhum e-mail cadastrado" %}</p>
+                    <p class="empty-subtitle">{% trans "Adicione um endereço de e-mail abaixo" %}</p>
+                </div>
+            {% endif %}
+
+            <!-- Add Email Section -->
+            {% if can_add_email %}
+                <div class="add-email-section">
+                    <div class="section-header">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>{% trans "Adicionar novo e-mail" %}</span>
+                    </div>
+                    
+                    {% url 'account_email' as action_url %}
+                    <form method="post" action="{{ action_url }}" class="add-email-form">
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="id_email">
+                                <i class="fas fa-envelope"></i>
+                                {% trans "Novo endereço de e-mail" %}
+                            </label>
+                            <div class="input-wrapper">
+                                {{ form.email }}
+                                <i class="fas fa-envelope input-icon"></i>
+                            </div>
+                            {% if form.email.errors %}
+                                <span class="error-message">{{ form.email.errors.0 }}</span>
+                            {% endif %}
+                        </div>
+                        
+                        <button type="submit" name="action_add" class="btn-add">
+                            <i class="fas fa-plus"></i>
+                            <span>{% trans "Adicionar E-mail" %}</span>
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="{% url 'accounts:profile' %}" class="link">
+                    <i class="fas fa-arrow-left"></i>
+                    {% trans "Voltar ao Perfil" %}
+                </a>
+                <span class="separator">•</span>
+                <a href="{% url 'account_change_password' %}" class="link">
+                    <i class="fas fa-lock"></i>
+                    {% trans "Alterar Senha" %}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container fade-up">
+            <div class="modal-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3>{% trans "Confirmar Remoção" %}</h3>
+            <p>{% trans "Tem certeza que deseja remover este endereço de e-mail?" %}</p>
+            <div class="modal-buttons">
+                <button class="btn-modal-cancel" onclick="closeDeleteModal()">
+                    {% trans "Cancelar" %}
+                </button>
+                <button class="btn-modal-confirm" id="confirmDeleteBtn">
+                    {% trans "Remover" %}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="successToast" class="custom-toast success" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">{% trans "E-mail atualizado com sucesso!" %}</span>
+    </div>
+
+    <!-- Error Toast -->
+    <div id="errorToast" class="custom-toast error" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorToastMessage">{% trans "Erro ao processar solicitação." %}</span>
+    </div>
+
+    <script src="{% static 'js/pages/email_management.js' %}"></script>
+    <script data-allauth-onload="allauth.account.forms.manageEmailForm" type="application/json">{
+        "i18n": {"confirmDelete": "{% trans 'Tem certeza que deseja remover o endereço de e-mail selecionado?' %}"}
+    }
+    </script>
+</body>
+</html>
+{% endblock content %}

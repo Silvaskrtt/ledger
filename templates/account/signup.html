@@ -1,45 +1,179 @@
-{% extends "account/base_entrance.html" %}
 {% load allauth i18n %}
-{% block head_title %}
-    {% trans "Signup" %}
-{% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    {% setvar link %}
-        <a href="{{ login_url }}">
-        {% endsetvar %}
-        {% setvar end_link %}
-        </a>
-    {% endsetvar %}
-    {% element p %}
-        {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
-    {% endelement %}
-    {% if not SOCIALACCOUNT_ONLY %}
-        {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if PASSKEY_SIGNUP_ENABLED %}
-        {% element hr %}
-        {% endelement %}
-        {% element button href=signup_by_passkey_url tags="prominent,signup,outline,primary" %}
-            {% trans "Sign up using a passkey" %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MyLedger - {% trans "Criar Conta" %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/pages/signup.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="signup-container">
+        <!-- Animated Gradient Background -->
+        <div class="gradient-background">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="gradient-orb gradient-orb-3"></div>
+            <div class="gradient-orb gradient-orb-4"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <!-- Main Card (Compacto) -->
+        <div class="glass-card fade-up">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h1 class="logo-text">MyLedger</h1>
+                <p class="logo-subtitle">{% trans "Crie sua conta" %}</p>
+            </div>
+
+            <!-- Welcome Text -->
+            <div class="welcome-section">
+                <h2>{% trans "Inicie sua jornada" %}</h2>
+                <p>{% trans "Junte-se a nós para gerenciar suas finanças" %}</p>
+            </div>
+
+            <!-- Signup Form -->
+            {% if not SOCIALACCOUNT_ONLY %}
+                {% url 'account_signup' as action_url %}
+                <form method="post" action="{{ action_url }}" class="signup-form">
+                    {% csrf_token %}
+
+                    <!-- Username Field (se existir) -->
+                    {% if form.username %}
+                    <div class="form-group">
+                        <label for="id_username">
+                            <i class="fas fa-user"></i>
+                            {% trans "Nome de usuário" %}
+                        </label>
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            <span class="error-message">{{ form.username.errors.0 }}</span>
+                        {% endif %}
+                        {% if form.username.help_text %}
+                            <small class="help-text">{{ form.username.help_text }}</small>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="id_email">
+                            <i class="fas fa-envelope"></i>
+                            {% trans "E-mail" %}
+                        </label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <span class="error-message">{{ form.email.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+
+                    <!-- Password1 Field -->
+                    <div class="form-group">
+                        <label for="id_password1">
+                            <i class="fas fa-lock"></i>
+                            {% trans "Senha" %}
+                        </label>
+                        <div class="password-wrapper">
+                            {{ form.password1 }}
+                            <button type="button" class="toggle-password" data-target="id_password1">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        {% if form.password1.errors %}
+                            <span class="error-message">{{ form.password1.errors.0 }}</span>
+                        {% endif %}
+                        {% if form.password1.help_text %}
+                            <small class="help-text">{{ form.password1.help_text }}</small>
+                        {% endif %}
+                    </div>
+
+                    <!-- Password2 Field (Confirmação) -->
+                    <div class="form-group">
+                        <label for="id_password2">
+                            <i class="fas fa-lock"></i>
+                            {% trans "Confirmar Senha" %}
+                        </label>
+                        <div class="password-wrapper">
+                            {{ form.password2 }}
+                            <button type="button" class="toggle-password" data-target="id_password2">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        {% if form.password2.errors %}
+                            <span class="error-message">{{ form.password2.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+
+                    {{ redirect_field }}
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-signup">
+                        <span>{% trans "Criar Conta" %}</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            {% endif %}
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>{% trans "ou" %}</span>
+            </div>
+
+            <!-- Passkey Signup (se habilitado) -->
+            {% if PASSKEY_SIGNUP_ENABLED %}
+                <div class="passkey-section">
+                    <button type="button" class="btn-passkey" onclick="location.href='{{ signup_by_passkey_url }}'">
+                        <i class="fas fa-key"></i>
+                        <span>{% trans "Cadastrar usando chave de acesso" %}</span>
+                    </button>
+                </div>
+            {% endif %}
+
+            <!-- Social Login -->
+            {% if SOCIALACCOUNT_ENABLED %}
+                <div class="social-login">
+                    <button type="button" class="social-btn google" onclick="handleSocialLogin('google')">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </button>
+                    <button type="button" class="social-btn github" onclick="handleSocialLogin('github')">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </button>
+                </div>
+            {% endif %}
+
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <span class="link-text">{% trans "Já tem uma conta?" %}</span>
+                <a href="{{ login_url }}" class="link">
+                    {% trans "Entrar" %}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="successToast" class="custom-toast success" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">{% trans "Conta criada com sucesso!" %}</span>
+    </div>
+
+    <!-- Error Toast -->
+    <div id="errorToast" class="custom-toast error" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorToastMessage">{% trans "Erro ao criar conta. Tente novamente." %}</span>
+    </div>
+
+    <script src="{% static 'js/pages/signup.js' %}"></script>
+</body>
+</html>
 {% endblock content %}

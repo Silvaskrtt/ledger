@@ -1,123 +1,140 @@
-{% extends "account/base_entrance.html" %}
-{% load i18n %}
-{% load allauth account %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% load i18n allauth account %}
 
 {% block content %}
-<style>
-    body {
-        margin: 0;
-        height: 100vh;
-        font-family: 'Segoe UI', sans-serif;
-        background: radial-gradient(circle at 30% 30%, #2b0a4a, #12001f);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .glass-card {
-        width: 360px;
-        padding: 30px;
-        border-radius: 20px;
-        backdrop-filter: blur(15px);
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.2);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-        color: #fff;
-        text-align: center;
-    }
-
-    .logo {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    h2 {
-        margin-bottom: 20px;
-        font-weight: 400;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-        text-align: left;
-    }
-
-    input {
-        width: 100%;
-        padding: 12px;
-        border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.3);
-        background: transparent;
-        color: #fff;
-        outline: none;
-    }
-
-    input::placeholder {
-        color: rgba(255,255,255,0.6);
-    }
-
-    .btn {
-        width: 100%;
-        padding: 12px;
-        border-radius: 12px;
-        border: none;
-        background: linear-gradient(90deg, #7b2ff7, #9f44d3);
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .btn:hover {
-        opacity: 0.85;
-    }
-
-    .link {
-        margin-top: 15px;
-        display: block;
-        color: rgba(255,255,255,0.7);
-        font-size: 14px;
-    }
-
-    .link a {
-        color: #fff;
-        font-weight: bold;
-        text-decoration: none;
-    }
-</style>
-
-<div class="glass-card">
-    <div class="logo">SHRUHH</div>
-    <h2>Welcome Back</h2>
-
-    {% url 'account_login' as login_url %}
-    <form method="post" action="{{ login_url }}">
-        {% csrf_token %}
-
-        <div class="form-group">
-            {{ form.login }}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MyLedger - {% trans "Entrar" %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/pages/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Animated Gradient Background -->
+        <div class="gradient-background">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="gradient-orb gradient-orb-3"></div>
+            <div class="gradient-orb gradient-orb-4"></div>
+            <div class="gradient-overlay"></div>
         </div>
 
-        <div class="form-group">
-            {{ form.password }}
+        <!-- Main Card (Compacto) -->
+        <div class="glass-card fade-up">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <h1 class="logo-text">MyLedger</h1>
+                <p class="logo-subtitle">{% trans "Controle Financeiro" %}</p>
+            </div>
+
+            <!-- Welcome Text -->
+            <div class="welcome-section">
+                <h2>{% trans "Bem-Vindo de Volta" %}</h2>
+                <p>{% trans "Faça login para continuar" %}</p>
+            </div>
+
+            <!-- Login Form -->
+            {% url 'account_login' as login_url %}
+            <form method="post" action="{{ login_url }}" class="login-form">
+                {% csrf_token %}
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="id_login">
+                        <i class="fas fa-envelope"></i>
+                        {% trans "E-mail" %}
+                    </label>
+                    {{ form.login }}
+                    {% if form.login.errors %}
+                        <span class="error-message">{{ form.login.errors.0 }}</span>
+                    {% endif %}
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="id_password">
+                        <i class="fas fa-lock"></i>
+                        {% trans "Senha" %}
+                    </label>
+                    <div class="password-wrapper">
+                        {{ form.password }}
+                        <button type="button" class="toggle-password" onclick="togglePassword()">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    {% if form.password.errors %}
+                        <span class="error-message">{{ form.password.errors.0 }}</span>
+                    {% endif %}
+                </div>
+
+                <!-- Remember Me -->
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember" id="id_remember">
+                        <span class="checkmark"></span>
+                        {% trans "Lembrar de mim" %}
+                    </label>
+                </div>
+
+                {{ redirect_field }}
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-login">
+                    <span>{% trans "Entrar" %}</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>{% trans "ou" %}</span>
+            </div>
+
+            <!-- Social Login -->
+            <div class="social-login">
+                <button type="button" class="social-btn google">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button type="button" class="social-btn github">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </button>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="{% url 'account_reset_password' %}" class="link">
+                    {% trans "Esqueceu sua senha?" %}
+                </a>
+                <span class="separator">•</span>
+                <a href="{{ signup_url }}" class="link">
+                    {% trans "Criar Conta" %}
+                </a>
+            </div>
         </div>
+    </div>
 
-        {{ redirect_field }}
+    <!-- Success Toast -->
+    <div id="successToast" class="custom-toast success" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">{% trans "Login realizado com sucesso!" %}</span>
+    </div>
 
-        <button type="submit" class="btn">
-            {% trans "Sign In" %}
-        </button>
-    </form>
+    <!-- Error Toast -->
+    <div id="errorToast" class="custom-toast error" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorToastMessage">{% trans "Erro ao fazer login. Tente novamente." %}</span>
+    </div>
 
-    <span class="link">
-        {% trans "Forgot password?" %}
-    </span>
-
-    <span class="link">
-        {% trans "Are you new?" %}
-        <a href="{{ signup_url }}">{% trans "Sign Up" %}</a>
-    </span>
-</div>
+    <script src="{% static 'js/pages/login.js' %}"></script>
+</body>
+</html>
 {% endblock %}

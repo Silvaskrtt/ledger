@@ -1,0 +1,125 @@
+{% load i18n account allauth %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MyLedger - {% trans "Confirm Email Address" %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/pages/confirm_email.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="confirm-container">
+        <!-- Animated Gradient Background -->
+        <div class="gradient-background">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="gradient-orb gradient-orb-3"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="glass-card fade-up">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h1 class="logo-text">MyLedger</h1>
+                <p class="logo-subtitle">{% trans "Verificação de Email" %}</p>
+            </div>
+
+            <!-- Content based on confirmation state -->
+            {% if confirmation %}
+                {% user_display confirmation.email_address.user as user_display %}
+                {% if can_confirm %}
+                    <!-- Confirm Email Form -->
+                    <div class="content-section">
+                        <div class="icon-circle success">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <h2>{% trans "Confirm Your Email" %}</h2>
+                        <p class="message">
+                            {% blocktrans with confirmation.email_address.email as email %}
+                                Por favor, confirme que <strong>{{ email }}</strong> é o endereço de email para o usuário <strong>{{ user_display }}</strong>.
+                            {% endblocktrans %}
+                        </p>
+                        
+                        {% url 'account_confirm_email' confirmation.key as action_url %}
+                        <form method="post" action="{{ action_url }}" class="confirm-form">
+                            {% csrf_token %}
+                            {{ redirect_field }}
+                            <button type="submit" class="btn-confirm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>{% trans 'Confirme o Email' %}</span>
+                            </button>
+                        </form>
+                    </div>
+                {% else %}
+                    <!-- Already Confirmed -->
+                    <div class="content-section">
+                        <div class="icon-circle warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h2>{% trans "Already Confirmed" %}</h2>
+                        <p class="message">
+                            {% blocktrans with confirmation.email_address.email as email %}
+                                Não foi possível confirmar <strong>{{ email }}</strong> porque ele já está confirmado por uma conta diferente.
+                            {% endblocktrans %}
+                        </p>
+                        <div class="action-buttons">
+                            <a href="{% url 'account_login' %}" class="btn-secondary">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>{% trans "Sign In" %}</span>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% else %}
+                <!-- Expired/Invalid Link -->
+                <div class="content-section">
+                    <div class="icon-circle error">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h2>{% trans "Link Expired" %}</h2>
+                    <p class="message">
+                        {% blocktrans %}
+                            O link de confirmação de email expirou ou é inválido.
+                        {% endblocktrans %}
+                    </p>
+                    <div class="action-buttons">
+                        {% url 'account_email' as email_url %}
+                        <a href="{{ email_url }}" class="btn-primary">
+                            <i class="fas fa-redo-alt"></i>
+                            <span>{% trans "Request New Link" %}</span>
+                        </a>
+                        <a href="{% url 'account_login' %}" class="btn-secondary">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>{% trans "Sign In" %}</span>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="{% url 'account_login' %}" class="link">
+                    <i class="fas fa-arrow-left"></i>
+                    {% trans "Voltar para o Login" %}
+                </a>
+                <span class="separator">•</span>
+                <a href="{% url 'account_reset_password' %}" class="link">
+                    {% trans "Precisa de Ajuda?" %}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/pages/confirm_email.js' %}"></script>
+</body>
+</html>
+{% endblock content %}

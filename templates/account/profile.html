@@ -1,0 +1,344 @@
+{% load allauth i18n %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MyLedger - {% trans "Meu Perfil" %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/pages/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Animated Gradient Background -->
+        <div class="gradient-background">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="gradient-orb gradient-orb-3"></div>
+            <div class="gradient-orb gradient-orb-4"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="glass-card fade-up">
+            <!-- Close/Back Button -->
+            <div class="card-header">
+                <button onclick="history.back()" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1 class="page-title">{% trans "Meu Perfil" %}</h1>
+                <div class="placeholder"></div>
+            </div>
+
+            <!-- Profile Avatar Section -->
+            <div class="avatar-section">
+                <div class="avatar-wrapper">
+                    <div class="avatar-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <button class="edit-avatar-btn" onclick="showAvatarOptions()">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <h2 class="profile-name" id="profileName">{{ user.first_name }} {{ user.last_name }}</h2>
+                <p class="profile-email" id="profileEmail">{{ user.email }}</p>
+                <span class="profile-badge">
+                    <i class="fas fa-check-circle"></i>
+                    {% trans "Conta Verificada" %}
+                </span>
+            </div>
+
+            <!-- Profile Info Section -->
+            <div class="info-section">
+                <div class="section-header">
+                    <i class="fas fa-info-circle"></i>
+                    <span>{% trans "Informações Pessoais" %}</span>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-row">
+                        <div class="info-label">
+                            <i class="fas fa-user"></i>
+                            <span>{% trans "Nome Completo:" %}</span>
+                        </div>
+                        <div class="info-value" id="displayName">{{ user.first_name }} {{ user.last_name }}</div>
+                        <button class="edit-btn" onclick="editField('name')">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="info-row">
+                        <div class="info-label">
+                            <i class="fas fa-envelope"></i>
+                            <span>{% trans "E-mail:" %}</span>
+                        </div>
+                        <div class="info-value" id="displayEmail">{{ user.email }}</div>
+                        <button class="edit-btn" onclick="goToEmailManagement()">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="info-row">
+                        <div class="info-label">
+                            <i class="fas fa-phone"></i>
+                            <span>{% trans "Telefone:" %}</span>
+                        </div>
+                        <div class="info-value" id="displayPhone">{{ user.profile.phone|default:'Não informado' }}</div>
+                        <button class="edit-btn" onclick="editField('phone')">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="info-row">
+                        <div class="info-label">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>{% trans "Membro desde:" %}</span>
+                        </div>
+                        <div class="info-value">{{ user.date_joined|date:"d/m/Y" }}</div>
+                        <div class="placeholder-icon"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Section -->
+            <div class="security-section">
+                <div class="section-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>{% trans "Segurança" %}</span>
+                </div>
+                
+                <div class="security-card">
+                    <div class="security-row" onclick="goToChangePassword()">
+                        <div class="security-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="security-info">
+                            <span class="security-title">{% trans "Alterar Senha" %}</span>
+                            <span class="security-desc">{% trans "Atualize sua senha regularmente" %}</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    
+                    <div class="security-row" onclick="goToTwoFactor()">
+                        <div class="security-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="security-info">
+                            <span class="security-title">{% trans "Autenticação de Dois Fatores" %}</span>
+                            <span class="security-desc">{% trans "Adicione uma camada extra de segurança" %}</span>
+                        </div>
+                        <div class="toggle-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="twoFactorToggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="security-row" onclick="goToSessions()">
+                        <div class="security-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="security-info">
+                            <span class="security-title">{% trans "Sessões Ativas" %}</span>
+                            <span class="security-desc">{% trans "Gerencie dispositivos conectados" %}</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preferences Section -->
+            <div class="preferences-section">
+                <div class="section-header">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>{% trans "Preferências" %}</span>
+                </div>
+                
+                <div class="preferences-card">
+                    <div class="pref-row">
+                        <div class="pref-info">
+                            <span class="pref-title">{% trans "Notificações por E-mail" %}</span>
+                            <span class="pref-desc">{% trans "Receba alertas e novidades" %}</span>
+                        </div>
+                        <div class="toggle-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="emailNotifications" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="pref-row">
+                        <div class="pref-info">
+                            <span class="pref-title">{% trans "Modo Escuro" %}</span>
+                            <span class="pref-desc">{% trans "Tema escuro para a aplicação" %}</span>
+                        </div>
+                        <div class="toggle-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="darkMode" checked disabled>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="pref-row">
+                        <div class="pref-info">
+                            <span class="pref-title">{% trans "Idioma" %}</span>
+                            <span class="pref-desc">{% trans "Português (Brasil)" %}</span>
+                        </div>
+                        <button class="lang-btn" onclick="changeLanguage()">
+                            <i class="fas fa-globe"></i>
+                            <span>{% trans "Alterar" %}</span>
+                        </button>
+                    </div>
+                    
+                    <div class="pref-row">
+                        <div class="pref-info">
+                            <span class="pref-title">{% trans "Moeda Padrão" %}</span>
+                            <span class="pref-desc">{% trans "Real Brasileiro (R$)" %}</span>
+                        </div>
+                        <button class="lang-btn" onclick="changeCurrency()">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>{% trans "Alterar" %}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="danger-section">
+                <div class="section-header danger">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>{% trans "Zona de Risco" %}</span>
+                </div>
+                
+                <div class="danger-card">
+                    <div class="danger-row" onclick="confirmDeleteAccount()">
+                        <div class="danger-icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <div class="danger-info">
+                            <span class="danger-title">{% trans "Excluir Conta" %}</span>
+                            <span class="danger-desc">{% trans "Remova permanentemente sua conta e todos os dados" %}</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    
+                    <div class="danger-row" onclick="exportData()">
+                        <div class="danger-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="danger-info">
+                            <span class="danger-title">{% trans "Exportar Dados" %}</span>
+                            <span class="danger-desc">{% trans "Baixe todos os seus dados em formato JSON" %}</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logout Button -->
+            <div class="logout-section">
+                <button class="btn-logout" onclick="confirmLogout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>{% trans "Sair da Conta" %}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Name Modal -->
+    <div id="editNameModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container fade-up">
+            <div class="modal-header">
+                <h3>{% trans "Editar Nome" %}</h3>
+                <button class="modal-close" onclick="closeEditModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <form method="post" action="{% url 'accounts:profile_update' %}">
+                        {% csrf_token %}
+                        <label for="editNameInput">{% trans "Nome completo" %}</label>
+                        <input type="text" id="editNameInput" class="modal-input" placeholder="Digite seu nome completo">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal-cancel" onclick="closeEditModal()">
+                    {% trans "Cancelar" %}
+                </button>
+                <button class="btn-modal-confirm" onclick="saveName()">
+                    {% trans "Salvar" %}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Phone Modal -->
+    <div id="editPhoneModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container fade-up">
+            <div class="modal-header">
+                <h3>{% trans "Editar Telefone" %}</h3>
+                <button class="modal-close" onclick="closeEditModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="editPhoneInput">{% trans "Número de telefone" %}</label>
+                    <input type="tel" id="editPhoneInput" class="modal-input" placeholder="(11) 98765-4321">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal-cancel" onclick="closeEditModal()">
+                    {% trans "Cancelar" %}
+                </button>
+                <button class="btn-modal-confirm" onclick="savePhone()">
+                    {% trans "Salvar" %}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div id="deleteAccountModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container danger-modal fade-up">
+            <div class="modal-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3>{% trans "Excluir Conta" %}</h3>
+            <p>{% trans "Tem certeza que deseja excluir sua conta? Esta ação é irreversível e todos os seus dados serão permanentemente removidos." %}</p>
+            <div class="modal-buttons">
+                <button class="btn-modal-cancel" onclick="closeDeleteModal()">
+                    {% trans "Cancelar" %}
+                </button>
+                <button class="btn-modal-danger" onclick="deleteAccount()">
+                    {% trans "Sim, excluir minha conta" %}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="successToast" class="custom-toast success" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">{% trans "Perfil atualizado com sucesso!" %}</span>
+    </div>
+
+    <!-- Error Toast -->
+    <div id="errorToast" class="custom-toast error" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorToastMessage">{% trans "Erro ao atualizar perfil." %}</span>
+    </div>
+
+    <script src="{% static 'js/pages/profile.js' %}"></script>
+</body>
+</html>
+{% endblock content %}

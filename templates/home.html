@@ -1,0 +1,365 @@
+{% load static i18n %}
+
+{% block head_title %}
+    {% trans "Início" %} | MyLedger
+{% endblock head_title %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MyLedger - {% trans "Dashboard" %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="home-container">
+        <!-- Animated Gradient Background -->
+        <div class="gradient-background">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="gradient-orb gradient-orb-3"></div>
+            <div class="gradient-orb gradient-orb-4"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="home-content">
+            <!-- Header -->
+            <header class="home-header fade-up">
+                <div class="header-left">
+                    <div class="greeting">
+                        <span class="greeting-text">{% trans "Olá," %}</span>
+                        <h1 class="user-name" id="userName">{{ user.first_name }} {{ user.last_name }}</h1>
+                    </div>
+                    <p class="welcome-message">{% trans "Bem-vindo de volta! Aqui está um resumo das suas finanças." %}</p>
+                </div>
+                <div class="header-right">
+                    <button class="notifications-btn" onclick="toggleNotifications()" href="toggleNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="profile-btn" onclick="goToProfile()">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Cards Row -->
+            <div class="stats-row fade-up" style="animation-delay: 0.05s">
+                <!-- Balance Card -->
+                <div class="stat-card balance-card">
+                    <div class="card-header">
+                        <div class="card-icon balance-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <span class="card-label">{% trans "Saldo Total" %}</span>
+                    </div>
+                    <div class="card-value" id="totalBalance">R$ 12.450,00</div>
+                    <div class="card-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+8.2%</span>
+                        <span class="change-text">{% trans "em relação ao mês passado" %}</span>
+                    </div>
+                </div>
+
+                <!-- Income Card -->
+                <div class="stat-card income-card">
+                    <div class="card-header">
+                        <div class="card-icon income-icon">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <span class="card-label">{% trans "Receitas" %}</span>
+                    </div>
+                    <div class="card-value" id="totalIncome">R$ 8.200,00</div>
+                    <div class="card-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+12.5%</span>
+                    </div>
+                </div>
+
+                <!-- Expense Card -->
+                <div class="stat-card expense-card">
+                    <div class="card-header">
+                        <div class="card-icon expense-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <span class="card-label">{% trans "Despesas" %}</span>
+                    </div>
+                    <div class="card-value" id="totalExpense">R$ 3.750,00</div>
+                    <div class="card-change negative">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>-5.3%</span>
+                    </div>
+                </div>
+
+                <!-- Savings Card -->
+                <div class="stat-card savings-card">
+                    <div class="card-header">
+                        <div class="card-icon savings-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <span class="card-label">{% trans "Economia" %}</span>
+                    </div>
+                    <div class="card-value" id="totalSavings">R$ 1.250,00</div>
+                    <div class="card-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+18.2%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row fade-up" style="animation-delay: 0.1s">
+                <!-- Expense Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>{% trans "Despesas por Categoria" %}</span>
+                        </div>
+                        <select class="chart-period" id="expensePeriod">
+                            <option value="month">{% trans "Este Mês" %}</option>
+                            <option value="quarter">{% trans "Este Trimestre" %}</option>
+                            <option value="year">{% trans "Este Ano" %}</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                    <div class="chart-legend" id="expenseLegend">
+                        <div class="legend-item"><span class="legend-color" style="background: #8A4FFF;"></span>Alimentação - 35%</div>
+                        <div class="legend-item"><span class="legend-color" style="background: #5E2C9A;"></span>Transporte - 25%</div>
+                        <div class="legend-item"><span class="legend-color" style="background: #c084fc;"></span>Lazer - 20%</div>
+                        <div class="legend-item"><span class="legend-color" style="background: #6366f1;"></span>Moradia - 12%</div>
+                        <div class="legend-item"><span class="legend-color" style="background: #ec4899;"></span>Outros - 8%</div>
+                    </div>
+                </div>
+
+                <!-- Income vs Expense Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i class="fas fa-chart-line"></i>
+                            <span>{% trans "Evolução Mensal" %}</span>
+                        </div>
+                        <select class="chart-period" id="trendPeriod">
+                            <option value="6">{% trans "Últimos 6 meses" %}</option>
+                            <option value="12">{% trans "Últimos 12 meses" %}</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions Section -->
+            <div class="transactions-section fade-up" style="animation-delay: 0.15s">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-history"></i>
+                        <span>{% trans "Transações Recentes" %}</span>
+                    </div>
+                    <button class="view-all-btn" onclick="goToTransactions()">
+                        <span>{% trans "Ver todas" %}</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="transactions-list" id="recentTransactions">
+                    <!-- Transaction items will be populated by JS -->
+                    <div class="transaction-item">
+                        <div class="transaction-icon" style="background: rgba(239, 68, 68, 0.1);">
+                            <i class="fas fa-shopping-cart" style="color: #ef4444;"></i>
+                        </div>
+                        <div class="transaction-info">
+                            <div class="transaction-title">Supermercado</div>
+                            <div class="transaction-meta">
+                                <span>Alimentação</span>
+                                <span class="separator">•</span>
+                                <span>15/06/2025</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount expense">- R$ 342,50</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon" style="background: rgba(16, 185, 129, 0.1);">
+                            <i class="fas fa-briefcase" style="color: #10b981;"></i>
+                        </div>
+                        <div class="transaction-info">
+                            <div class="transaction-title">Salário</div>
+                            <div class="transaction-meta">
+                                <span>Trabalho</span>
+                                <span class="separator">•</span>
+                                <span>01/06/2025</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount income">+ R$ 5.000,00</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon" style="background: rgba(239, 68, 68, 0.1);">
+                            <i class="fas fa-car" style="color: #ef4444;"></i>
+                        </div>
+                        <div class="transaction-info">
+                            <div class="transaction-title">Uber</div>
+                            <div class="transaction-meta">
+                                <span>Transporte</span>
+                                <span class="separator">•</span>
+                                <span>14/06/2025</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount expense">- R$ 28,90</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon" style="background: rgba(239, 68, 68, 0.1);">
+                            <i class="fas fa-tv" style="color: #ef4444;"></i>
+                        </div>
+                        <div class="transaction-info">
+                            <div class="transaction-title">Netflix</div>
+                            <div class="transaction-meta">
+                                <span>Lazer</span>
+                                <span class="separator">•</span>
+                                <span>10/06/2025</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount expense">- R$ 39,90</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Budget Overview Section -->
+            <div class="budget-section fade-up" style="animation-delay: 0.2s">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-chart-simple"></i>
+                        <span>{% trans "Orçamento por Categoria" %}</span>
+                    </div>
+                    <button class="view-all-btn" onclick="goToBudget()">
+                        <span>{% trans "Gerenciar" %}</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="budget-list" id="budgetList">
+                    <div class="budget-item">
+                        <div class="budget-info">
+                            <div class="budget-category">
+                                <span class="category-dot" style="background: #8A4FFF;"></span>
+                                <span>Alimentação</span>
+                            </div>
+                            <div class="budget-stats">
+                                <span class="budget-spent">R$ 342,50</span>
+                                <span class="budget-separator">/</span>
+                                <span class="budget-limit">R$ 800,00</span>
+                            </div>
+                        </div>
+                        <div class="budget-bar">
+                            <div class="budget-progress" style="width: 43%; background: #8A4FFF;"></div>
+                        </div>
+                    </div>
+                    <div class="budget-item">
+                        <div class="budget-info">
+                            <div class="budget-category">
+                                <span class="category-dot" style="background: #5E2C9A;"></span>
+                                <span>Transporte</span>
+                            </div>
+                            <div class="budget-stats">
+                                <span class="budget-spent">R$ 28,90</span>
+                                <span class="budget-separator">/</span>
+                                <span class="budget-limit">R$ 300,00</span>
+                            </div>
+                        </div>
+                        <div class="budget-bar">
+                            <div class="budget-progress" style="width: 10%; background: #5E2C9A;"></div>
+                        </div>
+                    </div>
+                    <div class="budget-item">
+                        <div class="budget-info">
+                            <div class="budget-category">
+                                <span class="category-dot" style="background: #c084fc;"></span>
+                                <span>Lazer</span>
+                            </div>
+                            <div class="budget-stats">
+                                <span class="budget-spent">R$ 39,90</span>
+                                <span class="budget-separator">/</span>
+                                <span class="budget-limit">R$ 400,00</span>
+                            </div>
+                        </div>
+                        <div class="budget-bar">
+                            <div class="budget-progress" style="width: 10%; background: #c084fc;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions fade-up" style="animation-delay: 0.25s">
+                <button class="action-btn" onclick="goToAddTransaction()">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>{% trans "Nova Transação" %}</span>
+                </button>
+                <button class="action-btn" onclick="goToReports()">
+                    <i class="fas fa-chart-line"></i>
+                    <span>{% trans "Relatórios" %}</span>
+                </button>
+                <button class="action-btn" onclick="goToCategories()">
+                    <i class="fas fa-tags"></i>
+                    <span>{% trans "Gerenciar Categorias" %}</span>
+                </button>
+                <button class="action-btn" onclick="exportData()">
+                    <i class="fas fa-download"></i>
+                    <span>{% trans "Exportar Dados" %}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications Panel -->
+    <div id="notificationsPanel" class="notifications-panel" style="display: none;">
+        <div class="notifications-header">
+            <h3>{% trans "Notificações" %}</h3>
+            <button class="close-notifications" onclick="toggleNotifications()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notifications-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="notification-content">
+                    <p>{% trans "Você está perto do limite de orçamento de Alimentação" %}</p>
+                    <span class="notification-time">{% trans "Há 2 horas" %}</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="notification-content">
+                    <p>{% trans "Relatório mensal de Junho está disponível" %}</p>
+                    <span class="notification-time">{% trans "Há 1 dia" %}</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="notification-content">
+                    <p>{% trans "Nova funcionalidade: Exportação de dados em CSV!" %}</p>
+                    <span class="notification-time">{% trans "Há 3 dias" %}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/pages/home.js' %}"></script>
+</body>
+</html>
+{% endblock content %}
