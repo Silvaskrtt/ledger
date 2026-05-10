@@ -1,0 +1,252 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #0A0A0A;
+  color: #FFFFFF;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #5E2C9A, #8A4FFF);
+  transition: filter 0.2s, transform 0.1s;
+}
+
+.btn-gradient:hover {
+  filter: brightness(1.15);
+}
+
+.btn-gradient:active {
+  transform: scale(0.97);
+}
+
+.btn-outline {
+  border: 1.5px solid #8A4FFF;
+  color: #8A4FFF;
+  background: transparent;
+  transition: background 0.2s;
+}
+
+.btn-outline:hover {
+  background: rgba(138, 79, 255, 0.1);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.4s ease-out both;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(138, 79, 255, 0.3) 10%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.ripple:active::after {
+  opacity: 1;
+  transition: opacity 0s;
+}
+
+/* ===== NAVIGATION ===== */
+.nav-item {
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: #8A4FFF;
+}
+
+.nav-item:not(.active) {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ===== FAB BUTTON ===== */
+.fab {
+  background: linear-gradient(135deg, #8A4FFF, #5E2C9A);
+  box-shadow: 0 4px 24px rgba(138, 79, 255, 0.4);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.fab:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+/* ===== FORM ELEMENTS ===== */
+input, select, textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  padding: 12px 16px;
+  font-size: 14px;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #8A4FFF;
+}
+
+select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+/* Toggle Buttons */
+.toggle-btn {
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #5E2C9A, #8A4FFF);
+  color: #fff;
+}
+
+.toggle-btn:not(.active) {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== SCREENS ===== */
+.screen {
+  display: none;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Login Screen Background */
+#screen-login {
+  background: radial-gradient(ellipse at top left, rgba(94, 44, 154, 0.4), transparent 60%),
+              radial-gradient(ellipse at bottom right, rgba(138, 79, 255, 0.2), transparent 60%),
+              #0A0A0A;
+}
+
+/* ===== CHARTS ===== */
+.pie-chart {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.bar {
+  transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== SWIPE ACTIONS ===== */
+.swipe-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(138, 79, 255, 0.3);
+  border-radius: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .fab {
+    bottom: 88px;
+    right: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #bottom-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  
+  .fab {
+    right: max(20px, calc((100% - 1200px)/2 + 20px));
+  }
+}

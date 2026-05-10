@@ -1,0 +1,267 @@
+/* Container da Tabela */
+.table-container {
+  overflow-x: auto;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Tabela Base */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* Cabeçalho da Tabela */
+.data-table thead tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-table th {
+  text-align: left;
+  padding: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Corpo da Tabela */
+.data-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s;
+}
+
+.data-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.data-table td {
+  padding: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Tabela de Transações */
+.transactions-table {
+  width: 100%;
+}
+
+.transactions-table .transaction-category {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.transactions-table .category-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.transactions-table .amount-positive {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.transactions-table .amount-negative {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Tabela de Categorias */
+.categories-table {
+  width: 100%;
+}
+
+.categories-table .color-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+.categories-table .category-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Tabela de Relatórios */
+.reports-table {
+  width: 100%;
+}
+
+.reports-table th,
+.reports-table td {
+  text-align: right;
+}
+
+.reports-table th:first-child,
+.reports-table td:first-child {
+  text-align: left;
+}
+
+/* Tabela Responsiva */
+.responsive-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Tabela Stripe (zebrada) */
+.table-striped tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Tabela Compacta */
+.table-compact th,
+.table-compact td {
+  padding: 10px 12px;
+}
+
+/* Lista de Transações (alternativa à tabela) */
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.transaction-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.transaction-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(4px);
+}
+
+.transaction-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-title {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.transaction-meta {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.transaction-amount {
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.transaction-amount.income {
+  color: #10b981;
+}
+
+.transaction-amount.expense {
+  color: #ef4444;
+}
+
+.transaction-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+/* Lista de Categorias */
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s;
+}
+
+.category-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.category-color {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.category-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Indicador de Ordenação */
+.sort-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 4px;
+}
+
+.sort-indicator i {
+  font-size: 8px;
+  line-height: 1;
+}
+
+/* Paginação */
+.table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pagination-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.pagination-btn.active {
+  background: linear-gradient(135deg, #5E2C9A, #8A4FFF);
+  color: #fff;
+  border: none;
+}
