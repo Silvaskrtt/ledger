@@ -1,0 +1,219 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="MyLedger - Sistema de gestão financeira pessoal">
+    <meta name="keywords" content="finanças, controle financeiro, orçamento, despesas, receitas">
+    <meta name="author" content="MyLedger">
+    
+    <title>MyLedger - {% block head_title %}{% trans "Gestão Financeira" %}{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+    <!-- Page Specific CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Animated Gradient Background -->
+    <div class="gradient-background">
+        <div class="gradient-orb gradient-orb-1"></div>
+        <div class="gradient-orb gradient-orb-2"></div>
+        <div class="gradient-orb gradient-orb-3"></div>
+        <div class="gradient-orb gradient-orb-4"></div>
+        <div class="gradient-overlay"></div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Sidebar Navigation (visible when logged in) -->
+        {% if user.is_authenticated %}
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <span class="logo-text">MyLedger</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                    <i class="fas fa-home"></i>
+                    <span>{% trans "Início" %}</span>
+                </a>
+                <a href="#" class="nav-link {% if request.resolver_match.url_name == 'transactions' %}active{% endif %}">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>{% trans "Transações" %}</span>
+                </a>
+                <a href="#" class="nav-link {% if request.resolver_match.url_name == 'categories' %}active{% endif %}">
+                    <i class="fas fa-tags"></i>
+                    <span>{% trans "Categorias" %}</span>
+                </a>
+                <a href="#" class="nav-link {% if request.resolver_match.url_name == 'reports' %}active{% endif %}">
+                    <i class="fas fa-chart-line"></i>
+                    <span>{% trans "Relatórios" %}</span>
+                </a>
+                <a href="#" class="nav-link {% if request.resolver_match.url_name == 'budget' %}active{% endif %}">
+                    <i class="fas fa-piggy-bank"></i>
+                    <span>{% trans "Orçamento" %}</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-user-circle"></i>
+                    <span>{% trans "Perfil" %}</span>
+                </a>
+                <a href="{% url 'account_logout' %}" class="nav-link logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>{% trans "Sair" %}</span>
+                </a>
+            </div>
+        </aside>
+        {% endif %}
+
+        <!-- Main Content -->
+        <main class="main-content {% if not user.is_authenticated %}full-width{% endif %}" id="mainContent">
+            {% if user.is_authenticated %}
+            <!-- Top Bar (mobile) -->
+            <div class="top-bar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="top-bar-right">
+                    <button class="notifications-btn" id="notificationsBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-menu">
+                        <button class="user-menu-btn" id="userMenuBtn">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span class="user-name">{{ user.get_full_name|default:user.username }}</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#">
+                                <i class="fas fa-user"></i>
+                                <span>{% trans "Meu Perfil" %}</span>
+                            </a>
+                            <a href="{% url 'account_email' %}">
+                                <i class="fas fa-envelope"></i>
+                                <span>{% trans "E-mails" %}</span>
+                            </a>
+                            <a href="{% url 'account_change_password' %}">
+                                <i class="fas fa-key"></i>
+                                <span>{% trans "Alterar Senha" %}</span>
+                            </a>
+                            <hr>
+                            <a href="{% url 'account_logout' %}" class="logout-link">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>{% trans "Sair" %}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Page Content -->
+            <div class="page-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <!-- Notifications Panel -->
+    <div id="notificationsPanel" class="notifications-panel">
+        <div class="notifications-header">
+            <h3>{% trans "Notificações" %}</h3>
+            <button class="close-notifications" id="closeNotificationsBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notifications-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="notification-content">
+                    <p>{% trans "Você está perto do limite de orçamento de Alimentação" %}</p>
+                    <span class="notification-time">{% trans "Há 2 horas" %}</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="notification-content">
+                    <p>{% trans "Relatório mensal está disponível" %}</p>
+                    <span class="notification-time">{% trans "Há 1 dia" %}</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="notification-content">
+                    <p>{% trans "Nova funcionalidade: Exportação de dados!" %}</p>
+                    <span class="notification-time">{% trans "Há 3 dias" %}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Base JavaScript -->
+    <script src="{% static 'js/base.js' %}"></script>
+    
+    <!-- Page Specific JavaScript -->
+    {% block extra_js %}{% endblock %}
+    
+    <!-- CSRF Token Setup for AJAX -->
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        
+        const csrftoken = getCookie('csrftoken');
+        
+        window.fetchWithCSRF = function(url, options = {}) {
+            options.headers = options.headers || {};
+            options.headers['X-CSRFToken'] = csrftoken;
+            options.headers['Content-Type'] = 'application/json';
+            return fetch(url, options);
+        };
+    </script>
+</body>
+</html>
