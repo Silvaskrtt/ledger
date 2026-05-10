@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="profile-container">
-        <!-- Animated Gradient Background -->
+        <!-- Fundo com Gradiente Animado -->
         <div class="gradient-background">
             <div class="gradient-orb gradient-orb-1"></div>
             <div class="gradient-orb gradient-orb-2"></div>
@@ -23,9 +23,9 @@
             <div class="gradient-overlay"></div>
         </div>
 
-        <!-- Main Card -->
+        <!-- Card Principal -->
         <div class="glass-card fade-up">
-            <!-- Close/Back Button -->
+            <!-- Botão Voltar/Fechar -->
             <div class="card-header">
                 <button onclick="history.back()" class="back-btn">
                     <i class="fas fa-arrow-left"></i>
@@ -34,13 +34,13 @@
                 <div class="placeholder"></div>
             </div>
 
-            <!-- Profile Avatar Section -->
+            <!-- Seção do Avatar -->
             <div class="avatar-section">
                 <div class="avatar-wrapper">
                     <div class="avatar-icon">
                         <i class="fas fa-user"></i>
                     </div>
-                    <button class="edit-avatar-btn" onclick="showAvatarOptions()">
+                    <button class="edit-avatar-btn" onclick="mostrarOpcoesAvatar()">
                         <i class="fas fa-camera"></i>
                     </button>
                 </div>
@@ -52,7 +52,7 @@
                 </span>
             </div>
 
-            <!-- Profile Info Section -->
+            <!-- Seção de Informações Pessoais -->
             <div class="info-section">
                 <div class="section-header">
                     <i class="fas fa-info-circle"></i>
@@ -66,7 +66,7 @@
                             <span>{% trans "Nome Completo:" %}</span>
                         </div>
                         <div class="info-value" id="displayName">{{ user.first_name }} {{ user.last_name }}</div>
-                        <button class="edit-btn" onclick="editField('name')">
+                        <button class="edit-btn" onclick="editarCampo('name')">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
                     </div>
@@ -77,7 +77,7 @@
                             <span>{% trans "E-mail:" %}</span>
                         </div>
                         <div class="info-value" id="displayEmail">{{ user.email }}</div>
-                        <button class="edit-btn" onclick="goToEmailManagement()">
+                        <button class="edit-btn" onclick="irParaGerenciamentoEmail()">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
                     </div>
@@ -88,7 +88,7 @@
                             <span>{% trans "Telefone:" %}</span>
                         </div>
                         <div class="info-value" id="displayPhone">{{ user.profile.phone|default:'Não informado' }}</div>
-                        <button class="edit-btn" onclick="editField('phone')">
+                        <button class="edit-btn" onclick="editarCampo('phone')">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
                     </div>
@@ -104,7 +104,7 @@
                 </div>
             </div>
 
-            <!-- Security Section -->
+            <!-- Seção de Segurança -->
             <div class="security-section">
                 <div class="section-header">
                     <i class="fas fa-shield-alt"></i>
@@ -112,7 +112,7 @@
                 </div>
                 
                 <div class="security-card">
-                    <div class="security-row" onclick="goToChangePassword()">
+                    <div class="security-row" onclick="irParaAlterarSenha()">
                         <div class="security-icon">
                             <i class="fas fa-key"></i>
                         </div>
@@ -123,7 +123,7 @@
                         <i class="fas fa-chevron-right"></i>
                     </div>
                     
-                    <div class="security-row" onclick="goToTwoFactor()">
+                    <div class="security-row" onclick="irParaDoisFatores()">
                         <div class="security-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
@@ -139,7 +139,7 @@
                         </div>
                     </div>
                     
-                    <div class="security-row" onclick="goToSessions()">
+                    <div class="security-row" onclick="irParaSessoes()">
                         <div class="security-icon">
                             <i class="fas fa-desktop"></i>
                         </div>
@@ -152,7 +152,7 @@
                 </div>
             </div>
 
-            <!-- Preferences Section -->
+            <!-- Seção de Preferências -->
             <div class="preferences-section">
                 <div class="section-header">
                     <i class="fas fa-sliders-h"></i>
@@ -191,7 +191,7 @@
                             <span class="pref-title">{% trans "Idioma" %}</span>
                             <span class="pref-desc">{% trans "Português (Brasil)" %}</span>
                         </div>
-                        <button class="lang-btn" onclick="changeLanguage()">
+                        <button class="lang-btn" onclick="alterarIdioma()">
                             <i class="fas fa-globe"></i>
                             <span>{% trans "Alterar" %}</span>
                         </button>
@@ -202,7 +202,7 @@
                             <span class="pref-title">{% trans "Moeda Padrão" %}</span>
                             <span class="pref-desc">{% trans "Real Brasileiro (R$)" %}</span>
                         </div>
-                        <button class="lang-btn" onclick="changeCurrency()">
+                        <button class="lang-btn" onclick="alterarMoeda()">
                             <i class="fas fa-dollar-sign"></i>
                             <span>{% trans "Alterar" %}</span>
                         </button>
@@ -210,7 +210,7 @@
                 </div>
             </div>
 
-            <!-- Danger Zone -->
+            <!-- Zona de Risco -->
             <div class="danger-section">
                 <div class="section-header danger">
                     <i class="fas fa-exclamation-triangle"></i>
@@ -218,7 +218,7 @@
                 </div>
                 
                 <div class="danger-card">
-                    <div class="danger-row" onclick="confirmDeleteAccount()">
+                    <div class="danger-row" onclick="confirmarExcluirConta()">
                         <div class="danger-icon">
                             <i class="fas fa-trash-alt"></i>
                         </div>
@@ -229,7 +229,7 @@
                         <i class="fas fa-chevron-right"></i>
                     </div>
                     
-                    <div class="danger-row" onclick="exportData()">
+                    <div class="danger-row" onclick="exportarDados()">
                         <div class="danger-icon">
                             <i class="fas fa-download"></i>
                         </div>
@@ -242,9 +242,9 @@
                 </div>
             </div>
 
-            <!-- Logout Button -->
+            <!-- Botão Sair -->
             <div class="logout-section">
-                <button class="btn-logout" onclick="confirmLogout()">
+                <button class="btn-logout" onclick="confirmarSair()">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>{% trans "Sair da Conta" %}</span>
                 </button>
@@ -252,12 +252,12 @@
         </div>
     </div>
 
-    <!-- Edit Name Modal -->
+    <!-- Modal Editar Nome -->
     <div id="editNameModal" class="modal-overlay" style="display: none;">
         <div class="modal-container fade-up">
             <div class="modal-header">
                 <h3>{% trans "Editar Nome" %}</h3>
-                <button class="modal-close" onclick="closeEditModal()">
+                <button class="modal-close" onclick="fecharModalEdicao()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -271,22 +271,22 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-modal-cancel" onclick="closeEditModal()">
+                <button class="btn-modal-cancel" onclick="fecharModalEdicao()">
                     {% trans "Cancelar" %}
                 </button>
-                <button class="btn-modal-confirm" onclick="saveName()">
+                <button class="btn-modal-confirm" onclick="salvarNome()">
                     {% trans "Salvar" %}
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Edit Phone Modal -->
+    <!-- Modal Editar Telefone -->
     <div id="editPhoneModal" class="modal-overlay" style="display: none;">
         <div class="modal-container fade-up">
             <div class="modal-header">
                 <h3>{% trans "Editar Telefone" %}</h3>
-                <button class="modal-close" onclick="closeEditModal()">
+                <button class="modal-close" onclick="fecharModalEdicao()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -297,17 +297,17 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-modal-cancel" onclick="closeEditModal()">
+                <button class="btn-modal-cancel" onclick="fecharModalEdicao()">
                     {% trans "Cancelar" %}
                 </button>
-                <button class="btn-modal-confirm" onclick="savePhone()">
+                <button class="btn-modal-confirm" onclick="salvarTelefone()">
                     {% trans "Salvar" %}
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Delete Account Modal -->
+    <!-- Modal Excluir Conta -->
     <div id="deleteAccountModal" class="modal-overlay" style="display: none;">
         <div class="modal-container danger-modal fade-up">
             <div class="modal-icon warning">
@@ -316,23 +316,23 @@
             <h3>{% trans "Excluir Conta" %}</h3>
             <p>{% trans "Tem certeza que deseja excluir sua conta? Esta ação é irreversível e todos os seus dados serão permanentemente removidos." %}</p>
             <div class="modal-buttons">
-                <button class="btn-modal-cancel" onclick="closeDeleteModal()">
+                <button class="btn-modal-cancel" onclick="fecharModalExclusao()">
                     {% trans "Cancelar" %}
                 </button>
-                <button class="btn-modal-danger" onclick="deleteAccount()">
+                <button class="btn-modal-danger" onclick="excluirConta()">
                     {% trans "Sim, excluir minha conta" %}
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Success Toast -->
+    <!-- Notificação de Sucesso -->
     <div id="successToast" class="custom-toast success" style="display: none;">
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage">{% trans "Perfil atualizado com sucesso!" %}</span>
     </div>
 
-    <!-- Error Toast -->
+    <!-- Notificação de Erro -->
     <div id="errorToast" class="custom-toast error" style="display: none;">
         <i class="fas fa-exclamation-circle"></i>
         <span id="errorToastMessage">{% trans "Erro ao atualizar perfil." %}</span>
