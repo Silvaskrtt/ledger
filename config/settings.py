@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     
     # Apps customizados do projeto (adicionar abaixo)
     'accounts',
-    'categories',
+    'categories.apps.CategoriesConfig',
 ]
 
 # ============================================================================
