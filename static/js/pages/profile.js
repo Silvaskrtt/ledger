@@ -34,10 +34,42 @@
         }
     }
 
+    // ===== FUNÇÃO GENÉRICA PARA ENVIAR AO BACKEND =====
+    async function salvarNoBackend(campo, valor) {
+        try {
+            const response = await fetch('/accounts/profile/update-ajax/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCsrfToken(),
+                },
+                body: JSON.stringify({ [campo]: valor })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                return { success: true };
+            } else {
+                return { success: false, error: data.error || 'Erro ao salvar' };
+            }
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            return { success: false, error: 'Erro de conexão com o servidor' };
+        }
+    }
+
+    // ===== OBTER CSRF TOKEN =====
+    function getCsrfToken() {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('csrftoken='));
+        return cookieValue ? cookieValue.split('=')[1] : '';
+    }
+
     // ===== OPÇÕES DE AVATAR =====
     window.mostrarOpcoesAvatar = function () {
-        // Implementar funcionalidade de alteração de avatar
-        exibirNotificacao('success', 'Funcionalidade de avatar em breve!');
+        exibirNotificacao('info', 'Funcionalidade de avatar em breve!');
     };
 
     // ===== EDITAR CAMPO =====
@@ -50,13 +82,14 @@
             if (modalEditarNome) modalEditarNome.style.display = 'flex';
         } else if (campo === 'phone') {
             const telefoneAtual = document.getElementById('displayPhone').textContent;
-            document.getElementById('editPhoneInput').value = telefoneAtual;
+            const telefoneSemMascara = telefoneAtual !== 'Não informado' ? telefoneAtual : '';
+            document.getElementById('editPhoneInput').value = telefoneSemMascara;
             if (modalEditarTelefone) modalEditarTelefone.style.display = 'flex';
         }
     };
 
     // ===== SALVAR NOME =====
-    window.salvarNome = function () {
+    window.salvarNome = async function () {
         const novoNome = document.getElementById('editNameInput').value.trim();
 
         if (!novoNome) {
@@ -69,40 +102,70 @@
             return;
         }
 
-        // Atualizar exibição
-        document.getElementById('displayName').textContent = novoNome;
-        document.getElementById('profileName').textContent = novoNome;
+        // Mostra loading no botão
+        const botaoSalvar = document.querySelector('#editNameModal .btn-modal-confirm');
+        const textoOriginal = botaoSalvar.textContent;
+        botaoSalvar.textContent = 'Salvando...';
+        botaoSalvar.disabled = true;
 
-        fecharModalEdicao();
-        exibirNotificacao('success', 'Nome atualizado com sucesso!');
+        // Envia para o backend
+        const resultado = await salvarNoBackend('name', novoNome);
 
-        // Aqui você também enviaria para o backend
-        // salvarNoBackend('name', novoNome);
+        if (resultado.success) {
+            // Atualiza exibição na interface
+            document.getElementById('displayName').textContent = novoNome;
+            document.getElementById('profileName').textContent = novoNome;
+
+            fecharModalEdicao();
+            exibirNotificacao('success', 'Nome atualizado com sucesso!');
+        } else {
+            exibirNotificacao('error', resultado.error || 'Erro ao atualizar nome');
+        }
+
+        // Restaura botão
+        botaoSalvar.textContent = textoOriginal;
+        botaoSalvar.disabled = false;
     };
 
     // ===== SALVAR TELEFONE =====
-    window.salvarTelefone = function () {
-        const novoTelefone = document.getElementById('editPhoneInput').value.trim();
+    window.salvarTelefone = async function () {
+        let novoTelefone = document.getElementById('editPhoneInput').value.trim();
 
         if (!novoTelefone) {
             exibirNotificacao('error', 'Digite um número de telefone válido');
             return;
         }
 
-        // Validação básica de telefone
-        const regexTelefone = /^\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$/;
-        if (!regexTelefone.test(novoTelefone) && novoTelefone.replace(/\D/g, '').length >= 10) {
-            // Aceitar se tiver pelo menos 10 dígitos
+        // Remove caracteres não numéricos para validação
+        const numerosApenas = novoTelefone.replace(/\D/g, '');
+
+        if (numerosApenas.length < 10 || numerosApenas.length > 11) {
+            exibirNotificacao('error', 'Telefone deve ter 10 ou 11 dígitos');
+            return;
+        }
+
+        // Mostra loading no botão
+        const botaoSalvar = document.querySelector('#editPhoneModal .btn-modal-confirm');
+        const textoOriginal = botaoSalvar.textContent;
+        botaoSalvar.textContent = 'Salvando...';
+        botaoSalvar.disabled = true;
+
+        // Envia para o backend
+        const resultado = await salvarNoBackend('phone', novoTelefone);
+
+        if (resultado.success) {
+            // Atualiza exibição na interface
             document.getElementById('displayPhone').textContent = novoTelefone;
-            fecharModalEdicao();
-            exibirNotificacao('success', 'Telefone atualizado com sucesso!');
-        } else if (regexTelefone.test(novoTelefone)) {
-            document.getElementById('displayPhone').textContent = novoTelefone;
+
             fecharModalEdicao();
             exibirNotificacao('success', 'Telefone atualizado com sucesso!');
         } else {
-            exibirNotificacao('error', 'Formato de telefone inválido. Use (XX) XXXXX-XXXX');
+            exibirNotificacao('error', resultado.error || 'Erro ao atualizar telefone');
         }
+
+        // Restaura botão
+        botaoSalvar.textContent = textoOriginal;
+        botaoSalvar.disabled = false;
     };
 
     // ===== FECHAR MODAL DE EDIÇÃO =====
@@ -174,22 +237,19 @@
     window.excluirConta = function () {
         exibirNotificacao('error', 'Esta ação será implementada em breve');
         fecharModalExclusao();
-        // Aqui você implementaria a exclusão da conta
-        // excluirContaNoBackend();
     };
 
     // ===== EXPORTAR DADOS =====
     window.exportarDados = function () {
         exibirNotificacao('success', 'Preparando exportação de dados...');
 
-        // Simular exportação de dados
         setTimeout(() => {
             const dados = {
                 usuario: {
                     nome: document.getElementById('profileName').textContent,
                     email: document.getElementById('profileEmail').textContent,
                     telefone: document.getElementById('displayPhone').textContent,
-                    membroDesde: 'Junho 2024'
+                    membroDesde: document.querySelector('.info-row:last-child .info-value')?.textContent || 'Não informado'
                 },
                 dataExportacao: new Date().toISOString()
             };
@@ -233,7 +293,6 @@
         notificacoesEmail.addEventListener('change', function () {
             const status = this.checked ? 'ativadas' : 'desativadas';
             exibirNotificacao('success', `Notificações por e-mail ${status} com sucesso!`);
-            // Aqui você salvaria no backend
         });
     }
 
@@ -254,20 +313,32 @@
     }
 
     // ===== CARREGAR DADOS DO USUÁRIO DO BACKEND =====
-    function carregarDadosUsuario() {
-        // Aqui você buscaria os dados do usuário do backend
-        // Exemplo:
-        // fetch('/api/user/profile/')
-        //     .then(resposta => resposta.json())
-        //     .then(dados => {
-        //         document.getElementById('profileName').textContent = dados.nome;
-        //         document.getElementById('profileEmail').textContent = dados.email;
-        //         document.getElementById('displayName').textContent = dados.nome;
-        //         document.getElementById('displayEmail').textContent = dados.email;
-        //         if (dados.telefone) {
-        //             document.getElementById('displayPhone').textContent = dados.telefone;
-        //         }
-        //     });
+    async function carregarDadosUsuario() {
+        try {
+            // Se precisar buscar dados atualizados do backend
+            const response = await fetch('/accounts/profile/data/', {
+                headers: {
+                    'X-CSRFToken': getCsrfToken(),
+                }
+            });
+
+            if (response.ok) {
+                const dados = await response.json();
+                if (dados.name) {
+                    document.getElementById('profileName').textContent = dados.name;
+                    document.getElementById('displayName').textContent = dados.name;
+                }
+                if (dados.email) {
+                    document.getElementById('profileEmail').textContent = dados.email;
+                    document.getElementById('displayEmail').textContent = dados.email;
+                }
+                if (dados.phone) {
+                    document.getElementById('displayPhone').textContent = dados.phone;
+                }
+            }
+        } catch (error) {
+            console.log('Usando dados do template inicial');
+        }
     }
 
     // ===== INICIALIZAÇÃO =====

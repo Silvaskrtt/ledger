@@ -11,6 +11,19 @@ from .models import Profile
 from .forms import UserProfileForm, UserForm
 import os
 
+@login_required
+def get_user_data(request):
+    """Retorna dados atualizados do usuário via JSON"""
+    user = request.user
+    profile = user.profile
+    
+    return JsonResponse({
+        'name': f"{user.first_name} {user.last_name}".strip(),
+        'email': user.email,
+        'phone': profile.phone if profile.phone else 'Não informado',
+        'member_since': user.date_joined.strftime('%d/%m/%Y')
+    })
+
 @require_POST
 @login_required
 def profile_update_ajax(request):
