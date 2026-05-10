@@ -1,11 +1,45 @@
+import json
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.http import require_POST
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from .models import Profile
 from .forms import UserProfileForm, UserForm
 import os
+
+@require_POST
+@login_required
+def profile_update_ajax(request):
+    """Atualiza nome ou telefone via AJAX (JSON)"""
+    try:
+        data = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({'success': False, 'error': 'Dados inválidos'}, status=400)
+
+    user = request.user
+    profile, created = Profile.objects.get_or_create(user=user)
+
+    if 'name' in data:
+        full_name = data['name'].strip()
+        if len(full_name) < 3:
+            return JsonResponse({'success': False, 'error': 'Nome muito curto'})
+        # Divide em first_name e last_name
+        parts = full_name.split(maxsplit=1)
+        user.first_name = parts[0]
+        user.last_name = parts[1] if len(parts) > 1 else ''
+        user.save()
+        return JsonResponse({'success': True})
+
+    if 'phone' in data:
+        profile.phone = data['phone'].strip()
+        profile.save()
+        return JsonResponse({'success': True})
+
+    return JsonResponse({'success': False, 'error': 'Campo inválido'}, status=400)
 
 @login_required
 def profile_view(request):
