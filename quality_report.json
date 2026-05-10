@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-05-10T10:10:19.016049",
+  "score": 33,
+  "grade": "D \ud83d\udd34",
+  "metrics": {
+    "total_py_files": 16,
+    "total_lines": 1155,
+    "avg_complexity": 11.375,
+    "test_files": 60
+  },
+  "recommendations": [
+    "\u274c Diret\u00f3rios faltando: config/settings, apps/common, apps/profiles, apps/transactions, apps/dashboard, scripts, docs",
+    "\u274c Arquivos faltando: config/settings/__init__.py, config/settings/base.py",
+    "\u26a0\ufe0f Pacotes recomendados faltando: django>=, celery, redis, pytest",
+    "\u26a0\ufe0f Considere fixar vers\u00f5es exatas no requirements.txt (usando ==)",
+    "\u26a0\ufe0f Evite imports com * em analyze_project.py",
+    "\u26a0\ufe0f 7 fun\u00e7\u00f5es com alta complexidade (>10)",
+    "\u26a0\ufe0f App 'accounts' - Model sem class Meta (verbose_name, etc.)",
+    "\ud83d\udca1 App 'accounts' - Considere adicionar \u00edndices para consultas frequentes",
+    "\u26a0\ufe0f Adicione um arquivo main.js como entry point do JavaScript",
+    "\u26a0\ufe0f .gitignore faltando padr\u00f5es: *.pyc, logs",
+    "\u26a0\ufe0f .env faltando vari\u00e1veis: DATABASE_URL, ALLOWED_HOSTS",
+    "\u26a0\ufe0f Apps sem pasta tests/: accounts",
+    "\ud83d\udca1 Considere adicionar pytest.ini ou .coveragerc para configura\u00e7\u00e3o de testes"
+  ],
+  "critical_issues": 2,
+  "warnings": 9,
+  "suggestions": 2
+}

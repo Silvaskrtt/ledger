@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-05-10T10:19:03.975403",
+  "scores": {
+    "structure": 62.5,
+    "code_quality": 98,
+    "django_patterns": 100,
+    "frontend_organization": 50,
+    "overall": 79.4
+  },
+  "structure_completion": 62.5,
+  "missing_dirs_count": 8,
+  "complex_functions_count": 0,
+  "recommendations_count": 6,
+  "critical_issues": 0,
+  "grade": "B \ud83d\udc4d - Bom trabalho! Continue refinando",
+  "summary": {
+    "total_py_files": 15,
+    "total_lines": 619,
+    "total_templates": 12,
+    "total_css_files": 16,
+    "total_js_files": 0
+  }
+}
