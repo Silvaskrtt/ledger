@@ -7,14 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>MyLedger - {% trans "Verify Your Email Address" %}</title>
+    <title>MyLedger - {% trans "Verifique Seu Endereço de E-mail" %}</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/pages/verify_email.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="verify-container">
-        <!-- Animated Gradient Background -->
+        <!-- Fundo com Gradiente Animado -->
         <div class="gradient-background">
             <div class="gradient-orb gradient-orb-1"></div>
             <div class="gradient-orb gradient-orb-2"></div>
@@ -23,20 +23,20 @@
             <div class="gradient-overlay"></div>
         </div>
 
-        <!-- Main Card -->
+        <!-- Card Principal -->
         <div class="glass-card fade-up">
-            <!-- Logo Section -->
+            <!-- Seção do Logo -->
             <div class="logo-section">
                 <div class="logo-icon">
                     <i class="fas fa-envelope"></i>
                 </div>
                 <h1 class="logo-text">MyLedger</h1>
-                <p class="logo-subtitle">{% trans "Verificação de Email" %}</p>
+                <p class="logo-subtitle">{% trans "Verificação de E-mail" %}</p>
             </div>
 
-            <!-- Content Section -->
+            <!-- Seção de Conteúdo -->
             <div class="content-section">
-                <!-- Animated Envelope Icon -->
+                <!-- Ícone de Envelope Animado -->
                 <div class="animated-envelope">
                     <div class="envelope-icon">
                         <i class="fas fa-envelope-open-text"></i>
@@ -44,20 +44,20 @@
                     <div class="envelope-pulse"></div>
                 </div>
 
-                <!-- Title -->
-                <h2>{% trans "Verifique seu email" %}</h2>
+                <!-- Título -->
+                <h2>{% trans "Verifique seu e-mail" %}</h2>
                 
-                <!-- Message -->
+                <!-- Mensagem -->
                 <div class="message-box">
                     <p class="message">
                         {% blocktrans %}
-                            Nosso sistema enviou um email de verificação para <strong>{{ email }}</strong>.
-                            Por favor, verifique sua caixa de entrada e siga as instruções para ativar sua
+                            Nosso sistema enviou um e-mail de verificação para <strong>{{ email }}</strong>.
+                            Por favor, verifique sua caixa de entrada e siga as instruções para ativar sua conta.
                         {% endblocktrans %}
                     </p>
                 </div>
 
-                <!-- Tips Section -->
+                <!-- Seção de Dicas -->
                 <div class="tips-section">
                     <div class="tip-item">
                         <i class="fas fa-inbox"></i>
@@ -73,11 +73,11 @@
                     </div>
                 </div>
 
-                <!-- Action Buttons -->
+                <!-- Botões de Ação -->
                 <div class="action-buttons">
                     <button type="button" class="btn-primary" id="resendEmailBtn">
                         <i class="fas fa-redo-alt"></i>
-                        <span>{% trans "Reenviar Email de Verificação" %}</span>
+                        <span>{% trans "Reenviar E-mail de Verificação" %}</span>
                     </button>
                     <a href="{% url 'account_login' %}" class="btn-secondary">
                         <i class="fas fa-sign-in-alt"></i>
@@ -85,71 +85,71 @@
                     </a>
                 </div>
 
-                <!-- Help Text -->
+                <!-- Texto de Ajuda -->
                 <div class="help-text">
                     <i class="fas fa-headset"></i>
                     <span>
                         {% blocktrans %}
-                            Se você não receber o email de verificação, por favor 
+                            Se você não receber o e-mail de verificação, 
                             <a href="#" id="contactSupportBtn">entre em contato com nossa equipe de suporte</a>.
                         {% endblocktrans %}
                     </span>
                 </div>
             </div>
 
-            <!-- Footer Links -->
+            <!-- Links do Rodapé -->
             <div class="footer-links">
                 <a href="{% url 'account_reset_password' %}" class="link">
                     <i class="fas fa-lock"></i>
-                    {% trans "Forgot Password?" %}
+                    {% trans "Esqueceu a senha?" %}
                 </a>
                 <span class="separator">•</span>
                 <a href="{{ signup_url }}" class="link">
                     <i class="fas fa-user-plus"></i>
-                    {% trans "Crie uma nova conta" %}
+                    {% trans "Criar nova conta" %}
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Resend Email Modal -->
+    <!-- Modal de Reenvio de E-mail -->
     <div id="resendModal" class="modal-overlay" style="display: none;">
         <div class="modal-container fade-up">
             <div class="modal-header">
-                <h3>{% trans "Reenviar Email de Verificação" %}</h3>
-                <button class="modal-close" onclick="closeResendModal()">
+                <h3>{% trans "Reenviar E-mail de Verificação" %}</h3>
+                <button class="modal-close" onclick="fecharModalReenvio()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <p>{% trans "Digite seu endereço de email para receber um novo link de verificação." %}</p>
+                <p>{% trans "Digite seu endereço de e-mail para receber um novo link de verificação." %}</p>
                 <div class="form-group">
                     <input type="email" id="resendEmailInput" placeholder="seu@email.com" class="modal-input">
                 </div>
                 <div id="modalError" class="modal-error" style="display: none;"></div>
             </div>
             <div class="modal-footer">
-                <button class="btn-modal-cancel" onclick="closeResendModal()">
+                <button class="btn-modal-cancel" onclick="fecharModalReenvio()">
                     {% trans "Cancelar" %}
                 </button>
-                <button class="btn-modal-confirm" onclick="sendResendEmail()">
+                <button class="btn-modal-confirm" onclick="enviarReenvioEmail()">
                     <i class="fas fa-paper-plane"></i>
-                    {% trans "Reenviar Email" %}
+                    {% trans "Reenviar E-mail" %}
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Success Toast -->
+    <!-- Notificação de Sucesso -->
     <div id="successToast" class="custom-toast success" style="display: none;">
         <i class="fas fa-check-circle"></i>
-        <span id="toastMessage">{% trans "Email enviado com sucesso!" %}</span>
+        <span id="toastMessage">{% trans "E-mail enviado com sucesso!" %}</span>
     </div>
 
-    <!-- Error Toast -->
+    <!-- Notificação de Erro -->
     <div id="errorToast" class="custom-toast error" style="display: none;">
         <i class="fas fa-exclamation-circle"></i>
-        <span id="errorToastMessage">{% trans "Algo deu errado. Por favor, tente novamente." %}</span>
+        <span id="errorToastMessage">{% trans "Algo deu errado. Tente novamente." %}</span>
     </div>
 
     <script src="{% static 'js/pages/verify_email.js' %}"></script>
