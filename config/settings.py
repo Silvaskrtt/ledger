@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # Apps customizados do projeto (adicionar abaixo)
     'accounts',
     'categories.apps.CategoriesConfig',
+    'transactions.apps.TransactionsConfig',
 ]
 
 # ============================================================================
