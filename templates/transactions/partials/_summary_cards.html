@@ -1,0 +1,33 @@
+{% load i18n %}
+
+<div class="summary-cards fade-up" style="animation-delay: 0.1s">
+    <div class="summary-card">
+        <div class="summary-icon income">
+            <i class="fas fa-arrow-down"></i>
+        </div>
+        <div class="summary-info">
+            <span class="summary-label">{% trans "Total de Receitas" %}</span>
+            <span class="summary-value" id="totalIncome">R$ 0,00</span>
+        </div>
+    </div>
+    
+    <div class="summary-card">
+        <div class="summary-icon expense">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <div class="summary-info">
+            <span class="summary-label">{% trans "Total de Despesas" %}</span>
+            <span class="summary-value" id="totalExpense">R$ 0,00</span>
+        </div>
+    </div>
+    
+    <div class="summary-card">
+        <div class="summary-icon balance">
+            <i class="fas fa-wallet"></i>
+        </div>
+        <div class="summary-info">
+            <span class="summary-label">{% trans "Saldo" %}</span>
+            <span class="summary-value" id="totalBalance">R$ 0,00</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{% load i18n %}
+
+<div class="filters-bar fade-up" style="animation-delay: 0.05s">
+    <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" 
+               placeholder="{% trans 'Buscar transações...' %}" 
+               class="search-input">
+    </div>
+    
+    <div class="filters-group">
+        <select id="typeFilter" class="filter-select">
+            <option value="all">{% trans "Todas" %}</option>
+            <option value="income">{% trans "Receitas" %}</option>
+            <option value="expense">{% trans "Despesas" %}</option>
+        </select>
+        
+        <select id="categoryFilter" class="filter-select">
+            <option value="all">{% trans "Todas as categorias" %}</option>
+            {% for category in categories %}
+                <option value="{{ category.name }}">{{ category.icon }} {{ category.name }}</option>
+            {% endfor %}
+        </select>
+        
+        <input type="month" id="monthFilter" class="filter-date">
+        
+        <button id="clearFiltersBtn" class="btn-clear-filters">
+            <i class="fas fa-times"></i>
+            <span>{% trans "Limpar" %}</span>
+        </button>
+    </div>
+</div>

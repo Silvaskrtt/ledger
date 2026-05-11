@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<div class="form-group">
+    <label for="{{ field.id_for_label }}">
+        <i class="fas fa-folder"></i> {% trans "Categoria" %}
+    </label>
+    <div class="category-select-wrapper">
+        {{ field }}
+        <button type="button" class="btn-add-category" onclick="openCategoryModal()">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+    {% if field.errors %}
+        <div class="field-error">
+            {% for error in field.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

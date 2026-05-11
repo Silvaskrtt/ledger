@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block head_title %}
+    {% trans "Transações" %} | MyLedger
+{% endblock head_title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/transactions.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="transactions-container">
+    <!-- Header -->
+    <header class="transactions-header fade-up">
+        <div class="header-title">
+            <i class="fas fa-exchange-alt"></i>
+            <h1>{% trans "Transações" %}</h1>
+        </div>
+        <button class="btn-add" onclick="goToAddTransaction()">
+            <i class="fas fa-plus"></i>
+            <span>{% trans "Nova Transação" %}</span>
+        </button>
+    </header>
+
+    <!-- Filters -->
+    {% include "transactions/partials/_filter_form.html" %}
+
+    <!-- Summary Cards -->
+    {% include "transactions/partials/_summary_cards.html" %}
+
+    <!-- Transactions List -->
+    <div class="transactions-list-container fade-up">
+        <div class="list-header">
+            <span class="col-date">{% trans "Data" %}</span>
+            <span class="col-description">{% trans "Descrição" %}</span>
+            <span class="col-category">{% trans "Categoria" %}</span>
+            <span class="col-amount">{% trans "Valor" %}</span>
+            <span class="col-actions"></span>
+        </div>
+        
+        <div id="transactionsList" class="transactions-list">
+            <!-- Transactions will be populated by JS -->
+            <div class="loading-skeleton">
+                <div class="skeleton-row"></div>
+                <div class="skeleton-row"></div>
+                <div class="skeleton-row"></div>
+                <div class="skeleton-row"></div>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <button class="page-btn" id="prevPageBtn" disabled>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <span class="page-info" id="pageInfo">{% trans "Página" %} 1</span>
+            <button class="page-btn" id="nextPageBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+{% include "transactions/partials/_delete_modal.html" %}
+
+
+<script>
+    window.transactionsApiUrl = "{% url 'transactions:api_transactions' %}";
+    window.userAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
+</script>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pages/transactions.js' %}"></script>
+{% endblock %}

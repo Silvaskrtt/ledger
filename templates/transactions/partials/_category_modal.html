@@ -1,0 +1,59 @@
+{% load i18n %}
+
+<div id="categoryModal" class="modal-overlay" style="display: none;">
+    <div class="modal-container fade-up">
+        <div class="modal-header">
+            <div class="modal-icon">
+                <i class="fas fa-folder-plus"></i>
+            </div>
+            <h3>{% trans "Nova Categoria" %}</h3>
+            <button class="modal-close" onclick="closeCategoryModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <form id="categoryForm" class="modal-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="categoryName">
+                    <i class="fas fa-tag"></i> {% trans "Nome" %}
+                </label>
+                <input type="text" id="categoryName" name="name" required 
+                       placeholder="{% trans 'Ex: Mercado, Netflix, Cinema...' %}">
+            </div>
+            
+            <div class="form-group">
+                <label for="categoryIcon">
+                    <i class="fas fa-icons"></i> {% trans "Ícone" %}
+                </label>
+                <select id="categoryIcon" name="icon">
+                    <option value="🍔">🍔 {% trans "Alimentação" %}</option>
+                    <option value="🚗">🚗 {% trans "Transporte" %}</option>
+                    <option value="🎮">🎮 {% trans "Lazer" %}</option>
+                    <option value="🏠">🏠 {% trans "Moradia" %}</option>
+                    <option value="💼">💼 {% trans "Trabalho" %}</option>
+                    <option value="📚">📚 {% trans "Educação" %}</option>
+                    <option value="💊">💊 {% trans "Saúde" %}</option>
+                    <option value="🛒">🛒 {% trans "Compras" %}</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="categoryColor">
+                    <i class="fas fa-palette"></i> {% trans "Cor" %}
+                </label>
+                <input type="color" id="categoryColor" name="color" value="#8A4FFF">
+            </div>
+            
+            <div class="modal-buttons">
+                <button type="button" class="btn-modal-cancel" onclick="closeCategoryModal()">
+                    {% trans "Cancelar" %}
+                </button>
+                <button type="submit" class="btn-modal-submit">
+                    <i class="fas fa-check"></i> {% trans "Adicionar" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
