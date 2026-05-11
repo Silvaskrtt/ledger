@@ -11,6 +11,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('accounts.urls')),
     path('profile/', include('accounts.urls')),
+    path('transactions/', include('transactions.urls')),
 ]
 
 # Servir arquivos de mídia em desenvolvimento
