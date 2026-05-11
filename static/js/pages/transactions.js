@@ -20,26 +20,25 @@
     const deleteModal = document.getElementById('deleteModal');
     const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
 
+    // ===== Modal Elements - Com verificação =====
+    const transactionModal = document.getElementById('transactionModal');
+    const transactionForm = document.getElementById('transactionForm');
+    const transactionModalTitle = document.getElementById('transactionModalTitle');
+    const submitBtnText = document.getElementById('submitBtnText');
+    const transactionIdInput = document.getElementById('transaction_id');
+    const transactionTypeInput = document.getElementById('transaction_type');
+    const descriptionInput = document.getElementById('description');
+    const amountInput = document.getElementById('amount');
+    const dateInput = document.getElementById('date');
+    const categorySelect = document.getElementById('category');
+    const notesTextarea = document.getElementById('notes');
+    const typeButtons = document.querySelectorAll('.type-btn');
+
     // ===== State =====
     let transactions = [];
-    let filteredTransactions = [];
     let currentPage = 1;
-    let itemsPerPage = 10;
+    let totalPages = 1;
     let transactionToDelete = null;
-
-    // ===== Sample Data (In production, fetch from API) =====
-    const sampleTransactions = [
-        { id: 1, type: 'expense', description: 'Supermercado', category: 'Alimentação', categoryIcon: '🍔', amount: 342.50, date: '2025-06-15' },
-        { id: 2, type: 'income', description: 'Salário', category: 'Trabalho', categoryIcon: '💼', amount: 5000.00, date: '2025-06-01' },
-        { id: 3, type: 'expense', description: 'Uber', category: 'Transporte', categoryIcon: '🚗', amount: 28.90, date: '2025-06-14' },
-        { id: 4, type: 'expense', description: 'Netflix', category: 'Lazer', categoryIcon: '🎮', amount: 39.90, date: '2025-06-10' },
-        { id: 5, type: 'income', description: 'Freelance', category: 'Trabalho', categoryIcon: '💼', amount: 1200.00, date: '2025-06-08' },
-        { id: 6, type: 'expense', description: 'Aluguel', category: 'Moradia', categoryIcon: '🏠', amount: 1500.00, date: '2025-06-05' },
-        { id: 7, type: 'expense', description: 'Cinema', category: 'Lazer', categoryIcon: '🎮', amount: 45.00, date: '2025-06-20' },
-        { id: 8, type: 'income', description: 'Investimentos', category: 'Outros', categoryIcon: '📈', amount: 350.00, date: '2025-06-25' },
-        { id: 9, type: 'expense', description: 'Farmácia', category: 'Saúde', categoryIcon: '💊', amount: 89.50, date: '2025-06-18' },
-        { id: 10, type: 'expense', description: 'Curso Online', category: 'Educação', categoryIcon: '📚', amount: 199.00, date: '2025-06-12' },
-    ];
 
     // ===== Helper Functions =====
     function formatCurrency(value) {
@@ -54,341 +53,13 @@
         return date.toLocaleDateString('pt-BR');
     }
 
-    // ===== Filter Transactions =====
-    function filterTransactions() {
-        const searchTerm = searchInput?.value.toLowerCase() || '';
-        const type = typeFilter?.value || 'all';
-        const category = categoryFilter?.value || 'all';
-        const month = monthFilter?.value || '';
-
-        filteredTransactions = transactions.filter(transaction => {
-            // Search filter
-            if (searchTerm && !transaction.description.toLowerCase().includes(searchTerm)) {
-                return false;
-            }
-
-            // Type filter
-            if (type !== 'all' && transaction.type !== type) {
-                return false;
-            }
-
-            // Category filter
-            if (category !== 'all' && transaction.category !== category) {
-                return false;
-            }
-
-            // Month filter
-            if (month) {
-                const transactionMonth = transaction.date.substring(0, 7);
-                if (transactionMonth !== month) {
-                    return false;
-                }
-            }
-
-            return true;
-        });
-
-        // Sort by date (newest first)
-        filteredTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        currentPage = 1;
-        updateSummary();
-        renderTransactions();
-        updatePagination();
-    }
-
-    // ===== Update Summary Cards =====
-    function updateSummary() {
-        let totalIncome = 0;
-        let totalExpense = 0;
-
-        filteredTransactions.forEach(transaction => {
-            if (transaction.type === 'income') {
-                totalIncome += transaction.amount;
-            } else {
-                totalExpense += transaction.amount;
-            }
-        });
-
-        const totalBalance = totalIncome - totalExpense;
-
-        if (totalIncomeSpan) totalIncomeSpan.textContent = formatCurrency(totalIncome);
-        if (totalExpenseSpan) totalExpenseSpan.textContent = formatCurrency(totalExpense);
-        if (totalBalanceSpan) {
-            totalBalanceSpan.textContent = formatCurrency(totalBalance);
-            totalBalanceSpan.style.color = totalBalance >= 0 ? '#10b981' : '#ef4444';
-        }
-    }
-
-    // ===== Render Transactions =====
-    function renderTransactions() {
-        if (!transactionsList) return;
-
-        const start = (currentPage - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        const pageTransactions = filteredTransactions.slice(start, end);
-
-        if (pageTransactions.length === 0) {
-            transactionsList.innerHTML = `
-                <div class="empty-state">
-                    <i class="fas fa-inbox"></i>
-                    <p>${window.translations?.noTransactions || 'Nenhuma transação encontrada'}</p>
-                    <small>${window.translations?.addTransactionHint || 'Adicione sua primeira transação'}</small>
-                </div>
-            `;
-            return;
-        }
-
-        transactionsList.innerHTML = pageTransactions.map(transaction => `
-            <div class="transaction-row fade-up" data-id="${transaction.id}">
-                <div class="transaction-date">${formatDate(transaction.date)}</div>
-                <div class="transaction-description">${escapeHtml(transaction.description)}</div>
-                <div class="transaction-category">
-                    <div class="category-icon">${transaction.categoryIcon || '📌'}</div>
-                    <span class="category-name">${transaction.category}</span>
-                </div>
-                <div class="transaction-amount ${transaction.type === 'income' ? 'income' : 'expense'}">
-                    ${transaction.type === 'income' ? '+' : '-'} ${formatCurrency(transaction.amount)}
-                </div>
-                <div class="transaction-actions">
-                    <button class="action-icon edit" onclick="editTransaction(${transaction.id})" title="Editar">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button>
-                    <button class="action-icon delete" onclick="confirmDelete(${transaction.id})" title="Excluir">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-        `).join('');
-    }
-
     function escapeHtml(text) {
+        if (!text) return '';
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
 
-    // ===== Pagination =====
-    function updatePagination() {
-        const totalPages = Math.ceil(filteredTransactions.length / itemsPerPage);
-
-        if (pageInfo) {
-            pageInfo.textContent = `${window.translations?.page || 'Página'} ${currentPage} ${window.translations?.of || 'de'} ${totalPages || 1}`;
-        }
-
-        if (prevPageBtn) {
-            prevPageBtn.disabled = currentPage <= 1;
-        }
-
-        if (nextPageBtn) {
-            nextPageBtn.disabled = currentPage >= totalPages;
-        }
-    }
-
-    function nextPage() {
-        const totalPages = Math.ceil(filteredTransactions.length / itemsPerPage);
-        if (currentPage < totalPages) {
-            currentPage++;
-            renderTransactions();
-            updatePagination();
-            // Scroll to top
-            transactionsList?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    function prevPage() {
-        if (currentPage > 1) {
-            currentPage--;
-            renderTransactions();
-            updatePagination();
-            // Scroll to top
-            transactionsList?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    // ===== Delete Transaction =====
-    window.confirmDelete = function (id) {
-        transactionToDelete = id;
-        if (deleteModal) {
-            deleteModal.style.display = 'flex';
-        }
-    };
-
-    function closeDeleteModal() {
-        if (deleteModal) {
-            deleteModal.style.display = 'none';
-        }
-        transactionToDelete = null;
-    }
-
-    function deleteTransaction() {
-        if (transactionToDelete !== null) {
-            const index = transactions.findIndex(t => t.id === transactionToDelete);
-            if (index !== -1) {
-                transactions.splice(index, 1);
-                filterTransactions();
-                showToast('Transação excluída com sucesso!', 'success');
-            }
-            closeDeleteModal();
-        }
-    }
-
-    // ===== Edit Transaction =====
-    window.editTransaction = function (id) {
-        const transaction = transactions.find(t => t.id === id);
-        if (transaction) {
-            // Store transaction to edit in sessionStorage
-            sessionStorage.setItem('editTransaction', JSON.stringify(transaction));
-            // Redirect to add/edit page
-            window.location.href = '/transactions/add/';
-        }
-    };
-
-    // ===== Add Transaction =====
-    window.goToAddTransaction = function () {
-        window.location.href = '/transactions/add/';
-    };
-
-    // ===== Clear Filters =====
-    function clearFilters() {
-        if (searchInput) searchInput.value = '';
-        if (typeFilter) typeFilter.value = 'all';
-        if (categoryFilter) categoryFilter.value = 'all';
-        if (monthFilter) monthFilter.value = '';
-        filterTransactions();
-    }
-
-    // ===== Load Transactions from API =====
-    async function loadTransactions() {
-        if (!window.transactionsApiUrl) {
-            console.error('API URL not configured');
-            showToast('Erro de configuração da API', 'error');
-            return;
-        }
-
-        try {
-            // Mostrar loading
-            if (transactionsList) {
-                transactionsList.innerHTML = `
-                <div class="loading-skeleton">
-                    <div class="skeleton-row"></div>
-                    <div class="skeleton-row"></div>
-                    <div class="skeleton-row"></div>
-                </div>
-            `;
-            }
-
-            // Construir URL com filtros
-            const params = new URLSearchParams();
-            if (searchInput?.value) params.append('search', searchInput.value);
-            if (typeFilter?.value && typeFilter.value !== 'all') params.append('type', typeFilter.value);
-            if (categoryFilter?.value && categoryFilter.value !== 'all') params.append('category', categoryFilter.value);
-            if (monthFilter?.value) params.append('month', monthFilter.value);
-            params.append('page', currentPage);
-
-            const url = `${window.transactionsApiUrl}?${params.toString()}`;
-
-            const response = await fetch(url, {
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-
-            const data = await response.json();
-
-            // Atualizar dados
-            transactions = data.transactions;
-            filteredTransactions = [...transactions];
-
-            // Atualizar totais
-            if (totalIncomeSpan) totalIncomeSpan.textContent = formatCurrency(data.total_income);
-            if (totalExpenseSpan) totalExpenseSpan.textContent = formatCurrency(data.total_expense);
-            if (totalBalanceSpan) {
-                totalBalanceSpan.textContent = formatCurrency(data.balance);
-                totalBalanceSpan.style.color = data.balance >= 0 ? '#10b981' : '#ef4444';
-            }
-
-            // Atualizar paginação
-            updatePaginationFromAPI(data);
-
-            // Renderizar transações
-            renderTransactions();
-
-        } catch (error) {
-            console.error('Error loading transactions:', error);
-            showToast('Erro ao carregar transações do servidor', 'error');
-
-            // Fallback para dados locais se a API falhar
-            if (confirm('Erro ao conectar com o servidor. Deseja usar dados de exemplo?')) {
-                loadSampleData();
-            }
-        }
-    }
-
-    // Função para atualizar paginação com dados da API
-    function updatePaginationFromAPI(data) {
-        if (pageInfo) {
-            pageInfo.textContent = `${window.translations?.page || 'Página'} ${data.current_page} ${window.translations?.of || 'de'} ${data.total_pages}`;
-        }
-
-        if (prevPageBtn) {
-            prevPageBtn.disabled = !data.has_previous;
-        }
-
-        if (nextPageBtn) {
-            nextPageBtn.disabled = !data.has_next;
-        }
-    }
-
-    // Fallback para dados de exemplo
-    function loadSampleData() {
-        const savedTransactions = localStorage.getItem('myledger_transactions');
-        if (savedTransactions) {
-            transactions = JSON.parse(savedTransactions);
-        } else {
-            transactions = [...sampleTransactions];
-        }
-        filteredTransactions = [...transactions];
-        updateSummary();
-        renderTransactions();
-        updatePagination();
-    }
-
-    // Atualizar função de delete para usar API
-    async function deleteTransaction() {
-        if (transactionToDelete !== null) {
-            try {
-                const response = await fetch(window.transactionsApiUrl, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': getCookie('csrftoken'),
-                    },
-                    body: JSON.stringify({ id: transactionToDelete })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showToast('Transação excluída com sucesso!', 'success');
-                    await loadTransactions(); // Recarregar lista
-                } else {
-                    showToast(data.error || 'Erro ao excluir transação', 'error');
-                }
-            } catch (error) {
-                console.error('Error deleting transaction:', error);
-                showToast('Erro ao excluir transação', 'error');
-            }
-
-            closeDeleteModal();
-        }
-    }
-
-    // Função auxiliar para pegar CSRF token
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -404,17 +75,6 @@
         return cookieValue;
     }
 
-    // Atualizar filterTransactions para chamar API
-    function filterTransactions() {
-        currentPage = 1;
-        loadTransactions(); // Recarregar da API em vez de filtrar localmente
-    }
-
-    function saveTransactions() {
-        localStorage.setItem('myledger_transactions', JSON.stringify(transactions));
-    }
-
-    // ===== Show Toast =====
     function showToast(message, type = 'success') {
         let toastContainer = document.querySelector('.toast-container');
         if (!toastContainer) {
@@ -438,66 +98,414 @@
         }, 3000);
     }
 
-    // ===== Event Listeners =====
+    // ===== Load Transactions =====
+    async function loadTransactions() {
+        if (!window.transactionsApiUrl) {
+            console.error('API URL not configured');
+            showToast('Erro de configuração da API', 'error');
+            return;
+        }
+
+        try {
+            if (transactionsList) {
+                transactionsList.innerHTML = `
+                    <div class="loading-skeleton">
+                        <div class="skeleton-row"></div>
+                        <div class="skeleton-row"></div>
+                        <div class="skeleton-row"></div>
+                    </div>
+                `;
+            }
+
+            const params = new URLSearchParams();
+            if (searchInput?.value) params.append('search', searchInput.value);
+            if (typeFilter?.value && typeFilter.value !== 'all') params.append('type', typeFilter.value);
+            if (categoryFilter?.value && categoryFilter.value !== 'all') params.append('category', categoryFilter.value);
+            if (monthFilter?.value) params.append('month', monthFilter.value);
+            params.append('page', currentPage);
+
+            const url = `${window.transactionsApiUrl}?${params.toString()}`;
+            const response = await fetch(url, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const data = await response.json();
+
+            transactions = data.transactions || [];
+            totalPages = data.total_pages || 1;
+
+            if (totalIncomeSpan) totalIncomeSpan.textContent = formatCurrency(data.total_income || 0);
+            if (totalExpenseSpan) totalExpenseSpan.textContent = formatCurrency(data.total_expense || 0);
+            if (totalBalanceSpan) {
+                const balance = (data.total_income || 0) - (data.total_expense || 0);
+                totalBalanceSpan.textContent = formatCurrency(balance);
+                totalBalanceSpan.style.color = balance >= 0 ? '#10b981' : '#ef4444';
+            }
+
+            updatePagination(data);
+            renderTransactions();
+
+        } catch (error) {
+            console.error('Error loading transactions:', error);
+            showToast('Erro ao carregar transações', 'error');
+            if (transactionsList) {
+                transactionsList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Erro ao carregar transações</p>
+                        <button onclick="location.reload()">Tentar novamente</button>
+                    </div>
+                `;
+            }
+        }
+    }
+
+    // ===== Render Transactions =====
+    function renderTransactions() {
+        if (!transactionsList) return;
+
+        if (!transactions || transactions.length === 0) {
+            transactionsList.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>Nenhuma transação encontrada</p>
+                    <button class="btn-add" onclick="window.openTransactionModal()" style="margin-top: 16px;">
+                        <i class="fas fa-plus"></i> Adicionar transação
+                    </button>
+                </div>
+            `;
+            return;
+        }
+
+        transactionsList.innerHTML = transactions.map(transaction => `
+            <div class="transaction-row fade-up" data-id="${transaction.id}">
+                <div class="transaction-date">${formatDate(transaction.date)}</div>
+                <div class="transaction-description">${escapeHtml(transaction.description)}</div>
+                <div class="transaction-category">
+                    <div class="category-icon">${transaction.categoryIcon || '📌'}</div>
+                    <span class="category-name">${escapeHtml(transaction.category)}</span>
+                </div>
+                <div class="transaction-amount ${transaction.type === 'income' ? 'income' : 'expense'}">
+                    ${transaction.type === 'income' ? '+' : '-'} ${formatCurrency(transaction.amount)}
+                </div>
+                <div class="transaction-actions">
+                    <button class="action-icon edit" onclick="window.editTransaction(${transaction.id})" title="Editar">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button class="action-icon delete" onclick="window.confirmDelete(${transaction.id})" title="Excluir">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ===== Pagination =====
+    function updatePagination(data) {
+        if (pageInfo) {
+            pageInfo.textContent = `Página ${data.current_page || 1} de ${data.total_pages || 1}`;
+        }
+        if (prevPageBtn) prevPageBtn.disabled = !data.has_previous;
+        if (nextPageBtn) nextPageBtn.disabled = !data.has_next;
+    }
+
+    function nextPage() {
+        if (nextPageBtn && !nextPageBtn.disabled) {
+            currentPage++;
+            loadTransactions();
+            transactionsList?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    function prevPage() {
+        if (prevPageBtn && !prevPageBtn.disabled) {
+            currentPage--;
+            loadTransactions();
+            transactionsList?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // ===== Delete Transaction =====
+    window.confirmDelete = function (id) {
+        transactionToDelete = id;
+        if (deleteModal) deleteModal.style.display = 'flex';
+    };
+
+    window.closeDeleteModal = function () {
+        if (deleteModal) deleteModal.style.display = 'none';
+        transactionToDelete = null;
+    };
+
+    async function deleteTransaction() {
+        if (transactionToDelete === null) return;
+
+        try {
+            const response = await fetch(
+                `/transactions/api/transactions/${transactionToDelete}/delete/`,
+                {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken'),
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                }
+            );
+
+            const data = await response.json();
+
+            if (data.success) {
+                showToast('Transação excluída com sucesso!', 'success');
+                await loadTransactions();
+            } else {
+                showToast(data.error || 'Erro ao excluir transação', 'error');
+            }
+        } catch (error) {
+            console.error('Error deleting transaction:', error);
+            showToast('Erro ao excluir transação', 'error');
+        }
+
+        closeDeleteModal();
+    }
+
+    // ===== Modal Functions - Com verificações de segurança =====
+    window.openTransactionModal = function () {
+        // Verificar se o modal existe
+        if (!transactionModal) {
+            console.error('Modal de transação não encontrado');
+            showToast('Erro ao abrir formulário', 'error');
+            return;
+        }
+
+        // Resetar o formulário
+        if (transactionForm) transactionForm.reset();
+        if (transactionIdInput) transactionIdInput.value = '';
+        if (transactionTypeInput) transactionTypeInput.value = 'expense';
+        if (transactionModalTitle) transactionModalTitle.textContent = 'Nova Transação';
+        if (submitBtnText) submitBtnText.textContent = 'Salvar';
+
+        // Resetar botões de tipo
+        if (typeButtons && typeButtons.length) {
+            typeButtons.forEach(btn => btn.classList.remove('active'));
+            const expenseBtn = document.querySelector('.type-btn.expense');
+            if (expenseBtn) expenseBtn.classList.add('active');
+        }
+
+        // Setar data atual
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+        }
+
+        transactionModal.style.display = 'flex';
+    };
+
+    window.editTransaction = async function (id) {
+        const transaction = transactions.find(t => t.id === id);
+        if (!transaction) {
+            showToast('Transação não encontrada', 'error');
+            return;
+        }
+
+        if (!transactionModal) {
+            console.error('Modal de transação não encontrado');
+            return;
+        }
+
+        if (transactionModalTitle) transactionModalTitle.textContent = 'Editar Transação';
+        if (submitBtnText) submitBtnText.textContent = 'Atualizar';
+        if (transactionIdInput) transactionIdInput.value = id;
+        if (descriptionInput) descriptionInput.value = transaction.description || '';
+        if (amountInput) amountInput.value = formatCurrency(transaction.amount);
+        if (dateInput) dateInput.value = transaction.date;
+        if (categorySelect) categorySelect.value = transaction.category || '';
+        if (notesTextarea) notesTextarea.value = transaction.notes || '';
+
+        // Setar tipo
+        const type = transaction.type;
+        if (typeButtons && typeButtons.length) {
+            typeButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.type === type) btn.classList.add('active');
+            });
+        }
+        if (transactionTypeInput) transactionTypeInput.value = type;
+
+        transactionModal.style.display = 'flex';
+    };
+
+    window.closeTransactionModal = function () {
+        if (transactionModal) transactionModal.style.display = 'none';
+    };
+
+    async function saveTransaction(formData) {
+        const transactionId = formData.get('transaction_id');
+        const isEditing = transactionId && transactionId !== '';
+
+        let amountValue = formData.get('amount') || '0';
+        // Limpar formatação do valor
+        amountValue = amountValue.replace(/[R$\s.]/g, '').replace(',', '.');
+        const amount = parseFloat(amountValue) || 0;
+
+        const transactionData = {
+            description: formData.get('description') || '',
+            amount: amount,
+            date: formData.get('date') || '',
+            category: formData.get('category') || '',
+            transaction_type: formData.get('transaction_type') || 'expense',
+            notes: formData.get('notes') || ''
+        };
+
+        // Validação básica
+        if (!transactionData.description) {
+            showToast('Por favor, informe uma descrição', 'error');
+            return;
+        }
+        if (transactionData.amount <= 0) {
+            showToast('Por favor, informe um valor válido', 'error');
+            return;
+        }
+        if (!transactionData.date) {
+            showToast('Por favor, informe uma data', 'error');
+            return;
+        }
+        if (!transactionData.category) {
+            showToast('Por favor, selecione uma categoria', 'error');
+            return;
+        }
+
+        try {
+            let url, method;
+            if (isEditing) {
+                url = `/transactions/api/transactions/${transactionId}/update/`;
+                method = 'PUT';
+            } else {
+                url = '/transactions/api/transactions/create/';
+                method = 'POST';
+            }
+
+            const response = await fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify(transactionData)
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showToast(
+                    isEditing ? 'Transação atualizada!' : 'Transação criada!',
+                    'success'
+                );
+                closeTransactionModal();
+                await loadTransactions();
+            } else {
+                showToast(data.error || 'Erro ao salvar', 'error');
+            }
+        } catch (error) {
+            console.error('Error saving transaction:', error);
+            showToast('Erro ao salvar transação', 'error');
+        }
+    }
+
+    // ===== Setup =====
     function setupEventListeners() {
-        if (searchInput) searchInput.addEventListener('input', filterTransactions);
-        if (typeFilter) typeFilter.addEventListener('change', filterTransactions);
-        if (categoryFilter) categoryFilter.addEventListener('change', filterTransactions);
-        if (monthFilter) monthFilter.addEventListener('change', filterTransactions);
-        if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', clearFilters);
+        if (searchInput) searchInput.addEventListener('input', () => { currentPage = 1; loadTransactions(); });
+        if (typeFilter) typeFilter.addEventListener('change', () => { currentPage = 1; loadTransactions(); });
+        if (categoryFilter) categoryFilter.addEventListener('change', () => { currentPage = 1; loadTransactions(); });
+        if (monthFilter) monthFilter.addEventListener('change', () => { currentPage = 1; loadTransactions(); });
+
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', () => {
+                if (searchInput) searchInput.value = '';
+                if (typeFilter) typeFilter.value = 'all';
+                if (categoryFilter) categoryFilter.value = 'all';
+                if (monthFilter) monthFilter.value = '';
+                currentPage = 1;
+                loadTransactions();
+            });
+        }
+
         if (prevPageBtn) prevPageBtn.addEventListener('click', prevPage);
         if (nextPageBtn) nextPageBtn.addEventListener('click', nextPage);
         if (confirmDeleteBtn) confirmDeleteBtn.addEventListener('click', deleteTransaction);
 
-        // Close modal on escape
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && deleteModal && deleteModal.style.display === 'flex') {
-                closeDeleteModal();
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (deleteModal?.style.display === 'flex') closeDeleteModal();
+                if (transactionModal?.style.display === 'flex') closeTransactionModal();
             }
         });
 
-        // Close modal on click outside
-        if (deleteModal) {
-            deleteModal.addEventListener('click', function (e) {
-                if (e.target === deleteModal) {
-                    closeDeleteModal();
+        [deleteModal, transactionModal].forEach(modal => {
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        if (modal.id === 'deleteModal') window.closeDeleteModal();
+                        if (modal.id === 'transactionModal') window.closeTransactionModal();
+                    }
+                });
+            }
+        });
+
+        // Type buttons
+        if (typeButtons && typeButtons.length) {
+            typeButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    typeButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    if (transactionTypeInput) transactionTypeInput.value = this.dataset.type;
+                });
+            });
+        }
+
+        // Amount input formatting
+        if (amountInput) {
+            amountInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value === '') {
+                    e.target.value = '';
+                    return;
                 }
+                value = (parseInt(value) / 100).toFixed(2);
+                value = value.replace('.', ',');
+                e.target.value = `R$ ${value}`;
+            });
+        }
+
+        // Form submit
+        if (transactionForm) {
+            transactionForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await saveTransaction(new FormData(transactionForm));
             });
         }
     }
 
-    // ===== Set current month in filter =====
-    function setCurrentMonthFilter() {
-        if (monthFilter) {
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            monthFilter.value = `${year}-${month}`;
-        }
-    }
-
-    // ===== Initialize =====
-    async function init() {
-        setupEventListeners();
-        await loadTransactions();
-        // setCurrentMonthFilter(); // Uncomment to set current month filter by default
-    }
-
-    // Export to global scope
-    window.closeDeleteModal = closeDeleteModal;
-    window.deleteTransaction = deleteTransaction;
-    window.editTransaction = editTransaction;
-    window.confirmDelete = confirmDelete;
-    window.goToAddTransaction = goToAddTransaction;
-
-    // Translations
-    window.translations = {
-        noTransactions: 'Nenhuma transação encontrada',
-        addTransactionHint: 'Adicione sua primeira transação',
-        page: 'Página',
-        of: 'de'
+    // Exportar funções para o escopo global
+    window.goToAddTransaction = function () {
+        window.openTransactionModal();
     };
 
-    // Start
-    init();
+    window.openTransactionModal = window.openTransactionModal;
+    window.editTransaction = window.editTransaction;
+    window.confirmDelete = window.confirmDelete;
+    window.closeDeleteModal = window.closeDeleteModal;
+    window.closeTransactionModal = window.closeTransactionModal;
+
+    // Initialize - Aguardar DOM carregar completamente
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            setupEventListeners();
+            loadTransactions();
+        });
+    } else {
+        setupEventListeners();
+        loadTransactions();
+    }
 })();

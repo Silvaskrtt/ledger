@@ -1,0 +1,106 @@
+{% load i18n %}
+
+<div id="transactionModal" class="modal-overlay" style="display: none;">
+    <div class="modal-container modal-large fade-up">
+        <div class="modal-header">
+            <div class="modal-icon">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h3 id="transactionModalTitle">{% trans "Nova Transação" %}</h3>
+            <button class="modal-close" onclick="window.closeTransactionModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <form id="transactionForm" class="modal-form">
+            {% csrf_token %}
+            
+            <!-- Tipo de Transação -->
+            <div class="form-group">
+                <label><i class="fas fa-tag"></i> {% trans "Tipo" %}</label>
+                <div class="type-buttons">
+                    <button type="button" class="type-btn expense active" data-type="expense">
+                        <i class="fas fa-arrow-up"></i> {% trans "Despesa" %}
+                    </button>
+                    <button type="button" class="type-btn income" data-type="income">
+                        <i class="fas fa-arrow-down"></i> {% trans "Receita" %}
+                    </button>
+                </div>
+                <input type="hidden" id="transaction_type" name="transaction_type" value="expense">
+            </div>
+            
+            <!-- Descrição -->
+            <div class="form-group">
+                <label for="description">
+                    <i class="fas fa-pencil-alt"></i> {% trans "Descrição" %}
+                </label>
+                <input type="text" id="description" name="description" required 
+                       placeholder="{% trans 'Ex: Supermercado, Salário, Netflix...' %}">
+            </div>
+            
+            <!-- Valor e Data -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="amount">
+                        <i class="fas fa-dollar-sign"></i> {% trans "Valor" %}
+                    </label>
+                    <input type="text" id="amount" name="amount" required 
+                           placeholder="R$ 0,00">
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">
+                        <i class="fas fa-calendar-alt"></i> {% trans "Data" %}
+                    </label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+            </div>
+            
+            <!-- Categoria -->
+            <div class="form-group">
+                <label for="category">
+                    <i class="fas fa-folder"></i> {% trans "Categoria" %}
+                </label>
+                <div class="category-select-wrapper">
+                    <select id="category" name="category" required>
+                        <option value="">{% trans "Selecione uma categoria" %}</option>
+                        <option value="Alimentação">🍔 {% trans "Alimentação" %}</option>
+                        <option value="Transporte">🚗 {% trans "Transporte" %}</option>
+                        <option value="Lazer">🎮 {% trans "Lazer" %}</option>
+                        <option value="Moradia">🏠 {% trans "Moradia" %}</option>
+                        <option value="Trabalho">💼 {% trans "Trabalho" %}</option>
+                        <option value="Educação">📚 {% trans "Educação" %}</option>
+                        <option value="Saúde">💊 {% trans "Saúde" %}</option>
+                        <option value="Compras">🛒 {% trans "Compras" %}</option>
+                    </select>
+                    <button type="button" class="btn-add-category" onclick="window.openCategoryModal()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Observações -->
+            <div class="form-group">
+                <label for="notes">
+                    <i class="fas fa-sticky-note"></i> {% trans "Observações" %}
+                </label>
+                <textarea id="notes" name="notes" rows="3" 
+                          placeholder="{% trans 'Informações adicionais (opcional)...' %}"></textarea>
+            </div>
+            
+            <!-- ID da transação (para edição) -->
+            <input type="hidden" id="transaction_id" name="transaction_id" value="">
+            
+            <!-- Botões -->
+            <div class="modal-buttons">
+                <button type="button" class="btn-modal-cancel" onclick="window.closeTransactionModal()">
+                    {% trans "Cancelar" %}
+                </button>
+                <button type="submit" class="btn-modal-submit">
+                    <i class="fas fa-save"></i> 
+                    <span id="submitBtnText">{% trans "Salvar" %}</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

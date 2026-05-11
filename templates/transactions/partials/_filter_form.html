@@ -17,9 +17,14 @@
         
         <select id="categoryFilter" class="filter-select">
             <option value="all">{% trans "Todas as categorias" %}</option>
-            {% for category in categories %}
-                <option value="{{ category.name }}">{{ category.icon }} {{ category.name }}</option>
-            {% endfor %}
+            <option value="Alimentação">🍔 {% trans "Alimentação" %}</option>
+            <option value="Transporte">🚗 {% trans "Transporte" %}</option>
+            <option value="Lazer">🎮 {% trans "Lazer" %}</option>
+            <option value="Moradia">🏠 {% trans "Moradia" %}</option>
+            <option value="Trabalho">💼 {% trans "Trabalho" %}</option>
+            <option value="Educação">📚 {% trans "Educação" %}</option>
+            <option value="Saúde">💊 {% trans "Saúde" %}</option>
+            <option value="Compras">🛒 {% trans "Compras" %}</option>
         </select>
         
         <input type="month" id="monthFilter" class="filter-date">

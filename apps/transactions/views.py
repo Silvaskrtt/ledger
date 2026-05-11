@@ -1,13 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Transaction
 from .forms import TransactionForm
 from django.http import JsonResponse
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import require_http_methods, require_GET, require_POST
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.views.decorators.csrf import csrf_exempt
+import json
 from decimal import Decimal
 
 class TransactionListView(LoginRequiredMixin, ListView):
@@ -27,23 +29,19 @@ class TransactionListView(LoginRequiredMixin, ListView):
         context['total_income'] = float(total_income)
         context['total_expense'] = float(total_expense)
         context['balance'] = float(total_income - total_expense)
+        
+        # Adicionar categorias para o filtro
+        categories = Transaction.objects.filter(user=self.request.user)\
+            .values_list('category', flat=True).distinct()
+        context['categories'] = [{'name': cat, 'icon': get_category_icon(cat)} for cat in categories]
+        
         return context
-
-class TransactionCreateView(LoginRequiredMixin, CreateView):
-    model = Transaction
-    form_class = TransactionForm
-    template_name = 'transactions/transactions_form.html'
-    success_url = reverse_lazy('transactions:transaction_list')
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
 
 
 @login_required
 @require_http_methods(["GET"])
 def api_transactions(request):
-    """API endpoint for transactions"""
+    """API endpoint for transactions - GET only"""
     try:
         queryset = Transaction.objects.filter(user=request.user).order_by('-date')
         
@@ -102,10 +100,90 @@ def api_transactions(request):
         })
         
     except Exception as e:
-        import traceback
-        print("Erro na API:", str(e))
-        print(traceback.format_exc())
         return JsonResponse({'error': str(e)}, status=500)
+
+
+@login_required
+@require_POST
+def api_transactions_create(request):
+    """API endpoint for creating transactions"""
+    try:
+        data = json.loads(request.body)
+        
+        transaction = Transaction.objects.create(
+            user=request.user,
+            description=data.get('description'),
+            amount=Decimal(str(data.get('amount'))),
+            type=data.get('transaction_type'),
+            category=data.get('category'),
+            date=data.get('date'),
+            notes=data.get('notes', '')
+        )
+        
+        return JsonResponse({
+            'success': True,
+            'transaction': {
+                'id': transaction.id,
+                'description': transaction.description,
+                'amount': float(transaction.amount),
+                'type': transaction.type,
+                'category': transaction.category,
+                'date': transaction.date.strftime('%Y-%m-%d'),
+                'notes': transaction.notes,
+                'categoryIcon': get_category_icon(transaction.category),
+            }
+        })
+        
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
+
+
+@login_required
+@require_http_methods(["PUT", "POST"])
+def api_transactions_update(request, pk):
+    """API endpoint for updating transactions"""
+    try:
+        transaction = get_object_or_404(Transaction, id=pk, user=request.user)
+        data = json.loads(request.body)
+        
+        transaction.description = data.get('description', transaction.description)
+        transaction.amount = Decimal(str(data.get('amount', transaction.amount)))
+        transaction.type = data.get('transaction_type', transaction.type)
+        transaction.category = data.get('category', transaction.category)
+        transaction.date = data.get('date', transaction.date)
+        transaction.notes = data.get('notes', transaction.notes)
+        transaction.save()
+        
+        return JsonResponse({
+            'success': True,
+            'transaction': {
+                'id': transaction.id,
+                'description': transaction.description,
+                'amount': float(transaction.amount),
+                'type': transaction.type,
+                'category': transaction.category,
+                'date': transaction.date.strftime('%Y-%m-%d'),
+                'notes': transaction.notes,
+                'categoryIcon': get_category_icon(transaction.category),
+            }
+        })
+        
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
+
+
+@login_required
+@require_http_methods(["DELETE"])
+def api_transactions_delete(request, pk):
+    """API endpoint for deleting transactions"""
+    try:
+        transaction = get_object_or_404(Transaction, id=pk, user=request.user)
+        transaction.delete()
+        
+        return JsonResponse({'success': True})
+        
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
 
 
 def get_category_icon(category):
