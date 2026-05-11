@@ -11,6 +11,7 @@ from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
 import json
 from decimal import Decimal
+from datetime import datetime
 
 class TransactionListView(LoginRequiredMixin, ListView):
     model = Transaction
@@ -114,9 +115,9 @@ def api_transactions_create(request):
             user=request.user,
             description=data.get('description'),
             amount=Decimal(str(data.get('amount'))),
-            type=data.get('transaction_type'),
+            type=data.get('type'),
             category=data.get('category'),
-            date=data.get('date'),
+            date=datetime.strptime(data.get('date'), '%Y-%m-%d').date(),
             notes=data.get('notes', '')
         )
         
@@ -148,9 +149,11 @@ def api_transactions_update(request, pk):
         
         transaction.description = data.get('description', transaction.description)
         transaction.amount = Decimal(str(data.get('amount', transaction.amount)))
-        transaction.type = data.get('transaction_type', transaction.type)
+        transaction.type = data.get('type', transaction.type)
         transaction.category = data.get('category', transaction.category)
-        transaction.date = data.get('date', transaction.date)
+        date_str = data.get('date')
+        if date_str:
+            transaction.date = datetime.strptime(date_str, '%Y-%m-%d').date()
         transaction.notes = data.get('notes', transaction.notes)
         transaction.save()
         
