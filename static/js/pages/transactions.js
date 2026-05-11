@@ -98,6 +98,22 @@
         }, 3000);
     }
 
+    // ===== FUNÇÃO CORRIGIDA: Converter valor monetário =====
+    function parseAmountToNumber(amountString) {
+        if (!amountString) return 0;
+
+        // Remove 'R$', espaços, pontos (separadores de milhar) e substitui vírgula por ponto
+        let cleanValue = amountString
+            .replace(/R\$/g, '')
+            .replace(/\s/g, '')
+            .replace(/\./g, '')
+            .replace(/,/g, '.');
+
+        // Converte para número
+        const number = parseFloat(cleanValue);
+        return isNaN(number) ? 0 : number;
+    }
+
     // ===== Load Transactions =====
     async function loadTransactions() {
         if (!window.transactionsApiUrl) {
@@ -269,34 +285,140 @@
         closeDeleteModal();
     }
 
-    // ===== Modal Functions - Com verificações de segurança =====
+    // ===== FUNÇÃO CORRIGIDA: saveTransaction =====
+    async function saveTransaction(formData) {
+        const transactionId = formData.get('transaction_id');
+        const isEditing = transactionId && transactionId !== '';
+
+        // CORREÇÃO: Converter o valor corretamente
+        let amountString = formData.get('amount') || '0';
+        const amount = parseAmountToNumber(amountString);
+
+        const transactionData = {
+            description: formData.get('description') || '',
+            amount: amount,
+            date: formData.get('date') || '',
+            category: formData.get('category') || '',
+            type: formData.get('transaction_type') || 'expense',  // CORREÇÃO: usar 'type' invés de 'transaction_type'
+            notes: formData.get('notes') || ''
+        };
+
+        // Validação detalhada
+        const errors = [];
+
+        if (!transactionData.description || transactionData.description.trim() === '') {
+            errors.push('Por favor, informe uma descrição');
+        }
+
+        if (transactionData.amount <= 0) {
+            errors.push('Por favor, informe um valor válido maior que zero');
+        }
+
+        if (!transactionData.date) {
+            errors.push('Por favor, informe uma data');
+        }
+
+        if (!transactionData.category) {
+            errors.push('Por favor, selecione uma categoria');
+        }
+
+        if (errors.length > 0) {
+            errors.forEach(error => showToast(error, 'error'));
+            return;
+        }
+
+        // Mostrar loading no botão
+        const submitBtn = document.querySelector('#transactionModal .btn-primary');
+        const originalText = submitBtn?.textContent || 'Salvar';
+        if (submitBtn) {
+            submitBtn.textContent = 'Salvando...';
+            submitBtn.disabled = true;
+        }
+
+        try {
+            let url, method;
+            if (isEditing) {
+                url = `/transactions/api/transactions/${transactionId}/update/`;
+                method = 'PUT';
+            } else {
+                url = '/transactions/api/transactions/create/';
+                method = 'POST';
+            }
+
+            console.log('Enviando dados:', transactionData); // Debug
+
+            const response = await fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify(transactionData)
+            });
+
+            // Tentar obter a resposta como JSON
+            let data;
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                data = await response.json();
+            } else {
+                const text = await response.text();
+                console.error('Resposta não é JSON:', text);
+                throw new Error('Erro no servidor');
+            }
+
+            if (response.ok && data.success) {
+                showToast(
+                    isEditing ? 'Transação atualizada com sucesso!' : 'Transação criada com sucesso!',
+                    'success'
+                );
+                closeTransactionModal();
+                await loadTransactions();
+                // Resetar página para 1 após criar nova transação
+                if (!isEditing) currentPage = 1;
+            } else {
+                const errorMsg = data.error || data.message || 'Erro ao salvar transação';
+                showToast(errorMsg, 'error');
+                console.error('Erro do backend:', data);
+            }
+        } catch (error) {
+            console.error('Error saving transaction:', error);
+            showToast('Erro ao conectar com o servidor', 'error');
+        } finally {
+            if (submitBtn) {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+    }
+
+    // ===== Modal Functions =====
     window.openTransactionModal = function () {
-        // Verificar se o modal existe
         if (!transactionModal) {
             console.error('Modal de transação não encontrado');
             showToast('Erro ao abrir formulário', 'error');
             return;
         }
 
-        // Resetar o formulário
         if (transactionForm) transactionForm.reset();
         if (transactionIdInput) transactionIdInput.value = '';
         if (transactionTypeInput) transactionTypeInput.value = 'expense';
         if (transactionModalTitle) transactionModalTitle.textContent = 'Nova Transação';
         if (submitBtnText) submitBtnText.textContent = 'Salvar';
 
-        // Resetar botões de tipo
         if (typeButtons && typeButtons.length) {
             typeButtons.forEach(btn => btn.classList.remove('active'));
             const expenseBtn = document.querySelector('.type-btn.expense');
             if (expenseBtn) expenseBtn.classList.add('active');
         }
 
-        // Setar data atual
         if (dateInput) {
             const today = new Date().toISOString().split('T')[0];
             dateInput.value = today;
         }
+
+        if (amountInput) amountInput.value = '';
 
         transactionModal.style.display = 'flex';
     };
@@ -317,12 +439,14 @@
         if (submitBtnText) submitBtnText.textContent = 'Atualizar';
         if (transactionIdInput) transactionIdInput.value = id;
         if (descriptionInput) descriptionInput.value = transaction.description || '';
+
+        // CORREÇÃO: Formatar valor para exibição
         if (amountInput) amountInput.value = formatCurrency(transaction.amount);
+
         if (dateInput) dateInput.value = transaction.date;
         if (categorySelect) categorySelect.value = transaction.category || '';
         if (notesTextarea) notesTextarea.value = transaction.notes || '';
 
-        // Setar tipo
         const type = transaction.type;
         if (typeButtons && typeButtons.length) {
             typeButtons.forEach(btn => {
@@ -338,80 +462,6 @@
     window.closeTransactionModal = function () {
         if (transactionModal) transactionModal.style.display = 'none';
     };
-
-    async function saveTransaction(formData) {
-        const transactionId = formData.get('transaction_id');
-        const isEditing = transactionId && transactionId !== '';
-
-        let amountValue = formData.get('amount') || '0';
-        // Limpar formatação do valor
-        amountValue = amountValue.replace(/[R$\s.]/g, '').replace(',', '.');
-        const amount = parseFloat(amountValue) || 0;
-
-        const transactionData = {
-            description: formData.get('description') || '',
-            amount: amount,
-            date: formData.get('date') || '',
-            category: formData.get('category') || '',
-            transaction_type: formData.get('transaction_type') || 'expense',
-            notes: formData.get('notes') || ''
-        };
-
-        // Validação básica
-        if (!transactionData.description) {
-            showToast('Por favor, informe uma descrição', 'error');
-            return;
-        }
-        if (transactionData.amount <= 0) {
-            showToast('Por favor, informe um valor válido', 'error');
-            return;
-        }
-        if (!transactionData.date) {
-            showToast('Por favor, informe uma data', 'error');
-            return;
-        }
-        if (!transactionData.category) {
-            showToast('Por favor, selecione uma categoria', 'error');
-            return;
-        }
-
-        try {
-            let url, method;
-            if (isEditing) {
-                url = `/transactions/api/transactions/${transactionId}/update/`;
-                method = 'PUT';
-            } else {
-                url = '/transactions/api/transactions/create/';
-                method = 'POST';
-            }
-
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify(transactionData)
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                showToast(
-                    isEditing ? 'Transação atualizada!' : 'Transação criada!',
-                    'success'
-                );
-                closeTransactionModal();
-                await loadTransactions();
-            } else {
-                showToast(data.error || 'Erro ao salvar', 'error');
-            }
-        } catch (error) {
-            console.error('Error saving transaction:', error);
-            showToast('Erro ao salvar transação', 'error');
-        }
-    }
 
     // ===== Setup =====
     function setupEventListeners() {
@@ -453,7 +503,6 @@
             }
         });
 
-        // Type buttons
         if (typeButtons && typeButtons.length) {
             typeButtons.forEach(btn => {
                 btn.addEventListener('click', function () {
@@ -464,7 +513,6 @@
             });
         }
 
-        // Amount input formatting
         if (amountInput) {
             amountInput.addEventListener('input', function (e) {
                 let value = e.target.value.replace(/\D/g, '');
@@ -478,7 +526,6 @@
             });
         }
 
-        // Form submit
         if (transactionForm) {
             transactionForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -487,18 +534,12 @@
         }
     }
 
-    // Exportar funções para o escopo global
+    // Exportar funções
     window.goToAddTransaction = function () {
         window.openTransactionModal();
     };
 
-    window.openTransactionModal = window.openTransactionModal;
-    window.editTransaction = window.editTransaction;
-    window.confirmDelete = window.confirmDelete;
-    window.closeDeleteModal = window.closeDeleteModal;
-    window.closeTransactionModal = window.closeTransactionModal;
-
-    // Initialize - Aguardar DOM carregar completamente
+    // Initialize
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             setupEventListeners();
