@@ -85,6 +85,58 @@
         }
     }
 
+    // ===== Category Modal =====
+    window.openCategoryModal = function () {
+        const categoryModal = document.getElementById('categoryModal');
+        if (categoryModal) {
+            categoryModal.style.display = 'flex';
+        }
+    };
+
+    window.closeCategoryModal = function () {
+        const categoryModal = document.getElementById('categoryModal');
+        if (categoryModal) {
+            categoryModal.style.display = 'none';
+        }
+    };
+
+    async function saveCategory() {
+        const form = document.getElementById('categoryForm');
+        if (!form) return;
+
+        const formData = new FormData(form);
+        const categoryData = {
+            name: formData.get('name'),
+            icon: formData.get('icon'),
+            color: formData.get('color'),
+            type: 'expense'  // Default to expense
+        };
+
+        try {
+            const response = await fetch('/categories/api/categories/create/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify(categoryData)
+            });
+
+            if (response.ok) {
+                showToast('Categoria criada com sucesso!', 'success');
+                closeCategoryModal();
+                loadCategories();  // Reload categories
+                form.reset();
+            } else {
+                const error = await response.json();
+                showToast(error.error || 'Erro ao criar categoria', 'error');
+            }
+        } catch (error) {
+            console.error('Erro:', error);
+            showToast('Erro ao criar categoria', 'error');
+        }
+    }
+
     function escapeHtml(text) {
         if (!text) return '';
         const div = document.createElement('div');
@@ -516,6 +568,13 @@
         if (prevPageBtn) prevPageBtn.addEventListener('click', prevPage);
         if (nextPageBtn) nextPageBtn.addEventListener('click', nextPage);
         if (confirmDeleteBtn) confirmDeleteBtn.addEventListener('click', deleteTransaction);
+
+        if (categoryForm) {
+            categoryForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                saveCategory();
+            });
+        }
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
