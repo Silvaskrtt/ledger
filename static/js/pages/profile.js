@@ -144,6 +144,30 @@
             return;
         }
 
+        // Valida DDD (deve estar entre 11 e 99)
+        const ddd = parseInt(numerosApenas.slice(0, 2));
+        if (ddd < 11 || ddd > 99) {
+            exibirNotificacao('error', 'DDD inválido. Deve estar entre 11 e 99');
+            return;
+        }
+
+        // Valida primeiro dígito após DDD (deve estar entre 2 e 9)
+        const primeiroDigito = parseInt(numerosApenas[2]);
+        if (primeiroDigito < 2 || primeiroDigito > 9) {
+            exibirNotificacao('error', 'Número de telefone inválido');
+            return;
+        }
+
+        // Formata o telefone
+        let telefoneFomatado;
+        if (numerosApenas.length === 11) {
+            // Celular: (XX) 9XXXX-XXXX
+            telefoneFomatado = `(${numerosApenas.slice(0, 2)}) ${numerosApenas.slice(2, 7)}-${numerosApenas.slice(7)}`;
+        } else {
+            // Fixo: (XX) XXXX-XXXX
+            telefoneFomatado = `(${numerosApenas.slice(0, 2)}) ${numerosApenas.slice(2, 6)}-${numerosApenas.slice(6)}`;
+        }
+
         // Mostra loading no botão
         const botaoSalvar = document.querySelector('#editPhoneModal .btn-modal-confirm');
         const textoOriginal = botaoSalvar.textContent;
@@ -151,11 +175,11 @@
         botaoSalvar.disabled = true;
 
         // Envia para o backend
-        const resultado = await salvarNoBackend('phone', novoTelefone);
+        const resultado = await salvarNoBackend('phone', telefoneFomatado);
 
         if (resultado.success) {
             // Atualiza exibição na interface
-            document.getElementById('displayPhone').textContent = novoTelefone;
+            document.getElementById('displayPhone').textContent = telefoneFomatado;
 
             fecharModalEdicao();
             exibirNotificacao('success', 'Telefone atualizado com sucesso!');
