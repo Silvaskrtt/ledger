@@ -33,7 +33,7 @@ class TransactionListView(LoginRequiredMixin, ListView):
         
         # Adicionar categorias para o filtro
         categories = Transaction.objects.filter(user=self.request.user)\
-            .values_list('category', flat=True).distinct()
+            .values_list('category__name', flat=True).distinct()
         context['categories'] = [{'name': cat, 'icon': get_category_icon(cat)} for cat in categories]
         
         return context
@@ -57,7 +57,7 @@ def api_transactions(request):
         if type_filter and type_filter != 'all':
             queryset = queryset.filter(type=type_filter)
         if category and category != 'all':
-            queryset = queryset.filter(category__icontains=category)
+            queryset = queryset.filter(category__name__icontains=category)
         if month:
             queryset = queryset.filter(date__year=month[:4], date__month=month[5:])
         
@@ -78,10 +78,11 @@ def api_transactions(request):
                 'description': t.description,
                 'amount': float(t.amount),
                 'type': t.type,
-                'category': t.category,
+                'category': t.category.name,
+                'categoryId': t.category.id,
                 'date': t.date.strftime('%Y-%m-%d'),
                 'notes': t.notes or '',
-                'categoryIcon': get_category_icon(t.category),
+                'categoryIcon': t.category.icon or get_category_icon(t.category.name),
             })
         
         # Calcular totais
@@ -116,7 +117,7 @@ def api_transactions_create(request):
             description=data.get('description'),
             amount=Decimal(str(data.get('amount'))),
             type=data.get('type'),
-            category=data.get('category'),
+            category_id=data.get('category'),
             date=datetime.strptime(data.get('date'), '%Y-%m-%d').date(),
             notes=data.get('notes', '')
         )
@@ -128,10 +129,11 @@ def api_transactions_create(request):
                 'description': transaction.description,
                 'amount': float(transaction.amount),
                 'type': transaction.type,
-                'category': transaction.category,
+                'category': transaction.category.name,
+                'categoryId': transaction.category.id,
                 'date': transaction.date.strftime('%Y-%m-%d'),
                 'notes': transaction.notes,
-                'categoryIcon': get_category_icon(transaction.category),
+                'categoryIcon': transaction.category.icon or get_category_icon(transaction.category.name),
             }
         })
         
@@ -150,7 +152,8 @@ def api_transactions_update(request, pk):
         transaction.description = data.get('description', transaction.description)
         transaction.amount = Decimal(str(data.get('amount', transaction.amount)))
         transaction.type = data.get('type', transaction.type)
-        transaction.category = data.get('category', transaction.category)
+        if data.get('category'):
+            transaction.category_id = data.get('category')
         date_str = data.get('date')
         if date_str:
             transaction.date = datetime.strptime(date_str, '%Y-%m-%d').date()
@@ -164,10 +167,11 @@ def api_transactions_update(request, pk):
                 'description': transaction.description,
                 'amount': float(transaction.amount),
                 'type': transaction.type,
-                'category': transaction.category,
+                'category': transaction.category.name,
+                'categoryId': transaction.category.id,
                 'date': transaction.date.strftime('%Y-%m-%d'),
                 'notes': transaction.notes,
-                'categoryIcon': get_category_icon(transaction.category),
+                'categoryIcon': transaction.category.icon or get_category_icon(transaction.category.name),
             }
         })
         

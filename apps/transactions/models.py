@@ -7,7 +7,7 @@ class Transaction(models.Model):
     TYPE_CHOICES = Category.TYPE_CHOICES
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='transactions')
-    category = models.CharField('Categoria', max_length=50)  
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='transactions')
     amount = models.DecimalField('Valor', max_digits=10, decimal_places=2)
     description = models.CharField('Descrição', max_length=200)
     type = models.CharField(max_length=10, choices=Category.TYPE_CHOICES) 

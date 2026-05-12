@@ -54,6 +54,37 @@
         return date.toLocaleDateString('pt-BR');
     }
 
+    async function loadCategories() {
+        try {
+            const response = await fetch('/categories/api/categories/');
+            const data = await response.json();
+            const categorySelect = document.getElementById('category');
+            const categoryFilter = document.getElementById('categoryFilter');
+            
+            if (categorySelect) {
+                categorySelect.innerHTML = '<option value="">Selecione uma categoria</option>';
+                data.categories.forEach(cat => {
+                    const option = document.createElement('option');
+                    option.value = cat.id;
+                    option.textContent = `${cat.icon || '📌'} ${cat.name}`;
+                    categorySelect.appendChild(option);
+                });
+            }
+            
+            if (categoryFilter) {
+                categoryFilter.innerHTML = '<option value="all">Todas as categorias</option>';
+                data.categories.forEach(cat => {
+                    const option = document.createElement('option');
+                    option.value = cat.name;
+                    option.textContent = `${cat.icon || '📌'} ${cat.name}`;
+                    categoryFilter.appendChild(option);
+                });
+            }
+        } catch (error) {
+            console.error('Erro ao carregar categorias:', error);
+        }
+    }
+
     function escapeHtml(text) {
         if (!text) return '';
         const div = document.createElement('div');
@@ -445,7 +476,7 @@
         if (amountInput) amountInput.value = formatCurrency(transaction.amount);
 
         if (dateInput) dateInput.value = transaction.date;
-        if (categorySelect) categorySelect.value = transaction.category || '';
+        if (categorySelect) categorySelect.value = transaction.categoryId || '';
         if (notesTextarea) notesTextarea.value = transaction.notes || '';
 
         const type = transaction.type;
@@ -548,6 +579,7 @@
         });
     } else {
         setupEventListeners();
+        loadCategories();
         loadTransactions();
     }
 })();
