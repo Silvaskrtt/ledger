@@ -656,6 +656,18 @@ input:disabled+.slider {
     border-color: #8A4FFF;
 }
 
+.modal-input.input-error,
+.input-error {
+    border-color: #EF4444 !important;
+    background: rgba(239, 68, 68, 0.1) !important;
+}
+
+.modal-input.input-error:focus,
+.input-error:focus {
+    border-color: #DC2626 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
 .modal-footer {
     display: flex;
     gap: 12px;
