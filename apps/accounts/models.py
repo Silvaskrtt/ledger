@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import Group
 import os
+from .validators import validate_brazilian_phone, format_brazilian_phone
 
 def avatar_upload_path(istance, filename):
     """Gera caminho único para o avatar"""
@@ -36,14 +37,20 @@ class Profile(models.Model):
         max_length=20, 
         blank=True,
         null=True,
-        verbose_name='Telefone'
+        verbose_name='Telefone',
+        validators=[validate_brazilian_phone],
+        help_text='Formato: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX'
         )
     
     def __str__(self):
         return f"{self.user.username} - {self.role}"
     
     def save(self, *args, **kwargs):
-        """Ao salvar o perfil, atualiza o grupo do usuário"""
+        """Ao salvar o perfil, formata o telefone e atualiza o grupo do usuário"""
+        # Formata o telefone antes de salvar
+        if self.phone:
+            self.phone = format_brazilian_phone(self.phone)
+        
         # Primeiro salva o perfil
         super().save(*args, **kwargs)
         # Depois atualiza o grupo (sem salvar o user)

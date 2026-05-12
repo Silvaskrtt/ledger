@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import Profile
+from .validators import validate_brazilian_phone, format_brazilian_phone
 
 class UserForm(forms.ModelForm):
     """Form para dados do User"""
@@ -22,7 +23,9 @@ class UserProfileForm(forms.ModelForm):
             'role': forms.Select(attrs={'class': 'w-full px-4 py-3 rounded-xl input-field text-slate-100'}),
             'phone': forms.TextInput(attrs={
                 'class': 'w-full px-4 py-3 rounded-xl input-field text-slate-100',
-                'placeholder': '(11) 99999-9999'
+                'placeholder': '(11) 99999-9999',
+                'id': 'phoneInput',
+                'maxlength': '20'
             }),
         }
     
@@ -32,3 +35,12 @@ class UserProfileForm(forms.ModelForm):
         if self.instance and self.instance.user:
             if not self.instance.user.is_superuser and self.instance.role != 'ADMIN':
                 self.fields['role'].disabled = True
+    
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if phone:
+            # Valida o telefone
+            validate_brazilian_phone(phone)
+            # Formata o telefone
+            phone = format_brazilian_phone(phone)
+        return phone
