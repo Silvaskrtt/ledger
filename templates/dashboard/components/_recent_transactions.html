@@ -1,0 +1,74 @@
+{% load i18n %}
+<!-- Recent Transactions Component -->
+<div class="transactions-section fade-up" style="animation-delay: 0.15s">
+    <div class="section-header">
+        <div class="section-title">
+            <i class="fas fa-history"></i>
+            <span>{% trans "Transações Recentes" %}</span>
+        </div>
+        <button class="view-all-btn" onclick="goToTransactions()">
+            <span>{% trans "Ver todas" %}</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+    
+    <div class="transactions-list" id="recentTransactionsList">
+        <!-- Transaction items will be populated by JS -->
+        <div class="transaction-item">
+            <div class="transaction-icon" style="background: rgba(239, 68, 68, 0.1);">
+                <i class="fas fa-shopping-cart" style="color: #ef4444;"></i>
+            </div>
+            <div class="transaction-info">
+                <div class="transaction-title">Supermercado</div>
+                <div class="transaction-meta">
+                    <span>Alimentação</span>
+                    <span class="separator">•</span>
+                    <span>15/06/2025</span>
+                </div>
+            </div>
+            <div class="transaction-amount expense">- R$ 342,50</div>
+        </div>
+        <div class="transaction-item">
+            <div class="transaction-icon" style="background: rgba(16, 185, 129, 0.1);">
+                <i class="fas fa-briefcase" style="color: #10b981;"></i>
+            </div>
+            <div class="transaction-info">
+                <div class="transaction-title">Salário</div>
+                <div class="transaction-meta">
+                    <span>Trabalho</span>
+                    <span class="separator">•</span>
+                    <span>01/06/2025</span>
+                </div>
+            </div>
+            <div class="transaction-amount income">+ R$ 5.000,00</div>
+        </div>
+        <div class="transaction-item">
+            <div class="transaction-icon" style="background: rgba(239, 68, 68, 0.1);">
+                <i class="fas fa-car" style="color: #ef4444;"></i>
+            </div>
+            <div class="transaction-info">
+                <div class="transaction-title">Uber</div>
+                <div class="transaction-meta">
+                    <span>Transporte</span>
+                    <span class="separator">•</span>
+                    <span>14/06/2025</span>
+                </div>
+            </div>
+            <div class="transaction-amount expense">- R$ 28,90</div>
+        </div>
+        <div class="transaction-item">
+            <div class="transaction-icon" style="background: rgba(239, 68, 68, 0.1);">
+                <i class="fas fa-tv" style="color: #ef4444;"></i>
+            </div>
+            <div class="transaction-info">
+                <div class="transaction-title">Netflix</div>
+                <div class="transaction-meta">
+                    <span>Lazer</span>
+                    <span class="separator">•</span>
+                    <span>10/06/2025</span>
+                </div>
+            </div>
+            <div class="transaction-amount expense">- R$ 39,90</div>
+        </div>
+    </div>
+</div>

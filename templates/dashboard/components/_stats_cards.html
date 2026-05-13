@@ -1,0 +1,64 @@
+{% load i18n %}
+<!-- Dashboard Stats Cards Component -->
+<div class="stats-row fade-up" style="animation-delay: 0.05s">
+    <!-- Balance Card -->
+    <div class="stat-card balance-card">
+        <div class="card-header">
+            <div class="card-icon balance-icon">
+                <i class="fas fa-wallet"></i>
+            </div>
+            <span class="card-label">{% trans "Saldo Total" %}</span>
+        </div>
+        <div class="card-value" id="totalBalanceValue">R$ 12.450,00</div>
+        <div class="card-change positive" id="balanceChange">
+            <i class="fas fa-arrow-up"></i>
+            <span id="balanceChangeValue">+8.2%</span>
+            <span class="change-text">{% trans "em relação ao mês passado" %}</span>
+        </div>
+    </div>
+
+    <!-- Income Card -->
+    <div class="stat-card income-card">
+        <div class="card-header">
+            <div class="card-icon income-icon">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <span class="card-label">{% trans "Receitas" %}</span>
+        </div>
+        <div class="card-value" id="totalIncomeValue">R$ 8.200,00</div>
+        <div class="card-change positive" id="incomeChange">
+            <i class="fas fa-arrow-up"></i>
+            <span id="incomeChangeValue">+12.5%</span>
+        </div>
+    </div>
+
+    <!-- Expense Card -->
+    <div class="stat-card expense-card">
+        <div class="card-header">
+            <div class="card-icon expense-icon">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+            <span class="card-label">{% trans "Despesas" %}</span>
+        </div>
+        <div class="card-value" id="totalExpenseValue">R$ 3.750,00</div>
+        <div class="card-change negative" id="expenseChange">
+            <i class="fas fa-arrow-down"></i>
+            <span id="expenseChangeValue">-5.3%</span>
+        </div>
+    </div>
+
+    <!-- Savings Card -->
+    <div class="stat-card savings-card">
+        <div class="card-header">
+            <div class="card-icon savings-icon">
+                <i class="fas fa-piggy-bank"></i>
+            </div>
+            <span class="card-label">{% trans "Economia" %}</span>
+        </div>
+        <div class="card-value" id="totalSavingsValue">R$ 1.250,00</div>
+        <div class="card-change positive">
+            <i class="fas fa-arrow-up"></i>
+            <span id="savingsChangeValue">+18.2%</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+{% load i18n %}
+<!-- Dashboard Charts Component -->
+<div class="charts-row fade-up" style="animation-delay: 0.1s">
+    <!-- Expense Chart -->
+    <div class="chart-card">
+        <div class="chart-header">
+            <div class="chart-title">
+                <i class="fas fa-chart-pie"></i>
+                <span>{% trans "Despesas por Categoria" %}</span>
+            </div>
+            <select class="chart-period" id="expensePeriod" onchange="updateExpenseChart(this.value)">
+                <option value="month">{% trans "Este Mês" %}</option>
+                <option value="quarter">{% trans "Este Trimestre" %}</option>
+                <option value="year">{% trans "Este Ano" %}</option>
+            </select>
+        </div>
+        <div class="chart-container">
+            <canvas id="expenseChart"></canvas>
+        </div>
+        <div class="chart-legend" id="expenseLegend">
+            <div class="legend-item"><span class="legend-color" style="background: #8A4FFF;"></span>Alimentação - 35%</div>
+            <div class="legend-item"><span class="legend-color" style="background: #5E2C9A;"></span>Transporte - 25%</div>
+            <div class="legend-item"><span class="legend-color" style="background: #c084fc;"></span>Lazer - 20%</div>
+            <div class="legend-item"><span class="legend-color" style="background: #6366f1;"></span>Moradia - 12%</div>
+            <div class="legend-item"><span class="legend-color" style="background: #ec4899;"></span>Outros - 8%</div>
+        </div>
+    </div>
+
+    <!-- Income vs Expense Chart -->
+    <div class="chart-card">
+        <div class="chart-header">
+            <div class="chart-title">
+                <i class="fas fa-chart-line"></i>
+                <span>{% trans "Evolução Mensal" %}</span>
+            </div>
+            <select class="chart-period" id="trendPeriod" onchange="updateTrendChart(this.value)">
+                <option value="6">{% trans "Últimos 6 meses" %}</option>
+                <option value="12">{% trans "Últimos 12 meses" %}</option>
+            </select>
+        </div>
+        <div class="chart-container">
+            <canvas id="trendChart"></canvas>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+{% load i18n %}
+<!-- Budget Overview Component -->
+<div class="budget-section fade-up" style="animation-delay: 0.2s">
+    <div class="section-header">
+        <div class="section-title">
+            <i class="fas fa-chart-simple"></i>
+            <span>{% trans "Orçamento por Categoria" %}</span>
+        </div>
+        <button class="view-all-btn" onclick="goToBudget()">
+            <span>{% trans "Gerenciar" %}</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+    
+    <div class="budget-list" id="budgetList">
+        <div class="budget-item">
+            <div class="budget-info">
+                <div class="budget-category">
+                    <span class="category-dot" style="background: #8A4FFF;"></span>
+                    <span>Alimentação</span>
+                </div>
+                <div class="budget-stats">
+                    <span class="budget-spent">R$ 342,50</span>
+                    <span class="budget-separator">/</span>
+                    <span class="budget-limit">R$ 800,00</span>
+                </div>
+            </div>
+            <div class="budget-bar">
+                <div class="budget-progress" style="width: 43%; background: #8A4FFF;"></div>
+            </div>
+        </div>
+        <div class="budget-item">
+            <div class="budget-info">
+                <div class="budget-category">
+                    <span class="category-dot" style="background: #5E2C9A;"></span>
+                    <span>Transporte</span>
+                </div>
+                <div class="budget-stats">
+                    <span class="budget-spent">R$ 28,90</span>
+                    <span class="budget-separator">/</span>
+                    <span class="budget-limit">R$ 300,00</span>
+                </div>
+            </div>
+            <div class="budget-bar">
+                <div class="budget-progress" style="width: 10%; background: #5E2C9A;"></div>
+            </div>
+        </div>
+        <div class="budget-item">
+            <div class="budget-info">
+                <div class="budget-category">
+                    <span class="category-dot" style="background: #c084fc;"></span>
+                    <span>Lazer</span>
+                </div>
+                <div class="budget-stats">
+                    <span class="budget-spent">R$ 39,90</span>
+                    <span class="budget-separator">/</span>
+                    <span class="budget-limit">R$ 400,00</span>
+                </div>
+            </div>
+            <div class="budget-bar">
+                <div class="budget-progress" style="width: 10%; background: #c084fc;"></div>
+            </div>
+        </div>
+    </div>
+</div>
