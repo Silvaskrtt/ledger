@@ -39,6 +39,7 @@
     let currentPage = 1;
     let totalPages = 1;
     let transactionToDelete = null;
+    let allCategories = []; // Armazenar categorias para uso global
 
     // ===== Helper Functions =====
     function formatCurrency(value) {
@@ -54,34 +55,55 @@
         return date.toLocaleDateString('pt-BR');
     }
 
+    // ===== FUNÇÃO CORRIGIDA: Carregar Categorias =====
     async function loadCategories() {
         try {
             const response = await fetch('/categories/api/categories/');
             const data = await response.json();
-            const categorySelect = document.getElementById('category');
-            const categoryFilter = document.getElementById('categoryFilter');
-            
+
+            allCategories = data.categories || [];
+
+            // Atualiza o select de categorias no modal de transação
             if (categorySelect) {
+                const currentValue = categorySelect.value; // Preservar valor selecionado se existir
+
                 categorySelect.innerHTML = '<option value="">Selecione uma categoria</option>';
-                data.categories.forEach(cat => {
+
+                allCategories.forEach(cat => {
                     const option = document.createElement('option');
                     option.value = cat.id;
                     option.textContent = `${cat.icon || '📌'} ${cat.name}`;
                     categorySelect.appendChild(option);
                 });
+
+                // Restaurar valor selecionado se ainda existir
+                if (currentValue && Array.from(categorySelect.options).some(opt => opt.value === currentValue)) {
+                    categorySelect.value = currentValue;
+                }
             }
-            
+
+            // Atualiza o filtro de categorias
             if (categoryFilter) {
+                const currentFilterValue = categoryFilter.value;
                 categoryFilter.innerHTML = '<option value="all">Todas as categorias</option>';
-                data.categories.forEach(cat => {
+
+                allCategories.forEach(cat => {
                     const option = document.createElement('option');
                     option.value = cat.name;
                     option.textContent = `${cat.icon || '📌'} ${cat.name}`;
                     categoryFilter.appendChild(option);
                 });
+
+                if (currentFilterValue && currentFilterValue !== 'all') {
+                    categoryFilter.value = currentFilterValue;
+                }
             }
+
+            console.log(`✅ ${allCategories.length} categorias carregadas`);
+
         } catch (error) {
             console.error('Erro ao carregar categorias:', error);
+            showToast('Erro ao carregar categorias', 'error');
         }
     }
 
@@ -89,6 +111,10 @@
     window.openCategoryModal = function () {
         const categoryModal = document.getElementById('categoryModal');
         if (categoryModal) {
+            // Resetar o formulário
+            const categoryForm = document.getElementById('categoryForm');
+            if (categoryForm) categoryForm.reset();
+
             categoryModal.style.display = 'flex';
         }
     };
@@ -100,17 +126,26 @@
         }
     };
 
+    // ===== FUNÇÃO CORRIGIDA: saveCategory =====
     async function saveCategory() {
         const form = document.getElementById('categoryForm');
         if (!form) return;
 
         const formData = new FormData(form);
+
+        // Pegar os valores corretamente
         const categoryData = {
             name: formData.get('name'),
-            icon: formData.get('icon'),
-            color: formData.get('color'),
-            type: 'expense'  // Default to expense
+            icon: formData.get('icon') || '📌',
+            color: formData.get('color') || '#8A4FFF',
+            type: 'expense'  // ou pode ser um select no modal
         };
+
+        // Validação
+        if (!categoryData.name || categoryData.name.trim() === '') {
+            showToast('Por favor, informe o nome da categoria', 'error');
+            return;
+        }
 
         try {
             const response = await fetch('/categories/api/categories/create/', {
@@ -123,367 +158,42 @@
             });
 
             if (response.ok) {
-                showToast('Categoria criada com sucesso!', 'success');
-                closeCategoryModal();
-                loadCategories();  // Reload categories
-                form.reset();
+                const result = await response.json();
+                if (result.success) {
+                    showToast('Categoria criada com sucesso!', 'success');
+                    closeCategoryModal();
+
+                    // CRÍTICO: Recarregar categorias após adicionar nova
+                    await loadCategories();
+
+                    // Limpar o formulário
+                    form.reset();
+
+                    // Opcional: Se o modal de transação estiver aberto, manter ele aberto
+                    // e a nova categoria já estará disponível no select
+                } else {
+                    showToast(result.error || 'Erro ao criar categoria', 'error');
+                }
             } else {
                 const error = await response.json();
                 showToast(error.error || 'Erro ao criar categoria', 'error');
             }
         } catch (error) {
-            console.error('Erro:', error);
+            console.error('Erro ao salvar categoria:', error);
             showToast('Erro ao criar categoria', 'error');
         }
     }
 
-    function escapeHtml(text) {
-        if (!text) return '';
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-
-    function showToast(message, type = 'success') {
-        let toastContainer = document.querySelector('.toast-container');
-        if (!toastContainer) {
-            toastContainer = document.createElement('div');
-            toastContainer.className = 'toast-container';
-            document.body.appendChild(toastContainer);
-        }
-
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = `
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-            <span>${message}</span>
-        `;
-        toastContainer.appendChild(toast);
-
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transition = 'opacity 0.3s';
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
-    }
-
-    // ===== FUNÇÃO CORRIGIDA: Converter valor monetário =====
-    function parseAmountToNumber(amountString) {
-        if (!amountString) return 0;
-
-        // Remove 'R$', espaços, pontos (separadores de milhar) e substitui vírgula por ponto
-        let cleanValue = amountString
-            .replace(/R\$/g, '')
-            .replace(/\s/g, '')
-            .replace(/\./g, '')
-            .replace(/,/g, '.');
-
-        // Converte para número
-        const number = parseFloat(cleanValue);
-        return isNaN(number) ? 0 : number;
-    }
-
-    // ===== Load Transactions =====
-    async function loadTransactions() {
-        if (!window.transactionsApiUrl) {
-            console.error('API URL not configured');
-            showToast('Erro de configuração da API', 'error');
-            return;
-        }
-
-        try {
-            if (transactionsList) {
-                transactionsList.innerHTML = `
-                    <div class="loading-skeleton">
-                        <div class="skeleton-row"></div>
-                        <div class="skeleton-row"></div>
-                        <div class="skeleton-row"></div>
-                    </div>
-                `;
-            }
-
-            const params = new URLSearchParams();
-            if (searchInput?.value) params.append('search', searchInput.value);
-            if (typeFilter?.value && typeFilter.value !== 'all') params.append('type', typeFilter.value);
-            if (categoryFilter?.value && categoryFilter.value !== 'all') params.append('category', categoryFilter.value);
-            if (monthFilter?.value) params.append('month', monthFilter.value);
-            params.append('page', currentPage);
-
-            const url = `${window.transactionsApiUrl}?${params.toString()}`;
-            const response = await fetch(url, {
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-            });
-
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-            const data = await response.json();
-
-            transactions = data.transactions || [];
-            totalPages = data.total_pages || 1;
-
-            if (totalIncomeSpan) totalIncomeSpan.textContent = formatCurrency(data.total_income || 0);
-            if (totalExpenseSpan) totalExpenseSpan.textContent = formatCurrency(data.total_expense || 0);
-            if (totalBalanceSpan) {
-                const balance = (data.total_income || 0) - (data.total_expense || 0);
-                totalBalanceSpan.textContent = formatCurrency(balance);
-                totalBalanceSpan.style.color = balance >= 0 ? '#10b981' : '#ef4444';
-            }
-
-            updatePagination(data);
-            renderTransactions();
-
-        } catch (error) {
-            console.error('Error loading transactions:', error);
-            showToast('Erro ao carregar transações', 'error');
-            if (transactionsList) {
-                transactionsList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>Erro ao carregar transações</p>
-                        <button onclick="location.reload()">Tentar novamente</button>
-                    </div>
-                `;
-            }
-        }
-    }
-
-    // ===== Render Transactions =====
-    function renderTransactions() {
-        if (!transactionsList) return;
-
-        if (!transactions || transactions.length === 0) {
-            transactionsList.innerHTML = `
-                <div class="empty-state">
-                    <i class="fas fa-inbox"></i>
-                    <p>Nenhuma transação encontrada</p>
-                    <button class="btn-add" onclick="window.openTransactionModal()" style="margin-top: 16px;">
-                        <i class="fas fa-plus"></i> Adicionar transação
-                    </button>
-                </div>
-            `;
-            return;
-        }
-
-        transactionsList.innerHTML = transactions.map(transaction => `
-            <div class="transaction-row fade-up" data-id="${transaction.id}">
-                <div class="transaction-date">${formatDate(transaction.date)}</div>
-                <div class="transaction-description">${escapeHtml(transaction.description)}</div>
-                <div class="transaction-category">
-                    <div class="category-icon">${transaction.categoryIcon || '📌'}</div>
-                    <span class="category-name">${escapeHtml(transaction.category)}</span>
-                </div>
-                <div class="transaction-amount ${transaction.type === 'income' ? 'income' : 'expense'}">
-                    ${transaction.type === 'income' ? '+' : '-'} ${formatCurrency(transaction.amount)}
-                </div>
-                <div class="transaction-actions">
-                    <button class="action-icon edit" onclick="window.editTransaction(${transaction.id})" title="Editar">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button>
-                    <button class="action-icon delete" onclick="window.confirmDelete(${transaction.id})" title="Excluir">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    // ===== Pagination =====
-    function updatePagination(data) {
-        if (pageInfo) {
-            pageInfo.textContent = `Página ${data.current_page || 1} de ${data.total_pages || 1}`;
-        }
-        if (prevPageBtn) prevPageBtn.disabled = !data.has_previous;
-        if (nextPageBtn) nextPageBtn.disabled = !data.has_next;
-    }
-
-    function nextPage() {
-        if (nextPageBtn && !nextPageBtn.disabled) {
-            currentPage++;
-            loadTransactions();
-            transactionsList?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    function prevPage() {
-        if (prevPageBtn && !prevPageBtn.disabled) {
-            currentPage--;
-            loadTransactions();
-            transactionsList?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    // ===== Delete Transaction =====
-    window.confirmDelete = function (id) {
-        transactionToDelete = id;
-        if (deleteModal) deleteModal.style.display = 'flex';
-    };
-
-    window.closeDeleteModal = function () {
-        if (deleteModal) deleteModal.style.display = 'none';
-        transactionToDelete = null;
-    };
-
-    async function deleteTransaction() {
-        if (transactionToDelete === null) return;
-
-        try {
-            const response = await fetch(
-                `/transactions/api/transactions/${transactionToDelete}/delete/`,
-                {
-                    method: 'DELETE',
-                    headers: {
-                        'X-CSRFToken': getCookie('csrftoken'),
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                }
-            );
-
-            const data = await response.json();
-
-            if (data.success) {
-                showToast('Transação excluída com sucesso!', 'success');
-                await loadTransactions();
-            } else {
-                showToast(data.error || 'Erro ao excluir transação', 'error');
-            }
-        } catch (error) {
-            console.error('Error deleting transaction:', error);
-            showToast('Erro ao excluir transação', 'error');
-        }
-
-        closeDeleteModal();
-    }
-
-    // ===== FUNÇÃO CORRIGIDA: saveTransaction =====
-    async function saveTransaction(formData) {
-        const transactionId = formData.get('transaction_id');
-        const isEditing = transactionId && transactionId !== '';
-
-        // CORREÇÃO: Converter o valor corretamente
-        let amountString = formData.get('amount') || '0';
-        const amount = parseAmountToNumber(amountString);
-
-        const transactionData = {
-            description: formData.get('description') || '',
-            amount: amount,
-            date: formData.get('date') || '',
-            category: formData.get('category') || '',
-            type: formData.get('transaction_type') || 'expense',  // CORREÇÃO: usar 'type' invés de 'transaction_type'
-            notes: formData.get('notes') || ''
-        };
-
-        // Validação detalhada
-        const errors = [];
-
-        if (!transactionData.description || transactionData.description.trim() === '') {
-            errors.push('Por favor, informe uma descrição');
-        }
-
-        if (transactionData.amount <= 0) {
-            errors.push('Por favor, informe um valor válido maior que zero');
-        }
-
-        if (!transactionData.date) {
-            errors.push('Por favor, informe uma data');
-        }
-
-        if (!transactionData.category) {
-            errors.push('Por favor, selecione uma categoria');
-        }
-
-        if (errors.length > 0) {
-            errors.forEach(error => showToast(error, 'error'));
-            return;
-        }
-
-        // Mostrar loading no botão
-        const submitBtn = document.querySelector('#transactionModal .btn-primary');
-        const originalText = submitBtn?.textContent || 'Salvar';
-        if (submitBtn) {
-            submitBtn.textContent = 'Salvando...';
-            submitBtn.disabled = true;
-        }
-
-        try {
-            let url, method;
-            if (isEditing) {
-                url = `/transactions/api/transactions/${transactionId}/update/`;
-                method = 'PUT';
-            } else {
-                url = '/transactions/api/transactions/create/';
-                method = 'POST';
-            }
-
-            console.log('Enviando dados:', transactionData); // Debug
-
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify(transactionData)
-            });
-
-            // Tentar obter a resposta como JSON
-            let data;
-            const contentType = response.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-                data = await response.json();
-            } else {
-                const text = await response.text();
-                console.error('Resposta não é JSON:', text);
-                throw new Error('Erro no servidor');
-            }
-
-            if (response.ok && data.success) {
-                showToast(
-                    isEditing ? 'Transação atualizada com sucesso!' : 'Transação criada com sucesso!',
-                    'success'
-                );
-                closeTransactionModal();
-                await loadTransactions();
-                // Resetar página para 1 após criar nova transação
-                if (!isEditing) currentPage = 1;
-            } else {
-                const errorMsg = data.error || data.message || 'Erro ao salvar transação';
-                showToast(errorMsg, 'error');
-                console.error('Erro do backend:', data);
-            }
-        } catch (error) {
-            console.error('Error saving transaction:', error);
-            showToast('Erro ao conectar com o servidor', 'error');
-        } finally {
-            if (submitBtn) {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        }
-    }
-
-    // ===== Modal Functions =====
-    window.openTransactionModal = function () {
+    // ===== FUNÇÃO CORRIGIDA: openTransactionModal =====
+    window.openTransactionModal = async function () {
         if (!transactionModal) {
             console.error('Modal de transação não encontrado');
             showToast('Erro ao abrir formulário', 'error');
             return;
         }
+
+        // CRÍTICO: Recarregar categorias antes de abrir o modal
+        await loadCategories();
 
         if (transactionForm) transactionForm.reset();
         if (transactionIdInput) transactionIdInput.value = '';
@@ -507,6 +217,7 @@
         transactionModal.style.display = 'flex';
     };
 
+    // ===== FUNÇÃO CORRIGIDA: editTransaction =====
     window.editTransaction = async function (id) {
         const transaction = transactions.find(t => t.id === id);
         if (!transaction) {
@@ -519,16 +230,24 @@
             return;
         }
 
+        // CRÍTICO: Recarregar categorias antes de editar
+        await loadCategories();
+
         if (transactionModalTitle) transactionModalTitle.textContent = 'Editar Transação';
         if (submitBtnText) submitBtnText.textContent = 'Atualizar';
         if (transactionIdInput) transactionIdInput.value = id;
         if (descriptionInput) descriptionInput.value = transaction.description || '';
 
-        // CORREÇÃO: Formatar valor para exibição
+        // Formatar valor para exibição
         if (amountInput) amountInput.value = formatCurrency(transaction.amount);
 
         if (dateInput) dateInput.value = transaction.date;
-        if (categorySelect) categorySelect.value = transaction.categoryId || '';
+
+        // Garantir que a categoria está selecionada corretamente
+        if (categorySelect && transaction.categoryId) {
+            categorySelect.value = transaction.categoryId;
+        }
+
         if (notesTextarea) notesTextarea.value = transaction.notes || '';
 
         const type = transaction.type;
@@ -543,32 +262,296 @@
         transactionModal.style.display = 'flex';
     };
 
+    // ===== Função auxiliar: getCookie =====
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // ===== Show Toast =====
+    function showToast(message, type = 'success') {
+        let toastContainer = document.querySelector('.toast-container');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.className = 'toast-container';
+            document.body.appendChild(toastContainer);
+        }
+
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerHTML = `
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span>${message}</span>
+        `;
+        toastContainer.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transition = 'opacity 0.3s';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+
+    // ===== Parse Amount =====
+    function parseAmountToNumber(amountString) {
+        if (!amountString) return 0;
+        let cleanValue = amountString
+            .replace(/R\$/g, '')
+            .replace(/\s/g, '')
+            .replace(/\./g, '')
+            .replace(/,/g, '.');
+        const number = parseFloat(cleanValue);
+        return isNaN(number) ? 0 : number;
+    }
+
+    // ===== Save Transaction =====
+    async function saveTransaction(formData) {
+        const transactionId = formData.get('transaction_id');
+        const isEditing = transactionId && transactionId !== '';
+
+        let amountString = formData.get('amount') || '0';
+        const amount = parseAmountToNumber(amountString);
+
+        const transactionData = {
+            description: formData.get('description') || '',
+            amount: amount,
+            date: formData.get('date') || '',
+            category: formData.get('category') || '',
+            type: formData.get('transaction_type') || 'expense',
+            notes: formData.get('notes') || ''
+        };
+
+        // Validação
+        const errors = [];
+        if (!transactionData.description || transactionData.description.trim() === '') {
+            errors.push('Por favor, informe uma descrição');
+        }
+        if (transactionData.amount <= 0) {
+            errors.push('Por favor, informe um valor válido maior que zero');
+        }
+        if (!transactionData.date) {
+            errors.push('Por favor, informe uma data');
+        }
+        if (!transactionData.category) {
+            errors.push('Por favor, selecione uma categoria');
+        }
+
+        if (errors.length > 0) {
+            errors.forEach(error => showToast(error, 'error'));
+            return;
+        }
+
+        const submitBtn = document.querySelector('#transactionModal .btn-submit');
+        const originalText = submitBtn?.textContent || 'Salvar';
+        if (submitBtn) {
+            submitBtn.textContent = 'Salvando...';
+            submitBtn.disabled = true;
+        }
+
+        try {
+            let url, method;
+            if (isEditing) {
+                url = `/transactions/api/transactions/${transactionId}/update/`;
+                method = 'PUT';
+            } else {
+                url = '/transactions/api/transactions/create/';
+                method = 'POST';
+            }
+
+            const response = await fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify(transactionData)
+            });
+
+            let data;
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                data = await response.json();
+            } else {
+                throw new Error('Erro no servidor');
+            }
+
+            if (response.ok && data.success) {
+                showToast(
+                    isEditing ? 'Transação atualizada com sucesso!' : 'Transação criada com sucesso!',
+                    'success'
+                );
+                window.closeTransactionModal();
+                await loadTransactions();
+                if (!isEditing) currentPage = 1;
+            } else {
+                const errorMsg = data.error || data.message || 'Erro ao salvar transação';
+                showToast(errorMsg, 'error');
+            }
+        } catch (error) {
+            console.error('Error saving transaction:', error);
+            showToast('Erro ao conectar com o servidor', 'error');
+        } finally {
+            if (submitBtn) {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+    }
+
+    // ===== Load Transactions =====
+    async function loadTransactions() {
+        if (!window.transactionsApiUrl) {
+            console.error('API URL not configured');
+            showToast('Erro de configuração da API', 'error');
+            return;
+        }
+
+        try {
+            if (transactionsList) {
+                transactionsList.innerHTML = `<div class="loading-skeleton">Carregando...</div>`;
+            }
+
+            const params = new URLSearchParams();
+            if (searchInput?.value) params.append('search', searchInput.value);
+            if (typeFilter?.value && typeFilter.value !== 'all') params.append('type', typeFilter.value);
+            if (categoryFilter?.value && categoryFilter.value !== 'all') params.append('category', categoryFilter.value);
+            if (monthFilter?.value) params.append('month', monthFilter.value);
+            params.append('page', currentPage);
+
+            const url = `${window.transactionsApiUrl}?${params.toString()}`;
+            const response = await fetch(url, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const data = await response.json();
+            transactions = data.transactions || [];
+            totalPages = data.total_pages || 1;
+
+            if (totalIncomeSpan) totalIncomeSpan.textContent = formatCurrency(data.total_income || 0);
+            if (totalExpenseSpan) totalExpenseSpan.textContent = formatCurrency(data.total_expense || 0);
+            if (totalBalanceSpan) {
+                const balance = (data.total_income || 0) - (data.total_expense || 0);
+                totalBalanceSpan.textContent = formatCurrency(balance);
+                totalBalanceSpan.style.color = balance >= 0 ? '#10b981' : '#ef4444';
+            }
+
+            updatePagination(data);
+            renderTransactions();
+
+        } catch (error) {
+            console.error('Error loading transactions:', error);
+            showToast('Erro ao carregar transações', 'error');
+        }
+    }
+
+    function renderTransactions() {
+        if (!transactionsList) return;
+        if (!transactions || transactions.length === 0) {
+            transactionsList.innerHTML = `<div class="empty-state">Nenhuma transação encontrada</div>`;
+            return;
+        }
+
+        transactionsList.innerHTML = transactions.map(transaction => `
+            <div class="transaction-row" data-id="${transaction.id}">
+                <div class="transaction-date">${formatDate(transaction.date)}</div>
+                <div class="transaction-description">${escapeHtml(transaction.description)}</div>
+                <div class="transaction-category">
+                    <span class="category-name">${escapeHtml(transaction.category)}</span>
+                </div>
+                <div class="transaction-amount ${transaction.type === 'income' ? 'income' : 'expense'}">
+                    ${transaction.type === 'income' ? '+' : '-'} ${formatCurrency(transaction.amount)}
+                </div>
+                <div class="transaction-actions">
+                    <button class="action-icon edit" onclick="window.editTransaction(${transaction.id})">✏️</button>
+                    <button class="action-icon delete" onclick="window.confirmDelete(${transaction.id})">🗑️</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function updatePagination(data) {
+        if (pageInfo) pageInfo.textContent = `Página ${data.current_page || 1} de ${data.total_pages || 1}`;
+        if (prevPageBtn) prevPageBtn.disabled = !data.has_previous;
+        if (nextPageBtn) nextPageBtn.disabled = !data.has_next;
+    }
+
     window.closeTransactionModal = function () {
         if (transactionModal) transactionModal.style.display = 'none';
     };
 
-    // ===== Setup =====
+    window.confirmDelete = function (id) {
+        transactionToDelete = id;
+        if (deleteModal) deleteModal.style.display = 'flex';
+    };
+
+    window.closeDeleteModal = function () {
+        if (deleteModal) deleteModal.style.display = 'none';
+        transactionToDelete = null;
+    };
+
+    async function deleteTransaction() {
+        if (transactionToDelete === null) return;
+        try {
+            const response = await fetch(`/transactions/api/transactions/${transactionToDelete}/delete/`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+            const data = await response.json();
+            if (data.success) {
+                showToast('Transação excluída com sucesso!', 'success');
+                await loadTransactions();
+            } else {
+                showToast(data.error || 'Erro ao excluir transação', 'error');
+            }
+        } catch (error) {
+            console.error('Error deleting transaction:', error);
+            showToast('Erro ao excluir transação', 'error');
+        }
+        window.closeDeleteModal();
+    }
+
+    // ===== Setup Event Listeners =====
     function setupEventListeners() {
         if (searchInput) searchInput.addEventListener('input', () => { currentPage = 1; loadTransactions(); });
         if (typeFilter) typeFilter.addEventListener('change', () => { currentPage = 1; loadTransactions(); });
         if (categoryFilter) categoryFilter.addEventListener('change', () => { currentPage = 1; loadTransactions(); });
         if (monthFilter) monthFilter.addEventListener('change', () => { currentPage = 1; loadTransactions(); });
-
-        if (clearFiltersBtn) {
-            clearFiltersBtn.addEventListener('click', () => {
-                if (searchInput) searchInput.value = '';
-                if (typeFilter) typeFilter.value = 'all';
-                if (categoryFilter) categoryFilter.value = 'all';
-                if (monthFilter) monthFilter.value = '';
-                currentPage = 1;
-                loadTransactions();
-            });
-        }
-
-        if (prevPageBtn) prevPageBtn.addEventListener('click', prevPage);
-        if (nextPageBtn) nextPageBtn.addEventListener('click', nextPage);
+        if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            if (typeFilter) typeFilter.value = 'all';
+            if (categoryFilter) categoryFilter.value = 'all';
+            if (monthFilter) monthFilter.value = '';
+            currentPage = 1;
+            loadTransactions();
+        });
+        if (prevPageBtn) prevPageBtn.addEventListener('click', () => { currentPage--; loadTransactions(); });
+        if (nextPageBtn) nextPageBtn.addEventListener('click', () => { currentPage++; loadTransactions(); });
         if (confirmDeleteBtn) confirmDeleteBtn.addEventListener('click', deleteTransaction);
 
+        const categoryForm = document.getElementById('categoryForm');
         if (categoryForm) {
             categoryForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -576,25 +559,14 @@
             });
         }
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (deleteModal?.style.display === 'flex') closeDeleteModal();
-                if (transactionModal?.style.display === 'flex') closeTransactionModal();
-            }
-        });
+        if (transactionForm) {
+            transactionForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await saveTransaction(new FormData(transactionForm));
+            });
+        }
 
-        [deleteModal, transactionModal].forEach(modal => {
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        if (modal.id === 'deleteModal') window.closeDeleteModal();
-                        if (modal.id === 'transactionModal') window.closeTransactionModal();
-                    }
-                });
-            }
-        });
-
-        if (typeButtons && typeButtons.length) {
+        if (typeButtons) {
             typeButtons.forEach(btn => {
                 btn.addEventListener('click', function () {
                     typeButtons.forEach(b => b.classList.remove('active'));
@@ -617,28 +589,47 @@
             });
         }
 
-        if (transactionForm) {
-            transactionForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                await saveTransaction(new FormData(transactionForm));
-            });
-        }
+        // Fechar modais ao clicar fora
+        [deleteModal, transactionModal].forEach(modal => {
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        if (modal.id === 'deleteModal') window.closeDeleteModal();
+                        if (modal.id === 'transactionModal') window.closeTransactionModal();
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (deleteModal?.style.display === 'flex') window.closeDeleteModal();
+                if (transactionModal?.style.display === 'flex') window.closeTransactionModal();
+            }
+        });
     }
 
-    // Exportar funções
-    window.goToAddTransaction = function () {
-        window.openTransactionModal();
-    };
-
-    // Initialize
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            setupEventListeners();
-            loadTransactions();
-        });
-    } else {
+    // ===== Initialize =====
+    function init() {
         setupEventListeners();
-        loadCategories();
+        loadCategories(); // Carregar categorias na inicialização
         loadTransactions();
     }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // Export functions to window
+    window.openTransactionModal = openTransactionModal;
+    window.editTransaction = editTransaction;
+    window.closeTransactionModal = closeTransactionModal;
+    window.openCategoryModal = openCategoryModal;
+    window.closeCategoryModal = closeCategoryModal;
+    window.confirmDelete = confirmDelete;
+    window.closeDeleteModal = closeDeleteModal;
+    window.goToAddTransaction = openTransactionModal;
+
 })();
