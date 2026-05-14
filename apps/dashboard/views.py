@@ -18,12 +18,17 @@ def dashboard_summary(request):
     calculator = DashboardCalculator(request.user)
     
     data = {
+        # Totais gerais (todos os tempos)
         'total_balance': float(calculator.get_total_balance()),
         'total_income': float(calculator.get_total_income()),
         'total_expenses': float(calculator.get_total_expenses()),
+        
+        # Dados do mês atual
         'current_month_income': float(calculator.get_current_month_income()),
         'current_month_expenses': float(calculator.get_current_month_expenses()),
         'savings': float(calculator.get_savings()),
+        
+        # Variações percentuais
         'income_change': calculator.get_income_percentage_change(),
         'expenses_change': calculator.get_expenses_percentage_change(),
         'balance_change': calculator.get_balance_percentage_change(),

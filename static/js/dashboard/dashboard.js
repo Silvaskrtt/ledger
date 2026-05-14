@@ -75,20 +75,24 @@ function loadDashboardSummary() {
                 }).format(value);
             };
 
-            // Atualiza cards (com verificação de existência)
+            // Usar totais gerais nos cards principais
+            // Saldo Total (já estava correto)
             const balanceEl = document.getElementById('totalBalanceValue');
             if (balanceEl) balanceEl.textContent = formatCurrency(data.total_balance);
 
+            // Total de Receitas (todos os tempos)
             const incomeEl = document.getElementById('totalIncomeValue');
-            if (incomeEl) incomeEl.textContent = formatCurrency(data.current_month_income);
+            if (incomeEl) incomeEl.textContent = formatCurrency(data.total_income);  // Mudado de current_month_income
 
+            // Total de Despesas (todos os tempos)
             const expenseEl = document.getElementById('totalExpenseValue');
-            if (expenseEl) expenseEl.textContent = formatCurrency(data.current_month_expenses);
+            if (expenseEl) expenseEl.textContent = formatCurrency(data.total_expenses);  // Mudado de current_month_expenses
 
+            // Economia do mês atual (saldo do mês)
             const savingsEl = document.getElementById('totalSavingsValue');
-            if (savingsEl) savingsEl.textContent = formatCurrency(data.savings);
+            if (savingsEl) savingsEl.textContent = formatCurrency(data.savings);  // Já é a economia do mês
 
-            // Atualiza percentuais de mudança (com verificação)
+            // Atualiza percentuais de mudança
             updateChangeIndicator('balanceChange', 'balanceChangeValue', data.balance_change);
             updateChangeIndicator('incomeChange', 'incomeChangeValue', data.income_change);
             updateChangeIndicator('expenseChange', 'expenseChangeValue', data.expenses_change);
