@@ -26,30 +26,36 @@ let trendChartInstance = null;
 /**
  * Inicializa o dashboard ao carregar a página
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('Dashboard inicializando...');
-    
+
     // Carrega dados resumidos
     loadDashboardSummary();
-    
+
     // Carrega gráficos
     updateExpenseChart('month');
     updateTrendChart('12');
-    
+
     // Carrega transações recentes
     loadRecentTransactions();
-    
+
     // Carrega orçamento por categoria
     loadBudgetByCategory();
-    
+
     // Setup event listeners
-    document.getElementById('expensePeriod').addEventListener('change', function() {
-        updateExpenseChart(this.value);
-    });
-    
-    document.getElementById('trendPeriod').addEventListener('change', function() {
-        updateTrendChart(this.value);
-    });
+    const expensePeriod = document.getElementById('expensePeriod');
+    if (expensePeriod) {
+        expensePeriod.addEventListener('change', function () {
+            updateExpenseChart(this.value);
+        });
+    }
+
+    const trendPeriod = document.getElementById('trendPeriod');
+    if (trendPeriod) {
+        trendPeriod.addEventListener('change', function () {
+            updateTrendChart(this.value);
+        });
+    }
 });
 
 /**
@@ -60,7 +66,7 @@ function loadDashboardSummary() {
         .then(response => response.json())
         .then(data => {
             console.log('Dashboard Summary:', data);
-            
+
             // Formata valores em moeda brasileira
             const formatCurrency = (value) => {
                 return new Intl.NumberFormat('pt-BR', {
@@ -68,43 +74,59 @@ function loadDashboardSummary() {
                     currency: 'BRL'
                 }).format(value);
             };
-            
-            // Atualiza cards
-            document.getElementById('totalBalanceValue').textContent = formatCurrency(data.total_balance);
-            document.getElementById('totalIncomeValue').textContent = formatCurrency(data.current_month_income);
-            document.getElementById('totalExpenseValue').textContent = formatCurrency(data.current_month_expenses);
-            document.getElementById('totalSavingsValue').textContent = formatCurrency(data.savings);
-            
-            // Atualiza percentuais de mudança
+
+            // Atualiza cards (com verificação de existência)
+            const balanceEl = document.getElementById('totalBalanceValue');
+            if (balanceEl) balanceEl.textContent = formatCurrency(data.total_balance);
+
+            const incomeEl = document.getElementById('totalIncomeValue');
+            if (incomeEl) incomeEl.textContent = formatCurrency(data.current_month_income);
+
+            const expenseEl = document.getElementById('totalExpenseValue');
+            if (expenseEl) expenseEl.textContent = formatCurrency(data.current_month_expenses);
+
+            const savingsEl = document.getElementById('totalSavingsValue');
+            if (savingsEl) savingsEl.textContent = formatCurrency(data.savings);
+
+            // Atualiza percentuais de mudança (com verificação)
             updateChangeIndicator('balanceChange', 'balanceChangeValue', data.balance_change);
             updateChangeIndicator('incomeChange', 'incomeChangeValue', data.income_change);
             updateChangeIndicator('expenseChange', 'expenseChangeValue', data.expenses_change);
-            updateChangeIndicator('savingsChangeValue', 'savingsChangeValue', data.balance_change);
         })
         .catch(error => console.error('Erro ao carregar summary:', error));
 }
 
 /**
- * Atualiza o indicador de mudança (positivo/negativo)
+ * Atualiza o indicador de mudança (positivo/negativo) - CORRIGIDA
  */
 function updateChangeIndicator(containerId, valueId, percentage) {
     const container = document.getElementById(containerId);
     const valueElement = document.getElementById(valueId);
-    
-    if (container && valueElement) {
-        valueElement.textContent = Math.abs(percentage) + '%';
-        
-        // Remove classes anteriores
-        container.classList.remove('positive', 'negative');
-        
-        // Adiciona nova classe
-        if (percentage >= 0) {
-            container.classList.add('positive');
-            container.querySelector('i').className = 'fas fa-arrow-up';
-        } else {
-            container.classList.add('negative');
-            container.querySelector('i').className = 'fas fa-arrow-down';
-        }
+
+    if (!container) {
+        console.warn(`Container não encontrado: ${containerId}`);
+        return;
+    }
+
+    if (!valueElement) {
+        console.warn(`Value element não encontrado: ${valueId}`);
+        return;
+    }
+
+    valueElement.textContent = Math.abs(percentage) + '%';
+
+    // Remove classes anteriores
+    container.classList.remove('positive', 'negative');
+
+    // Adiciona nova classe e atualiza ícone
+    if (percentage >= 0) {
+        container.classList.add('positive');
+        const icon = container.querySelector('i');
+        if (icon) icon.className = 'fas fa-arrow-up';
+    } else {
+        container.classList.add('negative');
+        const icon = container.querySelector('i');
+        if (icon) icon.className = 'fas fa-arrow-down';
     }
 }
 
@@ -116,23 +138,25 @@ function updateExpenseChart(period) {
         .then(response => response.json())
         .then(data => {
             console.log('Expenses by Category:', data);
-            
+
             const categories = data.data.map(item => item.name);
             const amounts = data.data.map(item => item.amount);
-            
+
             // Define cores (cicla entre as definidas)
             const colors = Object.values(CHART_COLORS);
             const backgroundColors = categories.map((_, i) => colors[i % colors.length]);
-            
+
             // Destroy o gráfico anterior se existir
             if (expenseChartInstance) {
                 expenseChartInstance.destroy();
             }
-            
+
             // Cria novo gráfico
             const canvas = document.getElementById('expenseChart');
+            if (!canvas) return;
+
             const ctx = canvas.getContext('2d');
-            
+
             expenseChartInstance = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -153,7 +177,7 @@ function updateExpenseChart(period) {
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     const label = context.label || '';
                                     const value = formatCurrency(context.parsed);
                                     const total = context.dataset.data.reduce((a, b) => a + b, 0);
@@ -165,7 +189,7 @@ function updateExpenseChart(period) {
                     }
                 }
             });
-            
+
             // Atualiza legenda
             updateChartLegend(categories, amounts, backgroundColors);
         })
@@ -180,20 +204,22 @@ function updateTrendChart(months) {
         .then(response => response.json())
         .then(data => {
             console.log('Monthly Trend:', data);
-            
+
             const labels = data.data.map(item => item.month);
             const incomeData = data.data.map(item => item.income);
             const expenseData = data.data.map(item => item.expenses);
-            
+
             // Destroy o gráfico anterior se existir
             if (trendChartInstance) {
                 trendChartInstance.destroy();
             }
-            
+
             // Cria novo gráfico
             const canvas = document.getElementById('trendChart');
+            if (!canvas) return;
+
             const ctx = canvas.getContext('2d');
-            
+
             trendChartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -242,7 +268,7 @@ function updateTrendChart(months) {
                             mode: 'index',
                             intersect: false,
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     let label = context.dataset.label || '';
                                     if (label) {
                                         label += ': ';
@@ -257,7 +283,7 @@ function updateTrendChart(months) {
                         y: {
                             beginAtZero: true,
                             ticks: {
-                                callback: function(value) {
+                                callback: function (value) {
                                     return formatCurrency(value);
                                 }
                             }
@@ -274,9 +300,10 @@ function updateTrendChart(months) {
  */
 function updateChartLegend(categories, amounts, colors) {
     const legend = document.getElementById('expenseLegend');
-    
+    if (!legend) return;
+
     const total = amounts.reduce((a, b) => a + b, 0);
-    
+
     let legendHTML = '';
     categories.forEach((category, index) => {
         const percentage = total > 0 ? ((amounts[index] / total) * 100).toFixed(1) : 0;
@@ -287,7 +314,7 @@ function updateChartLegend(categories, amounts, colors) {
             </div>
         `;
     });
-    
+
     legend.innerHTML = legendHTML;
 }
 
@@ -299,35 +326,36 @@ function loadRecentTransactions() {
         .then(response => response.json())
         .then(data => {
             console.log('Recent Transactions:', data);
-            
+
             const container = document.getElementById('recentTransactionsList');
-            
+            if (!container) return;
+
             if (data.data.length === 0) {
                 container.innerHTML = '<p class="text-center text-gray-500">Nenhuma transação encontrada</p>';
                 return;
             }
-            
+
             let html = '';
             data.data.forEach(transaction => {
                 const isIncome = transaction.type === 'income';
                 const amountClass = isIncome ? 'income' : 'expense';
                 const amountSign = isIncome ? '+' : '-';
                 const amountFormatted = formatCurrency(transaction.amount);
-                
+
                 // Define cores e ícones baseado no tipo
                 let bgColor = isIncome ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)';
                 let textColor = isIncome ? '#10b981' : '#ef4444';
-                let iconClass = isIncome ? 'fas fa-arrow-down-to-bracket' : 'fas fa-shopping-cart';
-                
+                let iconClass = isIncome ? 'fas fa-arrow-down' : 'fas fa-shopping-cart';
+
                 html += `
                     <div class="transaction-item">
                         <div class="transaction-icon" style="background: ${bgColor};">
                             <i class="${iconClass}" style="color: ${textColor};"></i>
                         </div>
                         <div class="transaction-info">
-                            <div class="transaction-title">${transaction.title}</div>
+                            <div class="transaction-title">${escapeHtml(transaction.title)}</div>
                             <div class="transaction-meta">
-                                <span>${transaction.category}</span>
+                                <span>${escapeHtml(transaction.category)}</span>
                                 <span class="separator">•</span>
                                 <span>${transaction.date}</span>
                             </div>
@@ -336,7 +364,7 @@ function loadRecentTransactions() {
                     </div>
                 `;
             });
-            
+
             container.innerHTML = html;
         })
         .catch(error => console.error('Erro ao carregar transações:', error));
@@ -350,27 +378,28 @@ function loadBudgetByCategory() {
         .then(response => response.json())
         .then(data => {
             console.log('Budget by Category:', data);
-            
+
             const container = document.getElementById('budgetList');
-            
+            if (!container) return;
+
             if (data.data.length === 0) {
                 container.innerHTML = '<p class="text-center text-gray-500">Nenhuma categoria com despesas este mês</p>';
                 return;
             }
-            
+
             const colors = Object.values(CHART_COLORS);
-            
+
             let html = '';
             data.data.forEach((category, index) => {
                 const color = colors[index % colors.length];
                 const percentage = category.percentage || 0;
-                
+
                 html += `
                     <div class="budget-item">
                         <div class="budget-info">
                             <div class="budget-category">
                                 <span class="category-dot" style="background: ${color};"></span>
-                                <span>${category.name}</span>
+                                <span>${escapeHtml(category.name)}</span>
                             </div>
                             <div class="budget-stats">
                                 <span class="budget-spent">${formatCurrency(category.amount)}</span>
@@ -382,10 +411,20 @@ function loadBudgetByCategory() {
                     </div>
                 `;
             });
-            
+
             container.innerHTML = html;
         })
         .catch(error => console.error('Erro ao carregar budget:', error));
+}
+
+/**
+ * Função auxiliar para escapar HTML
+ */
+function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }
 
 /**
@@ -410,7 +449,7 @@ function goToCategories() {
 }
 
 function goToProfile() {
-    window.location.href = '/profile/';
+    window.location.href = '/accounts/profile/';
 }
 
 function goToBudget() {
@@ -419,10 +458,12 @@ function goToBudget() {
 
 function toggleNotifications() {
     const panel = document.getElementById('notificationsPanel');
-    if (panel.style.display === 'none') {
-        panel.style.display = 'block';
-    } else {
-        panel.style.display = 'none';
+    if (panel) {
+        if (panel.style.display === 'none') {
+            panel.style.display = 'block';
+        } else {
+            panel.style.display = 'none';
+        }
     }
 }
 
