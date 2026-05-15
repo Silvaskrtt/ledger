@@ -1,3 +1,4 @@
+<!-- categories/templates/categories/categories.html -->
 {% extends "base.html" %}
 {% load static i18n %}
 
@@ -56,7 +57,6 @@
 
     <!-- Categories Grid -->
     <div class="categories-grid fade-up" style="animation-delay: 0.1s" id="categoriesGrid">
-        <!-- Categories will be populated by JS -->
         <div class="loading-skeleton">
             <div class="skeleton-card"></div>
             <div class="skeleton-card"></div>
@@ -105,8 +105,8 @@
                     </label>
                     <div class="input-wrapper">
                         <input type="text" id="cat_icon" name="icon" 
-                               placeholder="🍕" maxlength="2"
-                               class="form-input icon-input">
+                               placeholder="📌" maxlength="2"
+                               class="form-input icon-input" value="📌">
                     </div>
                 </div>
                 
@@ -155,7 +155,8 @@
             <i class="fas fa-exclamation-triangle"></i>
         </div>
         <h3>{% trans "Excluir Categoria" %}</h3>
-        <p>{% trans "Tem certeza que deseja excluir esta categoria? Todas as transações associadas serão movidas para 'Outros'." %}</p>
+        <p>{% trans "Tem certeza que deseja excluir esta categoria?" %}</p>
+        <p class="warning-text">{% trans "Todas as transações associadas serão movidas para 'Outros'." %}</p>
         <div class="modal-buttons">
             <button class="btn-modal-cancel" onclick="closeDeleteModal()">
                 {% trans "Cancelar" %}
@@ -167,10 +168,6 @@
     </div>
 </div>
 
-<script>
-    // Pass Django URLs to JavaScript
-    window.categoriesApiUrl = "{% url 'api_categories' %}";
-</script>
 {% endblock %}
 
 {% block extra_js %}
