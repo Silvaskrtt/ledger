@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block head_title %}
+    {% trans "Importar/Exportar Dados" %} | MyLedger
+{% endblock head_title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/import_export.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="import-export-container">
+    <!-- Header -->
+    <header class="page-header fade-up">
+        <div class="header-title">
+            <i class="fas fa-exchange-alt"></i>
+            <h1>{% trans "Importar / Exportar Dados" %}</h1>
+        </div>
+        <p class="header-description">{% trans "Gerencie seus dados de forma segura" %}</p>
+    </header>
+
+    <!-- Two Column Layout -->
+    <div class="two-columns fade-up" style="animation-delay: 0.05s">
+        
+        <!-- Export Section -->
+        <div class="card-section">
+            <div class="section-header">
+                <div class="section-icon export-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="section-info">
+                    <h2>{% trans "Exportar Dados" %}</h2>
+                    <p>{% trans "Baixe seus dados em diferentes formatos" %}</p>
+                </div>
+            </div>
+            
+            <div class="export-options">
+                <div class="option-card" onclick="exportData('json')">
+                    <div class="option-icon json">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <div class="option-info">
+                        <h3>JSON</h3>
+                        <p>{% trans "Formato universal para desenvolvedores" %}</p>
+                    </div>
+                    <div class="option-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="option-card" onclick="exportData('csv')">
+                    <div class="option-icon csv">
+                        <i class="fas fa-file-csv"></i>
+                    </div>
+                    <div class="option-info">
+                        <h3>CSV</h3>
+                        <p>{% trans "Compatível com Excel e Google Sheets" %}</p>
+                    </div>
+                    <div class="option-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="option-card" onclick="exportData('pdf')">
+                    <div class="option-icon pdf">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="option-info">
+                        <h3>PDF</h3>
+                        <p>{% trans "Relatório formatado para impressão" %}</p>
+                    </div>
+                    <div class="option-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="export-all">
+                <button class="btn-export-all" onclick="exportAllData()">
+                    <i class="fas fa-database"></i>
+                    <span>{% trans "Exportar todos os dados" %}</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Import Section -->
+        <div class="card-section">
+            <div class="section-header">
+                <div class="section-icon import-icon">
+                    <i class="fas fa-upload"></i>
+                </div>
+                <div class="section-info">
+                    <h2>{% trans "Importar Dados" %}</h2>
+                    <p>{% trans "Importe dados de outros sistemas" %}</p>
+                </div>
+            </div>
+            
+            <div class="import-zone" id="importZone">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>{% trans "Arraste e solte seu arquivo aqui" %}</h3>
+                <p>{% trans "ou" %}</p>
+                <label class="btn-import">
+                    <i class="fas fa-folder-open"></i>
+                    <span>{% trans "Selecionar arquivo" %}</span>
+                    <input type="file" id="fileInput" accept=".json,.csv" style="display: none;">
+                </label>
+                <p class="supported-formats">{% trans "Formatos suportados: JSON, CSV" %}</p>
+            </div>
+            
+            <div class="import-preview" id="importPreview" style="display: none;">
+                <div class="preview-header">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>{% trans "Prévia dos dados" %}</h4>
+                </div>
+                <div class="preview-stats" id="previewStats"></div>
+                <div class="preview-actions">
+                    <button class="btn-cancel-preview" onclick="cancelImport()">
+                        <i class="fas fa-times"></i>
+                        <span>{% trans "Cancelar" %}</span>
+                    </button>
+                    <button class="btn-confirm-import" onclick="confirmImport()">
+                        <i class="fas fa-check"></i>
+                        <span>{% trans "Confirmar Importação" %}</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="import-example">
+                <button class="btn-example" onclick="downloadExample()">
+                    <i class="fas fa-download"></i>
+                    <span>{% trans "Baixar arquivo exemplo" %}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Management Section -->
+    <div class="data-management fade-up" style="animation-delay: 0.1s">
+        <div class="card-section full-width">
+            <div class="section-header">
+                <div class="section-icon danger-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="section-info">
+                    <h2>{% trans "Gerenciamento de Dados" %}</h2>
+                    <p>{% trans "Operações avançadas de gerenciamento" %}</p>
+                </div>
+            </div>
+            
+            <div class="management-options">
+                <div class="management-card" onclick="backupData()">
+                    <div class="management-icon backup">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                    <div class="management-info">
+                        <h3>{% trans "Backup Manual" %}</h3>
+                        <p>{% trans "Crie uma cópia de segurança dos seus dados" %}</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                
+                <div class="management-card" onclick="restoreBackup()">
+                    <div class="management-icon restore">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <div class="management-info">
+                        <h3>{% trans "Restaurar Backup" %}</h3>
+                        <p>{% trans "Recupere dados de um backup anterior" %}</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                
+                <div class="management-card" onclick="clearAllData()">
+                    <div class="management-icon clear">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div class="management-info">
+                        <h3>{% trans "Limpar Todos os Dados" %}</h3>
+                        <p>{% trans "Remova permanentemente todos os seus dados" %}</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div id="confirmModal" class="modal-overlay" style="display: none;">
+    <div class="modal-container fade-up">
+        <div class="modal-icon warning" id="modalIcon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h3 id="modalTitle">{% trans "Confirmar Ação" %}</h3>
+        <p id="modalMessage">{% trans "Tem certeza que deseja realizar esta ação?" %}</p>
+        <div class="modal-buttons">
+            <button class="btn-modal-cancel" onclick="closeConfirmModal()">
+                {% trans "Cancelar" %}
+            </button>
+            <button class="btn-modal-confirm" id="confirmActionBtn">
+                {% trans "Confirmar" %}
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Pass URLs to JavaScript
+    window.exportUrl = "{% url 'import_export:api_export' %}";
+    window.importUrl = "{% url 'import_export:api_import' %}";
+    window.clearDataUrl = "{% url 'import_export:api_clear_data' %}";
+</script>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pages/import_export.js' %}"></script>
+{% endblock %}

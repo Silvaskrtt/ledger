@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'categories.apps.CategoriesConfig',
     'transactions.apps.TransactionsConfig',
+    'import_export',
 ]
 
 # ============================================================================

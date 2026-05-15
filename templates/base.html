@@ -60,13 +60,17 @@
                     <i class="fas fa-home"></i>
                     <span>{% trans "Início" %}</span>
                 </a>
-                <a href="#" class="nav-link {% if request.resolver_match.url_name == 'transactions' %}active{% endif %}">
+                <a href="{% url 'transactions:transaction_list' %}" class="nav-link {% if request.resolver_match.url_name == 'transactions_page' %}active{% endif %}">
                     <i class="fas fa-exchange-alt"></i>
                     <span>{% trans "Transações" %}</span>
                 </a>
-                <a href="#" class="nav-link {% if request.resolver_match.url_name == 'categories' %}active{% endif %}">
+                <a href="{% url 'categories:categories_page' %}" class="nav-link {% if request.resolver_match.url_name == 'categories_page' %}active{% endif %}">
                     <i class="fas fa-tags"></i>
                     <span>{% trans "Categorias" %}</span>
+                </a>
+                <a href="{% url 'import_export:import_export_page' %}" class="nav-link">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>{% trans "Importar/Exportar" %}</span>
                 </a>
                 <a href="#" class="nav-link {% if request.resolver_match.url_name == 'reports' %}active{% endif %}">
                     <i class="fas fa-chart-line"></i>

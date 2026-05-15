@@ -82,15 +82,15 @@ function loadDashboardSummary() {
 
             // Total de Receitas (todos os tempos)
             const incomeEl = document.getElementById('totalIncomeValue');
-            if (incomeEl) incomeEl.textContent = formatCurrency(data.total_income);  // Mudado de current_month_income
+            if (incomeEl) incomeEl.textContent = formatCurrency(data.total_income);
 
             // Total de Despesas (todos os tempos)
             const expenseEl = document.getElementById('totalExpenseValue');
-            if (expenseEl) expenseEl.textContent = formatCurrency(data.total_expenses);  // Mudado de current_month_expenses
+            if (expenseEl) expenseEl.textContent = formatCurrency(data.total_expenses);
 
             // Economia do mês atual (saldo do mês)
             const savingsEl = document.getElementById('totalSavingsValue');
-            if (savingsEl) savingsEl.textContent = formatCurrency(data.savings);  // Já é a economia do mês
+            if (savingsEl) savingsEl.textContent = formatCurrency(data.savings);
 
             // Atualiza percentuais de mudança
             updateChangeIndicator('balanceChange', 'balanceChangeValue', data.balance_change);
@@ -101,7 +101,7 @@ function loadDashboardSummary() {
 }
 
 /**
- * Atualiza o indicador de mudança (positivo/negativo) - CORRIGIDA
+ * Atualiza o indicador de mudança (positivo/negativo)
  */
 function updateChangeIndicator(containerId, valueId, percentage) {
     const container = document.getElementById(containerId);
@@ -442,6 +442,55 @@ function formatCurrency(value) {
 }
 
 /**
+ * Função para mostrar toast (notificação)
+ */
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `custom-toast ${type}`;
+    toast.innerHTML = `
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+        <span>${message}</span>
+    `;
+    toast.style.position = 'fixed';
+    toast.style.bottom = '30px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.zIndex = '1100';
+    toast.style.padding = '12px 24px';
+    toast.style.borderRadius = '12px';
+    toast.style.fontSize = '14px';
+    toast.style.fontWeight = '500';
+    toast.style.display = 'flex';
+    toast.style.alignItems = 'center';
+    toast.style.gap = '12px';
+    toast.style.animation = 'toastSlideUp 0.3s ease-out';
+    toast.style.background = type === 'success'
+        ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.95), rgba(5, 150, 105, 0.95))'
+        : 'linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(220, 38, 38, 0.95))';
+    toast.style.backdropFilter = 'blur(10px)';
+    toast.style.border = `1px solid ${type === 'success' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`;
+    toast.style.color = '#fff';
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+/**
+ * EXPORT DATA - CORRIGIDA: Redireciona para página de import/export
+ */
+function exportData() {
+    showToast('Redirecionando para página de exportação...', 'success');
+    setTimeout(() => {
+        window.location.href = '/import-export/';
+    }, 500);
+}
+
+/**
  * Funções de navegação
  */
 function goToTransactions() {
@@ -463,7 +512,7 @@ function goToBudget() {
 function toggleNotifications() {
     const panel = document.getElementById('notificationsPanel');
     if (panel) {
-        if (panel.style.display === 'none') {
+        if (panel.style.display === 'none' || panel.style.display === '') {
             panel.style.display = 'block';
         } else {
             panel.style.display = 'none';
@@ -471,6 +520,21 @@ function toggleNotifications() {
     }
 }
 
-function exportData() {
-    alert('Funcionalidade de exportação em desenvolvimento!');
+// Adicionar animação do toast ao stylesheet se não existir
+if (!document.querySelector('#toast-animation-style')) {
+    const styleSheet = document.createElement('style');
+    styleSheet.id = 'toast-animation-style';
+    styleSheet.textContent = `
+        @keyframes toastSlideUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+    `;
+    document.head.appendChild(styleSheet);
 }
