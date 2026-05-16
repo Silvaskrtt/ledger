@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'categories.apps.CategoriesConfig',
     'transactions.apps.TransactionsConfig',
     'import_export',
+    'reports',
 ]
 
 # ============================================================================
