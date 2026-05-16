@@ -506,7 +506,7 @@ function goToProfile() {
 }
 
 function goToBudget() {
-    window.location.href = '/transactions/';
+    window.location.href = '/reports/';
 }
 
 function toggleNotifications() {
