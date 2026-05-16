@@ -15,6 +15,7 @@ urlpatterns = [
     path('transactions/', include('transactions.urls')),
     path('categories/', include('categories.urls')),
     path('import-export/', include('import_export.urls')),
+    path('reports/', include('reports.urls')),
 ]
 
 # Servir arquivos de mídia em desenvolvimento
