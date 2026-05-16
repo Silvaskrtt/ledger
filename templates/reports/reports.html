@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block head_title %}
+    {% trans "Relatórios" %} | MyLedger
+{% endblock head_title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/reports.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="reports-container">
+    <!-- Header -->
+    <header class="reports-header fade-up">
+        <div class="header-title">
+            <i class="fas fa-chart-line"></i>
+            <h1>{% trans "Relatórios Financeiros" %}</h1>
+        </div>
+        <p class="header-description">{% trans "Analise suas finanças com gráficos detalhados" %}</p>
+    </header>
+
+    <!-- Period Selector -->
+    <div class="period-selector fade-up" style="animation-delay: 0.05s">
+        <div class="period-buttons">
+            <button class="period-btn" data-period="week">{% trans "Semana" %}</button>
+            <button class="period-btn active" data-period="month">{% trans "Mês" %}</button>
+            <button class="period-btn" data-period="quarter">{% trans "Trimestre" %}</button>
+            <button class="period-btn" data-period="year">{% trans "Ano" %}</button>
+        </div>
+        <div class="period-custom">
+            <input type="date" id="startDate" class="date-input">
+            <span>{% trans "até" %}</span>
+            <input type="date" id="endDate" class="date-input">
+            <button id="applyCustomBtn" class="btn-apply">{% trans "Aplicar" %}</button>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards fade-up" style="animation-delay: 0.1s">
+        <div class="summary-card">
+            <div class="summary-icon income">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <div class="summary-info">
+                <span class="summary-label">{% trans "Total de Receitas" %}</span>
+                <span class="summary-value" id="totalIncome">R$ 0,00</span>
+                <span class="summary-trend positive" id="incomeTrend">+0%</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-icon expense">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+            <div class="summary-info">
+                <span class="summary-label">{% trans "Total de Despesas" %}</span>
+                <span class="summary-value" id="totalExpense">R$ 0,00</span>
+                <span class="summary-trend negative" id="expenseTrend">+0%</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-icon balance">
+                <i class="fas fa-wallet"></i>
+            </div>
+            <div class="summary-info">
+                <span class="summary-label">{% trans "Saldo do Período" %}</span>
+                <span class="summary-value" id="totalBalance">R$ 0,00</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-icon savings">
+                <i class="fas fa-piggy-bank"></i>
+            </div>
+            <div class="summary-info">
+                <span class="summary-label">{% trans "Taxa de Economia" %}</span>
+                <span class="summary-value" id="savingsRate">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-row fade-up" style="animation-delay: 0.15s">
+        <div class="chart-card">
+            <div class="chart-header">
+                <div class="chart-title">
+                    <i class="fas fa-chart-line"></i>
+                    <span>{% trans "Evolução Financeira" %}</span>
+                </div>
+                <div class="chart-legend">
+                    <span><i class="fas fa-circle" style="color: #10b981;"></i> {% trans "Receitas" %}</span>
+                    <span><i class="fas fa-circle" style="color: #ef4444;"></i> {% trans "Despesas" %}</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-header">
+                <div class="chart-title">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>{% trans "Despesas por Categoria" %}</span>
+                </div>
+                <select id="categoryChartType" class="chart-type-select">
+                    <option value="pie">{% trans "Pizza" %}</option>
+                    <option value="bar">{% trans "Barras" %}</option>
+                </select>
+            </div>
+            <div class="chart-container">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Expenses Section -->
+    <div class="top-expenses-section fade-up" style="animation-delay: 0.2s">
+        <div class="section-header">
+            <div class="section-title">
+                <i class="fas fa-fire"></i>
+                <span>{% trans "Maiores Despesas" %}</span>
+            </div>
+            <button class="view-all-btn" id="exportReportBtn">
+                <i class="fas fa-download"></i>
+                <span>{% trans "Exportar Relatório" %}</span>
+            </button>
+        </div>
+        <div class="top-expenses-list" id="topExpensesList">
+            <div class="loading-skeleton">Carregando...</div>
+        </div>
+    </div>
+
+    <!-- Monthly Summary Table -->
+    <div class="monthly-summary-section fade-up" style="animation-delay: 0.25s">
+        <div class="section-header">
+            <div class="section-title">
+                <i class="fas fa-table"></i>
+                <span>{% trans "Resumo Mensal" %}</span>
+            </div>
+        </div>
+        <div class="table-container">
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>{% trans "Mês" %}</th>
+                        <th>{% trans "Receitas" %}</th>
+                        <th>{% trans "Despesas" %}</th>
+                        <th>{% trans "Saldo" %}</th>
+                        <th>{% trans "Economia" %}</th>
+                    </tr>
+                </thead>
+                <tbody id="monthlySummaryBody">
+                    <tr><td colspan="5" class="loading-skeleton">Carregando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'js/pages/reports.js' %}"></script>
+{% endblock %}
