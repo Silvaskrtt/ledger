@@ -1,4 +1,3 @@
-# import_export/views.py
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -20,6 +19,97 @@ from .models import ExportHistory, ImportHistory, TransactionImportMetadata
 from .forms import BankStatementImportForm
 from .services import BankStatementImportService
 
+@login_required
+@require_http_methods(["POST"])
+@csrf_exempt
+def api_import_debug(request):
+    """Endpoint de diagnóstico para identificar o erro 500"""
+    import traceback
+    try:
+        print("=" * 50)
+        print("DEBUG: Iniciando importação de diagnóstico")
+        print(f"POST data: {request.POST}")
+        print(f"FILES: {request.FILES}")
+        print(f"Method: {request.method}")
+        
+        # Verificar arquivo
+        if 'file' not in request.FILES:
+            return JsonResponse({'error': 'Nenhum arquivo enviado'}, status=400)
+        
+        uploaded_file = request.FILES['file']
+        print(f"Arquivo recebido: {uploaded_file.name}, tamanho: {uploaded_file.size}")
+        
+        # Verificar parâmetros
+        bank = request.POST.get('bank', '')
+        file_format = request.POST.get('file_format', '')
+        print(f"Bank: {bank}, Format: {file_format}")
+        
+        # Teste 1: Verificar se consegue ler o arquivo
+        file_content = uploaded_file.read()
+        print(f"Arquivo lido com sucesso: {len(file_content)} bytes")
+        
+        # Teste 2: Verificar importação dos models
+        try:
+            from transactions.models import Transaction
+            print("✓ Model Transaction importado com sucesso")
+        except ImportError as e:
+            print(f"✗ Erro ao importar Transaction: {e}")
+            return JsonResponse({
+                'error': f'App transactions não encontrado: {str(e)}',
+                'solution': 'Execute: python manage.py startapp transactions'
+            }, status=500)
+        
+        try:
+            from categories.models import Category
+            print("✓ Model Category importado com sucesso")
+        except ImportError as e:
+            print(f"✗ Erro ao importar Category: {e}")
+            return JsonResponse({
+                'error': f'App categories não encontrado: {str(e)}',
+                'solution': 'Execute: python manage.py startapp categories'
+            }, status=500)
+        
+        # Teste 3: Verificar o serviço
+        try:
+            from .services import BankStatementImportService
+            print("✓ Service importado com sucesso")
+        except ImportError as e:
+            print(f"✗ Erro ao importar Service: {e}")
+            traceback.print_exc()
+            return JsonResponse({'error': f'Erro no service: {str(e)}'}, status=500)
+        
+        # Teste 4: Executar importação
+        try:
+            import_service = BankStatementImportService(
+                user=request.user,
+                bank=bank,
+                file_format=file_format,
+                filename=uploaded_file.name,
+                file_size=uploaded_file.size
+            )
+            print("✓ Service instanciado com sucesso")
+            
+            result = import_service.import_file(file_content)
+            print(f"✓ Importação concluída: {result}")
+            
+            return JsonResponse(result)
+            
+        except Exception as e:
+            print(f"✗ Erro na execução do service: {str(e)}")
+            traceback.print_exc()
+            return JsonResponse({
+                'error': f'Erro no service: {str(e)}',
+                'traceback': traceback.format_exc()
+            }, status=500)
+        
+    except Exception as e:
+        print(f"✗ Erro geral: {str(e)}")
+        traceback.print_exc()
+        return JsonResponse({
+            'error': str(e),
+            'traceback': traceback.format_exc()
+        }, status=500)
+
 # Importar modelos de outros apps
 try:
     from transactions.models import Transaction
@@ -34,6 +124,108 @@ logger = logging.getLogger(__name__)
 def import_export_page(request):
     """Renderiza a página de importação/exportação"""
     return render(request, 'import_export/import_export.html')
+
+
+@login_required
+@require_http_methods(["POST"])
+@csrf_exempt
+def api_import(request):
+    """API endpoint para importar extratos bancários de múltiplos bancos e formatos"""
+    try:
+        # Validar arquivo
+        if 'file' not in request.FILES:
+            return JsonResponse({
+                'success': False,
+                'error': 'Nenhum arquivo enviado'
+            }, status=400)
+        
+        uploaded_file = request.FILES['file']
+        
+        # Obter parâmetros - tentar tanto POST quanto FormData
+        bank = request.POST.get('bank', '')
+        file_format = request.POST.get('file_format', '')
+        
+        # Se não veio por POST, tentar via request body (JSON)
+        if not bank and request.body:
+            try:
+                body_data = json.loads(request.body)
+                bank = body_data.get('bank', '')
+                file_format = body_data.get('file_format', '')
+            except:
+                pass
+        
+        # Se ainda não tem, tentar inferir pela extensão
+        if not file_format:
+            filename = uploaded_file.name.lower()
+            if '.' in filename:
+                file_format = filename.split('.')[-1]
+        
+        # Validações básicas
+        if not bank:
+            return JsonResponse({
+                'success': False,
+                'error': 'Banco não informado. Selecione um banco (bb, itau, nubank, generic)'
+            }, status=400)
+        
+        if not file_format:
+            return JsonResponse({
+                'success': False,
+                'error': 'Formato de arquivo não identificado'
+            }, status=400)
+        
+        # Normalizar formatos
+        valid_formats = ['csv', 'xlsx', 'xls', 'pdf', 'ofx', 'bbt', 'txt', 'json']
+        file_format = file_format.lower()
+        
+        if file_format not in valid_formats:
+            return JsonResponse({
+                'success': False,
+                'error': f'Formato não suportado: {file_format}. Formatos válidos: {", ".join(valid_formats)}'
+            }, status=400)
+        
+        # Normalizar xls para xlsx
+        if file_format == 'xls':
+            file_format = 'xlsx'
+        
+        # Ler conteúdo do arquivo
+        file_content = uploaded_file.read()
+        
+        if not file_content:
+            return JsonResponse({
+                'success': False,
+                'error': 'Arquivo vazio'
+            }, status=400)
+        
+        logger.info(f"Iniciando importação: bank={bank}, format={file_format}, file={uploaded_file.name}, size={uploaded_file.size}")
+        
+        # Usar serviço de importação
+        import_service = BankStatementImportService(
+            user=request.user,
+            bank=bank,
+            file_format=file_format,
+            filename=uploaded_file.name,
+            file_size=uploaded_file.size
+        )
+        
+        result = import_service.import_file(file_content)
+        
+        # Garantir que result tenha os campos esperados pelo frontend
+        if 'success' not in result:
+            result['success'] = result.get('records_imported', 0) > 0
+        
+        # Retornar resultado
+        status_code = 200 if result.get('success') else 400
+        return JsonResponse(result, status=status_code)
+    
+    except Exception as e:
+        logger.error(f"Erro ao importar arquivo: {str(e)}", exc_info=True)
+        return JsonResponse({
+            'success': False,
+            'error': str(e),
+            'status': 'failed',
+            'message': f'Erro ao processar importação: {str(e)}'
+        }, status=500)
+
 
 @login_required
 def api_export(request):
@@ -99,6 +291,7 @@ def api_export(request):
         traceback.print_exc()
         return JsonResponse({'error': str(e)}, status=500)
 
+
 def export_as_json(request, data):
     """Exporta dados como JSON"""
     json_str = json.dumps(data, ensure_ascii=False, indent=2)
@@ -114,6 +307,7 @@ def export_as_json(request, data):
     response = HttpResponse(json_str, content_type='application/json')
     response['Content-Disposition'] = f'attachment; filename="myledger_export_{timezone.now().date()}.json"'
     return response
+
 
 def export_as_csv(request, data):
     """Exporta dados como CSV"""
@@ -155,8 +349,9 @@ def export_as_csv(request, data):
     response['Content-Disposition'] = f'attachment; filename="myledger_export_{timezone.now().date()}.csv"'
     return response
 
+
 def export_as_pdf(request, data):
-    """Exporta dados como PDF"""
+    """Exporta dados como PDF (mantendo a implementação original com reportlab)"""
     from reportlab.lib import fonts
     from reportlab.pdfbase import pdfmetrics
     from reportlab.pdfbase.ttfonts import TTFont
@@ -250,128 +445,6 @@ def export_as_pdf(request, data):
     doc.build(elements)
     return response
 
-@login_required
-@require_http_methods(["POST"])
-@csrf_exempt
-def api_import(request):
-    """API endpoint para importar extratos bancários de múltiplos bancos e formatos"""
-    try:
-        # Validar arquivo
-        if 'file' not in request.FILES:
-            return JsonResponse({'error': 'Nenhum arquivo enviado'}, status=400)
-        
-        uploaded_file = request.FILES['file']
-        
-        # Obter parâmetros
-        bank = request.POST.get('bank', 'generic').lower()
-        file_format = request.POST.get('file_format', '').lower()
-        
-        # Se não vier os parâmetros por POST, tentar inferir pela extensão
-        if not file_format:
-            filename = uploaded_file.name.lower()
-            file_format = filename.split('.')[-1] if '.' in filename else ''
-        
-        # Validações básicas
-        if not file_format:
-            return JsonResponse({'error': 'Formato de arquivo não identificado'}, status=400)
-        
-        valid_formats = ['csv', 'xlsx', 'xls', 'pdf', 'ofx', 'bbt', 'txt', 'json']
-        if file_format not in valid_formats:
-            return JsonResponse({
-                'error': f'Formato não suportado: {file_format}. Formatos válidos: {", ".join(valid_formats)}'
-            }, status=400)
-        
-        # Normalizar formato
-        format_map = {'xls': 'xlsx', 'bbt': 'bbt'}
-        file_format = format_map.get(file_format, file_format)
-        
-        # Ler conteúdo do arquivo
-        file_content = uploaded_file.read()
-        
-        if not file_content:
-            return JsonResponse({'error': 'Arquivo vazio'}, status=400)
-        
-        # Usar serviço de importação
-        import_service = BankStatementImportService(
-            user=request.user,
-            bank=bank,
-            file_format=file_format,
-            filename=uploaded_file.name,
-            file_size=uploaded_file.size
-        )
-        
-        result = import_service.import_file(file_content)
-        
-        # Retornar resultado
-        status_code = 200 if result['success'] else (400 if result['status'] == 'failed' else 200)
-        return JsonResponse(result, status=status_code)
-    
-    except Exception as e:
-        logger.error(f"Erro ao importar arquivo: {str(e)}", exc_info=True)
-        return JsonResponse({
-            'error': str(e),
-            'status': 'failed'
-        }, status=500)
-
-def process_json_import(request, data):
-    """Processa importação de JSON"""
-    imported = 0
-    failed = 0
-    
-    transactions_data = data.get('data', {}).get('transactions', [])
-    
-    if not HAS_TRANSACTIONS:
-        return {'imported': 0, 'failed': len(transactions_data), 'message': 'App de transações não encontrado'}
-    
-    for trans_data in transactions_data:
-        try:
-            # Verificar se já existe (opcional)
-            transaction_id = trans_data.get('id')
-            if transaction_id and Transaction.objects.filter(id=transaction_id, user=request.user).exists():
-                continue  # Pular duplicatas
-            
-            # Criar transação
-            Transaction.objects.create(
-                user=request.user,
-                description=trans_data.get('description', ''),
-                amount=float(trans_data.get('amount', 0)),
-                date=trans_data.get('date'),
-                type=trans_data.get('type', 'expense'),
-                category=trans_data.get('category', ''),
-                notes=trans_data.get('notes', '')
-            )
-            imported += 1
-        except Exception as e:
-            failed += 1
-    
-    return {'imported': imported, 'failed': failed}
-
-def process_csv_import(request, csv_content):
-    """Processa importação de CSV"""
-    imported = 0
-    failed = 0
-    
-    if not HAS_TRANSACTIONS:
-        return {'imported': 0, 'failed': 1, 'message': 'App de transações não encontrado'}
-    
-    reader = csv.DictReader(StringIO(csv_content), delimiter=';')
-    
-    for row in reader:
-        try:
-            Transaction.objects.create(
-                user=request.user,
-                description=row.get('descricao', ''),
-                amount=float(row.get('valor', 0).replace(',', '.')),
-                date=row.get('data', ''),
-                type='income' if row.get('tipo') == 'Receita' else 'expense',
-                category=row.get('categoria', ''),
-                notes=row.get('observacoes', '')
-            )
-            imported += 1
-        except Exception as e:
-            failed += 1
-    
-    return {'imported': imported, 'failed': failed}
 
 @login_required
 def api_export_history(request):
@@ -384,6 +457,7 @@ def api_export_history(request):
         'file_size': e.file_size
     } for e in exports]
     return JsonResponse({'success': True, 'history': data})
+
 
 @login_required
 def api_import_history(request):
@@ -498,7 +572,7 @@ def api_import_banks_formats(request):
         'banks': [
             {'code': 'bb', 'name': 'Banco do Brasil', 'formats': ['csv', 'xlsx', 'pdf', 'ofx', 'bbt', 'txt']},
             {'code': 'itau', 'name': 'Itaú', 'formats': ['pdf']},
-            {'code': 'nubank', 'name': 'Nubank', 'formats': ['csv', 'ofx']},
+            {'code': 'nubank', 'name': 'Nubank', 'formats': ['csv', 'ofx', 'pdf']},
             {'code': 'generic', 'name': 'Genérico', 'formats': ['csv', 'json']},
         ],
         'formats': [
@@ -513,21 +587,41 @@ def api_import_banks_formats(request):
     })
 
 
+@login_required
 @require_http_methods(["POST"])
 @csrf_exempt
 def api_clear_all_data(request):
-    """Limpa todos os dados do usuário"""
+    """Limpa todos os dados do usuário (NOVA FUNÇÃO ADICIONADA)"""
     try:
-        if HAS_TRANSACTIONS:
+        # Importar modelos
+        try:
+            from transactions.models import Transaction
+            from categories.models import Category
+            
+            # Deletar transações (não as categorias padrão)
             deleted_transactions = Transaction.objects.filter(user=request.user).delete()
-        
-        # Não deletar categorias padrão
-        if HAS_TRANSACTIONS:
-            Category.objects.filter(user=request.user, is_default=False).delete()
-        
-        return JsonResponse({
-            'success': True,
-            'message': 'Todos os dados foram removidos com sucesso'
-        })
+            
+            # Deletar categorias que não são padrão
+            deleted_categories = Category.objects.filter(user=request.user, is_default=False).delete()
+            
+            return JsonResponse({
+                'success': True,
+                'message': 'Todos os dados foram removidos com sucesso',
+                'deleted': {
+                    'transactions': str(deleted_transactions[0]) if deleted_transactions else 0,
+                    'categories': str(deleted_categories[0]) if deleted_categories else 0
+                }
+            })
+        except ImportError:
+            # Se o app transactions não estiver disponível
+            return JsonResponse({
+                'success': True,
+                'message': 'App de transações não encontrado, nenhum dado removido'
+            })
+            
     except Exception as e:
-        return JsonResponse({'error': str(e)}, status=500)
+        logger.error(f"Erro ao limpar dados: {str(e)}", exc_info=True)
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=500)
