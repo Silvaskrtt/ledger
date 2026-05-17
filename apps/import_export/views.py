@@ -9,13 +9,16 @@ from django.db.models import Sum, Count
 from django.utils import timezone
 import json
 import csv
+import logging
 from io import StringIO, BytesIO
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import cm
-from .models import ExportHistory, ImportHistory
+from .models import ExportHistory, ImportHistory, TransactionImportMetadata
+from .forms import BankStatementImportForm
+from .services import BankStatementImportService
 
 # Importar modelos de outros apps
 try:
@@ -24,6 +27,8 @@ try:
     HAS_TRANSACTIONS = True
 except ImportError:
     HAS_TRANSACTIONS = False
+
+logger = logging.getLogger(__name__)
 
 @login_required
 def import_export_page(request):
@@ -249,55 +254,64 @@ def export_as_pdf(request, data):
 @require_http_methods(["POST"])
 @csrf_exempt
 def api_import(request):
-    """API endpoint para importar dados"""
+    """API endpoint para importar extratos bancários de múltiplos bancos e formatos"""
     try:
+        # Validar arquivo
         if 'file' not in request.FILES:
             return JsonResponse({'error': 'Nenhum arquivo enviado'}, status=400)
         
         uploaded_file = request.FILES['file']
-        filename = uploaded_file.name
-        file_extension = filename.split('.')[-1].lower()
         
-        if file_extension not in ['json', 'csv']:
-            return JsonResponse({'error': 'Formato não suportado. Use JSON ou CSV.'}, status=400)
+        # Obter parâmetros
+        bank = request.POST.get('bank', 'generic').lower()
+        file_format = request.POST.get('file_format', '').lower()
         
-        # Registrar importação
-        import_record = ImportHistory.objects.create(
+        # Se não vier os parâmetros por POST, tentar inferir pela extensão
+        if not file_format:
+            filename = uploaded_file.name.lower()
+            file_format = filename.split('.')[-1] if '.' in filename else ''
+        
+        # Validações básicas
+        if not file_format:
+            return JsonResponse({'error': 'Formato de arquivo não identificado'}, status=400)
+        
+        valid_formats = ['csv', 'xlsx', 'xls', 'pdf', 'ofx', 'bbt', 'txt', 'json']
+        if file_format not in valid_formats:
+            return JsonResponse({
+                'error': f'Formato não suportado: {file_format}. Formatos válidos: {", ".join(valid_formats)}'
+            }, status=400)
+        
+        # Normalizar formato
+        format_map = {'xls': 'xlsx', 'bbt': 'bbt'}
+        file_format = format_map.get(file_format, file_format)
+        
+        # Ler conteúdo do arquivo
+        file_content = uploaded_file.read()
+        
+        if not file_content:
+            return JsonResponse({'error': 'Arquivo vazio'}, status=400)
+        
+        # Usar serviço de importação
+        import_service = BankStatementImportService(
             user=request.user,
-            filename=filename,
-            format=file_extension,
-            status='processing'
+            bank=bank,
+            file_format=file_format,
+            filename=uploaded_file.name,
+            file_size=uploaded_file.size
         )
         
-        try:
-            if file_extension == 'json':
-                data = json.loads(uploaded_file.read().decode('utf-8'))
-                result = process_json_import(request, data)
-            else:  # csv
-                csv_content = uploaded_file.read().decode('utf-8')
-                result = process_csv_import(request, csv_content)
-            
-            # Atualizar registro
-            import_record.status = 'completed'
-            import_record.records_imported = result.get('imported', 0)
-            import_record.records_failed = result.get('failed', 0)
-            import_record.completed_at = timezone.now()
-            import_record.save()
-            
-            return JsonResponse({
-                'success': True,
-                'message': f'Importação concluída: {result["imported"]} registros importados',
-                'details': result
-            })
-            
-        except Exception as e:
-            import_record.status = 'failed'
-            import_record.error_message = str(e)
-            import_record.save()
-            raise
-            
+        result = import_service.import_file(file_content)
+        
+        # Retornar resultado
+        status_code = 200 if result['success'] else (400 if result['status'] == 'failed' else 200)
+        return JsonResponse(result, status=status_code)
+    
     except Exception as e:
-        return JsonResponse({'error': str(e)}, status=500)
+        logger.error(f"Erro ao importar arquivo: {str(e)}", exc_info=True)
+        return JsonResponse({
+            'error': str(e),
+            'status': 'failed'
+        }, status=500)
 
 def process_json_import(request, data):
     """Processa importação de JSON"""
@@ -373,19 +387,132 @@ def api_export_history(request):
 
 @login_required
 def api_import_history(request):
-    """Retorna histórico de importações"""
-    imports = ImportHistory.objects.filter(user=request.user)[:20]
-    data = [{
-        'filename': i.filename,
-        'format': i.format,
-        'imported': i.records_imported,
-        'failed': i.records_failed,
-        'status': i.status,
-        'date': i.created_at.isoformat()
-    } for i in imports]
-    return JsonResponse({'success': True, 'history': data})
+    """Retorna histórico de importações com detalhes"""
+    try:
+        page = int(request.GET.get('page', 1))
+        per_page = int(request.GET.get('per_page', 20))
+        bank = request.GET.get('bank', '')
+        status = request.GET.get('status', '')
+        
+        queryset = ImportHistory.objects.filter(user=request.user)
+        
+        if bank:
+            queryset = queryset.filter(bank=bank)
+        if status:
+            queryset = queryset.filter(status=status)
+        
+        total = queryset.count()
+        start = (page - 1) * per_page
+        end = start + per_page
+        
+        imports = queryset[start:end]
+        
+        data = []
+        for imp in imports:
+            import_data = {
+                'id': imp.id,
+                'filename': imp.filename,
+                'bank': imp.get_bank_display(),
+                'format': imp.get_file_format_display(),
+                'status': imp.get_status_display(),
+                'total_lines': imp.total_lines_read,
+                'imported': imp.records_imported,
+                'failed': imp.records_failed,
+                'duplicates': imp.duplicates_ignored,
+                'date': imp.created_at.isoformat(),
+                'error': imp.error_message
+            }
+            data.append(import_data)
+        
+        return JsonResponse({
+            'success': True,
+            'total': total,
+            'page': page,
+            'per_page': per_page,
+            'history': data
+        })
+    
+    except Exception as e:
+        logger.error(f"Erro ao buscar histórico: {str(e)}", exc_info=True)
+        return JsonResponse({'error': str(e)}, status=500)
+
 
 @login_required
+@require_http_methods(["GET"])
+def api_import_detail(request, import_id):
+    """Retorna detalhes de uma importação específica"""
+    try:
+        imp = ImportHistory.objects.get(id=import_id, user=request.user)
+        
+        # Transações importadas
+        imported_transactions = TransactionImportMetadata.objects.filter(
+            import_history=imp
+        ).select_related('transaction')[:100]
+        
+        transactions_data = []
+        for metadata in imported_transactions:
+            trans = metadata.transaction
+            transactions_data.append({
+                'id': trans.id,
+                'date': trans.date.isoformat(),
+                'description': trans.description,
+                'amount': float(trans.amount),
+                'type': trans.get_type_display(),
+                'document_number': metadata.document_number,
+                'fitid': metadata.fitid
+            })
+        
+        return JsonResponse({
+            'success': True,
+            'import': {
+                'id': imp.id,
+                'filename': imp.filename,
+                'bank': imp.get_bank_display(),
+                'format': imp.get_file_format_display(),
+                'status': imp.get_status_display(),
+                'total_lines': imp.total_lines_read,
+                'imported': imp.records_imported,
+                'failed': imp.records_failed,
+                'duplicates': imp.duplicates_ignored,
+                'date': imp.created_at.isoformat(),
+                'completed_at': imp.completed_at.isoformat() if imp.completed_at else None,
+                'error': imp.error_message,
+                'validation_errors': imp.validation_errors[:20]
+            },
+            'transactions': transactions_data
+        })
+    
+    except ImportHistory.DoesNotExist:
+        return JsonResponse({'error': 'Importação não encontrada'}, status=404)
+    except Exception as e:
+        logger.error(f"Erro ao buscar detalhes: {str(e)}", exc_info=True)
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+@login_required
+@require_http_methods(["GET"])
+def api_import_banks_formats(request):
+    """Retorna bancos e formatos suportados"""
+    return JsonResponse({
+        'success': True,
+        'banks': [
+            {'code': 'bb', 'name': 'Banco do Brasil', 'formats': ['csv', 'xlsx', 'pdf', 'ofx', 'bbt', 'txt']},
+            {'code': 'itau', 'name': 'Itaú', 'formats': ['pdf']},
+            {'code': 'nubank', 'name': 'Nubank', 'formats': ['csv', 'ofx']},
+            {'code': 'generic', 'name': 'Genérico', 'formats': ['csv', 'json']},
+        ],
+        'formats': [
+            {'code': 'csv', 'name': 'CSV', 'extension': '.csv', 'description': 'Valores Separados por Vírgula'},
+            {'code': 'xlsx', 'name': 'Excel', 'extension': '.xlsx', 'description': 'Microsoft Excel'},
+            {'code': 'pdf', 'name': 'PDF', 'extension': '.pdf', 'description': 'Arquivo PDF'},
+            {'code': 'ofx', 'name': 'OFX', 'extension': '.ofx', 'description': 'Open Financial Exchange'},
+            {'code': 'bbt', 'name': 'BBT', 'extension': '.bbt', 'description': 'Formato Banco do Brasil'},
+            {'code': 'txt', 'name': 'TXT', 'extension': '.txt', 'description': 'Arquivo de Texto'},
+            {'code': 'json', 'name': 'JSON', 'extension': '.json', 'description': 'JSON'},
+        ]
+    })
+
+
 @require_http_methods(["POST"])
 @csrf_exempt
 def api_clear_all_data(request):
