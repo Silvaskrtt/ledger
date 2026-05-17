@@ -1271,22 +1271,23 @@ class NubankCSVParser(BankParser):
 
 
 class NubankOFXParser(BankParser):
-    """Parser para OFX do Nubank"""
+    """Parser para OFX do Nubank - com fallback manual (não depende do ofxparse)"""
     
     def parse(self, file_content: bytes) -> List[Dict]:
         """OFX com STMTTRN, TRNTYPE, DTPOSTED, TRNAMT, FITID, MEMO"""
-        try:
-            from ofxparse import OfxFile
-        except ImportError:
-            self.errors.append({
-                'line': 0,
-                'error': 'ofxparse não instalado'
-            })
-            return []
-        
         self.transactions = []
         self.errors = []
         
+        # Tentar importar ofxparse
+        try:
+            from ofxparse import OfxFile
+            return self._parse_with_ofxparse(file_content, OfxFile)
+        except ImportError:
+            print("ofxparse não disponível, usando parse manual")
+            return self._parse_manual_ofx(file_content)
+    
+    def _parse_with_ofxparse(self, file_content: bytes, OfxFile) -> List[Dict]:
+        """Parse usando ofxparse"""
         try:
             ofx = OfxFile(BytesIO(file_content))
             
@@ -1318,13 +1319,103 @@ class NubankOFXParser(BankParser):
                         except Exception as e:
                             self.errors.append({
                                 'line': self.total_lines,
-                                'error': f'Erro ao processar transação: {str(e)}'
+                                'error': f'Erro ao processar transação OFX: {str(e)}'
                             })
         
         except Exception as e:
             self.errors.append({
                 'line': 0,
-                'error': f'Erro ao processar OFX Nubank: {str(e)}'
+                'error': f'Erro ao processar OFX: {str(e)}'
+            })
+        
+        return self.transactions
+    
+    def _parse_manual_ofx(self, file_content: bytes) -> List[Dict]:
+        """Parse manual de OFX quando ofxparse não está disponível"""
+        import re
+        from datetime import datetime
+        
+        self.transactions = []
+        
+        try:
+            content = file_content.decode('utf-8', errors='ignore')
+            
+            # Encontrar todas as transações no OFX
+            pattern = r'<STMTTRN>(.*?)</STMTTRN>'
+            matches = re.findall(pattern, content, re.DOTALL)
+            
+            print(f"DEBUG: Encontradas {len(matches)} transações no OFX Nubank")
+            
+            for match in matches:
+                try:
+                    # Extrair TRNTYPE
+                    trntype_match = re.search(r'<TRNTYPE>(.*?)</TRNTYPE>', match)
+                    trntype = trntype_match.group(1) if trntype_match else ''
+                    
+                    # Extrair DTPOSTED (data)
+                    dt_match = re.search(r'<DTPOSTED>(.*?)</DTPOSTED>', match)
+                    if dt_match:
+                        dt_str = dt_match.group(1)
+                        # Formato: 20260504000000[-3:BRT]
+                        date_part = dt_str[:8]  # Pega YYYYMMDD
+                        date = f"{date_part[:4]}-{date_part[4:6]}-{date_part[6:8]}"
+                    else:
+                        continue
+                    
+                    # Extrair TRNAMT (valor)
+                    amount_match = re.search(r'<TRNAMT>(.*?)</TRNAMT>', match)
+                    if not amount_match:
+                        continue
+                    
+                    amount = Decimal(str(amount_match.group(1)))
+                    
+                    # Extrair MEMO para descrição
+                    memo_match = re.search(r'<MEMO>(.*?)</MEMO>', match)
+                    description = memo_match.group(1) if memo_match else ''
+                    
+                    # Tentar NAME também
+                    if not description:
+                        name_match = re.search(r'<NAME>(.*?)</NAME>', match)
+                        description = name_match.group(1) if name_match else ''
+                    
+                    if not description:
+                        description = f"Transação em {date}"
+                    
+                    # Extrair FITID
+                    fitid_match = re.search(r'<FITID>(.*?)</FITID>', match)
+                    fitid = fitid_match.group(1) if fitid_match else ''
+                    
+                    self.transactions.append({
+                        'date': date,
+                        'description': description[:200],
+                        'amount': str(amount),
+                        'type': 'income' if amount > 0 else 'expense',
+                        'transaction_type': 'credit' if amount > 0 else 'debit',
+                        'fitid': fitid,
+                        'bank': 'nubank',
+                        'raw_data': {'manual_parse': True}
+                    })
+                    
+                    self.total_lines += 1
+                    
+                except Exception as e:
+                    self.errors.append({
+                        'line': self.total_lines,
+                        'error': f'Erro no parse manual: {str(e)}'
+                    })
+            
+            if not self.transactions:
+                self.errors.append({
+                    'line': 0,
+                    'error': 'Nenhuma transação encontrada no arquivo OFX. Verifique se o formato está correto.'
+                })
+            
+            print(f"DEBUG: Total extraído do OFX Nubank: {len(self.transactions)} transações")
+        
+        except Exception as e:
+            self.errors.append({
+                'line': 0,
+                'error': f'Erro no parse manual do OFX: {str(e)}'
             })
         
         return self.transactions
