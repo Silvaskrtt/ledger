@@ -84,7 +84,7 @@ class BankParser(ABC):
 
 
 class BancoDosBrasilCSVParser(BankParser):
-    """Parser para CSV do Banco do Brasil"""
+    """Parser para CSV do Banco do Brasil - com suporte a múltiplos encodings e formatos"""
     
     def parse(self, file_content: bytes) -> List[Dict]:
         """
@@ -93,77 +93,204 @@ class BancoDosBrasilCSVParser(BankParser):
         self.transactions = []
         self.errors = []
         
-        try:
-            content_str = file_content.decode('utf-8')
-            reader = csv.DictReader(StringIO(content_str), delimiter=';')
-            
-            for line_num, row in enumerate(reader, start=2):
-                self.total_lines += 1
-                try:
-                    # Mapeamento de campos
-                    date_str = row.get('Data', '').strip()
-                    description = row.get('Detalhes', '').strip()
-                    document_no = row.get('N° documento', '').strip()
-                    value_str = row.get('Valor', '').strip()
-                    type_str = row.get('Tipo Lançamento', '').strip().upper()
-                    
-                    # Validações básicas
-                    if not date_str or not value_str or not description:
-                        self.errors.append({
-                            'line': line_num,
-                            'error': 'Campos obrigatórios ausentes (Data, Valor, Detalhes)'
-                        })
-                        continue
-                    
-                    # Parse da data
-                    date = self.normalize_date(date_str, ['%d/%m/%Y'])
-                    if not date:
-                        self.errors.append({
-                            'line': line_num,
-                            'error': f'Data inválida: {date_str}'
-                        })
-                        continue
-                    
-                    # Parse do valor
-                    amount = self.parse_decimal(value_str)
-                    if amount is None:
-                        self.errors.append({
-                            'line': line_num,
-                            'error': f'Valor inválido: {value_str}'
-                        })
-                        continue
-                    
-                    # Determina tipo (crédito/débito)
-                    is_credit = type_str in ['DÉBITO', 'SAÍDA', 'DESPESA']
-                    if is_credit:
-                        amount = abs(amount) * -1
-                    else:
-                        amount = abs(amount)
-                    
-                    self.transactions.append({
-                        'date': date,
-                        'description': description,
-                        'amount': str(amount),
-                        'type': 'expense' if is_credit else 'income',
-                        'document_number': document_no,
-                        'transaction_type': 'debit' if is_credit else 'credit',
-                        'bank': 'bb',
-                        'raw_data': dict(row)
-                    })
-                
-                except Exception as e:
-                    self.errors.append({
-                        'line': line_num,
-                        'error': str(e)
-                    })
+        # Tentar diferentes encodings
+        encodings = ['utf-8', 'latin-1', 'iso-8859-1', 'windows-1252', 'cp1252']
+        content_str = None
+        used_encoding = None
         
-        except Exception as e:
+        for encoding in encodings:
+            try:
+                content_str = file_content.decode(encoding)
+                used_encoding = encoding
+                break
+            except UnicodeDecodeError:
+                continue
+        
+        if content_str is None:
             self.errors.append({
                 'line': 0,
-                'error': f'Erro ao processar arquivo: {str(e)}'
+                'error': f'Não foi possível decodificar o arquivo. Tentados: {encodings}'
             })
+            return []
         
+        print(f"=== DEBUG: Arquivo decodificado com encoding: {used_encoding} ===")
+        
+        # Mostrar primeiras linhas para debug
+        lines = content_str.split('\n')
+        print(f"Primeiras 5 linhas do arquivo:")
+        for i, line in enumerate(lines[:5]):
+            print(f"Linha {i}: {repr(line)}")
+        
+        # Tentar diferentes delimitadores
+        delimiters = [';', ',', '\t', '|']
+        reader = None
+        used_delimiter = None
+        
+        for delimiter in delimiters:
+            try:
+                test_reader = csv.DictReader(StringIO(content_str), delimiter=delimiter)
+                # Pegar os headers
+                headers = test_reader.fieldnames
+                if headers and len(headers) > 1:
+                    # Verificar se algum header parece válido
+                    if any(h for h in headers if h and ('Data' in h or 'data' in h or 'Valor' in h or 'valor' in h)):
+                        reader = test_reader
+                        used_delimiter = delimiter
+                        print(f"Delimitador encontrado: {repr(delimiter)}")
+                        print(f"Headers: {headers}")
+                        break
+            except:
+                continue
+        
+        if reader is None:
+            # Fallback: tentar auto-detectar
+            import re
+            for delimiter in delimiters:
+                if delimiter in content_str:
+                    reader = csv.DictReader(StringIO(content_str), delimiter=delimiter)
+                    used_delimiter = delimiter
+                    print(f"Usando delimitador por fallback: {repr(delimiter)}")
+                    print(f"Headers: {reader.fieldnames}")
+                    break
+        
+        if reader is None:
+            self.errors.append({
+                'line': 0,
+                'error': f'Não foi possível identificar o delimitador do CSV. Conteúdo: {lines[0][:100]}'
+            })
+            return []
+        
+        # Mapeamento de campos (case insensitive)
+        field_mapping = {}
+        if reader.fieldnames:
+            for field in reader.fieldnames:
+                field_lower = field.lower().strip()
+                if 'data' in field_lower:
+                    field_mapping['date'] = field
+                elif 'valor' in field_lower or 'valores' in field_lower:
+                    field_mapping['amount'] = field
+                elif 'detalhe' in field_lower or 'historico' in field_lower or 'descricao' in field_lower:
+                    field_mapping['description'] = field
+                elif 'documento' in field_lower or 'doc' in field_lower or 'nº' in field_lower:
+                    field_mapping['document'] = field
+                elif 'tipo' in field_lower or 'lançamento' in field_lower:
+                    field_mapping['type'] = field
+        
+        print(f"Mapeamento de campos: {field_mapping}")
+        
+        for line_num, row in enumerate(reader, start=2):
+            self.total_lines += 1
+            try:
+                # Usar mapeamento ou nomes originais
+                date_str = row.get(field_mapping.get('date', 'Data'), row.get('data', '')).strip()
+                description = row.get(field_mapping.get('description', 'Detalhes'), row.get('detalhes', row.get('historico', ''))).strip()
+                document_no = row.get(field_mapping.get('document', 'N° documento'), row.get('n° documento', row.get('documento', ''))).strip()
+                value_str = row.get(field_mapping.get('amount', 'Valor'), row.get('valor', '')).strip()
+                type_str = row.get(field_mapping.get('type', 'Tipo Lançamento'), row.get('tipo', row.get('tipo lançamento', ''))).strip().upper()
+                
+                # Log das primeiras linhas
+                if line_num <= 10:
+                    print(f"Linha {line_num}: Data='{date_str}', Valor='{value_str}', Desc='{description[:50]}'")
+                
+                # Validações básicas
+                if not date_str or not value_str:
+                    # Tentar outros campos possíveis
+                    if not date_str:
+                        # Tentar encontrar qualquer campo que pareça data
+                        for key, val in row.items():
+                            if val and '/' in str(val) and len(str(val)) >= 8:
+                                date_str = str(val).strip()
+                                break
+                    
+                    if not value_str:
+                        # Tentar encontrar qualquer campo que pareça valor
+                        for key, val in row.items():
+                            if val and any(c.isdigit() for c in str(val)) and (',' in str(val) or '.' in str(val)):
+                                value_str = str(val).strip()
+                                break
+                    
+                    if not date_str or not value_str:
+                        self.errors.append({
+                            'line': line_num,
+                            'error': f'Campos obrigatórios ausentes. Data="{date_str}", Valor="{value_str}", Linha={dict(row)}'
+                        })
+                        continue
+                
+                # Parse da data
+                date = self.normalize_date(date_str, ['%d/%m/%Y', '%d/%m/%y', '%Y-%m-%d', '%d-%m-%Y'])
+                if not date:
+                    self.errors.append({
+                        'line': line_num,
+                        'error': f'Data inválida: {date_str}'
+                    })
+                    continue
+                
+                # Parse do valor
+                amount = self.parse_brazilian_decimal(value_str)
+                if amount is None:
+                    self.errors.append({
+                        'line': line_num,
+                        'error': f'Valor inválido: {value_str}'
+                    })
+                    continue
+                
+                # Determina tipo (crédito/débito)
+                is_debit = type_str in ['DÉBITO', 'SAÍDA', 'DESPESA', 'DEBITO', 'SAIDA', 'DESPESA', '-', 'DEBIT']
+                if not description:
+                    description = f"Transação em {date}"
+                
+                self.transactions.append({
+                    'date': date,
+                    'description': description[:200],
+                    'amount': str(-abs(amount) if is_debit else abs(amount)),
+                    'type': 'expense' if is_debit else 'income',
+                    'document_number': document_no,
+                    'transaction_type': 'debit' if is_debit else 'credit',
+                    'bank': 'bb',
+                    'raw_data': dict(row)
+                })
+            
+            except Exception as e:
+                self.errors.append({
+                    'line': line_num,
+                    'error': f'Erro na linha: {str(e)}'
+                })
+        
+        print(f"=== RESULTADO: {len(self.transactions)} transações, {len(self.errors)} erros ===")
         return self.transactions
+    
+    def parse_brazilian_decimal(self, value_str: str) -> Optional[Decimal]:
+        """Converte formato brasileiro (1.234,56) para Decimal"""
+        if not value_str:
+            return None
+        
+        try:
+            cleaned = str(value_str).strip()
+            cleaned = cleaned.replace('R$', '').replace('R', '').replace('$', '').strip()
+            cleaned = cleaned.replace(' ', '')
+            
+            # Remove o sinal de negativo temporariamente
+            is_negative = cleaned.startswith('-')
+            if is_negative:
+                cleaned = cleaned[1:]
+            
+            # Formato brasileiro: 1.234,56
+            if '.' in cleaned and ',' in cleaned:
+                cleaned = cleaned.replace('.', '')
+                cleaned = cleaned.replace(',', '.')
+            elif ',' in cleaned:
+                if cleaned.count(',') == 1:
+                    cleaned = cleaned.replace(',', '.')
+                else:
+                    return None
+            
+            result = Decimal(cleaned)
+            if is_negative:
+                result = -result
+            return result if result != 0 else None
+            
+        except Exception as e:
+            return None
 
 
 class BancoDosBrasilPDFParser(BankParser):
