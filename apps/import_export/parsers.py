@@ -645,21 +645,19 @@ class BancoDosBrasilXLSXParser(BankParser):
 
 
 class BancoDosBrasilOFXParser(BankParser):
-    """Parser para OFX do Banco do Brasil"""
+    """Parser para OFX do Banco do Brasil - com fallback"""
     
     def parse(self, file_content: bytes) -> List[Dict]:
         """OFX com STMTTRN, TRNTYPE, DTPOSTED, TRNAMT, FITID, NAME, MEMO"""
+        self.transactions = []
+        self.errors = []
+        
+        # Tentar importar ofxparse
         try:
             from ofxparse import OfxFile
         except ImportError:
-            self.errors.append({
-                'line': 0,
-                'error': 'ofxparse não instalado. Instale com: pip install ofxparse'
-            })
-            return []
-        
-        self.transactions = []
-        self.errors = []
+            # Se não tiver ofxparse, tentar parse manual básico
+            return self._parse_manual_ofx(file_content)
         
         try:
             ofx = OfxFile(BytesIO(file_content))
@@ -670,11 +668,7 @@ class BancoDosBrasilOFXParser(BankParser):
                         self.total_lines += 1
                         try:
                             date = transaction.date.strftime('%Y-%m-%d') if hasattr(transaction.date, 'strftime') else str(transaction.date)
-                            
-                            # TRNAMT: valor (negativo para débito, positivo para crédito)
                             amount = Decimal(str(transaction.amount))
-                            
-                            # Descrição vem de NAME ou MEMO
                             description = (transaction.payee or '') or (transaction.memo or '')
                             description = description.strip()[:200] if description else 'Sem descrição'
                             
@@ -703,6 +697,94 @@ class BancoDosBrasilOFXParser(BankParser):
             self.errors.append({
                 'line': 0,
                 'error': f'Erro ao processar OFX: {str(e)}'
+            })
+        
+        return self.transactions
+    
+    def _parse_manual_ofx(self, file_content: bytes) -> List[Dict]:
+        """Parse manual de OFX quando ofxparse não está disponível"""
+        import re
+        from datetime import datetime
+        
+        self.transactions = []
+        
+        try:
+            content = file_content.decode('utf-8', errors='ignore')
+            
+            # Encontrar todas as transações no OFX
+            # Padrão: <STMTTRN>...<STMTTRN>
+            pattern = r'<STMTTRN>(.*?)</STMTTRN>'
+            matches = re.findall(pattern, content, re.DOTALL)
+            
+            for match in matches:
+                try:
+                    # Extrair TRNTYPE
+                    trntype_match = re.search(r'<TRNTYPE>(.*?)</TRNTYPE>', match)
+                    trntype = trntype_match.group(1) if trntype_match else ''
+                    
+                    # Extrair DTPOSTED (data)
+                    dt_match = re.search(r'<DTPOSTED>(.*?)</DTPOSTED>', match)
+                    if dt_match:
+                        dt_str = dt_match.group(1)
+                        # Formato: 20260504000000[-3:BRT]
+                        date_str = dt_str[:8]  # Pega YYYYMMDD
+                        date = f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:8]}"
+                    else:
+                        continue
+                    
+                    # Extrair TRNAMT (valor)
+                    amount_match = re.search(r'<TRNAMT>(.*?)</TRNAMT>', match)
+                    if not amount_match:
+                        continue
+                    
+                    amount = Decimal(str(amount_match.group(1)))
+                    
+                    # Extrair NAME ou MEMO para descrição
+                    name_match = re.search(r'<NAME>(.*?)</NAME>', match)
+                    memo_match = re.search(r'<MEMO>(.*?)</MEMO>', match)
+                    
+                    description = ''
+                    if name_match:
+                        description = name_match.group(1)
+                    elif memo_match:
+                        description = memo_match.group(1)
+                    
+                    if not description:
+                        description = f"Transação em {date}"
+                    
+                    # Extrair FITID
+                    fitid_match = re.search(r'<FITID>(.*?)</FITID>', match)
+                    fitid = fitid_match.group(1) if fitid_match else ''
+                    
+                    self.transactions.append({
+                        'date': date,
+                        'description': description[:200],
+                        'amount': str(amount),
+                        'type': 'income' if amount > 0 else 'expense',
+                        'transaction_type': 'credit' if amount > 0 else 'debit',
+                        'fitid': fitid,
+                        'bank': 'bb',
+                        'raw_data': {'manual_parse': True}
+                    })
+                    
+                    self.total_lines += 1
+                    
+                except Exception as e:
+                    self.errors.append({
+                        'line': self.total_lines,
+                        'error': f'Erro no parse manual: {str(e)}'
+                    })
+            
+            if not self.transactions:
+                self.errors.append({
+                    'line': 0,
+                    'error': 'Nenhuma transação encontrada no arquivo OFX. Verifique se o formato está correto.'
+                })
+        
+        except Exception as e:
+            self.errors.append({
+                'line': 0,
+                'error': f'Erro no parse manual do OFX: {str(e)}'
             })
         
         return self.transactions
