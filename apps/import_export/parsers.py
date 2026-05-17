@@ -1041,6 +1041,164 @@ class ItauPDFParser(BankParser):
         
         return self.transactions
 
+# Parsers para Nubank
+class NubankPDFParser(BankParser):
+    """Parser para PDF do Nubank - Versão Simplificada"""
+    
+    def parse(self, file_content: bytes) -> List[Dict]:
+        try:
+            import PyPDF2
+            import re
+            from datetime import datetime
+        except ImportError as e:
+            self.errors.append({
+                'line': 0,
+                'error': f'Dependência não instalada: {str(e)}'
+            })
+            return []
+        
+        self.transactions = []
+        self.errors = []
+        
+        print("=" * 50)
+        print("DEBUG: Iniciando parser NubankPDF")
+        
+        try:
+            # Ler PDF
+            pdf_file = BytesIO(file_content)
+            pdf_reader = PyPDF2.PdfReader(pdf_file)
+            
+            # Extrair todo o texto do PDF
+            full_text = ""
+            for page_num, page in enumerate(pdf_reader.pages, start=1):
+                text = page.extract_text()
+                full_text += text + "\n"
+                print(f"Página {page_num}: {len(text)} caracteres")
+            
+            print(f"Texto total: {len(full_text)} caracteres")
+            print("Primeiros 1000 caracteres:")
+            print(full_text[:1000])
+            
+            # Padrões para encontrar transações do Nubank
+            # Padrão 1: "Data Valor Descrição"
+            # Exemplo: "01 MAI 2026 R$ 50,00 Transferência recebida"
+            
+            # Procurar por linhas com data e valor
+            lines = full_text.split('\n')
+            
+            # Padrão de data: DD MMM AAAA (ex: 01 MAI 2026)
+            date_pattern = r'(\d{1,2})\s+(JAN|FEV|MAR|ABR|MAI|JUN|JUL|AGO|SET|OUT|NOV|DEZ)\s+(\d{4})'
+            
+            # Padrão de valor: R$ 123,45 ou 123,45
+            amount_pattern = r'R?\$?\s*(\d{1,3}(?:\.\d{3})*,\d{2})'
+            
+            month_map = {
+                'JAN': 1, 'FEV': 2, 'MAR': 3, 'ABR': 4, 'MAI': 5, 'JUN': 6,
+                'JUL': 7, 'AGO': 8, 'SET': 9, 'OUT': 10, 'NOV': 11, 'DEZ': 12
+            }
+            
+            i = 0
+            while i < len(lines):
+                line = lines[i].strip()
+                if not line:
+                    i += 1
+                    continue
+                
+                # Procurar por data na linha atual
+                date_match = re.search(date_pattern, line.upper())
+                
+                if date_match:
+                    day = int(date_match.group(1))
+                    month_name = date_match.group(2)
+                    year = int(date_match.group(3))
+                    month = month_map.get(month_name, 1)
+                    date_str = f"{year}-{month:02d}-{day:02d}"
+                    
+                    print(f"Encontrada data: {date_str} na linha: {line[:100]}")
+                    
+                    # Procurar valor na mesma linha ou na próxima
+                    amount = None
+                    description = ""
+                    
+                    # Tentar extrair valor da mesma linha
+                    amount_match = re.search(amount_pattern, line)
+                    if amount_match:
+                        amount_str = amount_match.group(1).replace('.', '').replace(',', '.')
+                        amount = Decimal(amount_str)
+                        # Remover a data e o valor da linha para pegar a descrição
+                        description = re.sub(date_pattern, '', line, flags=re.IGNORECASE)
+                        description = re.sub(amount_pattern, '', description)
+                        description = description.strip()
+                    else:
+                        # Verificar próxima linha para o valor
+                        if i + 1 < len(lines):
+                            next_line = lines[i + 1].strip()
+                            amount_match = re.search(amount_pattern, next_line)
+                            if amount_match:
+                                amount_str = amount_match.group(1).replace('.', '').replace(',', '.')
+                                amount = Decimal(amount_str)
+                                description = line
+                                # Limpar a data da descrição
+                                description = re.sub(date_pattern, '', description, flags=re.IGNORECASE)
+                                description = description.strip()
+                                i += 1  # Pular a linha do valor
+                    
+                    if amount and amount != 0:
+                        # Determinar se é débito (saída) ou crédito (entrada)
+                        is_debit = False
+                        line_upper = line.upper()
+                        next_line_upper = lines[i + 1].upper() if i + 1 < len(lines) else ""
+                        
+                        if 'SAÍDA' in line_upper or 'SAIDA' in line_upper or 'PAGAMENTO' in line_upper:
+                            is_debit = True
+                        elif 'ENTRADA' in line_upper or 'RECEBIDA' in line_upper or 'RECEBIDO' in line_upper:
+                            is_debit = False
+                        elif '(-)' in line:
+                            is_debit = True
+                        elif '(+)' in line:
+                            is_debit = False
+                        else:
+                            # Se não houver indicação, verificar o sinal do valor
+                            is_debit = amount < 0
+                            amount = abs(amount)
+                        
+                        if not description:
+                            description = f"Transação Nubank em {date_str}"
+                        
+                        description = description[:200]
+                        
+                        self.transactions.append({
+                            'date': date_str,
+                            'description': description,
+                            'amount': str(-abs(amount) if is_debit else abs(amount)),
+                            'type': 'expense' if is_debit else 'income',
+                            'transaction_type': 'debit' if is_debit else 'credit',
+                            'bank': 'nubank',
+                            'raw_data': {'line': line[:500]}
+                        })
+                        
+                        print(f"  ✓ Transação adicionada: {date_str} | {'DESPESA' if is_debit else 'RECEITA'} | R${abs(amount)} | {description[:50]}")
+                
+                i += 1
+            
+            print(f"Total extraído do PDF Nubank: {len(self.transactions)} transações")
+            
+            if len(self.transactions) == 0:
+                self.errors.append({
+                    'line': 0,
+                    'error': 'Nenhuma transação encontrada no PDF. Verifique o formato do arquivo.'
+                })
+            
+        except Exception as e:
+            self.errors.append({
+                'line': 0,
+                'error': f'Erro ao processar PDF Nubank: {str(e)}'
+            })
+            print(f"Erro: {e}")
+            import traceback
+            traceback.print_exc()
+        
+        return self.transactions
 
 # Parsers para Nubank
 class NubankCSVParser(BankParser):
@@ -1184,6 +1342,7 @@ def get_parser(bank: str, file_format: str) -> Optional[BankParser]:
         ('bb', 'bbt'): BancoDosBrasilBBTParser,
         ('bb', 'txt'): BancoDosBrasilTXTParser,
         ('itau', 'pdf'): ItauPDFParser,
+        ('nubank', 'pdf'): NubankPDFParser,
         ('nubank', 'csv'): NubankCSVParser,
         ('nubank', 'ofx'): NubankOFXParser,
     }
