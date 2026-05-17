@@ -223,37 +223,66 @@
     window.confirmImport = async function () {
         if (!pendingFile) return;
 
+        // PEGAR OS VALORES DOS SELECTS
+        const bankSelect = document.getElementById('import-bank');
+        const formatSelect = document.getElementById('import-format');
+        const fileInput = document.getElementById('fileInput');
+
+        const bank = bankSelect ? bankSelect.value : '';
+        const file_format = formatSelect ? formatSelect.value : '';
+
+        // Validar
+        if (!bank) {
+            showToast('Por favor, selecione o banco', 'error');
+            return;
+        }
+
+        if (!file_format) {
+            showToast('Por favor, selecione o formato do arquivo', 'error');
+            return;
+        }
+
+        if (!pendingFile) {
+            showToast('Por favor, selecione um arquivo', 'error');
+            return;
+        }
+
+        console.log('Importando:', { bank, file_format, file: pendingFile.name });
+
         const formData = new FormData();
         formData.append('file', pendingFile);
+        formData.append('bank', bank);
+        formData.append('file_format', file_format);
 
-        showToast('Enviando arquivo para importação...', 'success');
+        showToast('Enviando arquivo para importação...', 'info');
 
         try {
             const response = await fetch(window.importUrl, {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken'),
-                    'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: formData
             });
 
             const data = await response.json();
+            console.log('Resposta:', data);
 
-            if (data.success) {
-                showToast(data.message, 'success');
+            if (response.ok && data.success) {
+                let message = data.message || 'Importação concluída!';
+                if (data.summary && data.summary.records_imported > 0) {
+                    message = `✅ ${data.summary.records_imported} transações importadas com sucesso!`;
+                }
+                showToast(message, 'success');
                 cancelImport();
-
-                // Recarregar página após 2 segundos
-                setTimeout(() => {
-                    location.reload();
-                }, 2000);
+                setTimeout(() => location.reload(), 2000);
             } else {
-                showToast(data.error || 'Erro ao importar dados', 'error');
+                const errorMsg = data.error || data.message || 'Erro na importação';
+                showToast(errorMsg, 'error');
             }
         } catch (error) {
-            console.error('Error importing:', error);
-            showToast('Erro ao conectar com o servidor', 'error');
+            console.error('Erro:', error);
+            showToast('Erro de conexão com o servidor', 'error');
         }
     };
 
