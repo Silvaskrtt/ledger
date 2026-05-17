@@ -1,4 +1,3 @@
-# import_export/services.py
 """
 Serviços para importação de extratos bancários
 Orquestra parsing, validação, deduplicação e salvamento
@@ -9,9 +8,8 @@ from django.db import transaction as db_transaction
 from decimal import Decimal
 from typing import Dict, List, Tuple, Optional
 import logging
+import traceback
 
-from transactions.models import Transaction
-from categories.models import Category
 from .models import ImportHistory, TransactionImportMetadata
 from .parsers import get_parser
 from .validators import TransactionValidator, DuplicateDetector
@@ -42,6 +40,27 @@ class BankStatementImportService:
         # Transações processadas
         self.processed_transactions = []
         self.imported_transactions = []
+        
+        # Models importados dinamicamente
+        self.Transaction = None
+        self.Category = None
+        self._load_models()
+    
+    def _load_models(self):
+        """Carrega models dinamicamente para evitar erro de importação"""
+        try:
+            from transactions.models import Transaction
+            self.Transaction = Transaction
+        except ImportError:
+            logger.warning("App 'transactions' não encontrado")
+            self.Transaction = None
+        
+        try:
+            from categories.models import Category
+            self.Category = Category
+        except ImportError:
+            logger.warning("App 'categories' não encontrado")
+            self.Category = None
     
     def import_file(self, file_content: bytes) -> Dict:
         """
@@ -49,6 +68,15 @@ class BankStatementImportService:
         Retorna dicionário com resultado da operação
         """
         try:
+            # Verificar se os models necessários existem
+            if not self.Transaction or not self.Category:
+                return {
+                    'success': False,
+                    'error': 'Apps necessários não estão instalados. Execute: python manage.py startapp transactions e python manage.py startapp categories',
+                    'status': 'failed',
+                    'message': 'Configuração incompleta do sistema'
+                }
+            
             # Criar registro de importação
             self.import_history = ImportHistory.objects.create(
                 user=self.user,
@@ -62,22 +90,22 @@ class BankStatementImportService:
             # Step 1: Parse do arquivo
             parsed_transactions = self._parse_file(file_content)
             
+            if not parsed_transactions and not self.validation_errors:
+                self._finalize_import(
+                    status='failed',
+                    error_message='Nenhuma transação válida encontrada no arquivo'
+                )
+                return self._get_result()
+            
             if not parsed_transactions:
                 self._finalize_import(
-                    status='failed' if self.validation_errors else 'completed',
-                    error_message='Nenhuma transação válida encontrada no arquivo'
+                    status='completed_with_errors' if self.records_failed > 0 else 'failed',
+                    error_message='Nenhuma transação foi parseada com sucesso'
                 )
                 return self._get_result()
             
             # Step 2: Validar transações
             validated_transactions = self._validate_transactions(parsed_transactions)
-            
-            if not validated_transactions:
-                self._finalize_import(
-                    status='completed_with_errors' if self.records_failed > 0 else 'failed',
-                    error_message='Nenhuma transação passou na validação'
-                )
-                return self._get_result()
             
             # Step 3: Detectar e remover duplicatas
             deduplicated_transactions = self._remove_duplicates(validated_transactions)
@@ -86,11 +114,18 @@ class BankStatementImportService:
             self._save_transactions(deduplicated_transactions)
             
             # Finalizar importação
-            status = 'completed' if self.records_failed == 0 else 'completed_with_errors'
+            if self.records_failed > 0 and self.records_imported > 0:
+                status = 'completed_with_errors'
+            elif self.records_imported > 0:
+                status = 'completed'
+            else:
+                status = 'failed'
+            
             self._finalize_import(status)
             
         except Exception as e:
-            logger.error(f"Erro ao importar arquivo: {str(e)}", exc_info=True)
+            logger.error(f"Erro ao importar arquivo: {str(e)}")
+            logger.error(traceback.format_exc())
             self._finalize_import(
                 status='failed',
                 error_message=f"Erro ao processar arquivo: {str(e)}"
@@ -118,11 +153,13 @@ class BankStatementImportService:
             # Adicionar erros do parser
             if parser.errors:
                 self.validation_errors.extend(parser.errors)
+                self.records_failed += len([e for e in parser.errors if e.get('line', 0) > 0])
             
             return transactions
         
         except Exception as e:
-            logger.error(f"Erro ao fazer parsing: {str(e)}", exc_info=True)
+            logger.error(f"Erro ao fazer parsing: {str(e)}")
+            logger.error(traceback.format_exc())
             self.validation_errors.append({
                 'line': 0,
                 'error': f"Erro ao fazer parsing: {str(e)}"
@@ -155,70 +192,114 @@ class BankStatementImportService:
         seen_fitids = set()
         seen_composite_keys = set()
         
-        # Verificar duplicatas no banco de dados
-        existing_fitids = set()
-        existing_composite_keys = set()
+        try:
+            # Verificar duplicatas no banco de dados apenas se os models existem
+            if self.Transaction and self.Category:
+                existing_fitids = set()
+                existing_composite_keys = set()
+                
+                # Buscar FITID existentes
+                existing_metadata = TransactionImportMetadata.objects.filter(
+                    transaction__user=self.user
+                ).values_list('fitid', 'document_number').distinct()
+                
+                for fitid, doc_number in existing_metadata:
+                    if fitid:
+                        existing_fitids.add(fitid)
+                    if doc_number:
+                        existing_fitids.add(doc_number)
+                
+                # Verificar duplicatas de chave composta no BD
+                existing_trans = self.Transaction.objects.filter(
+                    user=self.user
+                ).values('date', 'amount', 'description').distinct()
+                
+                for trans in existing_trans:
+                    if trans['date'] and trans['amount'] and trans['description']:
+                        key = f"{trans['date']}|{trans['amount']}|{trans['description']}"
+                        existing_composite_keys.add(key)
+                
+                # Processar transações com verificação de BD
+                for trans in transactions:
+                    # Verificar FITID dentro do batch
+                    fitid = DuplicateDetector.get_fitid(trans)
+                    if fitid and fitid in seen_fitids:
+                        self.duplicates_ignored += 1
+                        logger.debug(f"Duplicata por FITID: {fitid}")
+                        continue
+                    
+                    if fitid and fitid in existing_fitids:
+                        self.duplicates_ignored += 1
+                        logger.debug(f"Duplicata no BD (FITID): {fitid}")
+                        continue
+                    
+                    # Verificar chave composta
+                    composite_key = DuplicateDetector.get_composite_key(trans)
+                    if composite_key in seen_composite_keys:
+                        self.duplicates_ignored += 1
+                        logger.debug(f"Duplicata por chave composta: {composite_key}")
+                        continue
+                    
+                    if composite_key in existing_composite_keys:
+                        self.duplicates_ignored += 1
+                        logger.debug(f"Duplicata no BD (chave composta): {composite_key}")
+                        continue
+                    
+                    # Adicionar aos sets de duplicação
+                    if fitid:
+                        seen_fitids.add(fitid)
+                    seen_composite_keys.add(composite_key)
+                    
+                    deduplicated.append(trans)
+            else:
+                # Sem verificação de BD, apenas duplicatas no batch
+                for trans in transactions:
+                    fitid = DuplicateDetector.get_fitid(trans)
+                    composite_key = DuplicateDetector.get_composite_key(trans)
+                    
+                    if fitid and fitid in seen_fitids:
+                        self.duplicates_ignored += 1
+                        continue
+                    
+                    if composite_key in seen_composite_keys:
+                        self.duplicates_ignored += 1
+                        continue
+                    
+                    if fitid:
+                        seen_fitids.add(fitid)
+                    seen_composite_keys.add(composite_key)
+                    deduplicated.append(trans)
         
-        # Buscar FITID existentes
-        existing_metadata = TransactionImportMetadata.objects.filter(
-            transaction__user=self.user
-        ).values_list('fitid', 'document_number').distinct()
-        
-        for fitid, doc_number in existing_metadata:
-            if fitid:
-                existing_fitids.add(fitid)
-            if doc_number:
-                existing_fitids.add(doc_number)
-        
-        # Verificar duplicatas de chave composta no BD
-        existing_trans = Transaction.objects.filter(
-            user=self.user
-        ).values('date', 'amount', 'description').distinct()
-        
-        for trans in existing_trans:
-            key = f"{trans['date']}|{trans['amount']}|{trans['description']}"
-            existing_composite_keys.add(key)
-        
-        # Processar transações
-        for trans in transactions:
-            # Verificar FITID dentro do batch
-            fitid = DuplicateDetector.get_fitid(trans)
-            if fitid and fitid in seen_fitids:
-                self.duplicates_ignored += 1
-                logger.debug(f"Duplicata por FITID: {fitid}")
-                continue
-            
-            if fitid and fitid in existing_fitids:
-                self.duplicates_ignored += 1
-                logger.debug(f"Duplicata no BD (FITID): {fitid}")
-                continue
-            
-            # Verificar chave composta
-            composite_key = DuplicateDetector.get_composite_key(trans)
-            if composite_key in seen_composite_keys:
-                self.duplicates_ignored += 1
-                logger.debug(f"Duplicata por chave composta: {composite_key}")
-                continue
-            
-            if composite_key in existing_composite_keys:
-                self.duplicates_ignored += 1
-                logger.debug(f"Duplicata no BD (chave composta): {composite_key}")
-                continue
-            
-            # Adicionar aos sets de duplicação
-            if fitid:
-                seen_fitids.add(fitid)
-            seen_composite_keys.add(composite_key)
-            
-            deduplicated.append(trans)
+        except Exception as e:
+            logger.warning(f"Erro ao verificar duplicatas no BD: {str(e)}")
+            # Fallback: apenas duplicatas no batch
+            for trans in transactions:
+                fitid = DuplicateDetector.get_fitid(trans)
+                composite_key = DuplicateDetector.get_composite_key(trans)
+                
+                if fitid and fitid in seen_fitids:
+                    self.duplicates_ignored += 1
+                    continue
+                
+                if composite_key in seen_composite_keys:
+                    self.duplicates_ignored += 1
+                    continue
+                
+                if fitid:
+                    seen_fitids.add(fitid)
+                seen_composite_keys.add(composite_key)
+                deduplicated.append(trans)
         
         return deduplicated
     
     def _save_transactions(self, transactions: List[Dict]) -> None:
         """Salva transações no banco de dados"""
+        if not transactions:
+            return
+        
         try:
             # Obter ou criar categoria padrão
-            default_category, _ = Category.objects.get_or_create(
+            default_category, _ = self.Category.objects.get_or_create(
                 user=self.user,
                 name='Importadas',
                 defaults={'type': 'expense', 'is_default': True}
@@ -227,14 +308,24 @@ class BankStatementImportService:
             with db_transaction.atomic():
                 for trans_data in transactions:
                     try:
+                        # Converter valor para Decimal
+                        amount_value = trans_data.get('amount', 0)
+                        if isinstance(amount_value, str):
+                            amount_value = Decimal(amount_value)
+                        elif isinstance(amount_value, (int, float)):
+                            amount_value = Decimal(str(amount_value))
+                        
+                        # Determinar tipo (income/expense)
+                        transaction_type = trans_data.get('type', 'expense')
+                        
                         # Criar transação
-                        trans = Transaction.objects.create(
+                        trans = self.Transaction.objects.create(
                             user=self.user,
                             category=default_category,
-                            date=trans_data['date'],
-                            amount=trans_data['amount'],
-                            description=trans_data['description'],
-                            type=trans_data['type'],
+                            date=trans_data.get('date'),
+                            amount=abs(amount_value),
+                            description=trans_data.get('description', 'Sem descrição')[:200],
+                            type=transaction_type,
                             notes=f"Importado de {self.bank.upper()} ({self.file_format.upper()})"
                         )
                         
@@ -242,8 +333,8 @@ class BankStatementImportService:
                         TransactionImportMetadata.objects.create(
                             transaction=trans,
                             import_history=self.import_history,
-                            fitid=trans_data.get('fitid', ''),
-                            document_number=trans_data.get('document_number', ''),
+                            fitid=trans_data.get('fitid', '')[:255],
+                            document_number=trans_data.get('document_number', '')[:255],
                             transaction_type=trans_data.get('transaction_type', 'credit'),
                             bank=self.bank,
                             raw_data=trans_data.get('raw_data', {})
@@ -254,7 +345,7 @@ class BankStatementImportService:
                         
                     except Exception as e:
                         self.records_failed += 1
-                        logger.error(f"Erro ao salvar transação: {str(e)}", exc_info=True)
+                        logger.error(f"Erro ao salvar transação: {str(e)}")
                         self.validation_errors.append({
                             'line': len(self.processed_transactions),
                             'error': f'Erro ao salvar: {str(e)}',
@@ -262,7 +353,8 @@ class BankStatementImportService:
                         })
         
         except Exception as e:
-            logger.error(f"Erro ao salvar transações: {str(e)}", exc_info=True)
+            logger.error(f"Erro ao salvar transações: {str(e)}")
+            logger.error(traceback.format_exc())
             raise
     
     def _finalize_import(self, status: str, error_message: str = None) -> None:
@@ -276,7 +368,7 @@ class BankStatementImportService:
         self.import_history.records_failed = self.records_failed
         self.import_history.duplicates_ignored = self.duplicates_ignored
         self.import_history.error_message = error_message
-        self.import_history.validation_errors = self.validation_errors[:100]  # Limitar a 100 erros
+        self.import_history.validation_errors = self.validation_errors[:100]
         self.import_history.completed_at = timezone.now()
         self.import_history.save()
     
@@ -292,7 +384,7 @@ class BankStatementImportService:
                 'records_failed': self.records_failed,
                 'duplicates_ignored': self.duplicates_ignored,
             },
-            'validation_errors': self.validation_errors[:20],  # Retornar primeiros 20 erros
+            'validation_errors': self.validation_errors[:20],
             'message': self._build_message()
         }
     
