@@ -292,20 +292,22 @@ class BancoDosBrasilCSVParser(BankParser):
         except Exception as e:
             return None
 
-
 class BancoDosBrasilPDFParser(BankParser):
-    """Parser para PDF do Banco do Brasil"""
+    """Parser para PDF do Banco do Brasil - VERSÃO CORRIGIDA"""
     
     def parse(self, file_content: bytes) -> List[Dict]:
         """
         Esperado: Dia, Lote, Documento, Histórico, Valor
+        Extrai datas no formato DD/MM e valores monetários
         """
         try:
             import PyPDF2
-        except ImportError:
+            import re
+            from datetime import datetime
+        except ImportError as e:
             self.errors.append({
                 'line': 0,
-                'error': 'PyPDF2 não instalado. Instale com: pip install PyPDF2'
+                'error': f'Dependência não instalada: {str(e)}. Instale com: pip install PyPDF2'
             })
             return []
         
@@ -316,69 +318,83 @@ class BancoDosBrasilPDFParser(BankParser):
             pdf_file = BytesIO(file_content)
             pdf_reader = PyPDF2.PdfReader(pdf_file)
             
+            current_year = datetime.now().year
+            
             for page_num, page in enumerate(pdf_reader.pages, start=1):
-                text = page.extract_text()
-                lines = text.split('\n')
-                
-                for line_num, line in enumerate(lines, start=1):
-                    line = line.strip()
-                    if not line or len(line) < 10:
+                try:
+                    text = page.extract_text()
+                    
+                    if not text:
                         continue
                     
-                    try:
-                        # Regex simplificado para extrair padrão: data valor
-                        parts = line.split()
-                        if len(parts) < 3:
+                    lines = text.split('\n')
+                    
+                    for line_num, line in enumerate(lines, start=1):
+                        line = line.strip()
+                        if not line or len(line) < 10:
                             continue
                         
-                        # Tenta extrair data (primeiro campo)
-                        date_str = parts[0]
-                        date = self.normalize_date(date_str, ['%d/%m/%Y', '%d/%m'])
+                        # Padrão para encontrar datas no formato DD/MM ou DD/MM/YYYY
+                        date_pattern = r'(\d{2}/\d{2}(?:/\d{4})?)'
+                        date_match = re.search(date_pattern, line)
                         
+                        if not date_match:
+                            continue
+                        
+                        date_str = date_match.group(1)
+                        
+                        # Processar data
+                        date = self.parse_date_pdf(date_str, current_year)
                         if not date:
                             continue
                         
-                        # Tenta encontrar valor numérico
-                        value_str = None
-                        for part in parts:
-                            if self.parse_decimal(part):
-                                value_str = part
-                                break
+                        # Buscar valores monetários na linha
+                        value_str = self.extract_value_from_line(line)
                         
                         if not value_str:
                             continue
                         
-                        amount = self.parse_decimal(value_str)
-                        if not amount:
+                        # Processar valor
+                        amount = self.parse_brazilian_decimal(value_str)
+                        if amount is None:
                             continue
                         
-                        # Descrição é o resto do texto
-                        description = ' '.join(parts[1:-1]) if len(parts) > 2 else line
+                        # Extrair descrição (remover data e valor)
+                        description = line
+                        description = re.sub(date_pattern, '', description)
+                        description = re.sub(r'(\d{1,3}(?:[.,]\d{3})*[.,]\d{2})', '', description)
+                        description = re.sub(r'\([+-]\)', '', description)  # Remove (+/-)
+                        description = re.sub(r'\s+', ' ', description).strip()
                         
-                        # Completar dia com mês/ano se necessário
-                        if len(date.split('-')[-1]) == 4:  # Tem ano
-                            pass
-                        else:
-                            # Adicionar ano atual se não tiver
-                            from datetime import datetime
-                            year = datetime.now().year
-                            date = f"{date}-{year}"
+                        if not description or len(description) < 3:
+                            description = f"Transação em {date}"
+                        
+                        # Determinar se é débito ou crédito
+                        is_debit = self.is_debit_transaction(line, amount)
+                        
+                        # Verificar se é saldo (não deve ser importado)
+                        if self.is_balance_line(description):
+                            continue
+                        
+                        # Limitar tamanho da descrição
+                        if len(description) > 200:
+                            description = description[:200]
                         
                         self.transactions.append({
                             'date': date,
-                            'description': description[:200],
-                            'amount': str(amount),
-                            'type': 'income' if amount > 0 else 'expense',
-                            'transaction_type': 'credit' if amount > 0 else 'debit',
+                            'description': description,
+                            'amount': str(-abs(amount) if is_debit else abs(amount)),
+                            'type': 'expense' if is_debit else 'income',
+                            'transaction_type': 'debit' if is_debit else 'credit',
                             'bank': 'bb',
-                            'raw_data': {'pdf_line': line, 'page': page_num}
+                            'raw_data': {'pdf_line': line[:500], 'page': page_num}
                         })
                     
-                    except Exception as e:
-                        self.errors.append({
-                            'line': page_num,
-                            'error': f'Erro ao processar linha PDF: {str(e)}'
-                        })
+                except Exception as e:
+                    self.errors.append({
+                        'line': page_num,
+                        'error': f'Erro ao processar página: {str(e)}'
+                    })
         
         except Exception as e:
             self.errors.append({
@@ -387,7 +403,153 @@ class BancoDosBrasilPDFParser(BankParser):
             })
         
         return self.transactions
-
+    
+    def parse_date_pdf(self, date_str: str, current_year: int) -> Optional[str]:
+        """Converte data do formato DD/MM ou DD/MM/YYYY para YYYY-MM-DD"""
+        from datetime import datetime
+        
+        try:
+            # Se tem apenas dia/mês (ex: 30/12)
+            if date_str.count('/') == 1 and len(date_str) <= 5:
+                # Assume ano atual
+                full_date = f"{date_str}/{current_year}"
+                dt = datetime.strptime(full_date, '%d/%m/%Y')
+                
+                # Se for futura, usa ano anterior
+                if dt.date() > datetime.now().date():
+                    full_date = f"{date_str}/{current_year - 1}"
+                    dt = datetime.strptime(full_date, '%d/%m/%Y')
+                
+                return dt.strftime('%Y-%m-%d')
+            
+            # Se tem data completa (ex: 30/12/2025)
+            elif date_str.count('/') == 2:
+                dt = datetime.strptime(date_str, '%d/%m/%Y')
+                
+                # Verificar se data é válida (não muito no futuro)
+                if dt.year > datetime.now().year + 1:
+                    return None
+                
+                return dt.strftime('%Y-%m-%d')
+            
+            return None
+            
+        except ValueError:
+            return None
+    
+    def extract_value_from_line(self, line: str) -> Optional[str]:
+        """Extrai valor monetário de uma linha de texto"""
+        import re
+        
+        # Padrões para valores monetários brasileiros
+        patterns = [
+            r'([Rr]\$\s*)?(\d{1,3}(?:\.\d{3})*,\d{2})',  # R$ 1.234,56
+            r'([Rr]\$\s*)?(\d{1,3}(?:,\d{3})*\.\d{2})',  # R$ 1,234.56
+            r'([Rr]\$\s*)?(\d+,\d{2})',                  # R$ 1234,56
+            r'([Rr]\$\s*)?(\d+\.\d{2})',                  # R$ 1234.56
+            r'([Rr]\$\s*)?(\d{1,3}(?:\.\d{3})+)',        # 1.234 (sem decimal)
+        ]
+        
+        for pattern in patterns:
+            match = re.search(pattern, line)
+            if match:
+                # O valor pode estar no grupo 1 ou 2 dependendo do padrão
+                value = match.group(2) if match.group(2) else match.group(1)
+                if value:
+                    return value.strip()
+        
+        return None
+    
+    def parse_brazilian_decimal(self, value_str: str) -> Optional[Decimal]:
+        """Converte formato brasileiro para Decimal"""
+        if not value_str:
+            return None
+        
+        try:
+            cleaned = str(value_str).strip()
+            
+            # Remove R$ e espaços
+            cleaned = cleaned.replace('R$', '').replace('R', '').replace('$', '').strip()
+            cleaned = cleaned.replace(' ', '')
+            
+            # Remove parênteses (indicam valor negativo)
+            is_negative = False
+            if '(' in cleaned and ')' in cleaned:
+                is_negative = True
+                cleaned = cleaned.replace('(', '').replace(')', '')
+            
+            # Verificar se tem sinal de menos
+            if cleaned.startswith('-'):
+                is_negative = True
+                cleaned = cleaned[1:]
+            
+            # Formato brasileiro: 1.234,56
+            if '.' in cleaned and ',' in cleaned:
+                cleaned = cleaned.replace('.', '')
+                cleaned = cleaned.replace(',', '.')
+            elif ',' in cleaned:
+                if cleaned.count(',') == 1:
+                    cleaned = cleaned.replace(',', '.')
+                else:
+                    return None
+            
+            # Verificar se é um número válido (não muito grande)
+            try:
+                result = Decimal(cleaned)
+            except:
+                return None
+            
+            # Ignorar valores suspeitos (provavelmente números de documento)
+            if abs(result) > 1000000:
+                return None
+            
+            if is_negative:
+                result = -result
+            
+            return result if result != 0 else None
+            
+        except Exception:
+            return None
+    
+    def is_debit_transaction(self, line: str, amount: Decimal) -> bool:
+        """Determina se a transação é débito ou crédito"""
+        line_upper = line.upper()
+        
+        # Verificar indicadores explícitos
+        if 'DÉBITO' in line_upper or 'DEBITO' in line_upper:
+            return True
+        if 'SAÍDA' in line_upper or 'SAIDA' in line_upper:
+            return True
+        if 'DESPESA' in line_upper:
+            return True
+        if 'CRÉDITO' in line_upper or 'CREDITO' in line_upper:
+            return False
+        if 'ENTRADA' in line_upper:
+            return False
+        
+        # Verificar símbolos
+        if '(-)' in line:
+            return True
+        if '(+)' in line:
+            return False
+        
+        # Por padrão, se o valor veio negativo, é débito
+        if amount < 0:
+            return True
+        
+        # Default: assumir que é despesa (mais comum em extratos)
+        return True
+    
+    def is_balance_line(self, description: str) -> bool:
+        """Verifica se a linha é sobre saldo (não deve ser importada)"""
+        desc_lower = description.lower()
+        balance_keywords = ['saldo', 'saldo anterior', 'saldo do dia', 'saldo atual', 'saldo final']
+        
+        for keyword in balance_keywords:
+            if keyword in desc_lower:
+                return True
+        
+        return False
 
 class BancoDosBrasilXLSXParser(BankParser):
     """Parser para XLSX do Banco do Brasil"""
