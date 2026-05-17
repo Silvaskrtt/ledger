@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <!-- Import Section -->
+        <!-- Import Section - CORRIGIDO COM CAMPOS DE BANCO E FORMATO -->
         <div class="card-section">
             <div class="section-header">
                 <div class="section-icon import-icon">
@@ -92,10 +92,45 @@
                 </div>
                 <div class="section-info">
                     <h2>{% trans "Importar Dados" %}</h2>
-                    <p>{% trans "Importe dados de outros sistemas" %}</p>
+                    <p>{% trans "Importe extratos bancários e dados financeiros" %}</p>
                 </div>
             </div>
             
+            <!-- NOVOS CAMPOS: Banco e Formato -->
+            <div class="import-config">
+                <div class="form-group">
+                    <label for="import-bank">
+                        <i class="fas fa-university"></i>
+                        {% trans "Banco" %}
+                    </label>
+                    <select id="import-bank" class="form-select" required>
+                        <option value="">{% trans "Selecione o banco" %}</option>
+                        <option value="bb">{% trans "Banco do Brasil" %}</option>
+                        <option value="itau">{% trans "Itaú" %}</option>
+                        <option value="nubank">{% trans "Nubank" %}</option>
+                        <option value="generic">{% trans "Genérico (CSV/JSON)" %}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="import-format">
+                        <i class="fas fa-file-alt"></i>
+                        {% trans "Formato do Arquivo" %}
+                    </label>
+                    <select id="import-format" class="form-select" required>
+                        <option value="">{% trans "Selecione o formato" %}</option>
+                        <option value="csv">CSV</option>
+                        <option value="xlsx">Excel (XLSX)</option>
+                        <option value="pdf">PDF</option>
+                        <option value="ofx">OFX</option>
+                        <option value="bbt">BBT (Banco do Brasil)</option>
+                        <option value="txt">TXT</option>
+                        <option value="json">JSON</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Área de upload -->
             <div class="import-zone" id="importZone">
                 <i class="fas fa-cloud-upload-alt"></i>
                 <h3>{% trans "Arraste e solte seu arquivo aqui" %}</h3>
@@ -103,9 +138,9 @@
                 <label class="btn-import">
                     <i class="fas fa-folder-open"></i>
                     <span>{% trans "Selecionar arquivo" %}</span>
-                    <input type="file" id="fileInput" accept=".json,.csv" style="display: none;">
+                    <input type="file" id="fileInput" accept=".csv,.xlsx,.xls,.pdf,.ofx,.bbt,.txt,.json" style="display: none;">
                 </label>
-                <p class="supported-formats">{% trans "Formatos suportados: JSON, CSV" %}</p>
+                <p class="supported-formats">{% trans "Formatos suportados: CSV, XLSX, PDF, OFX, BBT, TXT, JSON" %}</p>
             </div>
             
             <div class="import-preview" id="importPreview" style="display: none;">
@@ -129,7 +164,7 @@
             <div class="import-example">
                 <button class="btn-example" onclick="downloadExample()">
                     <i class="fas fa-download"></i>
-                    <span>{% trans "Baixar arquivo exemplo" %}</span>
+                    <span>{% trans "Baixar arquivo exemplo (JSON)" %}</span>
                 </button>
             </div>
         </div>
