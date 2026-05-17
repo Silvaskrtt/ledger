@@ -20,4 +20,5 @@ urlpatterns = [
     
     # Utilitários
     path('api/clear-data/', views.api_clear_all_data, name='api_clear_data'),
+    path('api/import-debug/', views.api_import_debug, name='api_import_debug'),
 ]
