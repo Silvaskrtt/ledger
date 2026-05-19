@@ -60,6 +60,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function getComparisonText(period) {
+    switch (period) {
+        case 'quarter':
+            return 'em relação ao trimestre passado';
+        case 'year':
+            return 'em relação ao ano passado';
+        case '6months':
+            return 'em relação ao semestre passado';
+        default:
+            return 'em relação ao mês passado';
+    }
+}
+
 /**
  * Carrega dados resumidos do dashboard (cards)
  */
@@ -96,19 +109,18 @@ function loadDashboardSummary(period = dashboardSummaryPeriod) {
 
             // Atualiza percentual de economia com base na receita do período
             const savingsChangeEl = document.getElementById('savingsChangeValue');
-            const savingsContainer = document.querySelector('#totalSavingsValue')?.closest('.stat-card')?.querySelector('.card-change');
+            const savingsContainer = document.getElementById('savingsChange');
             if (savingsChangeEl) {
                 const savingsRate = data.savings_rate || 0;
-                savingsChangeEl.textContent = `${savingsRate >= 0 ? '+' : ''}${savingsRate}%`;
+                savingsChangeEl.textContent = (savingsRate >= 0 ? '+' : '') + savingsRate + '%';
                 if (savingsContainer) {
                     savingsContainer.classList.remove('positive', 'negative');
+                    const icon = savingsContainer.querySelector('i');
                     if (savingsRate >= 0) {
                         savingsContainer.classList.add('positive');
-                        const icon = savingsContainer.querySelector('i');
                         if (icon) icon.className = 'fas fa-arrow-up';
                     } else {
                         savingsContainer.classList.add('negative');
-                        const icon = savingsContainer.querySelector('i');
                         if (icon) icon.className = 'fas fa-arrow-down';
                     }
                 }
@@ -118,6 +130,16 @@ function loadDashboardSummary(period = dashboardSummaryPeriod) {
             updateChangeIndicator('balanceChange', 'balanceChangeValue', data.balance_change);
             updateChangeIndicator('incomeChange', 'incomeChangeValue', data.income_change);
             updateChangeIndicator('expenseChange', 'expenseChangeValue', data.expenses_change);
+
+            var comparisonText = getComparisonText(period);
+            var balanceTextEl = document.getElementById('balanceChangeText');
+            if (balanceTextEl) balanceTextEl.textContent = comparisonText;
+            var incomeTextEl = document.getElementById('incomeChangeText');
+            if (incomeTextEl) incomeTextEl.textContent = comparisonText;
+            var expenseTextEl = document.getElementById('expenseChangeText');
+            if (expenseTextEl) expenseTextEl.textContent = comparisonText;
+            var savingsTextEl = document.getElementById('savingsChangeText');
+            if (savingsTextEl) savingsTextEl.textContent = comparisonText;
         })
         .catch(error => console.error('Erro ao carregar summary:', error));
 }
