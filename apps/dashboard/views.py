@@ -15,25 +15,39 @@ def dashboard_summary(request):
     Retorna um resumo completo do dashboard em JSON
     GET /api/dashboard/summary/
     """
+    period = request.GET.get('period', 'month')
     calculator = DashboardCalculator(request.user)
-    
+
+    start_date = calculator._get_period_start_date(period)
+    end_date = calculator.today
+
+    period_income = calculator._get_income_range(start_date, end_date)
+    period_expenses = calculator._get_expenses_range(start_date, end_date)
+    period_balance = period_income - period_expenses
+    period_savings = period_balance
+    savings_rate = float((period_savings / period_income * 100)) if period_income > 0 else 0.0
+
     data = {
-        # Totais gerais (todos os tempos)
-        'total_balance': float(calculator.get_total_balance()),
-        'total_income': float(calculator.get_total_income()),
-        'total_expenses': float(calculator.get_total_expenses()),
-        
-        # Dados do mês atual
+        # Totais do período selecionado
+        'total_balance': float(period_balance),
+        'total_income': float(period_income),
+        'total_expenses': float(period_expenses),
+        'period': period,
+        'period_start': start_date.isoformat(),
+        'period_end': end_date.isoformat(),
+
+        # Dados do mês atual para fallback e comparações
         'current_month_income': float(calculator.get_current_month_income()),
         'current_month_expenses': float(calculator.get_current_month_expenses()),
-        'savings': float(calculator.get_savings()),
-        
-        # Variações percentuais
-        'income_change': calculator.get_income_percentage_change(),
-        'expenses_change': calculator.get_expenses_percentage_change(),
-        'balance_change': calculator.get_balance_percentage_change(),
+        'savings': float(period_savings),
+        'savings_rate': round(savings_rate, 1),
+
+        # Variações percentuais relativas ao período selecionado
+        'income_change': calculator.get_period_percentage_change(start_date, end_date, 'income'),
+        'expenses_change': calculator.get_period_percentage_change(start_date, end_date, 'expense'),
+        'balance_change': calculator.get_period_percentage_change(start_date, end_date, 'balance'),
     }
-    
+
     return JsonResponse(data)
 
 
