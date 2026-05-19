@@ -148,23 +148,37 @@ class DashboardCalculator:
     def get_balance_percentage_change(self, months=1):
         """Calcula a variação percentual do saldo comparado ao período anterior"""
         current_balance = self.get_month_balance()
-        
-        # Get previous month
-        prev_month_start = (self.today.replace(day=1) - timedelta(days=1)).replace(day=1)
-        if self.today.month == 1:
-            prev_month_end = (self.today.replace(year=self.today.year - 1, month=12)).replace(day=1) - timedelta(days=1)
+        start_date = self.today.replace(day=1)
+        end_date = self.today
+        return self.get_period_percentage_change(start_date, end_date, 'balance')
+
+    def get_period_percentage_change(self, start_date, end_date, transaction_type='income'):
+        """Calcula a variação percentual entre o período atual e o período anterior."""
+        if transaction_type == 'income':
+            current = self._get_income_range(start_date, end_date)
+        elif transaction_type == 'expense':
+            current = self._get_expenses_range(start_date, end_date)
+        elif transaction_type == 'balance':
+            current = self._get_income_range(start_date, end_date) - self._get_expenses_range(start_date, end_date)
         else:
-            prev_month_end = (self.today.replace(day=1) - timedelta(days=1))
-        
-        prev_income = self._get_income_range(prev_month_start, prev_month_end)
-        prev_expenses = self._get_expenses_range(prev_month_start, prev_month_end)
-        prev_balance = prev_income - prev_expenses
-        
-        if prev_balance == 0:
-            return 0
-        
-        return round(((current_balance - prev_balance) / prev_balance) * 100, 1)
-    
+            raise ValueError(f'Unsupported transaction type: {transaction_type}')
+
+        prev_duration_days = (end_date - start_date).days + 1
+        prev_end_date = start_date - timedelta(days=1)
+        prev_start_date = prev_end_date - timedelta(days=prev_duration_days - 1)
+
+        if transaction_type == 'income':
+            previous = self._get_income_range(prev_start_date, prev_end_date)
+        elif transaction_type == 'expense':
+            previous = self._get_expenses_range(prev_start_date, prev_end_date)
+        else:
+            previous = self._get_income_range(prev_start_date, prev_end_date) - self._get_expenses_range(prev_start_date, prev_end_date)
+
+        if previous == 0:
+            return 0 if current == 0 else 100
+
+        return round(((current - previous) / previous) * 100, 1)
+
     # Private methods
     
     def _get_total_income(self):
