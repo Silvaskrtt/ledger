@@ -22,6 +22,7 @@ const CHART_COLORS = {
 // Chart instances (globais para update)
 let expenseChartInstance = null;
 let trendChartInstance = null;
+let dashboardSummaryPeriod = 'month';
 
 /**
  * Inicializa o dashboard ao carregar a página
@@ -30,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Dashboard inicializando...');
 
     // Carrega dados resumidos
-    loadDashboardSummary();
+    loadDashboardSummary(dashboardSummaryPeriod);
 
     // Carrega gráficos
-    updateExpenseChart('month');
+    updateExpenseChart(dashboardSummaryPeriod);
     updateTrendChart('12');
 
     // Carrega transações recentes
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const expensePeriod = document.getElementById('expensePeriod');
     if (expensePeriod) {
         expensePeriod.addEventListener('change', function () {
+            loadDashboardSummary(this.value);
             updateExpenseChart(this.value);
         });
     }
@@ -61,8 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * Carrega dados resumidos do dashboard (cards)
  */
-function loadDashboardSummary() {
-    fetch('/dashboard/api/summary/')
+function loadDashboardSummary(period = dashboardSummaryPeriod) {
+    dashboardSummaryPeriod = period;
+    fetch(`/dashboard/api/summary/?period=${period}`)
         .then(response => response.json())
         .then(data => {
             console.log('Dashboard Summary:', data);
@@ -75,22 +78,41 @@ function loadDashboardSummary() {
                 }).format(value);
             };
 
-            // Usar totais gerais nos cards principais
-            // Saldo Total (já estava correto)
+            // Usar totais do período selecionado nos cards principais
             const balanceEl = document.getElementById('totalBalanceValue');
             if (balanceEl) balanceEl.textContent = formatCurrency(data.total_balance);
 
-            // Total de Receitas (todos os tempos)
+            // Total de Receitas do período
             const incomeEl = document.getElementById('totalIncomeValue');
             if (incomeEl) incomeEl.textContent = formatCurrency(data.total_income);
 
-            // Total de Despesas (todos os tempos)
+            // Total de Despesas do período
             const expenseEl = document.getElementById('totalExpenseValue');
             if (expenseEl) expenseEl.textContent = formatCurrency(data.total_expenses);
 
-            // Economia do mês atual (saldo do mês)
+            // Economia do período selecionado
             const savingsEl = document.getElementById('totalSavingsValue');
             if (savingsEl) savingsEl.textContent = formatCurrency(data.savings);
+
+            // Atualiza percentual de economia com base na receita do período
+            const savingsChangeEl = document.getElementById('savingsChangeValue');
+            const savingsContainer = document.querySelector('#totalSavingsValue')?.closest('.stat-card')?.querySelector('.card-change');
+            if (savingsChangeEl) {
+                const savingsRate = data.savings_rate || 0;
+                savingsChangeEl.textContent = `${savingsRate >= 0 ? '+' : ''}${savingsRate}%`;
+                if (savingsContainer) {
+                    savingsContainer.classList.remove('positive', 'negative');
+                    if (savingsRate >= 0) {
+                        savingsContainer.classList.add('positive');
+                        const icon = savingsContainer.querySelector('i');
+                        if (icon) icon.className = 'fas fa-arrow-up';
+                    } else {
+                        savingsContainer.classList.add('negative');
+                        const icon = savingsContainer.querySelector('i');
+                        if (icon) icon.className = 'fas fa-arrow-down';
+                    }
+                }
+            }
 
             // Atualiza percentuais de mudança
             updateChangeIndicator('balanceChange', 'balanceChangeValue', data.balance_change);
