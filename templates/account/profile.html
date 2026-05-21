@@ -37,9 +37,17 @@
             <!-- Seção do Avatar -->
             <div class="avatar-section">
                 <div class="avatar-wrapper">
-                    <div class="avatar-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    {% if user.profile.avatar %}
+                        <img src="{{ user.profile.avatar.url }}" alt="Avatar" class="avatar-img" style="display: block;">
+                        <div class="avatar-icon" style="display: none;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    {% else %}
+                        <div class="avatar-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <img src="" alt="Avatar" class="avatar-img" style="display: none;">
+                    {% endif %}
                     <button class="edit-avatar-btn" onclick="mostrarOpcoesAvatar()">
                         <i class="fas fa-camera"></i>
                     </button>
@@ -263,11 +271,8 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <form method="post" action="{% url 'accounts:profile_update' %}">
-                        {% csrf_token %}
-                        <label for="editNameInput">{% trans "Nome completo" %}</label>
-                        <input type="text" id="editNameInput" class="modal-input" placeholder="Digite seu nome completo">
-                    </form>
+                    <label for="editNameInput">{% trans "Nome completo" %}</label>
+                    <input type="text" id="editNameInput" class="modal-input" placeholder="Digite seu nome completo">
                 </div>
             </div>
             <div class="modal-footer">
@@ -302,6 +307,45 @@
                 </button>
                 <button class="btn-modal-confirm" onclick="salvarTelefone()">
                     {% trans "Salvar" %}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Avatar -->
+    <div id="avatarModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container fade-up">
+            <div class="modal-header">
+                <h3>{% trans "Foto de Perfil" %}</h3>
+                <button class="modal-close" onclick="fecharModalAvatar()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="avatar-preview-container">
+                    <img id="avatarPreview" class="avatar-preview" style="display: none;">
+                    <div class="avatar-preview-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                        <span>{% trans "Pré-visualização" %}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="avatarUpload">{% trans "Selecionar imagem" %}</label>
+                    <input type="file" id="avatarUpload" class="modal-input" accept="image/jpeg,image/png,image/gif,image/webp">
+                    <small class="form-help">{% trans "Formatos permitidos: JPEG, PNG, GIF, WEBP. Máximo 5MB." %}</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal-danger" onclick="removerAvatar()">
+                    <i class="fas fa-trash"></i>
+                    {% trans "Remover" %}
+                </button>
+                <button class="btn-modal-cancel" onclick="fecharModalAvatar()">
+                    {% trans "Cancelar" %}
+                </button>
+                <button class="btn-modal-confirm" onclick="uploadAvatar()">
+                    <i class="fas fa-upload"></i>
+                    {% trans "Enviar" %}
                 </button>
             </div>
         </div>

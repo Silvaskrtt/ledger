@@ -21,7 +21,8 @@ def get_user_data(request):
         'name': f"{user.first_name} {user.last_name}".strip(),
         'email': user.email,
         'phone': profile.phone if profile.phone else 'Não informado',
-        'member_since': user.date_joined.strftime('%d/%m/%Y')
+        'member_since': user.date_joined.strftime('%d/%m/%Y'),
+        'avatar_url': profile.get_avatar_url()
     })
 
 @require_POST
@@ -95,41 +96,53 @@ def profile_update(request):
     
     return redirect('accounts:profile')
 
+@require_POST
 @login_required
 def avatar_upload(request):
-    """View para upload de avatar"""
-    if request.method == 'POST' and request.FILES.get('avatar'):
-        try:
-            profile = request.user.profile
-            avatar = request.FILES['avatar']
-            
-            # Validações básicas
-            if avatar.size > 5 * 1024 * 1024:  # 5MB
-                messages.error(request, 'A imagem não pode ter mais que 5MB.')
-                return redirect('accounts:profile')
-            
-            # Valida tipo de arquivo
-            allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
-            if avatar.content_type not in allowed_types:
-                messages.error(request, 'Formato de imagem não permitido. Use JPEG, PNG, GIF ou WEBP.')
-                return redirect('accounts:profile')
-            
-            # Remove avatar antigo se existir
-            if profile.avatar:
-                if os.path.isfile(profile.avatar.path):
-                    os.remove(profile.avatar.path)
-            
-            # Salva novo avatar
-            profile.avatar = avatar
-            profile.save()
-            
-            messages.success(request, 'Avatar atualizado com sucesso!')
-        except Exception as e:
-            messages.error(request, f'Erro ao fazer upload: {str(e)}')
-    else:
-        messages.error(request, 'Nenhuma imagem selecionada.')
-    
-    return redirect('accounts:profile')
+    """View para upload de avatar via AJAX"""
+    try:
+        if not request.FILES.get('avatar'):
+            return JsonResponse({'success': False, 'error': 'Nenhuma imagem selecionada'}, status=400)
+        
+        avatar = request.FILES['avatar']
+        profile = request.user.profile
+        
+        # Validações básicas
+        if avatar.size > 5 * 1024 * 1024:  # 5MB
+            return JsonResponse({'success': False, 'error': 'A imagem não pode ter mais que 5MB'})
+        
+        # Valida tipo de arquivo
+        allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
+        if avatar.content_type not in allowed_types:
+            return JsonResponse({'success': False, 'error': 'Formato de imagem não permitido. Use JPEG, PNG, GIF ou WEBP'})
+        
+        # Remove avatar antigo se existir
+        if profile.avatar:
+            profile.delete_avatar()
+        
+        # Salva novo avatar
+        profile.avatar = avatar
+        profile.save()
+        
+        return JsonResponse({
+            'success': True,
+            'avatar_url': profile.get_avatar_url()
+        })
+        
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': f'Erro ao fazer upload: {str(e)}'}, status=500)
+
+@require_POST
+@login_required
+def avatar_remove(request):
+    """Remove o avatar do usuário via AJAX"""
+    try:
+        profile = request.user.profile
+        profile.delete_avatar()
+        
+        return JsonResponse({'success': True})
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': f'Erro ao remover avatar: {str(e)}'}, status=500)
 
 @login_required
 def password_change(request):

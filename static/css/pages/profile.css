@@ -220,11 +220,22 @@ body {
     transition: transform 0.3s;
 }
 
+.avatar-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(138, 79, 255, 0.3);
+    transition: transform 0.3s;
+    display: none;
+}
+
 .avatar-icon i {
     font-size: 48px;
     color: #fff;
 }
 
+.avatar-wrapper:hover .avatar-img,
 .avatar-wrapper:hover .avatar-icon {
     transform: scale(1.05);
 }
@@ -245,12 +256,40 @@ body {
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(4px);
+    z-index: 2;
 }
 
 .edit-avatar-btn:hover {
     background: #8A4FFF;
     color: #fff;
     transform: scale(1.1);
+}
+
+/* Tooltip para o botão de editar avatar */
+.edit-avatar-btn {
+    position: relative;
+}
+
+.edit-avatar-btn::before {
+    content: "Alterar foto";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    margin-bottom: 8px;
+}
+
+.edit-avatar-btn:hover::before {
+    opacity: 1;
 }
 
 .profile-name {
@@ -715,6 +754,15 @@ input:disabled+.slider {
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
+/* Loading state para botões */
+.btn-modal-confirm:disabled,
+.btn-modal-danger:disabled,
+.btn-modal-cancel:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
 .danger-modal {
     text-align: center;
 }
@@ -749,6 +797,195 @@ input:disabled+.slider {
 .modal-buttons {
     display: flex;
     gap: 12px;
+}
+
+/* ===== MODAL AVATAR SPECIFIC STYLES ===== */
+.avatar-preview-container {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.avatar-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: none;
+    box-shadow: 0 8px 24px rgba(138, 79, 255, 0.3);
+}
+
+.avatar-preview-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #5E2C9A, #8A4FFF);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 8px 24px rgba(138, 79, 255, 0.3);
+}
+
+.avatar-preview-placeholder i {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.avatar-preview-placeholder span {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* File Input específico para avatar */
+#avatarUpload {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#avatarUpload::-webkit-file-upload-button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(138, 79, 255, 0.2);
+    color: #8A4FFF;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 12px;
+}
+
+#avatarUpload::-webkit-file-upload-button:hover {
+    background: rgba(138, 79, 255, 0.3);
+}
+
+/* Form Help */
+.form-help {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Modal Footer com 3 botões para avatar */
+#avatarModal .modal-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+#avatarModal .modal-footer .btn-modal-danger {
+    flex: 0.8;
+}
+
+#avatarModal .modal-footer .btn-modal-cancel {
+    flex: 1;
+}
+
+#avatarModal .modal-footer .btn-modal-confirm {
+    flex: 1;
+}
+
+/* Garantir que o modal de avatar tenha scroll se necessário */
+#avatarModal .modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Custom scroll para o modal */
+#avatarModal .modal-body::-webkit-scrollbar {
+    width: 3px;
+}
+
+#avatarModal .modal-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+#avatarModal .modal-body::-webkit-scrollbar-thumb {
+    background: rgba(138, 79, 255, 0.4);
+    border-radius: 3px;
+}
+
+/* Loading spinner para upload */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 8px;
+}
+
+/* Animações adicionais para avatar */
+@keyframes avatarPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.02);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+.avatar-uploading {
+    animation: avatarPulse 1s ease-in-out infinite;
+}
+
+/* Mensagem de erro no modal */
+.error-message {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.error-message i {
+    font-size: 12px;
+}
+
+/* Mensagem de sucesso no modal */
+.success-message {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.success-message i {
+    font-size: 12px;
 }
 
 /* ===== TOAST NOTIFICATIONS ===== */
@@ -820,9 +1057,70 @@ input:disabled+.slider {
         width: 95%;
         padding: 20px;
     }
+
+    /* Responsividade para avatar */
+    .avatar-icon,
+    .avatar-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .avatar-icon i {
+        font-size: 36px;
+    }
+
+    .edit-avatar-btn {
+        width: 28px;
+        height: 28px;
+        bottom: 2px;
+        right: 2px;
+    }
+
+    .edit-avatar-btn::before {
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    .avatar-preview,
+    .avatar-preview-placeholder {
+        width: 120px;
+        height: 120px;
+    }
+
+    .avatar-preview-placeholder i {
+        font-size: 36px;
+    }
+
+    .avatar-preview-placeholder span {
+        font-size: 10px;
+    }
+
+    #avatarModal .modal-footer {
+        flex-wrap: wrap;
+    }
+
+    #avatarModal .modal-footer .btn-modal-danger,
+    #avatarModal .modal-footer .btn-modal-cancel,
+    #avatarModal .modal-footer .btn-modal-confirm {
+        flex: 1;
+        min-width: 100px;
+    }
 }
 
-/* Scrollbar Global */
+/* ===== MELHORIAS DE ACESSIBILIDADE ===== */
+.edit-avatar-btn:focus-visible,
+.btn-modal-confirm:focus-visible,
+.btn-modal-danger:focus-visible,
+.modal-close:focus-visible,
+.back-btn:focus-visible,
+.edit-btn:focus-visible,
+.lang-btn:focus-visible,
+.btn-logout:focus-visible {
+    outline: 2px solid #8A4FFF;
+    outline-offset: 2px;
+}
+
+/* ===== SCROLLBAR GLOBAL ===== */
 ::-webkit-scrollbar {
     width: 4px;
 }
@@ -838,4 +1136,11 @@ input:disabled+.slider {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(138, 79, 255, 0.5);
+}
+
+/* ===== SUPORTE A MODO ESCURO ===== */
+@media (prefers-color-scheme: dark) {
+    .avatar-preview-container {
+        background: rgba(255, 255, 255, 0.02);
+    }
 }
