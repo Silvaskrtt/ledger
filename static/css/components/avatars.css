@@ -1,0 +1,64 @@
+/* Avatar Global Styles */
+.avatar-img,
+.avatar-initials,
+.avatar-fallback {
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.avatar-fallback {
+    background: linear-gradient(135deg, #5E2C9A, #8A4FFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.avatar-initials {
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+/* Navbar Avatar */
+.navbar-avatar {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.navbar-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 2px rgba(138, 79, 255, 0.3);
+}
+
+/* Dropdown Avatar */
+.dropdown-avatar {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+}
+
+/* Avatar Animations */
+@keyframes avatarPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(138, 79, 255, 0.4);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(138, 79, 255, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(138, 79, 255, 0);
+    }
+}
+
+.avatar-updating {
+    animation: avatarPulse 0.6s ease-in-out;
+}

@@ -90,6 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # Adiciona request ao contexto
                 'django.contrib.auth.context_processors.auth',  # Adiciona user ao contexto
                 'django.contrib.messages.context_processors.messages',  # Adiciona messages ao contexto
+                'accounts.context_processors.user_avatar_context',
             ],
         },
     },

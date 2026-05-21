@@ -7,9 +7,12 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_POST
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from django.core.files.base import ContentFile
 from .models import Profile
 from .forms import UserProfileForm, UserForm
 import os
+from PIL import Image
+from io import BytesIO
 
 @login_required
 def get_user_data(request):
@@ -99,7 +102,7 @@ def profile_update(request):
 @require_POST
 @login_required
 def avatar_upload(request):
-    """View para upload de avatar via AJAX"""
+    """View para upload de avatar via AJAX com redimensionamento"""
     try:
         if not request.FILES.get('avatar'):
             return JsonResponse({'success': False, 'error': 'Nenhuma imagem selecionada'}, status=400)
@@ -108,25 +111,29 @@ def avatar_upload(request):
         profile = request.user.profile
         
         # Validações básicas
-        if avatar.size > 5 * 1024 * 1024:  # 5MB
+        max_size = 5 * 1024 * 1024  # 5MB
+        if avatar.size > max_size:
             return JsonResponse({'success': False, 'error': 'A imagem não pode ter mais que 5MB'})
         
         # Valida tipo de arquivo
         allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
-        if avatar.content_type not in allowed_types:
+        file_extension = avatar.name.split('.')[-1].lower()
+        
+        if avatar.content_type not in allowed_types and file_extension not in ['jpg', 'jpeg', 'png', 'gif', 'webp']:
             return JsonResponse({'success': False, 'error': 'Formato de imagem não permitido. Use JPEG, PNG, GIF ou WEBP'})
         
         # Remove avatar antigo se existir
         if profile.avatar:
             profile.delete_avatar()
         
-        # Salva novo avatar
+        # Salva novo avatar (o redimensionamento ocorre no save do model)
         profile.avatar = avatar
         profile.save()
         
         return JsonResponse({
             'success': True,
-            'avatar_url': profile.get_avatar_url()
+            'avatar_url': profile.get_avatar_url(),
+            'message': 'Avatar atualizado com sucesso!'
         })
         
     except Exception as e:
@@ -138,9 +145,18 @@ def avatar_remove(request):
     """Remove o avatar do usuário via AJAX"""
     try:
         profile = request.user.profile
-        profile.delete_avatar()
         
-        return JsonResponse({'success': True})
+        if profile.delete_avatar():
+            return JsonResponse({
+                'success': True,
+                'message': 'Avatar removido com sucesso!'
+            })
+        else:
+            return JsonResponse({
+                'success': False,
+                'error': 'Não foi possível remover o avatar'
+            }, status=400)
+            
     except Exception as e:
         return JsonResponse({'success': False, 'error': f'Erro ao remover avatar: {str(e)}'}, status=500)
 
