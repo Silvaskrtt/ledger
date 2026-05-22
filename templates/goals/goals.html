@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block head_title %}
+    {% trans "Metas Financeiras" %} | MyLedger
+{% endblock head_title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/goals.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="goals-container">
+    <!-- Header -->
+    <header class="goals-header fade-up">
+        <div class="header-title">
+            <i class="fas fa-bullseye"></i>
+            <h1>{% trans "Minhas Metas" %}</h1>
+        </div>
+        <p class="header-description">{% trans "Defina e acompanhe seus objetivos financeiros" %}</p>
+        <button class="btn-add-goal" onclick="openGoalModal()">
+            <i class="fas fa-plus"></i>
+            <span>{% trans "Nova Meta" %}</span>
+        </button>
+    </header>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards fade-up" style="animation-delay: 0.05s">
+        <div class="summary-card">
+            <div class="summary-icon active">
+                <i class="fas fa-flag-checkered"></i>
+            </div>
+            <div class="summary-info">
+                <span class="summary-label">{% trans "Metas Ativas" %}</span>
+                <span class="summary-value" id="activeGoalsCount">0</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-icon completed">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="summary-info">
+                <span class="summary-label">{% trans "Metas Concluídas" %}</span>
+                <span class="summary-value" id="completedGoalsCount">0</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-icon total">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="summary-info">
+                <span class="summary-label">{% trans "Progresso Total" %}</span>
+                <span class="summary-value" id="totalProgress">0%</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-icon saved">
+                <i class="fas fa-piggy-bank"></i>
+            </div>
+            <div class="summary-info">
+                <span class="summary-label">{% trans "Total Economizado" %}</span>
+                <span class="summary-value" id="totalSaved">R$ 0,00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Goals Grid -->
+    <div class="goals-grid fade-up" style="animation-delay: 0.1s" id="goalsGrid">
+        <!-- Goals will be populated by JS -->
+    </div>
+
+    <!-- Tips Section -->
+    <div class="tips-section fade-up" style="animation-delay: 0.15s">
+        <div class="tips-header">
+            <i class="fas fa-lightbulb"></i>
+            <span>{% trans "Dicas para alcançar suas metas" %}</span>
+        </div>
+        <div class="tips-list">
+            <div class="tip-item">
+                <i class="fas fa-chart-simple"></i>
+                <span>{% trans "Divida metas grandes em pequenas etapas" %}</span>
+            </div>
+            <div class="tip-item">
+                <i class="fas fa-clock"></i>
+                <span>{% trans "Defina prazos realistas" %}</span>
+            </div>
+            <div class="tip-item">
+                <i class="fas fa-chart-line"></i>
+                <span>{% trans "Acompanhe seu progresso regularmente" %}</span>
+            </div>
+            <div class="tip-item">
+                <i class="fas fa-gift"></i>
+                <span>{% trans "Celebre cada conquista alcançada" %}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Goal Modal -->
+<div id="goalModal" class="modal-overlay" style="display: none;">
+    <div class="modal-container fade-up">
+        <div class="modal-header">
+            <div class="header-icon">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <h3 id="modalTitle">{% trans "Nova Meta" %}</h3>
+            <button class="modal-close" onclick="closeGoalModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <form id="goalForm" class="modal-form">
+            {% csrf_token %}
+            <input type="hidden" id="goalId" value="">
+            
+            <div class="form-group">
+                <label class="form-label" for="goal_title">
+                    <i class="fas fa-font"></i>
+                    <span>{% trans "Título da Meta" %}</span>
+                </label>
+                <div class="input-wrapper">
+                    <input type="text" id="goal_title" name="title" required 
+                           placeholder="{% trans 'Ex: Viagem dos sonhos, Carro novo...' %}"
+                           class="form-input">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="goal_target">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>{% trans "Valor Alvo" %}</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="text" id="goal_target" name="target" required 
+                               placeholder="R$ 0,00"
+                               class="form-input target-input">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="goal_deadline">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>{% trans "Data Limite" %}</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="date" id="goal_deadline" name="deadline" required class="form-input">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="goal_current">
+                    <i class="fas fa-piggy-bank"></i>
+                    <span>{% trans "Valor Atual" %}</span>
+                </label>
+                <div class="input-wrapper">
+                    <input type="text" id="goal_current" name="current" 
+                           placeholder="R$ 0,00"
+                           class="form-input current-input">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="goal_description">
+                    <i class="fas fa-align-left"></i>
+                    <span>{% trans "Descrição" %}</span>
+                </label>
+                <textarea id="goal_description" name="description" rows="3" 
+                          placeholder="{% trans 'Descreva sua meta (opcional)...' %}"
+                          class="form-textarea"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="goal_icon">
+                    <i class="fas fa-smile"></i>
+                    <span>{% trans "Ícone" %}</span>
+                </label>
+                <div class="icon-selector">
+                    <button type="button" class="icon-option" data-icon="🚀">🚀</button>
+                    <button type="button" class="icon-option" data-icon="🏠">🏠</button>
+                    <button type="button" class="icon-option" data-icon="✈️">✈️</button>
+                    <button type="button" class="icon-option" data-icon="🚗">🚗</button>
+                    <button type="button" class="icon-option" data-icon="🎓">🎓</button>
+                    <button type="button" class="icon-option" data-icon="💼">💼</button>
+                    <button type="button" class="icon-option" data-icon="🏦">🏦</button>
+                    <button type="button" class="icon-option" data-icon="🎯">🎯</button>
+                </div>
+                <input type="hidden" id="goal_icon" name="icon" value="🎯">
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="closeGoalModal()">
+                    <i class="fas fa-times"></i>
+                    <span>{% trans "Cancelar" %}</span>
+                </button>
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-save"></i>
+                    <span id="submitBtnText">{% trans "Salvar" %}</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal-overlay" style="display: none;">
+    <div class="modal-container delete-modal fade-up">
+        <div class="modal-icon warning">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h3>{% trans "Excluir Meta" %}</h3>
+        <p>{% trans "Tem certeza que deseja excluir esta meta? Esta ação não pode ser desfeita." %}</p>
+        <div class="modal-buttons">
+            <button class="btn-modal-cancel" onclick="closeDeleteModal()">
+                {% trans "Cancelar" %}
+            </button>
+            <button class="btn-modal-danger" id="confirmDeleteBtn">
+                {% trans "Excluir" %}
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Toast -->
+<div id="successToast" class="custom-toast success" style="display: none;">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage">{% trans "Meta salva com sucesso!" %}</span>
+</div>
+
+<!-- Error Toast -->
+<div id="errorToast" class="custom-toast error" style="display: none;">
+    <i class="fas fa-exclamation-circle"></i>
+    <span id="errorToastMessage">{% trans "Erro ao salvar meta." %}</span>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pages/goals.js' %}"></script>
+{% endblock %}
