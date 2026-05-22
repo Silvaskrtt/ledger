@@ -180,48 +180,36 @@
     async function processFile(file) {
         const extension = file.name.split('.').pop().toLowerCase();
 
-        // Lista de todos os formatos suportados
-        const supportedFormats = ['json', 'csv', 'xlsx', 'xls', 'pdf', 'ofx', 'bbt', 'txt'];
-
-        if (!supportedFormats.includes(extension)) {
-            showToast(`Formato não suportado: ${extension}. Use: ${supportedFormats.join(', ')}`, 'error');
+        if (extension !== 'json' && extension !== 'csv') {
+            showToast('Formato não suportado. Use JSON ou CSV.', 'error');
             return;
         }
 
         pendingFile = file;
 
         // Mostrar preview
+        const formData = new FormData();
+        formData.append('file', file);
+
         previewStats.innerHTML = `
-        <div class="loading-preview">
-            <i class="fas fa-spinner fa-spin"></i>
-            <p>Analisando arquivo...</p>
-        </div>
-    `;
+            <div class="loading-preview">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Analisando arquivo...</p>
+            </div>
+        `;
         importZone.style.display = 'none';
         importPreview.style.display = 'block';
 
-        // Mostrar informações do arquivo
+        // Simular preview (opcional)
         setTimeout(() => {
-            let formatIcon = 'fa-file-alt';
-            if (extension === 'csv') formatIcon = 'fa-file-csv';
-            else if (extension === 'xlsx' || extension === 'xls') formatIcon = 'fa-file-excel';
-            else if (extension === 'pdf') formatIcon = 'fa-file-pdf';
-            else if (extension === 'json') formatIcon = 'fa-file-code';
-            else if (extension === 'ofx') formatIcon = 'fa-file-invoice';
-            else if (extension === 'bbt') formatIcon = 'fa-file-alt';
-            else if (extension === 'txt') formatIcon = 'fa-file-alt';
-
             previewStats.innerHTML = `
-            <div class="preview-success">
-                <i class="fas ${formatIcon}" style="font-size: 48px; color: #8A4FFF;"></i>
-                <p><strong>${file.name}</strong></p>
-                <p>Tamanho: ${(file.size / 1024).toFixed(2)} KB</p>
-                <p>Formato: ${extension.toUpperCase()}</p>
-                <p style="color: #10b981; margin-top: 10px;">
-                    <i class="fas fa-check-circle"></i> Arquivo válido para importação
-                </p>
-            </div>
-        `;
+                <div class="preview-success">
+                    <i class="fas fa-check-circle"></i>
+                    <p><strong>${file.name}</strong></p>
+                    <p>Tamanho: ${(file.size / 1024).toFixed(2)} KB</p>
+                    <p>Formato: ${extension.toUpperCase()}</p>
+                </div>
+            `;
         }, 500);
     }
 
@@ -233,95 +221,39 @@
     };
 
     window.confirmImport = async function () {
-        if (!pendingFile) {
-            showToast('Nenhum arquivo selecionado', 'error');
-            return;
-        }
-
-        // PEGAR OS VALORES DOS SELECTS
-        const bankSelect = document.getElementById('import-bank');
-        const formatSelect = document.getElementById('import-format');
-
-        const bank = bankSelect ? bankSelect.value : '';
-        const file_format = formatSelect ? formatSelect.value : '';
-
-        // Validar
-        if (!bank) {
-            showToast('Por favor, selecione o banco', 'error');
-            return;
-        }
-
-        if (!file_format) {
-            showToast('Por favor, selecione o formato do arquivo', 'error');
-            return;
-        }
-
-        // Validar se o formato selecionado corresponde à extensão do arquivo
-        const extension = pendingFile.name.split('.').pop().toLowerCase();
-        const formatMap = {
-            'csv': ['csv'],
-            'xlsx': ['xlsx', 'xls'],
-            'pdf': ['pdf'],
-            'ofx': ['ofx'],
-            'bbt': ['bbt'],
-            'txt': ['txt'],
-            'json': ['json']
-        };
-
-        const validExtensions = formatMap[file_format] || [];
-        if (!validExtensions.includes(extension)) {
-            showToast(`O arquivo selecionado (${extension}) não corresponde ao formato selecionado (${file_format})`, 'error');
-            return;
-        }
-
-        console.log('Importando:', { bank, file_format, file: pendingFile.name, size: pendingFile.size });
+        if (!pendingFile) return;
 
         const formData = new FormData();
         formData.append('file', pendingFile);
-        formData.append('bank', bank);
-        formData.append('file_format', file_format);
 
-        showToast('Enviando arquivo para importação...', 'info');
+        showToast('Enviando arquivo para importação...', 'success');
 
         try {
             const response = await fetch(window.importUrl, {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken'),
+                    'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: formData
             });
 
             const data = await response.json();
-            console.log('Resposta:', data);
 
-            if (response.ok && data.success) {
-                let message = data.message || 'Importação concluída!';
-                if (data.summary && data.summary.records_imported > 0) {
-                    message = `✅ ${data.summary.records_imported} transações importadas com sucesso!`;
-                    if (data.summary.records_failed > 0) {
-                        message += ` (${data.summary.records_failed} falhas)`;
-                    }
-                    if (data.summary.duplicates_ignored > 0) {
-                        message += ` (${data.summary.duplicates_ignored} duplicatas ignoradas)`;
-                    }
-                }
-                showToast(message, 'success');
+            if (data.success) {
+                showToast(data.message, 'success');
                 cancelImport();
-                // Recarregar após 2 segundos
-                setTimeout(() => location.reload(), 2000);
+
+                // Recarregar página após 2 segundos
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
             } else {
-                let errorMsg = data.error || data.message || 'Erro na importação';
-                if (data.validation_errors && data.validation_errors.length > 0) {
-                    const firstError = data.validation_errors[0];
-                    errorMsg = `${errorMsg}: ${firstError.error}`;
-                    console.error('Erros de validação:', data.validation_errors);
-                }
-                showToast(errorMsg, 'error');
+                showToast(data.error || 'Erro ao importar dados', 'error');
             }
         } catch (error) {
-            console.error('Erro:', error);
-            showToast('Erro de conexão com o servidor', 'error');
+            console.error('Error importing:', error);
+            showToast('Erro ao conectar com o servidor', 'error');
         }
     };
 

@@ -10,7 +10,6 @@
     const modalEditarNome = document.getElementById('editNameModal');
     const modalEditarTelefone = document.getElementById('editPhoneModal');
     const modalExcluirConta = document.getElementById('deleteAccountModal');
-    const modalAvatar = document.getElementById('avatarModal');
 
     let campoEditandoAtual = null;
 
@@ -70,154 +69,8 @@
 
     // ===== OPÇÕES DE AVATAR =====
     window.mostrarOpcoesAvatar = function () {
-        if (modalAvatar) {
-            modalAvatar.style.display = 'flex';
-        }
+        exibirNotificacao('info', 'Funcionalidade de avatar em breve!');
     };
-
-    // ===== FECHAR MODAL AVATAR =====
-    window.fecharModalAvatar = function () {
-        if (modalAvatar) {
-            modalAvatar.style.display = 'none';
-        }
-    };
-
-    // ===== UPLOAD DE AVATAR =====
-    window.uploadAvatar = async function () {
-        const fileInput = document.getElementById('avatarUpload');
-        const file = fileInput.files[0];
-
-        if (!file) {
-            exibirNotificacao('error', 'Selecione uma imagem primeiro');
-            return;
-        }
-
-        // Validações básicas
-        const maxSize = 5 * 1024 * 1024; // 5MB
-        if (file.size > maxSize) {
-            exibirNotificacao('error', 'A imagem deve ter no máximo 5MB');
-            return;
-        }
-
-        const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-        if (!allowedTypes.includes(file.type)) {
-            exibirNotificacao('error', 'Formato não permitido. Use JPEG, PNG, GIF ou WEBP');
-            return;
-        }
-
-        // Mostra loading
-        const btnUpload = document.querySelector('#avatarModal .btn-modal-confirm');
-        const textoOriginal = btnUpload.textContent;
-        btnUpload.textContent = 'Enviando...';
-        btnUpload.disabled = true;
-
-        // Prepara FormData
-        const formData = new FormData();
-        formData.append('avatar', file);
-
-        try {
-            const response = await fetch('/accounts/avatar/upload/', {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': getCsrfToken(),
-                },
-                body: formData
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                // Atualiza a imagem na interface
-                const avatarImg = document.querySelector('.avatar-img');
-                if (avatarImg) {
-                    // Adiciona timestamp para evitar cache
-                    avatarImg.src = `${data.avatar_url}?t=${Date.now()}`;
-                    avatarImg.style.display = 'block';
-                    // Esconde o ícone
-                    const avatarIcon = document.querySelector('.avatar-icon');
-                    if (avatarIcon) avatarIcon.style.display = 'none';
-                }
-
-                fecharModalAvatar();
-                exibirNotificacao('success', 'Avatar atualizado com sucesso!');
-
-                // Limpa o input
-                fileInput.value = '';
-            } else {
-                exibirNotificacao('error', data.error || 'Erro ao fazer upload');
-            }
-        } catch (error) {
-            console.error('Erro:', error);
-            exibirNotificacao('error', 'Erro de conexão com o servidor');
-        } finally {
-            btnUpload.textContent = textoOriginal;
-            btnUpload.disabled = false;
-        }
-    };
-
-    // ===== REMOVER AVATAR =====
-    window.removerAvatar = async function () {
-        if (!confirm('Tem certeza que deseja remover sua foto de perfil?')) {
-            return;
-        }
-
-        try {
-            const response = await fetch('/accounts/avatar/remove/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCsrfToken(),
-                },
-                body: JSON.stringify({})
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                // Volta para o ícone padrão
-                const avatarImg = document.querySelector('.avatar-img');
-                if (avatarImg) {
-                    avatarImg.style.display = 'none';
-                    avatarImg.src = '';
-                }
-                const avatarIcon = document.querySelector('.avatar-icon');
-                if (avatarIcon) avatarIcon.style.display = 'flex';
-
-                fecharModalAvatar();
-                exibirNotificacao('success', 'Avatar removido com sucesso!');
-            } else {
-                exibirNotificacao('error', data.error || 'Erro ao remover avatar');
-            }
-        } catch (error) {
-            console.error('Erro:', error);
-            exibirNotificacao('error', 'Erro de conexão com o servidor');
-        }
-    };
-
-    // ===== PREVIEW DO AVATAR ANTES DO UPLOAD =====
-    function previewAvatar(file) {
-        const preview = document.getElementById('avatarPreview');
-        if (preview && file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        }
-    }
-
-    // Monitora mudança no input de arquivo
-    document.addEventListener('DOMContentLoaded', function () {
-        const fileInput = document.getElementById('avatarUpload');
-        if (fileInput) {
-            fileInput.addEventListener('change', function (e) {
-                if (this.files && this.files[0]) {
-                    previewAvatar(this.files[0]);
-                }
-            });
-        }
-    });
 
     // ===== EDITAR CAMPO =====
     window.editarCampo = function (campo) {
@@ -357,9 +210,6 @@
         if (modalExcluirConta && e.target === modalExcluirConta) {
             fecharModalExclusao();
         }
-        if (modalAvatar && e.target === modalAvatar) {
-            fecharModalAvatar();
-        }
     });
 
     // ===== ESC PARA FECHAR O MODAL =====
@@ -367,7 +217,6 @@
         if (e.key === 'Escape') {
             fecharModalEdicao();
             fecharModalExclusao();
-            fecharModalAvatar();
         }
     });
 
@@ -490,6 +339,7 @@
     // ===== CARREGAR DADOS DO USUÁRIO DO BACKEND =====
     async function carregarDadosUsuario() {
         try {
+            // Se precisar buscar dados atualizados do backend
             const response = await fetch('/accounts/profile/data/', {
                 headers: {
                     'X-CSRFToken': getCsrfToken(),
@@ -508,15 +358,6 @@
                 }
                 if (dados.phone) {
                     document.getElementById('displayPhone').textContent = dados.phone;
-                }
-                if (dados.avatar_url) {
-                    const avatarImg = document.querySelector('.avatar-img');
-                    if (avatarImg) {
-                        avatarImg.src = dados.avatar_url;
-                        avatarImg.style.display = 'block';
-                        const avatarIcon = document.querySelector('.avatar-icon');
-                        if (avatarIcon) avatarIcon.style.display = 'none';
-                    }
                 }
             }
         } catch (error) {
