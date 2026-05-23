@@ -1002,3 +1002,136 @@
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(138, 79, 255, 0.6);
 }
+
+.filter-select,
+.chart-period,
+select.form-select,
+#categoryFilter,
+#typeFilter {
+    padding: 8px 32px 8px 16px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.2s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238A4FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+.filter-select:hover,
+.chart-period:hover,
+select.form-select:hover,
+#categoryFilter:hover,
+#typeFilter:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(138, 79, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.filter-select:focus,
+.chart-period:focus,
+select.form-select:focus,
+#categoryFilter:focus,
+#typeFilter:focus {
+    outline: none;
+    border-color: #8A4FFF;
+    background: rgba(138, 79, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(138, 79, 255, 0.2);
+}
+
+/* Opções dos selects */
+.filter-select option,
+.chart-period option,
+select.form-select option,
+#categoryFilter option,
+#typeFilter option {
+    background: rgba(20, 20, 24, 0.95);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* Select específico do filtro de data */
+.filter-date {
+    padding: 8px 16px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-date:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(138, 79, 255, 0.4);
+}
+
+.filter-date:focus {
+    outline: none;
+    border-color: #8A4FFF;
+    box-shadow: 0 0 0 2px rgba(138, 79, 255, 0.2);
+}
+
+/* Wrapper para selects com botão de adicionar categoria */
+.category-select-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.category-select-wrapper select {
+    flex: 1;
+}
+
+.btn-add-category {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(138, 79, 255, 0.15);
+    border: 1px solid rgba(138, 79, 255, 0.3);
+    color: #8A4FFF;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add-category:hover {
+    background: rgba(138, 79, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Responsividade para selects */
+@media (max-width: 768px) {
+
+    .filter-select,
+    .chart-period,
+    select.form-select,
+    #categoryFilter,
+    #typeFilter,
+    .filter-date {
+        padding: 6px 28px 6px 12px;
+        font-size: 12px;
+        background-size: 12px;
+    }
+
+    .filters-group {
+        flex-wrap: wrap;
+    }
+
+    .category-select-wrapper {
+        width: 100%;
+    }
+}

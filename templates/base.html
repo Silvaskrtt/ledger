@@ -76,9 +76,9 @@
                     <i class="fas fa-chart-line"></i>
                     <span>{% trans "Relatórios" %}</span>
                 </a>
-                <a href="#" class="nav-link {% if request.resolver_match.url_name == 'budget' %}active{% endif %}">
+                <a href="{% url 'goals:goals_page' %}" class="nav-link {% if request.resolver_match.url_name == 'budget' %}active{% endif %}">
                     <i class="fas fa-piggy-bank"></i>
-                    <span>{% trans "Orçamento" %}</span>
+                    <span>{% trans "Metas Financeiras" %}</span>
                 </a>
             </nav>
             

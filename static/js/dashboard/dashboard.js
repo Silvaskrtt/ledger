@@ -42,24 +42,65 @@ document.addEventListener('DOMContentLoaded', function () {
     // Carrega orçamento por categoria
     loadBudgetByCategory();
 
-    // Setup event listeners
-    const expensePeriod = document.getElementById('expensePeriod');
-    if (expensePeriod) {
-        expensePeriod.addEventListener('change', function () {
-            updateExpenseChart(this.value);
-        });
-    }
+    // Inicializa selects customizados
+    initCustomSelects();
 
-    const trendPeriod = document.getElementById('trendPeriod');
-    if (trendPeriod) {
-        trendPeriod.addEventListener('change', function () {
-            updateTrendChart(this.value);
-        });
-    }
+    // Setup event listeners (agora usando os eventos do Choices.js)
+    setupChartEventListeners();
 });
 
 /**
- * Carrega dados resumidos do dashboard (cards) - VERSÃO QUE FUNCIONA
+ * Inicializa todos os selects com Choices.js
+ */
+function initCustomSelects() {
+    const selects = document.querySelectorAll('.chart-period');
+
+    selects.forEach(select => {
+        // Destroi instância anterior se existir
+        if (select.choicesInstance) {
+            select.choicesInstance.destroy();
+        }
+
+        // Cria nova instância do Choices
+        const choices = new Choices(select, {
+            searchEnabled: false,        // Desativa busca (mais leve)
+            itemSelectText: '',           // Remove texto padrão
+            shouldSort: false,             // Mantém ordem original
+            position: 'bottom',           // Posição do dropdown
+            classNames: {
+                containerOuter: 'choices custom-select',
+            }
+        });
+
+        // Armazena a instância no elemento para uso posterior
+        select.choicesInstance = choices;
+    });
+}
+
+/**
+ * Configura event listeners para os selects customizados
+ */
+function setupChartEventListeners() {
+    const expenseSelect = document.getElementById('expensePeriod');
+    const trendSelect = document.getElementById('trendPeriod');
+
+    if (expenseSelect && expenseSelect.choicesInstance) {
+        expenseSelect.choicesInstance.passedElement.element.addEventListener('choice', function (e) {
+            const value = e.detail.choice.value;
+            updateExpenseChart(value);
+        });
+    }
+
+    if (trendSelect && trendSelect.choicesInstance) {
+        trendSelect.choicesInstance.passedElement.element.addEventListener('choice', function (e) {
+            const value = e.detail.choice.value;
+            updateTrendChart(value);
+        });
+    }
+}
+
+/**
+ * Carrega dados resumidos do dashboard (cards)
  */
 function loadDashboardSummary() {
     fetch('/dashboard/api/summary/')
@@ -74,7 +115,6 @@ function loadDashboardSummary() {
                 }).format(value);
             };
 
-            // USAR total_income e total_expenses (todos os tempos) - Isso funciona
             const balanceEl = document.getElementById('totalBalanceValue');
             if (balanceEl) balanceEl.textContent = formatCurrency(data.total_balance);
 
@@ -87,7 +127,6 @@ function loadDashboardSummary() {
             const savingsEl = document.getElementById('totalSavingsValue');
             if (savingsEl) savingsEl.textContent = formatCurrency(data.savings);
 
-            // Atualiza percentuais de mudança
             updateChangeIndicator('balanceChange', 'balanceChangeValue', data.balance_change);
             updateChangeIndicator('incomeChange', 'incomeChangeValue', data.income_change);
             updateChangeIndicator('expenseChange', 'expenseChangeValue', data.expenses_change);
@@ -128,7 +167,7 @@ function updateChangeIndicator(containerId, valueId, percentage) {
 }
 
 /**
- * Atualiza gráfico de despesas por categoria - CORRIGIDO
+ * Atualiza gráfico de despesas por categoria
  */
 function updateExpenseChart(period) {
     fetch(`/dashboard/api/expenses-by-category/?period=${period}`)
@@ -139,27 +178,22 @@ function updateExpenseChart(period) {
             let categories = [];
             let amounts = [];
 
-            // Verificar se tem dados reais
             if (data.data && Array.isArray(data.data) && data.data.length > 0) {
                 categories = data.data.map(item => item.name);
                 amounts = data.data.map(item => item.amount);
             } else {
-                // Usar dados de exemplo baseados nas transações reais
                 console.warn('Nenhum dado de categoria encontrado, usando dados de exemplo');
                 categories = ['Alimentação', 'Transporte', 'Lazer', 'Moradia', 'Saúde'];
                 amounts = [350, 150, 200, 1200, 100];
             }
 
-            // Define cores
             const colors = Object.values(CHART_COLORS);
             const backgroundColors = categories.map((_, i) => colors[i % colors.length]);
 
-            // Destroy o gráfico anterior se existir
             if (expenseChartInstance) {
                 expenseChartInstance.destroy();
             }
 
-            // Cria novo gráfico
             const canvas = document.getElementById('expenseChart');
             if (!canvas) return;
 
@@ -198,7 +232,6 @@ function updateExpenseChart(period) {
                 }
             });
 
-            // Atualiza legenda
             updateChartLegend(categories, amounts, backgroundColors);
         })
         .catch(error => console.error('Erro ao carregar expenses:', error));
@@ -227,12 +260,10 @@ function updateTrendChart(months) {
                 expenseData = [3000, 3200, 3500, 3100, 3300, 3400];
             }
 
-            // Destroy o gráfico anterior se existir
             if (trendChartInstance) {
                 trendChartInstance.destroy();
             }
 
-            // Cria novo gráfico
             const canvas = document.getElementById('trendChart');
             if (!canvas) return;
 
