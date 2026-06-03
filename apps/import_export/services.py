@@ -68,29 +68,45 @@ class BankStatementImportService:
         Retorna dicionário com resultado da operação
         """
         try:
+            logger.info(f"Iniciando import_file para usuário {self.user.username}, banco {self.bank}, formato {self.file_format}")
+            
             # Verificar se os models necessários existem
             if not self.Transaction or not self.Category:
-                return {
+                error_response = {
                     'success': False,
-                    'error': 'Apps necessários não estão instalados. Execute: python manage.py startapp transactions e python manage.py startapp categories',
+                    'error': 'Apps necessários não estão instalados',
                     'status': 'failed',
                     'message': 'Configuração incompleta do sistema'
                 }
+                logger.error(f"Models não disponíveis: Transaction={self.Transaction}, Category={self.Category}")
+                return error_response
             
             # Criar registro de importação
-            self.import_history = ImportHistory.objects.create(
-                user=self.user,
-                filename=self.filename,
-                bank=self.bank,
-                file_format=self.file_format,
-                file_size=self.file_size,
-                status='processing'
-            )
+            try:
+                self.import_history = ImportHistory.objects.create(
+                    user=self.user,
+                    filename=self.filename,
+                    bank=self.bank,
+                    file_format=self.file_format,
+                    file_size=self.file_size,
+                    status='processing'
+                )
+                logger.info(f"ImportHistory criado: id={self.import_history.id}")
+            except Exception as e:
+                logger.error(f"Erro ao criar ImportHistory: {str(e)}")
+                return {
+                    'success': False,
+                    'error': f'Erro ao registrar importação: {str(e)}',
+                    'status': 'failed',
+                    'message': 'Falha ao iniciar processo de importação'
+                }
             
             # Step 1: Parse do arquivo
             parsed_transactions = self._parse_file(file_content)
+            logger.info(f"Parse concluído: {len(parsed_transactions)} transações parseadas")
             
             if not parsed_transactions and not self.validation_errors:
+                logger.warning("Nenhuma transação válida encontrada no arquivo")
                 self._finalize_import(
                     status='failed',
                     error_message='Nenhuma transação válida encontrada no arquivo'
@@ -98,6 +114,7 @@ class BankStatementImportService:
                 return self._get_result()
             
             if not parsed_transactions:
+                logger.warning("Nenhuma transação foi parseada com sucesso")
                 self._finalize_import(
                     status='completed_with_errors' if self.records_failed > 0 else 'failed',
                     error_message='Nenhuma transação foi parseada com sucesso'
@@ -106,12 +123,15 @@ class BankStatementImportService:
             
             # Step 2: Validar transações
             validated_transactions = self._validate_transactions(parsed_transactions)
+            logger.info(f"Validação concluída: {len(validated_transactions)} transações válidas")
             
             # Step 3: Detectar e remover duplicatas
             deduplicated_transactions = self._remove_duplicates(validated_transactions)
+            logger.info(f"Deduplicação concluída: {len(deduplicated_transactions)} transações para salvar")
             
             # Step 4: Salvar transações
             self._save_transactions(deduplicated_transactions)
+            logger.info(f"Gravação concluída: {self.records_imported} importadas, {self.records_failed} falhadas")
             
             # Finalizar importação
             if self.records_failed > 0 and self.records_imported > 0:
@@ -121,15 +141,19 @@ class BankStatementImportService:
             else:
                 status = 'failed'
             
+            logger.info(f"Finalizando importação com status: {status}")
             self._finalize_import(status)
             
         except Exception as e:
             logger.error(f"Erro ao importar arquivo: {str(e)}")
             logger.error(traceback.format_exc())
-            self._finalize_import(
-                status='failed',
-                error_message=f"Erro ao processar arquivo: {str(e)}"
-            )
+            try:
+                self._finalize_import(
+                    status='failed',
+                    error_message=f"Erro ao processar arquivo: {str(e)[:500]}"
+                )
+            except:
+                logger.error("Falha ao finalizar após erro")
         
         return self._get_result()
     
@@ -295,28 +319,67 @@ class BankStatementImportService:
     def _save_transactions(self, transactions: List[Dict]) -> None:
         """Salva transações no banco de dados"""
         if not transactions:
+            logger.info("Nenhuma transação para salvar")
             return
         
         try:
             # Obter ou criar categoria padrão
-            default_category, _ = self.Category.objects.get_or_create(
+            if not self.Category:
+                logger.warning("Category model não disponível, pulando gravação de transações")
+                return
+            
+            default_category, created = self.Category.objects.get_or_create(
                 user=self.user,
                 name='Importadas',
                 defaults={'type': 'expense', 'is_default': True}
             )
             
+            if created:
+                logger.info(f"Categoria padrão criada: {default_category.name}")
+            
             with db_transaction.atomic():
-                for trans_data in transactions:
+                for idx, trans_data in enumerate(transactions):
                     try:
                         # Converter valor para Decimal
-                        amount_value = trans_data.get('amount', 0)
+                        amount_value = trans_data.get('amount')
+                        
+                        if amount_value is None:
+                            logger.warning(f"Transação sem valor (índice {idx}): {trans_data.get('description')}")
+                            continue
+                        
                         if isinstance(amount_value, str):
-                            amount_value = Decimal(amount_value)
+                            try:
+                                amount_value = Decimal(amount_value.strip().replace(',', '.'))
+                            except Exception as e:
+                                logger.warning(f"Erro ao converter valor '{amount_value}' (índice {idx}): {e}")
+                                continue
                         elif isinstance(amount_value, (int, float)):
                             amount_value = Decimal(str(amount_value))
+                        else:
+                            try:
+                                amount_value = Decimal(str(amount_value))
+                            except:
+                                logger.warning(f"Tipo de valor desconhecido (índice {idx}): {type(amount_value)}")
+                                continue
+                        
+                        # Validar que amount é diferente de zero
+                        if amount_value == 0:
+                            logger.warning(f"Valor zerado (índice {idx}): {trans_data.get('description')}")
+                            continue
+                        
+                        # Aceitar valores negativos (será corrigido pelo tipo de transação)
+                        amount_value = abs(amount_value)
                         
                         # Determinar tipo (income/expense)
                         transaction_type = trans_data.get('type', 'expense')
+                        if transaction_type not in ['income', 'expense']:
+                            transaction_type = 'expense'
+                        
+                        # Obter descrição com valor padrão
+                        description = trans_data.get('description', 'Sem descrição')
+                        if not description or not str(description).strip():
+                            description = 'Transação importada'
+                        description = str(description)[:200]
                         
                         # Criar transação
                         trans = self.Transaction.objects.create(
@@ -324,69 +387,118 @@ class BankStatementImportService:
                             category=default_category,
                             date=trans_data.get('date'),
                             amount=abs(amount_value),
-                            description=trans_data.get('description', 'Sem descrição')[:200],
+                            description=description,
                             type=transaction_type,
                             notes=f"Importado de {self.bank.upper()} ({self.file_format.upper()})"
                         )
                         
                         # Criar metadados
-                        TransactionImportMetadata.objects.create(
-                            transaction=trans,
-                            import_history=self.import_history,
-                            fitid=trans_data.get('fitid', '')[:255],
-                            document_number=trans_data.get('document_number', '')[:255],
-                            transaction_type=trans_data.get('transaction_type', 'credit'),
-                            bank=self.bank,
-                            raw_data=trans_data.get('raw_data', {})
-                        )
+                        try:
+                            TransactionImportMetadata.objects.create(
+                                transaction=trans,
+                                import_history=self.import_history,
+                                fitid=str(trans_data.get('fitid', ''))[:255],
+                                document_number=str(trans_data.get('document_number', ''))[:255],
+                                transaction_type=str(trans_data.get('transaction_type', 'credit'))[:50],
+                                bank=self.bank,
+                                raw_data=trans_data.get('raw_data', {})
+                            )
+                        except Exception as e:
+                            logger.warning(f"Erro ao salvar metadados: {str(e)}")
                         
                         self.records_imported += 1
                         self.imported_transactions.append(trans)
                         
                     except Exception as e:
                         self.records_failed += 1
-                        logger.error(f"Erro ao salvar transação: {str(e)}")
+                        logger.warning(f"Erro ao salvar transação {idx}: {str(e)}")
                         self.validation_errors.append({
-                            'line': len(self.processed_transactions),
-                            'error': f'Erro ao salvar: {str(e)}',
-                            'data': str(trans_data)[:500]
+                            'line': idx + 1,
+                            'error': f'Erro ao salvar: {str(e)[:100]}',
+                            'data': str(trans_data)[:300]
                         })
         
         except Exception as e:
-            logger.error(f"Erro ao salvar transações: {str(e)}")
+            logger.error(f"Erro crítico ao salvar transações: {str(e)}")
             logger.error(traceback.format_exc())
-            raise
+            self.validation_errors.append({
+                'line': 0,
+                'error': f'Erro crítico ao salvar: {str(e)[:100]}',
+            })
     
     def _finalize_import(self, status: str, error_message: str = None) -> None:
         """Finaliza o registro de importação"""
         if not self.import_history:
+            logger.warning("import_history é None ao finalizar importação")
             return
         
-        self.import_history.status = status
-        self.import_history.total_lines_read = self.total_lines_read
-        self.import_history.records_imported = self.records_imported
-        self.import_history.records_failed = self.records_failed
-        self.import_history.duplicates_ignored = self.duplicates_ignored
-        self.import_history.error_message = error_message
-        self.import_history.validation_errors = self.validation_errors[:100]
-        self.import_history.completed_at = timezone.now()
-        self.import_history.save()
+        try:
+            self.import_history.status = status
+            self.import_history.total_lines_read = self.total_lines_read
+            self.import_history.records_imported = self.records_imported
+            self.import_history.records_failed = self.records_failed
+            self.import_history.duplicates_ignored = self.duplicates_ignored
+            self.import_history.error_message = error_message
+            
+            # Validar e serializar validation_errors
+            errors_to_save = []
+            if self.validation_errors:
+                errors_to_save = self.validation_errors[:100]
+            
+            self.import_history.validation_errors = errors_to_save
+            self.import_history.completed_at = timezone.now()
+            
+            self.import_history.save()
+            logger.info(f"Importação finalizada: status={status}, records_imported={self.records_imported}")
+        
+        except Exception as e:
+            logger.error(f"Erro ao finalizar importação: {str(e)}")
+            logger.error(traceback.format_exc())
+            # Tenta salvar pelo menos o status
+            try:
+                self.import_history.status = 'failed'
+                self.import_history.error_message = f"Erro ao finalizar: {str(e)}"
+                self.import_history.save()
+            except:
+                logger.error("Falha crítica ao salvar import_history")
     
     def _get_result(self) -> Dict:
         """Retorna resultado da importação"""
-        return {
-            'success': self.records_imported > 0,
-            'import_id': self.import_history.id if self.import_history else None,
-            'status': self.import_history.status if self.import_history else 'unknown',
-            'summary': {
-                'total_lines_read': self.total_lines_read,
-                'records_imported': self.records_imported,
-                'records_failed': self.records_failed,
-                'duplicates_ignored': self.duplicates_ignored,
-            },
-            'validation_errors': self.validation_errors[:20],
-            'message': self._build_message()
-        }
+        try:
+            import_id = None
+            status = 'unknown'
+            
+            if self.import_history:
+                try:
+                    import_id = self.import_history.id
+                    status = self.import_history.status or 'unknown'
+                except:
+                    logger.warning("Erro ao acessar atributos de import_history")
+            
+            result = {
+                'success': self.records_imported > 0,
+                'import_id': import_id,
+                'status': status,
+                'summary': {
+                    'total_lines_read': self.total_lines_read,
+                    'records_imported': self.records_imported,
+                    'records_failed': self.records_failed,
+                    'duplicates_ignored': self.duplicates_ignored,
+                },
+                'validation_errors': self.validation_errors[:20] if self.validation_errors else [],
+                'message': self._build_message()
+            }
+            
+            return result
+        
+        except Exception as e:
+            logger.error(f"Erro ao construir resultado: {str(e)}")
+            return {
+                'success': False,
+                'error': f'Erro ao processar resultado: {str(e)[:100]}',
+                'status': 'failed',
+                'message': 'Erro ao finalizar importação'
+            }
     
     def _build_message(self) -> str:
         """Constrói mensagem de resultado"""
