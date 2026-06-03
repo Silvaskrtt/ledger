@@ -132,42 +132,54 @@ def import_export_page(request):
 def api_import(request):
     """API endpoint para importar extratos bancários de múltiplos bancos e formatos"""
     try:
+        logger.info(f"API Import iniciada: METHOD={request.method}, FILES={list(request.FILES.keys())}, POST={list(request.POST.keys())}")
+        
         # Validar arquivo
         if 'file' not in request.FILES:
+            logger.warning("Arquivo não enviado")
             return JsonResponse({
                 'success': False,
                 'error': 'Nenhum arquivo enviado'
             }, status=400)
         
         uploaded_file = request.FILES['file']
+        logger.info(f"Arquivo recebido: {uploaded_file.name}, size={uploaded_file.size}")
         
         # Obter parâmetros - tentar tanto POST quanto FormData
-        bank = request.POST.get('bank', '')
-        file_format = request.POST.get('file_format', '')
+        bank = request.POST.get('bank', '').strip().lower()
+        file_format = request.POST.get('file_format', '').strip().lower()
+        
+        logger.info(f"Parâmetros iniciais: bank='{bank}', file_format='{file_format}'")
         
         # Se não veio por POST, tentar via request body (JSON)
-        if not bank and request.body:
+        if (not bank or not file_format) and request.body:
             try:
                 body_data = json.loads(request.body)
-                bank = body_data.get('bank', '')
-                file_format = body_data.get('file_format', '')
-            except:
-                pass
+                if not bank:
+                    bank = str(body_data.get('bank', '')).strip().lower()
+                if not file_format:
+                    file_format = str(body_data.get('file_format', '')).strip().lower()
+                logger.info(f"Parâmetros do JSON body: bank='{bank}', file_format='{file_format}'")
+            except Exception as e:
+                logger.debug(f"Erro ao parsear JSON body: {str(e)}")
         
-        # Se ainda não tem, tentar inferir pela extensão
+        # Se não tem, tentar inferir pela extensão
         if not file_format:
             filename = uploaded_file.name.lower()
             if '.' in filename:
-                file_format = filename.split('.')[-1]
+                file_format = filename.split('.')[-1].strip().lower()
+            logger.info(f"Formato inferido da extensão: '{file_format}'")
         
         # Validações básicas
         if not bank:
+            logger.warning("Banco não informado")
             return JsonResponse({
                 'success': False,
                 'error': 'Banco não informado. Selecione um banco (bb, itau, nubank, generic)'
             }, status=400)
         
         if not file_format:
+            logger.warning("Formato de arquivo não identificado")
             return JsonResponse({
                 'success': False,
                 'error': 'Formato de arquivo não identificado'
@@ -175,9 +187,9 @@ def api_import(request):
         
         # Normalizar formatos
         valid_formats = ['csv', 'xlsx', 'xls', 'pdf', 'ofx', 'bbt', 'txt', 'json']
-        file_format = file_format.lower()
         
         if file_format not in valid_formats:
+            logger.warning(f"Formato não suportado: '{file_format}'")
             return JsonResponse({
                 'success': False,
                 'error': f'Formato não suportado: {file_format}. Formatos válidos: {", ".join(valid_formats)}'
@@ -191,6 +203,7 @@ def api_import(request):
         file_content = uploaded_file.read()
         
         if not file_content:
+            logger.warning("Arquivo vazio")
             return JsonResponse({
                 'success': False,
                 'error': 'Arquivo vazio'
@@ -208,22 +221,33 @@ def api_import(request):
         )
         
         result = import_service.import_file(file_content)
+        logger.info(f"Resultado da importação: {result.get('status')}, records_imported={result.get('summary', {}).get('records_imported')}")
         
         # Garantir que result tenha os campos esperados pelo frontend
-        if 'success' not in result:
-            result['success'] = result.get('records_imported', 0) > 0
+        if not isinstance(result, dict):
+            logger.error(f"Result não é dict: {type(result)}")
+            result = {'success': False, 'error': 'Resposta inválida do serviço'}
         
-        # Retornar resultado
-        status_code = 200 if result.get('success') else 400
+        if 'success' not in result:
+            result['success'] = result.get('summary', {}).get('records_imported', 0) > 0
+        
+        # Retornar sempre 200 se houver import_id (importação foi iniciada)
+        # 400 apenas para erros de validação/formato/arquivo
+        # O frontend verifica validation_errors e exibe mensagem apropriada
+        has_import_id = 'import_id' in result and result.get('import_id')
+        status_code = 200 if has_import_id else 400
+        
+        logger.info(f"Retornando: status={status_code}, import_id={result.get('import_id')}, success={result.get('success')}, errors={len(result.get('validation_errors', []))}")
         return JsonResponse(result, status=status_code)
     
     except Exception as e:
         logger.error(f"Erro ao importar arquivo: {str(e)}", exc_info=True)
+        error_msg = str(e)[:200]
         return JsonResponse({
             'success': False,
-            'error': str(e),
+            'error': error_msg,
             'status': 'failed',
-            'message': f'Erro ao processar importação: {str(e)}'
+            'message': f'Erro ao processar importação: {error_msg}'
         }, status=500)
 
 
