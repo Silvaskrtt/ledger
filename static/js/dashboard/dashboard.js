@@ -41,63 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Carrega orçamento por categoria
     loadBudgetByCategory();
-
-    // Inicializa selects customizados
-    initCustomSelects();
-
-    // Setup event listeners (agora usando os eventos do Choices.js)
-    setupChartEventListeners();
 });
-
-/**
- * Inicializa todos os selects com Choices.js
- */
-function initCustomSelects() {
-    const selects = document.querySelectorAll('.chart-period');
-
-    selects.forEach(select => {
-        // Destroi instância anterior se existir
-        if (select.choicesInstance) {
-            select.choicesInstance.destroy();
-        }
-
-        // Cria nova instância do Choices
-        const choices = new Choices(select, {
-            searchEnabled: false,        // Desativa busca (mais leve)
-            itemSelectText: '',           // Remove texto padrão
-            shouldSort: false,             // Mantém ordem original
-            position: 'bottom',           // Posição do dropdown
-            classNames: {
-                containerOuter: 'choices custom-select',
-            }
-        });
-
-        // Armazena a instância no elemento para uso posterior
-        select.choicesInstance = choices;
-    });
-}
-
-/**
- * Configura event listeners para os selects customizados
- */
-function setupChartEventListeners() {
-    const expenseSelect = document.getElementById('expensePeriod');
-    const trendSelect = document.getElementById('trendPeriod');
-
-    if (expenseSelect && expenseSelect.choicesInstance) {
-        expenseSelect.choicesInstance.passedElement.element.addEventListener('choice', function (e) {
-            const value = e.detail.choice.value;
-            updateExpenseChart(value);
-        });
-    }
-
-    if (trendSelect && trendSelect.choicesInstance) {
-        trendSelect.choicesInstance.passedElement.element.addEventListener('choice', function (e) {
-            const value = e.detail.choice.value;
-            updateTrendChart(value);
-        });
-    }
-}
 
 /**
  * Carrega dados resumidos do dashboard (cards)
@@ -551,6 +495,10 @@ function goToTransactions() {
 
 function goToCategories() {
     window.location.href = '/categories/';
+}
+
+function goToReports() {
+    window.location.href = '/reports/';
 }
 
 function goToProfile() {
