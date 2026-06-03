@@ -53,33 +53,46 @@ class BankParser(ABC):
     
     @staticmethod
     def parse_decimal(value: str) -> Optional[Decimal]:
-        """Converte string para Decimal numérico"""
-        if not value:
+        """Converte string para Decimal numérico - suporta múltiplos formatos (6.50, 6,50, R$ 6.50, etc)"""
+        if value is None or (isinstance(value, str) and not value.strip()):
             return None
         
         try:
-            # Remove caracteres de moeda e espaços
-            value_str = str(value).strip().replace('R$', '').strip()
+            value_str = str(value).strip()
+            
+            # Remove caracteres de moeda, espaços e símbolos comuns
+            value_str = value_str.replace('R$', '').strip()
+            value_str = value_str.replace('$', '').strip()
+            value_str = value_str.replace(' ', '')
+            
+            if not value_str:
+                return None
             
             # Identifica se usa , ou . como separador decimal
             if ',' in value_str and '.' in value_str:
-                # Tem ambos, assume que o último é decimal
-                if value_str.rfind(',') > value_str.rfind('.'):
+                # Tem ambos - identifica qual é o separador decimal
+                comma_pos = value_str.rfind(',')
+                dot_pos = value_str.rfind('.')
+                
+                if comma_pos > dot_pos:
+                    # Vírgula é decimal (formato brasileiro): 1.000,50
                     value_str = value_str.replace('.', '').replace(',', '.')
                 else:
+                    # Ponto é decimal (formato americano): 1,000.50
                     value_str = value_str.replace(',', '')
             elif ',' in value_str:
-                # Só tem vírgula - pode ser 1000,00 ou 1,00
-                if value_str.count(',') == 1:
+                # Só tem vírgula
+                if value_str.count(',') == 1 and len(value_str.split(',')[1]) <= 2:
+                    # Provavelmente é separador decimal: 6,50
                     value_str = value_str.replace(',', '.')
-                else:
-                    # Múltiplas vírgulas - assume última é decimal
-                    parts = value_str.split(',')
-                    value_str = '.'.join(parts)
+                # Senão deixa como está (pode ser separador de milhares em português)
             
+            # Converte para Decimal
             result = Decimal(value_str)
-            return result if result != 0 else None
-        except:
+            
+            # Retorna None apenas se for None ou string vazia, não por ser zero
+            return result if result is not None else None
+        except Exception as e:
             return None
 
 
@@ -1202,10 +1215,14 @@ class NubankPDFParser(BankParser):
 
 # Parsers para Nubank
 class NubankCSVParser(BankParser):
-    """Parser para CSV do Nubank"""
+    """Parser para CSV do Nubank - suporta múltiplos formatos (extrato e fatura cartão)"""
     
     def parse(self, file_content: bytes) -> List[Dict]:
-        """CSV com campos: Data, Valor, Identificador, Descrição"""
+        """
+        Suporta dois formatos:
+        1. Extrato: Data, Valor, Identificador, Descrição
+        2. Fatura cartão: date, title, amount
+        """
         self.transactions = []
         self.errors = []
         
@@ -1213,18 +1230,38 @@ class NubankCSVParser(BankParser):
             content_str = file_content.decode('utf-8')
             reader = csv.DictReader(StringIO(content_str), delimiter=',')
             
+            if not reader.fieldnames:
+                self.errors.append({
+                    'line': 0,
+                    'error': 'CSV vazio ou sem cabeçalho'
+                })
+                return self.transactions
+            
+            # Detectar qual formato está sendo usado
+            fieldnames = [f.strip().lower() for f in reader.fieldnames]
+            is_credit_card_format = 'date' in fieldnames and 'title' in fieldnames and 'amount' in fieldnames
+            is_statement_format = 'data' in fieldnames and 'valor' in fieldnames and 'descrição' in fieldnames
+            
             for line_num, row in enumerate(reader, start=2):
                 self.total_lines += 1
                 try:
-                    date_str = row.get('Data', '').strip()
-                    value_str = row.get('Valor', '').strip()
-                    identifier = row.get('Identificador', '').strip()
-                    description = row.get('Descrição', '').strip()
+                    if is_credit_card_format:
+                        # Formato: date, title, amount (fatura de cartão)
+                        date_str = row.get('date', '').strip()
+                        value_str = row.get('amount', '').strip()
+                        description = row.get('title', '').strip()
+                        identifier = ''
+                    else:
+                        # Formato: Data, Valor, Identificador, Descrição (extrato)
+                        date_str = row.get('Data', '').strip()
+                        value_str = row.get('Valor', '').strip()
+                        identifier = row.get('Identificador', '').strip()
+                        description = row.get('Descrição', '').strip()
                     
                     if not date_str or not value_str or not description:
                         self.errors.append({
                             'line': line_num,
-                            'error': 'Campos obrigatórios ausentes'
+                            'error': f'Campos obrigatórios ausentes (data={bool(date_str)}, valor={bool(value_str)}, desc={bool(description)})'
                         })
                         continue
                     
