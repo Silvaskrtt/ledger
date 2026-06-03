@@ -15,12 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Choices.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
-    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Choices.js JS -->
-    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 </head>
 <body>
     <div class="home-container">
@@ -73,7 +68,7 @@
                     <i class="fas fa-plus-circle"></i>
                     <span>{% trans "Nova Transação" %}</span>
                 </button>
-                <button class="action-btn" onclick="goToBudget()">
+                <button class="action-btn" onclick="goToReports()">
                     <i class="fas fa-chart-line"></i>
                     <span>{% trans "Relatórios" %}</span>
                 </button>
