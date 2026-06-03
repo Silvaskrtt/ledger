@@ -121,16 +121,29 @@ class Profile(models.Model):
         if self.phone:
             self.phone = format_brazilian_phone(self.phone)
         
-        # Se avatar foi enviado, redimensiona
-        if self.avatar and hasattr(self.avatar, 'file'):
+        # Se avatar foi enviado, redimensiona se o arquivo existir
+        if self.avatar and hasattr(self.avatar, 'name') and self.avatar.name:
             try:
-                # Verificar se o arquivo existe e precisa ser redimensionado
-                if self.avatar.size > 0:
-                    resized = resize_avatar(self.avatar)
-                    self.avatar = resized
+                avatar_exists = False
+                try:
+                    avatar_exists = self.avatar.storage.exists(self.avatar.name)
+                except Exception:
+                    avatar_path = getattr(self.avatar, 'path', None)
+                    avatar_exists = bool(avatar_path and os.path.isfile(avatar_path))
+
+                if not avatar_exists:
+                    self.avatar = None
+                else:
+                    try:
+                        if self.avatar.size > 0:
+                            resized = resize_avatar(self.avatar)
+                            self.avatar = resized
+                    except Exception:
+                        # Se o arquivo for inválido ou não puder ser lido, descarta o avatar
+                        self.avatar = None
             except Exception as e:
                 print(f"Erro ao processar avatar: {e}")
-        
+
         # Primeiro salva o perfil
         super().save(*args, **kwargs)
         # Depois atualiza o grupo
@@ -156,8 +169,14 @@ class Profile(models.Model):
 
     def get_avatar_url(self):
         """Retorna URL do avatar ou None"""
-        if self.avatar and hasattr(self.avatar, 'url') and self.avatar:
-            return self.avatar.url
+        if self.avatar and hasattr(self.avatar, 'name') and self.avatar.name:
+            try:
+                if self.avatar.storage.exists(self.avatar.name):
+                    return self.avatar.url
+            except Exception:
+                avatar_path = getattr(self.avatar, 'path', None)
+                if avatar_path and os.path.isfile(avatar_path):
+                    return self.avatar.url
         return None
 
     def delete_avatar(self):
@@ -187,6 +206,9 @@ def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
     except Profile.DoesNotExist:
         Profile.objects.create(user=instance)
+    except Exception as e:
+        # Se o avatar estiver quebrado ou faltar arquivo, ignora para não travar o login
+        print(f"Erro ao salvar perfil do usuário: {e}")
 
 @receiver(post_delete, sender=Profile)
 def delete_avatar_on_profile_delete(sender, instance, **kwargs):
