@@ -221,39 +221,118 @@
     };
 
     window.confirmImport = async function () {
-        if (!pendingFile) return;
+        if (!pendingFile) {
+            showToast('Nenhum arquivo selecionado', 'error');
+            return;
+        }
+
+        // Validar e obter banco e formato
+        const bankSelect = document.getElementById('import-bank');
+        const formatSelect = document.getElementById('import-format');
+        
+        if (!bankSelect || !formatSelect) {
+            showToast('Campos de configuração não encontrados', 'error');
+            console.error('Missing select elements:', { bankSelect, formatSelect });
+            return;
+        }
+
+        const bank = bankSelect.value ? bankSelect.value.trim() : '';
+        const file_format = formatSelect.value ? formatSelect.value.trim() : '';
+
+        console.log('Import values:', { bank, file_format, filename: pendingFile.name });
+
+        if (!bank) {
+            showToast('Por favor, selecione um banco', 'error');
+            return;
+        }
+
+        if (!file_format) {
+            showToast('Por favor, selecione o formato do arquivo', 'error');
+            return;
+        }
 
         const formData = new FormData();
         formData.append('file', pendingFile);
+        formData.append('bank', bank);
+        formData.append('file_format', file_format);
+
+        // Debug: log FormData contents
+        console.log('FormData contents:');
+        for (const [key, value] of formData.entries()) {
+            if (value instanceof File) {
+                console.log(`  ${key}: File(${value.name}, ${value.size} bytes)`);
+            } else {
+                console.log(`  ${key}: ${value}`);
+            }
+        }
 
         showToast('Enviando arquivo para importação...', 'success');
 
         try {
+            const csrfToken = getCookie('csrftoken') || document.querySelector('[name=csrfmiddlewaretoken]')?.value || '';
+            
+            console.log('CSRF Token:', csrfToken ? 'present' : 'missing');
+            console.log('Import URL:', window.importUrl);
+
             const response = await fetch(window.importUrl, {
                 method: 'POST',
                 headers: {
-                    'X-CSRFToken': getCookie('csrftoken'),
+                    'X-CSRFToken': csrfToken,
                     'X-Requested-With': 'XMLHttpRequest'
                 },
-                body: formData
+                body: formData,
+                credentials: 'same-origin'
             });
 
+            console.log('Response status:', response.status);
+
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                const text = await response.text();
+                console.error('Non-JSON response:', text);
+                showToast('Erro: Resposta inválida do servidor', 'error');
+                return;
+            }
+
             const data = await response.json();
+            console.log('Response data:', data);
 
-            if (data.success) {
-                showToast(data.message, 'success');
+            // Verifica se houve importação (tem import_id)
+            const hasImportId = data.import_id && data.import_id > 0;
+            const hasValidationErrors = data.validation_errors && data.validation_errors.length > 0;
+            const recordsImported = data.summary?.records_imported || 0;
+            
+            if (hasImportId) {
+                // Importação foi processada (sucesso total ou parcial)
+                if (hasValidationErrors) {
+                    // Importação parcial com erros
+                    const errorCount = data.validation_errors.length;
+                    const message = `⚠️ Importação parcial: ${recordsImported} transações importadas, ${errorCount} com erro`;
+                    showToast(message, 'warning');
+                    
+                    // Exibir alguns dos erros na console para debug
+                    console.warn('Validation errors:', data.validation_errors.slice(0, 3));
+                } else {
+                    // Sucesso total
+                    const message = data.message || `✓ Importação concluída! ${recordsImported} transações importadas`;
+                    showToast(message, 'success');
+                }
+                
                 cancelImport();
-
+                
                 // Recarregar página após 2 segundos
                 setTimeout(() => {
                     location.reload();
                 }, 2000);
             } else {
-                showToast(data.error || 'Erro ao importar dados', 'error');
+                // Erro real (arquivo inválido, parâmetros faltando, etc)
+                const errorMsg = data.error || data.message || 'Erro ao importar dados';
+                console.error('Import error:', errorMsg);
+                showToast(errorMsg, 'error');
             }
         } catch (error) {
-            console.error('Error importing:', error);
-            showToast('Erro ao conectar com o servidor', 'error');
+            console.error('Fetch error:', error);
+            showToast('Erro ao conectar com o servidor: ' + error.message, 'error');
         }
     };
 
