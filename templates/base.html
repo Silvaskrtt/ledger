@@ -72,11 +72,11 @@
                     <i class="fas fa-exchange-alt"></i>
                     <span>{% trans "Importar/Exportar" %}</span>
                 </a>
-                <a href="{% url 'reports:reports_page' %}" class="nav-link {% if request.resolver_match.url_name == 'reports' %}active{% endif %}">
+                <a href="{% url 'reports:reports_page' %}" class="nav-link {% if request.resolver_match.url_name == 'reports_page' %}active{% endif %}">
                     <i class="fas fa-chart-line"></i>
                     <span>{% trans "Relatórios" %}</span>
                 </a>
-                <a href="{% url 'goals:goals_page' %}" class="nav-link {% if request.resolver_match.url_name == 'budget' %}active{% endif %}">
+                <a href="{% url 'goals:goals_page' %}" class="nav-link {% if request.resolver_match.url_name == 'goals_page' %}active{% endif %}">
                     <i class="fas fa-piggy-bank"></i>
                     <span>{% trans "Metas Financeiras" %}</span>
                 </a>
