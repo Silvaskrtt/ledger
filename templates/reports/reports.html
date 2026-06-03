@@ -11,6 +11,9 @@
 
 {% block content %}
 <div class="reports-container">
+    <!-- CSRF Token -->
+    {% csrf_token %}
+    
     <!-- Header -->
     <header class="reports-header fade-up">
         <div class="header-title">
