@@ -41,9 +41,11 @@
 
     function parseCurrency(value) {
         if (!value) return 0;
-        // Remove tudo exceto números, vírgula e ponto
-        let cleaned = value.toString().replace(/[^0-9,-]/g, '');
-        cleaned = cleaned.replace(',', '.');
+        let cleaned = value.toString()
+            .replace(/R\$/g, '')
+            .replace(/\s/g, '')
+            .replace(/\./g, '')
+            .replace(/,/g, '.');
         return parseFloat(cleaned) || 0;
     }
 
@@ -56,6 +58,15 @@
     function calculateProgress(current, target) {
         if (target <= 0) return 0;
         return Math.min((current / target) * 100, 100).toFixed(1);
+    }
+
+    function formatProgress(value) {
+        const number = Number(value);
+        if (isNaN(number)) return '0,00';
+        return number.toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
     }
 
     function escapeHtml(text) {
@@ -238,10 +249,10 @@
                 <div class="goal-progress">
                     <div class="progress-header">
                         <span class="progress-label">Progresso</span>
-                        <span class="progress-value">${goal.progress_percentage}%</span>
+                        <span class="progress-value">${formatProgress(goal.progress_percentage)}%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${goal.progress_percentage}%; background: ${goal.completed ? '#10b981' : '#8A4FFF'}"></div>
+                        <div class="progress-fill" style="width: ${Number(goal.progress_percentage).toFixed(2)}%; background: ${goal.completed ? '#10b981' : '#8A4FFF'}"></div>
                     </div>
                 </div>
                 <div class="goal-stats">
@@ -285,9 +296,9 @@
                 submitBtnText.textContent = 'Atualizar';
                 goalIdInput.value = goal.id;
                 document.getElementById('goal_title').value = goal.title;
-                document.getElementById('goal_target').value = goal.target;
+                document.getElementById('goal_target').value = goal.target ? formatCurrency(goal.target) : '';
                 document.getElementById('goal_deadline').value = goal.deadline;
-                document.getElementById('goal_current').value = goal.current;
+                document.getElementById('goal_current').value = goal.current ? formatCurrency(goal.current) : '';
                 document.getElementById('goal_description').value = goal.description || '';
                 document.getElementById('goal_icon').value = goal.icon || '🎯';
 
@@ -434,31 +445,34 @@
 
         function formatInput(input) {
             if (input && input.value) {
-                let value = parseCurrency(input.value);
+                const value = parseCurrency(input.value);
                 if (!isNaN(value)) {
-                    input.value = value;
+                    input.value = formatCurrency(value);
                 }
             }
+        }
+
+        function maskCurrencyInput(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value === '') {
+                input.value = '';
+                return;
+            }
+            value = (parseInt(value) / 100).toFixed(2);
+            value = value.replace('.', ',');
+            input.value = `R$ ${value}`;
         }
 
         if (targetInput) {
             targetInput.addEventListener('blur', () => formatInput(targetInput));
             targetInput.addEventListener('input', function () {
-                let value = this.value.replace(/\D/g, '');
-                if (value) {
-                    value = (parseInt(value) / 100).toFixed(2);
-                    this.value = value;
-                }
+                maskCurrencyInput(this);
             });
         }
         if (currentInput) {
             currentInput.addEventListener('blur', () => formatInput(currentInput));
             currentInput.addEventListener('input', function () {
-                let value = this.value.replace(/\D/g, '');
-                if (value) {
-                    value = (parseInt(value) / 100).toFixed(2);
-                    this.value = value;
-                }
+                maskCurrencyInput(this);
             });
         }
     }
