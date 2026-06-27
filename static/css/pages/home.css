@@ -17,13 +17,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== CONTAINER PRINCIPAL ===== */
-.home-container {
-    position: relative;
-    min-height: 100vh;
-    background: #0A0A0A;
-}
-
 /* ===== GRADIENTE ANIMADO ===== */
 .gradient-background {
     position: fixed;
@@ -788,13 +781,6 @@ body {
     font-family: 'DM Sans', 'Segoe UI', sans-serif;
     background: #0A0A0A;
     overflow-x: hidden;
-}
-
-/* ===== CONTAINER PRINCIPAL ===== */
-.home-container {
-    position: relative;
-    min-height: 100vh;
-    background: #0A0A0A;
 }
 
 /* ===== GRADIENTE ANIMADO ===== */

@@ -1,130 +1,44 @@
+{% extends "base.html" %}
 {% load static i18n %}
 
 {% block head_title %}
     {% trans "Início" %} | MyLedger
 {% endblock head_title %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+{% endblock %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>MyLedger - {% trans "Dashboard" %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <div class="home-container">
-        <!-- Animated Gradient Background -->
-        <div class="gradient-background">
-            <div class="gradient-orb gradient-orb-1"></div>
-            <div class="gradient-orb gradient-orb-2"></div>
-            <div class="gradient-orb gradient-orb-3"></div>
-            <div class="gradient-orb gradient-orb-4"></div>
-            <div class="gradient-overlay"></div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="home-content">
-            <!-- Header -->
-            <header class="home-header fade-up">
-                <div class="header-left">
-                    <div class="greeting">
-                        <span class="greeting-text">{% trans "Olá," %}</span>
-                        <h1 class="user-name" id="userName">{{ user.first_name }} {{ user.last_name }}</h1>
-                    </div>
-                    <p class="welcome-message">{% trans "Bem-vindo de volta! Aqui está um resumo das suas finanças." %}</p>
+<div class="home-container">
+    <div class="home-content">
+        <header class="home-header fade-up">
+            <div class="header-left">
+                <div class="greeting">
+                    <span class="greeting-text">{% trans "Olá," %}</span>
+                    <h1 class="user-name" id="userName">{{ user.first_name }} {{ user.last_name }}</h1>
                 </div>
-                <div class="header-right">
-                    <button class="notifications-btn" onclick="toggleNotifications()" href="toggleNotifications()">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">3</span>
-                    </button>
-                    <button class="profile-btn" onclick="goToProfile()">
-                        <i class="fas fa-user-circle"></i>
-                    </button>
-                </div>
-            </header>
-
-            <!-- Stats Cards Component -->
-            {% include 'dashboard/components/_stats_cards.html' %}
-
-            <!-- Charts Component -->
-            {% include 'dashboard/components/_charts.html' %}
-
-            <!-- Recent Transactions Component -->
-            {% include 'dashboard/components/_recent_transactions.html' %}
-
-            <!-- Budget Component -->
-            {% include 'dashboard/components/_budget.html' %}
-
-            <!-- Quick Actions -->
-            <div class="quick-actions fade-up" style="animation-delay: 0.25s">
-                <button class="action-btn" onclick="goToTransactions()">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>{% trans "Nova Transação" %}</span>
+                <p class="welcome-message">{% trans "Bem-vindo de volta! Aqui está um resumo das suas finanças." %}</p>
+            </div>
+            <div class="header-right">
+                <button class="notifications-btn" onclick="toggleNotifications()" href="toggleNotifications()">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
                 </button>
-                <button class="action-btn" onclick="goToReports()">
-                    <i class="fas fa-chart-line"></i>
-                    <span>{% trans "Relatórios" %}</span>
-                </button>
-                <button class="action-btn" onclick="goToCategories()">
-                    <i class="fas fa-tags"></i>
-                    <span>{% trans "Gerenciar Categorias" %}</span>
-                </button>
-                <button class="action-btn" onclick="exportData()">
-                    <i class="fas fa-download"></i>
-                    <span>{% trans "Exportar Dados" %}</span>
+                <button class="profile-btn" onclick="goToProfile()">
+                    <i class="fas fa-user-circle"></i>
                 </button>
             </div>
-        </div>
+        </header>
+
+        {% include 'dashboard/components/_stats_cards.html' %}
+        {% include 'dashboard/components/_charts.html' %}
+        {% include 'dashboard/components/_recent_transactions.html' %}
+        {% include 'dashboard/components/_budget.html' %}
     </div>
-
-    <!-- Notifications Panel -->
-    <div id="notificationsPanel" class="notifications-panel" style="display: none;">
-        <div class="notifications-header">
-            <h3>{% trans "Notificações" %}</h3>
-            <button class="close-notifications" onclick="toggleNotifications()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="notifications-list">
-            <div class="notification-item unread">
-                <div class="notification-icon">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <div class="notification-content">
-                    <p>{% trans "Você está perto do limite de orçamento de Alimentação" %}</p>
-                    <span class="notification-time">{% trans "Há 2 horas" %}</span>
-                </div>
-            </div>
-            <div class="notification-item">
-                <div class="notification-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="notification-content">
-                    <p>{% trans "Relatório mensal de Junho está disponível" %}</p>
-                    <span class="notification-time">{% trans "Há 1 dia" %}</span>
-                </div>
-            </div>
-            <div class="notification-item">
-                <div class="notification-icon">
-                    <i class="fas fa-gift"></i>
-                </div>
-                <div class="notification-content">
-                    <p>{% trans "Nova funcionalidade: Exportação de dados em CSV!" %}</p>
-                    <span class="notification-time">{% trans "Há 3 dias" %}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{% static 'js/dashboard/dashboard.js' %}"></script>
-</body>
-</html>
+</div>
 {% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/dashboard/dashboard.js' %}"></script>
+{% endblock extra_js %}
