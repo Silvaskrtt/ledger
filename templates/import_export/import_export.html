@@ -138,6 +138,7 @@
                 <label class="btn-import">
                     <i class="fas fa-folder-open"></i>
                     <span>{% trans "Selecionar arquivo" %}</span>
+                    <!-- CORREÇÃO: Adicionar .pdf, .ofx, .bbt, .txt ao accept -->
                     <input type="file" id="fileInput" accept=".csv,.xlsx,.xls,.pdf,.ofx,.bbt,.txt,.json" style="display: none;">
                 </label>
                 <p class="supported-formats">{% trans "Formatos suportados: CSV, XLSX, PDF, OFX, BBT, TXT, JSON" %}</p>

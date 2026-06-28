@@ -52,7 +52,7 @@
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.innerHTML = `
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-exclamation-circle'}"></i>
             <span>${message}</span>
         `;
         toastContainer.appendChild(toast);
@@ -61,7 +61,7 @@
             toast.style.opacity = '0';
             toast.style.transition = 'opacity 0.3s';
             setTimeout(() => toast.remove(), 300);
-        }, 3000);
+        }, 4000);
     }
 
     function showConfirmModal(title, message, action, isDanger = false) {
@@ -87,53 +87,48 @@
         pendingAction = null;
     };
 
-    // ===== Export Functions (Backend) - ALTERADO =====
+    // ===== Export Functions (Backend) =====
     window.exportData = function (format) {
         showToast(`Preparando exportação em ${format.toUpperCase()}...`, 'success');
-        
-        // Criar link de download usando fetch para melhor controle
+
         const url = `${window.exportUrl}?format=${format}&type=all`;
-        
-        // Usar fetch para baixar o arquivo
+
         fetch(url, {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
             }
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro na exportação');
-            }
-            
-            // Obter o nome do arquivo do header Content-Disposition
-            const contentDisposition = response.headers.get('Content-Disposition');
-            let filename = `myledger_export_${new Date().toISOString().split('T')[0]}.${format}`;
-            if (contentDisposition) {
-                const match = contentDisposition.match(/filename="?(.+)"?/);
-                if (match) filename = match[1];
-            }
-            
-            // Converter resposta para blob
-            return response.blob().then(blob => ({ blob, filename }));
-        })
-        .then(({ blob, filename }) => {
-            // Criar link de download
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            
-            showToast(`Exportação em ${format.toUpperCase()} concluída!`, 'success');
-        })
-        .catch(error => {
-            console.error('Erro na exportação:', error);
-            showToast(`Erro ao exportar em ${format.toUpperCase()}`, 'error');
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na exportação');
+                }
+
+                const contentDisposition = response.headers.get('Content-Disposition');
+                let filename = `myledger_export_${new Date().toISOString().split('T')[0]}.${format}`;
+                if (contentDisposition) {
+                    const match = contentDisposition.match(/filename="?(.+)"?/);
+                    if (match) filename = match[1];
+                }
+
+                return response.blob().then(blob => ({ blob, filename }));
+            })
+            .then(({ blob, filename }) => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+
+                showToast(`Exportação em ${format.toUpperCase()} concluída!`, 'success');
+            })
+            .catch(error => {
+                console.error('Erro na exportação:', error);
+                showToast(`Erro ao exportar em ${format.toUpperCase()}`, 'error');
+            });
     };
 
     window.exportAllData = function () {
@@ -178,10 +173,17 @@
     }
 
     async function processFile(file) {
+        // CORREÇÃO: Aceitar todos os formatos suportados pelo backend
         const extension = file.name.split('.').pop().toLowerCase();
 
-        if (extension !== 'json' && extension !== 'csv') {
-            showToast('Formato não suportado. Use JSON ou CSV.', 'error');
+        // Lista completa de formatos suportados
+        const supportedFormats = ['json', 'csv', 'xlsx', 'xls', 'pdf', 'ofx', 'bbt', 'txt'];
+
+        console.log('Arquivo selecionado:', file.name, 'Extensão:', extension);
+
+        // CORREÇÃO: Remover a restrição que só aceitava JSON e CSV
+        if (!supportedFormats.includes(extension)) {
+            showToast(`Formato não suportado: .${extension}. Use um dos formatos: ${supportedFormats.join(', ')}`, 'error');
             return;
         }
 
@@ -200,14 +202,23 @@
         importZone.style.display = 'none';
         importPreview.style.display = 'block';
 
-        // Simular preview (opcional)
+        // Exibir informações do arquivo
+        const fileSizeKB = (file.size / 1024).toFixed(2);
+        const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+        const sizeDisplay = file.size > 1024 * 1024 ? `${fileSizeMB} MB` : `${fileSizeKB} KB`;
+
         setTimeout(() => {
             previewStats.innerHTML = `
                 <div class="preview-success">
-                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
                     <p><strong>${file.name}</strong></p>
-                    <p>Tamanho: ${(file.size / 1024).toFixed(2)} KB</p>
+                    <p>Tamanho: ${sizeDisplay}</p>
                     <p>Formato: ${extension.toUpperCase()}</p>
+                    <p style="font-size: 0.9rem; color: #6b7280; margin-top: 8px;">
+                        <i class="fas fa-info-circle"></i> 
+                        Arquivo pronto para importação. 
+                        ${extension === 'pdf' ? 'O sistema extrairá automaticamente as transações do PDF.' : ''}
+                    </p>
                 </div>
             `;
         }, 500);
@@ -229,7 +240,7 @@
         // Validar e obter banco e formato
         const bankSelect = document.getElementById('import-bank');
         const formatSelect = document.getElementById('import-format');
-        
+
         if (!bankSelect || !formatSelect) {
             showToast('Campos de configuração não encontrados', 'error');
             console.error('Missing select elements:', { bankSelect, formatSelect });
@@ -248,6 +259,24 @@
 
         if (!file_format) {
             showToast('Por favor, selecione o formato do arquivo', 'error');
+            return;
+        }
+
+        // CORREÇÃO: Validar combinação banco + formato
+        const validCombinations = {
+            'bb': ['csv', 'xlsx', 'pdf', 'ofx', 'bbt', 'txt'],
+            'itau': ['pdf'],
+            'nubank': ['csv', 'ofx', 'pdf'],
+            'generic': ['csv', 'json']
+        };
+
+        if (validCombinations[bank] && !validCombinations[bank].includes(file_format)) {
+            const bankName = bankSelect.options[bankSelect.selectedIndex]?.text || bank;
+            const supported = validCombinations[bank].join(', ');
+            showToast(
+                `"${bankName}" não suporta ${file_format.toUpperCase()}. Formatos suportados: ${supported}`,
+                'warning'
+            );
             return;
         }
 
@@ -270,7 +299,7 @@
 
         try {
             const csrfToken = getCookie('csrftoken') || document.querySelector('[name=csrfmiddlewaretoken]')?.value || '';
-            
+
             console.log('CSRF Token:', csrfToken ? 'present' : 'missing');
             console.log('Import URL:', window.importUrl);
 
@@ -297,35 +326,27 @@
             const data = await response.json();
             console.log('Response data:', data);
 
-            // Verifica se houve importação (tem import_id)
             const hasImportId = data.import_id && data.import_id > 0;
             const hasValidationErrors = data.validation_errors && data.validation_errors.length > 0;
             const recordsImported = data.summary?.records_imported || 0;
-            
+
             if (hasImportId) {
-                // Importação foi processada (sucesso total ou parcial)
                 if (hasValidationErrors) {
-                    // Importação parcial com erros
                     const errorCount = data.validation_errors.length;
                     const message = `⚠️ Importação parcial: ${recordsImported} transações importadas, ${errorCount} com erro`;
                     showToast(message, 'warning');
-                    
-                    // Exibir alguns dos erros na console para debug
-                    console.warn('Validation errors:', data.validation_errors.slice(0, 3));
+                    console.warn('Validation errors:', data.validation_errors.slice(0, 5));
                 } else {
-                    // Sucesso total
                     const message = data.message || `✓ Importação concluída! ${recordsImported} transações importadas`;
                     showToast(message, 'success');
                 }
-                
+
                 cancelImport();
-                
-                // Recarregar página após 2 segundos
+
                 setTimeout(() => {
                     location.reload();
-                }, 2000);
+                }, 2500);
             } else {
-                // Erro real (arquivo inválido, parâmetros faltando, etc)
                 const errorMsg = data.error || data.message || 'Erro ao importar dados';
                 console.error('Import error:', errorMsg);
                 showToast(errorMsg, 'error');
@@ -461,7 +482,34 @@
     // ===== Initialize =====
     function init() {
         setupDragAndDrop();
+
+        // CORREÇÃO: Auto-preencher formato baseado na extensão do arquivo
+        if (fileInput) {
+            fileInput.addEventListener('change', function () {
+                const file = this.files[0];
+                if (file && window.formatSelect) {
+                    const ext = file.name.split('.').pop().toLowerCase();
+                    const formatMap = {
+                        'csv': 'csv',
+                        'xlsx': 'xlsx',
+                        'xls': 'xlsx',
+                        'pdf': 'pdf',
+                        'ofx': 'ofx',
+                        'bbt': 'bbt',
+                        'txt': 'txt',
+                        'json': 'json'
+                    };
+                    if (formatMap[ext]) {
+                        window.formatSelect.value = formatMap[ext];
+                    }
+                }
+            });
+        }
     }
+
+    // Guardar referências para uso no auto-preenchimento
+    window.formatSelect = document.getElementById('import-format');
+    window.bankSelect = document.getElementById('import-bank');
 
     init();
 })();
