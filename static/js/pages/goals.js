@@ -49,9 +49,15 @@
         return parseFloat(cleaned) || 0;
     }
 
+    function parseLocalDate(dateString) {
+        if (!dateString) return null;
+        const [year, month, day] = dateString.split('-').map(Number);
+        return new Date(year, month - 1, day);
+    }
+
     function formatDate(dateString) {
         if (!dateString) return '';
-        const date = new Date(dateString);
+        const date = parseLocalDate(dateString);
         return date.toLocaleDateString('pt-BR');
     }
 
