@@ -111,9 +111,14 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+function parseLocalDate(dateString) {
+    const [year, month, day] = dateString.split('-').map(Number);
+    return new Date(year, month - 1, day);
+}
+
 // Formatar data para exibição
 function formatDate(dateString) {
-    const date = new Date(dateString);
+    const date = parseLocalDate(dateString);
     return date.toLocaleDateString('pt-BR');
 }
 
@@ -123,7 +128,7 @@ function renderRecent() {
     if (!recentContainer) return;
 
     const recentTransactions = [...transactions]
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .sort((a, b) => parseLocalDate(b.date) - parseLocalDate(a.date))
         .slice(0, 4);
 
     recentContainer.innerHTML = recentTransactions.map(t => txCard(t, false)).join('');
@@ -151,7 +156,7 @@ function renderFullTx() {
     }
 
     // Ordenar por data (mais recente primeiro)
-    filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+    filtered.sort((a, b) => parseLocalDate(b.date) - parseLocalDate(a.date));
 
     const container = document.getElementById('tx-list-full');
     if (!container) return;
