@@ -80,6 +80,10 @@
                     <i class="fas fa-piggy-bank"></i>
                     <span>{% trans "Metas Financeiras" %}</span>
                 </a>
+                <a href="{% url 'dash_calendar:calendar_page' %}" class="nav-link {% if request.resolver_match.url_name == 'calendar_page' %}active{% endif %}">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>{% trans "Calendário" %}</span>
+                </a>
             </nav>
             
             <div class="sidebar-footer">
