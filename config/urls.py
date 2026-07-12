@@ -17,6 +17,7 @@ urlpatterns = [
     path('import-export/', include('import_export.urls')),
     path('reports/', include('reports.urls')),
     path('goals/', include('goals.urls')),
+    path('calendar/', include('dash_calendar.urls')),
 ]
 
 # Servir arquivos de mídia em desenvolvimento
