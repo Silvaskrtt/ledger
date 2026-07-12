@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+from datetime import datetime, date
 from decimal import Decimal
 
 from django.contrib.auth.decorators import login_required
@@ -93,6 +93,13 @@ def api_monthly_summary(request):
         if month < 1 or month > 12:
             raise ValueError('Mês inválido')
 
+        start_date = date(year, month, 1)
+        previous_qs = Transaction.objects.filter(user=request.user, date__lt=start_date)
+        opening_income = previous_qs.filter(type='income').aggregate(total=Sum('amount'))['total'] or 0
+        opening_expense = previous_qs.filter(type='expense').aggregate(total=Sum('amount'))['total'] or 0
+        opening_saving = previous_qs.filter(type='saving').aggregate(total=Sum('amount'))['total'] or 0
+        opening_balance = float(opening_income - opening_expense + opening_saving)
+
         qs = Transaction.objects.filter(
             user=request.user, 
             date__year=year, 
@@ -128,13 +135,14 @@ def api_monthly_summary(request):
         ).order_by('date')
 
         summary = {
+            'opening_balance': opening_balance,
             'days': [],
             'total_income': 0.0,
             'total_expense': 0.0,
             'total_saving': 0.0,
         }
 
-        balance = 0
+        balance = opening_balance
         for item in daily_data:
             date = item['date']
             income = float(item['income'] or 0)

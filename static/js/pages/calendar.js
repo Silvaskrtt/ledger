@@ -73,7 +73,7 @@
         const totalDays = daysInMonth(state.year, state.month);
         const dailyMap = getDailyMap(summary.days);
         const rows = [];
-        let balance = 0;
+        let balance = Number(summary.opening_balance || 0);
 
         for (let day = 1; day <= totalDays; day++) {
             const item = dailyMap.get(day) || { income: 0, expense: 0, saving: 0 };
