@@ -39,6 +39,18 @@
     const daysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
     const fmt = (value) => `R$ ${Number(value).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
+    function parseLocalDate(dateString) {
+        const [year, month, day] = dateString.split('-').map(Number);
+        return new Date(year, month - 1, day);
+    }
+
+    function formatLocalDateInput(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
     function setLoading(isLoading) {
         if (isLoading) {
             elements.stats.classList.add('loading');
@@ -50,7 +62,7 @@
     function getDailyMap(days) {
         const map = new Map();
         days.forEach((item) => {
-            const date = new Date(item.date);
+            const date = parseLocalDate(item.date);
             const day = date.getDate();
             map.set(day, item);
         });
@@ -176,7 +188,7 @@
     function openDrawer() {
         elements.drawer.hidden = false;
         const defaultDate = new Date(state.year, state.month, state.today.getDate());
-        elements.txDate.value = defaultDate.toISOString().slice(0, 10);
+        elements.txDate.value = formatLocalDateInput(defaultDate);
     }
 
     function closeDrawer() {
@@ -234,7 +246,7 @@
             window.showToast('Transação salva com sucesso.');
             closeDrawer();
             resetForm();
-            const createdDate = new Date(payload.date);
+            const createdDate = parseLocalDate(payload.date);
             if (createdDate.getFullYear() === state.year && createdDate.getMonth() === state.month) {
                 await refresh();
             }
