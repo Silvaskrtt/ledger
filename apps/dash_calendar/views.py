@@ -3,7 +3,8 @@ from datetime import datetime
 from decimal import Decimal
 
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum, F, Value, Case, When
+from django.db.models import Sum, F, Value, Case, When, DecimalField
+from django.db.models.functions import Coalesce
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.utils.dateparse import parse_date
@@ -80,9 +81,51 @@ def api_transactions_delete(request, pk):
 @require_GET
 def api_monthly_summary(request):
     try:
-        year = int(request.GET.get('year', datetime.today().year))
-        month = int(request.GET.get('month', datetime.today().month))
-        qs = Transaction.objects.filter(user=request.user, date__year=year, date__month=month)
+        year_str = request.GET.get('year')
+        month_str = request.GET.get('month')
+        
+        if not year_str or not month_str:
+            return JsonResponse({'success': False, 'error': 'Ano e mês são obrigatórios'}, status=400)
+        
+        year = int(year_str)
+        month = int(month_str)
+
+        if month < 1 or month > 12:
+            raise ValueError('Mês inválido')
+
+        qs = Transaction.objects.filter(
+            user=request.user, 
+            date__year=year, 
+            date__month=month
+        )
+
+        # CORREÇÃO DEFINITIVA: Usando Value com output_field e Coalesce para garantir tipo Decimal
+        daily_data = qs.values('date').annotate(
+            income=Coalesce(
+                Sum(Case(
+                    When(type='income', then='amount'),
+                    default=Value(0, output_field=DecimalField()),
+                    output_field=DecimalField()
+                )),
+                Value(0, output_field=DecimalField())
+            ),
+            expense=Coalesce(
+                Sum(Case(
+                    When(type='expense', then='amount'),
+                    default=Value(0, output_field=DecimalField()),
+                    output_field=DecimalField()
+                )),
+                Value(0, output_field=DecimalField())
+            ),
+            saving=Coalesce(
+                Sum(Case(
+                    When(type='saving', then='amount'),
+                    default=Value(0, output_field=DecimalField()),
+                    output_field=DecimalField()
+                )),
+                Value(0, output_field=DecimalField())
+            ),
+        ).order_by('date')
 
         summary = {
             'days': [],
@@ -90,12 +133,6 @@ def api_monthly_summary(request):
             'total_expense': 0.0,
             'total_saving': 0.0,
         }
-
-        daily_data = qs.values('date').annotate(
-            income=Sum(Case(When(type='income', then='amount'), default=Value(0))),
-            expense=Sum(Case(When(type='expense', then='amount'), default=Value(0))),
-            saving=Sum(Case(When(type='saving', then='amount'), default=Value(0))),
-        ).order_by('date')
 
         balance = 0
         for item in daily_data:
@@ -116,16 +153,22 @@ def api_monthly_summary(request):
             summary['total_saving'] += saving
 
         return JsonResponse({'success': True, 'summary': summary})
-    except Exception as e:
+    except ValueError as e:
         return JsonResponse({'success': False, 'error': str(e)}, status=400)
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': f'Erro interno: {str(e)}'}, status=500)
 
 
 @login_required
 @require_GET
 def api_monthly_balance(request):
     try:
-        year = int(request.GET.get('year', datetime.today().year))
-        month = int(request.GET.get('month', datetime.today().month))
+        year_str = request.GET.get('year')
+        month_str = request.GET.get('month')
+        year = int(year_str) if year_str and year_str.isdigit() else datetime.today().year
+        month = int(month_str) if month_str and month_str.isdigit() else datetime.today().month
+        if month < 1 or month > 12:
+            raise ValueError('Mês inválido')
         qs = Transaction.objects.filter(user=request.user, date__year=year, date__month=month)
 
         total_income = qs.filter(type='income').aggregate(total=Sum('amount'))['total'] or 0
@@ -148,10 +191,18 @@ def api_monthly_balance(request):
 @require_GET
 def api_transactions_filter(request):
     try:
-        year = int(request.GET.get('year', datetime.today().year))
-        month = int(request.GET.get('month', datetime.today().month))
-        start = parse_date(request.GET.get('start'))
-        end = parse_date(request.GET.get('end'))
+        year_str = request.GET.get('year')
+        month_str = request.GET.get('month')
+        year = int(year_str) if year_str and year_str.isdigit() else datetime.today().year
+        month = int(month_str) if month_str and month_str.isdigit() else datetime.today().month
+
+        if month < 1 or month > 12:
+            raise ValueError('Mês inválido')
+
+        start_str = request.GET.get('start')
+        end_str = request.GET.get('end')
+        start = parse_date(start_str) if start_str else None
+        end = parse_date(end_str) if end_str else None
 
         qs = Transaction.objects.filter(user=request.user)
         if start:
