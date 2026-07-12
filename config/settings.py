@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'transactions.apps.TransactionsConfig',
     'import_export',
     'reports',
-    'goals.apps.GoalsConfig'
+    'goals.apps.GoalsConfig',
+    'dash_calendar.apps.DashCalendarConfig',
 ]
 
 # ============================================================================
