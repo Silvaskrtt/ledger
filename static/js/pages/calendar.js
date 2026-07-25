@@ -34,6 +34,7 @@
         txDescription: document.getElementById('txDescription'),
         txTag: document.getElementById('txTag'),
         txRepeat: document.getElementById('txRepeat'),
+        openResumo: document.getElementById('openResumo'),
     };
 
     const daysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
@@ -138,7 +139,7 @@
                     <td><span class="day-badge ${badgeCls}">${String(row.day).padStart(2, '0')}</span></td>
                     <td class="${row.income > 0 ? 'pos' : 'dash'}">${row.income > 0 ? fmt(row.income) : '—'}</td>
                     <td class="${row.expense > 0 ? 'neg' : 'dash'}">${row.expense > 0 ? fmt(row.expense) : '—'}</td>
-                    <td class="dash">—</td>
+                                <td class="daily-cell dash" data-day="${row.day}">${(window.ResumoModal && ResumoModal.getResumoDisplay ? ResumoModal.getResumoDisplay(row.day) : null) || '—'}</td>
                     <td class="dash">${row.saving > 0 ? fmt(row.saving) : '—'}</td>
                     <td class="dash">—</td>
                     <td><span class="${balanceClass(row.balance)}">${fmt(row.balance)}</span></td>
@@ -146,6 +147,8 @@
             `;
         }).join('');
     }
+
+    // resumo modal behaviour is handled by ResumoModal component (static/js/components/resumo_modal.js)
 
     async function fetchSummary(year, month) {
         setLoading(true);
@@ -294,6 +297,34 @@
         });
 
         elements.txForm.addEventListener('submit', submitTransaction);
+        // open resumo modal when clicking on daily cell
+        elements.tbody.addEventListener('click', (ev) => {
+            const td = ev.target.closest('td.daily-cell');
+            if (!td) return;
+            const day = Number(td.dataset.day);
+            if (!day) return;
+            if (window.ResumoModal && ResumoModal.open) ResumoModal.open(day);
+        });
+
+        if (elements.openResumo) elements.openResumo.addEventListener('click', () => {
+            if (window.ResumoModal && ResumoModal.open) ResumoModal.open(state.today.getDate());
+        });
+    }
+    // initialize ResumoModal component with access to calendar state
+    if (window.ResumoModal && ResumoModal.init) {
+        ResumoModal.init({
+            getState: () => state,
+            onSaved: (day, total) => {
+                // update all day cells using ResumoModal's display logic
+                const totalDays = daysInMonth(state.year, state.month);
+                for (let d = 1; d <= totalDays; d++) {
+                    const cell = document.querySelector(`td.daily-cell[data-day="${d}"]`);
+                    if (!cell) continue;
+                    const display = (window.ResumoModal && ResumoModal.getResumoDisplay) ? ResumoModal.getResumoDisplay(d) : null;
+                    cell.textContent = display || '—';
+                }
+            }
+        });
     }
 
     attachEvents();
