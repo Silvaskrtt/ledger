@@ -21,10 +21,16 @@
           <p>{% trans "Evolução diária do seu saldo" %}</p>
         </div>
       </div>
-      <button id="openDrawer" class="btn-primary">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
-        <span>{% trans "Adicionar" %}</span>
-      </button>
+      <div class="topbar-actions">
+        <button id="openDrawer" class="btn-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          <span>{% trans "Adicionar" %}</span>
+        </button>
+        <button id="openResumo" class="btn-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          <span>{% trans "Resumo" %}</span>
+        </button>
+      </div>
     </header>
 
     <section class="glass month-nav">
@@ -134,8 +140,11 @@
       </form>
     </div>
 </div>
+
+{% include 'calendar/_resumo_modal.html' %}
 {% endblock %}
 
 {% block extra_js %}
+<script src="{% static 'js/components/resumo_modal.js' %}"></script>
 <script src="{% static 'js/pages/calendar.js' %}"></script>
 {% endblock %}
