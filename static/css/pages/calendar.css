@@ -527,3 +527,223 @@ td {
         padding: 10px 14px;
     }
 }
+
+/* Correção do layout do topbar - botões lado a lado */
+.topbar-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 560px) {
+    .topbar-actions {
+        gap: 6px;
+    }
+
+    .topbar-actions .btn-primary {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 400px) {
+    .topbar {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .topbar-actions {
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
+
+/* Estilos do modal de resumo - inspirado no modal de adicionar */
+.resumo-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+@media (min-width: 480px) {
+    .resumo-grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.resumo-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 8px;
+}
+
+@media (min-width: 480px) {
+    .resumo-stats {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.resumo-stat {
+    background: oklch(1 0 0 / 5%);
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.resumo-stat label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+
+.resumo-stat p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.resumo-stat input {
+    width: 100%;
+    padding: 8px 12px;
+    background: oklch(1 0 0 / 5%);
+    border: 1.5px solid oklch(1 0 0 / 8%);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    outline: none;
+    transition: border-color .2s, background .2s, box-shadow .2s;
+}
+
+.resumo-stat input:focus {
+    border-color: var(--primary);
+    background: oklch(1 0 0 / 8%);
+    box-shadow: 0 0 0 3px oklch(0.65 0.24 300 / 15%);
+}
+
+.resumo-divider {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 8px 0 16px;
+}
+
+.resumo-categories {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 480px) {
+    .resumo-categories {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.resumo-categories .field {
+    gap: 4px;
+}
+
+.resumo-categories .field label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.resumo-categories .field input {
+    padding: 10px 14px;
+    font-size: 14px;
+}
+
+.resumo-extra-wrap {
+    margin-top: 4px;
+}
+
+.resumo-extra-wrap h4 {
+    margin: 0 0 12px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.extra-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    background: oklch(1 0 0 / 3%);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.extra-row .extra-label {
+    width: 100%;
+    padding: 8px 12px;
+    background: oklch(1 0 0 / 5%);
+    border: 1.5px solid oklch(1 0 0 / 8%);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color .2s, background .2s;
+}
+
+.extra-row .extra-label:focus {
+    border-color: var(--primary);
+    background: oklch(1 0 0 / 8%);
+}
+
+.extra-row .extra-amount {
+    width: 100px;
+    padding: 8px 12px;
+    background: oklch(1 0 0 / 5%);
+    border: 1.5px solid oklch(1 0 0 / 8%);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color .2s, background .2s;
+}
+
+.extra-row .extra-amount:focus {
+    border-color: var(--primary);
+    background: oklch(1 0 0 / 8%);
+}
+
+.extra-row .remove-extra {
+    padding: 6px 12px;
+    font-size: 12px;
+    background: oklch(0.65 0.24 25 / 15%);
+    color: var(--expense);
+    border: 1px solid oklch(0.65 0.24 25 / 20%);
+}
+
+.extra-row .remove-extra:hover {
+    background: oklch(0.65 0.24 25 / 25%);
+}
+
+#addExtraExpense {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    font-size: 13px;
+    border-style: dashed;
+    border-color: oklch(1 0 0 / 15%);
+}
+
+#addExtraExpense:hover {
+    border-color: var(--primary);
+    background: oklch(0.65 0.24 300 / 10%);
+}
