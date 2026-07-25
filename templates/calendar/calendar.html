@@ -60,6 +60,7 @@
     </section>
 </div>
 
+<!-- Modal Adicionar Transação -->
 <div id="drawer" class="drawer-backdrop" hidden>
     <div class="drawer glass">
       <div class="drawer-head">
@@ -141,7 +142,125 @@
     </div>
 </div>
 
+<!-- Modal Resumo (Diário) -->
 {% include 'calendar/_resumo_modal.html' %}
+
+<!-- Modal Lista de Transações (Saídas) -->
+<div id="transactionsModal" class="drawer-backdrop" hidden>
+    <div class="drawer glass">
+      <div class="drawer-head">
+        <div class="drawer-icon" style="background:linear-gradient(135deg, oklch(0.65 0.24 25 / 20%), oklch(0.65 0.24 25 / 30%));color:var(--expense);">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <h3>Transações do Dia <span id="transactionsDayLabel">-</span></h3>
+        <button id="closeTransactionsModal" class="close-btn" aria-label="{% trans "Fechar" %}">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="drawer-body">
+        <div id="transactionsList" class="transaction-list">
+          <!-- Transações serão inseridas aqui via JavaScript -->
+        </div>
+
+        <div class="drawer-actions">
+          <button id="closeTransactionsModalBtn" type="button" class="ghost-btn wide">Fechar</button>
+          <button id="addTransactionFromModal" type="button" class="btn-primary wide">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Modal Editar Transação (usado pelo modal de lista) -->
+<div id="editDrawer" class="drawer-backdrop" hidden>
+    <div class="drawer glass">
+      <div class="drawer-head">
+        <div class="drawer-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <h3>{% trans "Editar Transação" %}</h3>
+        <button id="closeEditDrawer" class="close-btn" aria-label="{% trans "Fechar" %}">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="editTxForm" class="drawer-body">
+        <input type="hidden" id="editTxId" />
+        
+        <div class="field">
+          <label>{% trans "Tipo" %}</label>
+          <div class="type-toggle" role="tablist" id="editTypeToggle">
+            <button type="button" data-type="Despesa" class="type-btn active">{% trans "Despesa" %}</button>
+            <button type="button" data-type="Receita" class="type-btn">{% trans "Receita" %}</button>
+            <button type="button" data-type="Economia" class="type-btn">{% trans "Economia" %}</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="editTxValue">{% trans "Valor (R$)" %}</label>
+          <input id="editTxValue" type="number" step="0.01" placeholder="0,00" />
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="editTxDate">{% trans "Data" %}</label>
+            <input id="editTxDate" type="date" />
+          </div>
+          <div class="field">
+            <label for="editTxCategory">{% trans "Categoria" %}</label>
+            <select id="editTxCategory">
+              <option value="food">🍔 {% trans "Alimentação" %}</option>
+              <option value="home">🏠 {% trans "Moradia" %}</option>
+              <option value="transport">🚗 {% trans "Transporte" %}</option>
+              <option value="fun">🎮 {% trans "Lazer" %}</option>
+              <option value="work">💼 {% trans "Trabalho" %}</option>
+              <option value="edu">📚 {% trans "Educação" %}</option>
+              <option value="health">🏥 {% trans "Saúde" %}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="editTxDescription">{% trans "Descrição" %}</label>
+          <input id="editTxDescription" type="text" placeholder="Ex: Almoço no restaurante" />
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="editTxTag">{% trans "Etiqueta" %}</label>
+            <select id="editTxTag">
+              <option value="none">{% trans "Sem etiqueta" %}</option>
+              <option value="essential">{% trans "Essencial" %}</option>
+              <option value="invest">{% trans "Investimento" %}</option>
+              <option value="urgent">{% trans "Urgente" %}</option>
+              <option value="planned">{% trans "Planejado" %}</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="editTxRepeat">{% trans "Repetição" %}</label>
+            <select id="editTxRepeat">
+              <option value="none">{% trans "Não repetir" %}</option>
+              <option value="weekly">{% trans "Semanal" %}</option>
+              <option value="monthly">{% trans "Mensal" %}</option>
+              <option value="yearly">{% trans "Anual" %}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="drawer-actions" style="display:flex;gap:10px;">
+          <button type="button" id="deleteEditTx" class="ghost-btn" style="color:var(--expense);border-color:oklch(0.65 0.24 25 / 30%);margin-right:auto;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+            {% trans "Excluir" %}
+          </button>
+          <button type="button" id="cancelEditDrawer" class="ghost-btn wide">{% trans "Cancelar" %}</button>
+          <button type="submit" class="btn-primary wide">{% trans "Salvar" %}</button>
+        </div>
+      </form>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}

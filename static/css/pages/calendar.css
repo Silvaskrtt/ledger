@@ -747,3 +747,110 @@ td {
     border-color: var(--primary);
     background: oklch(0.65 0.24 300 / 10%);
 }
+
+/* Estilos para o modal de lista de transações */
+.transaction-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 8px 0 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-item:hover {
+    background: oklch(1 0 0 / 5%);
+}
+
+.transaction-item .tx-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.transaction-item .tx-info .tx-desc {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.transaction-item .tx-info .tx-meta {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.transaction-item .tx-amount {
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 12px;
+}
+
+.transaction-item .tx-amount.income {
+    color: var(--income);
+}
+
+.transaction-item .tx-amount.expense {
+    color: var(--expense);
+}
+
+.transaction-item .tx-amount.saving {
+    color: var(--primary);
+}
+
+.transaction-item .tx-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.transaction-item .tx-actions button {
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: oklch(1 0 0 / 5%);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.transaction-item .tx-actions button:hover {
+    background: oklch(1 0 0 / 10%);
+}
+
+.transaction-item .tx-actions .edit-tx-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.transaction-item .tx-actions .delete-tx-btn:hover {
+    border-color: var(--expense);
+    color: var(--expense);
+}
+
+.empty-transactions {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+}
+
+.empty-transactions svg {
+    margin-bottom: 8px;
+    opacity: 0.3;
+}
+
+.empty-transactions p {
+    margin: 0;
+    font-size: 14px;
+}
