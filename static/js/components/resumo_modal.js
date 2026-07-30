@@ -1,10 +1,10 @@
 (function () {
     const fmt = (value) => `R$ ${Number(value).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    const API_BASE = '/calendar/api/';
 
     let getState = null;
     let onSaved = null;
-
-    function daysInMonth(year, month) { return new Date(year, month + 1, 0).getDate(); }
+    let currentBudget = null;
 
     function getElements() {
         return {
@@ -22,28 +22,42 @@
         };
     }
 
-    function getKey(year, month, day) { return `calendar_resumo_${year}_${month}_${day}`; }
-    function getPlanKey(year, month) { return `calendar_resumo_plan_${year}_${month}`; }
-
-    function getResumoForDayInternal(year, month, day) {
+    async function fetchBudget(year, month) {
         try {
-            const raw = localStorage.getItem(getKey(year, month, day));
-            if (!raw) return null;
-            return JSON.parse(raw);
+            const response = await fetch(`${API_BASE}budget/?year=${year}&month=${month}`);
+            const data = await response.json();
+            if (data.success) {
+                return data.budget;
+            }
+            return null;
         } catch (e) {
-            console.error('Erro lendo resumo', e);
+            console.error('Erro ao carregar planejamento:', e);
             return null;
         }
     }
 
-    function getPlanForMonth(year, month) {
+    async function saveBudget(year, month, data) {
         try {
-            const raw = localStorage.getItem(getPlanKey(year, month));
-            if (!raw) return null;
-            return JSON.parse(raw);
+            const payload = {
+                year: year,
+                month: month,
+                categories: data.categories,
+                extras: data.extras,
+                divisor: data.divisor
+            };
+
+            const response = await window.fetchWithCSRF(`${API_BASE}budget/save/`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+            });
+            const result = await response.json();
+            if (result.success) {
+                return result.budget;
+            }
+            throw new Error(result.error || 'Erro ao salvar planejamento');
         } catch (e) {
-            console.error('Erro lendo plano mensal', e);
-            return null;
+            console.error('Erro ao salvar planejamento:', e);
+            throw e;
         }
     }
 
@@ -91,47 +105,23 @@
             el.divisor && el.divisor.addEventListener('input', () => ResumoModal.updateComputed());
         },
 
-        getResumoDisplay(day) {
+        async getResumoDisplay(day) {
             const s = getState ? getState() : null;
             if (!s) return null;
-            const plan = getPlanForMonth(s.year, s.month);
-            const totalDays = daysInMonth(s.year, s.month);
-            const today = s.today ? new Date(s.today) : new Date();
-            const todayDay = today.getDate();
 
-            // if no monthly plan, fallback to per-day resumo
-            if (!plan) {
-                const resumo = getResumoForDayInternal(s.year, s.month, day);
-                if (!resumo) return null;
-                return fmt(Number(resumo.sum || 0));
+            try {
+                const budget = await fetchBudget(s.year, s.month + 1);
+                if (budget && budget.daily_goal !== undefined) {
+                    return fmt(budget.daily_goal);
+                }
+                return null;
+            } catch (e) {
+                console.error('Erro ao buscar planejamento:', e);
+                return null;
             }
-
-            // compute spent up to today (inclusive)
-            const days = (s.summary && s.summary.days) || [];
-            let spentUpToToday = 0;
-            days.forEach((d) => {
-                const parsed = new Date(d.date);
-                const dd = parsed.getDate();
-                if (dd <= todayDay) spentUpToToday += Number(d.expense || 0);
-            });
-
-            const plannedTotal = Number(plan.sum || 0);
-            const remaining = plannedTotal - spentUpToToday;
-            const remainingDays = Math.max(1, totalDays - todayDay + 1);
-            const allocation = remainingDays > 0 ? (remaining / remainingDays) : 0;
-
-            // For past days (<= today) show actual spent if available, otherwise show allocation
-            if (day <= todayDay) {
-                const dayObj = (s.summary && (s.summary.days || []).find((d) => new Date(d.date).getDate() === day));
-                const spent = dayObj ? Number(dayObj.expense || 0) : 0;
-                return spent ? fmt(spent) : fmt(allocation);
-            }
-
-            // future days: show allocation per day
-            return fmt(allocation);
         },
 
-        open(day) {
+        async open(day) {
             const s = getState ? getState() : null;
             if (!s) {
                 console.warn('Estado não disponível');
@@ -140,30 +130,40 @@
             const el = getElements();
             if (!el.modal) return;
 
-            // load monthly plan if present
-            const plan = getPlanForMonth(s.year, s.month) || { categories: {}, extras: [], divisor: daysInMonth(s.year, s.month), sum: 0 };
+            try {
+                currentBudget = await fetchBudget(s.year, s.month + 1);
+                if (!currentBudget) {
+                    currentBudget = {
+                        categories: {},
+                        extras: [],
+                        divisor: 30,
+                        total_planned: 0,
+                        daily_goal: 0
+                    };
+                }
 
-            el.dayLabel.textContent = `${String(day).padStart(2, '0')}/${String(s.month + 1).padStart(2, '0')}/${s.year}`;
-            el.totalMensal.textContent = fmt(Number(plan.sum || 0));
-            el.divisor.value = plan.divisor || daysInMonth(s.year, s.month);
-            el.totalDiario.textContent = fmt((Number(plan.sum || 0) / Number(el.divisor.value || daysInMonth(s.year, s.month))) || 0);
+                el.dayLabel.textContent = `${String(day).padStart(2, '0')}/${String(s.month + 1).padStart(2, '0')}/${s.year}`;
+                el.totalMensal.textContent = fmt(Number(currentBudget.total_planned || 0));
+                el.divisor.value = currentBudget.divisor || 30;
+                el.totalDiario.textContent = fmt(currentBudget.daily_goal || 0);
 
-            // Populate categories from plan
-            const inputs = el.categoriesWrap.querySelectorAll('.resumo-input');
-            inputs.forEach((inp) => {
-                const name = inp.name;
-                inp.value = plan.categories && plan.categories[name] !== undefined ? plan.categories[name] : '';
-            });
+                const inputs = el.categoriesWrap.querySelectorAll('.resumo-input');
+                inputs.forEach((inp) => {
+                    const name = inp.name;
+                    inp.value = currentBudget.categories && currentBudget.categories[name] !== undefined ? currentBudget.categories[name] : '';
+                });
 
-            // Populate extras
-            el.extraWrap.innerHTML = '';
-            (plan.extras || []).forEach((ex) => {
-                el.extraWrap.appendChild(createExtraRow(ex.label, ex.amount));
-            });
+                el.extraWrap.innerHTML = '';
+                (currentBudget.extras || []).forEach((ex) => {
+                    el.extraWrap.appendChild(createExtraRow(ex.label, ex.amount));
+                });
 
-            el.modal.dataset.editDay = String(day);
-            el.modal.hidden = false;
-            ResumoModal.updateComputed();
+                el.modal.dataset.editDay = String(day);
+                el.modal.hidden = false;
+            } catch (error) {
+                console.error('Erro ao abrir modal:', error);
+                window.showToast('Erro ao carregar planejamento', 'error');
+            }
         },
 
         close() {
@@ -171,22 +171,21 @@
             if (!el.modal) return;
             el.modal.hidden = true;
             delete el.modal.dataset.editDay;
+            currentBudget = null;
         },
 
-        save() {
+        async save() {
             const s = getState ? getState() : null;
             if (!s) return;
             const el = getElements();
             const day = Number(el.modal.dataset.editDay) || 1;
 
-            // Collect categories
             const categories = {};
             el.categoriesWrap.querySelectorAll('.resumo-input').forEach((inp) => {
                 const val = parseFloat(inp.value);
                 categories[inp.name] = isNaN(val) ? 0 : val;
             });
 
-            // Collect extras
             const extras = [];
             el.extraWrap.querySelectorAll('.extra-row').forEach((row) => {
                 const label = row.querySelector('.extra-label').value || 'Extra';
@@ -194,49 +193,35 @@
                 if (amount > 0) extras.push({ label, amount });
             });
 
-            const divisor = parseInt(el.divisor.value) || daysInMonth(s.year, s.month);
-            const sumCategories = Object.values(categories).reduce((a, b) => a + Number(b || 0), 0);
-            const sumExtras = extras.reduce((a, b) => a + Number(b.amount || 0), 0);
-            const plannedTotal = sumCategories + sumExtras;
+            const divisor = parseInt(el.divisor.value) || 30;
 
-            const payload = { categories, extras, divisor, sum: plannedTotal };
             try {
-                // save as monthly plan
-                localStorage.setItem(getPlanKey(s.year, s.month), JSON.stringify(payload));
-                if (onSaved) onSaved(day, plannedTotal);
+                const budgetData = {
+                    categories: categories,
+                    extras: extras,
+                    divisor: divisor
+                };
+
+                await saveBudget(s.year, s.month + 1, budgetData);
+
+                if (onSaved) onSaved(day);
                 ResumoModal.close();
+                window.showToast('Planejamento salvo com sucesso!', 'success');
             } catch (e) {
-                console.error('Erro ao salvar resumo', e);
-                if (window.showToast) {
-                    window.showToast('Não foi possível salvar o resumo', 'error');
-                }
+                console.error('Erro ao salvar:', e);
+                window.showToast('Erro ao salvar planejamento', 'error');
             }
         },
 
-        updateComputed() {
+        async updateComputed() {
             const s = getState ? getState() : null;
             if (!s) return;
             const el = getElements();
-            const plan = getPlanForMonth(s.year, s.month) || { sum: 0 };
-            const totalDays = daysInMonth(s.year, s.month);
-            const today = s.today ? new Date(s.today) : new Date();
-            const todayDay = today.getDate();
 
-            // compute spent up to today
-            const days = (s.summary && s.summary.days) || [];
-            let spentUpToToday = 0;
-            days.forEach((d) => {
-                const parsed = new Date(d.date);
-                const dd = parsed.getDate();
-                if (dd <= todayDay) spentUpToToday += Number(d.expense || 0);
-            });
-
-            const plannedTotal = Number(plan.sum || 0);
-            const remaining = plannedTotal - spentUpToToday;
-            const remainingDays = Math.max(1, totalDays - todayDay + 1);
-            const daily = remainingDays > 0 ? (remaining / remainingDays) : 0;
+            const divisor = parseInt(el.divisor.value) || 30;
+            const totalPlanned = parseFloat(el.totalMensal.textContent.replace('R$ ', '').replace(/\./g, '').replace(',', '.')) || 0;
+            const daily = divisor > 0 ? (totalPlanned / divisor) : 0;
             el.totalDiario.textContent = fmt(daily);
-            el.totalMensal.textContent = fmt(plannedTotal);
         }
     };
 

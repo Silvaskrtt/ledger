@@ -12,4 +12,7 @@ urlpatterns = [
     path('api/transactions/monthly-summary/', views.api_monthly_summary, name='api_monthly_summary'),
     path('api/transactions/balance/', views.api_monthly_balance, name='api_monthly_balance'),
     path('api/transactions/filter/', views.api_transactions_filter, name='api_transactions_filter'),
+    # Novas URLs
+    path('api/budget/', views.api_budget_get, name='api_budget_get'),
+    path('api/budget/save/', views.api_budget_save, name='api_budget_save'),
 ]

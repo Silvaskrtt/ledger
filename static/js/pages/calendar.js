@@ -10,13 +10,8 @@
         "income": "Receita",
         "saving": "Economia",
     };
-    const TYPE_ICONS = {
-        "expense": "expense",
-        "income": "income",
-        "saving": "primary",
-    };
 
-    const API_BASE = '/calendar/api/transactions/';
+    const API_BASE = '/calendar/api/';
 
     const state = {
         today: new Date(),
@@ -46,14 +41,12 @@
         txTag: document.getElementById('txTag'),
         txRepeat: document.getElementById('txRepeat'),
         openResumo: document.getElementById('openResumo'),
-        // Transactions list modal
         transactionsModal: document.getElementById('transactionsModal'),
         closeTransactionsModal: document.getElementById('closeTransactionsModal'),
         closeTransactionsModalBtn: document.getElementById('closeTransactionsModalBtn'),
         addTransactionFromModal: document.getElementById('addTransactionFromModal'),
         transactionsDayLabel: document.getElementById('transactionsDayLabel'),
         transactionsList: document.getElementById('transactionsList'),
-        // Edit elements
         editDrawer: document.getElementById('editDrawer'),
         closeEditDrawer: document.getElementById('closeEditDrawer'),
         cancelEditDrawer: document.getElementById('cancelEditDrawer'),
@@ -154,10 +147,22 @@
         `).join('');
     }
 
-    function renderTable(rows) {
+    async function renderTable(rows) {
         if (!rows.length) {
             elements.tbody.innerHTML = '<tr><td colspan="7" class="text-center">Nenhum dado disponível para este mês.</td></tr>';
             return;
+        }
+
+        // Busca o planejamento para calcular o valor diário
+        let dailyGoal = 0;
+        try {
+            const response = await fetch(`${API_BASE}budget/?year=${state.year}&month=${state.month + 1}`);
+            const data = await response.json();
+            if (data.success && data.budget) {
+                dailyGoal = data.budget.daily_goal || 0;
+            }
+        } catch (e) {
+            console.error('Erro ao buscar planejamento:', e);
         }
 
         elements.tbody.innerHTML = rows.map((row) => {
@@ -166,7 +171,6 @@
             const isWeekend = date.getDay() === 0 || date.getDay() === 6;
             const badgeCls = isToday ? 'today' : (isWeekend ? 'weekend' : '');
 
-            // Check if there are transactions for this day
             const dayTransactions = state.transactions.filter(tx => {
                 const txDate = parseLocalDate(tx.date);
                 return txDate.getDate() === row.day &&
@@ -177,11 +181,10 @@
             const hasExpenses = dayTransactions.some(tx => tx.type === 'expense');
             const expenseClick = hasExpenses ? `style="cursor:pointer;" data-day="${row.day}"` : '';
 
-            // Get resumo display for this day (Diário column)
-            let resumoDisplay = '—';
-            if (window.ResumoModal && ResumoModal.getResumoDisplay) {
-                const display = ResumoModal.getResumoDisplay(row.day);
-                if (display) resumoDisplay = display;
+            // Mostra o valor diário calculado
+            let diarioDisplay = '—';
+            if (dailyGoal > 0) {
+                diarioDisplay = fmt(dailyGoal);
             }
 
             return `
@@ -189,7 +192,7 @@
                     <td><span class="day-badge ${badgeCls}">${String(row.day).padStart(2, '0')}</span></td>
                     <td class="${row.income > 0 ? 'pos' : 'dash'}">${row.income > 0 ? fmt(row.income) : '—'}</td>
                     <td class="${row.expense > 0 ? 'neg' : 'dash'} expense-cell" ${expenseClick}>${row.expense > 0 ? fmt(row.expense) : '—'}</td>
-                    <td class="daily-cell dash" data-day="${row.day}" style="cursor:pointer;">${resumoDisplay}</td>
+                    <td class="daily-cell dash" data-day="${row.day}" style="cursor:pointer;">${diarioDisplay}</td>
                     <td class="dash">${row.saving > 0 ? fmt(row.saving) : '—'}</td>
                     <td class="dash">—</td>
                     <td><span class="${balanceClass(row.balance)}">${fmt(row.balance)}</span></td>
@@ -201,7 +204,7 @@
     async function fetchSummary(year, month) {
         setLoading(true);
         try {
-            const response = await fetch(`${API_BASE}monthly-summary/?year=${year}&month=${month + 1}`);
+            const response = await fetch(`${API_BASE}transactions/monthly-summary/?year=${year}&month=${month + 1}`);
             const data = await response.json();
             if (!data.success) throw new Error(data.error || 'Falha ao carregar o resumo');
             state.summary = data.summary;
@@ -212,7 +215,7 @@
     }
 
     async function fetchTransactions(year, month) {
-        const response = await fetch(`${API_BASE}filter/?year=${year}&month=${month + 1}`);
+        const response = await fetch(`${API_BASE}transactions/filter/?year=${year}&month=${month + 1}`);
         const data = await response.json();
         if (!data.success) throw new Error(data.error || 'Falha ao carregar transações');
         state.transactions = data.transactions;
@@ -229,7 +232,7 @@
             ]);
             const rows = buildMonthlyRows(summary);
             renderStats(summary);
-            renderTable(rows);
+            await renderTable(rows);
         } catch (error) {
             console.error(error);
             window.showToast(error.message || 'Erro ao atualizar calendário', 'error');
@@ -284,7 +287,7 @@
         };
 
         try {
-            const response = await window.fetchWithCSRF(`${API_BASE}create/`, {
+            const response = await window.fetchWithCSRF(`${API_BASE}transactions/create/`, {
                 method: 'POST',
                 body: JSON.stringify(payload),
             });
@@ -300,7 +303,6 @@
             const createdDate = parseLocalDate(payload.date);
             if (createdDate.getFullYear() === state.year && createdDate.getMonth() === state.month) {
                 await refresh();
-                // Close transactions modal if open
                 closeTransactionsModal();
             }
         } catch (error) {
@@ -309,7 +311,6 @@
         }
     }
 
-    // Transactions List Modal functions
     function openTransactionsModal(day) {
         state.currentDay = day;
         elements.transactionsModal.hidden = false;
@@ -364,7 +365,6 @@
             `;
         }).join('');
 
-        // Add event listeners to edit and delete buttons
         elements.transactionsList.querySelectorAll('.edit-tx-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -387,7 +387,6 @@
         });
     }
 
-    // Edit functions
     function openEditDrawer(transaction) {
         elements.editDrawer.hidden = false;
 
@@ -448,7 +447,7 @@
         };
 
         try {
-            const response = await window.fetchWithCSRF(`${API_BASE}${id}/update/`, {
+            const response = await window.fetchWithCSRF(`${API_BASE}transactions/${id}/update/`, {
                 method: 'PUT',
                 body: JSON.stringify(payload),
             });
@@ -472,7 +471,7 @@
 
     async function deleteTransactionById(id) {
         try {
-            const response = await window.fetchWithCSRF(`${API_BASE}${id}/delete/`, {
+            const response = await window.fetchWithCSRF(`${API_BASE}transactions/${id}/delete/`, {
                 method: 'DELETE',
             });
             const data = await response.json();
@@ -530,7 +529,6 @@
 
         elements.txForm.addEventListener('submit', submitTransaction);
 
-        // Transactions Modal events
         elements.closeTransactionsModal.addEventListener('click', closeTransactionsModal);
         elements.closeTransactionsModalBtn.addEventListener('click', closeTransactionsModal);
         elements.transactionsModal.addEventListener('click', (event) => {
@@ -543,7 +541,6 @@
             openDrawer();
         });
 
-        // Edit form events
         elements.closeEditDrawer.addEventListener('click', closeEditDrawer);
         elements.cancelEditDrawer.addEventListener('click', closeEditDrawer);
         elements.editDrawer.addEventListener('click', (event) => {
@@ -586,7 +583,6 @@
             const day = Number(td.dataset.day);
             if (!day) return;
 
-            // Check if there are expense transactions for this day
             const hasExpenses = state.transactions.some(tx => {
                 const txDate = parseLocalDate(tx.date);
                 return txDate.getDate() === day &&
@@ -619,7 +615,7 @@
     if (window.ResumoModal && ResumoModal.init) {
         ResumoModal.init({
             getState: () => state,
-            onSaved: (day, total) => {
+            onSaved: (day) => {
                 refresh();
             }
         });

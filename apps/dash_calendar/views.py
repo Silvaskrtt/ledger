@@ -11,7 +11,7 @@ from django.utils.dateparse import parse_date
 from django.views.decorators.http import require_http_methods, require_GET, require_POST
 
 from .forms import TransactionForm
-from .models import Transaction
+from .models import Transaction, MonthlyBudget
 from .serializers import TransactionSerializer
 
 
@@ -106,7 +106,6 @@ def api_monthly_summary(request):
             date__month=month
         )
 
-        # CORREÇÃO DEFINITIVA: Usando Value com output_field e Coalesce para garantir tipo Decimal
         daily_data = qs.values('date').annotate(
             income=Coalesce(
                 Sum(Case(
@@ -222,5 +221,113 @@ def api_transactions_filter(request):
 
         transactions = [TransactionSerializer.to_representation(tx) for tx in qs.order_by('-date', '-created_at')]
         return JsonResponse({'success': True, 'transactions': transactions})
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)}, status=400)
+
+
+# ============ NOVAS VIEWS ============
+
+@login_required
+@require_GET
+def api_budget_get(request):
+    try:
+        year_str = request.GET.get('year')
+        month_str = request.GET.get('month')
+        
+        if not year_str or not month_str:
+            today = datetime.today()
+            year = today.year
+            month = today.month
+        else:
+            year = int(year_str)
+            month = int(month_str)
+            
+            if month < 1 or month > 12:
+                raise ValueError('Mês inválido')
+        
+        budget = MonthlyBudget.objects.filter(
+            user=request.user,
+            year=year,
+            month=month
+        ).first()
+        
+        if budget:
+            return JsonResponse({
+                'success': True,
+                'budget': {
+                    'id': budget.id,
+                    'year': budget.year,
+                    'month': budget.month,
+                    'categories': budget.categories,
+                    'extras': budget.extras,
+                    'total_planned': float(budget.total_planned),
+                    'divisor': budget.divisor,
+                    'daily_goal': budget.get_daily_goal(),
+                }
+            })
+        else:
+            return JsonResponse({
+                'success': True,
+                'budget': {
+                    'year': year,
+                    'month': month,
+                    'categories': {},
+                    'extras': [],
+                    'total_planned': 0,
+                    'divisor': 30,
+                    'daily_goal': 0,
+                }
+            })
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)}, status=400)
+
+
+@login_required
+@require_POST
+def api_budget_save(request):
+    try:
+        data = json.loads(request.body)
+        
+        year = data.get('year')
+        month = data.get('month')
+        
+        if not year or not month:
+            return JsonResponse({'success': False, 'error': 'Ano e mês são obrigatórios'}, status=400)
+        
+        budget, created = MonthlyBudget.objects.get_or_create(
+            user=request.user,
+            year=year,
+            month=month,
+            defaults={
+                'categories': {},
+                'extras': [],
+                'total_planned': 0,
+                'divisor': 30
+            }
+        )
+        
+        budget.categories = data.get('categories', {})
+        budget.extras = data.get('extras', [])
+        budget.divisor = data.get('divisor', 30)
+        
+        total_categories = sum(float(v or 0) for v in budget.categories.values())
+        total_extras = sum(float(e.get('amount', 0)) for e in budget.extras)
+        budget.total_planned = total_categories + total_extras
+        
+        budget.save()
+        
+        return JsonResponse({
+            'success': True,
+            'budget': {
+                'id': budget.id,
+                'year': budget.year,
+                'month': budget.month,
+                'categories': budget.categories,
+                'extras': budget.extras,
+                'total_planned': float(budget.total_planned),
+                'divisor': budget.divisor,
+                'daily_goal': budget.get_daily_goal(),
+            }
+        })
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)}, status=400)
