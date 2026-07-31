@@ -98,7 +98,8 @@ def api_monthly_summary(request):
         opening_income = previous_qs.filter(type='income').aggregate(total=Sum('amount'))['total'] or 0
         opening_expense = previous_qs.filter(type='expense').aggregate(total=Sum('amount'))['total'] or 0
         opening_saving = previous_qs.filter(type='saving').aggregate(total=Sum('amount'))['total'] or 0
-        opening_balance = float(opening_income - opening_expense + opening_saving)
+        opening_card = previous_qs.filter(type='card').aggregate(total=Sum('amount'))['total'] or 0
+        opening_balance = float(opening_income - opening_expense - opening_card + opening_saving)
 
         qs = Transaction.objects.filter(
             user=request.user, 
@@ -131,6 +132,14 @@ def api_monthly_summary(request):
                 )),
                 Value(0, output_field=DecimalField())
             ),
+            card=Coalesce(
+                Sum(Case(
+                    When(type='card', then='amount'),
+                    default=Value(0, output_field=DecimalField()),
+                    output_field=DecimalField()
+                )),
+                Value(0, output_field=DecimalField())
+            ),
         ).order_by('date')
 
         summary = {
@@ -139,6 +148,7 @@ def api_monthly_summary(request):
             'total_income': 0.0,
             'total_expense': 0.0,
             'total_saving': 0.0,
+            'total_card': 0.0,
         }
 
         balance = opening_balance
@@ -147,17 +157,20 @@ def api_monthly_summary(request):
             income = float(item['income'] or 0)
             expense = float(item['expense'] or 0)
             saving = float(item['saving'] or 0)
-            balance += income - expense + saving
+            card = float(item['card'] or 0)
+            balance += income - expense - card + saving
             summary['days'].append({
                 'date': date.isoformat(),
                 'income': income,
                 'expense': expense,
                 'saving': saving,
+                'card': card,
                 'balance': balance,
             })
             summary['total_income'] += income
             summary['total_expense'] += expense
             summary['total_saving'] += saving
+            summary['total_card'] += card
 
         return JsonResponse({'success': True, 'summary': summary})
     except ValueError as e:
@@ -181,13 +194,15 @@ def api_monthly_balance(request):
         total_income = qs.filter(type='income').aggregate(total=Sum('amount'))['total'] or 0
         total_expense = qs.filter(type='expense').aggregate(total=Sum('amount'))['total'] or 0
         total_saving = qs.filter(type='saving').aggregate(total=Sum('amount'))['total'] or 0
-        balance = total_income - total_expense + total_saving
+        total_card = qs.filter(type='card').aggregate(total=Sum('amount'))['total'] or 0
+        balance = total_income - total_expense - total_card + total_saving
 
         return JsonResponse({
             'success': True,
             'total_income': float(total_income),
             'total_expense': float(total_expense),
             'total_saving': float(total_saving),
+            'total_card': float(total_card),
             'balance': float(balance),
         })
     except Exception as e:

@@ -854,3 +854,15 @@ td {
     margin: 0;
     font-size: 14px;
 }
+
+/* Adicione ao final do calendar.css */
+.type-btn.active[data-type="Cartão"] {
+    border-color: #8B5CF6;
+    background: oklch(0.55 0.2 280 / 20%);
+    color: #8B5CF6;
+}
+
+/* Cor para Cartão na lista de transações */
+.transaction-item .tx-amount.card {
+    color: #8B5CF6;
+}

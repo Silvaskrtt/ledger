@@ -51,7 +51,13 @@
         <table>
           <thead>
             <tr>
-              <th>{% trans "Dia" %}</th><th>{% trans "Entradas" %}</th><th>{% trans "Saídas" %}</th><th>{% trans "Diário" %}</th><th>{% trans "Economias" %}</th><th>{% trans "Cartão" %}</th><th>{% trans "Saldo" %}</th>
+              <th>{% trans "Dia" %}</th>
+              <th>{% trans "Entradas" %}</th>
+              <th>{% trans "Saídas" %}</th>
+              <th>{% trans "Diário" %}</th>
+              <th>{% trans "Economias" %}</th>
+              <th>{% trans "Cartão" %}</th>
+              <th>{% trans "Saldo" %}</th>
             </tr>
           </thead>
           <tbody id="tbody"></tbody>
@@ -80,6 +86,7 @@
             <button type="button" data-type="Despesa" class="type-btn active">{% trans "Despesa" %}</button>
             <button type="button" data-type="Receita" class="type-btn">{% trans "Receita" %}</button>
             <button type="button" data-type="Economia" class="type-btn">{% trans "Economia" %}</button>
+            <button type="button" data-type="Cartão" class="type-btn">{% trans "Cartão" %}</button>
           </div>
         </div>
 
@@ -145,7 +152,7 @@
 <!-- Modal Resumo (Diário) -->
 {% include 'calendar/_resumo_modal.html' %}
 
-<!-- Modal Lista de Transações (Saídas) -->
+<!-- Modal Lista de Transações -->
 <div id="transactionsModal" class="drawer-backdrop" hidden>
     <div class="drawer glass">
       <div class="drawer-head">
@@ -174,7 +181,7 @@
     </div>
 </div>
 
-<!-- Modal Editar Transação (usado pelo modal de lista) -->
+<!-- Modal Editar Transação -->
 <div id="editDrawer" class="drawer-backdrop" hidden>
     <div class="drawer glass">
       <div class="drawer-head">
@@ -196,6 +203,7 @@
             <button type="button" data-type="Despesa" class="type-btn active">{% trans "Despesa" %}</button>
             <button type="button" data-type="Receita" class="type-btn">{% trans "Receita" %}</button>
             <button type="button" data-type="Economia" class="type-btn">{% trans "Economia" %}</button>
+            <button type="button" data-type="Cartão" class="type-btn">{% trans "Cartão" %}</button>
           </div>
         </div>
 

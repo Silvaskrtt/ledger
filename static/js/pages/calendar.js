@@ -4,11 +4,13 @@
         "Despesa": "expense",
         "Receita": "income",
         "Economia": "saving",
+        "Cartão": "card",
     };
     const TYPE_MAP_REVERSE = {
         "expense": "Despesa",
         "income": "Receita",
         "saving": "Economia",
+        "card": "Cartão",
     };
 
     const API_BASE = '/calendar/api/';
@@ -21,6 +23,7 @@
         summary: null,
         transactions: [],
         currentDay: null,
+        currentType: null,
     };
 
     const elements = {
@@ -102,13 +105,14 @@
         let balance = Number(summary.opening_balance || 0);
 
         for (let day = 1; day <= totalDays; day++) {
-            const item = dailyMap.get(day) || { income: 0, expense: 0, saving: 0 };
-            balance += item.income - item.expense + item.saving;
+            const item = dailyMap.get(day) || { income: 0, expense: 0, saving: 0, card: 0 };
+            balance += item.income - item.expense - item.card + item.saving;
             rows.push({
                 day,
                 income: item.income,
                 expense: item.expense,
                 saving: item.saving,
+                card: item.card,
                 balance,
             });
         }
@@ -131,14 +135,15 @@
     function renderStats(summary) {
         const stats = [
             { label: 'Total Entradas', value: fmt(summary.total_income), tone: 'income' },
-            { label: 'Total Saídas', value: fmt(summary.total_expense), tone: 'expense' },
+            { label: 'Total Saídas (Débito)', value: fmt(summary.total_expense), tone: 'expense' },
+            { label: 'Total Cartão', value: fmt(summary.total_card), tone: 'expense' },
             { label: 'Total Economias', value: fmt(summary.total_saving), tone: 'primary' },
-            { label: 'Saldo Mensal', value: fmt(summary.total_income - summary.total_expense + summary.total_saving), tone: (summary.total_income - summary.total_expense + summary.total_saving >= 0 ? 'primary' : 'expense') },
+            { label: 'Saldo Mensal', value: fmt(summary.total_income - summary.total_expense - summary.total_card + summary.total_saving), tone: (summary.total_income - summary.total_expense - summary.total_card + summary.total_saving >= 0 ? 'primary' : 'expense') },
         ];
 
         elements.stats.innerHTML = stats.map((stat) => `
             <div class="stat">
-                <div class="stat-icon ${stat.tone}">${stat.label.includes('Entradas') ? '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>' : stat.label.includes('Saídas') ? '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>' : '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/><path d="M22 12h-6a2 2 0 0 0 0 4h6"/></svg>'}</div>
+                <div class="stat-icon ${stat.tone}">${stat.label.includes('Entradas') ? '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>' : stat.label.includes('Saídas') ? '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>' : stat.label.includes('Cartão') ? '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>' : '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/><path d="M22 12h-6a2 2 0 0 0 0 4h6"/></svg>'}</div>
                 <div style="min-width: 0; width: 100%;">
                     <p class="stat-label">${stat.label}</p>
                     <p class="stat-value">${stat.value}</p>
@@ -149,7 +154,7 @@
 
     async function renderTable(rows) {
         if (!rows.length) {
-            elements.tbody.innerHTML = '<tr><td colspan="7" class="text-center">Nenhum dado disponível para este mês.</td></tr>';
+            elements.tbody.innerHTML = '<tr><td colspan="8" class="text-center">Nenhum dado disponível para este mês.</td></tr>';
             return;
         }
 
@@ -181,6 +186,7 @@
 
             const hasIncome = dayTransactions.some(tx => tx.type === 'income');
             const hasExpense = dayTransactions.some(tx => tx.type === 'expense');
+            const hasCard = dayTransactions.some(tx => tx.type === 'card');
 
             // Mostra o valor diário calculado
             let diarioDisplay = '—';
@@ -197,8 +203,8 @@
                     <td class="${row.income > 0 ? 'pos' : 'dash'} income-cell" data-day="${row.day}" data-date="${dateStr}" style="cursor:pointer;">${row.income > 0 ? fmt(row.income) : '—'}</td>
                     <td class="${row.expense > 0 ? 'neg' : 'dash'} expense-cell" data-day="${row.day}" data-date="${dateStr}" style="cursor:pointer;">${row.expense > 0 ? fmt(row.expense) : '—'}</td>
                     <td class="daily-cell dash" data-day="${row.day}" style="cursor:pointer;">${diarioDisplay}</td>
-                    <td class="dash">${row.saving > 0 ? fmt(row.saving) : '—'}</td>
-                    <td class="dash">—</td>
+                    <td class="${row.saving > 0 ? 'pos' : 'dash'} saving-cell" data-day="${row.day}" data-date="${dateStr}" style="cursor:pointer;">${row.saving > 0 ? fmt(row.saving) : '—'}</td>
+                    <td class="${row.card > 0 ? 'neg' : 'dash'} card-cell" data-day="${row.day}" data-date="${dateStr}" style="cursor:pointer;">${row.card > 0 ? fmt(row.card) : '—'}</td>
                     <td><span class="${balanceClass(row.balance)}">${fmt(row.balance)}</span></td>
                 </tr>
             `;
@@ -247,7 +253,6 @@
         elements.drawer.hidden = false;
         elements.txDate.value = dateStr;
 
-        // Define o tipo automaticamente
         if (type) {
             state.txType = type;
             elements.txTypeButtons.forEach((button) => {
@@ -371,8 +376,8 @@
 
         elements.transactionsList.innerHTML = dayTransactions.map(tx => {
             const typeLabel = TYPE_MAP_REVERSE[tx.type] || tx.type;
-            const amountClass = tx.type === 'income' ? 'income' : (tx.type === 'expense' ? 'expense' : 'saving');
-            const sign = tx.type === 'expense' ? '-' : '+';
+            const amountClass = tx.type === 'income' ? 'income' : (tx.type === 'expense' ? 'expense' : (tx.type === 'card' ? 'expense' : 'saving'));
+            const sign = tx.type === 'expense' || tx.type === 'card' ? '-' : '+';
 
             return `
                 <div class="transaction-item" data-id="${tx.id}">
@@ -516,7 +521,6 @@
         }
     }
 
-    // Função global para adicionar transação de um dia específico
     window.addTransactionForDay = function (day) {
         const dateStr = `${state.year}-${String(state.month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         closeTransactionsModal();
@@ -613,14 +617,13 @@
             }
         });
 
-        // Click on Entradas column - opens Transactions List Modal (income)
+        // Click on Entradas column
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.income-cell');
             if (!td) return;
             const day = Number(td.dataset.day);
             if (!day) return;
 
-            // Verifica se tem transações de entrada neste dia
             const hasIncome = state.transactions.some(tx => {
                 const txDate = parseLocalDate(tx.date);
                 return txDate.getDate() === day &&
@@ -629,7 +632,6 @@
                     tx.type === 'income';
             });
 
-            // Se tem entrada, abre o modal de lista, senão abre o de adição
             if (hasIncome) {
                 openTransactionsModal(day, 'income');
             } else {
@@ -638,7 +640,7 @@
             }
         });
 
-        // Click on Saídas column - opens Transactions List Modal (expense)
+        // Click on Saídas column
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.expense-cell');
             if (!td) return;
@@ -658,6 +660,52 @@
             } else {
                 const dateStr = td.dataset.date;
                 openDrawerWithDate(dateStr, 'Despesa');
+            }
+        });
+
+        // Click on Cartão column
+        elements.tbody.addEventListener('click', (ev) => {
+            const td = ev.target.closest('td.card-cell');
+            if (!td) return;
+            const day = Number(td.dataset.day);
+            if (!day) return;
+
+            const hasCard = state.transactions.some(tx => {
+                const txDate = parseLocalDate(tx.date);
+                return txDate.getDate() === day &&
+                    txDate.getMonth() === state.month &&
+                    txDate.getFullYear() === state.year &&
+                    tx.type === 'card';
+            });
+
+            if (hasCard) {
+                openTransactionsModal(day, 'card');
+            } else {
+                const dateStr = td.dataset.date;
+                openDrawerWithDate(dateStr, 'Cartão');
+            }
+        });
+
+        // Click on Economias column
+        elements.tbody.addEventListener('click', (ev) => {
+            const td = ev.target.closest('td.saving-cell');
+            if (!td) return;
+            const day = Number(td.dataset.day);
+            if (!day) return;
+
+            const hasSaving = state.transactions.some(tx => {
+                const txDate = parseLocalDate(tx.date);
+                return txDate.getDate() === day &&
+                    txDate.getMonth() === state.month &&
+                    txDate.getFullYear() === state.year &&
+                    tx.type === 'saving';
+            });
+
+            if (hasSaving) {
+                openTransactionsModal(day, 'saving');
+            } else {
+                const dateStr = td.dataset.date;
+                openDrawerWithDate(dateStr, 'Economia');
             }
         });
 
