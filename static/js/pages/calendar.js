@@ -171,6 +171,7 @@
             const isWeekend = date.getDay() === 0 || date.getDay() === 6;
             const badgeCls = isToday ? 'today' : (isWeekend ? 'weekend' : '');
 
+            // Verifica transações do dia
             const dayTransactions = state.transactions.filter(tx => {
                 const txDate = parseLocalDate(tx.date);
                 return txDate.getDate() === row.day &&
@@ -178,8 +179,8 @@
                     txDate.getFullYear() === state.year;
             });
 
-            const hasExpenses = dayTransactions.some(tx => tx.type === 'expense');
-            const expenseClick = hasExpenses ? `style="cursor:pointer;" data-day="${row.day}"` : '';
+            const hasIncome = dayTransactions.some(tx => tx.type === 'income');
+            const hasExpense = dayTransactions.some(tx => tx.type === 'expense');
 
             // Mostra o valor diário calculado
             let diarioDisplay = '—';
@@ -187,11 +188,14 @@
                 diarioDisplay = fmt(dailyGoal);
             }
 
+            // Data no formato YYYY-MM-DD para preencher o modal
+            const dateStr = `${state.year}-${String(state.month + 1).padStart(2, '0')}-${String(row.day).padStart(2, '0')}`;
+
             return `
                 <tr>
                     <td><span class="day-badge ${badgeCls}">${String(row.day).padStart(2, '0')}</span></td>
-                    <td class="${row.income > 0 ? 'pos' : 'dash'}">${row.income > 0 ? fmt(row.income) : '—'}</td>
-                    <td class="${row.expense > 0 ? 'neg' : 'dash'} expense-cell" ${expenseClick}>${row.expense > 0 ? fmt(row.expense) : '—'}</td>
+                    <td class="${row.income > 0 ? 'pos' : 'dash'} income-cell" data-day="${row.day}" data-date="${dateStr}" style="cursor:pointer;">${row.income > 0 ? fmt(row.income) : '—'}</td>
+                    <td class="${row.expense > 0 ? 'neg' : 'dash'} expense-cell" data-day="${row.day}" data-date="${dateStr}" style="cursor:pointer;">${row.expense > 0 ? fmt(row.expense) : '—'}</td>
                     <td class="daily-cell dash" data-day="${row.day}" style="cursor:pointer;">${diarioDisplay}</td>
                     <td class="dash">${row.saving > 0 ? fmt(row.saving) : '—'}</td>
                     <td class="dash">—</td>
@@ -239,10 +243,23 @@
         }
     }
 
-    function openDrawer() {
+    function openDrawerWithDate(dateStr, type) {
         elements.drawer.hidden = false;
+        elements.txDate.value = dateStr;
+
+        // Define o tipo automaticamente
+        if (type) {
+            state.txType = type;
+            elements.txTypeButtons.forEach((button) => {
+                button.classList.toggle('active', button.dataset.type === type);
+            });
+        }
+    }
+
+    function openDrawer() {
         const defaultDate = new Date(state.year, state.month, state.today.getDate());
         elements.txDate.value = formatLocalDateInput(defaultDate);
+        elements.drawer.hidden = false;
     }
 
     function closeDrawer() {
@@ -311,24 +328,31 @@
         }
     }
 
-    function openTransactionsModal(day) {
+    function openTransactionsModal(day, type) {
         state.currentDay = day;
+        state.currentType = type || 'all';
         elements.transactionsModal.hidden = false;
         elements.transactionsDayLabel.textContent = `${String(day).padStart(2, '0')}/${String(state.month + 1).padStart(2, '0')}/${state.year}`;
-        renderTransactionsList(day);
+        renderTransactionsList(day, type);
     }
 
     function closeTransactionsModal() {
         elements.transactionsModal.hidden = true;
         state.currentDay = null;
+        state.currentType = null;
     }
 
-    function renderTransactionsList(day) {
+    function renderTransactionsList(day, filterType) {
         const dayTransactions = state.transactions.filter(tx => {
             const txDate = parseLocalDate(tx.date);
-            return txDate.getDate() === day &&
+            const matchDay = txDate.getDate() === day &&
                 txDate.getMonth() === state.month &&
                 txDate.getFullYear() === state.year;
+
+            if (filterType && filterType !== 'all') {
+                return matchDay && tx.type === filterType;
+            }
+            return matchDay;
         });
 
         if (dayTransactions.length === 0) {
@@ -336,6 +360,10 @@
                 <div class="empty-transactions">
                     <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
                     <p>Nenhuma transação neste dia</p>
+                    <button class="btn-primary" style="margin-top:12px;padding:8px 16px;font-size:13px;" onclick="window.addTransactionForDay(${day})">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                        Adicionar
+                    </button>
                 </div>
             `;
             return;
@@ -371,6 +399,7 @@
                 const id = parseInt(btn.dataset.id);
                 const transaction = state.transactions.find(tx => tx.id === id);
                 if (transaction) {
+                    closeTransactionsModal();
                     openEditDrawer(transaction);
                 }
             });
@@ -460,9 +489,6 @@
             window.showToast('Transação atualizada com sucesso.');
             closeEditDrawer();
             await refresh();
-            if (state.currentDay) {
-                renderTransactionsList(state.currentDay);
-            }
         } catch (error) {
             console.error(error);
             window.showToast(error.message || 'Não foi possível atualizar a transação', 'error');
@@ -482,13 +508,20 @@
             window.showToast('Transação excluída com sucesso.');
             await refresh();
             if (state.currentDay) {
-                renderTransactionsList(state.currentDay);
+                renderTransactionsList(state.currentDay, state.currentType);
             }
         } catch (error) {
             console.error(error);
             window.showToast(error.message || 'Não foi possível excluir a transação', 'error');
         }
     }
+
+    // Função global para adicionar transação de um dia específico
+    window.addTransactionForDay = function (day) {
+        const dateStr = `${state.year}-${String(state.month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        closeTransactionsModal();
+        openDrawerWithDate(dateStr, 'Despesa');
+    };
 
     function attachEvents() {
         document.getElementById('prevMonth').addEventListener('click', () => {
@@ -537,8 +570,12 @@
             }
         });
         elements.addTransactionFromModal.addEventListener('click', () => {
-            closeTransactionsModal();
-            openDrawer();
+            if (state.currentDay) {
+                window.addTransactionForDay(state.currentDay);
+            } else {
+                closeTransactionsModal();
+                openDrawer();
+            }
         });
 
         elements.closeEditDrawer.addEventListener('click', closeEditDrawer);
@@ -576,14 +613,39 @@
             }
         });
 
-        // Click on Saídas column - opens Transactions List Modal
+        // Click on Entradas column - opens Transactions List Modal (income)
+        elements.tbody.addEventListener('click', (ev) => {
+            const td = ev.target.closest('td.income-cell');
+            if (!td) return;
+            const day = Number(td.dataset.day);
+            if (!day) return;
+
+            // Verifica se tem transações de entrada neste dia
+            const hasIncome = state.transactions.some(tx => {
+                const txDate = parseLocalDate(tx.date);
+                return txDate.getDate() === day &&
+                    txDate.getMonth() === state.month &&
+                    txDate.getFullYear() === state.year &&
+                    tx.type === 'income';
+            });
+
+            // Se tem entrada, abre o modal de lista, senão abre o de adição
+            if (hasIncome) {
+                openTransactionsModal(day, 'income');
+            } else {
+                const dateStr = td.dataset.date;
+                openDrawerWithDate(dateStr, 'Receita');
+            }
+        });
+
+        // Click on Saídas column - opens Transactions List Modal (expense)
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.expense-cell');
             if (!td) return;
             const day = Number(td.dataset.day);
             if (!day) return;
 
-            const hasExpenses = state.transactions.some(tx => {
+            const hasExpense = state.transactions.some(tx => {
                 const txDate = parseLocalDate(tx.date);
                 return txDate.getDate() === day &&
                     txDate.getMonth() === state.month &&
@@ -591,8 +653,11 @@
                     tx.type === 'expense';
             });
 
-            if (hasExpenses) {
-                openTransactionsModal(day);
+            if (hasExpense) {
+                openTransactionsModal(day, 'expense');
+            } else {
+                const dateStr = td.dataset.date;
+                openDrawerWithDate(dateStr, 'Despesa');
             }
         });
 
@@ -608,6 +673,7 @@
             if (ev.key === 'Escape') {
                 if (!elements.transactionsModal.hidden) closeTransactionsModal();
                 if (!elements.editDrawer.hidden) closeEditDrawer();
+                if (!elements.drawer.hidden) closeDrawer();
             }
         });
     }
