@@ -9,7 +9,7 @@
     const TYPE_MAP_REVERSE = {
         "expense": "Despesa",
         "income": "Receita",
-        "saving": "Economia",
+        "economy": "Economia",
         "card": "Cartão",
     };
 
@@ -158,7 +158,6 @@
             return;
         }
 
-        // Busca o planejamento para calcular o valor diário
         let dailyGoal = 0;
         try {
             const response = await fetch(`${API_BASE}budget/?year=${state.year}&month=${state.month + 1}`);
@@ -176,7 +175,6 @@
             const isWeekend = date.getDay() === 0 || date.getDay() === 6;
             const badgeCls = isToday ? 'today' : (isWeekend ? 'weekend' : '');
 
-            // Verifica transações do dia
             const dayTransactions = state.transactions.filter(tx => {
                 const txDate = parseLocalDate(tx.date);
                 return txDate.getDate() === row.day &&
@@ -184,17 +182,11 @@
                     txDate.getFullYear() === state.year;
             });
 
-            const hasIncome = dayTransactions.some(tx => tx.type === 'income');
-            const hasExpense = dayTransactions.some(tx => tx.type === 'expense');
-            const hasCard = dayTransactions.some(tx => tx.type === 'card');
-
-            // Mostra o valor diário calculado
             let diarioDisplay = '—';
             if (dailyGoal > 0) {
                 diarioDisplay = fmt(dailyGoal);
             }
 
-            // Data no formato YYYY-MM-DD para preencher o modal
             const dateStr = `${state.year}-${String(state.month + 1).padStart(2, '0')}-${String(row.day).padStart(2, '0')}`;
 
             return `
@@ -283,6 +275,63 @@
         });
     }
 
+    // ============ FUNÇÃO DE REPETIÇÃO ============
+    function generateRecurringDates(startDate, recurrence, count = 12) {
+        const dates = [];
+        const current = new Date(startDate);
+
+        for (let i = 0; i < count; i++) {
+            if (i === 0) {
+                dates.push(new Date(current));
+            } else {
+                const next = new Date(current);
+                if (recurrence === 'weekly') {
+                    next.setDate(next.getDate() + (7 * i));
+                } else if (recurrence === 'monthly') {
+                    next.setMonth(next.getMonth() + i);
+                } else if (recurrence === 'yearly') {
+                    next.setFullYear(next.getFullYear() + i);
+                }
+                dates.push(new Date(next));
+            }
+        }
+        return dates;
+    }
+
+    async function saveRecurringTransactions(payload, count = 12) {
+        const dates = generateRecurringDates(
+            parseLocalDate(payload.date),
+            payload.recurrence,
+            count
+        );
+
+        const results = [];
+        for (const date of dates) {
+            const txPayload = {
+                ...payload,
+                date: formatLocalDateInput(date),
+                recurrence: 'none' // Apenas a primeira tem recorrência
+            };
+
+            try {
+                const response = await window.fetchWithCSRF(`${API_BASE}transactions/create/`, {
+                    method: 'POST',
+                    body: JSON.stringify(txPayload),
+                });
+                const data = await response.json();
+                if (!data.success) {
+                    throw new Error(data.error || 'Erro ao criar transação recorrente');
+                }
+                results.push(data.transaction);
+            } catch (error) {
+                console.error('Erro ao criar transação recorrente:', error);
+                throw error;
+            }
+        }
+        return results;
+    }
+
+    // ============ FUNÇÕES PRINCIPAIS MODIFICADAS ============
     async function submitTransaction(event) {
         event.preventDefault();
 
@@ -298,6 +347,7 @@
             return;
         }
 
+        const recurrence = elements.txRepeat.value;
         const payload = {
             type: TYPE_MAP[state.txType],
             amount,
@@ -305,28 +355,32 @@
             category: elements.txCategory.value,
             description: elements.txDescription.value || 'Sem descrição',
             tag: elements.txTag.value === 'none' ? '' : elements.txTag.value,
-            recurrence: elements.txRepeat.value,
+            recurrence: recurrence,
         };
 
         try {
-            const response = await window.fetchWithCSRF(`${API_BASE}transactions/create/`, {
-                method: 'POST',
-                body: JSON.stringify(payload),
-            });
-            const data = await response.json();
-            if (!data.success) {
-                const errorMsg = data.error || Object.values(data.errors || {}).flat().join(' ') || 'Erro ao salvar transação';
-                throw new Error(errorMsg);
+            if (recurrence !== 'none') {
+                // Cria transações recorrentes
+                await saveRecurringTransactions(payload, 12);
+                window.showToast('Transações recorrentes criadas com sucesso.');
+            } else {
+                // Transação única
+                const response = await window.fetchWithCSRF(`${API_BASE}transactions/create/`, {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                });
+                const data = await response.json();
+                if (!data.success) {
+                    const errorMsg = data.error || Object.values(data.errors || {}).flat().join(' ') || 'Erro ao salvar transação';
+                    throw new Error(errorMsg);
+                }
+                window.showToast('Transação salva com sucesso.');
             }
 
-            window.showToast('Transação salva com sucesso.');
             closeDrawer();
             resetForm();
-            const createdDate = parseLocalDate(payload.date);
-            if (createdDate.getFullYear() === state.year && createdDate.getMonth() === state.month) {
-                await refresh();
-                closeTransactionsModal();
-            }
+            await refresh();
+            closeTransactionsModal();
         } catch (error) {
             console.error(error);
             window.showToast(error.message || 'Não foi possível salvar a transação', 'error');
@@ -378,12 +432,14 @@
             const typeLabel = TYPE_MAP_REVERSE[tx.type] || tx.type;
             const amountClass = tx.type === 'income' ? 'income' : (tx.type === 'expense' ? 'expense' : (tx.type === 'card' ? 'expense' : 'saving'));
             const sign = tx.type === 'expense' || tx.type === 'card' ? '-' : '+';
+            const recurrenceBadge = tx.recurrence && tx.recurrence !== 'none' ?
+                `<span class="recurrence-badge">🔄 ${tx.recurrence}</span>` : '';
 
             return `
                 <div class="transaction-item" data-id="${tx.id}">
                     <div class="tx-info">
                         <span class="tx-desc">${tx.description || 'Sem descrição'}</span>
-                        <span class="tx-meta">${typeLabel} • ${tx.category} ${tx.tag ? '• #' + tx.tag : ''}</span>
+                        <span class="tx-meta">${typeLabel} • ${tx.category} ${tx.tag ? '• #' + tx.tag : ''} ${recurrenceBadge}</span>
                     </div>
                     <span class="tx-amount ${amountClass}">${sign} ${fmt(tx.amount)}</span>
                     <div class="tx-actions">
@@ -606,7 +662,7 @@
             }
         });
 
-        // Click on Diário column - opens Resumo Modal
+        // Click on Diário column
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.daily-cell');
             if (!td) return;
