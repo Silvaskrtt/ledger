@@ -27,7 +27,7 @@
             const response = await fetch(`${API_BASE}budget/?year=${year}&month=${month}`);
             const data = await response.json();
             if (data.success) {
-                return data.budget;
+                return data;
             }
             return null;
         } catch (e) {
@@ -110,9 +110,9 @@
             if (!s) return null;
 
             try {
-                const budget = await fetchBudget(s.year, s.month + 1);
-                if (budget && budget.daily_goal !== undefined) {
-                    return fmt(budget.daily_goal);
+                const result = await fetchBudget(s.year, s.month + 1);
+                if (result && result.budget && result.budget.daily_goal !== undefined) {
+                    return fmt(result.budget.daily_goal);
                 }
                 return null;
             } catch (e) {
@@ -131,8 +131,10 @@
             if (!el.modal) return;
 
             try {
-                currentBudget = await fetchBudget(s.year, s.month + 1);
-                if (!currentBudget) {
+                const result = await fetchBudget(s.year, s.month + 1);
+                const userCategories = result ? result.user_categories || [] : [];
+
+                if (!result || !result.budget) {
                     currentBudget = {
                         categories: {},
                         extras: [],
@@ -140,6 +142,8 @@
                         total_planned: 0,
                         daily_goal: 0
                     };
+                } else {
+                    currentBudget = result.budget;
                 }
 
                 el.dayLabel.textContent = `${String(day).padStart(2, '0')}/${String(s.month + 1).padStart(2, '0')}/${s.year}`;
@@ -147,11 +151,48 @@
                 el.divisor.value = currentBudget.divisor || 30;
                 el.totalDiario.textContent = fmt(currentBudget.daily_goal || 0);
 
-                const inputs = el.categoriesWrap.querySelectorAll('.resumo-input');
-                inputs.forEach((inp) => {
-                    const name = inp.name;
-                    inp.value = currentBudget.categories && currentBudget.categories[name] !== undefined ? currentBudget.categories[name] : '';
-                });
+                // Recria os campos de categoria baseado nas categorias do usuário
+                el.categoriesWrap.innerHTML = '';
+
+                // Adiciona categorias do usuário (apenas despesas)
+                const expenseCategories = s.categories ? s.categories.filter(c => c.type === 'expense') : [];
+
+                if (expenseCategories.length > 0) {
+                    expenseCategories.forEach(cat => {
+                        const field = document.createElement('div');
+                        field.className = 'field';
+                        const value = currentBudget.categories && currentBudget.categories[cat.name] !== undefined
+                            ? currentBudget.categories[cat.name]
+                            : '';
+                        field.innerHTML = `
+                            <label>${cat.icon || '📌'} ${cat.name}</label>
+                            <input type="number" step="0.01" class="resumo-input" name="${cat.name}" placeholder="0,00" value="${value}" />
+                        `;
+                        el.categoriesWrap.appendChild(field);
+                    });
+                } else {
+                    // Fallback para categorias padrão
+                    const defaultCategories = [
+                        { name: 'Alimentação', icon: '🍔' },
+                        { name: 'Transporte', icon: '🚗' },
+                        { name: 'Lazer', icon: '🎮' },
+                        { name: 'Compras', icon: '🛍️' },
+                        { name: 'Saúde', icon: '🏥' },
+                        { name: 'Educação', icon: '📚' },
+                    ];
+                    defaultCategories.forEach(cat => {
+                        const field = document.createElement('div');
+                        field.className = 'field';
+                        const value = currentBudget.categories && currentBudget.categories[cat.name] !== undefined
+                            ? currentBudget.categories[cat.name]
+                            : '';
+                        field.innerHTML = `
+                            <label>${cat.icon} ${cat.name}</label>
+                            <input type="number" step="0.01" class="resumo-input" name="${cat.name}" placeholder="0,00" value="${value}" />
+                        `;
+                        el.categoriesWrap.appendChild(field);
+                    });
+                }
 
                 el.extraWrap.innerHTML = '';
                 (currentBudget.extras || []).forEach((ex) => {

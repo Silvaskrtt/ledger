@@ -9,7 +9,7 @@
     const TYPE_MAP_REVERSE = {
         "expense": "Despesa",
         "income": "Receita",
-        "economy": "Economia",
+        "saving": "Economia",
         "card": "Cartão",
     };
 
@@ -24,6 +24,7 @@
         transactions: [],
         currentDay: null,
         currentType: null,
+        categories: [], // Lista de categorias do usuário
     };
 
     const elements = {
@@ -152,6 +153,80 @@
         `).join('');
     }
 
+    async function loadCategories() {
+        try {
+            const response = await fetch(`${API_BASE}categories/`);
+            const data = await response.json();
+            if (data.success) {
+                state.categories = data.categories;
+                return state.categories;
+            }
+            return [];
+        } catch (error) {
+            console.error('Erro ao carregar categorias:', error);
+            return [];
+        }
+    }
+
+    function populateCategorySelect(selectElement) {
+        // Limpa o select
+        selectElement.innerHTML = '';
+
+        // Agrupa categorias por tipo
+        const expenseCategories = state.categories.filter(c => c.type === 'expense');
+        const incomeCategories = state.categories.filter(c => c.type === 'income');
+
+        // Adiciona categorias de despesa
+        if (expenseCategories.length > 0) {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = 'Despesas';
+            expenseCategories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat.name;
+                option.textContent = `${cat.icon || '📌'} ${cat.name}`;
+                optgroup.appendChild(option);
+            });
+            selectElement.appendChild(optgroup);
+        }
+
+        // Adiciona categorias de receita
+        if (incomeCategories.length > 0) {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = 'Receitas';
+            incomeCategories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat.name;
+                option.textContent = `${cat.icon || '💰'} ${cat.name}`;
+                optgroup.appendChild(option);
+            });
+            selectElement.appendChild(optgroup);
+        }
+
+        // Se não houver categorias, adiciona opções padrão
+        if (state.categories.length === 0) {
+            const defaultOptions = [
+                { value: 'Alimentação', label: '🍔 Alimentação' },
+                { value: 'Moradia', label: '🏠 Moradia' },
+                { value: 'Transporte', label: '🚗 Transporte' },
+                { value: 'Lazer', label: '🎮 Lazer' },
+                { value: 'Educação', label: '📚 Educação' },
+                { value: 'Saúde', label: '🏥 Saúde' },
+                { value: 'Salário', label: '💰 Salário' },
+            ];
+            defaultOptions.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt.value;
+                option.textContent = opt.label;
+                selectElement.appendChild(option);
+            });
+        }
+    }
+
+    function updateCategorySelects() {
+        populateCategorySelect(elements.txCategory);
+        populateCategorySelect(elements.editTxCategory);
+    }
+
     async function renderTable(rows) {
         if (!rows.length) {
             elements.tbody.innerHTML = '<tr><td colspan="8" class="text-center">Nenhum dado disponível para este mês.</td></tr>';
@@ -244,6 +319,7 @@
     function openDrawerWithDate(dateStr, type) {
         elements.drawer.hidden = false;
         elements.txDate.value = dateStr;
+        updateCategorySelects();
 
         if (type) {
             state.txType = type;
@@ -256,6 +332,7 @@
     function openDrawer() {
         const defaultDate = new Date(state.year, state.month, state.today.getDate());
         elements.txDate.value = formatLocalDateInput(defaultDate);
+        updateCategorySelects();
         elements.drawer.hidden = false;
     }
 
@@ -265,7 +342,6 @@
 
     function resetForm() {
         elements.txValue.value = '';
-        elements.txCategory.value = 'food';
         elements.txDescription.value = '';
         elements.txTag.value = 'none';
         elements.txRepeat.value = 'none';
@@ -273,6 +349,7 @@
         elements.txTypeButtons.forEach((button) => {
             button.classList.toggle('active', button.dataset.type === state.txType);
         });
+        updateCategorySelects();
     }
 
     // ============ FUNÇÃO DE REPETIÇÃO ============
@@ -310,7 +387,7 @@
             const txPayload = {
                 ...payload,
                 date: formatLocalDateInput(date),
-                recurrence: 'none' // Apenas a primeira tem recorrência
+                recurrence: 'none'
             };
 
             try {
@@ -331,7 +408,7 @@
         return results;
     }
 
-    // ============ FUNÇÕES PRINCIPAIS MODIFICADAS ============
+    // ============ FUNÇÕES PRINCIPAIS ============
     async function submitTransaction(event) {
         event.preventDefault();
 
@@ -347,12 +424,18 @@
             return;
         }
 
+        const category = elements.txCategory.value;
+        if (!category) {
+            window.showToast('Selecione uma categoria.', 'error');
+            return;
+        }
+
         const recurrence = elements.txRepeat.value;
         const payload = {
             type: TYPE_MAP[state.txType],
             amount,
             date,
-            category: elements.txCategory.value,
+            category: category,
             description: elements.txDescription.value || 'Sem descrição',
             tag: elements.txTag.value === 'none' ? '' : elements.txTag.value,
             recurrence: recurrence,
@@ -360,11 +443,9 @@
 
         try {
             if (recurrence !== 'none') {
-                // Cria transações recorrentes
                 await saveRecurringTransactions(payload, 12);
                 window.showToast('Transações recorrentes criadas com sucesso.');
             } else {
-                // Transação única
                 const response = await window.fetchWithCSRF(`${API_BASE}transactions/create/`, {
                     method: 'POST',
                     body: JSON.stringify(payload),
@@ -435,10 +516,14 @@
             const recurrenceBadge = tx.recurrence && tx.recurrence !== 'none' ?
                 `<span class="recurrence-badge">🔄 ${tx.recurrence}</span>` : '';
 
+            // Busca o ícone da categoria
+            const categoryObj = state.categories.find(c => c.name === tx.category);
+            const categoryIcon = categoryObj ? categoryObj.icon : '📌';
+
             return `
                 <div class="transaction-item" data-id="${tx.id}">
                     <div class="tx-info">
-                        <span class="tx-desc">${tx.description || 'Sem descrição'}</span>
+                        <span class="tx-desc">${categoryIcon} ${tx.description || 'Sem descrição'}</span>
                         <span class="tx-meta">${typeLabel} • ${tx.category} ${tx.tag ? '• #' + tx.tag : ''} ${recurrenceBadge}</span>
                     </div>
                     <span class="tx-amount ${amountClass}">${sign} ${fmt(tx.amount)}</span>
@@ -479,6 +564,7 @@
 
     function openEditDrawer(transaction) {
         elements.editDrawer.hidden = false;
+        updateCategorySelects();
 
         elements.editTxId.value = transaction.id;
         elements.editTxValue.value = transaction.amount;
@@ -519,6 +605,12 @@
             return;
         }
 
+        const category = elements.editTxCategory.value;
+        if (!category) {
+            window.showToast('Selecione uma categoria.', 'error');
+            return;
+        }
+
         let activeType = 'Despesa';
         elements.editTxTypeButtons.forEach((btn) => {
             if (btn.classList.contains('active')) {
@@ -530,7 +622,7 @@
             type: TYPE_MAP[activeType],
             amount,
             date,
-            category: elements.editTxCategory.value,
+            category: category,
             description: elements.editTxDescription.value || 'Sem descrição',
             tag: elements.editTxTag.value === 'none' ? '' : elements.editTxTag.value,
             recurrence: elements.editTxRepeat.value,
@@ -617,6 +709,7 @@
             button.addEventListener('click', () => {
                 state.txType = button.dataset.type;
                 elements.txTypeButtons.forEach((btn) => btn.classList.toggle('active', btn === button));
+                updateCategorySelects();
             });
         });
 
@@ -649,6 +742,7 @@
         elements.editTxTypeButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 elements.editTxTypeButtons.forEach((btn) => btn.classList.toggle('active', btn === button));
+                updateCategorySelects();
             });
         });
 
@@ -782,16 +876,26 @@
         });
     }
 
-    if (window.ResumoModal && ResumoModal.init) {
-        ResumoModal.init({
-            getState: () => state,
-            onSaved: (day) => {
-                refresh();
-            }
-        });
+    // ============ INICIALIZAÇÃO ============
+    async function init() {
+        // Carrega categorias primeiro
+        await loadCategories();
+        updateCategorySelects();
+
+        // Inicializa ResumoModal
+        if (window.ResumoModal && ResumoModal.init) {
+            ResumoModal.init({
+                getState: () => state,
+                onSaved: (day) => {
+                    refresh();
+                }
+            });
+        }
+
+        attachEvents();
+        resetForm();
+        refresh();
     }
 
-    attachEvents();
-    resetForm();
-    refresh();
+    init();
 })();

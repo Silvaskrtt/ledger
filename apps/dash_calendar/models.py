@@ -7,7 +7,7 @@ class Transaction(models.Model):
         ('expense', 'Despesa'),
         ('income', 'Receita'),
         ('saving', 'Economia'),
-        ('card', 'Cartão'),  # NOVO TIPO
+        ('card', 'Cartão'),
     ]
 
     RECURRENCE_CHOICES = [
