@@ -24,7 +24,7 @@
         transactions: [],
         currentDay: null,
         currentType: null,
-        categories: [], // Lista de categorias do usuário
+        categories: [],
     };
 
     const elements = {
@@ -169,14 +169,11 @@
     }
 
     function populateCategorySelect(selectElement) {
-        // Limpa o select
         selectElement.innerHTML = '';
 
-        // Agrupa categorias por tipo
         const expenseCategories = state.categories.filter(c => c.type === 'expense');
         const incomeCategories = state.categories.filter(c => c.type === 'income');
 
-        // Adiciona categorias de despesa
         if (expenseCategories.length > 0) {
             const optgroup = document.createElement('optgroup');
             optgroup.label = 'Despesas';
@@ -189,7 +186,6 @@
             selectElement.appendChild(optgroup);
         }
 
-        // Adiciona categorias de receita
         if (incomeCategories.length > 0) {
             const optgroup = document.createElement('optgroup');
             optgroup.label = 'Receitas';
@@ -202,7 +198,6 @@
             selectElement.appendChild(optgroup);
         }
 
-        // Se não houver categorias, adiciona opções padrão
         if (state.categories.length === 0) {
             const defaultOptions = [
                 { value: 'Alimentação', label: '🍔 Alimentação' },
@@ -249,13 +244,6 @@
             const isToday = row.day === state.today.getDate() && state.month === state.today.getMonth() && state.year === state.today.getFullYear();
             const isWeekend = date.getDay() === 0 || date.getDay() === 6;
             const badgeCls = isToday ? 'today' : (isWeekend ? 'weekend' : '');
-
-            const dayTransactions = state.transactions.filter(tx => {
-                const txDate = parseLocalDate(tx.date);
-                return txDate.getDate() === row.day &&
-                    txDate.getMonth() === state.month &&
-                    txDate.getFullYear() === state.year;
-            });
 
             let diarioDisplay = '—';
             if (dailyGoal > 0) {
@@ -408,11 +396,14 @@
         return results;
     }
 
-    // ============ FUNÇÕES PRINCIPAIS ============
+    // ============ FUNÇÃO SUBMIT CORRIGIDA ============
     async function submitTransaction(event) {
         event.preventDefault();
 
-        const amount = parseFloat(elements.txValue.value);
+        // CORREÇÃO: Converte vírgula para ponto antes do parseFloat
+        const amountValue = elements.txValue.value.replace(',', '.');
+        const amount = parseFloat(amountValue);
+
         if (!amount || amount <= 0) {
             window.showToast('Informe um valor válido.', 'error');
             return;
@@ -433,8 +424,8 @@
         const recurrence = elements.txRepeat.value;
         const payload = {
             type: TYPE_MAP[state.txType],
-            amount,
-            date,
+            amount: amount,
+            date: date,
             category: category,
             description: elements.txDescription.value || 'Sem descrição',
             tag: elements.txTag.value === 'none' ? '' : elements.txTag.value,
@@ -516,7 +507,6 @@
             const recurrenceBadge = tx.recurrence && tx.recurrence !== 'none' ?
                 `<span class="recurrence-badge">🔄 ${tx.recurrence}</span>` : '';
 
-            // Busca o ícone da categoria
             const categoryObj = state.categories.find(c => c.name === tx.category);
             const categoryIcon = categoryObj ? categoryObj.icon : '📌';
 
@@ -584,6 +574,7 @@
         elements.editDrawer.hidden = true;
     }
 
+    // ============ FUNÇÃO EDIT SUBMIT CORRIGIDA ============
     async function submitEditTransaction(event) {
         event.preventDefault();
 
@@ -593,7 +584,10 @@
             return;
         }
 
-        const amount = parseFloat(elements.editTxValue.value);
+        // CORREÇÃO: Converte vírgula para ponto antes do parseFloat
+        const amountValue = elements.editTxValue.value.replace(',', '.');
+        const amount = parseFloat(amountValue);
+
         if (!amount || amount <= 0) {
             window.showToast('Informe um valor válido.', 'error');
             return;
@@ -620,8 +614,8 @@
 
         const payload = {
             type: TYPE_MAP[activeType],
-            amount,
-            date,
+            amount: amount,
+            date: date,
             category: category,
             description: elements.editTxDescription.value || 'Sem descrição',
             tag: elements.editTxTag.value === 'none' ? '' : elements.editTxTag.value,
@@ -756,7 +750,6 @@
             }
         });
 
-        // Click on Diário column
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.daily-cell');
             if (!td) return;
@@ -767,7 +760,6 @@
             }
         });
 
-        // Click on Entradas column
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.income-cell');
             if (!td) return;
@@ -790,7 +782,6 @@
             }
         });
 
-        // Click on Saídas column
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.expense-cell');
             if (!td) return;
@@ -813,7 +804,6 @@
             }
         });
 
-        // Click on Cartão column
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.card-cell');
             if (!td) return;
@@ -836,7 +826,6 @@
             }
         });
 
-        // Click on Economias column
         elements.tbody.addEventListener('click', (ev) => {
             const td = ev.target.closest('td.saving-cell');
             if (!td) return;
@@ -876,13 +865,10 @@
         });
     }
 
-    // ============ INICIALIZAÇÃO ============
     async function init() {
-        // Carrega categorias primeiro
         await loadCategories();
         updateCategorySelects();
 
-        // Inicializa ResumoModal
         if (window.ResumoModal && ResumoModal.init) {
             ResumoModal.init({
                 getState: () => state,
