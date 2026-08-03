@@ -39,7 +39,7 @@
     let currentPage = 1;
     let totalPages = 1;
     let transactionToDelete = null;
-    let allCategories = []; // Armazenar categorias para uso global
+    let allCategories = [];
 
     // ===== Helper Functions =====
     function formatCurrency(value) {
@@ -55,7 +55,38 @@
         return date.toLocaleDateString('pt-BR');
     }
 
-    // ===== FUNÇÃO CORRIGIDA: Carregar Categorias =====
+    // ===== FUNÇÃO CORRIGIDA: Parse Amount =====
+    function parseAmountToNumber(amountString) {
+        if (!amountString) return 0;
+
+        // Remove "R$" se presente
+        let cleanValue = amountString.replace(/R\$/g, '').trim();
+
+        // Se estiver vazio após remover R$, retorna 0
+        if (cleanValue === '') return 0;
+
+        // Substitui ponto de milhar por nada (remove)
+        cleanValue = cleanValue.replace(/\./g, '');
+
+        // Substitui vírgula por ponto (separador decimal)
+        cleanValue = cleanValue.replace(/,/g, '.');
+
+        // Remove qualquer caractere que não seja número ou ponto
+        cleanValue = cleanValue.replace(/[^0-9.]/g, '');
+
+        const number = parseFloat(cleanValue);
+        return isNaN(number) ? 0 : number;
+    }
+
+    // ===== FUNÇÃO CORRIGIDA: Formatar valor para exibição =====
+    function formatAmountToDisplay(value) {
+        if (!value) return '';
+        const num = typeof value === 'string' ? parseAmountToNumber(value) : value;
+        if (isNaN(num) || num === 0) return '';
+        return formatCurrency(num);
+    }
+
+    // ===== Load Categories =====
     async function loadCategories() {
         try {
             const response = await fetch('/categories/api/categories/');
@@ -63,10 +94,8 @@
 
             allCategories = data.categories || [];
 
-            // Atualiza o select de categorias no modal de transação
             if (categorySelect) {
-                const currentValue = categorySelect.value; // Preservar valor selecionado se existir
-
+                const currentValue = categorySelect.value;
                 categorySelect.innerHTML = '<option value="">Selecione uma categoria</option>';
 
                 allCategories.forEach(cat => {
@@ -76,13 +105,11 @@
                     categorySelect.appendChild(option);
                 });
 
-                // Restaurar valor selecionado se ainda existir
                 if (currentValue && Array.from(categorySelect.options).some(opt => opt.value === currentValue)) {
                     categorySelect.value = currentValue;
                 }
             }
 
-            // Atualiza o filtro de categorias
             if (categoryFilter) {
                 const currentFilterValue = categoryFilter.value;
                 categoryFilter.innerHTML = '<option value="all">Todas as categorias</option>';
@@ -111,10 +138,8 @@
     window.openCategoryModal = function () {
         const categoryModal = document.getElementById('categoryModal');
         if (categoryModal) {
-            // Resetar o formulário
             const categoryForm = document.getElementById('categoryForm');
             if (categoryForm) categoryForm.reset();
-
             categoryModal.style.display = 'flex';
         }
     };
@@ -126,22 +151,19 @@
         }
     };
 
-    // ===== FUNÇÃO CORRIGIDA: saveCategory =====
+    // ===== Save Category =====
     async function saveCategory() {
         const form = document.getElementById('categoryForm');
         if (!form) return;
 
         const formData = new FormData(form);
-
-        // Pegar os valores corretamente
         const categoryData = {
             name: formData.get('name'),
             icon: formData.get('icon') || '📌',
             color: formData.get('color') || '#8A4FFF',
-            type: 'expense'  // ou pode ser um select no modal
+            type: 'expense'
         };
 
-        // Validação
         if (!categoryData.name || categoryData.name.trim() === '') {
             showToast('Por favor, informe o nome da categoria', 'error');
             return;
@@ -162,15 +184,8 @@
                 if (result.success) {
                     showToast('Categoria criada com sucesso!', 'success');
                     closeCategoryModal();
-
-                    // CRÍTICO: Recarregar categorias após adicionar nova
                     await loadCategories();
-
-                    // Limpar o formulário
                     form.reset();
-
-                    // Opcional: Se o modal de transação estiver aberto, manter ele aberto
-                    // e a nova categoria já estará disponível no select
                 } else {
                     showToast(result.error || 'Erro ao criar categoria', 'error');
                 }
@@ -184,85 +199,7 @@
         }
     }
 
-    // ===== FUNÇÃO CORRIGIDA: openTransactionModal =====
-    window.openTransactionModal = async function () {
-        if (!transactionModal) {
-            console.error('Modal de transação não encontrado');
-            showToast('Erro ao abrir formulário', 'error');
-            return;
-        }
-
-        // CRÍTICO: Recarregar categorias antes de abrir o modal
-        await loadCategories();
-
-        if (transactionForm) transactionForm.reset();
-        if (transactionIdInput) transactionIdInput.value = '';
-        if (transactionTypeInput) transactionTypeInput.value = 'expense';
-        if (transactionModalTitle) transactionModalTitle.textContent = 'Nova Transação';
-        if (submitBtnText) submitBtnText.textContent = 'Salvar';
-
-        if (typeButtons && typeButtons.length) {
-            typeButtons.forEach(btn => btn.classList.remove('active'));
-            const expenseBtn = document.querySelector('.type-btn.expense');
-            if (expenseBtn) expenseBtn.classList.add('active');
-        }
-
-        if (dateInput) {
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.value = today;
-        }
-
-        if (amountInput) amountInput.value = '';
-
-        transactionModal.style.display = 'flex';
-    };
-
-    // ===== FUNÇÃO CORRIGIDA: editTransaction =====
-    window.editTransaction = async function (id) {
-        const transaction = transactions.find(t => t.id === id);
-        if (!transaction) {
-            showToast('Transação não encontrada', 'error');
-            return;
-        }
-
-        if (!transactionModal) {
-            console.error('Modal de transação não encontrado');
-            return;
-        }
-
-        // CRÍTICO: Recarregar categorias antes de editar
-        await loadCategories();
-
-        if (transactionModalTitle) transactionModalTitle.textContent = 'Editar Transação';
-        if (submitBtnText) submitBtnText.textContent = 'Atualizar';
-        if (transactionIdInput) transactionIdInput.value = id;
-        if (descriptionInput) descriptionInput.value = transaction.description || '';
-
-        // Formatar valor para exibição
-        if (amountInput) amountInput.value = formatCurrency(transaction.amount);
-
-        if (dateInput) dateInput.value = transaction.date;
-
-        // Garantir que a categoria está selecionada corretamente
-        if (categorySelect && transaction.categoryId) {
-            categorySelect.value = transaction.categoryId;
-        }
-
-        if (notesTextarea) notesTextarea.value = transaction.notes || '';
-
-        const type = transaction.type;
-        if (typeButtons && typeButtons.length) {
-            typeButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.type === type) btn.classList.add('active');
-            });
-        }
-        if (transactionTypeInput) transactionTypeInput.value = type;
-
-        transactionModal.style.display = 'flex';
-    };
-
-    // ===== Função auxiliar: getCookie =====
+    // ===== Get Cookie =====
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -302,23 +239,12 @@
         }, 3000);
     }
 
-    // ===== Parse Amount =====
-    function parseAmountToNumber(amountString) {
-        if (!amountString) return 0;
-        let cleanValue = amountString
-            .replace(/R\$/g, '')
-            .replace(/\s/g, '')
-            .replace(/\./g, '')
-            .replace(/,/g, '.');
-        const number = parseFloat(cleanValue);
-        return isNaN(number) ? 0 : number;
-    }
-
     // ===== Save Transaction =====
     async function saveTransaction(formData) {
         const transactionId = formData.get('transaction_id');
         const isEditing = transactionId && transactionId !== '';
 
+        // CORREÇÃO: Usa a função parseAmountToNumber para converter corretamente
         let amountString = formData.get('amount') || '0';
         const amount = parseAmountToNumber(amountString);
 
@@ -409,6 +335,100 @@
         }
     }
 
+    // ===== Open Transaction Modal =====
+    window.openTransactionModal = async function () {
+        if (!transactionModal) {
+            console.error('Modal de transação não encontrado');
+            showToast('Erro ao abrir formulário', 'error');
+            return;
+        }
+
+        await loadCategories();
+
+        if (transactionForm) transactionForm.reset();
+        if (transactionIdInput) transactionIdInput.value = '';
+        if (transactionTypeInput) transactionTypeInput.value = 'expense';
+        if (transactionModalTitle) transactionModalTitle.textContent = 'Nova Transação';
+        if (submitBtnText) submitBtnText.textContent = 'Salvar';
+
+        if (typeButtons && typeButtons.length) {
+            typeButtons.forEach(btn => btn.classList.remove('active'));
+            const expenseBtn = document.querySelector('.type-btn.expense');
+            if (expenseBtn) expenseBtn.classList.add('active');
+        }
+
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+        }
+
+        if (amountInput) amountInput.value = '';
+
+        transactionModal.style.display = 'flex';
+    };
+
+    // ===== Edit Transaction =====
+    window.editTransaction = async function (id) {
+        const transaction = transactions.find(t => t.id === id);
+        if (!transaction) {
+            showToast('Transação não encontrada', 'error');
+            return;
+        }
+
+        if (!transactionModal) {
+            console.error('Modal de transação não encontrado');
+            return;
+        }
+
+        await loadCategories();
+
+        if (transactionModalTitle) transactionModalTitle.textContent = 'Editar Transação';
+        if (submitBtnText) submitBtnText.textContent = 'Atualizar';
+        if (transactionIdInput) transactionIdInput.value = id;
+        if (descriptionInput) descriptionInput.value = transaction.description || '';
+
+        // CORREÇÃO: Formata o valor para exibição
+        if (amountInput) amountInput.value = formatAmountToDisplay(transaction.amount);
+
+        if (dateInput) dateInput.value = transaction.date;
+
+        if (categorySelect && transaction.category) {
+            const category = allCategories.find(c => c.name === transaction.category);
+            if (category) {
+                categorySelect.value = category.id;
+            }
+        }
+
+        if (notesTextarea) notesTextarea.value = transaction.notes || '';
+
+        const type = transaction.type;
+        if (typeButtons && typeButtons.length) {
+            typeButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.type === type) btn.classList.add('active');
+            });
+        }
+        if (transactionTypeInput) transactionTypeInput.value = type;
+
+        transactionModal.style.display = 'flex';
+    };
+
+    // ===== Close Transaction Modal =====
+    window.closeTransactionModal = function () {
+        if (transactionModal) transactionModal.style.display = 'none';
+    };
+
+    // ===== Confirm Delete =====
+    window.confirmDelete = function (id) {
+        transactionToDelete = id;
+        if (deleteModal) deleteModal.style.display = 'flex';
+    };
+
+    window.closeDeleteModal = function () {
+        if (deleteModal) deleteModal.style.display = 'none';
+        transactionToDelete = null;
+    };
+
     // ===== Load Transactions =====
     async function loadTransactions() {
         if (!window.transactionsApiUrl) {
@@ -495,20 +515,7 @@
         if (nextPageBtn) nextPageBtn.disabled = !data.has_next;
     }
 
-    window.closeTransactionModal = function () {
-        if (transactionModal) transactionModal.style.display = 'none';
-    };
-
-    window.confirmDelete = function (id) {
-        transactionToDelete = id;
-        if (deleteModal) deleteModal.style.display = 'flex';
-    };
-
-    window.closeDeleteModal = function () {
-        if (deleteModal) deleteModal.style.display = 'none';
-        transactionToDelete = null;
-    };
-
+    // ===== Delete Transaction =====
     async function deleteTransaction() {
         if (transactionToDelete === null) return;
         try {
@@ -576,16 +583,32 @@
             });
         }
 
+        // CORREÇÃO: Formatação do campo de valor
         if (amountInput) {
-            amountInput.addEventListener('input', function (e) {
-                let value = e.target.value.replace(/\D/g, '');
-                if (value === '') {
-                    e.target.value = '';
-                    return;
+            // Quando o campo perde o foco, formata o valor
+            amountInput.addEventListener('blur', function (e) {
+                const value = e.target.value;
+                if (value) {
+                    const num = parseAmountToNumber(value);
+                    if (num > 0) {
+                        e.target.value = formatAmountToDisplay(num);
+                    }
                 }
-                value = (parseInt(value) / 100).toFixed(2);
-                value = value.replace('.', ',');
-                e.target.value = `R$ ${value}`;
+            });
+
+            // Permite apenas números, vírgula e ponto
+            amountInput.addEventListener('input', function (e) {
+                // Mantém apenas números, vírgula e ponto
+                let value = e.target.value.replace(/[^0-9,.]/g, '');
+                e.target.value = value;
+            });
+
+            // Ao pressionar Enter, aplica a formatação
+            amountInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    this.blur();
+                }
             });
         }
 
@@ -610,9 +633,9 @@
     }
 
     // ===== Initialize =====
-    function init() {
+    async function init() {
         setupEventListeners();
-        loadCategories(); // Carregar categorias na inicialização
+        await loadCategories();
         loadTransactions();
     }
 
