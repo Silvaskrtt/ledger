@@ -35,6 +35,8 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 40px 24px 80px;
+    min-width: 0;
+    width: 100%;
 }
 
 .muted {
@@ -46,6 +48,10 @@ body {
 }
 
 /* Header */
+.main-content {
+    min-width: 0;
+}
+
 .topbar {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -153,6 +159,7 @@ body {
     gap: 12px;
     padding: 20px 22px;
     margin-bottom: 20px;
+    min-width: 0;
 }
 
 .month-nav h2 {
@@ -164,6 +171,10 @@ body {
 .nav-btns {
     display: flex;
     gap: 8px;
+}
+
+.nav-btns .ghost-btn {
+    min-height: 44px;
 }
 
 /* Stats */
@@ -246,10 +257,12 @@ body {
 
 .table-scroll {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 table {
     width: 100%;
+    min-width: 760px;
     border-collapse: collapse;
     font-size: 14px;
 }
@@ -280,6 +293,9 @@ tbody tr:hover {
 
 td {
     padding: 12px 20px;
+    min-height: 48px;
+    white-space: nowrap;
+    vertical-align: middle;
 }
 
 .day-badge {
@@ -522,9 +538,34 @@ td {
         padding: 24px 16px 60px;
     }
 
+    .month-nav {
+        align-items: stretch;
+        padding: 16px;
+    }
+
+    .month-nav > div:first-child {
+        min-width: 0;
+    }
+
+    .month-nav h2 {
+        font-size: 17px;
+    }
+
+    .nav-btns {
+        width: 100%;
+    }
+
+    .nav-btns .ghost-btn {
+        flex: 1;
+        justify-content: center;
+        min-width: 0;
+        min-height: 46px;
+        padding: 10px 8px;
+    }
+
     th,
     td {
-        padding: 10px 14px;
+        padding: 12px 14px;
     }
 }
 
@@ -558,6 +599,12 @@ td {
     .topbar-actions {
         justify-content: flex-start;
         width: 100%;
+    }
+
+    .topbar-actions .btn-primary {
+        flex: 1;
+        justify-content: center;
+        min-width: 0;
     }
 }
 
