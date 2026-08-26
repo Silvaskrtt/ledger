@@ -107,7 +107,7 @@
 
         for (let day = 1; day <= totalDays; day++) {
             const item = dailyMap.get(day) || { income: 0, expense: 0, saving: 0, card: 0 };
-            balance += item.income - item.expense - item.card + item.saving;
+            balance += item.income - item.expense - item.card - item.saving;
             rows.push({
                 day,
                 income: item.income,
@@ -139,7 +139,7 @@
             { label: 'Total Saídas (Débito)', value: fmt(summary.total_expense), tone: 'expense' },
             { label: 'Total Cartão', value: fmt(summary.total_card), tone: 'expense' },
             { label: 'Total Economias', value: fmt(summary.total_saving), tone: 'primary' },
-            { label: 'Saldo Mensal', value: fmt(summary.total_income - summary.total_expense - summary.total_card + summary.total_saving), tone: (summary.total_income - summary.total_expense - summary.total_card + summary.total_saving >= 0 ? 'primary' : 'expense') },
+            { label: 'Saldo Mensal', value: fmt(summary.total_income - summary.total_expense - summary.total_card - summary.monthly_saving), tone: (summary.total_income - summary.total_expense - summary.total_card - summary.monthly_saving >= 0 ? 'primary' : 'expense') },
         ];
 
         elements.stats.innerHTML = stats.map((stat) => `

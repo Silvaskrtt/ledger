@@ -142,7 +142,7 @@ def api_monthly_summary(request):
         opening_expense = previous_qs.filter(type='expense').aggregate(total=Sum('amount'))['total'] or 0
         opening_saving = previous_qs.filter(type='saving').aggregate(total=Sum('amount'))['total'] or 0
         opening_card = previous_qs.filter(type='card').aggregate(total=Sum('amount'))['total'] or 0
-        opening_balance = float(opening_income - opening_expense - opening_card + opening_saving)
+        opening_balance = float(opening_income - opening_expense - opening_card - opening_saving)
 
         qs = Transaction.objects.filter(
             user=request.user, 
@@ -190,7 +190,8 @@ def api_monthly_summary(request):
             'days': [],
             'total_income': 0.0,
             'total_expense': 0.0,
-            'total_saving': 0.0,
+            'total_saving': float(opening_saving),
+            'monthly_saving': 0.0,
             'total_card': 0.0,
         }
 
@@ -201,7 +202,7 @@ def api_monthly_summary(request):
             expense = float(item['expense'] or 0)
             saving = float(item['saving'] or 0)
             card = float(item['card'] or 0)
-            balance += income - expense - card + saving
+            balance += income - expense - card - saving
             summary['days'].append({
                 'date': date.isoformat(),
                 'income': income,
@@ -213,6 +214,7 @@ def api_monthly_summary(request):
             summary['total_income'] += income
             summary['total_expense'] += expense
             summary['total_saving'] += saving
+            summary['monthly_saving'] += saving
             summary['total_card'] += card
 
         return JsonResponse({'success': True, 'summary': summary})
@@ -236,15 +238,22 @@ def api_monthly_balance(request):
 
         total_income = qs.filter(type='income').aggregate(total=Sum('amount'))['total'] or 0
         total_expense = qs.filter(type='expense').aggregate(total=Sum('amount'))['total'] or 0
-        total_saving = qs.filter(type='saving').aggregate(total=Sum('amount'))['total'] or 0
+        monthly_saving = qs.filter(type='saving').aggregate(total=Sum('amount'))['total'] or 0
+        previous_saving = Transaction.objects.filter(
+            user=request.user,
+            date__lt=date_cls(year, month, 1),
+            type='saving',
+        ).aggregate(total=Sum('amount'))['total'] or 0
+        total_saving = previous_saving + monthly_saving
         total_card = qs.filter(type='card').aggregate(total=Sum('amount'))['total'] or 0
-        balance = total_income - total_expense - total_card + total_saving
+        balance = total_income - total_expense - total_card - monthly_saving
 
         return JsonResponse({
             'success': True,
             'total_income': float(total_income),
             'total_expense': float(total_expense),
             'total_saving': float(total_saving),
+            'monthly_saving': float(monthly_saving),
             'total_card': float(total_card),
             'balance': float(balance),
         })
